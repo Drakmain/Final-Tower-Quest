@@ -29,21 +29,6 @@
 
 /*!
  *
- * \enum CARDINAL
- * \brief Enumeration des points cardinaux.
- * 
- */
-
-enum CARDINAL {
-    N/**< north */,
-    E/**< east */,
-    S/**< south */,
-    W/**< west */
-    };
-
-
-/*!
- *
  * \fn int main(int argc, char **argv)
  * \brief Fonction principale du jeu.
  *
