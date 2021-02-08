@@ -1,0 +1,1 @@
+NarsheExterior: 2, 885, 1023, 1023;

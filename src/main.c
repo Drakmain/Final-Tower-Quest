@@ -1,8 +1,10 @@
 #include <SDL.h>
-#include <SDL_ttf.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "error.h"
+#include "character.h"
+#include "map.h"
 
 /*!
  * 
@@ -54,7 +56,7 @@ int main(int argc, char **argv)
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
-    SDL_bool program_launch;
+    SDL_bool program_launch = SDL_TRUE;
     SDL_Event event;
 
     /*--- End Initialization Variable --------------------------------------------*/
@@ -70,9 +72,9 @@ int main(int argc, char **argv)
 
     /*--- Creation Window --------------------------------------------------------*/
 
-    SDL_Window *window = NULL;
+    SDL_Window * window = NULL;
 
-    window = SDL_CreateWindow("L2 Project", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOWWIDTH, WINDOWHEIGHT, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Final Tower Quest", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOWWIDTH, WINDOWHEIGHT, SDL_WINDOW_SHOWN);
 
     if (!window)
         SDL_ExitWithError("Window creation failed");
@@ -82,7 +84,7 @@ int main(int argc, char **argv)
 
     /*--- Creation Render --------------------------------------------------------*/
 
-    SDL_Renderer *render = NULL;
+    SDL_Renderer * render = NULL;
     render = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
 
     if (!render)
@@ -102,6 +104,8 @@ int main(int argc, char **argv)
         
         while (SDL_PollEvent(&event))
         {
+
+            
             
             /*--- Event to Exit Program ------------------------------------------*/
 

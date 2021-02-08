@@ -17,7 +17,7 @@
 /*!
  *
  * \fn void SDL_ExitWithError(const char *message)
- * \brief Affichage du message d'erreur.
+ * \brief Affichage du message d'erreur SDL.
  *
  * \param message Chaine de caractere contenant le message d'erreur.
  * 
