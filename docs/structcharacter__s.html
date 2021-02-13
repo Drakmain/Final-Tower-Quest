@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +49,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('structcharacter__s.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,7 +80,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Champs de données</a>  </div>
@@ -67,41 +87,201 @@ $(function() {
 <div class="title">Référence de la structure character_s</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Graphe de collaboration de character_s:</div>
+<div class="dyncontent">
+<div class="center"><img src="structcharacter__s__coll__graph.png" border="0" usemap="#acharacter__s_coll__map" alt="Collaboration graph"/></div>
+<map name="acharacter__s_coll__map" id="acharacter__s_coll__map">
+<area shape="rect" title=" " alt="" coords="5,153,96,180"/>
+<area shape="rect" href="structtile__set__s.html" title=" " alt="" coords="11,5,90,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">légende</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Champs de données</h2></td></tr>
-<tr class="memitem:afbf345c7df3ac8bc1ee7cbd0f55a6396"><td class="memItemLeft" align="right" valign="top"><a id="afbf345c7df3ac8bc1ee7cbd0f55a6396"></a>
-void(*&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> )(<a class="el" href="structrect__tile__set__t.html">rect_tile_set_t</a> *)</td></tr>
-<tr class="separator:afbf345c7df3ac8bc1ee7cbd0f55a6396"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a915a5d7d43196fb9be323a9723ca568c"><td class="memItemLeft" align="right" valign="top"><a id="a915a5d7d43196fb9be323a9723ca568c"></a>
-void(*&#160;</td><td class="memItemRight" valign="bottom"><b>display</b> )(<a class="el" href="structcharacter__t.html">character_t</a> *const, SDL_Renderer *, SDL_Rect, SDL_Rect)</td></tr>
-<tr class="separator:a915a5d7d43196fb9be323a9723ca568c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af49861cc26b825c328a992d3eb1dc12e"><td class="memItemLeft" align="right" valign="top"><a id="af49861cc26b825c328a992d3eb1dc12e"></a>
-void(*&#160;</td><td class="memItemRight" valign="bottom"><b>free</b> )(<a class="el" href="structcharacter__t.html">character_t</a> **)</td></tr>
-<tr class="separator:af49861cc26b825c328a992d3eb1dc12e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cc437164fac0d465fc423c29f329eda"><td class="memItemLeft" align="right" valign="top"><a id="a0cc437164fac0d465fc423c29f329eda"></a>
-SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>texture</b></td></tr>
-<tr class="separator:a0cc437164fac0d465fc423c29f329eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80618bb7090096fd167e70df3e7dc351"><td class="memItemLeft" align="right" valign="top"><a id="a80618bb7090096fd167e70df3e7dc351"></a>
-<a class="el" href="structrect__tile__set__t.html">rect_tile_set_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>North_Walk</b></td></tr>
-<tr class="separator:a80618bb7090096fd167e70df3e7dc351"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58582eac705fd80b2ff2188620070466"><td class="memItemLeft" align="right" valign="top"><a id="a58582eac705fd80b2ff2188620070466"></a>
-<a class="el" href="structrect__tile__set__t.html">rect_tile_set_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>South_Walk</b></td></tr>
-<tr class="separator:a58582eac705fd80b2ff2188620070466"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a641aae6cd5400e8e3c66981aaaea22f0"><td class="memItemLeft" align="right" valign="top"><a id="a641aae6cd5400e8e3c66981aaaea22f0"></a>
-<a class="el" href="structrect__tile__set__t.html">rect_tile_set_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Side_Walk</b></td></tr>
-<tr class="separator:a641aae6cd5400e8e3c66981aaaea22f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae4a873aa7d6746cf276c5dc230bb3a6"><td class="memItemLeft" align="right" valign="top"><a id="aae4a873aa7d6746cf276c5dc230bb3a6"></a>
-<a class="el" href="structrect__tile__set__t.html">rect_tile_set_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Win</b></td></tr>
-<tr class="separator:aae4a873aa7d6746cf276c5dc230bb3a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b14c0e39c2d471aacac68fc7d2fb964"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__s.html#a9b14c0e39c2d471aacac68fc7d2fb964">update</a> )(<a class="el" href="structcharacter__t.html">character_t</a> *, SDL_Renderer *, <a class="el" href="structtile__set__t.html">tile_set_t</a>, SDL_Rect)</td></tr>
+<tr class="separator:a9b14c0e39c2d471aacac68fc7d2fb964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33d62b4d231ba2bd36b693fc581adbb9"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__s.html#a33d62b4d231ba2bd36b693fc581adbb9">free</a> )(<a class="el" href="structcharacter__t.html">character_t</a> **)</td></tr>
+<tr class="separator:a33d62b4d231ba2bd36b693fc581adbb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a859b8efbf9abe8e82757ee5c75a0c97c"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__s.html#a859b8efbf9abe8e82757ee5c75a0c97c">texture</a></td></tr>
+<tr class="separator:a859b8efbf9abe8e82757ee5c75a0c97c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f5cac12e913bcfcff660305bf88dd3b"><td class="memItemLeft" align="right" valign="top">SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__s.html#a2f5cac12e913bcfcff660305bf88dd3b">surface</a></td></tr>
+<tr class="separator:a2f5cac12e913bcfcff660305bf88dd3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54fb1c951bf500b03827a65eacbd37d2"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__s.html#a54fb1c951bf500b03827a65eacbd37d2">mov</a></td></tr>
+<tr class="separator:a54fb1c951bf500b03827a65eacbd37d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd5d27076993c20db991409efcb20d25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtile__set__t.html">tile_set_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__s.html#acd5d27076993c20db991409efcb20d25">North_Walk</a></td></tr>
+<tr class="separator:acd5d27076993c20db991409efcb20d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cc5bde1d5de3c49e0ab27fd270d4fcb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtile__set__t.html">tile_set_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__s.html#a7cc5bde1d5de3c49e0ab27fd270d4fcb">South_Walk</a></td></tr>
+<tr class="separator:a7cc5bde1d5de3c49e0ab27fd270d4fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e63dee588b8df82d8aa5614fdb48282"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtile__set__t.html">tile_set_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__s.html#a3e63dee588b8df82d8aa5614fdb48282">West_Walk</a></td></tr>
+<tr class="separator:a3e63dee588b8df82d8aa5614fdb48282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae07a67ffac1e23b05ba12f9b12ca1bcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtile__set__t.html">tile_set_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__s.html#ae07a67ffac1e23b05ba12f9b12ca1bcd">East_Walk</a></td></tr>
+<tr class="separator:ae07a67ffac1e23b05ba12f9b12ca1bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6bea9bc696ec91c96b1dc4f6e6aeb67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtile__set__t.html">tile_set_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcharacter__s.html#ae6bea9bc696ec91c96b1dc4f6e6aeb67">Win</a></td></tr>
+<tr class="separator:ae6bea9bc696ec91c96b1dc4f6e6aeb67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Documentation des champs</h2>
+<a id="ae07a67ffac1e23b05ba12f9b12ca1bcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae07a67ffac1e23b05ba12f9b12ca1bcd">&#9670;&nbsp;</a></span>East_Walk</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtile__set__t.html">tile_set_t</a> East_Walk</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tile set (<a class="el" href="structtile__set__t.html" title="Structure de l&#39;objet tile set.">tile_set_t</a>) pour la marche vers le est de l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>. </p>
+
+</div>
+</div>
+<a id="a33d62b4d231ba2bd36b693fc581adbb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33d62b4d231ba2bd36b693fc581adbb9">&#9670;&nbsp;</a></span>free</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* free) (<a class="el" href="structcharacter__t.html">character_t</a> **)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A FINIR </p>
+
+</div>
+</div>
+<a id="a54fb1c951bf500b03827a65eacbd37d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54fb1c951bf500b03827a65eacbd37d2">&#9670;&nbsp;</a></span>mov</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Rect mov</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rectangle de "mouvement" de l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>. </p>
+
+</div>
+</div>
+<a id="acd5d27076993c20db991409efcb20d25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd5d27076993c20db991409efcb20d25">&#9670;&nbsp;</a></span>North_Walk</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtile__set__t.html">tile_set_t</a> North_Walk</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tile set (<a class="el" href="structtile__set__t.html" title="Structure de l&#39;objet tile set.">tile_set_t</a>) pour la marche vers le nord de l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>. </p>
+
+</div>
+</div>
+<a id="a7cc5bde1d5de3c49e0ab27fd270d4fcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cc5bde1d5de3c49e0ab27fd270d4fcb">&#9670;&nbsp;</a></span>South_Walk</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtile__set__t.html">tile_set_t</a> South_Walk</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tile set (<a class="el" href="structtile__set__t.html" title="Structure de l&#39;objet tile set.">tile_set_t</a>) pour la marche vers le sud de l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>. </p>
+
+</div>
+</div>
+<a id="a2f5cac12e913bcfcff660305bf88dd3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f5cac12e913bcfcff660305bf88dd3b">&#9670;&nbsp;</a></span>surface</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Surface* surface</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointeur sur une surface SDL de l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>. </p>
+
+</div>
+</div>
+<a id="a859b8efbf9abe8e82757ee5c75a0c97c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a859b8efbf9abe8e82757ee5c75a0c97c">&#9670;&nbsp;</a></span>texture</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture* texture</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointeur sur une texture SDL de l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>. </p>
+
+</div>
+</div>
+<a id="a9b14c0e39c2d471aacac68fc7d2fb964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b14c0e39c2d471aacac68fc7d2fb964">&#9670;&nbsp;</a></span>update</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* update) (<a class="el" href="structcharacter__t.html">character_t</a> *, SDL_Renderer *, <a class="el" href="structtile__set__t.html">tile_set_t</a>, SDL_Rect)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A FINIR </p>
+
+</div>
+</div>
+<a id="a3e63dee588b8df82d8aa5614fdb48282"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e63dee588b8df82d8aa5614fdb48282">&#9670;&nbsp;</a></span>West_Walk</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtile__set__t.html">tile_set_t</a> West_Walk</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tile set (<a class="el" href="structtile__set__t.html" title="Structure de l&#39;objet tile set.">tile_set_t</a>) pour la marche vers le ouest de l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>. </p>
+
+</div>
+</div>
+<a id="ae6bea9bc696ec91c96b1dc4f6e6aeb67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6bea9bc696ec91c96b1dc4f6e6aeb67">&#9670;&nbsp;</a></span>Win</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtile__set__t.html">tile_set_t</a> Win</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tile set (<a class="el" href="structtile__set__t.html" title="Structure de l&#39;objet tile set.">tile_set_t</a>) pour la victoire d'un combat de l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>. </p>
+
+</div>
+</div>
 <hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
 <li>src/<a class="el" href="character_8h_source.html">character.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="structcharacter__s.html">character_s</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>

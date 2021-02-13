@@ -1,0 +1,4 @@
+<map id="map_display" name="map_display">
+<area shape="rect" id="node1" title="Permet l&#39;affichage du l&#39;objet map." alt="" coords="5,5,100,32"/>
+<area shape="rect" id="node2" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="148,5,280,32"/>
+</map>

@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +49,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('character_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +80,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">character.h</div>  </div>
@@ -72,40 +88,52 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _CHARACTERE_H_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _CHARACTERE_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;commun.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="commun_8h.html">commun.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcharacter__s.html">character_s</a> <a class="code" href="structcharacter__t.html">character_t</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcharacter__s.html">character_s</a> <a class="code" href="structcharacter__t.html">character_t</a>;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structcharacter__s.html">   10</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structcharacter__s.html">character_s</a> </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{ </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    void (*update)(<a class="code" href="structrect__tile__set__t.html">rect_tile_set_t</a> *);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    void (*display)(<a class="code" href="structcharacter__t.html">character_t</a> * <span class="keyword">const</span>, SDL_Renderer *, SDL_Rect, SDL_Rect);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    void (*free)(<a class="code" href="structcharacter__t.html">character_t</a> **);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    SDL_Texture * texture;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="structrect__tile__set__t.html">rect_tile_set_t</a> North_Walk;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="structrect__tile__set__t.html">rect_tile_set_t</a> South_Walk;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="structrect__tile__set__t.html">rect_tile_set_t</a> Side_Walk;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="structrect__tile__set__t.html">rect_tile_set_t</a> Win;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">extern</span> <a class="code" href="structcharacter__t.html">character_t</a> * <a class="code" href="character_8c.html#a3e4a1af09ad0f3b1fdca43b16e5563c0">character_create</a>(<span class="keywordtype">char</span> * name_file);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">extern</span> SDL_bool <a class="code" href="character_8c.html#a2e4bd763a6cfcaa857a55d8b6a382a09">character_exist</a>(<a class="code" href="structcharacter__t.html">character_t</a> * <span class="keyword">const</span> character);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="acharacter_8c_html_a2e4bd763a6cfcaa857a55d8b6a382a09"><div class="ttname"><a href="character_8c.html#a2e4bd763a6cfcaa857a55d8b6a382a09">character_exist</a></div><div class="ttdeci">SDL_bool character_exist(character_t *const character)</div><div class="ttdef"><b>Definition:</b> character.c:148</div></div>
-<div class="ttc" id="acharacter_8c_html_a3e4a1af09ad0f3b1fdca43b16e5563c0"><div class="ttname"><a href="character_8c.html#a3e4a1af09ad0f3b1fdca43b16e5563c0">character_create</a></div><div class="ttdeci">character_t * character_create(char *name_file)</div><div class="ttdef"><b>Definition:</b> character.c:109</div></div>
-<div class="ttc" id="astructcharacter__s_html"><div class="ttname"><a href="structcharacter__s.html">character_s</a></div><div class="ttdef"><b>Definition:</b> character.h:11</div></div>
-<div class="ttc" id="astructcharacter__t_html"><div class="ttname"><a href="structcharacter__t.html">character_t</a></div><div class="ttdoc">Objet character.</div></div>
-<div class="ttc" id="astructrect__tile__set__t_html"><div class="ttname"><a href="structrect__tile__set__t.html">rect_tile_set_t</a></div><div class="ttdoc">Objet tile set.</div></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="structcharacter__s.html">    8</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structcharacter__s.html">character_s</a> </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structcharacter__s.html#a9b14c0e39c2d471aacac68fc7d2fb964">   10</a></span>&#160;    void (*<a class="code" href="structcharacter__s.html#a9b14c0e39c2d471aacac68fc7d2fb964">update</a>)(<a class="code" href="structcharacter__t.html">character_t</a> *, SDL_Renderer *, <a class="code" href="structtile__set__t.html">tile_set_t</a>, SDL_Rect); </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structcharacter__s.html#a33d62b4d231ba2bd36b693fc581adbb9">   11</a></span>&#160;    void (*<a class="code" href="structcharacter__s.html#a33d62b4d231ba2bd36b693fc581adbb9">free</a>)(<a class="code" href="structcharacter__t.html">character_t</a> **); </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structcharacter__s.html#a859b8efbf9abe8e82757ee5c75a0c97c">   13</a></span>&#160;    SDL_Texture * <a class="code" href="structcharacter__s.html#a859b8efbf9abe8e82757ee5c75a0c97c">texture</a>; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structcharacter__s.html#a2f5cac12e913bcfcff660305bf88dd3b">   15</a></span>&#160;    SDL_Surface * <a class="code" href="structcharacter__s.html#a2f5cac12e913bcfcff660305bf88dd3b">surface</a>; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structcharacter__s.html#a54fb1c951bf500b03827a65eacbd37d2">   17</a></span>&#160;    SDL_Rect <a class="code" href="structcharacter__s.html#a54fb1c951bf500b03827a65eacbd37d2">mov</a>; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structcharacter__s.html#acd5d27076993c20db991409efcb20d25">   19</a></span>&#160;    <a class="code" href="structtile__set__t.html">tile_set_t</a> <a class="code" href="structcharacter__s.html#acd5d27076993c20db991409efcb20d25">North_Walk</a>; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structcharacter__s.html#a7cc5bde1d5de3c49e0ab27fd270d4fcb">   20</a></span>&#160;    <a class="code" href="structtile__set__t.html">tile_set_t</a> <a class="code" href="structcharacter__s.html#a7cc5bde1d5de3c49e0ab27fd270d4fcb">South_Walk</a>; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structcharacter__s.html#a3e63dee588b8df82d8aa5614fdb48282">   21</a></span>&#160;    <a class="code" href="structtile__set__t.html">tile_set_t</a> <a class="code" href="structcharacter__s.html#a3e63dee588b8df82d8aa5614fdb48282">West_Walk</a>; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structcharacter__s.html#ae07a67ffac1e23b05ba12f9b12ca1bcd">   22</a></span>&#160;    <a class="code" href="structtile__set__t.html">tile_set_t</a> <a class="code" href="structcharacter__s.html#ae07a67ffac1e23b05ba12f9b12ca1bcd">East_Walk</a>; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structcharacter__s.html#ae6bea9bc696ec91c96b1dc4f6e6aeb67">   23</a></span>&#160;    <a class="code" href="structtile__set__t.html">tile_set_t</a> <a class="code" href="structcharacter__s.html#ae6bea9bc696ec91c96b1dc4f6e6aeb67">Win</a>; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span> <a class="code" href="structcharacter__t.html">character_t</a> * <a class="code" href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c">character_create</a>(SDL_Renderer * render, <span class="keywordtype">char</span> * file_name_bmp, <span class="keywordtype">char</span> * file_name_txt) ;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">extern</span> SDL_bool <a class="code" href="character_8c.html#a2e4bd763a6cfcaa857a55d8b6a382a09">character_exist</a>(<a class="code" href="structcharacter__t.html">character_t</a> * <span class="keyword">const</span> character);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acharacter_8c_html_a2e4bd763a6cfcaa857a55d8b6a382a09"><div class="ttname"><a href="character_8c.html#a2e4bd763a6cfcaa857a55d8b6a382a09">character_exist</a></div><div class="ttdeci">SDL_bool character_exist(character_t *const character)</div><div class="ttdoc">Permet de verifier l'existence du l'objet character.</div><div class="ttdef"><b>Definition:</b> character.c:148</div></div>
+<div class="ttc" id="acharacter_8c_html_add7f6731bd4f2907cd0e89009a5e581c"><div class="ttname"><a href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c">character_create</a></div><div class="ttdeci">character_t * character_create(SDL_Renderer *render, char *file_name_bmp, char *file_name_txt)</div><div class="ttdoc">Permet la creation du l'objet character.</div><div class="ttdef"><b>Definition:</b> character.c:97</div></div>
+<div class="ttc" id="acommun_8h_html"><div class="ttname"><a href="commun_8h.html">commun.h</a></div><div class="ttdoc">Définitions de structure et constante commune.</div></div>
+<div class="ttc" id="astructcharacter__s_html"><div class="ttname"><a href="structcharacter__s.html">character_s</a></div><div class="ttdef"><b>Definition:</b> character.h:9</div></div>
+<div class="ttc" id="astructcharacter__s_html_a2f5cac12e913bcfcff660305bf88dd3b"><div class="ttname"><a href="structcharacter__s.html#a2f5cac12e913bcfcff660305bf88dd3b">character_s::surface</a></div><div class="ttdeci">SDL_Surface * surface</div><div class="ttdef"><b>Definition:</b> character.h:15</div></div>
+<div class="ttc" id="astructcharacter__s_html_a33d62b4d231ba2bd36b693fc581adbb9"><div class="ttname"><a href="structcharacter__s.html#a33d62b4d231ba2bd36b693fc581adbb9">character_s::free</a></div><div class="ttdeci">void(* free)(character_t **)</div><div class="ttdef"><b>Definition:</b> character.h:11</div></div>
+<div class="ttc" id="astructcharacter__s_html_a3e63dee588b8df82d8aa5614fdb48282"><div class="ttname"><a href="structcharacter__s.html#a3e63dee588b8df82d8aa5614fdb48282">character_s::West_Walk</a></div><div class="ttdeci">tile_set_t West_Walk</div><div class="ttdef"><b>Definition:</b> character.h:21</div></div>
+<div class="ttc" id="astructcharacter__s_html_a54fb1c951bf500b03827a65eacbd37d2"><div class="ttname"><a href="structcharacter__s.html#a54fb1c951bf500b03827a65eacbd37d2">character_s::mov</a></div><div class="ttdeci">SDL_Rect mov</div><div class="ttdef"><b>Definition:</b> character.h:17</div></div>
+<div class="ttc" id="astructcharacter__s_html_a7cc5bde1d5de3c49e0ab27fd270d4fcb"><div class="ttname"><a href="structcharacter__s.html#a7cc5bde1d5de3c49e0ab27fd270d4fcb">character_s::South_Walk</a></div><div class="ttdeci">tile_set_t South_Walk</div><div class="ttdef"><b>Definition:</b> character.h:20</div></div>
+<div class="ttc" id="astructcharacter__s_html_a859b8efbf9abe8e82757ee5c75a0c97c"><div class="ttname"><a href="structcharacter__s.html#a859b8efbf9abe8e82757ee5c75a0c97c">character_s::texture</a></div><div class="ttdeci">SDL_Texture * texture</div><div class="ttdef"><b>Definition:</b> character.h:13</div></div>
+<div class="ttc" id="astructcharacter__s_html_a9b14c0e39c2d471aacac68fc7d2fb964"><div class="ttname"><a href="structcharacter__s.html#a9b14c0e39c2d471aacac68fc7d2fb964">character_s::update</a></div><div class="ttdeci">void(* update)(character_t *, SDL_Renderer *, tile_set_t, SDL_Rect)</div><div class="ttdef"><b>Definition:</b> character.h:10</div></div>
+<div class="ttc" id="astructcharacter__s_html_acd5d27076993c20db991409efcb20d25"><div class="ttname"><a href="structcharacter__s.html#acd5d27076993c20db991409efcb20d25">character_s::North_Walk</a></div><div class="ttdeci">tile_set_t North_Walk</div><div class="ttdef"><b>Definition:</b> character.h:19</div></div>
+<div class="ttc" id="astructcharacter__s_html_ae07a67ffac1e23b05ba12f9b12ca1bcd"><div class="ttname"><a href="structcharacter__s.html#ae07a67ffac1e23b05ba12f9b12ca1bcd">character_s::East_Walk</a></div><div class="ttdeci">tile_set_t East_Walk</div><div class="ttdef"><b>Definition:</b> character.h:22</div></div>
+<div class="ttc" id="astructcharacter__s_html_ae6bea9bc696ec91c96b1dc4f6e6aeb67"><div class="ttname"><a href="structcharacter__s.html#ae6bea9bc696ec91c96b1dc4f6e6aeb67">character_s::Win</a></div><div class="ttdeci">tile_set_t Win</div><div class="ttdef"><b>Definition:</b> character.h:23</div></div>
+<div class="ttc" id="astructcharacter__t_html"><div class="ttname"><a href="structcharacter__t.html">character_t</a></div><div class="ttdoc">Structure de l'objet character_t.</div></div>
+<div class="ttc" id="astructtile__set__t_html"><div class="ttname"><a href="structtile__set__t.html">tile_set_t</a></div><div class="ttdoc">Structure de l'objet tile set.</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>character.h</b></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>

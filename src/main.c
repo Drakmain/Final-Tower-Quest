@@ -1,48 +1,41 @@
-#include <SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "error.h"
 #include "character.h"
 #include "map.h"
+#include "town.h"
+#include "commun.h"
 
 /*!
  * 
  * \file main.c
  * \brief Ficher principale du jeu.
  * \author Robin PAPILLON, Alexis BOUFFARD, Jeremy BOURGOUIN, Enzo BRENNUS
- * \version 0.1
- * \date 22/01/21
+ * \date 12/02/21
  *
  * \section DESCRIPTION
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License as
- * published by the Free Software Foundation; either version 2 of
- * the License, or (at your option) any later version.
+ * Ficher main.c ... A FINIR
  * 
  */
 
 
-#define MULTIPLIER 5
-
-#define WINDOWWIDTH 1600
-#define WINDOWHEIGHT 900
-
-
 /*!
  *
- * \fn int main(int argc, char **argv)
+ * \fn int main(int argc, char ** argv)
  * \brief Fonction principale du jeu.
  *
  * \param argc Nombre de parametres.
  * \param argv Tableau des parametres.
  * 
+ * \retval int Un entier.
+ * 
  */
 
-int main(int argc, char **argv)
+int main(int argc, char ** argv)
 {
 
     /*--- Print SDL Version ------------------------------------------------------*/
+    printf("/*--- Startup SDL -------*/\n");
 
     SDL_version nb;
     SDL_VERSION(&nb);
@@ -54,10 +47,7 @@ int main(int argc, char **argv)
 
     /*--- Initialization Variable ------------------------------------------------*/
 
-    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
-
     SDL_bool program_launch = SDL_TRUE;
-    SDL_Event event;
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -65,7 +55,13 @@ int main(int argc, char **argv)
     /*--- Initialization SDL Video -----------------------------------------------*/
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0)
-        SDL_ExitWithError("SDL initialization");
+    {
+        SDL_ExitWithError("SDL initialization > main.c Line 59");
+    }
+    else
+    {
+        printf("SDL Video initialised\n");
+    }
 
     /*--- End Initialization SDL Video -------------------------------------------*/
 
@@ -75,10 +71,15 @@ int main(int argc, char **argv)
     SDL_Window * window = NULL;
 
     window = SDL_CreateWindow("Final Tower Quest", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOWWIDTH, WINDOWHEIGHT, SDL_WINDOW_SHOWN);
-
-    if (!window)
-        SDL_ExitWithError("Window creation failed");
-
+    if (window == NULL)
+    {
+        SDL_ExitWithError("Window creation failed > main.c Line 75");
+    }
+    else
+    {
+        printf("window created\n");
+    }
+        
     /*--- End Creation Window ----------------------------------------------------*/
 
 
@@ -86,35 +87,32 @@ int main(int argc, char **argv)
 
     SDL_Renderer * render = NULL;
     render = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
-
-    if (!render)
-        SDL_ExitWithError("Render creation failed");
+    if (render == NULL)
+    {
+        SDL_ExitWithError("Render creation failed > main.c Line 92");
+    }
+    else
+    {
+        printf("render created\n");
+    }
 
     SDL_SetRenderDrawColor(render, 0, 0, 0, 0);
 
     SDL_RenderClear(render);
     SDL_RenderPresent(render);
 
+    printf("/*--- End Startup SDL ---*/\n\n");
     /*--- End Creation Render ----------------------------------------------------*/
+    
 
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (program_launch)
     {
-        
-        while (SDL_PollEvent(&event))
-        {
 
-            
-            
-            /*--- Event to Exit Program ------------------------------------------*/
-
-            if (event.type == SDL_QUIT || keyState[SDL_SCANCODE_ESCAPE])
-                program_launch = SDL_FALSE;
-
-            /*--- End Event to Exit Program --------------------------------------*/
-
-        }
+        //start_menu(render, &program_launch);
+        //character_selection(render, &program_launch);
+        town(render, &program_launch);
 
     }
 
@@ -122,14 +120,19 @@ int main(int argc, char **argv)
 
 
     /*--- Free Memory ------------------------------------------------------------*/
+    printf("/*--- Free Memory -------*/\n");
 
     SDL_DestroyRenderer(render);
-    SDL_DestroyWindow(window);
+    printf("render destroyed\n");
 
+    SDL_DestroyWindow(window);
+    printf("window destroyed\n");
+
+    printf("/*--- End Free Memory ---*/\n\n");
     /*--- End Free Memory --------------------------------------------------------*/
 
     SDL_Quit();
 
-    printf("Program exit with succes");
+    printf("Program exited with succes");
     return EXIT_SUCCESS;
 }

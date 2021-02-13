@@ -1,0 +1,12 @@
+<map id="src/commun.h" name="src/commun.h">
+<area shape="rect" id="node1" title="Définitions de structure et constante commune." alt="" coords="165,5,270,32"/>
+<area shape="rect" id="node2" href="$character_8h_source.html" title=" " alt="" coords="163,80,272,107"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Ficher principale du jeu." alt="" coords="55,155,137,181"/>
+<area shape="rect" id="node6" href="$frame_8h_source.html" title=" " alt="" coords="401,80,487,107"/>
+<area shape="rect" id="node8" href="$map_8h_source.html" title=" " alt="" coords="296,80,376,107"/>
+<area shape="rect" id="node10" href="$town_8h_source.html" title=" " alt="" coords="5,80,88,107"/>
+<area shape="rect" id="node3" href="$character_8c.html" title="Gestion de l&#39;objet character." alt="" coords="161,155,271,181"/>
+<area shape="rect" id="node5" href="$town_8c.html" title="Gestion de la map town." alt="" coords="295,155,377,181"/>
+<area shape="rect" id="node7" href="$frame_8c.html" title="Gestion des FPS." alt="" coords="506,155,593,181"/>
+<area shape="rect" id="node9" href="$map_8c.html" title="Gestion de l&#39;objet map." alt="" coords="401,155,481,181"/>
+</map>

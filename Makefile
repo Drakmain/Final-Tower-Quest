@@ -1,7 +1,7 @@
 all: main
 
-main: main.o error.o map.o character.o
-	gcc  main.o error.o map.o character.o -o bin/Final_Tower_Quest -I include -L lib -Wall -lmingw32 -lSDL2main -lSDL2
+main: main.o error.o map.o character.o town.o frame.o
+	gcc  main.o error.o map.o character.o town.o frame.o -o bin/Final_Tower_Quest -I include -L lib -Wall -lmingw32 -lSDL2main -lSDL2
 
 test: test_map.o test_character.o error.o map.o character.o 
 	gcc  test_map.o error.o map.o character.o -o bin/test_map -I include -L lib -Wall -lmingw32 -lSDL2main -lSDL2
@@ -25,6 +25,12 @@ test_map.o: src/test_map.c
 
 test_character.o: src/test_character.c
 	gcc -c src/test_character.c -I include -L lib -Wall -lmingw32 -lSDL2main -lSDL2
+
+town.o: src/town.c
+	gcc -c src/town.c -I include -L lib -Wall -lmingw32 -lSDL2main -lSDL2
+
+frame.o: src/frame.c
+	gcc -c src/frame.c -I include -L lib -Wall -lmingw32 -lSDL2main -lSDL2
 
 
 clean:

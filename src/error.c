@@ -8,24 +8,45 @@
  * \file error.c
  * \brief Gestion d'affichage des erreur
  * \author Robin PAPILLON, Alexis BOUFFARD, Jeremy BOURGOUIN, Enzo BRENNUS
- * \version 0.1
- * \date 22/01/21
+ * \date 12/02/21
+ * 
+ * \section DESCRIPTION
+ * Ficher error.c ... A FINIR
  * 
  */
 
 
 /*!
  *
- * \fn void SDL_ExitWithError(const char *message)
+ * \fn void SDL_ExitWithError(const char * message)
  * \brief Affichage du message d'erreur SDL.
  *
- * \param message Chaine de caractere contenant le message d'erreur.
+ * \param message Chaîne de caractères contenant le message d'erreur.
  * 
  */
 
-void SDL_ExitWithError(const char *message)
+void SDL_ExitWithError(const char * message)
 {
+
     SDL_Log("ERROR : %s > %s\n", message, SDL_GetError());
+    SDL_Quit();
+    exit(EXIT_FAILURE);
+}
+
+
+/*!
+ *
+ * \fn void exit_with_error(const char * message)
+ * \brief Affichage du message d'erreur.
+ *
+ * \param message Chaîne de caractères contenant le message d'erreur.
+ * 
+ */
+
+void exit_with_error(const char * message)
+{
+    
+    printf("ERROR : %s",message);
     SDL_Quit();
     exit(EXIT_FAILURE);
 }

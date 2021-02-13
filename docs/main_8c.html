@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +49,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('main_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,14 +80,8 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier main.c</div>  </div>
@@ -75,25 +90,29 @@ $(function() {
 
 <p>Ficher principale du jeu.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;SDL.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &quot;error.h&quot;</code><br />
 <code>#include &quot;character.h&quot;</code><br />
 <code>#include &quot;map.h&quot;</code><br />
+<code>#include &quot;town.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="commun_8h_source.html">commun.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de main.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c__incl.png" border="0" usemap="#asrc_2main_8c" alt=""/></div>
+<map name="asrc_2main_8c" id="asrc_2main_8c">
+<area shape="rect" title="Ficher principale du jeu." alt="" coords="221,5,304,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,67,107"/>
+<area shape="rect" title=" " alt="" coords="91,80,155,107"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="179,80,266,107"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et constante commune." alt="" coords="296,155,379,181"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="341,80,400,107"/>
+<area shape="rect" href="town_8h_source.html" title=" " alt="" coords="425,80,485,107"/>
+<area shape="rect" title=" " alt="" coords="267,229,325,256"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="349,229,408,256"/>
+</map>
+</div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ab7ffb5a0ee7b15aecd0b32e84b93e2ee"><td class="memItemLeft" align="right" valign="top"><a id="ab7ffb5a0ee7b15aecd0b32e84b93e2ee"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MULTIPLIER</b>&#160;&#160;&#160;5</td></tr>
-<tr class="separator:ab7ffb5a0ee7b15aecd0b32e84b93e2ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a479de3d6f219f86d5e7f6b040afab6b3"><td class="memItemLeft" align="right" valign="top"><a id="a479de3d6f219f86d5e7f6b040afab6b3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>WINDOWWIDTH</b>&#160;&#160;&#160;1600</td></tr>
-<tr class="separator:a479de3d6f219f86d5e7f6b040afab6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e690f30556eeca9fffa6dc4ba19b07f"><td class="memItemLeft" align="right" valign="top"><a id="a9e690f30556eeca9fffa6dc4ba19b07f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>WINDOWHEIGHT</b>&#160;&#160;&#160;900</td></tr>
-<tr class="separator:a9e690f30556eeca9fffa6dc4ba19b07f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
@@ -103,11 +122,10 @@ Fonctions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Ficher principale du jeu. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Robin PAPILLON, Alexis BOUFFARD, Jeremy BOURGOUIN, Enzo BRENNUS </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>22/01/21</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>12/02/21</dd></dl>
 <h1><a class="anchor" id="DESCRIPTION"></a>
 DESCRIPTION</h1>
-<p>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. </p>
+<p>Ficher <a class="el" href="main_8c.html" title="Ficher principale du jeu.">main.c</a> ... A FINIR </p>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&nbsp;</a></span>main()</h2>
@@ -139,17 +157,36 @@ DESCRIPTION</h1>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">argc</td><td>Nombre de parametres. </td></tr>
-    <tr><td class="paramname">argv</td><td>Tableau des parametres. </td></tr>
+    <tr><td class="paramname">argv</td><td>Tableau des parametres.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="retval"><dt>Valeurs retournées</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">int</td><td>Un entier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_a3c04138a5bfe5d72780bb7e82a18e627_cgraph.png" border="0" usemap="#amain_8c_a3c04138a5bfe5d72780bb7e82a18e627_cgraph" alt=""/></div>
+<map name="amain_8c_a3c04138a5bfe5d72780bb7e82a18e627_cgraph" id="amain_8c_a3c04138a5bfe5d72780bb7e82a18e627_cgraph">
+<area shape="rect" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="104,5,236,32"/>
+</map>
+</div>
 
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sdl_5fexitwitherror_36',['SDL_ExitWithError',['../error_8c.html#abed124ab111ee095d48f08e2a3ea4446',1,'error.c']]]
+  ['render_5fframe_59',['render_frame',['../frame_8c.html#aff4977623e1b4fedc515c1933967f4cd',1,'frame.c']]]
 ];

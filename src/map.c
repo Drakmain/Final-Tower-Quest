@@ -1,86 +1,59 @@
-#include <SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "map.h"
-#include "error.h"
 
 /*!
  * 
  * \file map.c
- * \brief Gestion objet map.
+ * \brief Gestion de l'objet map.
  * \author Robin PAPILLON, Alexis BOUFFARD, Jeremy BOURGOUIN, Enzo BRENNUS
- * \version 0.1
- * \date 22/01/21
+ * \date 12/02/21
  *
  * \section DESCRIPTION
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License as
- * published by the Free Software Foundation; either version 2 of
- * the License, or (at your option) any later version.
- *
+ * Ficher map.c ... A FINIR
+ * 
  */
 
 
 /*!
  * 
  * \struct map_t map.h "map.h"
- * \brief Objet map
+ * \brief Structure de l'objet map_t.
  * 
  */
 
 
 /*!
  *
- * \fn void map_update(SDL_Rect * src_rect) 
- * \brief
+ * \fn void map_display(map_t * map, SDL_Renderer * render, SDL_Rect src_rect, SDL_Rect pos_wind_rect) 
+ * \brief Permet l'affichage du l'objet map.
  *
- * \param src_rect 
+ * \param map Pointeur sur un objet map_t.
+ * \param render Pointeur sur le rendu SDL.
+ * \param src_rect A FINIR
+ * \param pos_wind_rect A FINIR
  * 
  */
 
 static
-void map_update(rect_tile_set_t * src_rect) 
-{
-
-    src_rect->rect.x += src_rect->rect.w + 1;
-
-    if (src_rect->rect.x > src_rect->limit)
-        src_rect->rect.x = 2;
-
-}
-
-
-/*!
- *
- * \fn void map_display(map_t * const map, SDL_Renderer * render, SDL_Rect src_rect, SDL_Rect pos_wind_rect)
- * \brief
- *
- * \param personnage 
- * \param render 
- * \param src_rect 
- * \param pos_wind_rect
- * 
- */
-
-static
-void map_display(map_t * const map, SDL_Renderer * render, SDL_Rect src_rect, SDL_Rect pos_wind_rect) 
+void map_update(map_t * map, SDL_Renderer * render, SDL_Rect src_rect, SDL_Rect pos_wind_rect) 
 {
 
     if (SDL_RenderCopy(render, map->texture, &src_rect, &pos_wind_rect) != 0)
-        SDL_ExitWithError("Copy of rendering failed");
-    
-    SDL_RenderPresent(render);
-
+    {
+        SDL_ExitWithError("Copy of rendering failed, map.c Line 45");
+    }
+        
 }
 
 
 /*!
  *
- * \fn void map_free(map_t ** map) 
- * \brief
+ * \fn void map_free(map_t ** map)
+ * \brief Permet la liberation de l'objet map.
  *
- * \param map 
+ * \param map Objet map_t qui doit etre libéré.
  * 
  */
 
@@ -90,6 +63,8 @@ void map_free(map_t ** map)
     
     SDL_DestroyTexture((*map)->texture);
 
+    SDL_FreeSurface((*map)->surface);
+
     free(*map);
 
 }
@@ -97,15 +72,20 @@ void map_free(map_t ** map)
 
 /*!
  *
- * \fn map_t * map_create(char * name_file) 
- * \brief
+ * \fn map_t * map_create(SDL_Renderer * render, char * file_name_bmp, char * file_name_txt)
+ * \brief Permet la creation du l'objet map_t.
  *
- * \param name_file 
+ * \param render Pointeur sur le rendu SDL.
+ * \param file_name_bmp Chaîne de caractères contenant le nom du fichier bmp.
+ * \param file_name_txt Chaîne de caractères contenant le nom du fichier txt.
+ * 
+ * \return map Un objet map_t créé dans cette fonction.
+ * \retval map_t * Un pointeur sur l'objet map_t.
  * 
  */
 
 extern 
-map_t * map_create(char * name_file) 
+map_t * map_create(SDL_Renderer * render, char * file_name_bmp, char * file_name_txt) 
 {
 
     map_t * map = NULL; 
@@ -113,18 +93,21 @@ map_t * map_create(char * name_file)
 
     map->texture = NULL;
     
-    FILE * file = fopen(name_file, "r");
-
+    FILE * file = fopen(file_name_txt, "r");
     if (!file)
-    {
-        printf("Loading of %s failed", name_file);
-        return NULL;
-    }
+        exit_with_error("Loading of a txt file failed, map.c Line 96");
 
-    fscanf(file,"%*s %i, %i, %i, %i;\n",&map->tile_set.rect.x, &map->tile_set.rect.y, &map->tile_set.rect.w, &map->tile_set.rect.h);
+    fscanf(file,"%*s %i, %i, %i, %i;\n", &map->tile_set.x, &map->tile_set.y, &map->tile_set.w, &map->tile_set.h);
 
+    map->surface = SDL_LoadBMP(file_name_bmp);
+    if (!map->surface)
+        SDL_ExitWithError("Loading of a bmp file failed, map.c Line 102");
+
+    map->texture = SDL_CreateTextureFromSurface(render, map->surface);
+    if (!map->texture)
+        SDL_ExitWithError("Cannot create a texture from a surface, map.c Line 106");
+    
     map->update = map_update;
-    map->display = map_display;
     map->free = map_free;
 
     return(map);
@@ -134,9 +117,11 @@ map_t * map_create(char * name_file)
 /*!
  *
  * \fn SDL_bool map_exist(map_t * const map)
- * \brief
+ * \brief Permet de verifier l'existence du l'objet map.
  *
- * \param map 
+ * \param map Pointeur sur un objet map_t.
+ * 
+ * \retval SDL_bool Une variable booléenne SDL.
  * 
  */
 

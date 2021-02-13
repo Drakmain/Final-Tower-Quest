@@ -1,0 +1,5 @@
+<map id="character_update" name="character_update">
+<area shape="rect" id="node1" title=" " alt="" coords="269,5,392,32"/>
+<area shape="rect" id="node2" href="$character_8c.html#add7f6731bd4f2907cd0e89009a5e581c" title="Permet la creation du l&#39;objet character." alt="" coords="103,5,221,32"/>
+<area shape="rect" id="node3" href="$town_8c.html#ad5cb8c77c439cf3ce3c671bcb32ca93e" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="5,5,55,32"/>
+</map>
