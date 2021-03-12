@@ -1,4 +1,4 @@
 <map id="character_s" name="character_s">
-<area shape="rect" id="node1" title=" " alt="" coords="5,153,96,180"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,139,96,165"/>
 <area shape="rect" id="node2" href="$structtile__set__s.html" title=" " alt="" coords="11,5,90,32"/>
 </map>

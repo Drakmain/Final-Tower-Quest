@@ -1,0 +1,12 @@
+<map id="tower" name="tower">
+<area shape="rect" id="node1" title="A FINIR." alt="" coords="5,181,59,208"/>
+<area shape="rect" id="node2" href="$character_8c.html#add7f6731bd4f2907cd0e89009a5e581c" title="Permet la creation du l&#39;objet character." alt="" coords="107,232,225,258"/>
+<area shape="rect" id="node5" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="444,80,576,106"/>
+<area shape="rect" id="node6" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="281,181,388,208"/>
+<area shape="rect" id="node7" href="$map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="121,130,211,157"/>
+<area shape="rect" id="node10" href="$frame_8c.html#aff4977623e1b4fedc515c1933967f4cd" title="A FINIR." alt="" coords="117,282,215,309"/>
+<area shape="rect" id="node3" href="$character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="283,232,387,258"/>
+<area shape="rect" id="node4" href="$character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="273,282,396,309"/>
+<area shape="rect" id="node8" href="$map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="297,130,372,157"/>
+<area shape="rect" id="node9" href="$map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="288,29,381,56"/>
+</map>

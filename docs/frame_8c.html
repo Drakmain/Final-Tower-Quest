@@ -13,9 +13,6 @@
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,18 +31,12 @@
 </div>
 <!-- end header part -->
 <!-- Généré par Doxygen 1.9.1 -->
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
-/* @license-end */
-</script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Recherche');
-  $(document).ready(function() { init_search(); });
+  initMenu('',false,false,'search.php','Recherche');
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
@@ -66,20 +57,6 @@ $(document).ready(function(){initNavTree('frame_8c.html',''); initResizable(); }
 /* @license-end */
 </script>
 <div id="doc-content">
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div class="header">
   <div class="summary">
 <a href="#func-members">Fonctions</a> &#124;
@@ -97,11 +74,12 @@ Graphe des dépendances par inclusion de frame.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="frame_8c__incl.png" border="0" usemap="#asrc_2frame_8c" alt=""/></div>
 <map name="asrc_2frame_8c" id="asrc_2frame_8c">
-<area shape="rect" title="Gestion des FPS." alt="" coords="33,5,119,32"/>
-<area shape="rect" href="frame_8h_source.html" title=" " alt="" coords="43,80,109,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et constante commune." alt="" coords="35,155,117,181"/>
+<area shape="rect" title="Gestion des FPS." alt="" coords="83,5,170,32"/>
+<area shape="rect" href="frame_8h_source.html" title=" " alt="" coords="94,80,159,107"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="85,155,168,181"/>
 <area shape="rect" title=" " alt="" coords="5,229,64,256"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="88,229,147,256"/>
+<area shape="rect" title=" " alt="" coords="89,229,165,256"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="189,229,248,256"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -113,26 +91,19 @@ Fonctions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ac5090a6568797128b0a5545228bb8b75"><td class="memItemLeft" align="right" valign="top"><a id="ac5090a6568797128b0a5545228bb8b75"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>FPS</b> = 10</td></tr>
+<tr class="memitem:ac5090a6568797128b0a5545228bb8b75"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="frame_8c.html#ac5090a6568797128b0a5545228bb8b75">FPS</a> = 15</td></tr>
 <tr class="separator:ac5090a6568797128b0a5545228bb8b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adabcb5f716d289980cc8de6fc5763874"><td class="memItemLeft" align="right" valign="top"><a id="adabcb5f716d289980cc8de6fc5763874"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>frame_delay</b> = 1000 / FPS</td></tr>
+<tr class="memitem:adabcb5f716d289980cc8de6fc5763874"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="frame_8c.html#adabcb5f716d289980cc8de6fc5763874">frame_delay</a> = 1000 / <a class="el" href="frame_8c.html#ac5090a6568797128b0a5545228bb8b75">FPS</a></td></tr>
 <tr class="separator:adabcb5f716d289980cc8de6fc5763874"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc3496ac7921a382fdc7f01d67065fd5"><td class="memItemLeft" align="right" valign="top"><a id="abc3496ac7921a382fdc7f01d67065fd5"></a>
-Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>frame_start</b></td></tr>
+<tr class="memitem:abc3496ac7921a382fdc7f01d67065fd5"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="frame_8c.html#abc3496ac7921a382fdc7f01d67065fd5">frame_start</a></td></tr>
 <tr class="separator:abc3496ac7921a382fdc7f01d67065fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affc3ad51ec00782afacc53e3099641c0"><td class="memItemLeft" align="right" valign="top"><a id="affc3ad51ec00782afacc53e3099641c0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>frame_time</b> = 0</td></tr>
+<tr class="memitem:affc3ad51ec00782afacc53e3099641c0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="frame_8c.html#affc3ad51ec00782afacc53e3099641c0">frame_time</a> = 0</td></tr>
 <tr class="separator:affc3ad51ec00782afacc53e3099641c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Gestion des FPS. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Robin PAPILLON, Alexis BOUFFARD, Jeremy BOURGOUIN, Enzo BRENNUS </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>12/02/21</dd></dl>
-<h1><a class="anchor" id="DESCRIPTION"></a>
-DESCRIPTION</h1>
-<p>Ficher <a class="el" href="frame_8c.html" title="Gestion des FPS.">frame.c</a> ... A FINIR </p>
+<dl class="section author"><dt>Auteur</dt><dd>Enzo BRENNUS </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18/02/21 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="aff4977623e1b4fedc515c1933967f4cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aff4977623e1b4fedc515c1933967f4cd">&#9670;&nbsp;</a></span>render_frame()</h2>
@@ -153,10 +124,82 @@ DESCRIPTION</h1>
 <p>A FINIR. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">render</td><td>Pointeur sur le rendu SDL. </td></tr>
+    <tr><td class="paramname">render</td><td>est un pointeur sur le rendu SDL. </td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="frame_8c_aff4977623e1b4fedc515c1933967f4cd_icgraph.png" border="0" usemap="#aframe_8c_aff4977623e1b4fedc515c1933967f4cd_icgraph" alt=""/></div>
+<map name="aframe_8c_aff4977623e1b4fedc515c1933967f4cd_icgraph" id="aframe_8c_aff4977623e1b4fedc515c1933967f4cd_icgraph">
+<area shape="rect" title="A FINIR." alt="" coords="205,31,303,57"/>
+<area shape="rect" href="tower_8c.html#a5e18de5ae9ec4cdc412e4185fd406d4f" title="A FINIR." alt="" coords="104,5,157,32"/>
+<area shape="rect" href="town_8c.html#ad3caf70b1e2bb0ee8a50877428e619f9" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,31,56,57"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="ac5090a6568797128b0a5545228bb8b75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5090a6568797128b0a5545228bb8b75">&#9670;&nbsp;</a></span>FPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int FPS = 15</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Nombre maximum d'FPS. </p>
+
+</div>
+</div>
+<a id="adabcb5f716d289980cc8de6fc5763874"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adabcb5f716d289980cc8de6fc5763874">&#9670;&nbsp;</a></span>frame_delay</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int frame_delay = 1000 / <a class="el" href="frame_8c.html#ac5090a6568797128b0a5545228bb8b75">FPS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Le delai en MS (milliseconde) d'une frame. </p>
+
+</div>
+</div>
+<a id="abc3496ac7921a382fdc7f01d67065fd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc3496ac7921a382fdc7f01d67065fd5">&#9670;&nbsp;</a></span>frame_start</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 frame_start</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Debut d'une frame. </p>
+
+</div>
+</div>
+<a id="affc3ad51ec00782afacc53e3099641c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affc3ad51ec00782afacc53e3099641c0">&#9670;&nbsp;</a></span>frame_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int frame_time = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Différence entre la frame de debut (frame_start) et un instant T (SDL_GetTicks()). </p>
 
 </div>
 </div>

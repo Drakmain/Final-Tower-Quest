@@ -26,6 +26,7 @@ int main(int argc, char** argv)
 
     printf("%n, %n, %n, %n;\n", &map->tile_set.x, &map->tile_set.y, &map->tile_set.w, &map->tile_set.h);
 
+
     printf("Destruction de l'objet map...");
 
     map->free(&map);

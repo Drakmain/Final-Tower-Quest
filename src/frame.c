@@ -4,33 +4,30 @@
  * 
  * \file frame.c
  * \brief Gestion des FPS.
- * \author Robin PAPILLON, Alexis BOUFFARD, Jeremy BOURGOUIN, Enzo BRENNUS
- * \date 12/02/21
- *
- * \section DESCRIPTION
- * Ficher frame.c ... A FINIR
+ * \author Enzo BRENNUS
+ * \date 18/02/21
  * 
  */
 
 
-const int FPS = 10;
-int frame_delay = 1000 / FPS;
+const int FPS = 15; /*!< Nombre maximum d'FPS. */
+int frame_delay = 1000 / FPS; /*!< Le delai en MS (milliseconde) d'une frame. */
 
-Uint32 frame_start;
-int frame_time = 0;
+Uint32 frame_start; /*!< Debut d'une frame. */
+int frame_time = 0; /*!< Différence entre la frame de debut (frame_start) et un instant T (SDL_GetTicks()). */
 
 
 /*!
  *
- * \fn void render_frame(SDL_Renderer* render)
+ * \fn void render_frame(SDL_Renderer * render)
  * \brief A FINIR
  *
- * \param render Pointeur sur le rendu SDL.
+ * \param render est un pointeur sur le rendu SDL.
  * 
  */
 
 extern
-void render_frame(SDL_Renderer* render)
+void render_frame(SDL_Renderer * render)
 {
 
     SDL_RenderPresent(render);

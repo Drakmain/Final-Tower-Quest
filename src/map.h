@@ -7,8 +7,8 @@ typedef struct map_s map_t;
 
 struct map_s 
 {
-    void (*update)(map_t *, SDL_Renderer *, SDL_Rect, SDL_Rect); /*!< A FINIR */
-    void (*free)(map_t **); /*!< A FINIR */
+    void (*update)(map_t *, SDL_Renderer *, SDL_Rect, SDL_Rect); /*!< Permet la mise a jour d'un objet map_t. */
+    void (*free)(map_t **); /*!< Permet la liberation d'un objet map_t. */
 
     SDL_Texture * texture; /*!< Pointeur sur une texture SDL de l'objet map_t. */
 

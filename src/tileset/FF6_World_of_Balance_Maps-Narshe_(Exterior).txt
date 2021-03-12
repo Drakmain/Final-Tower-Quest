@@ -1,1 +1,0 @@
-Narshe_Exterior_Town: 2, 885, 1023, 1023;

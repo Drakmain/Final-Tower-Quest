@@ -1,21 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "character.h"
-#include "map.h"
 #include "town.h"
+#include "tower.h"
+#include "menu_accueil.h"
 #include "commun.h"
 
 /*!
  * 
  * \file main.c
  * \brief Ficher principale du jeu.
- * \author Robin PAPILLON, Alexis BOUFFARD, Jeremy BOURGOUIN, Enzo BRENNUS
- * \date 12/02/21
- *
- * \section DESCRIPTION
- * Ficher main.c ... A FINIR
- * 
+ * \author Enzo BRENNUS
+ * \date 12/03/21
+ *  
  */
 
 
@@ -24,8 +21,8 @@
  * \fn int main(int argc, char ** argv)
  * \brief Fonction principale du jeu.
  *
- * \param argc Nombre de parametres.
- * \param argv Tableau des parametres.
+ * \param argc est le nombre de parametres. 
+ * \param argv est un tableau contenant les parametres.
  * 
  * \retval int Un entier.
  * 
@@ -37,10 +34,15 @@ int main(int argc, char ** argv)
     /*--- Print SDL Version ------------------------------------------------------*/
     printf("/*--- Startup SDL -------*/\n");
 
-    SDL_version nb;
-    SDL_VERSION(&nb);
+    SDL_version SDL;
+    SDL_VERSION(&SDL);
 
-    printf("SDL Version: %d.%d.%d\n", nb.major, nb.minor, nb.patch);
+    SDL_version SDL_TTF;
+    SDL_TTF_VERSION(&SDL_TTF);
+
+    printf("SDL Version: %d.%d.%d\n", SDL.major, SDL.minor, SDL.patch);
+
+    printf("SDL TTF Version: %d.%d.%d\n", SDL_TTF.major, SDL_TTF.minor, SDL_TTF.patch);
 
     /*--- End Print SDL Version --------------------------------------------------*/
 
@@ -49,6 +51,9 @@ int main(int argc, char ** argv)
 
     SDL_bool program_launch = SDL_TRUE;
 
+    int WINDOWWIDTH = WINDOWWIDTH_1080P;
+    int WINDOWHEIGHT = WINDOWHEIGHT_1080P;
+
     /*--- End Initialization Variable --------------------------------------------*/
 
 
@@ -56,7 +61,7 @@ int main(int argc, char ** argv)
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0)
     {
-        SDL_ExitWithError("SDL initialization > main.c Line 59");
+        SDL_ExitWithError("SDL Video initialization > main.c Line 53");
     }
     else
     {
@@ -64,6 +69,19 @@ int main(int argc, char ** argv)
     }
 
     /*--- End Initialization SDL Video -------------------------------------------*/
+
+    /*--- Initialization SDL TTF -------------------------------------------------*/
+
+    if (TTF_Init() == -1)
+    {
+        SDL_ExitWithError("SDL TTF initialization > main.c Line 74");
+    }
+    else
+    {
+        printf("SDL TTF initialised\n");
+    }
+
+    /*--- End Initialization SDL TTF ---------------------------------------------*/
 
 
     /*--- Creation Window --------------------------------------------------------*/
@@ -73,7 +91,7 @@ int main(int argc, char ** argv)
     window = SDL_CreateWindow("Final Tower Quest", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOWWIDTH, WINDOWHEIGHT, SDL_WINDOW_SHOWN);
     if (window == NULL)
     {
-        SDL_ExitWithError("Window creation failed > main.c Line 75");
+        SDL_ExitWithError("Window creation failed > main.c Line 90");
     }
     else
     {
@@ -89,7 +107,7 @@ int main(int argc, char ** argv)
     render = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
     if (render == NULL)
     {
-        SDL_ExitWithError("Render creation failed > main.c Line 92");
+        SDL_ExitWithError("Render creation failed > main.c Line 106");
     }
     else
     {
@@ -110,9 +128,9 @@ int main(int argc, char ** argv)
     while (program_launch)
     {
 
-        //start_menu(render, &program_launch);
-        //character_selection(render, &program_launch);
-        town(render, &program_launch);
+        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT,&program_launch);
+        town(render, &WINDOWWIDTH, &WINDOWHEIGHT, &program_launch);
+        tower(render, &WINDOWWIDTH, &WINDOWHEIGHT, &program_launch);
 
     }
 
@@ -120,6 +138,7 @@ int main(int argc, char ** argv)
 
 
     /*--- Free Memory ------------------------------------------------------------*/
+    
     printf("/*--- Free Memory -------*/\n");
 
     SDL_DestroyRenderer(render);
@@ -129,6 +148,7 @@ int main(int argc, char ** argv)
     printf("window destroyed\n");
 
     printf("/*--- End Free Memory ---*/\n\n");
+
     /*--- End Free Memory --------------------------------------------------------*/
 
     SDL_Quit();

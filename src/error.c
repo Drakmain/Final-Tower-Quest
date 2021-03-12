@@ -7,11 +7,8 @@
  * 
  * \file error.c
  * \brief Gestion d'affichage des erreur
- * \author Robin PAPILLON, Alexis BOUFFARD, Jeremy BOURGOUIN, Enzo BRENNUS
- * \date 12/02/21
- * 
- * \section DESCRIPTION
- * Ficher error.c ... A FINIR
+ * \author Enzo BRENNUS
+ * \date 18/02/21
  * 
  */
 
@@ -21,7 +18,7 @@
  * \fn void SDL_ExitWithError(const char * message)
  * \brief Affichage du message d'erreur SDL.
  *
- * \param message Chaîne de caractères contenant le message d'erreur.
+ * \param message est une chaîne de caractères contenant le message d'erreur.
  * 
  */
 
@@ -39,7 +36,7 @@ void SDL_ExitWithError(const char * message)
  * \fn void exit_with_error(const char * message)
  * \brief Affichage du message d'erreur.
  *
- * \param message Chaîne de caractères contenant le message d'erreur.
+ * \param message est une chaîne de caractères contenant le message d'erreur.
  * 
  */
 

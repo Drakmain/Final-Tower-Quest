@@ -1,7 +1,0 @@
-<map id="map_create" name="map_create">
-<area shape="rect" id="node1" title="Permet la creation du l&#39;objet map." alt="" coords="5,81,96,108"/>
-<area shape="rect" id="node2" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="144,5,251,32"/>
-<area shape="rect" id="node3" href="$map_8c.html#a1a2bb0a23c1692cf92dfe28960ef9fbc" title="Permet l&#39;affichage du l&#39;objet map." alt="" coords="150,56,245,83"/>
-<area shape="rect" id="node4" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="299,81,431,108"/>
-<area shape="rect" id="node5" href="$map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation du l&#39;objet map." alt="" coords="160,157,235,184"/>
-</map>

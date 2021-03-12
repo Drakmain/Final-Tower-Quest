@@ -1,91 +1,101 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "town.h"
+#include "frame.h"
 #include "map.h"
 #include "character.h"
-#include "frame.h"
 
 /*!
  *
  * \file town.c
  * \brief Gestion de la map town.
- * \author Robin PAPILLON, Alexis BOUFFARD, Jeremy BOURGOUIN, Enzo BRENNUS
- * \date 12/02/21
- *
- * \section DESCRIPTION
- * Ficher town.c ... A FINIR
+ * \author Enzo BRENNUS
+ * \date 18/02/21
  *
  */
 
+Uint8 * pixel(SDL_Surface * surface, int x, int y)
+{
+    Uint8 * pixels = (Uint8*)surface->pixels;
+    Uint8 * pixel = pixels+y*surface->pitch+x;
+    return pixel;
+}
+
+
  /*!
   *
-  * \fn void town(SDL_Renderer * render,SDL_bool * program_launch)
+  * \fn town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch)
   * \brief Permet la gestion de la premier map du jeu (town).
   *
-  * \param render Pointeur sur le rendu SDL.
-  * \param program_launch A FINIR
+  * \param render est un pointeur sur le rendu SDL.
+  * \param WINDOWWIDTH est la largeur de la fenetre.
+  * \param WINDOWHEIGHT est la hauteur de la fenetre.
+  * \param program_launch A FINIR.
   *
   */
 
 extern
-void town(SDL_Renderer* render, SDL_bool* program_launch) {
+void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch){
 
     /*--- Initialization Variable ------------------------------------------------*/
 
-    map_t* FF6_World_of_Balance_Maps_Narshe_Exterior = NULL;
-    FF6_World_of_Balance_Maps_Narshe_Exterior = map_create(render, "src\\tileset\\FF6_World_of_Balance_Maps-Narshe_(Exterior).bmp", "src\\tileset\\FF6_World_of_Balance_Maps-Narshe_(Exterior).txt");
-    if (FF6_World_of_Balance_Maps_Narshe_Exterior == NULL)
+    map_t* town = NULL;
+    town = map_create(render, "src\\tileset\\Maps\\town.bmp", "src\\tileset\\Maps\\town.txt");
+    if (town == NULL)
     {
-        exit_with_error("Cannot create a map_t object > town.c Line 36");
+        exit_with_error("Cannot create a map_t object > town.c Line 35");
     }
 
-    character_t* FF6_Terra_Branford = NULL;
-    FF6_Terra_Branford = character_create(render, "src\\tileset\\FF6_Terra_Branford.bmp", "src\\tileset\\FF6_Terra_Branford.txt");
-    if (FF6_Terra_Branford == NULL)
+    character_t* Assassin = NULL;
+    Assassin = character_create(render, "src\\tileset\\PJ\\Assassin.bmp", "src\\tileset\\PJ\\Assassin.txt");
+    if (Assassin == NULL)
     {
-        exit_with_error("Cannot create a character_t object > town.c Line 43");
+        exit_with_error("Cannot create a character_t object > town.c Line 42");
     }
+
+    SDL_Surface * surface = NULL;
+
+    surface = SDL_LoadBMP("src\\tileset\\Maps\\town_collision.bmp");
+    if (!surface)
+    {
+        SDL_ExitWithError("Loading of a BMP failed > character.c Line 123");
+    }
+
+    Uint8 r, g, b;
 
     const Uint8* keyState = SDL_GetKeyboardState(NULL);
 
+    SDL_bool town_bool = SDL_TRUE;
+
     SDL_Event event;
 
-    SDL_Texture* texture = NULL;
+    SDL_Rect pos_Wind_Assassin;
+    pos_Wind_Assassin.h = Assassin->North_Walk.rect.h * MULTIPLIER;
+    pos_Wind_Assassin.w = Assassin->North_Walk.rect.w * MULTIPLIER;
+    pos_Wind_Assassin.x = (*WINDOWWIDTH - pos_Wind_Assassin.w) / 2;
+    pos_Wind_Assassin.y = (*WINDOWHEIGHT - pos_Wind_Assassin.h) / 2;
 
-    SDL_Surface* surface = NULL;
+    SDL_Rect pos_Wind_town;
+    pos_Wind_town.x = town->tile_set.x;
+    pos_Wind_town.y = town->tile_set.y;
+    pos_Wind_town.h = town->tile_set.h * MULTIPLIER;
+    pos_Wind_town.w = town->tile_set.w * MULTIPLIER;
 
-    surface = SDL_LoadBMP("src\\tileset\\ff7.bmp");
-    if (!surface)
-    {
-        SDL_ExitWithError("Loading of ff7.bmp failed > town.c Line 59");
-    }
+    int East_Walk = 0;
+    int West_Walk = 0;
+    int South_Walk = 0;
+    int North_Walk = 0;
 
-    texture = SDL_CreateTextureFromSurface(render, surface);
-    if (!texture)
-    {
-        SDL_ExitWithError("Cannot create a texture from a surface > town.c Line 65");
-    }
-
-    SDL_Rect pos_Wind_FF6_Terra;
-    pos_Wind_FF6_Terra.h = FF6_Terra_Branford->North_Walk.rect.h * MULTIPLIER;
-    pos_Wind_FF6_Terra.w = FF6_Terra_Branford->North_Walk.rect.w * MULTIPLIER;
-    pos_Wind_FF6_Terra.x = (WINDOWWIDTH - FF6_Terra_Branford->North_Walk.rect.w) / 2;
-    pos_Wind_FF6_Terra.y = (WINDOWHEIGHT - FF6_Terra_Branford->North_Walk.rect.h) / 2;
-
-    SDL_Rect pos_Wind_FF6_Narshe_Exterior;
-    pos_Wind_FF6_Narshe_Exterior.x = 0;
-    pos_Wind_FF6_Narshe_Exterior.y = 0;
-    pos_Wind_FF6_Narshe_Exterior.h = FF6_World_of_Balance_Maps_Narshe_Exterior->tile_set.h * MULTIPLIER;
-    pos_Wind_FF6_Narshe_Exterior.w = FF6_World_of_Balance_Maps_Narshe_Exterior->tile_set.w * MULTIPLIER;
-
-    SDL_RenderPresent(render);
+    int x = town->tile_set.w - (*WINDOWHEIGHT / 2);
+    int y = town->tile_set.h - (*WINDOWWIDTH / 2);
 
     /*--- End Initialization Variable --------------------------------------------*/
 
 
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (*program_launch == SDL_TRUE)
+    while (*program_launch && town_bool)
     {
 
         while (SDL_PollEvent(&event))
@@ -95,6 +105,7 @@ void town(SDL_Renderer* render, SDL_bool* program_launch) {
             {
                 SDL_PollEvent(&event);
 
+
                 if (event.type == SDL_QUIT || keyState[SDL_SCANCODE_ESCAPE])
                 {
                     *program_launch = SDL_FALSE;
@@ -102,88 +113,178 @@ void town(SDL_Renderer* render, SDL_bool* program_launch) {
 
                 while (keyState[SDL_SCANCODE_RIGHT])
                 {
-                    frame_start =  SDL_GetTicks();
+                    East_Walk = 1;
 
-                    FF6_World_of_Balance_Maps_Narshe_Exterior->tile_set.x += 5;
-                    FF6_World_of_Balance_Maps_Narshe_Exterior->update(FF6_World_of_Balance_Maps_Narshe_Exterior, render, FF6_World_of_Balance_Maps_Narshe_Exterior->tile_set, pos_Wind_FF6_Narshe_Exterior);
-
-                    FF6_Terra_Branford->update(FF6_Terra_Branford, render, FF6_Terra_Branford->East_Walk, pos_Wind_FF6_Terra);
-
-                    render_frame(render);
-
-                    if (SDL_RenderClear(render) != 0)
+                    for (int i = 0; i < 3; i++)
                     {
-                        SDL_ExitWithError("Unable to clear rendering > town.c Line 138");
+
+                        frame_start =  SDL_GetTicks();
+
+                        pos_Wind_town.x -= 25;
+                        x -= 25;
+
+                        printf("x : %i\n",x);
+                        printf("y : %i\n\n",y);
+
+                        town->update(town, render, town->tile_set, pos_Wind_town);
+
+                        Assassin->update(Assassin, render, Assassin->East_Walk, pos_Wind_Assassin);
+
+                        render_frame(render);
+
+                        if (SDL_RenderClear(render) != 0)
+                        {
+                            SDL_ExitWithError("Unable to clear rendering > town.c Line 102");
+                        }
+
                     }
 
                     SDL_PollEvent(&event);
-                }
-                FF6_Terra_Branford->mov.x = 0;
-                FF6_Terra_Branford->mov.y = 0;
 
+                }
+                if (East_Walk == 1)
+                {
+                    Assassin->mov.x = 0;
+                    Assassin->mov.y = 0;
+                    town->update(town, render, town->tile_set, pos_Wind_town);
+                    Assassin->update(Assassin, render, Assassin->East_Walk, pos_Wind_Assassin);
+                    render_frame(render);
+                    East_Walk = 0;
+                }
+                
+                
                 while (keyState[SDL_SCANCODE_LEFT])
                 {
-                    frame_start =  SDL_GetTicks();
 
-                    FF6_World_of_Balance_Maps_Narshe_Exterior->tile_set.x -= 5;
-                    FF6_World_of_Balance_Maps_Narshe_Exterior->update(FF6_World_of_Balance_Maps_Narshe_Exterior, render, FF6_World_of_Balance_Maps_Narshe_Exterior->tile_set, pos_Wind_FF6_Narshe_Exterior);
-
-                    FF6_Terra_Branford->update(FF6_Terra_Branford, render, FF6_Terra_Branford->West_Walk, pos_Wind_FF6_Terra);
-
-                    render_frame(render);
-
-                    if (SDL_RenderClear(render) != 0)
+                    for (int i = 0; i < 3; i++)
                     {
-                        SDL_ExitWithError("Unable to clear rendering > town.c Line 164");
-                    }
+                        West_Walk = 1;
+                        frame_start =  SDL_GetTicks();
 
+                        pos_Wind_town.x += 25;
+                        x += 25;
+
+                        printf("x : %i\n",x);
+                        printf("y : %i\n\n",y);
+
+                        town->update(town, render, town->tile_set, pos_Wind_town);
+
+                        Assassin->update(Assassin, render, Assassin->West_Walk, pos_Wind_Assassin);
+
+                        render_frame(render);
+
+                        if (SDL_RenderClear(render) != 0)
+                        {
+                            SDL_ExitWithError("Unable to clear rendering > town.c Line 131");
+                        }
+
+                    }
+                    
                     SDL_PollEvent(&event);
+                    
                 }
-                FF6_Terra_Branford->mov.x = 0;
-                FF6_Terra_Branford->mov.y = 0;
+
+                if (West_Walk == 1)
+                {
+                    Assassin->mov.x = 0;
+                    Assassin->mov.y = 0;
+                    town->update(town, render, town->tile_set, pos_Wind_town);
+                    Assassin->update(Assassin, render, Assassin->West_Walk, pos_Wind_Assassin);
+                    render_frame(render);
+                    West_Walk = 0;
+                }
+                
 
                 while (keyState[SDL_SCANCODE_UP])
                 {
-                    frame_start =  SDL_GetTicks();
 
-                    FF6_World_of_Balance_Maps_Narshe_Exterior->tile_set.y -= 5;
-                    FF6_World_of_Balance_Maps_Narshe_Exterior->update(FF6_World_of_Balance_Maps_Narshe_Exterior, render, FF6_World_of_Balance_Maps_Narshe_Exterior->tile_set, pos_Wind_FF6_Narshe_Exterior);
-
-                    FF6_Terra_Branford->update(FF6_Terra_Branford, render, FF6_Terra_Branford->North_Walk, pos_Wind_FF6_Terra);
-
-                    render_frame(render);
-
-                    if (SDL_RenderClear(render) != 0)
+                    for (int i = 0; i < 3; i++)
                     {
-                        SDL_ExitWithError("Unable to clear rendering, town.c Line 190");
-                    }
+                        South_Walk = 1;
+                        frame_start =  SDL_GetTicks();
 
+                        pos_Wind_town.y += 25;
+                        y += 25;
+ 
+                        printf("x : %i\n",x);
+                        printf("y : %i\n\n",y);
+
+                        town->update(town, render, town->tile_set, pos_Wind_town);
+
+                        Assassin->update(Assassin, render, Assassin->South_Walk, pos_Wind_Assassin);
+
+                        render_frame(render);
+
+                        if (SDL_RenderClear(render) != 0)
+                        {
+                            SDL_ExitWithError("Unable to clear rendering, town.c Line 160");
+                        }
+
+                    }
+                    
                     SDL_PollEvent(&event);
+
                 }
-                FF6_Terra_Branford->mov.x = 0;
-                FF6_Terra_Branford->mov.y = 0;
+
+                if (South_Walk == 1)
+                {
+                    Assassin->mov.x = 0;
+                    Assassin->mov.y = 0;
+                    town->update(town, render, town->tile_set, pos_Wind_town);
+                    Assassin->update(Assassin, render, Assassin->South_Walk, pos_Wind_Assassin);
+                    render_frame(render);
+                    South_Walk = 0;
+                }
+
 
                 while (keyState[SDL_SCANCODE_DOWN])
                 {
-                    frame_start =  SDL_GetTicks();
 
-                    FF6_World_of_Balance_Maps_Narshe_Exterior->tile_set.y += 5;
-                    FF6_World_of_Balance_Maps_Narshe_Exterior->update(FF6_World_of_Balance_Maps_Narshe_Exterior, render, FF6_World_of_Balance_Maps_Narshe_Exterior->tile_set, pos_Wind_FF6_Narshe_Exterior);
-
-                    FF6_Terra_Branford->update(FF6_Terra_Branford, render, FF6_Terra_Branford->South_Walk, pos_Wind_FF6_Terra);
-
-                    render_frame(render);
-
-                    if (SDL_RenderClear(render) != 0)
+                    for (int i = 0; i < 3; i++)
                     {
-                        SDL_ExitWithError("Unable to clear rendering > town.c Line 216");
+                        North_Walk = 1;
+                        frame_start =  SDL_GetTicks();
+
+                        pos_Wind_town.y -= 25;
+                        y -= 25;
+                              
+                        printf("x : %i\n",x);
+                        printf("y : %i\n\n",y);
+
+                        town->update(town, render, town->tile_set, pos_Wind_town);
+
+                        Assassin->update(Assassin, render, Assassin->North_Walk, pos_Wind_Assassin);
+
+                        render_frame(render);
+
+                        if (SDL_RenderClear(render) != 0)
+                        {
+                            SDL_ExitWithError("Unable to clear rendering > town.c Line 189");
+                        }
+
                     }
 
                     SDL_PollEvent(&event);
                 }
-                FF6_Terra_Branford->mov.x = 0;
-                FF6_Terra_Branford->mov.y = 0;
 
+                if (North_Walk == 1)
+                {
+                    Assassin->mov.x = 0;
+                    Assassin->mov.y = 0;
+                    town->update(town, render, town->tile_set, pos_Wind_town);
+                    Assassin->update(Assassin, render, Assassin->North_Walk, pos_Wind_Assassin);
+                    render_frame(render);
+                    North_Walk = 0;
+                }
+
+                /*
+                Uint8 * pixel_surf = pixel(surface, pos_Wind_town.x, pos_Wind_town.y);
+
+                SDL_GetRGB(*pixel_surf, surface->format, &r, &g, &b);
+
+                printf("Couleur : rouge = %i, vert = %i, bleu = %i", r, g, b);
+                */
+               
             }
 
         }
@@ -195,8 +296,9 @@ void town(SDL_Renderer* render, SDL_bool* program_launch) {
 
     /*--- Free Memory ------------------------------------------------------------*/
 
-    FF6_World_of_Balance_Maps_Narshe_Exterior->free(&FF6_World_of_Balance_Maps_Narshe_Exterior);
-    FF6_Terra_Branford->free(&FF6_Terra_Branford);
+    town->free(&town);
+    Assassin->free(&Assassin);
 
     /*--- End Free Memory --------------------------------------------------------*/
+
 }

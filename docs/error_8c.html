@@ -13,9 +13,6 @@
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,18 +31,12 @@
 </div>
 <!-- end header part -->
 <!-- Généré par Doxygen 1.9.1 -->
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
-/* @license-end */
-</script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Recherche');
-  $(document).ready(function() { init_search(); });
+  initMenu('',false,false,'search.php','Recherche');
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
@@ -66,20 +57,6 @@ $(document).ready(function(){initNavTree('error_8c.html',''); initResizable(); }
 /* @license-end */
 </script>
 <div id="doc-content">
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div class="header">
   <div class="summary">
 <a href="#func-members">Fonctions</a>  </div>
@@ -118,11 +95,8 @@ Fonctions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Gestion d'affichage des erreur. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Robin PAPILLON, Alexis BOUFFARD, Jeremy BOURGOUIN, Enzo BRENNUS </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>12/02/21</dd></dl>
-<h1><a class="anchor" id="DESCRIPTION"></a>
-DESCRIPTION</h1>
-<p>Ficher <a class="el" href="error_8c.html" title="Gestion d&#39;affichage des erreur.">error.c</a> ... A FINIR </p>
+<dl class="section author"><dt>Auteur</dt><dd>Enzo BRENNUS </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18/02/21 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="a33f79b1625fc983eafaac7be7e6acd11"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33f79b1625fc983eafaac7be7e6acd11">&#9670;&nbsp;</a></span>exit_with_error()</h2>
@@ -143,7 +117,7 @@ DESCRIPTION</h1>
 <p>Affichage du message d'erreur. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>Chaîne de caractères contenant le message d'erreur. </td></tr>
+    <tr><td class="paramname">message</td><td>est une chaîne de caractères contenant le message d'erreur. </td></tr>
   </table>
   </dd>
 </dl>
@@ -152,10 +126,12 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="error_8c_a33f79b1625fc983eafaac7be7e6acd11_icgraph.png" border="0" usemap="#aerror_8c_a33f79b1625fc983eafaac7be7e6acd11_icgraph" alt=""/></div>
 <map name="aerror_8c_a33f79b1625fc983eafaac7be7e6acd11_icgraph" id="aerror_8c_a33f79b1625fc983eafaac7be7e6acd11_icgraph">
-<area shape="rect" title="Affichage du message d&#39;erreur." alt="" coords="269,56,376,83"/>
-<area shape="rect" href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c" title="Permet la creation du l&#39;objet character." alt="" coords="103,5,221,32"/>
-<area shape="rect" href="town_8c.html#a72cf6d0a6d5462944c991fa4b69348dc" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="5,56,55,83"/>
-<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="117,107,207,133"/>
+<area shape="rect" title="Affichage du message d&#39;erreur." alt="" coords="372,51,479,77"/>
+<area shape="rect" href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c" title="Permet la creation du l&#39;objet character." alt="" coords="205,25,324,52"/>
+<area shape="rect" href="tower_8c.html#a5e18de5ae9ec4cdc412e4185fd406d4f" title="A FINIR." alt="" coords="104,25,157,52"/>
+<area shape="rect" href="town_8c.html#ad3caf70b1e2bb0ee8a50877428e619f9" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,76,155,103"/>
+<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="219,76,310,103"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,51,56,77"/>
 </map>
 </div>
 
@@ -180,7 +156,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <p>Affichage du message d'erreur SDL. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>Chaîne de caractères contenant le message d'erreur. </td></tr>
+    <tr><td class="paramname">message</td><td>est une chaîne de caractères contenant le message d'erreur. </td></tr>
   </table>
   </dd>
 </dl>
@@ -189,12 +165,16 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="error_8c_abed124ab111ee095d48f08e2a3ea4446_icgraph.png" border="0" usemap="#aerror_8c_abed124ab111ee095d48f08e2a3ea4446_icgraph" alt=""/></div>
 <map name="aerror_8c_abed124ab111ee095d48f08e2a3ea4446_icgraph" id="aerror_8c_abed124ab111ee095d48f08e2a3ea4446_icgraph">
-<area shape="rect" title="Affichage du message d&#39;erreur SDL." alt="" coords="440,77,572,104"/>
-<area shape="rect" href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c" title="Permet la creation du l&#39;objet character." alt="" coords="103,27,221,53"/>
-<area shape="rect" href="town_8c.html#a72cf6d0a6d5462944c991fa4b69348dc" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="5,77,55,104"/>
-<area shape="rect" href="character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title=" " alt="" coords="269,27,392,53"/>
-<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="305,128,356,155"/>
-<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="117,153,207,180"/>
+<area shape="rect" title="Affichage du message d&#39;erreur SDL." alt="" coords="543,170,675,196"/>
+<area shape="rect" href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c" title="Permet la creation du l&#39;objet character." alt="" coords="205,119,324,146"/>
+<area shape="rect" href="tower_8c.html#a5e18de5ae9ec4cdc412e4185fd406d4f" title="A FINIR." alt="" coords="104,119,157,146"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,144,56,171"/>
+<area shape="rect" href="town_8c.html#ad3caf70b1e2bb0ee8a50877428e619f9" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,170,155,196"/>
+<area shape="rect" href="character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="372,68,495,95"/>
+<area shape="rect" href="creation__perso_8c.html#a866747257b7cfa449995c14606373f40" title="A FINIR." alt="" coords="380,372,487,399"/>
+<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="219,170,310,196"/>
+<area shape="rect" href="map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="387,170,480,196"/>
+<area shape="rect" href="menu__accueil_8c.html#a5dcbd25307bd65c6942bc28d021b6d82" title="A FINIR." alt="" coords="213,322,316,348"/>
 </map>
 </div>
 

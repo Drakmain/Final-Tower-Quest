@@ -3,6 +3,6 @@
 
 #include "commun.h"
 
-extern void town(SDL_Renderer * render, SDL_bool * program_launch);
+extern void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch);
 
 #endif

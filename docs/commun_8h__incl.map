@@ -1,5 +1,6 @@
 <map id="src/commun.h" name="src/commun.h">
-<area shape="rect" id="node1" title="Définitions de structure et constante commune." alt="" coords="23,5,129,32"/>
+<area shape="rect" id="node1" title="Définitions de structure et de constante commune." alt="" coords="74,5,179,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,64,107"/>
-<area shape="rect" id="node3" href="$error_8h_source.html" title=" " alt="" coords="88,80,147,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="89,80,165,107"/>
+<area shape="rect" id="node4" href="$error_8h_source.html" title=" " alt="" coords="189,80,248,107"/>
 </map>

@@ -13,9 +13,6 @@
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,18 +31,12 @@
 </div>
 <!-- end header part -->
 <!-- Généré par Doxygen 1.9.1 -->
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
-/* @license-end */
-</script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Recherche');
-  $(document).ready(function() { init_search(); });
+  initMenu('',false,false,'search.php','Recherche');
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
@@ -66,42 +57,31 @@ $(document).ready(function(){initNavTree('commun_8h.html',''); initResizable(); 
 /* @license-end */
 </script>
 <div id="doc-content">
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Structures de données</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Définitions de type</a>  </div>
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#enum-members">Énumérations</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier commun.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Définitions de structure et constante commune.  
+<p>Définitions de structure et de constante commune.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;SDL.h&gt;</code><br />
+<code>#include &lt;SDL_ttf.h&gt;</code><br />
 <code>#include &quot;error.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de commun.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="commun_8h__incl.png" border="0" usemap="#asrc_2commun_8h" alt=""/></div>
 <map name="asrc_2commun_8h" id="asrc_2commun_8h">
-<area shape="rect" title="Définitions de structure et constante commune." alt="" coords="23,5,129,32"/>
+<area shape="rect" title="Définitions de structure et de constante commune." alt="" coords="74,5,179,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,64,107"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="88,80,147,107"/>
+<area shape="rect" title=" " alt="" coords="89,80,165,107"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="189,80,248,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -109,16 +89,28 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <div class="dyncontent">
 <div class="center"><img src="commun_8h__dep__incl.png" border="0" usemap="#asrc_2commun_8hdep" alt=""/></div>
 <map name="asrc_2commun_8hdep" id="asrc_2commun_8hdep">
-<area shape="rect" title="Définitions de structure et constante commune." alt="" coords="165,5,270,32"/>
-<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="163,80,272,107"/>
-<area shape="rect" href="main_8c.html" title="Ficher principale du jeu." alt="" coords="55,155,137,181"/>
-<area shape="rect" href="frame_8h_source.html" title=" " alt="" coords="401,80,487,107"/>
-<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="296,80,376,107"/>
-<area shape="rect" href="town_8h_source.html" title=" " alt="" coords="5,80,88,107"/>
-<area shape="rect" href="character_8c.html" title="Gestion de l&#39;objet character." alt="" coords="161,155,271,181"/>
-<area shape="rect" href="town_8c.html" title="Gestion de la map town." alt="" coords="295,155,377,181"/>
-<area shape="rect" href="frame_8c.html" title="Gestion des FPS." alt="" coords="506,155,593,181"/>
-<area shape="rect" href="map_8c.html" title="Gestion de l&#39;objet map." alt="" coords="401,155,481,181"/>
+<area shape="rect" title="Définitions de structure et de constante commune." alt="" coords="641,5,746,32"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="113,80,223,107"/>
+<area shape="rect" href="charger__partie_8h_source.html" title=" " alt="" coords="1054,80,1191,107"/>
+<area shape="rect" href="creation__perso_8h_source.html" title=" " alt="" coords="1337,80,1477,107"/>
+<area shape="rect" href="frame_8h_source.html" title=" " alt="" coords="351,80,438,107"/>
+<area shape="rect" href="main_8c.html" title="Ficher principale du jeu." alt="" coords="613,155,696,181"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="247,80,327,107"/>
+<area shape="rect" href="menu__accueil_8h_source.html" title=" " alt="" coords="731,80,866,107"/>
+<area shape="rect" href="nouvelle__partie_8h_source.html" title=" " alt="" coords="890,80,1030,107"/>
+<area shape="rect" href="options_8h_source.html" title=" " alt="" coords="1215,80,1313,107"/>
+<area shape="rect" href="tower_8h_source.html" title=" " alt="" coords="462,80,549,107"/>
+<area shape="rect" href="town_8h_source.html" title=" " alt="" coords="573,80,656,107"/>
+<area shape="rect" href="character_8c.html" title="Gestion de l&#39;objet character." alt="" coords="5,155,115,181"/>
+<area shape="rect" href="tower_8c.html" title="Gestion de la map tower." alt="" coords="243,155,330,181"/>
+<area shape="rect" href="town_8c.html" title="Gestion de la map town." alt="" coords="355,155,437,181"/>
+<area shape="rect" href="charger__partie_8c.html" title="charger partie." alt="" coords="1054,155,1191,181"/>
+<area shape="rect" href="menu__accueil_8c.html" title="Menu d&#39;accueil." alt="" coords="894,155,1029,181"/>
+<area shape="rect" href="creation__perso_8c.html" title="Creation d&#39;un perosnnage." alt="" coords="1501,155,1641,181"/>
+<area shape="rect" href="nouvelle__partie_8c.html" title="nouvelle partie." alt="" coords="1337,155,1477,181"/>
+<area shape="rect" href="frame_8c.html" title="Gestion des FPS." alt="" coords="462,155,549,181"/>
+<area shape="rect" href="map_8c.html" title="Gestion de l&#39;objet map." alt="" coords="139,155,219,181"/>
+<area shape="rect" href="options_8c.html" title="affichage et gestion des options." alt="" coords="1215,155,1313,181"/>
 </map>
 </div>
 </div>
@@ -131,25 +123,249 @@ Structures de données</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ab7ffb5a0ee7b15aecd0b32e84b93e2ee"><td class="memItemLeft" align="right" valign="top"><a id="ab7ffb5a0ee7b15aecd0b32e84b93e2ee"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MULTIPLIER</b>&#160;&#160;&#160;5</td></tr>
+<tr class="memitem:ab7ffb5a0ee7b15aecd0b32e84b93e2ee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#ab7ffb5a0ee7b15aecd0b32e84b93e2ee">MULTIPLIER</a>&#160;&#160;&#160;7.5</td></tr>
 <tr class="separator:ab7ffb5a0ee7b15aecd0b32e84b93e2ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a479de3d6f219f86d5e7f6b040afab6b3"><td class="memItemLeft" align="right" valign="top"><a id="a479de3d6f219f86d5e7f6b040afab6b3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>WINDOWWIDTH</b>&#160;&#160;&#160;1600</td></tr>
-<tr class="separator:a479de3d6f219f86d5e7f6b040afab6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e690f30556eeca9fffa6dc4ba19b07f"><td class="memItemLeft" align="right" valign="top"><a id="a9e690f30556eeca9fffa6dc4ba19b07f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>WINDOWHEIGHT</b>&#160;&#160;&#160;900</td></tr>
-<tr class="separator:a9e690f30556eeca9fffa6dc4ba19b07f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d9e3bca6d853fa3e9a49b06b6ad11a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#a0d9e3bca6d853fa3e9a49b06b6ad11a7">WINDOWWIDTH_480P</a>&#160;&#160;&#160;720</td></tr>
+<tr class="separator:a0d9e3bca6d853fa3e9a49b06b6ad11a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67c26123615d05cd97aba9ca5ad77cf2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#a67c26123615d05cd97aba9ca5ad77cf2">WINDOWHEIGHT_480P</a>&#160;&#160;&#160;480</td></tr>
+<tr class="separator:a67c26123615d05cd97aba9ca5ad77cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ad4273fc1f6a56c177e67a57b99cfd1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#a8ad4273fc1f6a56c177e67a57b99cfd1">WINDOWWIDTH_720P</a>&#160;&#160;&#160;1280</td></tr>
+<tr class="separator:a8ad4273fc1f6a56c177e67a57b99cfd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9a0aaa1bdb3ddb17b47e52e00ea0416"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#af9a0aaa1bdb3ddb17b47e52e00ea0416">WINDOWHEIGHT_720P</a>&#160;&#160;&#160;720</td></tr>
+<tr class="separator:af9a0aaa1bdb3ddb17b47e52e00ea0416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0156d7658bf1754d013fcc4646161f6a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#a0156d7658bf1754d013fcc4646161f6a">WINDOWWIDTH_900P</a>&#160;&#160;&#160;1600</td></tr>
+<tr class="separator:a0156d7658bf1754d013fcc4646161f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad03772c84f9fb029154b64556ee09fcf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#ad03772c84f9fb029154b64556ee09fcf">WINDOWHEIGHT_900P</a>&#160;&#160;&#160;900</td></tr>
+<tr class="separator:ad03772c84f9fb029154b64556ee09fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe56589fde1c1e4700401937979f2c8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#abe56589fde1c1e4700401937979f2c8d">WINDOWWIDTH_1080P</a>&#160;&#160;&#160;1920</td></tr>
+<tr class="separator:abe56589fde1c1e4700401937979f2c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a062499078b0d3600b49488ef8e18dfb2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#a062499078b0d3600b49488ef8e18dfb2">WINDOWHEIGHT_1080P</a>&#160;&#160;&#160;1080</td></tr>
+<tr class="separator:a062499078b0d3600b49488ef8e18dfb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8281e268265dc2c6f9ff2c1945e8175d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#a8281e268265dc2c6f9ff2c1945e8175d">WINDOWWIDTH_1440P</a>&#160;&#160;&#160;2560</td></tr>
+<tr class="separator:a8281e268265dc2c6f9ff2c1945e8175d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a246cbf13f33a9607cde518ddf2cef1d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#a246cbf13f33a9607cde518ddf2cef1d2">WINDOWHEIGHT_1440P</a>&#160;&#160;&#160;1440</td></tr>
+<tr class="separator:a246cbf13f33a9607cde518ddf2cef1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Définitions de type</h2></td></tr>
 <tr class="memitem:a3694a13efc961058b2598ffeac791247"><td class="memItemLeft" align="right" valign="top"><a id="a3694a13efc961058b2598ffeac791247"></a>
 typedef struct <a class="el" href="structtile__set__s.html">tile_set_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tile_set_t</b></td></tr>
 <tr class="separator:a3694a13efc961058b2598ffeac791247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a1e73d457e8d624402184ba926a3d0e14"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun_8h.html#a1e73d457e8d624402184ba926a3d0e14">resolution_e</a> { <br />
+&#160;&#160;<a class="el" href="commun_8h.html#a1e73d457e8d624402184ba926a3d0e14a07ce4133b7bfd69ec051637f6a41662f">RES_480P</a>
+, <a class="el" href="commun_8h.html#a1e73d457e8d624402184ba926a3d0e14a9470c910c3c1d49c14442b99a02a6dc3">RES_720P</a>
+, <a class="el" href="commun_8h.html#a1e73d457e8d624402184ba926a3d0e14a760c99d140f824370c06bd74e95dd14b">RES_900P</a>
+, <a class="el" href="commun_8h.html#a1e73d457e8d624402184ba926a3d0e14a9df3830239dc9659861da99dd06d8765">RES_1080P</a>
+, <br />
+&#160;&#160;<a class="el" href="commun_8h.html#a1e73d457e8d624402184ba926a3d0e14a2de90309a1282d0b475068fe1e48ea67">RES_1440P</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a1e73d457e8d624402184ba926a3d0e14"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="commun_8h.html#a1e73d457e8d624402184ba926a3d0e14">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1e73d457e8d624402184ba926a3d0e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Définitions de structure et constante commune. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>Définitions de structure et de constante commune. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Enzo BRENNUS </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18/02/21 </dd></dl>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="ab7ffb5a0ee7b15aecd0b32e84b93e2ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7ffb5a0ee7b15aecd0b32e84b93e2ee">&#9670;&nbsp;</a></span>MULTIPLIER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MULTIPLIER&#160;&#160;&#160;7.5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A FINIR </p>
+
+</div>
+</div>
+<a id="a062499078b0d3600b49488ef8e18dfb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a062499078b0d3600b49488ef8e18dfb2">&#9670;&nbsp;</a></span>WINDOWHEIGHT_1080P</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOWHEIGHT_1080P&#160;&#160;&#160;1080</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constante de la hauteur d'une reoslution 1080 (16:9). </p>
+
+</div>
+</div>
+<a id="a246cbf13f33a9607cde518ddf2cef1d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a246cbf13f33a9607cde518ddf2cef1d2">&#9670;&nbsp;</a></span>WINDOWHEIGHT_1440P</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOWHEIGHT_1440P&#160;&#160;&#160;1440</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constante de la hauteur d'une reoslution 1440p (16:9). </p>
+
+</div>
+</div>
+<a id="a67c26123615d05cd97aba9ca5ad77cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67c26123615d05cd97aba9ca5ad77cf2">&#9670;&nbsp;</a></span>WINDOWHEIGHT_480P</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOWHEIGHT_480P&#160;&#160;&#160;480</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constante de la hauteur d'une reoslution 480p (16:9). </p>
+
+</div>
+</div>
+<a id="af9a0aaa1bdb3ddb17b47e52e00ea0416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9a0aaa1bdb3ddb17b47e52e00ea0416">&#9670;&nbsp;</a></span>WINDOWHEIGHT_720P</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOWHEIGHT_720P&#160;&#160;&#160;720</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constante de la hauteur d'une reoslution 720p (16:9). </p>
+
+</div>
+</div>
+<a id="ad03772c84f9fb029154b64556ee09fcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad03772c84f9fb029154b64556ee09fcf">&#9670;&nbsp;</a></span>WINDOWHEIGHT_900P</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOWHEIGHT_900P&#160;&#160;&#160;900</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constante de la hauteur d'une reoslution 900p (16:9). </p>
+
+</div>
+</div>
+<a id="abe56589fde1c1e4700401937979f2c8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe56589fde1c1e4700401937979f2c8d">&#9670;&nbsp;</a></span>WINDOWWIDTH_1080P</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOWWIDTH_1080P&#160;&#160;&#160;1920</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constante de la largeur d'une reoslution 1080 (16:9). </p>
+
+</div>
+</div>
+<a id="a8281e268265dc2c6f9ff2c1945e8175d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8281e268265dc2c6f9ff2c1945e8175d">&#9670;&nbsp;</a></span>WINDOWWIDTH_1440P</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOWWIDTH_1440P&#160;&#160;&#160;2560</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constante de la largeur d'une reoslution 1440p (16:9). </p>
+
+</div>
+</div>
+<a id="a0d9e3bca6d853fa3e9a49b06b6ad11a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d9e3bca6d853fa3e9a49b06b6ad11a7">&#9670;&nbsp;</a></span>WINDOWWIDTH_480P</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOWWIDTH_480P&#160;&#160;&#160;720</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constante de la largeur d'une reoslution 480p (16:9). </p>
+
+</div>
+</div>
+<a id="a8ad4273fc1f6a56c177e67a57b99cfd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ad4273fc1f6a56c177e67a57b99cfd1">&#9670;&nbsp;</a></span>WINDOWWIDTH_720P</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOWWIDTH_720P&#160;&#160;&#160;1280</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constante de la largeur d'une reoslution 720p (16:9). </p>
+
+</div>
+</div>
+<a id="a0156d7658bf1754d013fcc4646161f6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0156d7658bf1754d013fcc4646161f6a">&#9670;&nbsp;</a></span>WINDOWWIDTH_900P</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOWWIDTH_900P&#160;&#160;&#160;1600</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constante de la largeur d'une reoslution 900p (16:9). </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a1e73d457e8d624402184ba926a3d0e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e73d457e8d624402184ba926a3d0e14">&#9670;&nbsp;</a></span>resolution_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="commun_8h.html#a1e73d457e8d624402184ba926a3d0e14">resolution_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A FINIR. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a1e73d457e8d624402184ba926a3d0e14a07ce4133b7bfd69ec051637f6a41662f"></a>RES_480P&#160;</td><td class="fielddoc"><p>Type énuméré pour la resolution 480p (16:9); </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1e73d457e8d624402184ba926a3d0e14a9470c910c3c1d49c14442b99a02a6dc3"></a>RES_720P&#160;</td><td class="fielddoc"><p>Type énuméré pour la resolution 720p (16:9). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1e73d457e8d624402184ba926a3d0e14a760c99d140f824370c06bd74e95dd14b"></a>RES_900P&#160;</td><td class="fielddoc"><p>Type énuméré pour la resolution 900p (16:9). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1e73d457e8d624402184ba926a3d0e14a9df3830239dc9659861da99dd06d8765"></a>RES_1080P&#160;</td><td class="fielddoc"><p>Type énuméré pour la resolution 1080 (16:9). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1e73d457e8d624402184ba926a3d0e14a2de90309a1282d0b475068fe1e48ea67"></a>RES_1440P&#160;</td><td class="fielddoc"><p>Type énuméré pour la resolution 1440p (16:9). </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

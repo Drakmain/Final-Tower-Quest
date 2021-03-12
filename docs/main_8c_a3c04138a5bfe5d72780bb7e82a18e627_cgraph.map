@@ -1,4 +1,15 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
-<area shape="rect" id="node2" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="104,5,236,32"/>
+<area shape="rect" id="node1" title="Fonction principale du jeu." alt="" coords="5,96,56,123"/>
+<area shape="rect" id="node2" href="$menu__accueil_8c.html#a5dcbd25307bd65c6942bc28d021b6d82" title="A FINIR." alt="" coords="104,57,207,84"/>
+<area shape="rect" id="node3" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="592,147,724,173"/>
+<area shape="rect" id="node4" href="$tower_8c.html#a5e18de5ae9ec4cdc412e4185fd406d4f" title="A FINIR." alt="" coords="129,260,182,287"/>
+<area shape="rect" id="node13" href="$town_8c.html#ad3caf70b1e2bb0ee8a50877428e619f9" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="131,184,180,211"/>
+<area shape="rect" id="node5" href="$character_8c.html#add7f6731bd4f2907cd0e89009a5e581c" title="Permet la creation du l&#39;objet character." alt="" coords="255,147,373,173"/>
+<area shape="rect" id="node8" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="429,273,536,300"/>
+<area shape="rect" id="node9" href="$map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="269,349,359,376"/>
+<area shape="rect" id="node12" href="$frame_8c.html#aff4977623e1b4fedc515c1933967f4cd" title="A FINIR." alt="" coords="265,248,363,275"/>
+<area shape="rect" id="node6" href="$character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="431,223,535,249"/>
+<area shape="rect" id="node7" href="$character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="421,172,544,199"/>
+<area shape="rect" id="node10" href="$map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="445,324,520,351"/>
+<area shape="rect" id="node11" href="$map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="436,375,529,401"/>
 </map>

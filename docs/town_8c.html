@@ -13,9 +13,6 @@
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,18 +31,12 @@
 </div>
 <!-- end header part -->
 <!-- Généré par Doxygen 1.9.1 -->
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
-/* @license-end */
-</script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Recherche');
-  $(document).ready(function() { init_search(); });
+  initMenu('',false,false,'search.php','Recherche');
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
@@ -66,20 +57,6 @@ $(document).ready(function(){initNavTree('town_8c.html',''); initResizable(); })
 /* @license-end */
 </script>
 <div id="doc-content">
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div class="header">
   <div class="summary">
 <a href="#func-members">Fonctions</a>  </div>
@@ -92,51 +69,66 @@ $(document).ready(function(){initNavTree('town_8c.html',''); initResizable(); })
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;town.h&quot;</code><br />
+<code>#include &quot;frame.h&quot;</code><br />
 <code>#include &quot;map.h&quot;</code><br />
 <code>#include &quot;character.h&quot;</code><br />
-<code>#include &quot;frame.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de town.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="town_8c__incl.png" border="0" usemap="#asrc_2town_8c" alt=""/></div>
 <map name="asrc_2town_8c" id="asrc_2town_8c">
-<area shape="rect" title="Gestion de la map town." alt="" coords="167,5,249,32"/>
+<area shape="rect" title="Gestion de la map town." alt="" coords="211,5,293,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
-<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="179,80,237,107"/>
-<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="262,80,349,107"/>
-<area shape="rect" href="frame_8h_source.html" title=" " alt="" coords="373,80,438,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et constante commune." alt="" coords="264,155,347,181"/>
-<area shape="rect" title=" " alt="" coords="235,229,293,256"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="317,229,376,256"/>
+<area shape="rect" href="town_8h_source.html" title=" " alt="" coords="179,80,239,107"/>
+<area shape="rect" href="frame_8h_source.html" title=" " alt="" coords="263,80,329,107"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="353,80,412,107"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="437,80,523,107"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="297,155,380,181"/>
+<area shape="rect" title=" " alt="" coords="217,229,276,256"/>
+<area shape="rect" title=" " alt="" coords="301,229,377,256"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="401,229,460,256"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a72cf6d0a6d5462944c991fa4b69348dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="town_8c.html#a72cf6d0a6d5462944c991fa4b69348dc">town</a> (SDL_Renderer *render, SDL_bool *program_launch)</td></tr>
-<tr class="memdesc:a72cf6d0a6d5462944c991fa4b69348dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la gestion de la premier map du jeu (town).  <a href="town_8c.html#a72cf6d0a6d5462944c991fa4b69348dc">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a72cf6d0a6d5462944c991fa4b69348dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff6d6f3b0128f5a6f406c18981a3033b"><td class="memItemLeft" align="right" valign="top"><a id="aff6d6f3b0128f5a6f406c18981a3033b"></a>
+Uint8 *&#160;</td><td class="memItemRight" valign="bottom"><b>pixel</b> (SDL_Surface *surface, int x, int y)</td></tr>
+<tr class="separator:aff6d6f3b0128f5a6f406c18981a3033b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3caf70b1e2bb0ee8a50877428e619f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="town_8c.html#ad3caf70b1e2bb0ee8a50877428e619f9">town</a> (SDL_Renderer *render, int *WINDOWWIDTH, int *WINDOWHEIGHT, SDL_bool *program_launch)</td></tr>
+<tr class="memdesc:ad3caf70b1e2bb0ee8a50877428e619f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la gestion de la premier map du jeu (town).  <a href="town_8c.html#ad3caf70b1e2bb0ee8a50877428e619f9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad3caf70b1e2bb0ee8a50877428e619f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Gestion de la map town. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Robin PAPILLON, Alexis BOUFFARD, Jeremy BOURGOUIN, Enzo BRENNUS </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>12/02/21</dd></dl>
-<h1><a class="anchor" id="DESCRIPTION"></a>
-DESCRIPTION</h1>
-<p>Ficher <a class="el" href="town_8c.html" title="Gestion de la map town.">town.c</a> ... A FINIR </p>
+<dl class="section author"><dt>Auteur</dt><dd>Enzo BRENNUS </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18/02/21 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a72cf6d0a6d5462944c991fa4b69348dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72cf6d0a6d5462944c991fa4b69348dc">&#9670;&nbsp;</a></span>town()</h2>
+<a id="ad3caf70b1e2bb0ee8a50877428e619f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3caf70b1e2bb0ee8a50877428e619f9">&#9670;&nbsp;</a></span>town()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void town </td>
+          <td class="memname">town </td>
           <td>(</td>
           <td class="paramtype">SDL_Renderer *&#160;</td>
           <td class="paramname"><em>render</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>WINDOWWIDTH</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>WINDOWHEIGHT</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -155,23 +147,37 @@ DESCRIPTION</h1>
 <p>Permet la gestion de la premier map du jeu (town). </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">render</td><td>Pointeur sur le rendu SDL. </td></tr>
-    <tr><td class="paramname">program_launch</td><td>A FINIR </td></tr>
+    <tr><td class="paramname">render</td><td>est un pointeur sur le rendu SDL. </td></tr>
+    <tr><td class="paramname">WINDOWWIDTH</td><td>est la largeur de la fenetre. </td></tr>
+    <tr><td class="paramname">WINDOWHEIGHT</td><td>est la hauteur de la fenetre. </td></tr>
+    <tr><td class="paramname">program_launch</td><td>A FINIR. </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="town_8c_a72cf6d0a6d5462944c991fa4b69348dc_cgraph.png" border="0" usemap="#atown_8c_a72cf6d0a6d5462944c991fa4b69348dc_cgraph" alt=""/></div>
-<map name="atown_8c_a72cf6d0a6d5462944c991fa4b69348dc_cgraph" id="atown_8c_a72cf6d0a6d5462944c991fa4b69348dc_cgraph">
-<area shape="rect" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="5,65,55,92"/>
-<area shape="rect" href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c" title="Permet la creation du l&#39;objet character." alt="" coords="103,141,221,168"/>
-<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="440,116,572,143"/>
-<area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="277,91,384,117"/>
-<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="117,40,207,67"/>
-<area shape="rect" href="character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation de l&#39;objet character." alt="" coords="279,141,383,168"/>
-<area shape="rect" href="character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title=" " alt="" coords="269,192,392,219"/>
+<div class="center"><img src="town_8c_ad3caf70b1e2bb0ee8a50877428e619f9_cgraph.png" border="0" usemap="#atown_8c_ad3caf70b1e2bb0ee8a50877428e619f9_cgraph" alt=""/></div>
+<map name="atown_8c_ad3caf70b1e2bb0ee8a50877428e619f9_cgraph" id="atown_8c_ad3caf70b1e2bb0ee8a50877428e619f9_cgraph">
+<area shape="rect" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="5,181,55,208"/>
+<area shape="rect" href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c" title="Permet la creation du l&#39;objet character." alt="" coords="103,232,221,258"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="440,80,572,106"/>
+<area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="277,181,384,208"/>
+<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="117,130,207,157"/>
+<area shape="rect" href="frame_8c.html#aff4977623e1b4fedc515c1933967f4cd" title="A FINIR." alt="" coords="113,282,211,309"/>
+<area shape="rect" href="character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="279,232,383,258"/>
+<area shape="rect" href="character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="269,282,392,309"/>
+<area shape="rect" href="map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="293,130,368,157"/>
+<area shape="rect" href="map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="284,29,377,56"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="town_8c_ad3caf70b1e2bb0ee8a50877428e619f9_icgraph.png" border="0" usemap="#atown_8c_ad3caf70b1e2bb0ee8a50877428e619f9_icgraph" alt=""/></div>
+<map name="atown_8c_ad3caf70b1e2bb0ee8a50877428e619f9_icgraph" id="atown_8c_ad3caf70b1e2bb0ee8a50877428e619f9_icgraph">
+<area shape="rect" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="104,5,153,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
 </map>
 </div>
 
