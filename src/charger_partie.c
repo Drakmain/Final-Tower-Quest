@@ -9,34 +9,33 @@
  * \file charger_partie.c
  * \brief charger partie.
  * \author Jeremy BOURGOUIN
- * \date 16/03/21
+ * \date 12/03/21
  *
  */
 
 
 /*!
  *
- * \fn charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font *police, SDL_bool * program_launch, FILE * save)
- * \brief A FINIR.
+ * \fn void charger_partie_f(SDL_Renderer *render, int *windowwidth, int *windowheight,SDL_bool* program_launch)
+ * \brief A FINIR
  *
- * \param render est un pointeur sur le rendu SDL.
- * \param windowwidth est la largeur de la fenetre.
- * \param windowheight est la hauteur de la fenetre.
- * \param police A FINIR.
- * \param program_launch est un pointeur sur un booléen.
- * \param save A FINIR.
+ * \param render render est un pointeur sur le rendu SDL.s
+ * \param *windowwidth A FINIR
+ * \param *windowheight A FINIR
+ * \param program_launch est un pointeur booléen.
  *
  */
 
 extern
-void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save){
+void charger_partie_f(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch){
 
     /*--- Initialization variable ------------------------------------------------*/
-
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
     SDL_Surface *surf_save1 = NULL, *surf_save2 = NULL, *surf_save3 = NULL, *surf_cadre = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_choisir_empla = NULL;
+
+
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 

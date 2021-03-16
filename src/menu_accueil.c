@@ -13,27 +13,25 @@
  * \file menu_accueil.c
  * \brief Menu d'accueil.
  * \author Jeremy BOURGOUIN
- * \date 16/03/21
+ * \date 10/02/21
  *
  */
 
 
 /*!
  *
- * \fn menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save)
- * \brief A FINIR.
+ * \fn menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, int *windowheight,SDL_bool * program_launch)
+ * \brief A FINIR
  *
- * \param render est un pointeur sur le rendu SDL.
- * \param windowwidth est la largeur de la fenetre.
- * \param windowheight est la hauteur de la fenetre.
- * \param police A FINIR.
- * \param program_launch est un pointeur sur un booléen.
- * \param save A FINIR.
+ * \param render render est un pointeur sur le rendu SDL.s
+ * \param *windowwidth A FINIR
+ * \param *windowheight A FINIR
+ * \param program_launch est un pointeur booléen.
  *
  */
 
 extern
-void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police,SDL_bool * etat_fullscreen, SDL_bool * program_launch, FILE * save){
+void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police,SDL_bool * etat_fullscreen, SDL_bool * program_launch){
 
     /*--- Initialization variable ------------------------------------------------*/
     SDL_Color blanc = {255,255,255};
@@ -283,11 +281,11 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, 
 
                 if(selection == 0)
                 {
-                    nouvelle_partie_f(render, windowwidth, windowheight, police, program_launch, save);
+                    nouvelle_partie_f(render, windowwidth, windowheight, police, program_launch);
                 }
                 if(selection == 1)
                 {
-                    charger_partie_f(render, windowwidth, windowheight, police, program_launch, save);
+                    charger_partie_f(render, windowwidth, windowheight, police, program_launch);
                 }
                 if(selection == 2)
                 {

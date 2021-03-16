@@ -23,21 +23,20 @@ Uint8 * pixel(SDL_Surface * surface, int x, int y)
 }
 
 
-/*!
- *
- * \fn town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch)
- * \brief Permet la gestion de la premier map du jeu (town).
- *
- * \param render est un pointeur sur le rendu SDL.
- * \param WINDOWWIDTH est la largeur de la fenetre.
- * \param WINDOWHEIGHT est la hauteur de la fenetre.
- * \param program_launch est un pointeur sur un booléen.
- *
- */
+ /*!
+  *
+  * \fn town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch)
+  * \brief Permet la gestion de la premier map du jeu (town).
+  *
+  * \param render est un pointeur sur le rendu SDL.
+  * \param WINDOWWIDTH est la largeur de la fenetre.
+  * \param WINDOWHEIGHT est la hauteur de la fenetre.
+  * \param program_launch A FINIR.
+  *
+  */
 
 extern
 void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch){
-
 
     /*--- Initialization Variable ------------------------------------------------*/
 

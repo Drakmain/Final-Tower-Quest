@@ -8,21 +8,21 @@
  * \file options.c
  * \brief affichage et gestion des options.
  * \author Jeremy BOURGOUIN
- * \date 16/03/21
+ * \date 12/03/21
  *
  */
 
 
 /*!
  *
- * \fn options_f(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch)
- * \brief A FINIR.
+ * \fn options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *windowheight, SDL_bool* program_launch)
+ * \brief A FINIR
  *
- * \param render est un pointeur sur le rendu SDL.
- * \param windowwidth est la largeur de la fenetre.
- * \param windowheight est la hauteur de la fenetre.
- * \param police A FINIR.
- * \param program_launch est un pointeur sur un booléen.
+ * \param window A FINIR
+ * \param render render est un pointeur sur le rendu SDL.
+ * \param *windowwidth A FINIR
+ * \param *windowheight A FINIR
+ * \param program_launch program_launch est un pointeur booléen.
  *
  */
 
@@ -32,7 +32,7 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
-    SDL_Surface* surf_options = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_cadre = NULL, *surf_opt_resolution = NULL, *surf_choix_resolution = NULL, *surf_opt_fullscreen = NULL, *surf_choix_fullscreen = NULL;
+    SDL_Surface* surf_options = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_cadre = NULL, *surf_opt_resolution = NULL, *surf_choix_resolution = NULL, *surf_opt_fullscreen = NULL, *surf_choix_fullscreen = NULL, *surf_fleche = NULL;
 
     /*---texture "options"--------------------------------------------------------*/
     surf_options = TTF_RenderText_Blended(police, "OPTIONS", blanc);
@@ -169,6 +169,38 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     SDL_SetRenderTarget(render,NULL);
 
     /*------------------------------------------------------------------------------------*/
+    /*---texture fleche--------------------------------------------------------*/
+
+    surf_fleche = SDL_LoadBMP("src\\image\\fleche.bmp");
+    if(surf_fleche == NULL){
+        SDL_ExitWithError("probleme chargement image fleche gauche et droite");
+    }
+
+    SDL_Rect rect_fleche_gauche;
+    rect_fleche_gauche.x = 39;
+    rect_fleche_gauche.y = 0;
+    rect_fleche_gauche.w = 38;
+    rect_fleche_gauche.h = 28;
+
+    SDL_Texture* fleche_gauche = SDL_CreateTextureFromSurface(render, surf_fleche);
+    if(fleche_gauche == NULL){
+        SDL_ExitWithError("probleme texture fleche gauche");
+    }
+
+    SDL_Rect pos_fleche_gauche;
+
+    SDL_Texture* fleche_droite = SDL_CreateTextureFromSurface(render, surf_fleche);
+    if(fleche_droite == NULL){
+        SDL_ExitWithError("probleme texture fleche droite");
+    }
+    SDL_Rect rect_fleche_droite;
+    rect_fleche_droite.x = 0;
+    rect_fleche_droite.y = 0;
+    rect_fleche_droite.w = 38;
+    rect_fleche_droite.h = 28;
+
+    SDL_Rect pos_fleche_droite;
+    /*------------------------------------------------------------------------------------*/
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -218,6 +250,15 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
                 surf_opt_fullscreen = TTF_RenderText_Blended(police, "Plein ecran", blanc);
                 surf_retour = TTF_RenderText_Blended(police, "Retour", blanc);
 
+                pos_fleche_gauche.x = pos_choix_resolution.x - *windowheight*40/1280 * 38 / 28 - *windowwidth*20/1280;
+                pos_fleche_gauche.y = pos_choix_resolution.y + *windowwidth*19/1280;
+                pos_fleche_gauche.w = *windowheight*40/1280 * 38 / 28;
+                pos_fleche_gauche.h = *windowheight*40/1280;
+
+                pos_fleche_droite.x = pos_choix_resolution.x + pos_choix_resolution.w + *windowwidth*20/1280;
+                pos_fleche_droite.y = pos_choix_resolution.y + *windowwidth*19/1280;
+                pos_fleche_droite.w = *windowheight*40/1280 * 38 / 28;
+                pos_fleche_droite.h = *windowheight*40/1280;
                 /*--- Event pour choix resolution ------------------------------------------*/
                 if (keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN)
                 {
@@ -235,21 +276,29 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
                             *windowheight = 720;
                             surf_choix_resolution = TTF_RenderText_Blended(police, "1280x720", blanc);
                             choix_resolution = SDL_CreateTextureFromSurface(render, surf_choix_resolution);
+                            fleche_gauche = NULL;
+                            fleche_droite = SDL_CreateTextureFromSurface(render, surf_fleche);
                             break;
                     case 1: *windowwidth = 1600;
                             *windowheight = 900;
                             surf_choix_resolution = TTF_RenderText_Blended(police, "1600x900", blanc);
                             choix_resolution = SDL_CreateTextureFromSurface(render, surf_choix_resolution);
+                            fleche_gauche = SDL_CreateTextureFromSurface(render, surf_fleche);
+                            fleche_droite = SDL_CreateTextureFromSurface(render, surf_fleche);
                             break;
                     case 2: *windowwidth = 1920;
                             *windowheight = 1080;
                             surf_choix_resolution = TTF_RenderText_Blended(police, "1920x1080", blanc);
                             choix_resolution = SDL_CreateTextureFromSurface(render, surf_choix_resolution);
+                            fleche_droite = SDL_CreateTextureFromSurface(render, surf_fleche);
+                            fleche_gauche = SDL_CreateTextureFromSurface(render, surf_fleche);
                             break;
                     case 3: *windowwidth = 2560;
                             *windowheight = 1440;
                             surf_choix_resolution = TTF_RenderText_Blended(police, "2560x1440", blanc);
                             choix_resolution = SDL_CreateTextureFromSurface(render, surf_choix_resolution);
+                            fleche_droite = NULL;
+                            fleche_gauche = SDL_CreateTextureFromSurface(render, surf_fleche);
                             break;
                 }
                 if(changement)SDL_SetWindowSize(window, *windowwidth, *windowheight);
@@ -261,6 +310,16 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
                 surf_opt_resolution = TTF_RenderText_Blended(police, "Resolution", blanc);
                 surf_opt_fullscreen = TTF_RenderText_Blended(police, "Plein ecran", rouge);
                 surf_retour = TTF_RenderText_Blended(police, "Retour", blanc);
+
+                pos_fleche_gauche.x = pos_choix_fullscreen.x - *windowheight*40/1280 * 38 / 28 - *windowwidth*20/1280;
+                pos_fleche_gauche.y = pos_choix_fullscreen.y + *windowwidth*23/1280;
+                pos_fleche_gauche.w = *windowheight*40/1280 * 38 / 28;
+                pos_fleche_gauche.h = *windowheight*40/1280;
+
+                pos_fleche_droite.x = pos_choix_fullscreen.x + pos_choix_fullscreen.w + *windowwidth*20/1280;
+                pos_fleche_droite.y = pos_choix_fullscreen.y + *windowwidth*23/1280;
+                pos_fleche_droite.w = *windowheight*40/1280 * 38 / 28;
+                pos_fleche_droite.h = *windowheight*40/1280;
 
                 /*--- Event pour choix plein ecran ------------------------------------------*/
                 if (keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN)
@@ -277,10 +336,14 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
                     case 0: SDL_SetWindowFullscreen(window, 0);
                             surf_choix_fullscreen = TTF_RenderText_Blended(police, "non", blanc);
                             choix_fullscreen = SDL_CreateTextureFromSurface(render, surf_choix_fullscreen);
+                            fleche_gauche = NULL;
+                            fleche_droite = SDL_CreateTextureFromSurface(render, surf_fleche);
                             break;
                     case 1: SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
                             surf_choix_fullscreen = TTF_RenderText_Blended(police, "oui", blanc);
                             choix_fullscreen = SDL_CreateTextureFromSurface(render, surf_choix_fullscreen);
+                            fleche_droite = NULL;
+                            fleche_gauche = SDL_CreateTextureFromSurface(render, surf_fleche);
                             break;
                 }
                 /*--- End Event pour choix resolution --------------------------------------*/
@@ -346,6 +409,16 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
             rect_fond_cadre.w = pos_fond_cadre.w - 2*rect_fond_cadre.x;
             rect_fond_cadre.h = pos_fond_cadre.h - 2*rect_fond_cadre.y;
 
+            rect_fleche_droite.x = 0;
+            rect_fleche_droite.y = 0;
+            rect_fleche_droite.w = 38;
+            rect_fleche_droite.h = 28;
+
+            rect_fleche_gauche.x = 39;
+            rect_fleche_gauche.y = 0;
+            rect_fleche_gauche.w = 38;
+            rect_fleche_gauche.h = 28;
+
             SDL_SetRenderDrawColor(render,0,0,0, 200);
             SDL_SetRenderTarget(render,fond_cadre);
             SDL_SetTextureBlendMode(fond_cadre, SDL_BLENDMODE_BLEND);
@@ -362,6 +435,8 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
             SDL_RenderCopy(render, choix_resolution, NULL, &pos_choix_resolution);
             SDL_RenderCopy(render, opt_fullscreen, NULL, &pos_opt_fullscreen);
             SDL_RenderCopy(render, choix_fullscreen, NULL, &pos_choix_fullscreen);
+            SDL_RenderCopy(render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);
+            SDL_RenderCopy(render, fleche_droite, &rect_fleche_droite, &pos_fleche_droite);
             SDL_RenderPresent(render);
 
 
