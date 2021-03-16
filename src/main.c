@@ -32,6 +32,7 @@ int main(int argc, char ** argv)
 {
 
     /*--- Print SDL Version ------------------------------------------------------*/
+
     printf("/*--- Startup SDL -------*/\n");
 
     SDL_version SDL;
@@ -49,13 +50,13 @@ int main(int argc, char ** argv)
 
     /*--- Initialization Variable ------------------------------------------------*/
 
-    SDL_bool program_launch = SDL_TRUE;
-    int i = WINDOWWIDTH_720P;
-    int j = WINDOWHEIGHT_720P;
-    int *WINDOWWIDTH = malloc(sizeof(int));
-    *WINDOWWIDTH = i;
-    int *WINDOWHEIGHT = malloc(sizeof(int));
-    *WINDOWHEIGHT = j;
+    SDL_bool * program_launch = malloc(sizeof(SDL_bool));
+    *program_launch = SDL_TRUE;
+
+    int * WINDOWWIDTH = malloc(sizeof(int));
+    *WINDOWWIDTH = WINDOWWIDTH_720P;
+    int * WINDOWHEIGHT = malloc(sizeof(int));
+    *WINDOWHEIGHT = WINDOWHEIGHT_720P;
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -72,6 +73,7 @@ int main(int argc, char ** argv)
     }
 
     /*--- End Initialization SDL Video -------------------------------------------*/
+
 
     /*--- Initialization SDL TTF -------------------------------------------------*/
 
@@ -123,25 +125,30 @@ int main(int argc, char ** argv)
     SDL_RenderPresent(render);
 
     printf("/*--- End Startup SDL ---*/\n\n");
+    
     /*--- End Creation Render ----------------------------------------------------*/
 
+
     /*--- Creation Police --------------------------------------------------------*/
+
     TTF_Font *police = NULL;
     police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf",50);
     if(police == NULL)
     {
         SDL_ExitWithError("probleme chargement police");
     }
+
     /*--- End Creation Police ----------------------------------------------------*/
+
 
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (program_launch)
     {
 
-        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, &program_launch);
-        town(render, WINDOWWIDTH, WINDOWHEIGHT, &program_launch);
-        tower(render, WINDOWWIDTH, WINDOWHEIGHT, &program_launch);
+        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, program_launch);
+        town(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
+        tower(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
 
     }
 
@@ -157,6 +164,11 @@ int main(int argc, char ** argv)
 
     SDL_DestroyWindow(window);
     printf("window destroyed\n");
+
+    free(WINDOWWIDTH);
+    free(WINDOWHEIGHT);
+
+    free(program_launch);
 
     printf("/*--- End Free Memory ---*/\n\n");
 
