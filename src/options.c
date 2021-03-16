@@ -69,6 +69,10 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     SDL_Texture* choix_resolution;
 
     SDL_Rect pos_choix_resolution;
+    pos_choix_resolution.x = *windowwidth/6 + *windowwidth*500/1200;
+    pos_choix_resolution.y = *windowheight/6.75 + *windowheight*30/675;
+    pos_choix_resolution.w = *windowwidth*173/1200;
+    pos_choix_resolution.h = *windowheight/13.5;
     /*------------------------------------------------------------------------------------*/
 
     /*---texture "option fullscreen"--------------------------------------------------------*/
@@ -107,6 +111,10 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     }
 
     SDL_Rect pos_choix_fullscreen;
+    pos_choix_fullscreen.x = *windowwidth/6 + *windowwidth*500/1200;
+    pos_choix_fullscreen.y = *windowheight/6.75 + *windowheight*100/675;
+    pos_choix_fullscreen.w = *windowwidth*64/1200;
+    pos_choix_fullscreen.h = *windowheight/13.5;
     /*------------------------------------------------------------------------------------*/
 
     /*---texture "retour"--------------------------------------------------------*/
