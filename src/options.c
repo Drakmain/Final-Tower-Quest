@@ -27,7 +27,7 @@
  */
 
 extern
-void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool* program_launch){
+void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * etat_fullscreen, SDL_bool* program_launch){
 
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
@@ -45,10 +45,6 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     }
 
     SDL_Rect pos_options;
-    pos_options.x = *windowwidth/2 - *windowwidth*107/1200;
-    pos_options.y = *windowheight/30;
-    pos_options.w = *windowwidth*214/1200;
-    pos_options.h = *windowheight/13.5;
     /*------------------------------------------------------------------------------------*/
 
     /*---texture "resolution"--------------------------------------------------------*/
@@ -62,29 +58,17 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     }
 
     SDL_Rect pos_opt_resolution;
-    pos_opt_resolution.x = *windowwidth/6 + 50;
-    pos_opt_resolution.y = *windowheight/6.75 + 30;
-    pos_opt_resolution.w = *windowwidth*215/1200;
-    pos_opt_resolution.h = *windowheight/13.5;
     /*------------------------------------------------------------------------------------*/
 
     /*---texture "choix resolution"--------------------------------------------------------*/
-    int resolution = 1;
-
-    surf_choix_resolution = TTF_RenderText_Blended(police, "1280x720", blanc);
-    if(surf_choix_resolution == NULL){
-        SDL_ExitWithError("probleme surface choix_resolution");
-    }
-    SDL_Texture* choix_resolution = SDL_CreateTextureFromSurface(render, surf_choix_resolution);
-    if(choix_resolution == NULL){
-        SDL_ExitWithError("probleme texture choix_resolution");
-    }
+    int resolution;
+    if(*windowwidth == 1280 && *windowheight == 720)resolution=0;
+    if(*windowwidth == 1600 && *windowheight == 900)resolution=1;
+    if(*windowwidth == 1920 && *windowheight == 1080)resolution=2;
+    if(*windowwidth == 2560 && *windowheight == 1440)resolution=3;
+    SDL_Texture* choix_resolution;
 
     SDL_Rect pos_choix_resolution;
-    pos_choix_resolution.x = *windowwidth/6 + 500;
-    pos_choix_resolution.y = *windowheight/6.75 + 30;
-    pos_choix_resolution.w = *windowwidth*173/1200;
-    pos_choix_resolution.h = *windowheight/13.5;
     /*------------------------------------------------------------------------------------*/
 
     /*---texture "option fullscreen"--------------------------------------------------------*/
@@ -98,29 +82,31 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     }
 
     SDL_Rect pos_opt_fullscreen;
-    pos_opt_fullscreen.x = *windowwidth/6 + 50;
-    pos_opt_fullscreen.y = *windowheight/6.75 + 100;
-    pos_opt_fullscreen.w = *windowwidth*236/1200;
-    pos_opt_fullscreen.h = *windowheight/13.5;
     /*------------------------------------------------------------------------------------*/
 
     /*---texture "fullscreen"--------------------------------------------------------*/
-    int fullscreen = 0;
 
-    surf_choix_fullscreen = TTF_RenderText_Blended(police, "non", blanc);
-    if(surf_choix_fullscreen == NULL){
-        SDL_ExitWithError("probleme surface choix_fullscreen");
+
+    if(*etat_fullscreen == SDL_FALSE){
+        surf_choix_fullscreen = TTF_RenderText_Blended(police, "non", blanc);
+        if(surf_choix_fullscreen == NULL){
+            SDL_ExitWithError("probleme surface choix_fullscreen");
+        }
     }
+
+    if(*etat_fullscreen == SDL_TRUE){
+        surf_choix_fullscreen = TTF_RenderText_Blended(police, "oui", blanc);
+        if(surf_choix_fullscreen == NULL){
+            SDL_ExitWithError("probleme surface choix_fullscreen");
+        }
+    }
+
     SDL_Texture* choix_fullscreen = SDL_CreateTextureFromSurface(render, surf_choix_fullscreen);
     if(choix_fullscreen == NULL){
         SDL_ExitWithError("probleme texture choix_fullscreen");
     }
 
     SDL_Rect pos_choix_fullscreen;
-    pos_choix_fullscreen.x = *windowwidth/6 + 500;
-    pos_choix_fullscreen.y = *windowheight/6.75 + 100;
-    pos_choix_fullscreen.w = *windowwidth*64/1200;
-    pos_choix_fullscreen.h = *windowheight/13.5;
     /*------------------------------------------------------------------------------------*/
 
     /*---texture "retour"--------------------------------------------------------*/
@@ -134,10 +120,6 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     }
 
     SDL_Rect pos_retour;
-    pos_retour.x = *windowwidth/20;
-    pos_retour.y = *windowheight - *windowheight/8;
-    pos_retour.w = *windowwidth/(1200/129);
-    pos_retour.h = *windowheight/13.5;
     /*------------------------------------------------------------------------------------*/
 
     /*---texture fond--------------------------------------------------------*/
@@ -153,10 +135,6 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     }
 
     SDL_Rect pos_fond;
-    pos_fond.x = 0;
-    pos_fond.y = 0;
-    pos_fond.w = *windowwidth;
-    pos_fond.h = *windowheight;
     /*------------------------------------------------------------------------------------*/
 
     /*---texture "cadre"--------------------------------------------------------*/
@@ -172,11 +150,6 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     }
 
     SDL_Rect pos_cadre;
-    pos_cadre.x = *windowwidth/6;
-    pos_cadre.y = *windowheight/6.75;
-    pos_cadre.w = *windowwidth*820/1200;
-    pos_cadre.h = *windowheight*460/675;
-
     /*------------------------------------------------------------------------------------*/
 
     /*---texture "fond cadre"--------------------------------------------------------*/
@@ -186,16 +159,8 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     }
 
     SDL_Rect pos_fond_cadre;
-    pos_fond_cadre.x = pos_cadre.x;
-    pos_fond_cadre.y = pos_cadre.y;
-    pos_fond_cadre.w = pos_cadre.w;
-    pos_fond_cadre.h = pos_cadre.h;
 
     SDL_Rect rect_fond_cadre;
-    rect_fond_cadre.x = *windowwidth*12/1200;
-    rect_fond_cadre.y = *windowheight*12/675;
-    rect_fond_cadre.w = pos_fond_cadre.w - 2*rect_fond_cadre.x;
-    rect_fond_cadre.h = pos_fond_cadre.h - 2*rect_fond_cadre.y;
 
     SDL_SetRenderDrawColor(render,0,0,0, 200);
     SDL_SetRenderTarget(render,fond_cadre);
@@ -211,6 +176,7 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
     SDL_Event event;
 
     int selection = 0;
+    SDL_bool changement = SDL_FALSE;
 
     while (continu && *program_launch)
     {
@@ -255,44 +221,42 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
                 /*--- Event pour choix resolution ------------------------------------------*/
                 if (keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN)
                 {
-                    if(resolution < 4)resolution++;
+                    if(resolution < 3)resolution++;
+                    changement = SDL_TRUE;
                 }
 
                 if (keyState[SDL_SCANCODE_LEFT] && event.type == SDL_KEYDOWN)
                 {
                     if(resolution > 0)resolution--;
+                    changement = SDL_TRUE;
                 }
                 switch (resolution) {
-                    case 0: *windowwidth = 720;
-                            *windowheight = 480;
-                            surf_choix_resolution = TTF_RenderText_Blended(police, "720x480", blanc);
-                            choix_resolution = SDL_CreateTextureFromSurface(render, surf_choix_resolution);
-                            break;
-                    case 1: *windowwidth = 1280;
+                    case 0: *windowwidth = 1280;
                             *windowheight = 720;
                             surf_choix_resolution = TTF_RenderText_Blended(police, "1280x720", blanc);
                             choix_resolution = SDL_CreateTextureFromSurface(render, surf_choix_resolution);
                             break;
-                    case 2: *windowwidth = 1600;
+                    case 1: *windowwidth = 1600;
                             *windowheight = 900;
                             surf_choix_resolution = TTF_RenderText_Blended(police, "1600x900", blanc);
                             choix_resolution = SDL_CreateTextureFromSurface(render, surf_choix_resolution);
                             break;
-                    case 3: *windowwidth = 1920;
+                    case 2: *windowwidth = 1920;
                             *windowheight = 1080;
                             surf_choix_resolution = TTF_RenderText_Blended(police, "1920x1080", blanc);
                             choix_resolution = SDL_CreateTextureFromSurface(render, surf_choix_resolution);
                             break;
-                    case 4: *windowwidth = 2560;
+                    case 3: *windowwidth = 2560;
                             *windowheight = 1440;
                             surf_choix_resolution = TTF_RenderText_Blended(police, "2560x1440", blanc);
                             choix_resolution = SDL_CreateTextureFromSurface(render, surf_choix_resolution);
                             break;
                 }
-                SDL_SetWindowSize(window, *windowwidth, *windowheight);
+                if(changement)SDL_SetWindowSize(window, *windowwidth, *windowheight);
+                changement = SDL_FALSE;
                 /*--- End Event pour choix resolution --------------------------------------*/
-
             }
+
             if(selection == 1){
                 surf_opt_resolution = TTF_RenderText_Blended(police, "Resolution", blanc);
                 surf_opt_fullscreen = TTF_RenderText_Blended(police, "Plein ecran", rouge);
@@ -301,19 +265,20 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
                 /*--- Event pour choix plein ecran ------------------------------------------*/
                 if (keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN)
                 {
-                    if(fullscreen < 1)fullscreen++;
+                    if(*etat_fullscreen == SDL_FALSE)*etat_fullscreen = SDL_TRUE;
                 }
 
                 if (keyState[SDL_SCANCODE_LEFT] && event.type == SDL_KEYDOWN)
                 {
-                    if(fullscreen > 0)fullscreen--;
+                    if(*etat_fullscreen == SDL_TRUE)*etat_fullscreen = SDL_FALSE;
                 }
-                switch (fullscreen) {
+
+                switch (*etat_fullscreen) {
                     case 0: SDL_SetWindowFullscreen(window, 0);
                             surf_choix_fullscreen = TTF_RenderText_Blended(police, "non", blanc);
                             choix_fullscreen = SDL_CreateTextureFromSurface(render, surf_choix_fullscreen);
                             break;
-                    case 1: SDL_SetWindowFullscreen(window, 1);
+                    case 1: SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
                             surf_choix_fullscreen = TTF_RenderText_Blended(police, "oui", blanc);
                             choix_fullscreen = SDL_CreateTextureFromSurface(render, surf_choix_fullscreen);
                             break;
@@ -331,6 +296,61 @@ void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *
             opt_fullscreen = SDL_CreateTextureFromSurface(render, surf_opt_fullscreen);
             retour = SDL_CreateTextureFromSurface(render, surf_retour);
 
+            pos_options.x = *windowwidth/2 - *windowwidth*107/1200;
+            pos_options.y = *windowheight/30;
+            pos_options.w = *windowwidth*214/1200;
+            pos_options.h = *windowheight/13.5;
+
+            pos_opt_resolution.x = *windowwidth/6 + *windowwidth*50/1200;
+            pos_opt_resolution.y = *windowheight/6.75 + *windowwidth*30/1200;
+            pos_opt_resolution.w = *windowwidth*215/1200;
+            pos_opt_resolution.h = *windowheight/13.5;
+
+            pos_choix_resolution.x = *windowwidth/6 + *windowwidth*500/1200;
+            pos_choix_resolution.y = *windowheight/6.75 + *windowheight*30/675;
+            pos_choix_resolution.w = *windowwidth*173/1200;
+            pos_choix_resolution.h = *windowheight/13.5;
+
+            pos_opt_fullscreen.x = *windowwidth/6 + *windowwidth*50/1200;
+            pos_opt_fullscreen.y = *windowheight/6.75 + *windowheight*100/675;
+            pos_opt_fullscreen.w = *windowwidth*236/1200;
+            pos_opt_fullscreen.h = *windowheight/13.5;
+
+            pos_choix_fullscreen.x = *windowwidth/6 + *windowwidth*500/1200;
+            pos_choix_fullscreen.y = *windowheight/6.75 + *windowheight*100/675;
+            pos_choix_fullscreen.w = *windowwidth*64/1200;
+            pos_choix_fullscreen.h = *windowheight/13.5;
+
+            pos_retour.x = *windowwidth/20;
+            pos_retour.y = *windowheight - *windowheight/8;
+            pos_retour.w = *windowwidth/(1200/129);
+            pos_retour.h = *windowheight/13.5;
+
+            pos_fond.x = 0;
+            pos_fond.y = 0;
+            pos_fond.w = *windowwidth;
+            pos_fond.h = *windowheight;
+
+            pos_cadre.x = *windowwidth/6;
+            pos_cadre.y = *windowheight/6.75;
+            pos_cadre.w = *windowwidth*820/1200;
+            pos_cadre.h = *windowheight*460/675;
+
+            pos_fond_cadre.x = pos_cadre.x;
+            pos_fond_cadre.y = pos_cadre.y;
+            pos_fond_cadre.w = pos_cadre.w;
+            pos_fond_cadre.h = pos_cadre.h;
+
+            rect_fond_cadre.x = *windowwidth*12/1200;
+            rect_fond_cadre.y = *windowheight*12/675;
+            rect_fond_cadre.w = pos_fond_cadre.w - 2*rect_fond_cadre.x;
+            rect_fond_cadre.h = pos_fond_cadre.h - 2*rect_fond_cadre.y;
+
+            SDL_SetRenderDrawColor(render,0,0,0, 200);
+            SDL_SetRenderTarget(render,fond_cadre);
+            SDL_SetTextureBlendMode(fond_cadre, SDL_BLENDMODE_BLEND);
+            SDL_RenderFillRect(render, &rect_fond_cadre);
+            SDL_SetRenderTarget(render,NULL);
 
             SDL_RenderClear(render);
             SDL_RenderCopy(render, fond, NULL, &pos_fond);

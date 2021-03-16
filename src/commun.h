@@ -24,15 +24,11 @@
  */
 
 typedef enum {
-    RES_480P, /*!< Type énuméré pour la resolution 480p (16:9); */
     RES_720P, /*!< Type énuméré pour la resolution 720p (16:9). */
     RES_900P, /*!< Type énuméré pour la resolution 900p (16:9). */
     RES_1080P, /*!< Type énuméré pour la resolution 1080 (16:9). */
     RES_1440P /*!< Type énuméré pour la resolution 1440p (16:9). */
 } resolution_e;
-
-#define WINDOWWIDTH_480P 720 /*!< Constante de la largeur d'une reoslution 480p (16:9). */
-#define WINDOWHEIGHT_480P 480 /*!< Constante de la hauteur d'une reoslution 480p (16:9). */
 
 #define WINDOWWIDTH_720P 1280 /*!< Constante de la largeur d'une reoslution 720p (16:9). */
 #define WINDOWHEIGHT_720P 720 /*!< Constante de la hauteur d'une reoslution 720p (16:9). */

@@ -487,6 +487,19 @@ void nouvelle_partie_f(SDL_Renderer * render, int *windowwidth, int *windowheigh
             }
             if(selection == 3)
             {
+                pos_cadre_save1.x = *windowwidth/2 - *windowwidth/6 - *windowwidth/15;
+                pos_cadre_save1.y = *windowheight/6.75;
+                pos_cadre_save1.w = *windowwidth/2 - *windowwidth/30;
+                pos_cadre_save1.h = *windowheight/5;
+                pos_fond_cadre_save1.x = pos_cadre_save1.x;
+                pos_fond_cadre_save1.y = pos_cadre_save1.y;
+                pos_fond_cadre_save1.w = pos_cadre_save1.w;
+                pos_fond_cadre_save1.h = pos_cadre_save1.h;
+                rect_fond_cadre_save1.x = *windowwidth*12/1200;
+                rect_fond_cadre_save1.y = *windowheight*12/675;
+                rect_fond_cadre_save1.w = pos_fond_cadre_save1.w - 2*rect_fond_cadre_save1.x;
+                rect_fond_cadre_save1.h = pos_fond_cadre_save1.h - 2*rect_fond_cadre_save1.y;
+
                 pos_cadre_save3.x = *windowwidth/2 - *windowwidth/6 - *windowwidth/15;
                 pos_cadre_save3.y = *windowheight*440/675;
                 pos_cadre_save3.w = *windowwidth/2 - *windowwidth/30;

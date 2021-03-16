@@ -50,12 +50,15 @@ int main(int argc, char ** argv)
     /*--- Initialization Variable ------------------------------------------------*/
 
     SDL_bool program_launch = SDL_TRUE;
+    SDL_bool * etat_fullscreen = malloc(sizeof(SDL_bool));
+    *etat_fullscreen = SDL_FALSE;
     int i = WINDOWWIDTH_720P;
     int j = WINDOWHEIGHT_720P;
     int *WINDOWWIDTH = malloc(sizeof(int));
     *WINDOWWIDTH = i;
     int *WINDOWHEIGHT = malloc(sizeof(int));
     *WINDOWHEIGHT = j;
+
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -139,7 +142,7 @@ int main(int argc, char ** argv)
     while (program_launch)
     {
 
-        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, &program_launch);
+        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, etat_fullscreen, &program_launch);
         town(render, WINDOWWIDTH, WINDOWHEIGHT, &program_launch);
         tower(render, WINDOWWIDTH, WINDOWHEIGHT, &program_launch);
 
