@@ -33,12 +33,11 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
 
 
     /*--- Initialization variable ------------------------------------------------*/
+
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
     SDL_Surface *surf_save1 = NULL, *surf_save2 = NULL, *surf_save3 = NULL, *surf_cadre = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_choisir_empla = NULL;
-
-
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -607,8 +606,8 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
     /*--- Free Memory ------------------------------------------------------------*/
 
     character_save1->free(&character_save1);
-    //character_save2->free(&character_save2);
-    //character_save3->free(&character_save3);
+    character_save2->free(&character_save2);
+    character_save3->free(&character_save3);
 
     SDL_FreeSurface(surf_choisir_empla);
     SDL_FreeSurface(surf_retour);

@@ -37,6 +37,7 @@ extern
 void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font *police,  SDL_bool * etat_fullscreen, SDL_bool * program_launch, character_t * actual_save){
 
     /*--- Initialization variable ------------------------------------------------*/
+
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
@@ -54,6 +55,7 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
 
 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
+
     surf_nouvelle_partie = TTF_RenderText_Blended(police, "Nouvelle partie", rouge);
     if(surf_nouvelle_partie == NULL){
         SDL_ExitWithError("probleme surface nouvelle partie menu d'accueil");
@@ -65,6 +67,7 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
     }
 
     SDL_Rect pos_nouvelle_partie;
+
     /*----------------------------------------------------------------------------*/
 
 
@@ -80,6 +83,7 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
     }
 
     SDL_Rect pos_charger_partie;
+
     /*----------------------------------------------------------------------------*/
 
 
@@ -96,6 +100,7 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
     }
 
     SDL_Rect pos_options;
+
     /*----------------------------------------------------------------------------*/
 
 
@@ -112,6 +117,7 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
     }
 
     SDL_Rect pos_quitter;
+
     /*----------------------------------------------------------------------------*/
 
 
@@ -128,6 +134,7 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
     }
 
     SDL_Rect pos_logo;
+
     /*----------------------------------------------------------------------------*/
 
 
@@ -144,6 +151,7 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
     }
 
     SDL_Rect pos_fond;
+
     /*----------------------------------------------------------------------------*/
 
 
@@ -274,9 +282,6 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
             SDL_RenderCopy(render, quitter, NULL, &pos_quitter);
             SDL_RenderCopy(render, logo, NULL, &pos_logo);
             SDL_RenderPresent(render);
-
-
-
 
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)

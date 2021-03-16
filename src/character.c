@@ -241,9 +241,13 @@ extern
 SDL_bool character_exist(character_t * const character)
 {
 
-    if(character == NULL) 
+    if(character == NULL)
+    {
         return(SDL_FALSE);
+    }  
     else
+    {
         return(SDL_TRUE); 
+    }
 
 }

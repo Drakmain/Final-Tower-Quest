@@ -80,6 +80,7 @@ int main(int argc, char ** argv)
 
     /*--- End Initialization SDL Video -------------------------------------------*/
 
+
     /*--- Initialization SDL TTF -------------------------------------------------*/
 
     if (TTF_Init() == -1)
@@ -130,11 +131,13 @@ int main(int argc, char ** argv)
     SDL_RenderPresent(render);
 
     printf("/*--- End Startup SDL ---*/\n\n");
+
     /*--- End Creation Render ----------------------------------------------------*/
+
 
     /*--- Creation Police --------------------------------------------------------*/
 
-    TTF_Font *police = NULL;
+    TTF_Font * police = NULL;
     police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf",50);
     if(police == NULL)
     {
@@ -142,6 +145,7 @@ int main(int argc, char ** argv)
     }
 
     /*--- End Creation Police ----------------------------------------------------*/
+
 
     /*--- Main Loop --------------------------------------------------------------*/
 
@@ -162,24 +166,24 @@ int main(int argc, char ** argv)
     printf("/*--- Free Memory -------*/\n");
 
     SDL_DestroyRenderer(render);
-    printf("render destroyed\n");
-
+    printf("SDL_Renderer * render destroyed\n");
+    
     SDL_DestroyWindow(window);
-    printf("window destroyed\n");
+    printf("SDL_Window * window destroyed\n");
 
     TTF_CloseFont(police);
-    printf("police closed\n");
+    printf("TTF_Font * police closed\n");
 
     free(WINDOWWIDTH);
-    printf("WINDOWWIDTH freed\n");
+    printf("int * WINDOWWIDTH freed\n");
     free(WINDOWHEIGHT);
-    printf("WINDOWHEIGHT freed\n");
+    printf("int * WINDOWHEIGHT freed\n");
 
     free(etat_fullscreen);
-    printf("etat_fullscreen freed\n");
+    printf("SDL_bool * etat_fullscreen freed\n");
 
     free(program_launch);
-    printf("program_launch freed\n");
+    printf("SDL_bool * program_launch freed\n");
 
     printf("/*--- End Free Memory ---*/\n\n");
 

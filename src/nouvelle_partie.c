@@ -13,6 +13,17 @@
  *
  */
 
+
+/*!
+ *
+ * \fn fcpy(FILE * source_file, FILE * dest_file)
+ * \brief A FINIR.
+ *
+ * \param source_file A FINIR.
+ * \param dest_file A FINIR.
+ * 
+ */
+
 void fcpy(FILE * source_file, FILE * dest_file)
 {
     char c;
@@ -663,4 +674,5 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
     SDL_DestroyTexture(fond_cadre_save3);
 
     /*--- End Free Memory --------------------------------------------------------*/
+
 }
