@@ -6,7 +6,7 @@
 #include "error.h"
 
 /*!
- * 
+ *
  * @file commun.h
  * @brief Définitions de structure et de constante commune
  * \author Enzo BRENNUS
@@ -17,10 +17,10 @@
 #define MULTIPLIER 7.5 /*!< A FINIR */
 
 /*!
- * 
+ *
  * \enum resolution_e
  * \brief A FINIR
- * 
+ *
  */
 
 typedef enum {
@@ -47,15 +47,15 @@ typedef enum {
 #define WINDOWHEIGHT_1440P 1440 /*!< Constante de la hauteur d'une reoslution 1440p (16:9). */
 
 /*!
- * 
+ *
  * \struct tile_set_t commun.h "commun.h"
  * \brief Structure de l'objet tile_set_t
- * 
+ *
  */
 
 typedef struct tile_set_s tile_set_t;
 
-struct tile_set_s 
+struct tile_set_s
 {
     SDL_Rect rect; /*!< A FINIR */
     int limit; /*!< A FINIR */

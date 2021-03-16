@@ -20,32 +20,24 @@
 
 /*!
  *
- * \fn menu_accueil(SDL_Window * window, SDL_Renderer * render, int windowwidth, int windowheight,SDL_bool * program_launch)
+ * \fn menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, int *windowheight,SDL_bool * program_launch)
  * \brief A FINIR
  *
  * \param render render est un pointeur sur le rendu SDL.s
- * \param windowwidth A FINIR
- * \param windowheight A FINIR
+ * \param *windowwidth A FINIR
+ * \param *windowheight A FINIR
  * \param program_launch est un pointeur booléen.
- * 
+ *
  */
 
 extern
-void menu_accueil(SDL_Window * window, SDL_Renderer * render, int windowwidth, int windowheight,SDL_bool * program_launch){
-
-    TTF_Font *police = NULL;
-    police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf",50);
-    if(police == NULL){
-        SDL_ExitWithError("probleme chargement police fonction menu d'accueil");
-    }
-
+void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch){
 
     /*--- Initialization variable ------------------------------------------------*/
-
-    SDL_Surface *surf_nouvelle_partie = NULL, *surf_charger_partie = NULL, *surf_options = NULL, *surf_quitter = NULL, *surf_logo = NULL, *surf_fond = NULL;
-    
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
+
+    SDL_Surface *surf_nouvelle_partie = NULL, *surf_charger_partie = NULL, *surf_options = NULL, *surf_quitter = NULL, *surf_logo = NULL, *surf_fond = NULL;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -70,10 +62,10 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int windowwidth, i
     }
 
     SDL_Rect pos_nouvelle_partie;
-    pos_nouvelle_partie.x = windowwidth/2 - windowwidth/6;
-    pos_nouvelle_partie.y = windowheight/2;
-    pos_nouvelle_partie.w = windowwidth/3.74;
-    pos_nouvelle_partie.h = windowheight/13.5;
+    pos_nouvelle_partie.x = *windowwidth/2 - *windowwidth/6;
+    pos_nouvelle_partie.y = *windowheight/2;
+    pos_nouvelle_partie.w = *windowwidth/3.74;
+    pos_nouvelle_partie.h = *windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
@@ -90,10 +82,10 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int windowwidth, i
     }
 
     SDL_Rect pos_charger_partie;
-    pos_charger_partie.x = windowwidth/2 - windowwidth/6;
-    pos_charger_partie.y = windowheight/2 + windowheight/9;
-    pos_charger_partie.w = windowwidth/4;
-    pos_charger_partie.h = windowheight/13.5;
+    pos_charger_partie.x = *windowwidth/2 - *windowwidth/6;
+    pos_charger_partie.y = *windowheight/2 + *windowheight/9;
+    pos_charger_partie.w = *windowwidth/4;
+    pos_charger_partie.h = *windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
@@ -111,10 +103,10 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int windowwidth, i
     }
 
     SDL_Rect pos_options;
-    pos_options.x = windowwidth/2 - windowwidth/6;
-    pos_options.y = windowheight/2 + windowheight/4.5;
-    pos_options.w = windowwidth/8;
-    pos_options.h = windowheight/13.5;
+    pos_options.x = *windowwidth/2 - *windowwidth/6;
+    pos_options.y = *windowheight/2 + *windowheight/4.5;
+    pos_options.w = *windowwidth/8;
+    pos_options.h = *windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
@@ -132,10 +124,10 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int windowwidth, i
     }
 
     SDL_Rect pos_quitter;
-    pos_quitter.x = windowwidth/2 - windowwidth/6;
-    pos_quitter.y = windowheight/2 + windowheight/3;
-    pos_quitter.w = windowwidth/4;
-    pos_quitter.h = windowheight/13.5;
+    pos_quitter.x = *windowwidth/2 - *windowwidth/6;
+    pos_quitter.y = *windowheight/2 + *windowheight/3;
+    pos_quitter.w = *windowwidth/4;
+    pos_quitter.h = *windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
@@ -153,8 +145,8 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int windowwidth, i
     }
 
     SDL_Rect pos_logo;
-    pos_logo.x = windowwidth/2 - 275;
-    pos_logo.y = windowheight/2 - 250;
+    pos_logo.x = *windowwidth/2 - 275;
+    pos_logo.y = *windowheight/2 - 250;
     pos_logo.w = 552.5;
     pos_logo.h = 145;
 
@@ -176,8 +168,8 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int windowwidth, i
     SDL_Rect pos_fond;
     pos_fond.x = 0;
     pos_fond.y = 0;
-    pos_fond.w = windowwidth;
-    pos_fond.h = windowheight;
+    pos_fond.w = *windowwidth;
+    pos_fond.h = *windowheight;
 
     /*----------------------------------------------------------------------------*/
 
@@ -289,15 +281,15 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int windowwidth, i
 
                 if(selection == 0)
                 {
-                    nouvelle_partie_f(render, windowwidth, windowheight,program_launch);
+                    nouvelle_partie_f(render, windowwidth, windowheight, police, program_launch);
                 }
                 if(selection == 1)
                 {
-                    charger_partie_f(render, windowwidth, windowheight, program_launch);
+                    charger_partie_f(render, windowwidth, windowheight, police, program_launch);
                 }
                 if(selection == 2)
                 {
-                    options_f(window, render, windowwidth, windowheight, program_launch);
+                    options_f(window, render, windowwidth, windowheight, police, program_launch);
                 }
                 if(selection == 3)
                 {
@@ -331,8 +323,5 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int windowwidth, i
     SDL_DestroyTexture(fond);
 
     /*--- End Free Memory --------------------------------------------------------*/
-
-
-    TTF_CloseFont(police);
 
 }

@@ -3,6 +3,6 @@
 
 #include "commun.h"
 
-void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SDL_bool * program_launch);
+void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch);
 
 #endif

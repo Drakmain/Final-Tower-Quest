@@ -54,13 +54,6 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
         exit_with_error("Cannot create a character_t object > town.c Line 42");
     }
 
-    SDL_Surface * surface = NULL;
-
-    surface = SDL_LoadBMP("src\\tileset\\Maps\\town_collision.bmp");
-    if (!surface)
-    {
-        SDL_ExitWithError("Loading of a BMP failed > character.c Line 123");
-    }
 
     Uint8 r, g, b;
 
@@ -151,8 +144,8 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
                     render_frame(render);
                     East_Walk = 0;
                 }
-                
-                
+
+
                 while (keyState[SDL_SCANCODE_LEFT])
                 {
 
@@ -179,9 +172,9 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
                         }
 
                     }
-                    
+
                     SDL_PollEvent(&event);
-                    
+
                 }
 
                 if (West_Walk == 1)
@@ -193,7 +186,7 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
                     render_frame(render);
                     West_Walk = 0;
                 }
-                
+
 
                 while (keyState[SDL_SCANCODE_UP])
                 {
@@ -205,7 +198,7 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
 
                         pos_Wind_town.y += 25;
                         y += 25;
- 
+
                         printf("x : %i\n",x);
                         printf("y : %i\n\n",y);
 
@@ -221,7 +214,7 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
                         }
 
                     }
-                    
+
                     SDL_PollEvent(&event);
 
                 }
@@ -247,7 +240,7 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
 
                         pos_Wind_town.y -= 25;
                         y -= 25;
-                              
+
                         printf("x : %i\n",x);
                         printf("y : %i\n\n",y);
 
@@ -284,7 +277,7 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
 
                 printf("Couleur : rouge = %i, vert = %i, bleu = %i", r, g, b);
                 */
-               
+
             }
 
         }

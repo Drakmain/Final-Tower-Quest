@@ -16,28 +16,20 @@
 
 /*!
  *
- * \fn creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SDL_bool * program_launch)
+ * \fn creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, SDL_bool * program_launch)
  * \brief A FINIR
  *
  * \param render render est un pointeur sur le rendu SDL.s
- * \param windowwidth A FINIR
- * \param windowheight A FINIR
+ * \param *windowwidth A FINIR
+ * \param *windowheight A FINIR
  * \param program_launch est un pointeur booléen.
- * 
+ *
  */
 
 extern
-void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SDL_bool * program_launch){
-
-    TTF_Font *police = NULL;
-    police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf",50);
-    if(police == NULL){
-        SDL_ExitWithError("probleme chargement police fonction menu de creation de personnage");
-    }
-
+void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch){
 
     /*--- Initialization variable ----------------------------------------------------*/
-
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
@@ -67,16 +59,16 @@ void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SD
     }
 
     SDL_Rect pos_guerrier;
-    pos_guerrier.x = windowwidth/2 - windowwidth/2.2;
-    pos_guerrier.y = windowheight/2 - windowwidth/5;
-    pos_guerrier.w = windowwidth/7;
-    pos_guerrier.h = windowheight/13.5;
+    pos_guerrier.x = *windowwidth/2 - *windowwidth/2.2;
+    pos_guerrier.y = *windowheight/2 - *windowwidth/5;
+    pos_guerrier.w = *windowwidth/7;
+    pos_guerrier.h = *windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
 
     /*--- Initialization text "Mage" ---------------------------------------------*/
-    
+
     surf_mage = TTF_RenderText_Blended(police, "Mage", blanc);
     if(surf_mage == NULL){
         SDL_ExitWithError("probleme surface mage");
@@ -87,10 +79,10 @@ void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SD
     }
 
     SDL_Rect pos_mage;
-    pos_mage.x = windowwidth/2 - windowwidth/2.2;
-    pos_mage.y = windowheight/2 - windowwidth/29;
-    pos_mage.w = windowwidth/11;
-    pos_mage.h = windowheight/13.5;
+    pos_mage.x = *windowwidth/2 - *windowwidth/2.2;
+    pos_mage.y = *windowheight/2 - *windowwidth/29;
+    pos_mage.w = *windowwidth/11;
+    pos_mage.h = *windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
@@ -108,10 +100,10 @@ void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SD
     }
 
     SDL_Rect pos_assassin;
-    pos_assassin.x = windowwidth/2 - windowwidth/2.2;
-    pos_assassin.y = windowheight/2 + windowwidth/7.5;
-    pos_assassin.w = windowwidth/7;
-    pos_assassin.h = windowheight/13.5;
+    pos_assassin.x = *windowwidth/2 - *windowwidth/2.2;
+    pos_assassin.y = *windowheight/2 + *windowwidth/7.5;
+    pos_assassin.w = *windowwidth/7;
+    pos_assassin.h = *windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
@@ -130,10 +122,10 @@ void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SD
     }
 
     SDL_Rect pos_spriteGuerrier;
-    pos_spriteGuerrier.x = windowwidth/2 + windowwidth/15;
-    pos_spriteGuerrier.y = windowheight/2 - windowwidth/5;
-    pos_spriteGuerrier.w = windowwidth * 144 /1200;
-    pos_spriteGuerrier.h = windowheight * 144 /675;
+    pos_spriteGuerrier.x = *windowwidth/2 + *windowwidth/15;
+    pos_spriteGuerrier.y = *windowheight/2 - *windowwidth/5;
+    pos_spriteGuerrier.w = *windowwidth * 144 /1200;
+    pos_spriteGuerrier.h = *windowheight * 144 /675;
 
     /*----------------------------------------------------------------------------*/
 
@@ -152,10 +144,10 @@ void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SD
     }
 
     SDL_Rect pos_spriteMage;
-    pos_spriteMage.x = windowwidth/2 + windowwidth/15;
-    pos_spriteMage.y = windowheight/2 - windowwidth/5;
-    pos_spriteMage.w = windowwidth * 144 /1200;
-    pos_spriteMage.h = windowheight * 144 /675;
+    pos_spriteMage.x = *windowwidth/2 + *windowwidth/15;
+    pos_spriteMage.y = *windowheight/2 - *windowwidth/5;
+    pos_spriteMage.w = *windowwidth * 144 /1200;
+    pos_spriteMage.h = *windowheight * 144 /675;
 
     /*----------------------------------------------------------------------------*/
 
@@ -174,16 +166,16 @@ void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SD
     }
 
     SDL_Rect pos_spriteAssassin;
-    pos_spriteAssassin.x = windowwidth/2 + windowwidth/15;
-    pos_spriteAssassin.y = windowheight/2 - windowwidth/5;
-    pos_spriteAssassin.w = windowwidth * 108 /1200;
-    pos_spriteAssassin.h = windowheight * 180 /675;
+    pos_spriteAssassin.x = *windowwidth/2 + *windowwidth/15;
+    pos_spriteAssassin.y = *windowheight/2 - *windowwidth/5;
+    pos_spriteAssassin.w = *windowwidth * 108 /1200;
+    pos_spriteAssassin.h = *windowheight * 180 /675;
 
     /*----------------------------------------------------------------------------*/
 
 
     /*--- Initialization background image ----------------------------------------*/
-    
+
     surf_fond = SDL_LoadBMP("src\\image\\ciel_sans_lune.bmp");
     if(surf_fond == NULL){
         SDL_ExitWithError("probleme chargement image fond menu de creation de personnage");
@@ -197,8 +189,8 @@ void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SD
     SDL_Rect pos_fond;
     pos_fond.x = 0;
     pos_fond.y = 0;
-    pos_fond.w = windowwidth;
-    pos_fond.h = windowheight;
+    pos_fond.w = *windowwidth;
+    pos_fond.h = *windowheight;
 
     /*----------------------------------------------------------------------------*/
 
@@ -216,10 +208,10 @@ void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SD
     }
 
     SDL_Rect pos_cadre_desc;
-    pos_cadre_desc.x = windowheight * 478 /675;
-    pos_cadre_desc.y = windowheight * 325 /675;
-    pos_cadre_desc.w = windowwidth * 550 /1200;
-    pos_cadre_desc.h = windowheight * 290 /675;
+    pos_cadre_desc.x = *windowheight * 478 /675;
+    pos_cadre_desc.y = *windowheight * 325 /675;
+    pos_cadre_desc.w = *windowwidth * 550 /1200;
+    pos_cadre_desc.h = *windowheight * 290 /675;
 
     /*----------------------------------------------------------------------------*/
 
@@ -394,8 +386,5 @@ void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SD
     SDL_DestroyTexture(spriteAssassin);
 
     /*--- End Free Memory --------------------------------------------------------*/
-
-
-    TTF_CloseFont(police);
 
 }

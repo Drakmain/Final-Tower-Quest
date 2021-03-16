@@ -7,12 +7,12 @@
 #include "commun.h"
 
 /*!
- * 
+ *
  * \file main.c
  * \brief Ficher principale du jeu.
  * \author Enzo BRENNUS
  * \date 12/03/21
- *  
+ *
  */
 
 
@@ -21,11 +21,11 @@
  * \fn int main(int argc, char ** argv)
  * \brief Fonction principale du jeu.
  *
- * \param argc est le nombre de parametres. 
+ * \param argc est le nombre de parametres.
  * \param argv est un tableau contenant les parametres.
- * 
+ *
  * \retval int Un entier.
- * 
+ *
  */
 
 int main(int argc, char ** argv)
@@ -50,9 +50,12 @@ int main(int argc, char ** argv)
     /*--- Initialization Variable ------------------------------------------------*/
 
     SDL_bool program_launch = SDL_TRUE;
-
-    int WINDOWWIDTH = WINDOWWIDTH_1080P;
-    int WINDOWHEIGHT = WINDOWHEIGHT_1080P;
+    int i = WINDOWWIDTH_720P;
+    int j = WINDOWHEIGHT_720P;
+    int *WINDOWWIDTH = malloc(sizeof(int));
+    *WINDOWWIDTH = i;
+    int *WINDOWHEIGHT = malloc(sizeof(int));
+    *WINDOWHEIGHT = j;
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -88,7 +91,7 @@ int main(int argc, char ** argv)
 
     SDL_Window * window = NULL;
 
-    window = SDL_CreateWindow("Final Tower Quest", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOWWIDTH, WINDOWHEIGHT, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Final Tower Quest", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, *WINDOWWIDTH, *WINDOWHEIGHT, SDL_WINDOW_SHOWN);
     if (window == NULL)
     {
         SDL_ExitWithError("Window creation failed > main.c Line 90");
@@ -97,7 +100,7 @@ int main(int argc, char ** argv)
     {
         printf("window created\n");
     }
-        
+
     /*--- End Creation Window ----------------------------------------------------*/
 
 
@@ -121,16 +124,24 @@ int main(int argc, char ** argv)
 
     printf("/*--- End Startup SDL ---*/\n\n");
     /*--- End Creation Render ----------------------------------------------------*/
-    
+
+    /*--- Creation Police --------------------------------------------------------*/
+    TTF_Font *police = NULL;
+    police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf",50);
+    if(police == NULL)
+    {
+        SDL_ExitWithError("probleme chargement police");
+    }
+    /*--- End Creation Police ----------------------------------------------------*/
 
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (program_launch)
     {
 
-        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT,&program_launch);
-        town(render, &WINDOWWIDTH, &WINDOWHEIGHT, &program_launch);
-        tower(render, &WINDOWWIDTH, &WINDOWHEIGHT, &program_launch);
+        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, &program_launch);
+        town(render, WINDOWWIDTH, WINDOWHEIGHT, &program_launch);
+        tower(render, WINDOWWIDTH, WINDOWHEIGHT, &program_launch);
 
     }
 
@@ -138,7 +149,7 @@ int main(int argc, char ** argv)
 
 
     /*--- Free Memory ------------------------------------------------------------*/
-    
+
     printf("/*--- Free Memory -------*/\n");
 
     SDL_DestroyRenderer(render);
@@ -152,6 +163,8 @@ int main(int argc, char ** argv)
     /*--- End Free Memory --------------------------------------------------------*/
 
     SDL_Quit();
+
+    TTF_CloseFont(police);
 
     printf("Program exited with succes");
     return EXIT_SUCCESS;
