@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "creation_perso.h"
-
+//oui
 
 /*!
  *
@@ -23,7 +23,7 @@
  * \param windowwidth A FINIR
  * \param windowheight A FINIR
  * \param program_launch est un pointeur booléen.
- * 
+ *
  */
 
 extern
@@ -51,7 +51,7 @@ void nouvelle_partie_f(SDL_Renderer * render, int windowwidth, int windowheight,
     int selection = 0;
 
     /*--- End Initialization variable --------------------------------------------*/
-    
+
 
     /*--- Creation text "choisissez emplacement" ---------------------------------*/
 
@@ -141,7 +141,7 @@ void nouvelle_partie_f(SDL_Renderer * render, int windowwidth, int windowheight,
     /*----------------------------------------------------------------------------*/
 
 
-    /*--- Creation texture "save 2" ----------------------------------------------*/ 
+    /*--- Creation texture "save 2" ----------------------------------------------*/
 
     surf_save2 = TTF_RenderText_Blended(police, "options", blanc);
     if(surf_save2 == NULL)
