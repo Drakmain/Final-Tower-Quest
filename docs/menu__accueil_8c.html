@@ -94,17 +94,17 @@ Graphe des dépendances par inclusion de menu_accueil.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a5dcbd25307bd65c6942bc28d021b6d82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__accueil_8c.html#a5dcbd25307bd65c6942bc28d021b6d82">menu_accueil</a> (SDL_Window *window, SDL_Renderer *render, int windowwidth, int windowheight, SDL_bool *program_launch)</td></tr>
-<tr class="memdesc:a5dcbd25307bd65c6942bc28d021b6d82"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="menu__accueil_8c.html#a5dcbd25307bd65c6942bc28d021b6d82">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a5dcbd25307bd65c6942bc28d021b6d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bc2c6f1db3df4680055b710f9933d7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__accueil_8c.html#a2bc2c6f1db3df4680055b710f9933d7e">menu_accueil</a> (SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool *program_launch)</td></tr>
+<tr class="memdesc:a2bc2c6f1db3df4680055b710f9933d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="menu__accueil_8c.html#a2bc2c6f1db3df4680055b710f9933d7e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2bc2c6f1db3df4680055b710f9933d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Menu d'accueil. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Jeremy BOURGOUIN </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>10/02/21 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>16/03/21 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a5dcbd25307bd65c6942bc28d021b6d82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5dcbd25307bd65c6942bc28d021b6d82">&#9670;&nbsp;</a></span>menu_accueil()</h2>
+<a id="a2bc2c6f1db3df4680055b710f9933d7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bc2c6f1db3df4680055b710f9933d7e">&#9670;&nbsp;</a></span>menu_accueil()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,14 +124,20 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">int *&#160;</td>
           <td class="paramname"><em>windowwidth</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">int *&#160;</td>
           <td class="paramname"><em>windowheight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -150,27 +156,32 @@ Fonctions</h2></td></tr>
 <p>A FINIR. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">render</td><td>render est un pointeur sur le rendu SDL.s </td></tr>
-    <tr><td class="paramname">windowwidth</td><td>A FINIR </td></tr>
-    <tr><td class="paramname">windowheight</td><td>A FINIR </td></tr>
-    <tr><td class="paramname">program_launch</td><td>est un pointeur booléen. </td></tr>
+    <tr><td class="paramname">render</td><td>est un pointeur sur le rendu SDL. </td></tr>
+    <tr><td class="paramname">windowwidth</td><td>est la largeur de la fenetre. </td></tr>
+    <tr><td class="paramname">windowheight</td><td>est la hauteur de la fenetre. </td></tr>
+    <tr><td class="paramname">police</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">program_launch</td><td>est un pointeur sur un booléen. </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="menu__accueil_8c_a5dcbd25307bd65c6942bc28d021b6d82_cgraph.png" border="0" usemap="#amenu__accueil_8c_a5dcbd25307bd65c6942bc28d021b6d82_cgraph" alt=""/></div>
-<map name="amenu__accueil_8c_a5dcbd25307bd65c6942bc28d021b6d82_cgraph" id="amenu__accueil_8c_a5dcbd25307bd65c6942bc28d021b6d82_cgraph">
-<area shape="rect" title="A FINIR." alt="" coords="5,5,108,32"/>
-<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="156,5,288,32"/>
+<div class="center"><img src="menu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_cgraph.png" border="0" usemap="#amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_cgraph" alt=""/></div>
+<map name="amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_cgraph" id="amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_cgraph">
+<area shape="rect" title="A FINIR." alt="" coords="5,81,108,108"/>
+<area shape="rect" href="charger__partie_8c.html#a04bbab0f7931bd29792a169089369e40" title="A FINIR." alt="" coords="157,5,272,32"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="476,107,608,133"/>
+<area shape="rect" href="nouvelle__partie_8c.html#aa4da777b402e35bc5b04bce32d2edd62" title="A FINIR." alt="" coords="156,107,273,133"/>
+<area shape="rect" href="options_8c.html#a8c135cbab1bb2c92c21fd4abcb794b03" title="A FINIR." alt="" coords="337,208,412,235"/>
+<area shape="rect" href="creation__perso_8c.html#aec543bda970ab531235c4c54c393ac4f" title="A FINIR." alt="" coords="321,157,428,184"/>
 </map>
 </div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="menu__accueil_8c_a5dcbd25307bd65c6942bc28d021b6d82_icgraph.png" border="0" usemap="#amenu__accueil_8c_a5dcbd25307bd65c6942bc28d021b6d82_icgraph" alt=""/></div>
-<map name="amenu__accueil_8c_a5dcbd25307bd65c6942bc28d021b6d82_icgraph" id="amenu__accueil_8c_a5dcbd25307bd65c6942bc28d021b6d82_icgraph">
+<div class="center"><img src="menu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_icgraph.png" border="0" usemap="#amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_icgraph" alt=""/></div>
+<map name="amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_icgraph" id="amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_icgraph">
 <area shape="rect" title="A FINIR." alt="" coords="104,5,207,32"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
 </map>

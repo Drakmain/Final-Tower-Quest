@@ -16,20 +16,21 @@
  */
 
 
- /*!
-  *
-  * \fn tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch)
-  * \brief A FINIR
-  *
-  * \param render est un pointeur sur le rendu SDL.
-  * \param WINDOWWIDTH est la largeur de la fenetre.
-  * \param WINDOWHEIGHT est la hauteur de la fenetre.
-  * \param program_launch A FINIR.
-  *
-  */
+/*!
+ *
+ * \fn tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch)
+ * \brief A FINIR
+ *
+ * \param render est un pointeur sur le rendu SDL.
+ * \param WINDOWWIDTH est la largeur de la fenetre.
+ * \param WINDOWHEIGHT est la hauteur de la fenetre.
+ * \param program_launch est un pointeur sur un booléen.
+ *
+ */
 
 extern
 void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch){
+
 
     /*--- Initialization Variable ------------------------------------------------*/
 
