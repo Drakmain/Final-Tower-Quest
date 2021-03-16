@@ -3,6 +3,8 @@
 
 #include "commun.h"
 
-void nouvelle_partie_f(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch, FILE * save_file_actual);
+#include "character.h"
+
+void nouvelle_partie_f(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch, character_t * actual_save);
 
 #endif

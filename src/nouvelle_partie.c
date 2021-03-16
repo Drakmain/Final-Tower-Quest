@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "character.h"
 #include "creation_perso.h"
 
 
@@ -10,7 +9,7 @@
  * \file nouvelle_partie.c
  * \brief nouvelle partie.
  * \author Jeremy BOURGOUIN
- * \date 16/03/21
+ * \date 12/03/21
  *
  */
 
@@ -28,7 +27,7 @@ void fcpy(FILE * source_file, FILE * dest_file)
 
 /*!
  *
- * \fn nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save_file_actual)
+ * \fn nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, character_t * actual_save)
  * \brief A FINIR.
  *
  * \param render est un pointeur sur le rendu SDL.
@@ -36,16 +35,15 @@ void fcpy(FILE * source_file, FILE * dest_file)
  * \param windowheight est la hauteur de la fenetre.
  * \param police A FINIR.
  * \param program_launch est un pointeur sur un booléen.
- * \param save_file_actual A FINIR.
+ * \param actual_save A FINIR.
  *
  */
 
 extern
-void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save_file_actual)
+void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, character_t * actual_save)
 {
 
     /*--- Initialization variable ----------------------------------------------------*/
-
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
@@ -57,8 +55,6 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
     SDL_Event event;
 
     int selection = 0;
-
-    FILE * save_file1 = NULL, * save_file2 = NULL, * save_file3 = NULL;
 
     /*--- End Initialization variable --------------------------------------------*/
 
@@ -338,18 +334,9 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
         printf("Save 1 vide\n");
     }
     else
-    {   
+    {
         printf("Sauvegarde non vide. Continuer ? ");
         printf("%s\n", character_save1->save_name);
-        /*
-        FILE * scr = fopen("save//save_base.txt", "r");
-        FILE * dst = fopen(character_save1->file_name_save, "w+");
-
-        fcpy(scr, dst);
-
-        fclose(scr);
-        fclose(dst);
-        */
     }
 
 
@@ -365,7 +352,7 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
         printf("Save 2 vide\n");
     }
     else
-    {
+    {   
         printf("Sauvegarde non vide. Continuer ? ");
         printf("%s\n", character_save2->save_name);
     }
@@ -380,12 +367,12 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
     else if (character_save3->empty == SDL_TRUE)
     {
         //Affichage sauvegarde vide
-        printf("Save 3 vide\n");
+        printf("Save 3 vide\n\n");
     }
     else
-    {
+    {   
         printf("Sauvegarde non vide. Continuer ? ");
-        printf("%s\n", character_save3->save_name);
+        printf("%s\n\n", character_save3->save_name);
     }
 
     /*----------------------------------------------------------------------------*/
@@ -585,7 +572,6 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
             }
 
             SDL_RenderClear(render);
-
             SDL_RenderCopy(render, fond, NULL, &pos_fond);
             SDL_RenderCopy(render, choisir_empla, NULL, &pos_choisir_empla);
             SDL_RenderCopy(render, retour, NULL, &pos_retour);
@@ -595,7 +581,6 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
             SDL_RenderCopy(render, cadre_save1, NULL, &pos_cadre_save1);
             SDL_RenderCopy(render, cadre_save1, NULL, &pos_cadre_save2);
             SDL_RenderCopy(render, cadre_save1, NULL, &pos_cadre_save3);
-            
             SDL_RenderPresent(render);
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
@@ -603,30 +588,42 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
 
                 if(selection == 0)
                 {
-                    save_file_actual = save_file3;
-                    if (save_file_actual == NULL)
-                    {
-                        exit_with_error("Loading of a file failed > nouvelle_partie.c Line 568");
-                    }
-                    creation_perso(render, windowwidth, windowheight, police, program_launch, save_file_actual);
+                    FILE * scr = fopen("save//save_base.txt", "r");
+                    FILE * dst = fopen(character_save1->file_name_save, "w+");
+
+                    fcpy(scr, dst);
+
+                    fclose(scr);
+                    fclose(dst);
+
+                    actual_save = character_save1;
+                    creation_perso(render, windowwidth, windowheight, program_launch, police, actual_save);
                 }
                 if(selection == 1)
-                {
-                    save_file_actual = save_file3;
-                    if (save_file_actual == NULL)
-                    {
-                        exit_with_error("Loading of a file failed > nouvelle_partie.c Line 577");
-                    }
-                    creation_perso(render, windowwidth, windowheight, police, program_launch, save_file_actual);
+                {   
+                    FILE * scr = fopen("save//save_base.txt", "r");
+                    FILE * dst = fopen(character_save2->file_name_save, "w+");
+
+                    fcpy(scr, dst);
+
+                    fclose(scr);
+                    fclose(dst);
+
+                    actual_save = character_save2;
+                    creation_perso(render, windowwidth, windowheight, program_launch, police, actual_save);
                 }
                 if(selection == 2)
-                {
-                    save_file_actual = save_file3;
-                    if (save_file_actual == NULL)
-                    {
-                        exit_with_error("Loading of a file failed > nouvelle_partie.c Line 586");
-                    }
-                    creation_perso(render, windowwidth, windowheight, police, program_launch, save_file_actual);
+                {   
+                    FILE * scr = fopen("save//save_base.txt", "r");
+                    FILE * dst = fopen(character_save3->file_name_save, "w+");
+
+                    fcpy(scr, dst);
+
+                    fclose(scr);
+                    fclose(dst);
+
+                    actual_save = character_save3;
+                    creation_perso(render, windowwidth, windowheight, program_launch, police, actual_save);
                 }
                 if(selection == 3)
                 {
@@ -643,10 +640,6 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
 
 
     /*--- Free Memory ------------------------------------------------------------*/
-
-    fclose(save_file1);
-    fclose(save_file2);
-    fclose(save_file3);
 
     SDL_FreeSurface(surf_choisir_empla);
     SDL_FreeSurface(surf_retour);

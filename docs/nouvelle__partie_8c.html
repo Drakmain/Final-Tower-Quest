@@ -79,26 +79,30 @@ Graphe des dépendances par inclusion de nouvelle_partie.c:</div>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" href="creation__perso_8h_source.html" title=" " alt="" coords="179,80,298,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="197,155,280,181"/>
-<area shape="rect" title=" " alt="" coords="117,229,176,256"/>
-<area shape="rect" title=" " alt="" coords="201,229,277,256"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="301,229,360,256"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="196,229,279,256"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="235,155,322,181"/>
+<area shape="rect" title=" " alt="" coords="116,304,175,331"/>
+<area shape="rect" title=" " alt="" coords="199,304,275,331"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="300,304,359,331"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:aa4da777b402e35bc5b04bce32d2edd62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nouvelle__partie_8c.html#aa4da777b402e35bc5b04bce32d2edd62">nouvelle_partie_f</a> (SDL_Renderer *render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool *program_launch)</td></tr>
-<tr class="memdesc:aa4da777b402e35bc5b04bce32d2edd62"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="nouvelle__partie_8c.html#aa4da777b402e35bc5b04bce32d2edd62">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aa4da777b402e35bc5b04bce32d2edd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a286a7654eecafda8a85142f58a29ef1f"><td class="memItemLeft" align="right" valign="top"><a id="a286a7654eecafda8a85142f58a29ef1f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>fcpy</b> (FILE *source_file, FILE *dest_file)</td></tr>
+<tr class="separator:a286a7654eecafda8a85142f58a29ef1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4061549a568a5e7d1dccb13e501f7c51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nouvelle__partie_8c.html#a4061549a568a5e7d1dccb13e501f7c51">nouvelle_partie_f</a> (SDL_Renderer *render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool *program_launch, <a class="el" href="structcharacter__t.html">character_t</a> *actual_save)</td></tr>
+<tr class="memdesc:a4061549a568a5e7d1dccb13e501f7c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="nouvelle__partie_8c.html#a4061549a568a5e7d1dccb13e501f7c51">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4061549a568a5e7d1dccb13e501f7c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>nouvelle partie. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Jeremy BOURGOUIN </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>16/03/21 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>12/03/21 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="aa4da777b402e35bc5b04bce32d2edd62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4da777b402e35bc5b04bce32d2edd62">&#9670;&nbsp;</a></span>nouvelle_partie_f()</h2>
+<a id="a4061549a568a5e7d1dccb13e501f7c51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4061549a568a5e7d1dccb13e501f7c51">&#9670;&nbsp;</a></span>nouvelle_partie_f()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,7 +135,13 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">SDL_bool *&#160;</td>
-          <td class="paramname"><em>program_launch</em>&#160;</td>
+          <td class="paramname"><em>program_launch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcharacter__t.html">character_t</a> *&#160;</td>
+          <td class="paramname"><em>actual_save</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -149,26 +159,26 @@ Fonctions</h2></td></tr>
     <tr><td class="paramname">windowheight</td><td>est la hauteur de la fenetre. </td></tr>
     <tr><td class="paramname">police</td><td>A FINIR. </td></tr>
     <tr><td class="paramname">program_launch</td><td>est un pointeur sur un booléen. </td></tr>
+    <tr><td class="paramname">actual_save</td><td>A FINIR. </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="nouvelle__partie_8c_aa4da777b402e35bc5b04bce32d2edd62_cgraph.png" border="0" usemap="#anouvelle__partie_8c_aa4da777b402e35bc5b04bce32d2edd62_cgraph" alt=""/></div>
-<map name="anouvelle__partie_8c_aa4da777b402e35bc5b04bce32d2edd62_cgraph" id="anouvelle__partie_8c_aa4da777b402e35bc5b04bce32d2edd62_cgraph">
-<area shape="rect" title="A FINIR." alt="" coords="5,31,123,57"/>
-<area shape="rect" href="creation__perso_8c.html#aec543bda970ab531235c4c54c393ac4f" title="A FINIR." alt="" coords="171,5,277,32"/>
-<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="325,31,457,57"/>
+<div class="center"><img src="nouvelle__partie_8c_a4061549a568a5e7d1dccb13e501f7c51_cgraph.png" border="0" usemap="#anouvelle__partie_8c_a4061549a568a5e7d1dccb13e501f7c51_cgraph" alt=""/></div>
+<map name="anouvelle__partie_8c_a4061549a568a5e7d1dccb13e501f7c51_cgraph" id="anouvelle__partie_8c_a4061549a568a5e7d1dccb13e501f7c51_cgraph">
+<area shape="rect" title="A FINIR." alt="" coords="5,5,123,32"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="171,5,303,32"/>
 </map>
 </div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="nouvelle__partie_8c_aa4da777b402e35bc5b04bce32d2edd62_icgraph.png" border="0" usemap="#anouvelle__partie_8c_aa4da777b402e35bc5b04bce32d2edd62_icgraph" alt=""/></div>
-<map name="anouvelle__partie_8c_aa4da777b402e35bc5b04bce32d2edd62_icgraph" id="anouvelle__partie_8c_aa4da777b402e35bc5b04bce32d2edd62_icgraph">
+<div class="center"><img src="nouvelle__partie_8c_a4061549a568a5e7d1dccb13e501f7c51_icgraph.png" border="0" usemap="#anouvelle__partie_8c_a4061549a568a5e7d1dccb13e501f7c51_icgraph" alt=""/></div>
+<map name="anouvelle__partie_8c_a4061549a568a5e7d1dccb13e501f7c51_icgraph" id="anouvelle__partie_8c_a4061549a568a5e7d1dccb13e501f7c51_icgraph">
 <area shape="rect" title="A FINIR." alt="" coords="255,5,372,32"/>
-<area shape="rect" href="menu__accueil_8c.html#a2bc2c6f1db3df4680055b710f9933d7e" title="A FINIR." alt="" coords="104,5,207,32"/>
+<area shape="rect" href="menu__accueil_8c.html#a6ab04b1350dd59b079ec1684dacfa82a" title="A FINIR." alt="" coords="104,5,207,32"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
 </map>
 </div>

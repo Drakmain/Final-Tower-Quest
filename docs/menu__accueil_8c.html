@@ -78,33 +78,34 @@ Graphe des dépendances par inclusion de menu_accueil.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="menu__accueil_8c__incl.png" border="0" usemap="#asrc_2menu__accueil_8c" alt=""/></div>
 <map name="asrc_2menu__accueil_8c" id="asrc_2menu__accueil_8c">
-<area shape="rect" title="Menu d&#39;accueil." alt="" coords="227,5,362,32"/>
+<area shape="rect" title="Menu d&#39;accueil." alt="" coords="238,5,373,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" href="menu__accueil_8h_source.html" title=" " alt="" coords="179,80,293,107"/>
-<area shape="rect" href="options_8h_source.html" title=" " alt="" coords="317,80,392,107"/>
-<area shape="rect" href="nouvelle__partie_8h_source.html" title=" " alt="" coords="417,80,535,107"/>
-<area shape="rect" href="charger__partie_8h_source.html" title=" " alt="" coords="560,80,675,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="373,155,456,181"/>
-<area shape="rect" title=" " alt="" coords="293,229,352,256"/>
-<area shape="rect" title=" " alt="" coords="377,229,453,256"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="477,229,536,256"/>
+<area shape="rect" href="options_8h_source.html" title=" " alt="" coords="564,155,639,181"/>
+<area shape="rect" href="nouvelle__partie_8h_source.html" title=" " alt="" coords="317,80,435,107"/>
+<area shape="rect" href="charger__partie_8h_source.html" title=" " alt="" coords="460,80,575,107"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="395,229,477,256"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="393,155,479,181"/>
+<area shape="rect" title=" " alt="" coords="315,304,373,331"/>
+<area shape="rect" title=" " alt="" coords="398,304,474,331"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="499,304,557,331"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a2bc2c6f1db3df4680055b710f9933d7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__accueil_8c.html#a2bc2c6f1db3df4680055b710f9933d7e">menu_accueil</a> (SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool *program_launch)</td></tr>
-<tr class="memdesc:a2bc2c6f1db3df4680055b710f9933d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="menu__accueil_8c.html#a2bc2c6f1db3df4680055b710f9933d7e">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a2bc2c6f1db3df4680055b710f9933d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ab04b1350dd59b079ec1684dacfa82a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__accueil_8c.html#a6ab04b1350dd59b079ec1684dacfa82a">menu_accueil</a> (SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool *etat_fullscreen, SDL_bool *program_launch, <a class="el" href="structcharacter__t.html">character_t</a> *actual_save)</td></tr>
+<tr class="memdesc:a6ab04b1350dd59b079ec1684dacfa82a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="menu__accueil_8c.html#a6ab04b1350dd59b079ec1684dacfa82a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6ab04b1350dd59b079ec1684dacfa82a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Menu d'accueil. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Jeremy BOURGOUIN </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>16/03/21 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>10/02/21 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a2bc2c6f1db3df4680055b710f9933d7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bc2c6f1db3df4680055b710f9933d7e">&#9670;&nbsp;</a></span>menu_accueil()</h2>
+<a id="a6ab04b1350dd59b079ec1684dacfa82a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ab04b1350dd59b079ec1684dacfa82a">&#9670;&nbsp;</a></span>menu_accueil()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -143,7 +144,19 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">SDL_bool *&#160;</td>
-          <td class="paramname"><em>program_launch</em>&#160;</td>
+          <td class="paramname"><em>etat_fullscreen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_bool *&#160;</td>
+          <td class="paramname"><em>program_launch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcharacter__t.html">character_t</a> *&#160;</td>
+          <td class="paramname"><em>actual_save</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,28 +173,29 @@ Fonctions</h2></td></tr>
     <tr><td class="paramname">windowwidth</td><td>est la largeur de la fenetre. </td></tr>
     <tr><td class="paramname">windowheight</td><td>est la hauteur de la fenetre. </td></tr>
     <tr><td class="paramname">police</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">etat_fullscreen</td><td>A FINIR. </td></tr>
     <tr><td class="paramname">program_launch</td><td>est un pointeur sur un booléen. </td></tr>
+    <tr><td class="paramname">actual_save</td><td>A FINIR. </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="menu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_cgraph.png" border="0" usemap="#amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_cgraph" alt=""/></div>
-<map name="amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_cgraph" id="amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_cgraph">
+<div class="center"><img src="menu__accueil_8c_a6ab04b1350dd59b079ec1684dacfa82a_cgraph.png" border="0" usemap="#amenu__accueil_8c_a6ab04b1350dd59b079ec1684dacfa82a_cgraph" alt=""/></div>
+<map name="amenu__accueil_8c_a6ab04b1350dd59b079ec1684dacfa82a_cgraph" id="amenu__accueil_8c_a6ab04b1350dd59b079ec1684dacfa82a_cgraph">
 <area shape="rect" title="A FINIR." alt="" coords="5,81,108,108"/>
-<area shape="rect" href="charger__partie_8c.html#a04bbab0f7931bd29792a169089369e40" title="A FINIR." alt="" coords="157,5,272,32"/>
-<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="476,107,608,133"/>
-<area shape="rect" href="nouvelle__partie_8c.html#aa4da777b402e35bc5b04bce32d2edd62" title="A FINIR." alt="" coords="156,107,273,133"/>
-<area shape="rect" href="options_8c.html#a8c135cbab1bb2c92c21fd4abcb794b03" title="A FINIR." alt="" coords="337,208,412,235"/>
-<area shape="rect" href="creation__perso_8c.html#aec543bda970ab531235c4c54c393ac4f" title="A FINIR." alt="" coords="321,157,428,184"/>
+<area shape="rect" href="charger__partie_8c.html#a8ed29cb397ffb1a8c997b569d048cc14" title="A FINIR." alt="" coords="157,5,272,32"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="321,81,453,108"/>
+<area shape="rect" href="nouvelle__partie_8c.html#a4061549a568a5e7d1dccb13e501f7c51" title="A FINIR." alt="" coords="156,107,273,133"/>
+<area shape="rect" href="options_8c.html#acc3be2e55ec90adc6b6b68489b0c5eaa" title="A FINIR." alt="" coords="177,157,252,184"/>
 </map>
 </div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="menu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_icgraph.png" border="0" usemap="#amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_icgraph" alt=""/></div>
-<map name="amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_icgraph" id="amenu__accueil_8c_a2bc2c6f1db3df4680055b710f9933d7e_icgraph">
+<div class="center"><img src="menu__accueil_8c_a6ab04b1350dd59b079ec1684dacfa82a_icgraph.png" border="0" usemap="#amenu__accueil_8c_a6ab04b1350dd59b079ec1684dacfa82a_icgraph" alt=""/></div>
+<map name="amenu__accueil_8c_a6ab04b1350dd59b079ec1684dacfa82a_icgraph" id="amenu__accueil_8c_a6ab04b1350dd59b079ec1684dacfa82a_icgraph">
 <area shape="rect" title="A FINIR." alt="" coords="104,5,207,32"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
 </map>

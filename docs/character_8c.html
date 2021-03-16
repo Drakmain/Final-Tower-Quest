@@ -96,9 +96,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a528221c16bc3157d8f838553c3791118"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a528221c16bc3157d8f838553c3791118">character_free</a> (<a class="el" href="structcharacter__t.html">character_t</a> **character)</td></tr>
 <tr class="memdesc:a528221c16bc3157d8f838553c3791118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la liberation d'un objet character.  <a href="character_8c.html#a528221c16bc3157d8f838553c3791118">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a528221c16bc3157d8f838553c3791118"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add7f6731bd4f2907cd0e89009a5e581c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcharacter__t.html">character_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c">character_create</a> (SDL_Renderer *render, char *file_name_bmp, char *file_name_txt)</td></tr>
-<tr class="memdesc:add7f6731bd4f2907cd0e89009a5e581c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la creation du l'objet character.  <a href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c">Plus de détails...</a><br /></td></tr>
-<tr class="separator:add7f6731bd4f2907cd0e89009a5e581c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58bd0797096112d0594b457539bb5fe5"><td class="memItemLeft" align="right" valign="top"><a id="a58bd0797096112d0594b457539bb5fe5"></a>
+<a class="el" href="structcharacter__t.html">character_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>character_create</b> (SDL_Renderer *render, char *file_name_save)</td></tr>
+<tr class="separator:a58bd0797096112d0594b457539bb5fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e4bd763a6cfcaa857a55d8b6a382a09"><td class="memItemLeft" align="right" valign="top">SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a2e4bd763a6cfcaa857a55d8b6a382a09">character_exist</a> (<a class="el" href="structcharacter__t.html">character_t</a> *const character)</td></tr>
 <tr class="memdesc:a2e4bd763a6cfcaa857a55d8b6a382a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de verifier l'existence du l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>.  <a href="character_8c.html#a2e4bd763a6cfcaa857a55d8b6a382a09">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a2e4bd763a6cfcaa857a55d8b6a382a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,80 +108,6 @@ Fonctions</h2></td></tr>
 <dl class="section author"><dt>Auteur</dt><dd>Enzo BRENNUS </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>18/02/21 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="add7f6731bd4f2907cd0e89009a5e581c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add7f6731bd4f2907cd0e89009a5e581c">&#9670;&nbsp;</a></span>character_create()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structcharacter__t.html">character_t</a> * character_create </td>
-          <td>(</td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>render</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>file_name_bmp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>file_name_txt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Permet la creation du l'objet character. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">render</td><td>est un pointeur sur le rendu SDL. </td></tr>
-    <tr><td class="paramname">file_name_bmp</td><td>est une chaîne de caractères contenant le nom du fichier bmp. </td></tr>
-    <tr><td class="paramname">file_name_txt</td><td>est une chaîne de caractères contenant le nom du fichier txt.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>character Un objet character créé dans cette fonction. </dd></dl>
-<dl class="retval"><dt>Valeurs retournées</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname"><a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a></td><td>* Un pointeur sur l'objet character. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Voici le graphe d'appel pour cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="character_8c_add7f6731bd4f2907cd0e89009a5e581c_cgraph.png" border="0" usemap="#acharacter_8c_add7f6731bd4f2907cd0e89009a5e581c_cgraph" alt=""/></div>
-<map name="acharacter_8c_add7f6731bd4f2907cd0e89009a5e581c_cgraph" id="acharacter_8c_add7f6731bd4f2907cd0e89009a5e581c_cgraph">
-<area shape="rect" title="Permet la creation du l&#39;objet character." alt="" coords="5,81,124,108"/>
-<area shape="rect" href="character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="181,5,285,32"/>
-<area shape="rect" href="character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="172,56,295,83"/>
-<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="343,81,475,108"/>
-<area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="180,157,287,184"/>
-</map>
-</div>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="character_8c_add7f6731bd4f2907cd0e89009a5e581c_icgraph.png" border="0" usemap="#acharacter_8c_add7f6731bd4f2907cd0e89009a5e581c_icgraph" alt=""/></div>
-<map name="acharacter_8c_add7f6731bd4f2907cd0e89009a5e581c_icgraph" id="acharacter_8c_add7f6731bd4f2907cd0e89009a5e581c_icgraph">
-<area shape="rect" title="Permet la creation du l&#39;objet character." alt="" coords="205,31,324,57"/>
-<area shape="rect" href="tower_8c.html#a5e18de5ae9ec4cdc412e4185fd406d4f" title="A FINIR." alt="" coords="104,5,157,32"/>
-<area shape="rect" href="town_8c.html#ad3caf70b1e2bb0ee8a50877428e619f9" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
-<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,31,56,57"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="a2e4bd763a6cfcaa857a55d8b6a382a09"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2e4bd763a6cfcaa857a55d8b6a382a09">&#9670;&nbsp;</a></span>character_exist()</h2>
 
@@ -245,18 +171,6 @@ Voici le graphe des appelants de cette fonction :</div>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="character_8c_a528221c16bc3157d8f838553c3791118_icgraph.png" border="0" usemap="#acharacter_8c_a528221c16bc3157d8f838553c3791118_icgraph" alt=""/></div>
-<map name="acharacter_8c_a528221c16bc3157d8f838553c3791118_icgraph" id="acharacter_8c_a528221c16bc3157d8f838553c3791118_icgraph">
-<area shape="rect" title="Permet la liberation d&#39;un objet character." alt="" coords="372,31,476,57"/>
-<area shape="rect" href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c" title="Permet la creation du l&#39;objet character." alt="" coords="205,31,324,57"/>
-<area shape="rect" href="tower_8c.html#a5e18de5ae9ec4cdc412e4185fd406d4f" title="A FINIR." alt="" coords="104,5,157,32"/>
-<area shape="rect" href="town_8c.html#ad3caf70b1e2bb0ee8a50877428e619f9" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
-<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,31,56,57"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -323,18 +237,6 @@ Voici le graphe d'appel pour cette fonction :</div>
 <map name="acharacter_8c_ad755cfed6ecb51c29baa6e4b685c1416_cgraph" id="acharacter_8c_ad755cfed6ecb51c29baa6e4b685c1416_cgraph">
 <area shape="rect" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="5,5,128,32"/>
 <area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="176,5,308,32"/>
-</map>
-</div>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="character_8c_ad755cfed6ecb51c29baa6e4b685c1416_icgraph.png" border="0" usemap="#acharacter_8c_ad755cfed6ecb51c29baa6e4b685c1416_icgraph" alt=""/></div>
-<map name="acharacter_8c_ad755cfed6ecb51c29baa6e4b685c1416_icgraph" id="acharacter_8c_ad755cfed6ecb51c29baa6e4b685c1416_icgraph">
-<area shape="rect" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="372,31,495,57"/>
-<area shape="rect" href="character_8c.html#add7f6731bd4f2907cd0e89009a5e581c" title="Permet la creation du l&#39;objet character." alt="" coords="205,31,324,57"/>
-<area shape="rect" href="tower_8c.html#a5e18de5ae9ec4cdc412e4185fd406d4f" title="A FINIR." alt="" coords="104,5,157,32"/>
-<area shape="rect" href="town_8c.html#ad3caf70b1e2bb0ee8a50877428e619f9" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
-<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,31,56,57"/>
 </map>
 </div>
 

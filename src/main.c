@@ -3,6 +3,7 @@
 
 #include "town.h"
 #include "tower.h"
+#include "character.h"
 #include "menu_accueil.h"
 #include "commun.h"
 
@@ -11,7 +12,7 @@
  * \file main.c
  * \brief Ficher principale du jeu.
  * \author Enzo BRENNUS
- * \date 16/03/21
+ * \date 12/03/21
  *
  */
 
@@ -56,12 +57,12 @@ int main(int argc, char ** argv)
     SDL_bool * etat_fullscreen = malloc(sizeof(SDL_bool));
     *etat_fullscreen = SDL_FALSE;
 
-    int *WINDOWWIDTH = malloc(sizeof(int));
+    int * WINDOWWIDTH = malloc(sizeof(int));
     *WINDOWWIDTH = WINDOWWIDTH_720P;
-    int *WINDOWHEIGHT = malloc(sizeof(int));
+    int * WINDOWHEIGHT = malloc(sizeof(int));
     *WINDOWHEIGHT = WINDOWHEIGHT_720P;
 
-    FILE * save_file_actual = NULL;
+    character_t * actual_save = NULL;
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -78,7 +79,6 @@ int main(int argc, char ** argv)
     }
 
     /*--- End Initialization SDL Video -------------------------------------------*/
-
 
     /*--- Initialization SDL TTF -------------------------------------------------*/
 
@@ -130,13 +130,11 @@ int main(int argc, char ** argv)
     SDL_RenderPresent(render);
 
     printf("/*--- End Startup SDL ---*/\n\n");
-
     /*--- End Creation Render ----------------------------------------------------*/
-
 
     /*--- Creation Police --------------------------------------------------------*/
 
-    TTF_Font * police = NULL;
+    TTF_Font *police = NULL;
     police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf",50);
     if(police == NULL)
     {
@@ -145,13 +143,12 @@ int main(int argc, char ** argv)
 
     /*--- End Creation Police ----------------------------------------------------*/
 
-
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (*program_launch)
     {
 
-        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, etat_fullscreen, program_launch, save_file_actual);
+        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, etat_fullscreen, program_launch, actual_save);
         //town(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
         //tower(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
 
@@ -183,9 +180,6 @@ int main(int argc, char ** argv)
 
     free(program_launch);
     printf("program_launch freed\n");
-
-    fclose(save_file_actual);
-    printf("save_file_actual closed\n");
 
     printf("/*--- End Free Memory ---*/\n\n");
 

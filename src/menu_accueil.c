@@ -13,27 +13,28 @@
  * \file menu_accueil.c
  * \brief Menu d'accueil.
  * \author Jeremy BOURGOUIN
- * \date 16/03/21
+ * \date 10/02/21
  *
  */
 
 
 /*!
  *
- * \fn menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save_file_actual)
+ * \fn menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font *police,  SDL_bool * etat_fullscreen, SDL_bool * program_launch, character_t * actual_save)
  * \brief A FINIR.
  *
  * \param render est un pointeur sur le rendu SDL.
  * \param windowwidth est la largeur de la fenetre.
  * \param windowheight est la hauteur de la fenetre.
  * \param police A FINIR.
+ * \param etat_fullscreen A FINIR.
  * \param program_launch est un pointeur sur un booléen.
- * \param save_file_actual A FINIR.
+ * \param actual_save A FINIR.
  *
  */
 
 extern
-void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police,SDL_bool * etat_fullscreen, SDL_bool * program_launch, FILE * save_file_actual){
+void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font *police,  SDL_bool * etat_fullscreen, SDL_bool * program_launch, character_t * actual_save){
 
     /*--- Initialization variable ------------------------------------------------*/
     SDL_Color blanc = {255,255,255};
@@ -283,11 +284,11 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, 
 
                 if(selection == 0)
                 {
-                    nouvelle_partie_f(render, windowwidth, windowheight, police, program_launch, save_file_actual);
+                    nouvelle_partie_f(render, windowwidth, windowheight, police, program_launch, actual_save);
                 }
                 if(selection == 1)
                 {
-                    charger_partie_f(render, windowwidth, windowheight, police, program_launch, save_file_actual);
+                    charger_partie_f(render, windowwidth, windowheight, police, program_launch, actual_save);
                     menu_ac_bool = SDL_FALSE;
                 }
                 if(selection == 2)

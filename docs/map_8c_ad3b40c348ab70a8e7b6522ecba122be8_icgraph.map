@@ -1,6 +1,5 @@
 <map id="map_create" name="map_create">
-<area shape="rect" id="node1" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
-<area shape="rect" id="node2" href="$tower_8c.html#a5e18de5ae9ec4cdc412e4185fd406d4f" title="A FINIR." alt="" coords="104,5,157,32"/>
-<area shape="rect" id="node4" href="$town_8c.html#ad3caf70b1e2bb0ee8a50877428e619f9" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
-<area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,31,56,57"/>
+<area shape="rect" id="node1" title="Permet la creation du l&#39;objet map_t." alt="" coords="107,31,197,57"/>
+<area shape="rect" id="node2" href="$tower_8c.html#a5e18de5ae9ec4cdc412e4185fd406d4f" title="A FINIR." alt="" coords="5,5,59,32"/>
+<area shape="rect" id="node3" href="$town_8c.html#ad3caf70b1e2bb0ee8a50877428e619f9" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="7,56,57,83"/>
 </map>

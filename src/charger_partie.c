@@ -3,22 +3,20 @@
 
 #include "charger_partie.h"
 
-#include "character.h"
-
 
 /*!
  *
  * \file charger_partie.c
  * \brief charger partie.
  * \author Jeremy BOURGOUIN
- * \date 16/03/21
+ * \date 12/03/21
  *
  */
 
 
 /*!
  *
- * \fn charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font *police, SDL_bool * program_launch, FILE * save_file_actual)
+ * \fn charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, character_t * actual_save)
  * \brief A FINIR.
  *
  * \param render est un pointeur sur le rendu SDL.
@@ -26,20 +24,21 @@
  * \param windowheight est la hauteur de la fenetre.
  * \param police A FINIR.
  * \param program_launch est un pointeur sur un booléen.
- * \param save_file_actual A FINIR.
+ * \param actual_save A FINIR.
  *
  */
 
 extern
-void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save_file_actual){
+void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, character_t * actual_save){
 
 
     /*--- Initialization variable ------------------------------------------------*/
-
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
     SDL_Surface *surf_save1 = NULL, *surf_save2 = NULL, *surf_save3 = NULL, *surf_cadre = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_choisir_empla = NULL;
+
+
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -348,7 +347,7 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
         printf("Save 2 vide\n");
     }
     else
-    {   
+    {
         printf("%s\n", character_save2->save_name);
     }
 
@@ -362,11 +361,11 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
     else if (character_save3->empty == SDL_TRUE)
     {
         //Affichage sauvegarde vide
-        printf("Save 3 vide\n");
+        printf("Save 3 vide\n\n");
     }
     else
     {
-        printf("%s\n", character_save3->save_name);
+        printf("%s\n\n", character_save3->save_name);
     }
 
     /*----------------------------------------------------------------------------*/
@@ -578,14 +577,17 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
 
                 if(selection == 0)
                 {
+                    actual_save = character_save1;
                     char_part_bool = SDL_FALSE;
                 }
                 if(selection == 1)
                 {
+                    actual_save = character_save2;
                     char_part_bool = SDL_FALSE;
                 }
                 if(selection == 2)
                 {
+                    actual_save = character_save3;
                     char_part_bool = SDL_FALSE;
                 }
                 if(selection == 3)

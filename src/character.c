@@ -149,7 +149,6 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
     }
     else
     {   
-        printf("%s oue\n", character->save_name);
         fscanf(file, "%*s %s ;\n", character->charactere_name);
 
         fscanf(file, "%*s %s ;\n", character->position);
@@ -171,8 +170,6 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
 
         strcat(character->file_name_txt, character->charactere_name);
         strcat(character->file_name_txt, ".txt");
-
-        printf("%s\n", character->file_name_txt);
 
         file = fopen(character->file_name_txt, "r");
         if (file == NULL)

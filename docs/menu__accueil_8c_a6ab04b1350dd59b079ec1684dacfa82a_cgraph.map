@@ -1,0 +1,7 @@
+<map id="menu_accueil" name="menu_accueil">
+<area shape="rect" id="node1" title="A FINIR." alt="" coords="5,81,108,108"/>
+<area shape="rect" id="node2" href="$charger__partie_8c.html#a8ed29cb397ffb1a8c997b569d048cc14" title="A FINIR." alt="" coords="157,5,272,32"/>
+<area shape="rect" id="node3" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="321,81,453,108"/>
+<area shape="rect" id="node4" href="$nouvelle__partie_8c.html#a4061549a568a5e7d1dccb13e501f7c51" title="A FINIR." alt="" coords="156,107,273,133"/>
+<area shape="rect" id="node5" href="$options_8c.html#acc3be2e55ec90adc6b6b68489b0c5eaa" title="A FINIR." alt="" coords="177,157,252,184"/>
+</map>

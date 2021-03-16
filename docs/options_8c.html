@@ -65,7 +65,7 @@ $(document).ready(function(){initNavTree('options_8c.html',''); initResizable();
 </div><!--header-->
 <div class="contents">
 
-<p>affichage et gestion des options.  
+<p>Affichage et gestion des options.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -75,7 +75,7 @@ Graphe des dépendances par inclusion de options.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="options_8c__incl.png" border="0" usemap="#asrc_2options_8c" alt=""/></div>
 <map name="asrc_2options_8c" id="asrc_2options_8c">
-<area shape="rect" title="affichage et gestion des options." alt="" coords="74,5,171,32"/>
+<area shape="rect" title="Affichage et gestion des options." alt="" coords="74,5,171,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" href="options_8h_source.html" title=" " alt="" coords="179,80,253,107"/>
@@ -88,17 +88,17 @@ Graphe des dépendances par inclusion de options.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a8c135cbab1bb2c92c21fd4abcb794b03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="options_8c.html#a8c135cbab1bb2c92c21fd4abcb794b03">options_f</a> (SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool *program_launch)</td></tr>
-<tr class="memdesc:a8c135cbab1bb2c92c21fd4abcb794b03"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="options_8c.html#a8c135cbab1bb2c92c21fd4abcb794b03">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a8c135cbab1bb2c92c21fd4abcb794b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc3be2e55ec90adc6b6b68489b0c5eaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="options_8c.html#acc3be2e55ec90adc6b6b68489b0c5eaa">options_f</a> (SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool *etat_fullscreen, SDL_bool *program_launch)</td></tr>
+<tr class="memdesc:acc3be2e55ec90adc6b6b68489b0c5eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="options_8c.html#acc3be2e55ec90adc6b6b68489b0c5eaa">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acc3be2e55ec90adc6b6b68489b0c5eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>affichage et gestion des options. </p>
+<div class="textblock"><p>Affichage et gestion des options. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Jeremy BOURGOUIN </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>16/03/21 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>12/03/21 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a8c135cbab1bb2c92c21fd4abcb794b03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c135cbab1bb2c92c21fd4abcb794b03">&#9670;&nbsp;</a></span>options_f()</h2>
+<a id="acc3be2e55ec90adc6b6b68489b0c5eaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc3be2e55ec90adc6b6b68489b0c5eaa">&#9670;&nbsp;</a></span>options_f()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,6 +137,12 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">SDL_bool *&#160;</td>
+          <td class="paramname"><em>etat_fullscreen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_bool *&#160;</td>
           <td class="paramname"><em>program_launch</em>&#160;</td>
         </tr>
         <tr>
@@ -151,9 +157,11 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">render</td><td>est un pointeur sur le rendu SDL. </td></tr>
+    <tr><td class="paramname">window</td><td>A FINIR. </td></tr>
     <tr><td class="paramname">windowwidth</td><td>est la largeur de la fenetre. </td></tr>
     <tr><td class="paramname">windowheight</td><td>est la hauteur de la fenetre. </td></tr>
     <tr><td class="paramname">police</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">etat_fullscreen</td><td>A FINIR. </td></tr>
     <tr><td class="paramname">program_launch</td><td>est un pointeur sur un booléen. </td></tr>
   </table>
   </dd>
@@ -161,8 +169,8 @@ Fonctions</h2></td></tr>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="options_8c_a8c135cbab1bb2c92c21fd4abcb794b03_cgraph.png" border="0" usemap="#aoptions_8c_a8c135cbab1bb2c92c21fd4abcb794b03_cgraph" alt=""/></div>
-<map name="aoptions_8c_a8c135cbab1bb2c92c21fd4abcb794b03_cgraph" id="aoptions_8c_a8c135cbab1bb2c92c21fd4abcb794b03_cgraph">
+<div class="center"><img src="options_8c_acc3be2e55ec90adc6b6b68489b0c5eaa_cgraph.png" border="0" usemap="#aoptions_8c_acc3be2e55ec90adc6b6b68489b0c5eaa_cgraph" alt=""/></div>
+<map name="aoptions_8c_acc3be2e55ec90adc6b6b68489b0c5eaa_cgraph" id="aoptions_8c_acc3be2e55ec90adc6b6b68489b0c5eaa_cgraph">
 <area shape="rect" title="A FINIR." alt="" coords="5,5,80,32"/>
 <area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="128,5,260,32"/>
 </map>
@@ -170,10 +178,10 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="options_8c_a8c135cbab1bb2c92c21fd4abcb794b03_icgraph.png" border="0" usemap="#aoptions_8c_a8c135cbab1bb2c92c21fd4abcb794b03_icgraph" alt=""/></div>
-<map name="aoptions_8c_a8c135cbab1bb2c92c21fd4abcb794b03_icgraph" id="aoptions_8c_a8c135cbab1bb2c92c21fd4abcb794b03_icgraph">
+<div class="center"><img src="options_8c_acc3be2e55ec90adc6b6b68489b0c5eaa_icgraph.png" border="0" usemap="#aoptions_8c_acc3be2e55ec90adc6b6b68489b0c5eaa_icgraph" alt=""/></div>
+<map name="aoptions_8c_acc3be2e55ec90adc6b6b68489b0c5eaa_icgraph" id="aoptions_8c_acc3be2e55ec90adc6b6b68489b0c5eaa_icgraph">
 <area shape="rect" title="A FINIR." alt="" coords="255,5,329,32"/>
-<area shape="rect" href="menu__accueil_8c.html#a2bc2c6f1db3df4680055b710f9933d7e" title="A FINIR." alt="" coords="104,5,207,32"/>
+<area shape="rect" href="menu__accueil_8c.html#a6ab04b1350dd59b079ec1684dacfa82a" title="A FINIR." alt="" coords="104,5,207,32"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
 </map>
 </div>
