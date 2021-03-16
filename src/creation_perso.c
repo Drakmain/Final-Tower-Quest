@@ -9,20 +9,21 @@
  * \file creation_perso.c
  * \brief Creation d'un perosnnage.
  * \author Alexis BOUFFARD
- * \date 12/03/21
+ * \date 16/03/21
  *
  */
 
 
 /*!
  *
- * \fn creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, SDL_bool * program_launch)
- * \brief A FINIR
+ * \fn creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch)
+ * \brief A FINIR.
  *
- * \param render render est un pointeur sur le rendu SDL.s
- * \param *windowwidth A FINIR
- * \param *windowheight A FINIR
- * \param program_launch est un pointeur booléen.
+ * \param render est un pointeur sur le rendu SDL.
+ * \param windowwidth est la largeur de la fenetre.
+ * \param windowheight est la hauteur de la fenetre.
+ * \param police A FINIR.
+ * \param program_launch est un pointeur sur un booléen.
  *
  */
 
@@ -30,6 +31,7 @@ extern
 void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch){
 
     /*--- Initialization variable ----------------------------------------------------*/
+
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
