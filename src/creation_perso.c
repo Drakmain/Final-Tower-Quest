@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "creation_perso.h"
-
+#include "nom_sauvegarde.h"
 
 /*!
  *
@@ -16,24 +16,33 @@
 
 /*!
  *
- * \fn creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, SDL_bool * program_launch)
+ * \fn creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SDL_bool * program_launch)
  * \brief A FINIR
  *
  * \param render render est un pointeur sur le rendu SDL.s
- * \param *windowwidth A FINIR
- * \param *windowheight A FINIR
+ * \param windowwidth A FINIR
+ * \param windowheight A FINIR
  * \param program_launch est un pointeur booléen.
  *
  */
 
 extern
-void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch){
+void creation_perso(SDL_Renderer * render, int windowwidth, int windowheight, SDL_bool * program_launch){
+
+    TTF_Font *police = NULL;
+    police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf",50);
+    if(police == NULL){
+        SDL_ExitWithError("probleme chargement police fonction menu nom de sauvegarde");
+    }
+
 
     /*--- Initialization variable ----------------------------------------------------*/
+
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
     SDL_Surface * surf_guerrier = NULL, * surf_mage = NULL, * surf_assassin = NULL, * surf_fond = NULL, * surf_spriteGuerrier = NULL, * surf_spriteMage = NULL, * surf_spriteAssassin = NULL, * surf_cadre = NULL;
+    SDL_Surface *surf_desc1 = NULL, *surf_desc2 = NULL, *surf_desc3 = NULL, *surf_desc4 = NULL, *surf_desc5 = NULL;
 
     SDL_bool crea_perso_bool = SDL_TRUE;
 
@@ -59,10 +68,10 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
     }
 
     SDL_Rect pos_guerrier;
-    pos_guerrier.x = *windowwidth/2 - *windowwidth/2.2;
-    pos_guerrier.y = *windowheight/2 - *windowwidth/5;
-    pos_guerrier.w = *windowwidth/7;
-    pos_guerrier.h = *windowheight/13.5;
+    pos_guerrier.x = windowwidth/2 - windowwidth/2.2;
+    pos_guerrier.y = windowheight/2 - windowwidth/5;
+    pos_guerrier.w = windowwidth/7;
+    pos_guerrier.h = windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
@@ -79,10 +88,10 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
     }
 
     SDL_Rect pos_mage;
-    pos_mage.x = *windowwidth/2 - *windowwidth/2.2;
-    pos_mage.y = *windowheight/2 - *windowwidth/29;
-    pos_mage.w = *windowwidth/11;
-    pos_mage.h = *windowheight/13.5;
+    pos_mage.x = windowwidth/2 - windowwidth/2.2;
+    pos_mage.y = windowheight/2 - windowwidth/29;
+    pos_mage.w = windowwidth/11;
+    pos_mage.h = windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
@@ -100,10 +109,10 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
     }
 
     SDL_Rect pos_assassin;
-    pos_assassin.x = *windowwidth/2 - *windowwidth/2.2;
-    pos_assassin.y = *windowheight/2 + *windowwidth/7.5;
-    pos_assassin.w = *windowwidth/7;
-    pos_assassin.h = *windowheight/13.5;
+    pos_assassin.x = windowwidth/2 - windowwidth/2.2;
+    pos_assassin.y = windowheight/2 + windowwidth/7.5;
+    pos_assassin.w = windowwidth/7;
+    pos_assassin.h = windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
@@ -122,10 +131,10 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
     }
 
     SDL_Rect pos_spriteGuerrier;
-    pos_spriteGuerrier.x = *windowwidth/2 + *windowwidth/15;
-    pos_spriteGuerrier.y = *windowheight/2 - *windowwidth/5;
-    pos_spriteGuerrier.w = *windowwidth * 144 /1200;
-    pos_spriteGuerrier.h = *windowheight * 144 /675;
+    pos_spriteGuerrier.x = windowwidth/2 + windowwidth/15;
+    pos_spriteGuerrier.y = windowheight/2 - windowwidth/5;
+    pos_spriteGuerrier.w = windowwidth * 144 /1200;
+    pos_spriteGuerrier.h = windowheight * 144 /675;
 
     /*----------------------------------------------------------------------------*/
 
@@ -144,10 +153,10 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
     }
 
     SDL_Rect pos_spriteMage;
-    pos_spriteMage.x = *windowwidth/2 + *windowwidth/15;
-    pos_spriteMage.y = *windowheight/2 - *windowwidth/5;
-    pos_spriteMage.w = *windowwidth * 144 /1200;
-    pos_spriteMage.h = *windowheight * 144 /675;
+    pos_spriteMage.x = windowwidth/2 + windowwidth/15;
+    pos_spriteMage.y = windowheight/2 - windowwidth/5;
+    pos_spriteMage.w = windowwidth * 144 /1200;
+    pos_spriteMage.h = windowheight * 144 /675;
 
     /*----------------------------------------------------------------------------*/
 
@@ -166,10 +175,10 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
     }
 
     SDL_Rect pos_spriteAssassin;
-    pos_spriteAssassin.x = *windowwidth/2 + *windowwidth/15;
-    pos_spriteAssassin.y = *windowheight/2 - *windowwidth/5;
-    pos_spriteAssassin.w = *windowwidth * 108 /1200;
-    pos_spriteAssassin.h = *windowheight * 180 /675;
+    pos_spriteAssassin.x = windowwidth/2 + windowwidth/15;
+    pos_spriteAssassin.y = windowheight/2 - windowwidth/4.6;
+    pos_spriteAssassin.w = windowwidth * 108 /1200;
+    pos_spriteAssassin.h = windowheight * 180 /675;
 
     /*----------------------------------------------------------------------------*/
 
@@ -189,8 +198,8 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
     SDL_Rect pos_fond;
     pos_fond.x = 0;
     pos_fond.y = 0;
-    pos_fond.w = *windowwidth;
-    pos_fond.h = *windowheight;
+    pos_fond.w = windowwidth;
+    pos_fond.h = windowheight;
 
     /*----------------------------------------------------------------------------*/
 
@@ -208,10 +217,10 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
     }
 
     SDL_Rect pos_cadre_desc;
-    pos_cadre_desc.x = *windowheight * 478 /675;
-    pos_cadre_desc.y = *windowheight * 325 /675;
-    pos_cadre_desc.w = *windowwidth * 550 /1200;
-    pos_cadre_desc.h = *windowheight * 290 /675;
+    pos_cadre_desc.x = windowheight * 400 /675;
+    pos_cadre_desc.y = windowheight * 325 /675;
+    pos_cadre_desc.w = windowwidth * 700 /1200;
+    pos_cadre_desc.h = windowheight * 290 /675;
 
     /*----------------------------------------------------------------------------*/
 
@@ -308,11 +317,64 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
 
             if(selection == 0)
             {
+
                 surf_guerrier = TTF_RenderText_Blended(police, "Guerrier", rouge);
                 surf_mage = TTF_RenderText_Blended(police, "Mage", blanc);
                 surf_assassin = TTF_RenderText_Blended(police, "Assassin", blanc);
 
                 SDL_RenderCopy(render, spriteGuerrier, NULL, &pos_spriteGuerrier);
+
+                /*---Description Guerrier ----------------------------------------*/
+
+                surf_desc1 = TTF_RenderText_Blended(police, "Espiegle et temeraire, rien ne l'arrete. Le guerrier est", blanc);
+                SDL_Texture* desc1 = SDL_CreateTextureFromSurface(render, surf_desc1);
+                SDL_Rect pos_desc1;
+                pos_desc1.x = windowheight * 400 /645;
+                pos_desc1.y = windowheight/2;
+                pos_desc1.w = windowwidth/1.8;
+                pos_desc1.h = windowheight/13.5;
+
+                surf_desc2 = TTF_RenderText_Blended(police, "un heros de champ de bataille, habile, specialise dans le", blanc);
+                SDL_Texture* desc2 = SDL_CreateTextureFromSurface(render, surf_desc2);
+                SDL_Rect pos_desc2;
+                pos_desc2.x = windowheight * 400 /645;
+                pos_desc2.y = windowheight * 325 /570;
+                pos_desc2.w = windowwidth/1.8;
+                pos_desc2.h = windowheight/13.5;
+
+                surf_desc3 = TTF_RenderText_Blended(police, "combat rapproche, et capable de maitriser differents types", blanc);
+                SDL_Texture* desc3 = SDL_CreateTextureFromSurface(render, surf_desc3);
+                SDL_Rect pos_desc3;
+                pos_desc3.x = windowheight * 400 /645;
+                pos_desc3.y = windowheight * 325 /508;
+                pos_desc3.w = windowwidth/1.8;
+                pos_desc3.h = windowheight/13.5;
+
+                surf_desc4 = TTF_RenderText_Blended(police, "d'armes au cours d'un entrainement exigeant et intense, ce", blanc);
+                SDL_Texture* desc4 = SDL_CreateTextureFromSurface(render, surf_desc4);
+                SDL_Rect pos_desc4;
+                pos_desc4.x = windowheight * 400 /645;
+                pos_desc4.y = windowheight * 325 /460;
+                pos_desc4.w = windowwidth/1.8;
+                pos_desc4.h = windowheight/13.5;
+
+                surf_desc5 = TTF_RenderText_Blended(police, "qui fait de lui un redoutable combattant.                ", blanc);
+                SDL_Texture* desc5 = SDL_CreateTextureFromSurface(render, surf_desc5);
+                SDL_Rect pos_desc5;
+                pos_desc5.x = windowheight * 400 /645;
+                pos_desc5.y = windowheight * 325 /418;
+                pos_desc5.w = windowwidth/1.8;
+                pos_desc5.h = windowheight/15;
+
+                SDL_RenderCopy(render, desc1, NULL, &pos_desc1);
+                SDL_RenderCopy(render, desc2, NULL, &pos_desc2);
+                SDL_RenderCopy(render, desc3, NULL, &pos_desc3);
+                SDL_RenderCopy(render, desc4, NULL, &pos_desc4);
+                SDL_RenderCopy(render, desc5, NULL, &pos_desc5);
+
+
+                /*---End Description Guerrier ----------------------------------------*/
+
             }
 
             if(selection == 1)
@@ -322,6 +384,48 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
                 surf_assassin = TTF_RenderText_Blended(police, "Assassin", blanc);
 
                 SDL_RenderCopy(render, spriteMage, NULL, &pos_spriteMage);
+
+                /*---Description Mage ----------------------------------------*/
+
+                surf_desc1 = TTF_RenderText_Blended(police, "Feu, glace, terre et air, il n'y a aucun element que le", blanc);
+                SDL_Texture* desc1 = SDL_CreateTextureFromSurface(render, surf_desc1);
+                SDL_Rect pos_desc1;
+                pos_desc1.x = windowheight * 400 /645;
+                pos_desc1.y = windowheight/2;
+                pos_desc1.w = windowwidth/1.8;
+                pos_desc1.h = windowheight/13.5;
+
+                surf_desc2 = TTF_RenderText_Blended(police, "mage ne sait maitriser. Apres de nombreuses decennies", blanc);
+                SDL_Texture* desc2 = SDL_CreateTextureFromSurface(render, surf_desc2);
+                SDL_Rect pos_desc2;
+                pos_desc2.x = windowheight * 400 /645;
+                pos_desc2.y = windowheight * 325 /570;
+                pos_desc2.w = windowwidth/1.8;
+                pos_desc2.h = windowheight/13.5;
+
+                surf_desc3 = TTF_RenderText_Blended(police, "a perfectionner l'art de la magie, aucun monstre ne", blanc);
+                SDL_Texture* desc3 = SDL_CreateTextureFromSurface(render, surf_desc3);
+                SDL_Rect pos_desc3;
+                pos_desc3.x = windowheight * 400 /645;
+                pos_desc3.y = windowheight * 325 /508;
+                pos_desc3.w = windowwidth/1.8;
+                pos_desc3.h = windowheight/13.5;
+
+                surf_desc4 = TTF_RenderText_Blended(police, "pourra s'opposer a sa puissance colossal.                 ", blanc);
+                SDL_Texture* desc4 = SDL_CreateTextureFromSurface(render, surf_desc4);
+                SDL_Rect pos_desc4;
+                pos_desc4.x = windowheight * 400 /645;
+                pos_desc4.y = windowheight * 325 /460;
+                pos_desc4.w = windowwidth/1.8;
+                pos_desc4.h = windowheight/13.5;
+
+                SDL_RenderCopy(render, desc1, NULL, &pos_desc1);
+                SDL_RenderCopy(render, desc2, NULL, &pos_desc2);
+                SDL_RenderCopy(render, desc3, NULL, &pos_desc3);
+                SDL_RenderCopy(render, desc4, NULL, &pos_desc4);
+
+                /*---End Description Mage ----------------------------------------*/
+
             }
 
             if(selection == 2)
@@ -331,6 +435,57 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
                 surf_assassin = TTF_RenderText_Blended(police, "Assassin", rouge);
 
                 SDL_RenderCopy(render, spriteAssassin, NULL, &pos_spriteAssassin);
+
+                /*---Description Assassin ----------------------------------------*/
+
+                surf_desc1 = TTF_RenderText_Blended(police, "Tapis dans l'ombre, l'assassin est comme un monstre dans", blanc);
+                SDL_Texture* desc1 = SDL_CreateTextureFromSurface(render, surf_desc1);
+                SDL_Rect pos_desc1;
+                pos_desc1.x = windowheight * 400 /645;
+                pos_desc1.y = windowheight/2;
+                pos_desc1.w = windowwidth/1.8;
+                pos_desc1.h = windowheight/13.5;
+
+                surf_desc2 = TTF_RenderText_Blended(police, "la nuit, qui observe, qui ecoute, qui chasse. Il peut se", blanc);
+                SDL_Texture* desc2 = SDL_CreateTextureFromSurface(render, surf_desc2);
+                SDL_Rect pos_desc2;
+                pos_desc2.x = windowheight * 400 /645;
+                pos_desc2.y = windowheight * 325 /570;
+                pos_desc2.w = windowwidth/1.8;
+                pos_desc2.h = windowheight/13.5;
+
+                surf_desc3 = TTF_RenderText_Blended(police, "camoufler tel le cameleon, et chasser tel le predateur qui", blanc);
+                SDL_Texture* desc3 = SDL_CreateTextureFromSurface(render, surf_desc3);
+                SDL_Rect pos_desc3;
+                pos_desc3.x = windowheight * 400 /645;
+                pos_desc3.y = windowheight * 325 /508;
+                pos_desc3.w = windowwidth/1.8;
+                pos_desc3.h = windowheight/13.5;
+
+                surf_desc4 = TTF_RenderText_Blended(police, "a repere sa proie...sa victime mourra avant de se rendre", blanc);
+                SDL_Texture* desc4 = SDL_CreateTextureFromSurface(render, surf_desc4);
+                SDL_Rect pos_desc4;
+                pos_desc4.x = windowheight * 400 /645;
+                pos_desc4.y = windowheight * 325 /460;
+                pos_desc4.w = windowwidth/1.8;
+                pos_desc4.h = windowheight/13.5;
+
+                surf_desc5 = TTF_RenderText_Blended(police, "compte ce qui lui arrive.                ", blanc);
+                SDL_Texture* desc5 = SDL_CreateTextureFromSurface(render, surf_desc5);
+                SDL_Rect pos_desc5;
+                pos_desc5.x = windowheight * 400 /645;
+                pos_desc5.y = windowheight * 325 /418;
+                pos_desc5.w = windowwidth/1.8;
+                pos_desc5.h = windowheight/15;
+
+                SDL_RenderCopy(render, desc1, NULL, &pos_desc1);
+                SDL_RenderCopy(render, desc2, NULL, &pos_desc2);
+                SDL_RenderCopy(render, desc3, NULL, &pos_desc3);
+                SDL_RenderCopy(render, desc4, NULL, &pos_desc4);
+                SDL_RenderCopy(render, desc5, NULL, &pos_desc5);
+
+
+                /*---End Description Assassin ----------------------------------------*/
 
             }
             guerrier = SDL_CreateTextureFromSurface(render, surf_guerrier);
@@ -346,15 +501,15 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
 
                 if(selection == 0)
                 {
-
+                    nom_sauvegarde(render, windowwidth, windowheight, program_launch);
                 }
                 if(selection == 1)
                 {
-
+                    nom_sauvegarde(render, windowwidth, windowheight, program_launch);
                 }
                 if(selection == 2)
                 {
-
+                    nom_sauvegarde(render, windowwidth, windowheight, program_launch);
                 }
 
             }
@@ -386,5 +541,8 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
     SDL_DestroyTexture(spriteAssassin);
 
     /*--- End Free Memory --------------------------------------------------------*/
+
+
+    TTF_CloseFont(police);
 
 }
