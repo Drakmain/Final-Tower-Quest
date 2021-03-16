@@ -10,6 +10,12 @@ struct character_s
     void (*update)(character_t *, SDL_Renderer *, tile_set_t, SDL_Rect); /*!< Permet la mise a jour d'un objet character_t. */
     void (*free)(character_t **); /*!< Permet la liberation d'un objet character_t. */
 
+    SDL_bool empty; /*!< A FINIR. */
+
+    char * file_name_txt; /*!< A FINIR. */
+    char * file_name_bmp; /*!< A FINIR. */
+    char * file_name_save; /*!< A FINIR. */
+
     SDL_Texture * texture; /*!< Pointeur sur une texture SDL de l'objet character_t. */
 
     SDL_Surface * surface; /*!< Pointeur sur une surface SDL de l'objet character_t. */
@@ -28,9 +34,20 @@ struct character_s
     SDL_Rect Damage_Taken; /*!< Tile set (SDL_Rect) A FINIR. */
     SDL_Rect Dead; /*!< Tile set (SDL_Rect) A FINIR. */
 
+    char * save_name; /*!< A FINIR. */
+    char * charactere_name; /*!< A FINIR. */
+    char * position; /*!< A FINIR. */
+    int x; /*!< A FINIR. */
+    int y; /*!< A FINIR. */
+
+    int lvl; /*!< A FINIR. */
+    int xp; /*!< A FINIR. */
+    int life; /*!< A FINIR. */
+    int mana; /*!< A FINIR. */
+
 };
 
-extern character_t * character_create(SDL_Renderer * render, char * file_name_bmp, char * file_name_txt) ;
+extern character_t * character_create(SDL_Renderer * render, char * file_name_save);
 extern SDL_bool character_exist(character_t * const character);
 
 #endif

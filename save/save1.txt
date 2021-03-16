@@ -1,0 +1,9 @@
+save_name: Oue ;
+charactere: Guerrier ;
+position: Town ;
+x: ;
+y: ;
+lvl: 18 ;
+xp: ;
+life: ;
+mana: ;

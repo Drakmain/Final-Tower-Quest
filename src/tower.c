@@ -42,7 +42,7 @@ void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_boo
     }
 
     character_t* Assassin = NULL;
-    Assassin = character_create(render, "src\\tileset\\PJ\\Assassin.bmp", "src\\tileset\\PJ\\Assassin.txt");
+    //Assassin = character_create(render, "src\\tileset\\PJ\\Assassin.bmp", "src\\tileset\\PJ\\Assassin.txt");
     if (Assassin == NULL)
     {
         exit_with_error("Cannot create a character_t object > tower.c Line 42");

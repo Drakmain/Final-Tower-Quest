@@ -20,7 +20,7 @@
 
 /*!
  *
- * \fn menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save)
+ * \fn menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save_file_actual)
  * \brief A FINIR.
  *
  * \param render est un pointeur sur le rendu SDL.
@@ -28,12 +28,12 @@
  * \param windowheight est la hauteur de la fenetre.
  * \param police A FINIR.
  * \param program_launch est un pointeur sur un booléen.
- * \param save A FINIR.
+ * \param save_file_actual A FINIR.
  *
  */
 
 extern
-void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police,SDL_bool * etat_fullscreen, SDL_bool * program_launch, FILE * save){
+void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police,SDL_bool * etat_fullscreen, SDL_bool * program_launch, FILE * save_file_actual){
 
     /*--- Initialization variable ------------------------------------------------*/
     SDL_Color blanc = {255,255,255};
@@ -43,7 +43,7 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, 
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
-    SDL_bool menu_ac = SDL_TRUE;
+    SDL_bool menu_ac_bool = SDL_TRUE;
 
     SDL_Event event;
 
@@ -160,7 +160,7 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, 
 
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (menu_ac && *program_launch)
+    while (menu_ac_bool && *program_launch)
     {
 
         while (SDL_PollEvent(&event))
@@ -170,13 +170,13 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, 
 
             if (event.type == SDL_QUIT)
             {
-                menu_ac = SDL_FALSE;
+                menu_ac_bool = SDL_FALSE;
                 *program_launch = SDL_FALSE;
             }
 
             if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
             {
-                menu_ac = SDL_FALSE;
+                menu_ac_bool = SDL_FALSE;
                 *program_launch = SDL_FALSE;
             }
 
@@ -283,11 +283,12 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, 
 
                 if(selection == 0)
                 {
-                    nouvelle_partie_f(render, windowwidth, windowheight, police, program_launch, save);
+                    nouvelle_partie_f(render, windowwidth, windowheight, police, program_launch, save_file_actual);
                 }
                 if(selection == 1)
                 {
-                    charger_partie_f(render, windowwidth, windowheight, police, program_launch, save);
+                    charger_partie_f(render, windowwidth, windowheight, police, program_launch, save_file_actual);
+                    menu_ac_bool = SDL_FALSE;
                 }
                 if(selection == 2)
                 {
@@ -295,7 +296,7 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, 
                 }
                 if(selection == 3)
                 {
-                    menu_ac = SDL_FALSE;
+                    menu_ac_bool = SDL_FALSE;
                     *program_launch = SDL_FALSE;
                 }
 

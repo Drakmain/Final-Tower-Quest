@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "character.h"
 #include "creation_perso.h"
 
 
@@ -13,10 +14,21 @@
  *
  */
 
+void fcpy(FILE * source_file, FILE * dest_file)
+{
+    char c;
+    c = fgetc(source_file);
+    while (c != EOF)
+    {
+        fputc(c, dest_file);
+        c = fgetc(source_file);
+    }
+}
+
 
 /*!
  *
- * \fn nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save)
+ * \fn nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save_file_actual)
  * \brief A FINIR.
  *
  * \param render est un pointeur sur le rendu SDL.
@@ -24,12 +36,13 @@
  * \param windowheight est la hauteur de la fenetre.
  * \param police A FINIR.
  * \param program_launch est un pointeur sur un booléen.
- * \param save A FINIR.
+ * \param save_file_actual A FINIR.
  *
  */
 
 extern
-void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save){
+void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save_file_actual)
+{
 
     /*--- Initialization variable ----------------------------------------------------*/
 
@@ -44,6 +57,8 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
     SDL_Event event;
 
     int selection = 0;
+
+    FILE * save_file1 = NULL, * save_file2 = NULL, * save_file3 = NULL;
 
     /*--- End Initialization variable --------------------------------------------*/
 
@@ -127,12 +142,6 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
         SDL_ExitWithError("probleme texture options");
     }
 
-    SDL_Rect pos_save1;
-    pos_save1.x = *windowwidth/2 - 107;
-    pos_save1.y = *windowheight/13.5;
-    pos_save1.w = *windowwidth/(1200/214);
-    pos_save1.h = *windowheight/13.5;
-
     /*----------------------------------------------------------------------------*/
 
 
@@ -148,12 +157,6 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
         SDL_ExitWithError("probleme texture options");
     }
 
-    SDL_Rect pos_save2;
-    pos_save2.x = *windowwidth/2 - 107;
-    pos_save2.y = *windowheight/13.5;
-    pos_save2.w = *windowwidth/(1200/214);
-    pos_save2.h = *windowheight/13.5;
-
     /*----------------------------------------------------------------------------*/
 
 
@@ -168,12 +171,6 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
     if(save3 == NULL){
         SDL_ExitWithError("probleme texture options");
     }
-
-    SDL_Rect pos_save3;
-    pos_save3.x = *windowwidth/2 - 107;
-    pos_save3.y = *windowheight/13.5;
-    pos_save3.w = *windowwidth/(1200/214);
-    pos_save3.h = *windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
@@ -323,6 +320,73 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
     SDL_SetTextureBlendMode(fond_cadre_save3, SDL_BLENDMODE_BLEND);
     SDL_RenderFillRect(render, &rect_fond_cadre_save3);
     SDL_SetRenderTarget(render,NULL);
+
+    /*----------------------------------------------------------------------------*/
+
+
+    /*--- Open save file ---------------------------------------------------------*/
+
+    character_t * character_save1 = NULL;
+    character_save1 = character_create(render, "save//save1.txt");
+    if (character_save1 == NULL)
+    {
+        exit_with_error("Cannot create a character_t object > nouvelle_partie.c Line 341");
+    }
+    else if (character_save1->empty == SDL_TRUE)
+    {
+        //Affichage sauvegarde vide
+        printf("Save 1 vide\n");
+    }
+    else
+    {   
+        printf("Sauvegarde non vide. Continuer ? ");
+        printf("%s\n", character_save1->save_name);
+        /*
+        FILE * scr = fopen("save//save_base.txt", "r");
+        FILE * dst = fopen(character_save1->file_name_save, "w+");
+
+        fcpy(scr, dst);
+
+        fclose(scr);
+        fclose(dst);
+        */
+    }
+
+
+    character_t * character_save2 = NULL;
+    character_save2 = character_create(render, "save//save2.txt");
+    if (character_save2 == NULL)
+    {
+        exit_with_error("Cannot create a character_t object > nouvelle_partie.c Line 337");
+    }
+    else if (character_save2->empty == SDL_TRUE)
+    {
+        //Affichage sauvegarde vide
+        printf("Save 2 vide\n");
+    }
+    else
+    {
+        printf("Sauvegarde non vide. Continuer ? ");
+        printf("%s\n", character_save2->save_name);
+    }
+
+
+    character_t * character_save3 = NULL;
+    character_save3 = character_create(render, "save//save3.txt");
+    if (character_save3 == NULL)
+    {
+        exit_with_error("Cannot create a character_t object > nouvelle_partie.c Line 374");
+    }
+    else if (character_save3->empty == SDL_TRUE)
+    {
+        //Affichage sauvegarde vide
+        printf("Save 3 vide\n");
+    }
+    else
+    {
+        printf("Sauvegarde non vide. Continuer ? ");
+        printf("%s\n", character_save3->save_name);
+    }
 
     /*----------------------------------------------------------------------------*/
 
@@ -539,30 +603,30 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
 
                 if(selection == 0)
                 {
-                    save = fopen("save//save1.txt", "w");
-                    if (save == NULL)
+                    save_file_actual = save_file3;
+                    if (save_file_actual == NULL)
                     {
-                        exit_with_error("Loading of a file failed > nouvelle_partie.c Line 527");
+                        exit_with_error("Loading of a file failed > nouvelle_partie.c Line 568");
                     }
-                    creation_perso(render, windowwidth, windowheight, police, program_launch, save);
+                    creation_perso(render, windowwidth, windowheight, police, program_launch, save_file_actual);
                 }
                 if(selection == 1)
                 {
-                    save = fopen("save//save2.txt", "w");
-                    if (save == NULL)
+                    save_file_actual = save_file3;
+                    if (save_file_actual == NULL)
                     {
-                        exit_with_error("Loading of a file failed > nouvelle_partie.c Line 536");
+                        exit_with_error("Loading of a file failed > nouvelle_partie.c Line 577");
                     }
-                    creation_perso(render, windowwidth, windowheight, police, program_launch, save);
+                    creation_perso(render, windowwidth, windowheight, police, program_launch, save_file_actual);
                 }
                 if(selection == 2)
                 {
-                    save = fopen("save//save3.txt", "w");
-                    if (save == NULL)
+                    save_file_actual = save_file3;
+                    if (save_file_actual == NULL)
                     {
-                        exit_with_error("Loading of a file failed > nouvelle_partie.c Line 545");
+                        exit_with_error("Loading of a file failed > nouvelle_partie.c Line 586");
                     }
-                    creation_perso(render, windowwidth, windowheight, police, program_launch, save);
+                    creation_perso(render, windowwidth, windowheight, police, program_launch, save_file_actual);
                 }
                 if(selection == 3)
                 {
@@ -579,6 +643,10 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
 
 
     /*--- Free Memory ------------------------------------------------------------*/
+
+    fclose(save_file1);
+    fclose(save_file2);
+    fclose(save_file3);
 
     SDL_FreeSurface(surf_choisir_empla);
     SDL_FreeSurface(surf_retour);

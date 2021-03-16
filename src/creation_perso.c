@@ -244,7 +244,7 @@ void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, 
     SDL_RenderFillRect(render, &rect_fond_cadre_desc);
     SDL_SetRenderTarget(render,NULL);
 
-    /*------------------------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------*/
 
 
     SDL_RenderClear(render);

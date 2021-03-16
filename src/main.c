@@ -31,7 +31,7 @@
 int main(int argc, char ** argv)
 {
 
-    /*--- Print SDL Version ------------------------------------------------------*/
+    /*--- Print SDL & TTF Version ------------------------------------------------*/
 
     printf("/*--- Startup SDL -------*/\n");
 
@@ -45,7 +45,7 @@ int main(int argc, char ** argv)
 
     printf("SDL TTF Version: %d.%d.%d\n", SDL_TTF.major, SDL_TTF.minor, SDL_TTF.patch);
 
-    /*--- End Print SDL Version --------------------------------------------------*/
+    /*--- End Print SDL & TTF Version --------------------------------------------*/
 
 
     /*--- Initialization Variable ------------------------------------------------*/
@@ -61,7 +61,7 @@ int main(int argc, char ** argv)
     int *WINDOWHEIGHT = malloc(sizeof(int));
     *WINDOWHEIGHT = WINDOWHEIGHT_720P;
 
-    FILE * save = NULL;
+    FILE * save_file_actual = NULL;
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -151,9 +151,9 @@ int main(int argc, char ** argv)
     while (*program_launch)
     {
 
-        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, etat_fullscreen, program_launch, save);
-        town(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
-        tower(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
+        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, etat_fullscreen, program_launch, save_file_actual);
+        //town(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
+        //tower(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
 
     }
 
@@ -170,20 +170,28 @@ int main(int argc, char ** argv)
     SDL_DestroyWindow(window);
     printf("window destroyed\n");
 
+    TTF_CloseFont(police);
+    printf("police closed\n");
+
     free(WINDOWWIDTH);
+    printf("WINDOWWIDTH freed\n");
     free(WINDOWHEIGHT);
+    printf("WINDOWHEIGHT freed\n");
+
+    free(etat_fullscreen);
+    printf("etat_fullscreen freed\n");
 
     free(program_launch);
+    printf("program_launch freed\n");
 
-    fclose(save);
+    fclose(save_file_actual);
+    printf("save_file_actual closed\n");
 
     printf("/*--- End Free Memory ---*/\n\n");
 
     /*--- End Free Memory --------------------------------------------------------*/
 
     SDL_Quit();
-
-    TTF_CloseFont(police);
 
     printf("Program exited with succes");
     return EXIT_SUCCESS;

@@ -3,6 +3,8 @@
 
 #include "charger_partie.h"
 
+#include "character.h"
+
 
 /*!
  *
@@ -16,7 +18,7 @@
 
 /*!
  *
- * \fn charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font *police, SDL_bool * program_launch, FILE * save)
+ * \fn charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font *police, SDL_bool * program_launch, FILE * save_file_actual)
  * \brief A FINIR.
  *
  * \param render est un pointeur sur le rendu SDL.
@@ -24,12 +26,13 @@
  * \param windowheight est la hauteur de la fenetre.
  * \param police A FINIR.
  * \param program_launch est un pointeur sur un booléen.
- * \param save A FINIR.
+ * \param save_file_actual A FINIR.
  *
  */
 
 extern
-void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save){
+void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save_file_actual){
+
 
     /*--- Initialization variable ------------------------------------------------*/
 
@@ -40,7 +43,7 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
-    SDL_bool continu = SDL_TRUE;
+    SDL_bool char_part_bool = SDL_TRUE;
 
     SDL_Event event;
 
@@ -72,7 +75,7 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
     /*----------------------------------------------------------------------------*/
 
 
-    /*--- Creation text "retour"--------------------------------------------------*/
+    /*--- Creation text "retour" -------------------------------------------------*/
 
     surf_retour = TTF_RenderText_Blended(police, "Retour", blanc);
     if(surf_retour == NULL)
@@ -130,12 +133,6 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
         SDL_ExitWithError("probleme texture options");
     }
 
-    SDL_Rect pos_save1;
-    pos_save1.x = *windowwidth/2 - 107;
-    pos_save1.y = *windowheight/13.5;
-    pos_save1.w = *windowwidth/(1200/214);
-    pos_save1.h = *windowheight/13.5;
-
     /*----------------------------------------------------------------------------*/
 
 
@@ -152,12 +149,6 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
         SDL_ExitWithError("probleme texture options");
     }
 
-    SDL_Rect pos_save2;
-    pos_save2.x = *windowwidth/2 - 107;
-    pos_save2.y = *windowheight/13.5;
-    pos_save2.w = *windowwidth/(1200/214);
-    pos_save2.h = *windowheight/13.5;
-
     /*----------------------------------------------------------------------------*/
 
 
@@ -173,12 +164,6 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
     {
         SDL_ExitWithError("probleme texture options");
     }
-
-    SDL_Rect pos_save3;
-    pos_save3.x = *windowwidth/2 - 107;
-    pos_save3.y = *windowheight/13.5;
-    pos_save3.w = *windowwidth/(1200/214);
-    pos_save3.h = *windowheight/13.5;
 
     /*----------------------------------------------------------------------------*/
 
@@ -332,6 +317,61 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
     /*----------------------------------------------------------------------------*/
 
 
+    /*--- Open save file ---------------------------------------------------------*/
+
+    character_t * character_save1 = NULL;
+    character_save1 = character_create(render, "save//save1.txt");
+    if (character_save1 == NULL)
+    {
+        exit_with_error("Cannot create a character_t object > charger_partie.c Line 341");
+    }
+    else if (character_save1->empty == SDL_TRUE)
+    {
+        //Affichage sauvegarde vide
+        printf("Save 1 vide\n");
+    }
+    else
+    {
+        printf("%s\n", character_save1->save_name);
+    }
+
+
+    character_t * character_save2 = NULL;
+    character_save2 = character_create(render, "save//save2.txt");
+    if (character_save2 == NULL)
+    {
+        exit_with_error("Cannot create a character_t object > charger_partie.c Line 337");
+    }
+    else if (character_save2->empty == SDL_TRUE)
+    {
+        //Affichage sauvegarde vide
+        printf("Save 2 vide\n");
+    }
+    else
+    {   
+        printf("%s\n", character_save2->save_name);
+    }
+
+
+    character_t * character_save3 = NULL;
+    character_save3 = character_create(render, "save//save3.txt");
+    if (character_save3 == NULL)
+    {
+        exit_with_error("Cannot create a character_t object > charger_partie.c Line 374");
+    }
+    else if (character_save3->empty == SDL_TRUE)
+    {
+        //Affichage sauvegarde vide
+        printf("Save 3 vide\n");
+    }
+    else
+    {
+        printf("%s\n", character_save3->save_name);
+    }
+
+    /*----------------------------------------------------------------------------*/
+
+
     SDL_RenderClear(render);
 
     SDL_RenderCopy(render, fond, NULL, &pos_fond);
@@ -349,7 +389,7 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
 
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (continu && *program_launch)
+    while (char_part_bool && *program_launch)
     {
 
         while (SDL_PollEvent(&event))
@@ -360,12 +400,12 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
             if (event.type == SDL_QUIT)
             {
                 *program_launch = SDL_FALSE;
-                continu = SDL_FALSE;
+                char_part_bool = SDL_FALSE;
             }
 
             if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
             {
-                continu = SDL_FALSE;
+                char_part_bool = SDL_FALSE;
             }
 
             /*--- End Event to Exit Program --------------------------------------*/
@@ -538,19 +578,19 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
 
                 if(selection == 0)
                 {
-
+                    char_part_bool = SDL_FALSE;
                 }
                 if(selection == 1)
                 {
-
+                    char_part_bool = SDL_FALSE;
                 }
                 if(selection == 2)
                 {
-
+                    char_part_bool = SDL_FALSE;
                 }
                 if(selection == 3)
                 {
-                    continu = SDL_FALSE;
+                    char_part_bool = SDL_FALSE;
                 }
 
             }
@@ -563,6 +603,10 @@ void charger_partie_f(SDL_Renderer * render, int * windowwidth, int * windowheig
 
 
     /*--- Free Memory ------------------------------------------------------------*/
+
+    character_save1->free(&character_save1);
+    //character_save2->free(&character_save2);
+    //character_save3->free(&character_save3);
 
     SDL_FreeSurface(surf_choisir_empla);
     SDL_FreeSurface(surf_retour);

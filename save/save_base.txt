@@ -1,0 +1,9 @@
+save_name: ;
+charactere:  ;
+position:  ;
+x: 
+y: ;
+lvl: ;
+xp: ;
+life: ;
+mana: ;

@@ -49,14 +49,14 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
     }
 
     character_t* Assassin = NULL;
-    Assassin = character_create(render, "src\\tileset\\PJ\\Assassin.bmp", "src\\tileset\\PJ\\Assassin.txt");
+    //Assassin = character_create(render, "src\\tileset\\PJ\\Assassin.bmp", "src\\tileset\\PJ\\Assassin.txt");
     if (Assassin == NULL)
     {
         exit_with_error("Cannot create a character_t object > town.c Line 42");
     }
 
 
-    Uint8 r, g, b;
+    //Uint8 r, g, b;
 
     const Uint8* keyState = SDL_GetKeyboardState(NULL);
 

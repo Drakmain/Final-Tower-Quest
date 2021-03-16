@@ -93,49 +93,137 @@ void character_free(character_t ** character)
  */
 
 extern 
-character_t * character_create(SDL_Renderer * render, char * file_name_bmp, char * file_name_txt) 
-{
+character_t * character_create(SDL_Renderer * render, char * file_name_save) 
+{   
+
+    /*--- Initialization variable ----------------------------------------------------*/
+
+    FILE * file;
 
     character_t * character = NULL; 
     character = malloc(sizeof(character_t));
 
-    FILE * file = fopen(file_name_txt, "r");
-    if (file == NULL)
-    {
-        exit_with_error("Loading of a file failed > character.c Line 102");
-    }
+    character->file_name_txt = NULL;
+    character->file_name_txt = malloc(sizeof(char) * 30);
+    strcpy(character->file_name_txt, "src\\tileset\\PJ\\");
 
-    fscanf(file,"%*s %i, %i, %i;\n", &character->R, &character->G, &character->B);
-    fscanf(file,"%*s %i, %i, %i, %i, %i;\n", &character->North_Walk.rect.x, &character->North_Walk.rect.y, &character->North_Walk.rect.w, &character->North_Walk.rect.h, &character->North_Walk.limit);
-    fscanf(file,"%*s %i, %i, %i, %i, %i;\n", &character->East_Walk.rect.x, &character->East_Walk.rect.y, &character->East_Walk.rect.w, &character->East_Walk.rect.h, &character->East_Walk.limit);
-    fscanf(file,"%*s %i, %i, %i, %i, %i;\n", &character->South_Walk.rect.x, &character->South_Walk.rect.y, &character->South_Walk.rect.w, &character->South_Walk.rect.h, &character->South_Walk.limit);
-    fscanf(file,"%*s %i, %i, %i, %i, %i;\n", &character->West_Walk.rect.x, &character->West_Walk.rect.y, &character->West_Walk.rect.w, &character->West_Walk.rect.h, &character->West_Walk.limit);
-    fscanf(file,"%*s %i, %i, %i, %i;\n", &character->Damage_Taken.x, &character->Damage_Taken.y, &character->Damage_Taken.w, &character->Damage_Taken.h);
-    fscanf(file,"%*s %i, %i, %i, %i;\n", &character->Weak.x, &character->Weak.y, &character->Weak.w, &character->Weak.h);
-    fscanf(file,"%*s %i, %i, %i, %i;\n", &character->Dead.x, &character->Dead.y, &character->Dead.w, &character->Dead.h);
+    character->file_name_bmp = NULL;
+    character->file_name_bmp = malloc(sizeof(char) * 30);
+    strcpy(character->file_name_bmp, "src\\tileset\\PJ\\");
 
-    fclose(file);
+    character->file_name_save = NULL;
+    character->file_name_save = malloc(sizeof(char) * 30);
+    strcpy(character->file_name_save, file_name_save);
+
+    character->empty = SDL_FALSE;
+
+    character->save_name = NULL;
+    character->save_name = malloc(sizeof(char) * 10);
+
+    character->charactere_name = NULL;
+    character->charactere_name = malloc(sizeof(char) * 8);
+
+    character->position = NULL;
+    character->position = malloc(sizeof(char) * 5);
 
     character->texture = NULL;
 
     character->surface = NULL;
 
-    character->surface = SDL_LoadBMP(file_name_bmp);
-    if (!character->surface)
+    /*--- End Initialization variable --------------------------------------------*/
+
+
+    /*--- Open save file ---------------------------------------------------------*/
+
+    file = fopen(character->file_name_save, "r");
+    if (file == NULL)
     {
-        SDL_ExitWithError("Loading of a BMP failed > character.c Line 123");
+        exit_with_error("Loading of a file failed > character.c Line 114");
     }
 
-    SDL_SetColorKey(character->surface, SDL_TRUE, SDL_MapRGB(character->surface->format, character->R, character->G, character->B));
-
-    character->texture = SDL_CreateTextureFromSurface(render, character->surface);
-    if (!character->texture)
+    fscanf(file, "%*s %s ;\n", character->save_name);
+    if (strcmp(character->save_name, ";") == 0)
     {
-        SDL_ExitWithError("Cannot create a texture from a surface > character.c Line 131");
+        character->empty = SDL_TRUE;
+        fclose(file);
     }
+    else
+    {   
+        printf("%s oue\n", character->save_name);
+        fscanf(file, "%*s %s ;\n", character->charactere_name);
+
+        fscanf(file, "%*s %s ;\n", character->position);
+        fscanf(file, "%*s %i ;\n", &character->x);
+        fscanf(file, "%*s %i ;\n", &character->y);
+
+        fscanf(file, "%*s %i ;\n", &character->lvl);
+        fscanf(file, "%*s %i ;\n", &character->xp);
+
+        fscanf(file, "%*s %i ;\n", &character->life);
+        fscanf(file, "%*s %i ;\n", &character->mana);
+
+        fclose(file);
+
+        /*----------------------------------------------------------------------------*/
+
+
+        /*--- Open txt file ----------------------------------------------------------*/
+
+        strcat(character->file_name_txt, character->charactere_name);
+        strcat(character->file_name_txt, ".txt");
+
+        printf("%s\n", character->file_name_txt);
+
+        file = fopen(character->file_name_txt, "r");
+        if (file == NULL)
+        {
+            exit_with_error("Loading of a file failed > character.c Line 158");
+        }
+
+        fscanf(file, "%*s %i, %i, %i;\n", &character->R, &character->G, &character->B);
+        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->North_Walk.rect.x, &character->North_Walk.rect.y, &character->North_Walk.rect.w, &character->North_Walk.rect.h, &character->North_Walk.limit);
+        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->East_Walk.rect.x, &character->East_Walk.rect.y, &character->East_Walk.rect.w, &character->East_Walk.rect.h, &character->East_Walk.limit);
+        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->South_Walk.rect.x, &character->South_Walk.rect.y, &character->South_Walk.rect.w, &character->South_Walk.rect.h, &character->South_Walk.limit);
+        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->West_Walk.rect.x, &character->West_Walk.rect.y, &character->West_Walk.rect.w, &character->West_Walk.rect.h, &character->West_Walk.limit);
+        fscanf(file, "%*s %i, %i, %i, %i;\n", &character->Damage_Taken.x, &character->Damage_Taken.y, &character->Damage_Taken.w, &character->Damage_Taken.h);
+        fscanf(file, "%*s %i, %i, %i, %i;\n", &character->Weak.x, &character->Weak.y, &character->Weak.w, &character->Weak.h);
+        fscanf(file, "%*s %i, %i, %i, %i;\n", &character->Dead.x, &character->Dead.y, &character->Dead.w, &character->Dead.h);
+
+        fclose(file);
+
+        /*----------------------------------------------------------------------------*/
+
+
+        /*--- Open bmp file ----------------------------------------------------------*/
+
+        strcat(character->file_name_bmp, character->charactere_name);
+        strcat(character->file_name_bmp, ".bmp");
+
+        character->surface = SDL_LoadBMP(character->file_name_bmp);
+        if (!character->surface)
+        {
+            SDL_ExitWithError("Loading of a BMP failed > character.c Line 185");
+        }
+
+        SDL_SetColorKey(character->surface, SDL_TRUE, SDL_MapRGB(character->surface->format, character->R, character->G, character->B));
+
+        character->texture = SDL_CreateTextureFromSurface(render, character->surface);
+        if (!character->texture)
+        {
+            SDL_ExitWithError("Cannot create a texture from a surface > character.c Line 131");
+        }
+
+        /*----------------------------------------------------------------------------*/
+
+    }
+    
+
+    /*--- Initialization method --------------------------------------------------*/
 
     character->update = character_update;
     character->free = character_free;
+
+    /*----------------------------------------------------------------------------*/
 
     return(character);
 }
