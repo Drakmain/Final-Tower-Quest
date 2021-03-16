@@ -539,7 +539,7 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
 
                 if(selection == 0)
                 {
-                    save = fopen("src//save//save1.txt", "w");
+                    save = fopen("save//save1.txt", "w");
                     if (save == NULL)
                     {
                         exit_with_error("Loading of a file failed > nouvelle_partie.c Line 527");
@@ -548,7 +548,7 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
                 }
                 if(selection == 1)
                 {
-                    save = fopen("src//save//save2.txt", "w");
+                    save = fopen("save//save2.txt", "w");
                     if (save == NULL)
                     {
                         exit_with_error("Loading of a file failed > nouvelle_partie.c Line 536");
@@ -557,7 +557,7 @@ void nouvelle_partie_f(SDL_Renderer * render, int * windowwidth, int * windowhei
                 }
                 if(selection == 2)
                 {
-                    save = fopen("src//save//save3.txt", "w");
+                    save = fopen("save//save3.txt", "w");
                     if (save == NULL)
                     {
                         exit_with_error("Loading of a file failed > nouvelle_partie.c Line 545");
