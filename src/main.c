@@ -52,14 +52,16 @@ int main(int argc, char ** argv)
 
     SDL_bool * program_launch = malloc(sizeof(SDL_bool));
     *program_launch = SDL_TRUE;
+
     SDL_bool * etat_fullscreen = malloc(sizeof(SDL_bool));
     *etat_fullscreen = SDL_FALSE;
-    int i = WINDOWWIDTH_720P;
-    int j = WINDOWHEIGHT_720P;
+
     int *WINDOWWIDTH = malloc(sizeof(int));
-    *WINDOWWIDTH = i;
+    *WINDOWWIDTH = WINDOWWIDTH_720P;
     int *WINDOWHEIGHT = malloc(sizeof(int));
-    *WINDOWHEIGHT = j;
+    *WINDOWHEIGHT = WINDOWHEIGHT_720P;
+
+    FILE * save = NULL;
 
 
     /*--- End Initialization Variable --------------------------------------------*/
