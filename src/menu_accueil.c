@@ -20,7 +20,7 @@
 
 /*!
  *
- * \fn menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch)
+ * \fn menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save)
  * \brief A FINIR.
  *
  * \param render est un pointeur sur le rendu SDL.
@@ -28,11 +28,12 @@
  * \param windowheight est la hauteur de la fenetre.
  * \param police A FINIR.
  * \param program_launch est un pointeur sur un booléen.
+ * \param save A FINIR.
  *
  */
 
 extern
-void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch){
+void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch, FILE * save){
 
     /*--- Initialization variable ------------------------------------------------*/
     SDL_Color blanc = {255,255,255};
@@ -282,11 +283,11 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int *windowwidth, 
 
                 if(selection == 0)
                 {
-                    nouvelle_partie_f(render, windowwidth, windowheight, police, program_launch);
+                    nouvelle_partie_f(render, windowwidth, windowheight, police, program_launch, save);
                 }
                 if(selection == 1)
                 {
-                    charger_partie_f(render, windowwidth, windowheight, police, program_launch);
+                    charger_partie_f(render, windowwidth, windowheight, police, program_launch, save);
                 }
                 if(selection == 2)
                 {

@@ -16,7 +16,7 @@
 
 /*!
  *
- * \fn creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch)
+ * \fn creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch, FILE * save)
  * \brief A FINIR.
  *
  * \param render est un pointeur sur le rendu SDL.
@@ -24,11 +24,12 @@
  * \param windowheight est la hauteur de la fenetre.
  * \param police A FINIR.
  * \param program_launch est un pointeur sur un booléen.
+ * \param save A FINIR.
  *
  */
 
 extern
-void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch){
+void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch, FILE * save){
 
     /*--- Initialization variable ----------------------------------------------------*/
 

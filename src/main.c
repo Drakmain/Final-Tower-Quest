@@ -58,6 +58,8 @@ int main(int argc, char ** argv)
     int * WINDOWHEIGHT = malloc(sizeof(int));
     *WINDOWHEIGHT = WINDOWHEIGHT_720P;
 
+    FILE * save = NULL;
+
     /*--- End Initialization Variable --------------------------------------------*/
 
 
@@ -131,7 +133,7 @@ int main(int argc, char ** argv)
 
     /*--- Creation Police --------------------------------------------------------*/
 
-    TTF_Font *police = NULL;
+    TTF_Font * police = NULL;
     police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf",50);
     if(police == NULL)
     {
@@ -143,10 +145,10 @@ int main(int argc, char ** argv)
 
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (program_launch)
+    while (*program_launch)
     {
 
-        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, program_launch);
+        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, program_launch, save);
         town(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
         tower(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
 
@@ -169,6 +171,8 @@ int main(int argc, char ** argv)
     free(WINDOWHEIGHT);
 
     free(program_launch);
+
+    fclose(save);
 
     printf("/*--- End Free Memory ---*/\n\n");
 

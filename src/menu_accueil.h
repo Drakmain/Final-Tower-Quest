@@ -3,6 +3,6 @@
 
 #include "commun.h"
 
-void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch);
+void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * program_launch, FILE * save);
 
 #endif

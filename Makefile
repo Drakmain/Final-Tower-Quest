@@ -20,20 +20,19 @@ map.o: src/map.c
 	gcc -c src/map.c -I include -L lib $(CFLAGS)
 
 menu_accueil.o : src/menu_accueil.c
-	gcc -c src/menu_accueil.c  -I include -L lib -Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
+	gcc -c src/menu_accueil.c  -I include -L lib $(CFLAGS)
 
 charger_partie.o: src/charger_partie.c
-		gcc -c src/charger_partie.c -I include -L lib -Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
+		gcc -c src/charger_partie.c -I include -L lib $(CFLAGS)
 
 nouvelle_partie.o: src/nouvelle_partie.c
-		gcc -c src/nouvelle_partie.c -I include -L lib -Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
+		gcc -c src/nouvelle_partie.c -I include -L lib $(CFLAGS)
 
 options.o: src/options.c
-		gcc -c src/options.c -I include -L lib -Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
+		gcc -c src/options.c -I include -L lib $(CFLAGS)
 
 creation_perso.o: src/creation_perso.c
-	gcc -c src/creation_perso.c  -I include -L lib -Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
-
+	gcc -c src/creation_perso.c  -I include -L lib $(CFLAGS)
 error.o: src/error.c
 	gcc -c src/error.c -I include -L lib $(CFLAGS)
 
