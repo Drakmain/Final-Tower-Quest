@@ -79,10 +79,9 @@ int main(int argc, char ** argv)
     {
 
         menu_accueil(game, actual_save);
-        
+
         if (strcmp(actual_save, "\0"))
         {
-            printf("oue");
             character_save = character_create(game->render, actual_save);
             town(game, character_save);
             //tower(game, actual_save);
