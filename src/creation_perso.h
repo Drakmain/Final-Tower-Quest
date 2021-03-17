@@ -3,8 +3,9 @@
 
 #include "commun.h"
 
+#include "game.h"
 #include "character.h"
 
-void creation_perso(SDL_Renderer * render, int *windowwidth, int *windowheight, SDL_bool * program_launch, TTF_Font *police, character_t * actual_save);
+void creation_perso(game_t * game, char * actual_save);
 
 #endif

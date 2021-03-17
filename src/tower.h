@@ -3,6 +3,9 @@
 
 #include "commun.h"
 
-extern void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch);
+#include "game.h"
+#include "character.h"
+
+extern void tower(game_t * game, character_t * character);
 
 #endif

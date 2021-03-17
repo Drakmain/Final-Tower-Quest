@@ -1,18 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "commun.h"
+
 #include "town.h"
 #include "tower.h"
 #include "character.h"
 #include "menu_accueil.h"
-#include "commun.h"
+#include "game.h"
+
 
 /*!
  *
  * \file main.c
  * \brief Ficher principale du jeu.
  * \author Enzo BRENNUS
- * \date 12/03/21
+ * \date 16/03/21
  *
  */
 
@@ -49,145 +52,49 @@ int main(int argc, char ** argv)
     /*--- End Print SDL & TTF Version --------------------------------------------*/
 
 
+    /*--- Initialization game ------------------------------------------------*/
+
+    game_t* game = NULL;
+    game = game_create();
+    if (game == NULL)
+    {
+        exit_with_error("Cannot create a game_t object > main.c Line 64");
+    }
+    
+    /*--- End Initialization game --------------------------------------------*/
+
+
     /*--- Initialization Variable ------------------------------------------------*/
 
-    SDL_bool * program_launch = malloc(sizeof(SDL_bool));
-    *program_launch = SDL_TRUE;
-
-    SDL_bool * etat_fullscreen = malloc(sizeof(SDL_bool));
-    *etat_fullscreen = SDL_FALSE;
-
-    int * WINDOWWIDTH = malloc(sizeof(int));
-    *WINDOWWIDTH = WINDOWWIDTH_720P;
-    int * WINDOWHEIGHT = malloc(sizeof(int));
-    *WINDOWHEIGHT = WINDOWHEIGHT_720P;
-
-    character_t * actual_save = NULL;
+    character_t * character_save = NULL;
+    
+    char actual_save[20];
 
     /*--- End Initialization Variable --------------------------------------------*/
 
 
-    /*--- Initialization SDL Video -----------------------------------------------*/
-
-    if (SDL_Init(SDL_INIT_VIDEO) != 0)
-    {
-        SDL_ExitWithError("SDL Video initialization > main.c Line 53");
-    }
-    else
-    {
-        printf("SDL Video initialised\n");
-    }
-
-    /*--- End Initialization SDL Video -------------------------------------------*/
-
-
-    /*--- Initialization SDL TTF -------------------------------------------------*/
-
-    if (TTF_Init() == -1)
-    {
-        SDL_ExitWithError("SDL TTF initialization > main.c Line 74");
-    }
-    else
-    {
-        printf("SDL TTF initialised\n");
-    }
-
-    /*--- End Initialization SDL TTF ---------------------------------------------*/
-
-
-    /*--- Creation Window --------------------------------------------------------*/
-
-    SDL_Window * window = NULL;
-
-    window = SDL_CreateWindow("Final Tower Quest", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, *WINDOWWIDTH, *WINDOWHEIGHT, SDL_WINDOW_SHOWN);
-    if (window == NULL)
-    {
-        SDL_ExitWithError("Window creation failed > main.c Line 90");
-    }
-    else
-    {
-        printf("window created\n");
-    }
-
-    /*--- End Creation Window ----------------------------------------------------*/
-
-
-    /*--- Creation Render --------------------------------------------------------*/
-
-    SDL_Renderer * render = NULL;
-    render = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
-    if (render == NULL)
-    {
-        SDL_ExitWithError("Render creation failed > main.c Line 106");
-    }
-    else
-    {
-        printf("render created\n");
-    }
-
-    SDL_SetRenderDrawColor(render, 0, 0, 0, 0);
-
-    SDL_RenderClear(render);
-    SDL_RenderPresent(render);
-
-    printf("/*--- End Startup SDL ---*/\n\n");
-
-    /*--- End Creation Render ----------------------------------------------------*/
-
-
-    /*--- Creation Police --------------------------------------------------------*/
-
-    TTF_Font * police = NULL;
-    police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf",50);
-    if(police == NULL)
-    {
-        SDL_ExitWithError("probleme chargement police");
-    }
-
-    /*--- End Creation Police ----------------------------------------------------*/
-
-
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (*program_launch)
+    while (*game->program_launch)
     {
-
-        menu_accueil(window, render, WINDOWWIDTH, WINDOWHEIGHT, police, etat_fullscreen, program_launch, actual_save);
-        //town(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
-        //tower(render, WINDOWWIDTH, WINDOWHEIGHT, program_launch);
+        menu_accueil(game, actual_save);
+        printf("%s\n", actual_save);
+        character_save = character_create(game->render, actual_save);
+        town(game, character_save);
+        //tower(game, actual_save);
 
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/
 
 
-    /*--- Free Memory ------------------------------------------------------------*/
+    /*--- Free game --------------------------------------------------------------*/
 
-    printf("/*--- Free Memory -------*/\n");
+    game->free(&game);
+    printf("game_t * game: freed\n\n");
 
-    SDL_DestroyRenderer(render);
-    printf("SDL_Renderer * render destroyed\n");
-    
-    SDL_DestroyWindow(window);
-    printf("SDL_Window * window destroyed\n");
+    /*--- End Free game ----------------------------------------------------------*/
 
-    TTF_CloseFont(police);
-    printf("TTF_Font * police closed\n");
-
-    free(WINDOWWIDTH);
-    printf("int * WINDOWWIDTH freed\n");
-    free(WINDOWHEIGHT);
-    printf("int * WINDOWHEIGHT freed\n");
-
-    free(etat_fullscreen);
-    printf("SDL_bool * etat_fullscreen freed\n");
-
-    free(program_launch);
-    printf("SDL_bool * program_launch freed\n");
-
-    printf("/*--- End Free Memory ---*/\n\n");
-
-    /*--- End Free Memory --------------------------------------------------------*/
 
     SDL_Quit();
 

@@ -25,35 +25,24 @@ Uint8 * pixel(SDL_Surface * surface, int x, int y)
 
  /*!
   *
-  * \fn town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch)
+  * \fn town(game_t * game)
   * \brief Permet la gestion de la premier map du jeu (town).
   *
-  * \param render est un pointeur sur le rendu SDL.
-  * \param WINDOWWIDTH est la largeur de la fenetre.
-  * \param WINDOWHEIGHT est la hauteur de la fenetre.
-  * \param program_launch A FINIR.
+  * \param game A FINIR.
   *
   */
 
 extern
-void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch){
+void town(game_t * game, character_t * character){
 
     /*--- Initialization Variable ------------------------------------------------*/
 
     map_t* town = NULL;
-    town = map_create(render, "src\\tileset\\Maps\\town.bmp", "src\\tileset\\Maps\\town.txt");
+    town = map_create(game->render, "src\\tileset\\Maps\\town.bmp", "src\\tileset\\Maps\\town.txt");
     if (town == NULL)
     {
         exit_with_error("Cannot create a map_t object > town.c Line 35");
     }
-
-    character_t* Assassin = NULL;
-    //Assassin = character_create(render, "src\\tileset\\PJ\\Assassin.bmp", "src\\tileset\\PJ\\Assassin.txt");
-    if (Assassin == NULL)
-    {
-        exit_with_error("Cannot create a character_t object > town.c Line 42");
-    }
-
 
     //Uint8 r, g, b;
 
@@ -63,11 +52,11 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
 
     SDL_Event event;
 
-    SDL_Rect pos_Wind_Assassin;
-    pos_Wind_Assassin.h = Assassin->North_Walk.rect.h * MULTIPLIER;
-    pos_Wind_Assassin.w = Assassin->North_Walk.rect.w * MULTIPLIER;
-    pos_Wind_Assassin.x = (*WINDOWWIDTH - pos_Wind_Assassin.w) / 2;
-    pos_Wind_Assassin.y = (*WINDOWHEIGHT - pos_Wind_Assassin.h) / 2;
+    SDL_Rect pos_Wind_character;
+    pos_Wind_character.h = character->North_Walk.rect.h * MULTIPLIER;
+    pos_Wind_character.w = character->North_Walk.rect.w * MULTIPLIER;
+    pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 2;
+    pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
 
     SDL_Rect pos_Wind_town;
     pos_Wind_town.x = town->tile_set.x;
@@ -79,29 +68,29 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
     int West_Walk = 0;
     int South_Walk = 0;
     int North_Walk = 0;
-
-    int x = town->tile_set.w - (*WINDOWHEIGHT / 2);
-    int y = town->tile_set.h - (*WINDOWWIDTH / 2);
+    
+    int x = town->tile_set.w - ((*game->WINDOWHEIGHT) / 2);
+    int y = town->tile_set.h - ((*game->WINDOWWIDTH) / 2);
 
     /*--- End Initialization Variable --------------------------------------------*/
 
-
+    
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (*program_launch && town_bool)
+    while (*game->program_launch && town_bool)
     {
 
         while (SDL_PollEvent(&event))
         {
 
-            while (*program_launch == SDL_TRUE || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP])))
+            while (*game->program_launch == SDL_TRUE || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP])))
             {
                 SDL_PollEvent(&event);
 
 
                 if (event.type == SDL_QUIT || keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    *program_launch = SDL_FALSE;
+                    *game->program_launch = SDL_FALSE;
                 }
 
                 while (keyState[SDL_SCANCODE_RIGHT])
@@ -119,13 +108,13 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
                         printf("x : %i\n",x);
                         printf("y : %i\n\n",y);
 
-                        town->update(town, render, town->tile_set, pos_Wind_town);
+                        town->update(town, game->render, town->tile_set, pos_Wind_town);
 
-                        Assassin->update(Assassin, render, Assassin->East_Walk, pos_Wind_Assassin);
+                        character->update(character, game->render, character->East_Walk, pos_Wind_character);
 
-                        render_frame(render);
+                        render_frame(game->render);
 
-                        if (SDL_RenderClear(render) != 0)
+                        if (SDL_RenderClear(game->render) != 0)
                         {
                             SDL_ExitWithError("Unable to clear rendering > town.c Line 102");
                         }
@@ -137,11 +126,11 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
                 }
                 if (East_Walk == 1)
                 {
-                    Assassin->mov.x = 0;
-                    Assassin->mov.y = 0;
-                    town->update(town, render, town->tile_set, pos_Wind_town);
-                    Assassin->update(Assassin, render, Assassin->East_Walk, pos_Wind_Assassin);
-                    render_frame(render);
+                    character->mov.x = 0;
+                    character->mov.y = 0;
+                    town->update(town, game->render, town->tile_set, pos_Wind_town);
+                    character->update(character, game->render, character->East_Walk, pos_Wind_character);
+                    render_frame(game->render);
                     East_Walk = 0;
                 }
 
@@ -160,13 +149,13 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
                         printf("x : %i\n",x);
                         printf("y : %i\n\n",y);
 
-                        town->update(town, render, town->tile_set, pos_Wind_town);
+                        town->update(town, game->render, town->tile_set, pos_Wind_town);
 
-                        Assassin->update(Assassin, render, Assassin->West_Walk, pos_Wind_Assassin);
+                        character->update(character, game->render, character->West_Walk, pos_Wind_character);
 
-                        render_frame(render);
+                        render_frame(game->render);
 
-                        if (SDL_RenderClear(render) != 0)
+                        if (SDL_RenderClear(game->render) != 0)
                         {
                             SDL_ExitWithError("Unable to clear rendering > town.c Line 131");
                         }
@@ -179,11 +168,11 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
 
                 if (West_Walk == 1)
                 {
-                    Assassin->mov.x = 0;
-                    Assassin->mov.y = 0;
-                    town->update(town, render, town->tile_set, pos_Wind_town);
-                    Assassin->update(Assassin, render, Assassin->West_Walk, pos_Wind_Assassin);
-                    render_frame(render);
+                    character->mov.x = 0;
+                    character->mov.y = 0;
+                    town->update(town, game->render, town->tile_set, pos_Wind_town);
+                    character->update(character, game->render, character->West_Walk, pos_Wind_character);
+                    render_frame(game->render);
                     West_Walk = 0;
                 }
 
@@ -202,13 +191,13 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
                         printf("x : %i\n",x);
                         printf("y : %i\n\n",y);
 
-                        town->update(town, render, town->tile_set, pos_Wind_town);
+                        town->update(town, game->render, town->tile_set, pos_Wind_town);
 
-                        Assassin->update(Assassin, render, Assassin->South_Walk, pos_Wind_Assassin);
+                        character->update(character, game->render, character->South_Walk, pos_Wind_character);
 
-                        render_frame(render);
+                        render_frame(game->render);
 
-                        if (SDL_RenderClear(render) != 0)
+                        if (SDL_RenderClear(game->render) != 0)
                         {
                             SDL_ExitWithError("Unable to clear rendering, town.c Line 160");
                         }
@@ -221,11 +210,11 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
 
                 if (South_Walk == 1)
                 {
-                    Assassin->mov.x = 0;
-                    Assassin->mov.y = 0;
-                    town->update(town, render, town->tile_set, pos_Wind_town);
-                    Assassin->update(Assassin, render, Assassin->South_Walk, pos_Wind_Assassin);
-                    render_frame(render);
+                    character->mov.x = 0;
+                    character->mov.y = 0;
+                    town->update(town, game->render, town->tile_set, pos_Wind_town);
+                    character->update(character, game->render, character->South_Walk, pos_Wind_character);
+                    render_frame(game->render);
                     South_Walk = 0;
                 }
 
@@ -244,13 +233,13 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
                         printf("x : %i\n",x);
                         printf("y : %i\n\n",y);
 
-                        town->update(town, render, town->tile_set, pos_Wind_town);
+                        town->update(town, game->render, town->tile_set, pos_Wind_town);
 
-                        Assassin->update(Assassin, render, Assassin->North_Walk, pos_Wind_Assassin);
+                        character->update(character, game->render, character->North_Walk, pos_Wind_character);
 
-                        render_frame(render);
+                        render_frame(game->render);
 
-                        if (SDL_RenderClear(render) != 0)
+                        if (SDL_RenderClear(game->render) != 0)
                         {
                             SDL_ExitWithError("Unable to clear rendering > town.c Line 189");
                         }
@@ -262,11 +251,11 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
 
                 if (North_Walk == 1)
                 {
-                    Assassin->mov.x = 0;
-                    Assassin->mov.y = 0;
-                    town->update(town, render, town->tile_set, pos_Wind_town);
-                    Assassin->update(Assassin, render, Assassin->North_Walk, pos_Wind_Assassin);
-                    render_frame(render);
+                    character->mov.x = 0;
+                    character->mov.y = 0;
+                    town->update(town, game->render, town->tile_set, pos_Wind_town);
+                    character->update(character, game->render, character->North_Walk, pos_Wind_character);
+                    render_frame(game->render);
                     North_Walk = 0;
                 }
 
@@ -290,7 +279,7 @@ void town(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool
     /*--- Free Memory ------------------------------------------------------------*/
 
     town->free(&town);
-    Assassin->free(&Assassin);
+    character->free(&character);
 
     /*--- End Free Memory --------------------------------------------------------*/
 

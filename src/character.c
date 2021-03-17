@@ -68,13 +68,21 @@ void character_update(character_t * character, SDL_Renderer * render, tile_set_t
 static 
 void character_free(character_t ** character) 
 {
-
+/*
     SDL_DestroyTexture((*character)->texture);
 
     SDL_FreeSurface((*character)->surface);
 
-    free(*character);
+    free((*character)->file_name_txt);
+    free((*character)->file_name_bmp);
+    free((*character)->file_name_save);
 
+    free((*character)->save_name);
+    free((*character)->charactere_name);
+    free((*character)->position);
+
+    free(*character);
+*/
 }
 
 
@@ -104,27 +112,27 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
     character = malloc(sizeof(character_t));
 
     character->file_name_txt = NULL;
-    character->file_name_txt = malloc(sizeof(char) * 30);
+    character->file_name_txt = malloc(sizeof(char) * 50);
     strcpy(character->file_name_txt, "src\\tileset\\PJ\\");
 
     character->file_name_bmp = NULL;
-    character->file_name_bmp = malloc(sizeof(char) * 30);
+    character->file_name_bmp = malloc(sizeof(char) * 50);
     strcpy(character->file_name_bmp, "src\\tileset\\PJ\\");
 
     character->file_name_save = NULL;
-    character->file_name_save = malloc(sizeof(char) * 30);
+    character->file_name_save = malloc(sizeof(char) * 50);
     strcpy(character->file_name_save, file_name_save);
 
     character->empty = SDL_FALSE;
 
     character->save_name = NULL;
-    character->save_name = malloc(sizeof(char) * 10);
+    character->save_name = malloc(sizeof(char) * 20);
 
     character->charactere_name = NULL;
-    character->charactere_name = malloc(sizeof(char) * 8);
+    character->charactere_name = malloc(sizeof(char) * 20);
 
     character->position = NULL;
-    character->position = malloc(sizeof(char) * 5);
+    character->position = malloc(sizeof(char) * 20);
 
     character->texture = NULL;
 
@@ -213,7 +221,6 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
         /*----------------------------------------------------------------------------*/
 
     }
-    
 
     /*--- Initialization method --------------------------------------------------*/
 
@@ -250,4 +257,68 @@ SDL_bool character_exist(character_t * const character)
         return(SDL_TRUE); 
     }
 
+}
+
+
+/*!
+ *
+ * \fn character_cpy(character_t * const scr, character_t * dst)
+ * \brief Permet de verifier l'existence du l'objet character_t.
+ *
+ * \param src est un pointeur sur un objet character_t.
+ * \param dst est un pointeur sur un objet character_t.
+ * 
+ * \retval int A FINIR.
+ * 
+ */
+
+extern 
+int character_cpy(character_t * const src, character_t * dst)
+{
+    
+    dst->update = character_update;
+    dst->free = character_free;
+    
+    dst->empty = src->empty; 
+    
+    printf("dst %s\n",dst->file_name_txt);
+    printf("src %s\n",src->file_name_txt);
+    memcpy(dst->file_name_txt, src->file_name_txt, sizeof(char) * 50);
+    printf("dst %s\n",dst->file_name_txt);
+    printf("src %s\n",src->file_name_txt);
+    strcpy(dst->file_name_bmp, src->file_name_bmp);
+    strcpy(dst->file_name_save, src->file_name_save);
+    printf("2");
+    dst->texture = src->texture;
+    //memcpy(dst->texture, src->texture, sizeof(SDL_Texture));
+
+    dst->surface = src->surface;
+
+    dst->mov = src->mov;
+
+    dst->R = src->R;
+    dst->G = src->G;
+    dst->B = src->B;
+
+    dst->North_Walk = src->North_Walk;
+    dst->East_Walk = src->East_Walk;
+    dst->South_Walk = src->South_Walk;
+    dst->West_Walk = src->West_Walk;
+    dst->Weak = src->Weak;
+    dst->Damage_Taken = src->Damage_Taken;
+    dst->Dead = src->Dead;
+
+    strcpy(dst->save_name, src->save_name);
+    strcpy(dst->charactere_name, src->charactere_name);
+    strcpy(dst->position, src->position);
+
+    dst->x = src->x;
+    dst->y = src->y;
+
+    dst->lvl = src->lvl;
+    dst->xp = src->xp;
+    dst->life = src->life;
+    dst->mana = src->mana;
+
+    return EXIT_SUCCESS;
 }

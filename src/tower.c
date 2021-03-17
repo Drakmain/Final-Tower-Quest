@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "tower.h"
+
 #include "frame.h"
 #include "map.h"
 #include "character.h"
@@ -18,33 +19,22 @@
 
  /*!
   *
-  * \fn tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch)
-  * \brief A FINIR
+  * \fn tower(game_t * game)
+  * \brief A FINIR.
   *
-  * \param render est un pointeur sur le rendu SDL.
-  * \param WINDOWWIDTH est la largeur de la fenetre.
-  * \param WINDOWHEIGHT est la hauteur de la fenetre.
-  * \param program_launch A FINIR.
-  *
+  * \param game A FINIR.
   */
 
 extern
-void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_bool * program_launch){
+void tower(game_t * game, character_t * character){
 
     /*--- Initialization Variable ------------------------------------------------*/
 
     map_t* tower = NULL;
-    tower = map_create(render, "src\\tileset\\Maps\\tower.bmp", "src\\tileset\\Maps\\tower.txt");
+    tower = map_create(game->render, "src\\tileset\\Maps\\tower.bmp", "src\\tileset\\Maps\\tower.txt");
     if (tower == NULL)
     {
         exit_with_error("Cannot create a map_t object > tower.c Line 35");
-    }
-
-    character_t* Assassin = NULL;
-    //Assassin = character_create(render, "src\\tileset\\PJ\\Assassin.bmp", "src\\tileset\\PJ\\Assassin.txt");
-    if (Assassin == NULL)
-    {
-        exit_with_error("Cannot create a character_t object > tower.c Line 42");
     }
 
     const Uint8* keyState = SDL_GetKeyboardState(NULL);
@@ -53,11 +43,11 @@ void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_boo
 
     SDL_Event event;
 
-    SDL_Rect pos_Wind_Assassin;
-    pos_Wind_Assassin.h = Assassin->North_Walk.rect.h * MULTIPLIER;
-    pos_Wind_Assassin.w = Assassin->North_Walk.rect.w * MULTIPLIER;
-    pos_Wind_Assassin.x = (*WINDOWWIDTH - pos_Wind_Assassin.w) / 2;
-    pos_Wind_Assassin.y = (*WINDOWHEIGHT - pos_Wind_Assassin.h) / 2;
+    SDL_Rect pos_Wind_character;
+    pos_Wind_character.h = character->North_Walk.rect.h * MULTIPLIER;
+    pos_Wind_character.w = character->North_Walk.rect.w * MULTIPLIER;
+    pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 2;
+    pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
 
     SDL_Rect pos_Wind_tower;
     pos_Wind_tower.x = 0;
@@ -75,21 +65,21 @@ void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_boo
 
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (*program_launch && tower_bool)
+    while (*game->program_launch && tower_bool)
     {
 
         while (SDL_PollEvent(&event))
         {
 
-            while (*program_launch == SDL_TRUE || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP])))
+            while (*game->program_launch == SDL_TRUE || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP])))
             {
                 SDL_PollEvent(&event);
 
-                
+
 
                 if (event.type == SDL_QUIT || keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    *program_launch = SDL_FALSE;
+                    *game->program_launch = SDL_FALSE;
                 }
 
                 while (keyState[SDL_SCANCODE_RIGHT])
@@ -103,13 +93,13 @@ void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_boo
 
                         pos_Wind_tower.x -= 25;
 
-                        tower->update(tower, render, tower->tile_set, pos_Wind_tower);
+                        tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
 
-                        Assassin->update(Assassin, render, Assassin->East_Walk, pos_Wind_Assassin);
+                        character->update(character, game->render, character->East_Walk, pos_Wind_character);
 
-                        render_frame(render);
+                        render_frame(game->render);
 
-                        if (SDL_RenderClear(render) != 0)
+                        if (SDL_RenderClear(game->render) != 0)
                         {
                             SDL_ExitWithError("Unable to clear rendering > tower.c Line 102");
                         }
@@ -121,16 +111,16 @@ void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_boo
                 }
                 if (East_Walk == 1)
                 {
-                    Assassin->mov.x = 0;
-                    Assassin->mov.y = 0;
-                    tower->update(tower, render, tower->tile_set, pos_Wind_tower);
-                    Assassin->update(Assassin, render, Assassin->East_Walk, pos_Wind_Assassin);
-                    render_frame(render);
+                    character->mov.x = 0;
+                    character->mov.y = 0;
+                    tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
+                    character->update(character, game->render, character->East_Walk, pos_Wind_character);
+                    render_frame(game->render);
                     East_Walk = 0;
                 }
-                
-                
-                
+
+
+
 
                 while (keyState[SDL_SCANCODE_LEFT])
                 {
@@ -142,33 +132,33 @@ void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_boo
 
                         pos_Wind_tower.x += 25;
 
-                        tower->update(tower, render, tower->tile_set, pos_Wind_tower);
+                        tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
 
-                        Assassin->update(Assassin, render, Assassin->West_Walk, pos_Wind_Assassin);
+                        character->update(character, game->render, character->West_Walk, pos_Wind_character);
 
-                        render_frame(render);
+                        render_frame(game->render);
 
-                        if (SDL_RenderClear(render) != 0)
+                        if (SDL_RenderClear(game->render) != 0)
                         {
                             SDL_ExitWithError("Unable to clear rendering > tower.c Line 131");
                         }
 
                     }
-                    
+
                     SDL_PollEvent(&event);
-                    
+
                 }
 
                 if (West_Walk == 1)
                 {
-                    Assassin->mov.x = 0;
-                    Assassin->mov.y = 0;
-                    tower->update(tower, render, tower->tile_set, pos_Wind_tower);
-                    Assassin->update(Assassin, render, Assassin->West_Walk, pos_Wind_Assassin);
-                    render_frame(render);
+                    character->mov.x = 0;
+                    character->mov.y = 0;
+                    tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
+                    character->update(character, game->render, character->West_Walk, pos_Wind_character);
+                    render_frame(game->render);
                     West_Walk = 0;
                 }
-                
+
 
                 while (keyState[SDL_SCANCODE_UP])
                 {
@@ -180,30 +170,30 @@ void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_boo
 
                         pos_Wind_tower.y += 25;
 
-                        tower->update(tower, render, tower->tile_set, pos_Wind_tower);
+                        tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
 
-                        Assassin->update(Assassin, render, Assassin->South_Walk, pos_Wind_Assassin);
+                        character->update(character, game->render, character->South_Walk, pos_Wind_character);
 
-                        render_frame(render);
+                        render_frame(game->render);
 
-                        if (SDL_RenderClear(render) != 0)
+                        if (SDL_RenderClear(game->render) != 0)
                         {
                             SDL_ExitWithError("Unable to clear rendering, tower.c Line 160");
                         }
 
                     }
-                    
+
                     SDL_PollEvent(&event);
 
                 }
 
                 if (South_Walk == 1)
                 {
-                    Assassin->mov.x = 0;
-                    Assassin->mov.y = 0;
-                    tower->update(tower, render, tower->tile_set, pos_Wind_tower);
-                    Assassin->update(Assassin, render, Assassin->South_Walk, pos_Wind_Assassin);
-                    render_frame(render);
+                    character->mov.x = 0;
+                    character->mov.y = 0;
+                    tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
+                    character->update(character, game->render, character->South_Walk, pos_Wind_character);
+                    render_frame(game->render);
                     South_Walk = 0;
                 }
 
@@ -218,13 +208,13 @@ void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_boo
 
                         pos_Wind_tower.y -= 25;
 
-                        tower->update(tower, render, tower->tile_set, pos_Wind_tower);
+                        tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
 
-                        Assassin->update(Assassin, render, Assassin->North_Walk, pos_Wind_Assassin);
+                        character->update(character, game->render, character->North_Walk, pos_Wind_character);
 
-                        render_frame(render);
+                        render_frame(game->render);
 
-                        if (SDL_RenderClear(render) != 0)
+                        if (SDL_RenderClear(game->render) != 0)
                         {
                             SDL_ExitWithError("Unable to clear rendering > tower.c Line 189");
                         }
@@ -236,11 +226,11 @@ void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_boo
 
                 if (North_Walk == 1)
                 {
-                    Assassin->mov.x = 0;
-                    Assassin->mov.y = 0;
-                    tower->update(tower, render, tower->tile_set, pos_Wind_tower);
-                    Assassin->update(Assassin, render, Assassin->North_Walk, pos_Wind_Assassin);
-                    render_frame(render);
+                    character->mov.x = 0;
+                    character->mov.y = 0;
+                    tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
+                    character->update(character, game->render, character->North_Walk, pos_Wind_character);
+                    render_frame(game->render);
                     North_Walk = 0;
                 }
 
@@ -256,7 +246,8 @@ void tower(SDL_Renderer * render, int * WINDOWWIDTH, int * WINDOWHEIGHT, SDL_boo
     /*--- Free Memory ------------------------------------------------------------*/
 
     tower->free(&tower);
-    Assassin->free(&Assassin);
+    character->free(&character);
 
     /*--- End Free Memory --------------------------------------------------------*/
+
 }

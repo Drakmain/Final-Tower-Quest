@@ -33,6 +33,7 @@ options.o: src/options.c
 
 creation_perso.o: src/creation_perso.c
 	gcc -c src/creation_perso.c  -I include -L lib $(CFLAGS)
+	
 error.o: src/error.c
 	gcc -c src/error.c -I include -L lib $(CFLAGS)
 

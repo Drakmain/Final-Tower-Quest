@@ -3,8 +3,9 @@
 
 #include "commun.h"
 
+#include "game.h"
 #include "character.h"
 
-void nouvelle_partie_f(SDL_Renderer * render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool * program_launch, character_t * actual_save);
+void nouvelle_partie_f(game_t * game, char * actual_save);
 
 #endif

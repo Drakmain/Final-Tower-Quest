@@ -3,6 +3,8 @@
 
 #include "commun.h"
 
-void options_f(SDL_Window *window, SDL_Renderer *render, int *windowwidth, int *windowheight, TTF_Font *police,SDL_bool * etat_fullscreen, SDL_bool* program_launch);
+#include "game.h"
+
+void options_f(game_t * game);
 
 #endif

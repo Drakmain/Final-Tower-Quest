@@ -3,8 +3,9 @@
 
 #include "commun.h"
 
+#include "game.h"
 #include "character.h"
 
-void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font * police,SDL_bool * etat_fullscreen, SDL_bool * program_launch, character_t * actual_save);
+void menu_accueil(game_t * game, char * actual_save);
 
 #endif

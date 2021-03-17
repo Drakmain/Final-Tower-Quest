@@ -20,21 +20,16 @@
 
 /*!
  *
- * \fn menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font *police,  SDL_bool * etat_fullscreen, SDL_bool * program_launch, character_t * actual_save)
+ * \fn menu_accueil(game_t * game, character_t * actual_save)
  * \brief A FINIR.
  *
- * \param render est un pointeur sur le rendu SDL.
- * \param windowwidth est la largeur de la fenetre.
- * \param windowheight est la hauteur de la fenetre.
- * \param police A FINIR.
- * \param etat_fullscreen A FINIR.
- * \param program_launch est un pointeur sur un booléen.
+ * \param game A FINIR.
  * \param actual_save A FINIR.
  *
  */
 
 extern
-void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth, int * windowheight, TTF_Font *police,  SDL_bool * etat_fullscreen, SDL_bool * program_launch, character_t * actual_save){
+void menu_accueil(game_t * game, char * actual_save){
 
     /*--- Initialization variable ------------------------------------------------*/
 
@@ -53,32 +48,36 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
 
     /*--- End Initialization variable --------------------------------------------*/
 
-
+    
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
 
-    surf_nouvelle_partie = TTF_RenderText_Blended(police, "Nouvelle partie", rouge);
-    if(surf_nouvelle_partie == NULL){
+    surf_nouvelle_partie = TTF_RenderText_Blended(game->police, "Nouvelle partie", rouge);
+    if(surf_nouvelle_partie == NULL)
+    {
         SDL_ExitWithError("probleme surface nouvelle partie menu d'accueil");
     }
 
-    SDL_Texture* nouvelle_partie = SDL_CreateTextureFromSurface(render, surf_nouvelle_partie);
-    if(nouvelle_partie == NULL){
+    SDL_Texture* nouvelle_partie = SDL_CreateTextureFromSurface(game->render, surf_nouvelle_partie);
+    if(nouvelle_partie == NULL)
+    {
         SDL_ExitWithError("probleme texture nouvelle partie menu d'accueil");
     }
 
     SDL_Rect pos_nouvelle_partie;
 
     /*----------------------------------------------------------------------------*/
-
+    
 
     /*--- Creation text "charger partie" -----------------------------------------*/
 
-    surf_charger_partie = TTF_RenderText_Blended(police, "Charger partie", blanc);
-    if(surf_charger_partie == NULL){
+    surf_charger_partie = TTF_RenderText_Blended(game->police, "Charger partie", blanc);
+    if(surf_charger_partie == NULL)
+    {
         SDL_ExitWithError("probleme surface charger partie menu d'accueil");
     }
-    SDL_Texture* charger_partie = SDL_CreateTextureFromSurface(render, surf_charger_partie);
-    if(charger_partie == NULL){
+    SDL_Texture* charger_partie = SDL_CreateTextureFromSurface(game->render, surf_charger_partie);
+    if(charger_partie == NULL)
+    {
         SDL_ExitWithError("probleme texture charger partie menu d'accueil");
     }
 
@@ -89,13 +88,15 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
 
     /*--- Creation text "options" ------------------------------------------------*/
 
-    surf_options = TTF_RenderText_Blended(police, "Options", blanc);
-    if(surf_options == NULL){
+    surf_options = TTF_RenderText_Blended(game->police, "Options", blanc);
+    if(surf_options == NULL)
+    {
         SDL_ExitWithError("probleme surface options menu d'accueil");
     }
 
-    SDL_Texture* options = SDL_CreateTextureFromSurface(render, surf_options);
-    if(options == NULL){
+    SDL_Texture* options = SDL_CreateTextureFromSurface(game->render, surf_options);
+    if(options == NULL)
+    {
         SDL_ExitWithError("probleme texture options menu d'accueil");
     }
 
@@ -106,13 +107,15 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
 
     /*--- Creation text "quitter" ------------------------------------------------*/
 
-    surf_quitter = TTF_RenderText_Blended(police, "Quitter le jeu", blanc);
-    if(surf_quitter == NULL){
+    surf_quitter = TTF_RenderText_Blended(game->police, "Quitter le jeu", blanc);
+    if(surf_quitter == NULL)
+    {
         SDL_ExitWithError("probleme surface quitter menu d'accueil");
     }
 
-    SDL_Texture* quitter = SDL_CreateTextureFromSurface(render, surf_quitter);
-    if(quitter == NULL){
+    SDL_Texture* quitter = SDL_CreateTextureFromSurface(game->render, surf_quitter);
+    if(quitter == NULL)
+    {
         SDL_ExitWithError("probleme texture quitter menu d'accueil");
     }
 
@@ -124,12 +127,14 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
     /*--- Creation texture logo --------------------------------------------------*/
 
     surf_logo = SDL_LoadBMP("src\\image\\Final-Tower-Quest.bmp");
-    if(surf_logo == NULL){
+    if(surf_logo == NULL)
+    {
         SDL_ExitWithError("probleme chargement image logo menu d'accueil");
     }
 
-    SDL_Texture* logo = SDL_CreateTextureFromSurface(render, surf_logo);
-    if(logo == NULL){
+    SDL_Texture* logo = SDL_CreateTextureFromSurface(game->render, surf_logo);
+    if(logo == NULL)
+    {
         SDL_ExitWithError("probleme texture image logo menu d'accueil");
     }
 
@@ -141,12 +146,14 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
    /*--- Creation texture background ---------------------------------------------*/
 
     surf_fond = SDL_LoadBMP("src\\image\\fond_menu_accueil.bmp");
-    if(surf_fond == NULL){
+    if(surf_fond == NULL)
+    {
         SDL_ExitWithError("probleme chargement image fond menu accueil");
     }
 
-    SDL_Texture* fond = SDL_CreateTextureFromSurface(render, surf_fond);
-    if(fond == NULL){
+    SDL_Texture* fond = SDL_CreateTextureFromSurface(game->render, surf_fond);
+    if(fond == NULL)
+    {
         SDL_ExitWithError("probleme texture fond menu d'accueil");
     }
 
@@ -155,21 +162,21 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
     /*----------------------------------------------------------------------------*/
 
 
-    SDL_RenderClear(render);
+    SDL_RenderClear(game->render);
 
-    SDL_RenderCopy(render, fond, NULL, &pos_fond);
-    SDL_RenderCopy(render, nouvelle_partie, NULL, &pos_nouvelle_partie);
-    SDL_RenderCopy(render, charger_partie, NULL, &pos_charger_partie);
-    SDL_RenderCopy(render, options, NULL, &pos_options);
-    SDL_RenderCopy(render, quitter, NULL, &pos_quitter);
-    SDL_RenderCopy(render, logo, NULL, &pos_logo);
+    SDL_RenderCopy(game->render, fond, NULL, &pos_fond);
+    SDL_RenderCopy(game->render, nouvelle_partie, NULL, &pos_nouvelle_partie);
+    SDL_RenderCopy(game->render, charger_partie, NULL, &pos_charger_partie);
+    SDL_RenderCopy(game->render, options, NULL, &pos_options);
+    SDL_RenderCopy(game->render, quitter, NULL, &pos_quitter);
+    SDL_RenderCopy(game->render, logo, NULL, &pos_logo);
 
-    SDL_RenderPresent(render);
+    SDL_RenderPresent(game->render);
 
 
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (menu_ac_bool && *program_launch)
+    while (menu_ac_bool == SDL_TRUE && (*game->program_launch))
     {
 
         while (SDL_PollEvent(&event))
@@ -180,13 +187,13 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
             if (event.type == SDL_QUIT)
             {
                 menu_ac_bool = SDL_FALSE;
-                *program_launch = SDL_FALSE;
+                (*game->program_launch) = SDL_FALSE;
             }
 
             if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
             {
                 menu_ac_bool = SDL_FALSE;
-                *program_launch = SDL_FALSE;
+                (*game->program_launch) = SDL_FALSE;
             }
 
             /*--- End Event to Exit Program --------------------------------------*/
@@ -212,76 +219,81 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
 
             if(selection == 0)
             {
-                surf_nouvelle_partie = TTF_RenderText_Blended(police, "Nouvelle partie", rouge);
-                surf_charger_partie = TTF_RenderText_Blended(police, "Charger partie", blanc);
-                surf_options = TTF_RenderText_Blended(police, "Options", blanc);
-                surf_quitter = TTF_RenderText_Blended(police, "Quitter le jeu", blanc);
+                surf_nouvelle_partie = TTF_RenderText_Blended(game->police, "Nouvelle partie", rouge);
+                surf_charger_partie = TTF_RenderText_Blended(game->police, "Charger partie", blanc);
+                surf_options = TTF_RenderText_Blended(game->police, "Options", blanc);
+                surf_quitter = TTF_RenderText_Blended(game->police, "Quitter le jeu", blanc);
             }
+
             if(selection == 1)
             {
-                surf_nouvelle_partie = TTF_RenderText_Blended(police, "Nouvelle partie", blanc);
-                surf_charger_partie = TTF_RenderText_Blended(police, "Charger partie", rouge);
-                surf_options = TTF_RenderText_Blended(police, "Options", blanc);
-                surf_quitter = TTF_RenderText_Blended(police, "Quitter le jeu", blanc);
+                surf_nouvelle_partie = TTF_RenderText_Blended(game->police, "Nouvelle partie", blanc);
+                surf_charger_partie = TTF_RenderText_Blended(game->police, "Charger partie", rouge);
+                surf_options = TTF_RenderText_Blended(game->police, "Options", blanc);
+                surf_quitter = TTF_RenderText_Blended(game->police, "Quitter le jeu", blanc);
             }
+
             if(selection == 2)
             {
-                surf_nouvelle_partie = TTF_RenderText_Blended(police, "Nouvelle partie", blanc);
-                surf_charger_partie = TTF_RenderText_Blended(police, "Charger partie", blanc);
-                surf_options = TTF_RenderText_Blended(police, "Options", rouge);
-                surf_quitter = TTF_RenderText_Blended(police, "Quitter le jeu", blanc);
+                surf_nouvelle_partie = TTF_RenderText_Blended(game->police, "Nouvelle partie", blanc);
+                surf_charger_partie = TTF_RenderText_Blended(game->police, "Charger partie", blanc);
+                surf_options = TTF_RenderText_Blended(game->police, "Options", rouge);
+                surf_quitter = TTF_RenderText_Blended(game->police, "Quitter le jeu", blanc);
             }
+
             if(selection == 3)
             {
-                surf_nouvelle_partie = TTF_RenderText_Blended(police, "Nouvelle partie", blanc);
-                surf_charger_partie = TTF_RenderText_Blended(police, "Charger partie", blanc);
-                surf_options = TTF_RenderText_Blended(police, "Options", blanc);
-                surf_quitter = TTF_RenderText_Blended(police, "Quitter le jeu", rouge);
+                surf_nouvelle_partie = TTF_RenderText_Blended(game->police, "Nouvelle partie", blanc);
+                surf_charger_partie = TTF_RenderText_Blended(game->police, "Charger partie", blanc);
+                surf_options = TTF_RenderText_Blended(game->police, "Options", blanc);
+                surf_quitter = TTF_RenderText_Blended(game->police, "Quitter le jeu", rouge);
             }
 
-            nouvelle_partie = SDL_CreateTextureFromSurface(render, surf_nouvelle_partie);
-            charger_partie = SDL_CreateTextureFromSurface(render, surf_charger_partie);
-            options = SDL_CreateTextureFromSurface(render, surf_options);
-            quitter = SDL_CreateTextureFromSurface(render, surf_quitter);
+            nouvelle_partie = SDL_CreateTextureFromSurface(game->render, surf_nouvelle_partie);
+            charger_partie = SDL_CreateTextureFromSurface(game->render, surf_charger_partie);
+            options = SDL_CreateTextureFromSurface(game->render, surf_options);
+            quitter = SDL_CreateTextureFromSurface(game->render, surf_quitter);
 
-            pos_nouvelle_partie.x = *windowwidth/2 - *windowwidth/6;
-            pos_nouvelle_partie.y = *windowheight/2;
-            pos_nouvelle_partie.w = *windowwidth/3.74;
-            pos_nouvelle_partie.h = *windowheight/13.5;
+            pos_nouvelle_partie.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6;
+            pos_nouvelle_partie.y = (*game->WINDOWHEIGHT)/2;
+            pos_nouvelle_partie.w = (*game->WINDOWWIDTH)/3.74;
+            pos_nouvelle_partie.h = (*game->WINDOWHEIGHT)/13.5;
 
-            pos_charger_partie.x = *windowwidth/2 - *windowwidth/6;
-            pos_charger_partie.y = *windowheight/2 + *windowheight/9;
-            pos_charger_partie.w = *windowwidth/4;
-            pos_charger_partie.h = *windowheight/13.5;
+            pos_charger_partie.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6;
+            pos_charger_partie.y = (*game->WINDOWHEIGHT)/2 + (*game->WINDOWHEIGHT)/9;
+            pos_charger_partie.w = (*game->WINDOWWIDTH)/4;
+            pos_charger_partie.h = (*game->WINDOWHEIGHT)/13.5;
 
-            pos_options.x = *windowwidth/2 - *windowwidth/6;
-            pos_options.y = *windowheight/2 + *windowheight/4.5;
-            pos_options.w = *windowwidth/8;
-            pos_options.h = *windowheight/13.5;
+            pos_options.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6;
+            pos_options.y = (*game->WINDOWHEIGHT)/2 + (*game->WINDOWHEIGHT)/4.5;
+            pos_options.w = (*game->WINDOWWIDTH)/8;
+            pos_options.h = (*game->WINDOWHEIGHT)/13.5;
 
-            pos_quitter.x = *windowwidth/2 - *windowwidth/6;
-            pos_quitter.y = *windowheight/2 + *windowheight/3;
-            pos_quitter.w = *windowwidth/4;
-            pos_quitter.h = *windowheight/13.5;
+            pos_quitter.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6;
+            pos_quitter.y = (*game->WINDOWHEIGHT)/2 + (*game->WINDOWHEIGHT)/3;
+            pos_quitter.w = (*game->WINDOWWIDTH)/4;
+            pos_quitter.h = (*game->WINDOWHEIGHT)/13.5;
 
-            pos_logo.x = *windowwidth/2 - *windowwidth*275/1280;
-            pos_logo.y = *windowheight/2 - *windowheight*300/720;
-            pos_logo.w = *windowwidth*552/1280;
-            pos_logo.h = *windowheight*145/720;
+            pos_logo.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)*275/1280;
+            pos_logo.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWHEIGHT)*300/720;
+            pos_logo.w = (*game->WINDOWWIDTH)*552/1280;
+            pos_logo.h = (*game->WINDOWHEIGHT)*145/720;
 
             pos_fond.x = 0;
             pos_fond.y = 0;
-            pos_fond.w = *windowwidth;
-            pos_fond.h = *windowheight;
+            pos_fond.w = (*game->WINDOWWIDTH);
+            pos_fond.h = (*game->WINDOWHEIGHT);
 
-            SDL_RenderClear(render);
-            SDL_RenderCopy(render, fond, NULL, &pos_fond);
-            SDL_RenderCopy(render, nouvelle_partie, NULL, &pos_nouvelle_partie);
-            SDL_RenderCopy(render, charger_partie, NULL, &pos_charger_partie);
-            SDL_RenderCopy(render, options, NULL, &pos_options);
-            SDL_RenderCopy(render, quitter, NULL, &pos_quitter);
-            SDL_RenderCopy(render, logo, NULL, &pos_logo);
-            SDL_RenderPresent(render);
+            SDL_RenderClear(game->render);
+
+            SDL_RenderCopy(game->render, fond, NULL, &pos_fond);
+            SDL_RenderCopy(game->render, nouvelle_partie, NULL, &pos_nouvelle_partie);
+            SDL_RenderCopy(game->render, charger_partie, NULL, &pos_charger_partie);
+            SDL_RenderCopy(game->render, options, NULL, &pos_options);
+            SDL_RenderCopy(game->render, quitter, NULL, &pos_quitter);
+            SDL_RenderCopy(game->render, logo, NULL, &pos_logo);
+
+            SDL_RenderPresent(game->render);
 
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
@@ -289,21 +301,24 @@ void menu_accueil(SDL_Window * window, SDL_Renderer * render, int * windowwidth,
 
                 if(selection == 0)
                 {
-                    nouvelle_partie_f(render, windowwidth, windowheight, police, program_launch, actual_save);
+                    nouvelle_partie_f(game, actual_save);
                 }
+
                 if(selection == 1)
                 {
-                    charger_partie_f(render, windowwidth, windowheight, police, program_launch, actual_save);
+                    charger_partie_f(game, actual_save);
                     menu_ac_bool = SDL_FALSE;
                 }
+
                 if(selection == 2)
                 {
-                    options_f(window, render, windowwidth, windowheight, police, etat_fullscreen, program_launch);
+                    options_f(game);
                 }
+
                 if(selection == 3)
                 {
                     menu_ac_bool = SDL_FALSE;
-                    *program_launch = SDL_FALSE;
+                    (*game->program_launch) = SDL_FALSE;
                 }
 
             }

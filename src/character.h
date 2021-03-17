@@ -50,4 +50,6 @@ struct character_s
 extern character_t * character_create(SDL_Renderer * render, char * file_name_save);
 extern SDL_bool character_exist(character_t * const character);
 
+extern int character_cpy(character_t * const src, character_t * dst);
+
 #endif
