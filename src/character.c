@@ -88,12 +88,11 @@ void character_free(character_t ** character)
 
 /*!
  *
- * \fn character_t * character_create(SDL_Renderer * render, char * file_name_bmp, char * file_name_txt)
+ * \fn character_t * character_create(SDL_Renderer * render, char * file_name_save)
  * \brief Permet la creation du l'objet character.
  *
  * \param render est un pointeur sur le rendu SDL.
- * \param file_name_bmp est une chaîne de caractères contenant le nom du fichier bmp.
- * \param file_name_txt est une chaîne de caractères contenant le nom du fichier txt.
+ * \param file_name_save A FINIR.
  * 
  * \return character Un objet character créé dans cette fonction.
  * \retval character_t * Un pointeur sur l'objet character.
@@ -257,68 +256,4 @@ SDL_bool character_exist(character_t * const character)
         return(SDL_TRUE); 
     }
 
-}
-
-
-/*!
- *
- * \fn character_cpy(character_t * const scr, character_t * dst)
- * \brief Permet de verifier l'existence du l'objet character_t.
- *
- * \param src est un pointeur sur un objet character_t.
- * \param dst est un pointeur sur un objet character_t.
- * 
- * \retval int A FINIR.
- * 
- */
-
-extern 
-int character_cpy(character_t * const src, character_t * dst)
-{
-    
-    dst->update = character_update;
-    dst->free = character_free;
-    
-    dst->empty = src->empty; 
-    
-    printf("dst %s\n",dst->file_name_txt);
-    printf("src %s\n",src->file_name_txt);
-    memcpy(dst->file_name_txt, src->file_name_txt, sizeof(char) * 50);
-    printf("dst %s\n",dst->file_name_txt);
-    printf("src %s\n",src->file_name_txt);
-    strcpy(dst->file_name_bmp, src->file_name_bmp);
-    strcpy(dst->file_name_save, src->file_name_save);
-    printf("2");
-    dst->texture = src->texture;
-    //memcpy(dst->texture, src->texture, sizeof(SDL_Texture));
-
-    dst->surface = src->surface;
-
-    dst->mov = src->mov;
-
-    dst->R = src->R;
-    dst->G = src->G;
-    dst->B = src->B;
-
-    dst->North_Walk = src->North_Walk;
-    dst->East_Walk = src->East_Walk;
-    dst->South_Walk = src->South_Walk;
-    dst->West_Walk = src->West_Walk;
-    dst->Weak = src->Weak;
-    dst->Damage_Taken = src->Damage_Taken;
-    dst->Dead = src->Dead;
-
-    strcpy(dst->save_name, src->save_name);
-    strcpy(dst->charactere_name, src->charactere_name);
-    strcpy(dst->position, src->position);
-
-    dst->x = src->x;
-    dst->y = src->y;
-
-    dst->lvl = src->lvl;
-    dst->xp = src->xp;
-    dst->life = src->life;
-    dst->mana = src->mana;
-
-    return EXIT_SUCCESS;
 }

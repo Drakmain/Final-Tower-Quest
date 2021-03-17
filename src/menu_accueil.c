@@ -20,7 +20,7 @@
 
 /*!
  *
- * \fn menu_accueil(game_t * game, character_t * actual_save)
+ * \fn menu_accueil(game_t * game, char * actual_save)
  * \brief A FINIR.
  *
  * \param game A FINIR.

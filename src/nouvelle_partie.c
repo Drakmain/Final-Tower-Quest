@@ -4,6 +4,7 @@
 #include "nouvelle_partie.h"
 
 #include "creation_perso.h"
+#include "character.h"
 
 /*!
  *
@@ -41,7 +42,7 @@ void fcpy(FILE * source_file, FILE * dest_file)
 
 /*!
  *
- * \fn nouvelle_partie_f(game_t * game, character_t * actual_save)
+ * \fn nouvelle_partie_f(game_t * game, char * actual_save)
  * \brief A FINIR.
  *
  * \param game A FINIR.

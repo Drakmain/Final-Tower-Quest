@@ -4,6 +4,8 @@
 
 #include "charger_partie.h"
 
+#include "character.h"
+
 
 /*!
  *
@@ -17,7 +19,7 @@
 
 /*!
  *
- * \fn void charger_partie_f(game_t * game, character_t * actual_save)
+ * \fn void charger_partie_f(game_t * game, char * actual_save)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -581,7 +583,6 @@ void charger_partie_f(game_t * game, char * actual_save){
 
                 if(selection == 0)
                 {
-                    //character_cpy(character_save1, actual_save);
                     strcpy(actual_save, "save//save1.txt");
                     char_part_bool = SDL_FALSE;
                 }
@@ -600,6 +601,7 @@ void charger_partie_f(game_t * game, char * actual_save){
 
                 if(selection == 3)
                 {
+                    strcpy(actual_save, "\0");
                     char_part_bool = SDL_FALSE;
                 }
 

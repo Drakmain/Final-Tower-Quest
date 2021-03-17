@@ -15,7 +15,7 @@
 
 /*!
  *
- * \fn options_f(SDL_Window * window, SDL_Renderer *render, int * windowwidth, int * windowheight, TTF_Font * police, SDL_bool * etat_fullscreen, SDL_bool * program_launch)
+ * \fn options_f(game_t * game)
  * \brief A FINIR.
  *
  * \param game A FINIR.

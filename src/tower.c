@@ -17,13 +17,15 @@
  */
 
 
- /*!
-  *
-  * \fn tower(game_t * game)
-  * \brief A FINIR.
-  *
-  * \param game A FINIR.
-  */
+/*!
+ *
+ * \fn tower(game_t * game, character_t * character)
+ * \brief A FINIR.
+ *
+ * \param game A FINIR.
+ * \param character A FINIR.
+ * 
+ */
 
 extern
 void tower(game_t * game, character_t * character){

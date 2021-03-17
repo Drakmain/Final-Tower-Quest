@@ -23,14 +23,14 @@ Uint8 * pixel(SDL_Surface * surface, int x, int y)
 }
 
 
- /*!
-  *
-  * \fn town(game_t * game)
-  * \brief Permet la gestion de la premier map du jeu (town).
-  *
-  * \param game A FINIR.
-  *
-  */
+/*!
+ *
+ * \fn town(game_t * game)
+ * \brief Permet la gestion de la premier map du jeu (town).
+ *
+ * \param game A FINIR.
+ *
+ */
 
 extern
 void town(game_t * game, character_t * character){

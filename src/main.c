@@ -68,7 +68,7 @@ int main(int argc, char ** argv)
 
     character_t * character_save = NULL;
     
-    char actual_save[20];
+    char actual_save[20] = "\0";
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -77,11 +77,16 @@ int main(int argc, char ** argv)
 
     while (*game->program_launch)
     {
+
         menu_accueil(game, actual_save);
-        printf("%s\n", actual_save);
-        character_save = character_create(game->render, actual_save);
-        town(game, character_save);
-        //tower(game, actual_save);
+        
+        if (strcmp(actual_save, "\0"))
+        {
+            printf("oue");
+            character_save = character_create(game->render, actual_save);
+            town(game, character_save);
+            //tower(game, actual_save);
+        }
 
     }
 
