@@ -44,8 +44,6 @@ void town(game_t * game, character_t * character){
         exit_with_error("Cannot create a map_t object > town.c Line 35");
     }
 
-    //Uint8 r, g, b;
-
     const Uint8* keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool town_bool = SDL_TRUE;
@@ -69,8 +67,8 @@ void town(game_t * game, character_t * character){
     int South_Walk = 0;
     int North_Walk = 0;
     
-    int x = town->tile_set.w - ((*game->WINDOWHEIGHT) / 2);
-    int y = town->tile_set.h - ((*game->WINDOWWIDTH) / 2);
+    int x = 128; //A FINIR.
+    int y = 88; //A FINIR.
 
     /*--- End Initialization Variable --------------------------------------------*/
 

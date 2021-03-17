@@ -307,7 +307,11 @@ void menu_accueil(game_t * game, char * actual_save){
                 if(selection == 1)
                 {
                     charger_partie_f(game, actual_save);
-                    menu_ac_bool = SDL_FALSE;
+                    if (strcmp(actual_save, "\0"))
+                    {
+                        menu_ac_bool = SDL_FALSE;
+                    }
+                
                 }
 
                 if(selection == 2)
