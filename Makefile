@@ -2,8 +2,8 @@ CFLAGS=-Wall -lmingw32 -lSDL2main -lSDL2
 
 all: main
 
-main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o
-	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS) -lSDL2_ttf
+main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o game.o
+	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o game.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS) -lSDL2_ttf
 
 
 test: test_map.o test_character.o error.o map.o character.o 
@@ -18,6 +18,9 @@ character.o: src/character.c
 
 map.o: src/map.c
 	gcc -c src/map.c -I include -L lib $(CFLAGS)
+
+game.o: src/game.c
+	gcc -c src/game.c -I include -L lib $(CFLAGS)
 
 menu_accueil.o : src/menu_accueil.c
 	gcc -c src/menu_accueil.c  -I include -L lib $(CFLAGS)
