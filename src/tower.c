@@ -17,13 +17,15 @@
  */
 
 
- /*!
-  *
-  * \fn tower(game_t * game)
-  * \brief A FINIR.
-  *
-  * \param game A FINIR.
-  */
+/*!
+ *
+ * \fn tower(game_t * game, character_t * character)
+ * \brief A FINIR.
+ *
+ * \param game A FINIR.
+ * \param character A FINIR.
+ * 
+ */
 
 extern
 void tower(game_t * game, character_t * character){
@@ -34,7 +36,7 @@ void tower(game_t * game, character_t * character){
     tower = map_create(game->render, "src\\tileset\\Maps\\tower.bmp", "src\\tileset\\Maps\\tower.txt");
     if (tower == NULL)
     {
-        exit_with_error("Cannot create a map_t object > tower.c Line 35");
+        exit_with_error("Cannot create a map_t object > tower.c Line 36");
     }
 
     const Uint8* keyState = SDL_GetKeyboardState(NULL);
@@ -74,7 +76,6 @@ void tower(game_t * game, character_t * character){
             while (*game->program_launch == SDL_TRUE || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP])))
             {
                 SDL_PollEvent(&event);
-
 
 
                 if (event.type == SDL_QUIT || keyState[SDL_SCANCODE_ESCAPE])

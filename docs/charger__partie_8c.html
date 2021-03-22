@@ -69,75 +69,55 @@ $(document).ready(function(){initNavTree('charger__partie_8c.html',''); initResi
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;charger_partie.h&quot;</code><br />
+<code>#include &quot;character.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de charger_partie.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="charger__partie_8c__incl.png" border="0" usemap="#asrc_2charger__partie_8c" alt=""/></div>
 <map name="asrc_2charger__partie_8c" id="asrc_2charger__partie_8c">
-<area shape="rect" title="charger partie." alt="" coords="54,5,191,32"/>
+<area shape="rect" title="charger partie." alt="" coords="143,5,281,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
-<area shape="rect" href="charger__partie_8h_source.html" title=" " alt="" coords="179,80,293,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="193,229,276,256"/>
-<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="233,155,319,181"/>
-<area shape="rect" title=" " alt="" coords="113,304,172,331"/>
-<area shape="rect" title=" " alt="" coords="197,304,273,331"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="297,304,356,331"/>
+<area shape="rect" title=" " alt="" coords="179,80,245,107"/>
+<area shape="rect" href="charger__partie_8h_source.html" title=" " alt="" coords="269,80,384,107"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="383,155,470,181"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="285,229,368,256"/>
+<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="294,155,359,181"/>
+<area shape="rect" title=" " alt="" coords="205,304,264,331"/>
+<area shape="rect" title=" " alt="" coords="289,304,365,331"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="389,304,448,331"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a8ed29cb397ffb1a8c997b569d048cc14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="charger__partie_8c.html#a8ed29cb397ffb1a8c997b569d048cc14">charger_partie_f</a> (SDL_Renderer *render, int *windowwidth, int *windowheight, TTF_Font *police, SDL_bool *program_launch, <a class="el" href="structcharacter__t.html">character_t</a> *actual_save)</td></tr>
-<tr class="memdesc:a8ed29cb397ffb1a8c997b569d048cc14"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="charger__partie_8c.html#a8ed29cb397ffb1a8c997b569d048cc14">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a8ed29cb397ffb1a8c997b569d048cc14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9349773dc9ac8d712a48f49717611702"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702">charger_partie_f</a> (<a class="el" href="structgame__t.html">game_t</a> *game, char *actual_save)</td></tr>
+<tr class="memdesc:a9349773dc9ac8d712a48f49717611702"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9349773dc9ac8d712a48f49717611702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>charger partie. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Jeremy BOURGOUIN </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>12/03/21 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a8ed29cb397ffb1a8c997b569d048cc14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ed29cb397ffb1a8c997b569d048cc14">&#9670;&nbsp;</a></span>charger_partie_f()</h2>
+<a id="a9349773dc9ac8d712a48f49717611702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9349773dc9ac8d712a48f49717611702">&#9670;&nbsp;</a></span>charger_partie_f()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">charger_partie_f </td>
+          <td class="memname">void charger_partie_f </td>
           <td>(</td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>render</em>, </td>
+          <td class="paramtype"><a class="el" href="structgame__t.html">game_t</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>windowwidth</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>windowheight</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">TTF_Font *&#160;</td>
-          <td class="paramname"><em>police</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_bool *&#160;</td>
-          <td class="paramname"><em>program_launch</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structcharacter__t.html">character_t</a> *&#160;</td>
+          <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>actual_save</em>&#160;</td>
         </tr>
         <tr>
@@ -151,11 +131,7 @@ Fonctions</h2></td></tr>
 <p>A FINIR. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">render</td><td>est un pointeur sur le rendu SDL. </td></tr>
-    <tr><td class="paramname">windowwidth</td><td>est la largeur de la fenetre. </td></tr>
-    <tr><td class="paramname">windowheight</td><td>est la hauteur de la fenetre. </td></tr>
-    <tr><td class="paramname">police</td><td>A FINIR. </td></tr>
-    <tr><td class="paramname">program_launch</td><td>est un pointeur sur un booléen. </td></tr>
+    <tr><td class="paramname">game</td><td>A FINIR. </td></tr>
     <tr><td class="paramname">actual_save</td><td>A FINIR. </td></tr>
   </table>
   </dd>
@@ -163,19 +139,23 @@ Fonctions</h2></td></tr>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="charger__partie_8c_a8ed29cb397ffb1a8c997b569d048cc14_cgraph.png" border="0" usemap="#acharger__partie_8c_a8ed29cb397ffb1a8c997b569d048cc14_cgraph" alt=""/></div>
-<map name="acharger__partie_8c_a8ed29cb397ffb1a8c997b569d048cc14_cgraph" id="acharger__partie_8c_a8ed29cb397ffb1a8c997b569d048cc14_cgraph">
-<area shape="rect" title="A FINIR." alt="" coords="5,5,120,32"/>
-<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="168,5,300,32"/>
+<div class="center"><img src="charger__partie_8c_a9349773dc9ac8d712a48f49717611702_cgraph.png" border="0" usemap="#acharger__partie_8c_a9349773dc9ac8d712a48f49717611702_cgraph" alt=""/></div>
+<map name="acharger__partie_8c_a9349773dc9ac8d712a48f49717611702_cgraph" id="acharger__partie_8c_a9349773dc9ac8d712a48f49717611702_cgraph">
+<area shape="rect" title="A FINIR." alt="" coords="5,157,120,184"/>
+<area shape="rect" href="character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="168,107,287,133"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="505,107,637,133"/>
+<area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="343,157,449,184"/>
+<area shape="rect" href="character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="344,5,448,32"/>
+<area shape="rect" href="character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="335,56,457,83"/>
 </map>
 </div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="charger__partie_8c_a8ed29cb397ffb1a8c997b569d048cc14_icgraph.png" border="0" usemap="#acharger__partie_8c_a8ed29cb397ffb1a8c997b569d048cc14_icgraph" alt=""/></div>
-<map name="acharger__partie_8c_a8ed29cb397ffb1a8c997b569d048cc14_icgraph" id="acharger__partie_8c_a8ed29cb397ffb1a8c997b569d048cc14_icgraph">
+<div class="center"><img src="charger__partie_8c_a9349773dc9ac8d712a48f49717611702_icgraph.png" border="0" usemap="#acharger__partie_8c_a9349773dc9ac8d712a48f49717611702_icgraph" alt=""/></div>
+<map name="acharger__partie_8c_a9349773dc9ac8d712a48f49717611702_icgraph" id="acharger__partie_8c_a9349773dc9ac8d712a48f49717611702_icgraph">
 <area shape="rect" title="A FINIR." alt="" coords="255,5,369,32"/>
-<area shape="rect" href="menu__accueil_8c.html#a6ab04b1350dd59b079ec1684dacfa82a" title="A FINIR." alt="" coords="104,5,207,32"/>
+<area shape="rect" href="menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="A FINIR." alt="" coords="104,5,207,32"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
 </map>
 </div>

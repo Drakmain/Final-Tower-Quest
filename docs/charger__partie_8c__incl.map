@@ -1,11 +1,13 @@
 <map id="src/charger_partie.c" name="src/charger_partie.c">
-<area shape="rect" id="node1" title="charger partie." alt="" coords="54,5,191,32"/>
+<area shape="rect" id="node1" title="charger partie." alt="" coords="143,5,281,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="91,80,155,107"/>
-<area shape="rect" id="node4" href="$charger__partie_8h_source.html" title=" " alt="" coords="179,80,293,107"/>
-<area shape="rect" id="node5" href="$commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="193,229,276,256"/>
-<area shape="rect" id="node9" href="$character_8h_source.html" title=" " alt="" coords="233,155,319,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="113,304,172,331"/>
-<area shape="rect" id="node7" title=" " alt="" coords="197,304,273,331"/>
-<area shape="rect" id="node8" href="$error_8h_source.html" title=" " alt="" coords="297,304,356,331"/>
+<area shape="rect" id="node4" title=" " alt="" coords="179,80,245,107"/>
+<area shape="rect" id="node5" href="$charger__partie_8h_source.html" title=" " alt="" coords="269,80,384,107"/>
+<area shape="rect" id="node11" href="$character_8h_source.html" title=" " alt="" coords="383,155,470,181"/>
+<area shape="rect" id="node6" href="$commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="285,229,368,256"/>
+<area shape="rect" id="node10" href="$game_8h_source.html" title=" " alt="" coords="294,155,359,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="205,304,264,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="289,304,365,331"/>
+<area shape="rect" id="node9" href="$error_8h_source.html" title=" " alt="" coords="389,304,448,331"/>
 </map>

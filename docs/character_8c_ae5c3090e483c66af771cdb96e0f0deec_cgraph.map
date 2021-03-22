@@ -1,0 +1,7 @@
+<map id="character_create" name="character_create">
+<area shape="rect" id="node1" title="Permet la creation du l&#39;objet character." alt="" coords="5,81,124,108"/>
+<area shape="rect" id="node2" href="$character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="181,5,285,32"/>
+<area shape="rect" id="node3" href="$character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="172,56,295,83"/>
+<area shape="rect" id="node4" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="343,81,475,108"/>
+<area shape="rect" id="node5" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="180,157,287,184"/>
+</map>

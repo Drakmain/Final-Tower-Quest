@@ -23,14 +23,14 @@ Uint8 * pixel(SDL_Surface * surface, int x, int y)
 }
 
 
- /*!
-  *
-  * \fn town(game_t * game)
-  * \brief Permet la gestion de la premier map du jeu (town).
-  *
-  * \param game A FINIR.
-  *
-  */
+/*!
+ *
+ * \fn town(game_t * game)
+ * \brief Permet la gestion de la premier map du jeu (town).
+ *
+ * \param game A FINIR.
+ *
+ */
 
 extern
 void town(game_t * game, character_t * character){
@@ -43,8 +43,6 @@ void town(game_t * game, character_t * character){
     {
         exit_with_error("Cannot create a map_t object > town.c Line 35");
     }
-
-    //Uint8 r, g, b;
 
     const Uint8* keyState = SDL_GetKeyboardState(NULL);
 
@@ -68,9 +66,15 @@ void town(game_t * game, character_t * character){
     int West_Walk = 0;
     int South_Walk = 0;
     int North_Walk = 0;
+<<<<<<< HEAD
 
     int x = town->tile_set.w - ((*game->WINDOWHEIGHT) / 2);
     int y = town->tile_set.h - ((*game->WINDOWWIDTH) / 2);
+=======
+    
+    int x = 128; //A FINIR.
+    int y = 88; //A FINIR.
+>>>>>>> main
 
     /*--- End Initialization Variable --------------------------------------------*/
 

@@ -11,6 +11,8 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "error.h", "error_8h_source.html", null ],
     [ "frame.c", "frame_8c.html", "frame_8c" ],
     [ "frame.h", "frame_8h_source.html", null ],
+    [ "game.c", "game_8c.html", "game_8c" ],
+    [ "game.h", "game_8h_source.html", null ],
     [ "main.c", "main_8c.html", "main_8c" ],
     [ "map.c", "map_8c.html", "map_8c" ],
     [ "map.h", "map_8h_source.html", null ],

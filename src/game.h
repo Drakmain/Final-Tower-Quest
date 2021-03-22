@@ -9,18 +9,16 @@ struct game_s
 {
     void (*free)(game_t **); /*!< A FINIR. */
 
-    SDL_Window * window;
-    SDL_Renderer * render;
+    SDL_Window * window; /*!< A FINIR. */
+    SDL_Renderer * render; /*!< A FINIR. */
 
-    TTF_Font * police;
+    TTF_Font * police; /*!< A FINIR. */
 
-    SDL_bool * program_launch;
-    SDL_bool * etat_fullscreen; 
+    SDL_bool * program_launch; /*!< A FINIR. */
+    SDL_bool * etat_fullscreen; /*!< A FINIR. */
 
-    int * WINDOWHEIGHT;
-    int * WINDOWWIDTH;
-
-
+    int * WINDOWHEIGHT; /*!< A FINIR. */
+    int * WINDOWWIDTH; /*!< A FINIR. */
 };
 
 extern game_t * game_create();

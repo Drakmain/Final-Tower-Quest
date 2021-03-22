@@ -80,7 +80,7 @@ Graphe des dépendances par inclusion de creation_perso.c:</div>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" href="creation__perso_8h_source.html" title=" " alt="" coords="179,80,298,107"/>
 <area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="196,229,279,256"/>
-<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="235,155,322,181"/>
+<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="241,155,306,181"/>
 <area shape="rect" title=" " alt="" coords="116,304,175,331"/>
 <area shape="rect" title=" " alt="" coords="199,304,275,331"/>
 <area shape="rect" href="error_8h_source.html" title=" " alt="" coords="300,304,359,331"/>
@@ -89,17 +89,17 @@ Graphe des dépendances par inclusion de creation_perso.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:aedf3505d1cb50685e1777f918ca0e79f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation__perso_8c.html#aedf3505d1cb50685e1777f918ca0e79f">creation_perso</a> (SDL_Renderer *render, int *windowwidth, int *windowheight, SDL_bool *program_launch, TTF_Font *police, <a class="el" href="structcharacter__t.html">character_t</a> *actual_save)</td></tr>
-<tr class="memdesc:aedf3505d1cb50685e1777f918ca0e79f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="creation__perso_8c.html#aedf3505d1cb50685e1777f918ca0e79f">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aedf3505d1cb50685e1777f918ca0e79f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a4e12636e48b3fda6619627a8aa87f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9">creation_perso</a> (<a class="el" href="structgame__t.html">game_t</a> *game, char *actual_save)</td></tr>
+<tr class="memdesc:a8a4e12636e48b3fda6619627a8aa87f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8a4e12636e48b3fda6619627a8aa87f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Creation d'un perosnnage. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Alexis BOUFFARD </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>12/03/21 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="aedf3505d1cb50685e1777f918ca0e79f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedf3505d1cb50685e1777f918ca0e79f">&#9670;&nbsp;</a></span>creation_perso()</h2>
+<a id="a8a4e12636e48b3fda6619627a8aa87f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a4e12636e48b3fda6619627a8aa87f9">&#9670;&nbsp;</a></span>creation_perso()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -107,37 +107,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">creation_perso </td>
           <td>(</td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>render</em>, </td>
+          <td class="paramtype"><a class="el" href="structgame__t.html">game_t</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>windowwidth</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>windowheight</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_bool *&#160;</td>
-          <td class="paramname"><em>program_launch</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">TTF_Font *&#160;</td>
-          <td class="paramname"><em>police</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structcharacter__t.html">character_t</a> *&#160;</td>
+          <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>actual_save</em>&#160;</td>
         </tr>
         <tr>
@@ -151,20 +127,29 @@ Fonctions</h2></td></tr>
 <p>A FINIR. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">render</td><td>render est un pointeur sur le rendu SDL.s </td></tr>
-    <tr><td class="paramname">windowwidth</td><td>A FINIR </td></tr>
-    <tr><td class="paramname">windowheight</td><td>A FINIR </td></tr>
-    <tr><td class="paramname">program_launch</td><td>est un pointeur booléen. </td></tr>
+    <tr><td class="paramname">game</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">actual_save</td><td>A FINIR. </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="creation__perso_8c_aedf3505d1cb50685e1777f918ca0e79f_cgraph.png" border="0" usemap="#acreation__perso_8c_aedf3505d1cb50685e1777f918ca0e79f_cgraph" alt=""/></div>
-<map name="acreation__perso_8c_aedf3505d1cb50685e1777f918ca0e79f_cgraph" id="acreation__perso_8c_aedf3505d1cb50685e1777f918ca0e79f_cgraph">
+<div class="center"><img src="creation__perso_8c_a8a4e12636e48b3fda6619627a8aa87f9_cgraph.png" border="0" usemap="#acreation__perso_8c_a8a4e12636e48b3fda6619627a8aa87f9_cgraph" alt=""/></div>
+<map name="acreation__perso_8c_a8a4e12636e48b3fda6619627a8aa87f9_cgraph" id="acreation__perso_8c_a8a4e12636e48b3fda6619627a8aa87f9_cgraph">
 <area shape="rect" title="A FINIR." alt="" coords="5,5,112,32"/>
 <area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="160,5,292,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="creation__perso_8c_a8a4e12636e48b3fda6619627a8aa87f9_icgraph.png" border="0" usemap="#acreation__perso_8c_a8a4e12636e48b3fda6619627a8aa87f9_icgraph" alt=""/></div>
+<map name="acreation__perso_8c_a8a4e12636e48b3fda6619627a8aa87f9_icgraph" id="acreation__perso_8c_a8a4e12636e48b3fda6619627a8aa87f9_icgraph">
+<area shape="rect" title="A FINIR." alt="" coords="420,5,527,32"/>
+<area shape="rect" href="nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76" title="A FINIR." alt="" coords="255,5,372,32"/>
+<area shape="rect" href="menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="A FINIR." alt="" coords="104,5,207,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
 </map>
 </div>
 
