@@ -67,13 +67,9 @@ int main(int argc, char ** argv)
     /*--- Initialization Variable ------------------------------------------------*/
 
     character_t * character_save = NULL;
-<<<<<<< HEAD
 
-    char actual_save[20];
-=======
-    
     char actual_save[20] = "\0";
->>>>>>> main
+
 
     /*--- End Initialization Variable --------------------------------------------*/
 

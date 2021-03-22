@@ -67,15 +67,9 @@ void town(game_t * game, character_t * character){
     int West_Walk = 0;
     int South_Walk = 0;
     int North_Walk = 0;
-<<<<<<< HEAD
-
-    int x = town->tile_set.w - ((*game->WINDOWHEIGHT) / 2);
-    int y = town->tile_set.h - ((*game->WINDOWWIDTH) / 2);
-=======
 
     int x = 128; //A FINIR.
     int y = 88; //A FINIR.
->>>>>>> main
 
     /*--- End Initialization Variable --------------------------------------------*/
 
