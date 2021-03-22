@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "charger_partie.h"
+#include "..\lib\charger_partie.h"
 
-#include "character.h"
+#include "..\lib\character.h"
 
 
 /*!

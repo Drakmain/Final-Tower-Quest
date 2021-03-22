@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "character.h"
+#include "..\lib\character.h"
 
 /*!
  * 

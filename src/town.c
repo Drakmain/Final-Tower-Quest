@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "town.h"
-#include "frame.h"
-#include "map.h"
-#include "character.h"
-#include "menu_in_game.h"
+#include "..\lib\town.h"
+
+#include "..\lib\frame.h"
+#include "..\lib\map.h"
+#include "..\lib\character.h"
+#include "..\lib\menu_in_game.h"
 /*!
  *
  * \file town.c
@@ -71,7 +72,7 @@ void town(game_t * game, character_t * character){
     int x = town->tile_set.w - ((*game->WINDOWHEIGHT) / 2);
     int y = town->tile_set.h - ((*game->WINDOWWIDTH) / 2);
 =======
-    
+
     int x = 128; //A FINIR.
     int y = 88; //A FINIR.
 >>>>>>> main
