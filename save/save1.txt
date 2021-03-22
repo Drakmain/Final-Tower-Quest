@@ -1,5 +1,5 @@
 save_name: Guerrier ;
-charactere: Guerrier ;
+charactere_name: Guerrier ;
 position:  ;
 x:  ;
 y:  ;
