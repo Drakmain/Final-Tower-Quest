@@ -5,7 +5,7 @@
 #include "frame.h"
 #include "map.h"
 #include "character.h"
-
+#include "menu_in_game.h"
 /*!
  *
  * \file town.c
@@ -68,13 +68,13 @@ void town(game_t * game, character_t * character){
     int West_Walk = 0;
     int South_Walk = 0;
     int North_Walk = 0;
-    
+
     int x = town->tile_set.w - ((*game->WINDOWHEIGHT) / 2);
     int y = town->tile_set.h - ((*game->WINDOWWIDTH) / 2);
 
     /*--- End Initialization Variable --------------------------------------------*/
 
-    
+
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (*game->program_launch && town_bool)
@@ -83,14 +83,19 @@ void town(game_t * game, character_t * character){
         while (SDL_PollEvent(&event))
         {
 
-            while (*game->program_launch == SDL_TRUE || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP])))
+            while (*game->program_launch == SDL_TRUE || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
                 SDL_PollEvent(&event);
 
-
-                if (event.type == SDL_QUIT || keyState[SDL_SCANCODE_ESCAPE])
+                if (event.type == SDL_QUIT)
                 {
-                    *game->program_launch = SDL_FALSE;
+                    (*game->program_launch) = SDL_FALSE;
+                }
+                if (keyState[SDL_SCANCODE_ESCAPE])
+                {
+                    menu_in_game(game);
+                    SDL_RenderPresent(game->render);
+                    while(keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)SDL_PollEvent(&event);
                 }
 
                 while (keyState[SDL_SCANCODE_RIGHT])

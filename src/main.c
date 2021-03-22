@@ -60,14 +60,14 @@ int main(int argc, char ** argv)
     {
         exit_with_error("Cannot create a game_t object > main.c Line 64");
     }
-    
+
     /*--- End Initialization game --------------------------------------------*/
 
 
     /*--- Initialization Variable ------------------------------------------------*/
 
     character_t * character_save = NULL;
-    
+
     char actual_save[20];
 
     /*--- End Initialization Variable --------------------------------------------*/
