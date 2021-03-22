@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "menu_accueil.h"
+#include "..\lib\menu_accueil.h"
 
-#include "options.h"
-#include "nouvelle_partie.h"
-#include "charger_partie.h"
+#include "..\lib\options.h"
+#include "..\lib\nouvelle_partie.h"
+#include "..\lib\charger_partie.h"
 
 
 /*!

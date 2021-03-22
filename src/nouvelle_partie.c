@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "nouvelle_partie.h"
+#include "..\lib\nouvelle_partie.h"
 
-#include "creation_perso.h"
-#include "character.h"
+#include "..\lib\creation_perso.h"
+#include "..\lib\character.h"
 
 /*!
  *

@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "commun.h"
+#include "..\lib\commun.h"
 
-#include "town.h"
-#include "tower.h"
-#include "character.h"
-#include "menu_accueil.h"
-#include "game.h"
+#include "..\lib\town.h"
+#include "..\lib\tower.h"
+#include "..\lib\character.h"
+#include "..\lib\menu_accueil.h"
+#include "..\lib\game.h"
 
 
 /*!

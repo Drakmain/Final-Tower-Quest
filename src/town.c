@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "town.h"
-#include "frame.h"
-#include "map.h"
-#include "character.h"
+#include "..\lib\town.h"
+
+#include "..\lib\frame.h"
+#include "..\lib\map.h"
+#include "..\lib\character.h"
 
 /*!
  *

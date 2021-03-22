@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "tower.h"
+#include "..\lib\tower.h"
 
-#include "frame.h"
-#include "map.h"
-#include "character.h"
+#include "..\lib\frame.h"
+#include "..\lib\map.h"
+#include "..\lib\character.h"
 
 /*!
  *
