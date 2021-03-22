@@ -345,7 +345,7 @@ void options_f(game_t * game){
                     changement = SDL_TRUE;
                 }
 
-                switch (resolution) 
+                switch (resolution)
                 {
                     case RES_720P: (*game->WINDOWWIDTH) = 1280;
                             (*game->WINDOWHEIGHT) = 720;
@@ -353,6 +353,7 @@ void options_f(game_t * game){
                             choix_resolution = SDL_CreateTextureFromSurface(game->render, surf_choix_resolution);
                             fleche_gauche = NULL;
                             fleche_droite = SDL_CreateTextureFromSurface(game->render, surf_fleche);
+                            if (*game->etat_fullscreen == SDL_FALSE) SDL_SetWindowPosition(game->window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
                             break;
                     case RES_900P: (*game->WINDOWWIDTH) = 1600;
                             (*game->WINDOWHEIGHT) = 900;
@@ -360,6 +361,9 @@ void options_f(game_t * game){
                             choix_resolution = SDL_CreateTextureFromSurface(game->render, surf_choix_resolution);
                             fleche_gauche = SDL_CreateTextureFromSurface(game->render, surf_fleche);
                             fleche_droite = SDL_CreateTextureFromSurface(game->render, surf_fleche);
+                            if (*game->etat_fullscreen == SDL_FALSE){
+                                SDL_SetWindowPosition(game->window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+                            }
                             break;
                     case RES_1080P: (*game->WINDOWWIDTH) = 1920;
                             (*game->WINDOWHEIGHT) = 1080;
@@ -367,6 +371,7 @@ void options_f(game_t * game){
                             choix_resolution = SDL_CreateTextureFromSurface(game->render, surf_choix_resolution);
                             fleche_droite = SDL_CreateTextureFromSurface(game->render, surf_fleche);
                             fleche_gauche = SDL_CreateTextureFromSurface(game->render, surf_fleche);
+                            if (*game->etat_fullscreen == SDL_FALSE) SDL_SetWindowPosition(game->window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
                             break;
                     case RES_1440P: (*game->WINDOWWIDTH) = 2560;
                             (*game->WINDOWHEIGHT) = 1440;
@@ -374,7 +379,7 @@ void options_f(game_t * game){
                             choix_resolution = SDL_CreateTextureFromSurface(game->render, surf_choix_resolution);
                             fleche_droite = NULL;
                             fleche_gauche = SDL_CreateTextureFromSurface(game->render, surf_fleche);
-                            
+                            if (*game->etat_fullscreen == SDL_FALSE)SDL_SetWindowPosition(game->window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
                             break;
                 }
 
@@ -416,6 +421,7 @@ void options_f(game_t * game){
                 switch (*game->etat_fullscreen) 
                 {
                     case SDL_FALSE: SDL_SetWindowFullscreen(game->window, 0);
+                            SDL_SetWindowPosition(game->window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
                             surf_choix_fullscreen = TTF_RenderText_Blended(game->police, "Non", blanc);
                             choix_fullscreen = SDL_CreateTextureFromSurface(game->render, surf_choix_fullscreen);
                             fleche_gauche = NULL;
