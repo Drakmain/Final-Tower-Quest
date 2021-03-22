@@ -193,6 +193,10 @@ game_t * game_create()
     {
         SDL_SetWindowFullscreen(game->window, SDL_WINDOW_FULLSCREEN);
     }
+    else
+    {
+        SDL_SetWindowFullscreen(game->window, 0);
+    }
 
     /*--- End Creation Window ----------------------------------------------------*/
 
