@@ -1,4 +1,4 @@
-save_name: guerrier ;
+save_name: Guerrier ;
 charactere: Guerrier ;
 position:  ;
 x:  ;
