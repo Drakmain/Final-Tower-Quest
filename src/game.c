@@ -15,10 +15,10 @@
 
 
 /*!
- * 
+ *
  * \struct game_t game.h "game.h"
  * \brief Structure de l'objet game_t.
- * 
+ *
  */
 
 
@@ -28,11 +28,11 @@
  * \brief Permet la liberation d'un objet game.
  *
  * \param game est un objet game_t qui doit etre libéré.
- * 
+ *
  */
 
-static 
-void game_free(game_t ** game) 
+static
+void game_free(game_t ** game)
 {
     /*--- Free Memory ------------------------------------------------------------*/
 
@@ -40,7 +40,7 @@ void game_free(game_t ** game)
 
     SDL_DestroyRenderer((*game)->render);
     printf("SDL_Renderer * render: destroyed\n");
-    
+
     SDL_DestroyWindow((*game)->window);
     printf("SDL_Window * window: destroyed\n");
 
@@ -71,23 +71,23 @@ void game_free(game_t ** game)
 
 /*!
  *
- * \fn game_create() 
+ * \fn game_create()
  * \brief Permet la creation du l'objet game.
- * 
+ *
  * \return game Un objet game créé dans cette fonction.
  * \retval game_t * Un pointeur sur l'objet game.
- * 
+ *
  */
 
-extern 
+extern
 game_t * game_create()
-{   
+{
 
     /*--- Initialization variable ------------------------------------------------*/
 
-    game_t * game = NULL; 
+    game_t * game = NULL;
     game = malloc(sizeof(game_t));
-    
+
     /*--- End Initialization variable --------------------------------------------*/
 
 
@@ -211,22 +211,22 @@ game_t * game_create()
  * \brief Permet de verifier l'existence du l'objet game_t.
  *
  * \param game est un pointeur sur un objet game_t.
- * 
+ *
  * \retval SDL_bool Une variable booléenne SDL.
- * 
+ *
  */
 
-extern 
+extern
 SDL_bool game_exist(game_t * const game)
 {
 
     if(game == NULL)
     {
         return(SDL_FALSE);
-    }  
+    }
     else
     {
-        return(SDL_TRUE); 
+        return(SDL_TRUE);
     }
 
 }

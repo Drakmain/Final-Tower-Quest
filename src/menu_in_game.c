@@ -8,28 +8,25 @@
 
 /*!
  *
- * \file menu_accueil.c
- * \brief Menu d'accueil.
+ * \file menu_in_game.c
+ * \brief Menu dans le jeu..
  * \author Jeremy BOURGOUIN
- * \date 10/02/21
+ * \date 18/03/21
  *
  */
 
 
 /*!
  *
- * \fn menu_accueil(SDL_Window * window, SDL_Renderer * game->render, int (*game->WINDOWWIDTH), int (*game->WINDOWHEIGHT),SDL_bool * program_launch)
+ * \fn menu_in_game(game_t * game)
  * \brief A FINIR
  *
- * \param render render est un pointeur sur le rendu SDL.s
- * \param (*game->WINDOWWIDTH) A FINIR
- * \param (*game->WINDOWHEIGHT) A FINIR
- * \param program_launch est un pointeur booléen.
+ * \param game A FINIR
  *
  */
 
 extern
-void menu_in_game(game_t * game){
+void menu_in_game(game_t * game, SDL_Texture * texture_render){
 
     /*--- Initialization variable ------------------------------------------------*/
     SDL_Color blanc = {255,255,255};
@@ -182,10 +179,14 @@ void menu_in_game(game_t * game){
     SDL_RenderFillRect(game->render, &rect_fond_cadre);
     SDL_SetRenderTarget(game->render,NULL);
     /*------------------------------------------------------------------------------------*/
+    SDL_Rect pos_texture_render;
+    pos_texture_render.x = 0;
+    pos_texture_render.y = 0;
+    pos_texture_render.w = (*game->WINDOWWIDTH);
+    pos_texture_render.h = (*game->WINDOWHEIGHT);
 
     SDL_RenderClear(game->render);
-    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
-    SDL_RenderCopy(game->render, character->texture, &character->mov, &pos_Wind_character);
+    SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
     SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
     SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
     SDL_RenderCopy(game->render, inventaire, NULL, &pos_inventaire);
@@ -238,7 +239,6 @@ void menu_in_game(game_t * game){
         }
 
     }
-
     /*--- End Main Loop ----------------------------------------------------------*/
 
 

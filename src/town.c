@@ -38,6 +38,9 @@ void town(game_t * game, character_t * character){
 
     /*--- Initialization Variable ------------------------------------------------*/
 
+    SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888,
+    		SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
+
     map_t* town = NULL;
     town = map_create(game->render, "src\\tileset\\Maps\\town.bmp", "src\\tileset\\Maps\\town.txt");
     if (town == NULL)
@@ -71,6 +74,12 @@ void town(game_t * game, character_t * character){
     int x = 128; //A FINIR.
     int y = 88; //A FINIR.
 
+    SDL_Rect pos_texture_render;
+    pos_texture_render.x = 0;
+    pos_texture_render.y = 0;
+    pos_texture_render.w = (*game->WINDOWWIDTH);
+    pos_texture_render.h = (*game->WINDOWHEIGHT);
+
     /*--- End Initialization Variable --------------------------------------------*/
 
 
@@ -92,7 +101,9 @@ void town(game_t * game, character_t * character){
                 }
                 if (keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    menu_in_game(game);
+                    menu_in_game(game, texture_render);
+                    SDL_RenderClear(game->render);
+                    SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
                     SDL_RenderPresent(game->render);
                     while(keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)SDL_PollEvent(&event);
                 }
@@ -270,6 +281,11 @@ void town(game_t * game, character_t * character){
 
                 printf("Couleur : rouge = %i, vert = %i, bleu = %i", r, g, b);
                 */
+                SDL_SetRenderTarget(game->render, texture_render);
+                SDL_RenderClear(game->render);
+                SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
+                SDL_RenderCopy(game->render, character->texture, &character->mov, &pos_Wind_character);
+                SDL_SetRenderTarget(game->render, NULL);
 
             }
 
