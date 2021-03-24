@@ -1,9 +1,9 @@
-save_name: ;
-charactere:  ;
+save_name:  ;
+charactere_name:  ;
 position:  ;
-x: 
-y: ;
-lvl: ;
-xp: ;
-life: ;
-mana: ;
+x:  ;
+y:  ;
+lvl:  ;
+xp:  ;
+life:  ;
+mana:  ;

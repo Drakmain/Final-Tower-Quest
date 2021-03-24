@@ -88,32 +88,64 @@ game_t * game_create()
     game_t * game = NULL;
     game = malloc(sizeof(game_t));
 
+    resolution_e res = -1;
+
+    game->WINDOWWIDTH = malloc(sizeof(int));
+    game->WINDOWHEIGHT = malloc(sizeof(int));
+
+    game->etat_fullscreen = malloc(sizeof(SDL_bool));
+    *game->etat_fullscreen = -1;
+
+    game->program_launch = malloc(sizeof(SDL_bool));
+    (*game->program_launch) = SDL_TRUE;
+
     /*--- End Initialization variable --------------------------------------------*/
 
 
     /*--- Open options file ------------------------------------------------------*/
 
     FILE * opts = fopen("options.txt", "r");
+    if (opts == NULL)
+    {
+        exit_with_error("Fichier options.txt ne pas etre ouvert > game.c Line 98");
+    }
+
+    fscanf(opts, "%*s %i ;\n", &res);
+    if (res < 0 || res > 3)
+    {
+        exit_with_error("Option de resolution dans options.txt introuvable > game.c Line 112");
+    }
+
+    switch (res)
+    {
+        case RES_720P:
+            (*game->WINDOWWIDTH) = WINDOWWIDTH_720P;
+            (*game->WINDOWHEIGHT) = WINDOWHEIGHT_720P;
+            break;
+        case RES_900P:
+            (*game->WINDOWWIDTH) = WINDOWWIDTH_900P;
+            (*game->WINDOWHEIGHT) = WINDOWHEIGHT_900P;
+            break;
+        case RES_1080P:
+            (*game->WINDOWWIDTH) = WINDOWWIDTH_1080P;
+            (*game->WINDOWHEIGHT) = WINDOWHEIGHT_1080P;
+            break;
+        case RES_1440P:
+            (*game->WINDOWWIDTH) = WINDOWWIDTH_1440P;
+            (*game->WINDOWHEIGHT) = WINDOWHEIGHT_1440P;
+            break;
+    }
+
+
+    fscanf(opts, "%*s %i ;\n", game->etat_fullscreen);
+    if (*game->etat_fullscreen != 0 && *game->etat_fullscreen != 1)
+    {
+        exit_with_error("Option de fullscreen dans options.txt introuvable > game.c Line 138");
+    }
 
     fclose(opts);
 
     /*----------------------------------------------------------------------------*/
-
-
-    /*--- Initialization Variable ------------------------------------------------*/
-
-    game->program_launch = malloc(sizeof(SDL_bool));
-    (*game->program_launch) = SDL_TRUE;
-
-    game->etat_fullscreen = malloc(sizeof(SDL_bool));
-    (*game->etat_fullscreen) = SDL_FALSE;
-
-    game->WINDOWWIDTH = malloc(sizeof(int));
-    (*game->WINDOWWIDTH) = WINDOWWIDTH_720P;
-    game->WINDOWHEIGHT = malloc(sizeof(int));
-    (*game->WINDOWHEIGHT) = WINDOWHEIGHT_720P;
-
-    /*--- End Initialization Variable --------------------------------------------*/
 
 
     /*--- Initialization SDL Video -----------------------------------------------*/
@@ -155,6 +187,15 @@ game_t * game_create()
     else
     {
         printf("window created\n");
+    }
+
+    if (*game->etat_fullscreen)
+    {
+        SDL_SetWindowFullscreen(game->window, SDL_WINDOW_FULLSCREEN);
+    }
+    else
+    {
+        SDL_SetWindowFullscreen(game->window, 0);
     }
 
     /*--- End Creation Window ----------------------------------------------------*/

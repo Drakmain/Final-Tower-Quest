@@ -71,8 +71,8 @@ void town(game_t * game, character_t * character){
     int South_Walk = 0;
     int North_Walk = 0;
 
-    int x = 128; //A FINIR.
-    int y = 88; //A FINIR.
+    int x = 129; //A FINIR.
+    int y = 85; //A FINIR.
 
     SDL_Rect pos_texture_render;
     pos_texture_render.x = 0;

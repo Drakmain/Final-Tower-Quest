@@ -1,0 +1,3 @@
+WindowResolution: 2 ;
+Fullscreen: 0 ;
+Music:  ;

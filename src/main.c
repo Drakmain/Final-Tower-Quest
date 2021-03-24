@@ -54,7 +54,7 @@ int main(int argc, char ** argv)
 
     /*--- Initialization game ------------------------------------------------*/
 
-    game_t* game = NULL;
+    game_t * game = NULL;
     game = game_create();
     if (game == NULL)
     {
