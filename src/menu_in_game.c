@@ -37,10 +37,13 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool menu = SDL_TRUE;
-
+    SDL_bool echap_relache = SDL_FALSE;
     SDL_Event event;
 
     int selection = 0;
+
+    SDL_Texture *texture_render_menu_ig = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888,
+            SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
 
     /*--- End Initialization variable --------------------------------------------*/
 
@@ -64,7 +67,7 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
     /*----------------------------------------------------------------------------*/
 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
-    surf_caracteristique = TTF_RenderText_Blended(game->police, "Caracteristique", blanc);
+    surf_caracteristique = TTF_RenderText_Blended(game->police, "Caracteristiques", blanc);
     if(surf_caracteristique == NULL){
         SDL_ExitWithError("probleme surface caracteristique menu in game");
     }
@@ -118,7 +121,7 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
     /*----------------------------------------------------------------------------*/
 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
-    surf_retourner_menu = TTF_RenderText_Blended(game->police, "Retourner au menu", blanc);
+    surf_retourner_menu = TTF_RenderText_Blended(game->police, "Retourner au Menu", blanc);
     if(surf_retourner_menu == NULL){
         SDL_ExitWithError("probleme surface retourner_menu menu in game");
     }
@@ -204,6 +207,85 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
         while (SDL_PollEvent(&event))
         {
 
+
+            /*--- Event pour selectionner ------------------------------------------*/
+
+            if (keyState[SDL_SCANCODE_DOWN] && event.type == SDL_KEYDOWN){
+                selection++;
+            }
+
+            if (keyState[SDL_SCANCODE_UP] && event.type == SDL_KEYDOWN){
+                selection--;
+            }
+
+            /*--- End Event pour selectionner --------------------------------------*/
+
+            if(selection < 0)selection = 4;
+            selection %=5;
+
+            if(selection == 0)
+            {
+                surf_inventaire = TTF_RenderText_Blended(game->police, "Inventaire", rouge);
+                surf_caracteristique = TTF_RenderText_Blended(game->police, "Caracteristiques", blanc);
+                surf_retourner_menu = TTF_RenderText_Blended(game->police, "Retourner au Menu", blanc);
+            }
+
+            if(selection == 1)
+            {
+                surf_inventaire = TTF_RenderText_Blended(game->police, "Inventaire", blanc);
+                surf_caracteristique = TTF_RenderText_Blended(game->police, "Caracteristiques", rouge);
+                surf_sauvegarder = TTF_RenderText_Blended(game->police, "Sauvegarder", blanc);
+            }
+
+            if(selection == 2)
+            {
+                surf_caracteristique = TTF_RenderText_Blended(game->police, "Caracteristiques", blanc);
+                surf_sauvegarder = TTF_RenderText_Blended(game->police, "Sauvegarder", rouge);
+                surf_options = TTF_RenderText_Blended(game->police, "Options", blanc);
+            }
+
+            if(selection == 3)
+            {
+                surf_sauvegarder = TTF_RenderText_Blended(game->police, "Sauvegarder", blanc);
+                surf_options = TTF_RenderText_Blended(game->police, "Options", rouge);
+                surf_retourner_menu = TTF_RenderText_Blended(game->police, "Retourner au Menu", blanc);
+            }
+
+            if(selection == 4)
+            {
+                surf_inventaire = TTF_RenderText_Blended(game->police, "Inventaire", blanc);
+                surf_options = TTF_RenderText_Blended(game->police, "Options", blanc);
+                surf_retourner_menu = TTF_RenderText_Blended(game->police, "Retourner au Menu", rouge);
+            }
+
+            inventaire = SDL_CreateTextureFromSurface(game->render, surf_inventaire);
+            caracteristique = SDL_CreateTextureFromSurface(game->render, surf_caracteristique);
+            sauvegarder = SDL_CreateTextureFromSurface(game->render, surf_sauvegarder);
+            options = SDL_CreateTextureFromSurface(game->render, surf_options);
+            retourner_menu = SDL_CreateTextureFromSurface(game->render, surf_retourner_menu);
+
+            SDL_SetRenderTarget(game->render, texture_render_menu_ig);
+            SDL_RenderClear(game->render);
+            SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
+            SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
+            SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
+            SDL_RenderCopy(game->render, inventaire, NULL, &pos_inventaire);
+            SDL_RenderCopy(game->render, caracteristique, NULL, &pos_caracteristique);
+            SDL_RenderCopy(game->render, sauvegarder, NULL, &pos_sauvegarder);
+            SDL_RenderCopy(game->render, options, NULL, &pos_options);
+            SDL_RenderCopy(game->render, retourner_menu, NULL, &pos_retourner_menu);
+            SDL_SetRenderTarget(game->render, NULL);
+            SDL_RenderCopy(game->render, texture_render_menu_ig, NULL, &pos_texture_render);
+            SDL_RenderPresent(game->render);
+
+            if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN){
+                if(selection == 0)/*inventaire()*/;
+                if(selection == 1)/*caracteristique()*/;
+                if(selection == 2)/*sauvegarder()*/;
+                if(selection == 3)/*options_in_game()*/;
+                if(selection == 4)/*retour au menu*/;
+            }
+
             /*--- Event to Exit Program ------------------------------------------*/
 
             if (event.type == SDL_QUIT)
@@ -212,30 +294,21 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
                 (*game->program_launch) = SDL_FALSE;
             }
 
-            if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
+            if (!keyState[SDL_SCANCODE_ESCAPE])
+            {
+                echap_relache = SDL_TRUE;
+            }
+
+            if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN && echap_relache)
             {
                 menu = SDL_FALSE;
+                SDL_RenderClear(game->render);
+                SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
+                SDL_RenderPresent(game->render);
+                while(keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)SDL_PollEvent(&event);
             }
 
             /*--- End Event to Exit Program --------------------------------------*/
-
-
-            /*--- Event pour selectionner ------------------------------------------*/
-
-            if (keyState[SDL_SCANCODE_DOWN] && event.type == SDL_KEYDOWN){
-
-            }
-
-            if (keyState[SDL_SCANCODE_UP] && event.type == SDL_KEYDOWN){
-
-            }
-
-            /*--- End Event pour selectionner --------------------------------------*/
-
-            if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN){
-
-            }
-
         }
 
     }

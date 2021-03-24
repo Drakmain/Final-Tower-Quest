@@ -90,7 +90,14 @@ void town(game_t * game, character_t * character){
 
         while (SDL_PollEvent(&event))
         {
-
+            if (keyState[SDL_SCANCODE_ESCAPE])
+            {
+                menu_in_game(game, texture_render);
+                SDL_RenderClear(game->render);
+                SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
+                SDL_RenderPresent(game->render);
+                while(keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)SDL_PollEvent(&event);
+            }
             while (*game->program_launch == SDL_TRUE || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
                 SDL_PollEvent(&event);
@@ -102,13 +109,10 @@ void town(game_t * game, character_t * character){
                 if (keyState[SDL_SCANCODE_ESCAPE])
                 {
                     menu_in_game(game, texture_render);
-                    SDL_RenderClear(game->render);
-                    SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
-                    SDL_RenderPresent(game->render);
                     while(keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)SDL_PollEvent(&event);
                 }
 
-                while (keyState[SDL_SCANCODE_RIGHT])
+                while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
                     East_Walk = 1;
 
@@ -150,7 +154,7 @@ void town(game_t * game, character_t * character){
                 }
 
 
-                while (keyState[SDL_SCANCODE_LEFT])
+                while (keyState[SDL_SCANCODE_LEFT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
 
                     for (int i = 0; i < 3; i++)
@@ -192,7 +196,7 @@ void town(game_t * game, character_t * character){
                 }
 
 
-                while (keyState[SDL_SCANCODE_UP])
+                while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
 
                     for (int i = 0; i < 3; i++)
@@ -234,7 +238,7 @@ void town(game_t * game, character_t * character){
                 }
 
 
-                while (keyState[SDL_SCANCODE_DOWN])
+                while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
 
                     for (int i = 0; i < 3; i++)
