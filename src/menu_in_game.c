@@ -2,8 +2,7 @@
 #include <stdlib.h>
 
 #include "..\lib\menu_in_game.h"
-#include "..\lib\map.h"
-#include "..\lib\character.h"
+
 
 
 /*!
@@ -36,7 +35,7 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
-    SDL_bool menu = SDL_TRUE;
+    SDL_bool menu_bool = SDL_TRUE;
     SDL_bool echap_relache = SDL_FALSE;
     SDL_Event event;
 
@@ -201,7 +200,7 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
 
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (menu && (*game->program_launch))
+    while (menu_bool && (*game->program_launch))
     {
 
         while (SDL_PollEvent(&event))
@@ -280,7 +279,7 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN){
                 if(selection == 0)/*inventaire()*/;
-                if(selection == 1)/*caracteristique()*/;
+                if(selection == 1)/*caracteristiques(game, actual_save, texture_render_menu_ig)*/;
                 if(selection == 2)/*sauvegarder()*/;
                 if(selection == 3)/*options_in_game()*/;
                 if(selection == 4)/*retour au menu*/;
