@@ -304,6 +304,8 @@ void town(game_t * game, character_t * character){
 
     town->free(&town);
     character->free(&character);
+    SDL_DestroyTexture(texture_render);
+
 
     /*--- End Free Memory --------------------------------------------------------*/
 

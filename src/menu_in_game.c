@@ -60,10 +60,10 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
     }
 
     SDL_Rect pos_inventaire;
-    pos_inventaire.x = (*game->WINDOWWIDTH) - 410;
-    pos_inventaire.y = 25;
+    pos_inventaire.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*410/1280;
+    pos_inventaire.y = (*game->WINDOWHEIGHT)*25/720;
     pos_inventaire.w = (*game->WINDOWWIDTH)*215/1200;
-    pos_inventaire.h = 50;
+    pos_inventaire.h = (*game->WINDOWHEIGHT)*50/720;
     /*----------------------------------------------------------------------------*/
 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
@@ -78,10 +78,10 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
     }
 
     SDL_Rect pos_caracteristique;
-    pos_caracteristique.x = (*game->WINDOWWIDTH) - 410;
-    pos_caracteristique.y = 100;
+    pos_caracteristique.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*410/1280;
+    pos_caracteristique.y = (*game->WINDOWHEIGHT)*100/720;
     pos_caracteristique.w = (*game->WINDOWWIDTH)*322/1200;
-    pos_caracteristique.h = 50;
+    pos_caracteristique.h = (*game->WINDOWHEIGHT)*50/720;
     /*----------------------------------------------------------------------------*/
 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
@@ -96,10 +96,10 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
     }
 
     SDL_Rect pos_sauvegarder;
-    pos_sauvegarder.x = (*game->WINDOWWIDTH) - 410;
-    pos_sauvegarder.y = 175;
+    pos_sauvegarder.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*410/1280;
+    pos_sauvegarder.y = (*game->WINDOWHEIGHT)*175/720;
     pos_sauvegarder.w = (*game->WINDOWWIDTH)*236/1200;
-    pos_sauvegarder.h = 50;
+    pos_sauvegarder.h = (*game->WINDOWHEIGHT)*50/720;
     /*----------------------------------------------------------------------------*/
 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
@@ -114,10 +114,10 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
     }
 
     SDL_Rect pos_options;
-    pos_options.x = (*game->WINDOWWIDTH) - 410;
-    pos_options.y = 250;
+    pos_options.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*410/1280;
+    pos_options.y = (*game->WINDOWHEIGHT)*250/720;
     pos_options.w = (*game->WINDOWWIDTH)*150/1200;
-    pos_options.h = 50;
+    pos_options.h = (*game->WINDOWHEIGHT)*50/720;
     /*----------------------------------------------------------------------------*/
 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
@@ -132,10 +132,10 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
     }
 
     SDL_Rect pos_retourner_menu;
-    pos_retourner_menu.x = (*game->WINDOWWIDTH) - 410;
-    pos_retourner_menu.y = 325;
+    pos_retourner_menu.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*410/1280;
+    pos_retourner_menu.y = (*game->WINDOWHEIGHT)*325/720;
     pos_retourner_menu.w = (*game->WINDOWWIDTH)*365/1200;
-    pos_retourner_menu.h = 50;
+    pos_retourner_menu.h = (*game->WINDOWHEIGHT)*50/720;
     /*----------------------------------------------------------------------------*/
 
     /*---texture "cadre"--------------------------------------------------------*/
@@ -151,10 +151,10 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
     }
 
     SDL_Rect pos_cadre;
-    pos_cadre.x = (*game->WINDOWWIDTH) - 435;
+    pos_cadre.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*435/1280;
     pos_cadre.y = 0;
-    pos_cadre.w = 435;
-    pos_cadre.h = 400;
+    pos_cadre.w = (*game->WINDOWWIDTH)*435/1280;
+    pos_cadre.h = (*game->WINDOWHEIGHT)*400/720;
     /*------------------------------------------------------------------------------------*/
 
     /*---texture fond--------------------------------------------------------*/
@@ -330,6 +330,7 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
     SDL_DestroyTexture(retourner_menu);
     SDL_DestroyTexture(cadre);
     SDL_DestroyTexture(fond_cadre);
+    SDL_DestroyTexture(texture_render_menu_ig);
 
     /*--- End Free Memory --------------------------------------------------------*/
 
