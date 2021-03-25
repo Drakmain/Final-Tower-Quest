@@ -568,6 +568,7 @@ void charger_partie_f(game_t * game, char * actual_save){
     SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save2);
     SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save3);
 
+
     SDL_RenderPresent(game->render);
 
 
@@ -764,6 +765,9 @@ void charger_partie_f(game_t * game, char * actual_save){
             SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save1);
             SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save2);
             SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save3);
+            SDL_RenderCopy(game->render, save1_vide, NULL, &pos_save1_vide);
+
+
 
             if (character_save1->empty == SDL_TRUE)
             {

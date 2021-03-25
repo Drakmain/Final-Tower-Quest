@@ -38,7 +38,7 @@ creation_perso.o: src/creation_perso.c
 	gcc -c src/creation_perso.c  -I include -L lib $(CFLAGS)
 
 nom_sauvegarde.o: src/nom_sauvegarde.c
-	gcc -c src/nom_sauvegarde.c  -I include -L lib $(CFLAGS)
+	gcc -c src/nom_sauvegarde.c -I include -L lib $(CFLAGS)
 
 error.o: src/error.c
 	gcc -c src/error.c -I include -L lib $(CFLAGS)

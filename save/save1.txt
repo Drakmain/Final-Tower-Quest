@@ -1,7 +1,7 @@
 save_name: ;
 charactere:  ;
 position:  ;
-x: 
+x: ;
 y: ;
 lvl: ;
 xp: ;
