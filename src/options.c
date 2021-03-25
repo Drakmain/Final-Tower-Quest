@@ -291,9 +291,8 @@ void options_f(game_t * game){
             if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
             {
                 options_bool = SDL_FALSE;
-                fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;",resolution , *game->etat_fullscreen);
+                fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;", resolution , *game->etat_fullscreen);
             }
-
 
             /*--- End Event to Exit Program --------------------------------------*/
 

@@ -642,7 +642,7 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
                     fclose(scr);
                     fclose(dst);
 
-                    strcpy(actual_save, "save//save2.txt");
+                    strcpy(actual_save, "save//save3.txt");
                     creation_perso(game, actual_save);
                 }
 
