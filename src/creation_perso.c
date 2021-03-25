@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "creation_perso.h"
-#include "nom_sauvegarde.h"
+#include "..\lib\creation_perso.h"
+#include "..\lib\nom_sauvegarde.h"
 /*!
  *
  * \file creation_perso.c

@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "commun.h"
+#include "..\lib\commun.h"
 
-#include "town.h"
-#include "tower.h"
-#include "character.h"
-#include "menu_accueil.h"
-#include "game.h"
+#include "..\lib\town.h"
+#include "..\lib\tower.h"
+#include "..\lib\character.h"
+#include "..\lib\menu_accueil.h"
+#include "..\lib\game.h"
 
 
 /*!
@@ -54,21 +54,22 @@ int main(int argc, char ** argv)
 
     /*--- Initialization game ------------------------------------------------*/
 
-    game_t* game = NULL;
+    game_t * game = NULL;
     game = game_create();
     if (game == NULL)
     {
         exit_with_error("Cannot create a game_t object > main.c Line 64");
     }
-    
+
     /*--- End Initialization game --------------------------------------------*/
 
 
     /*--- Initialization Variable ------------------------------------------------*/
 
     character_t * character_save = NULL;
-    
+
     char actual_save[20] = "\0";
+
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -79,10 +80,9 @@ int main(int argc, char ** argv)
     {
 
         menu_accueil(game, actual_save);
-        
+
         if (strcmp(actual_save, "\0"))
         {
-            printf("oue");
             character_save = character_create(game->render, actual_save);
             town(game, character_save);
             //tower(game, actual_save);

@@ -3,7 +3,7 @@
 
 #include <SDL.h>
 #include <SDL_ttf.h>
-#include "error.h"
+#include "..\lib\error.h"
 
 /*!
  *

@@ -2,11 +2,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "map.h"
-#include "error.h"
+#include "..\lib\map.h"
+
+#include "..\lib\game.h"
+#include "..\lib\error.h"
 
 int main(int argc, char** argv)
 {
+
+    game_t * game = NULL;
+    printf("/*--- Startup SDL -------*/\n");
+    game = game_create();
+    if (game == NULL)
+    {
+        exit_with_error("Cannot create a game_t object > test_map.c Line 15");
+    }
+
     
     printf("Test de l'objet map: \n");
 
@@ -19,7 +30,7 @@ int main(int argc, char** argv)
 
     printf("Creation de l'objet map...\n");
 
-    map = map_create(NULL, "src\\tileset\\FF6_World_of_Balance_Maps-Narshe_(Exterior).bmp", "src\\tileset\\FF6_World_of_Balance_Maps-Narshe_(Exterior).txt");
+    map = map_create(game->render, "src\\tileset\\Maps\\town.bmp", "src\\tileset\\Maps\\town.txt");
 
 
     printf("Affichage des donnees de l'objet map: \n");
@@ -27,9 +38,12 @@ int main(int argc, char** argv)
     printf("%n, %n, %n, %n;\n", &map->tile_set.x, &map->tile_set.y, &map->tile_set.w, &map->tile_set.h);
 
 
-    printf("Destruction de l'objet map...");
+    printf("Destruction de l'objet map...\n\n");
 
     map->free(&map);
+
+
+    game->free(&game);
 
     return EXIT_SUCCESS;
 }

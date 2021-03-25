@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "charger_partie.h"
+#include "..\lib\charger_partie.h"
 
-#include "character.h"
+#include "..\lib\character.h"
 
 
 /*!
@@ -1027,11 +1027,11 @@ void charger_partie_f(game_t * game, char * actual_save){
 
 
     /*--- Free Memory ------------------------------------------------------------*/
-/*
+
     character_save1->free(&character_save1);
     character_save2->free(&character_save2);
     character_save3->free(&character_save3);
-*/
+
     SDL_FreeSurface(surf_choisir_empla);
     SDL_FreeSurface(surf_retour);
     SDL_FreeSurface(surf_fond);

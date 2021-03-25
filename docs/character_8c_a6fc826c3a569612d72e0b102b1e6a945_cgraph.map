@@ -1,6 +1,0 @@
-<map id="character_cpy" name="character_cpy">
-<area shape="rect" id="node1" title="Permet de verifier l&#39;existence du l&#39;objet character_t." alt="" coords="5,31,109,57"/>
-<area shape="rect" id="node2" href="$character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="167,5,271,32"/>
-<area shape="rect" id="node3" href="$character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="157,56,280,83"/>
-<area shape="rect" id="node4" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="328,56,460,83"/>
-</map>

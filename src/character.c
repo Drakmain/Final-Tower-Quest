@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "character.h"
+#include "..\lib\character.h"
 
 /*!
  * 
@@ -68,7 +68,7 @@ void character_update(character_t * character, SDL_Renderer * render, tile_set_t
 static 
 void character_free(character_t ** character) 
 {
-/*
+
     SDL_DestroyTexture((*character)->texture);
 
     SDL_FreeSurface((*character)->surface);
@@ -82,7 +82,7 @@ void character_free(character_t ** character)
     free((*character)->position);
 
     free(*character);
-*/
+
 }
 
 
