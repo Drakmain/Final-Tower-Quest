@@ -1,9 +1,9 @@
-save_name: ah ;
+save_name: Assassin ;
 charactere: Assassin ;
-position:   ;
-x: ;
-y: ;
-lvl: ;
+position: Paradis ;
+x: 0 ;
+y: 0 ;
+lvl: 85 ;
 xp: ;
 life: ;
 mana: ;
