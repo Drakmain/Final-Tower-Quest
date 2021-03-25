@@ -1,9 +1,9 @@
 save_name: Jeremy ;
 charactere_name: Guerrier ;
-position:  ;
-x: ;
-y: ;
-lvl: ;
+position: Paradis ;
+x: 0 ;
+y: 0 ;
+lvl: 38 ;
 xp: ;
 life: ;
 mana: ;

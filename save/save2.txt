@@ -1,9 +1,9 @@
 save_name: Alexis ;
 charactere_name: Mage ;
-position:  ;
-x: ;
-y: ;
-lvl: ;
+position: Forge ;
+x: 0 ;
+y: 0 ;
+lvl: 10 ;
 xp: ;
 life: ;
 mana: ;

@@ -1,9 +1,9 @@
 save_name: Robin ;
 charactere_name: Assassin ;
-position:  ;
-x: ;
-y: ;
-lvl: ;
+position: Taverne ;
+x: 0 ;
+y: 0 ;
+lvl: 57 ;
 xp: ;
 life: ;
 mana: ;

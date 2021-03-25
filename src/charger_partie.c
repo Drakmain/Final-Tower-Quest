@@ -35,7 +35,7 @@ void charger_partie_f(game_t * game, char * actual_save){
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
-    SDL_Surface *surf_save1 = NULL, *surf_save1_vide = NULL, *surf_save2 = NULL, *surf_save2_vide = NULL, *surf_save3 = NULL, *surf_save3_vide = NULL, *surf_spriteGuerrier = NULL, *surf_spriteMage = NULL, *surf_spriteAssassin = NULL, *surf_nom_save_guerrier = NULL, *surf_nom_save_mage = NULL, *surf_nom_save_assassin = NULL, *surf_cadre = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_choisir_empla = NULL, *surf_position1 = NULL, *surf_lvl1 = NULL;
+    SDL_Surface *surf_save1 = NULL, *surf_save1_vide = NULL, *surf_save2 = NULL, *surf_save2_vide = NULL, *surf_save3 = NULL, *surf_save3_vide = NULL, *surf_spriteGuerrier = NULL, *surf_spriteMage = NULL, *surf_spriteAssassin = NULL, *surf_nom_save1 = NULL, *surf_nom_save2 = NULL, *surf_nom_save3 = NULL, *surf_cadre = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_choisir_empla = NULL, *surf_position = NULL, *surf_position_save1 = NULL, *surf_position_save2 = NULL, *surf_position_save3 = NULL, *surf_lvl = NULL, *surf_lvl_save1 = NULL, *surf_lvl_save2 = NULL, *surf_lvl_save3 = NULL;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -498,81 +498,192 @@ void charger_partie_f(game_t * game, char * actual_save){
 
     /*----------------------------------------------------------------------------*/
 
-
-    /*---Affichage nom save guerrier-------------------------------------------------------*/
-
-    surf_nom_save_guerrier = TTF_RenderText_Blended(game->police, "Guerrier", blanc);
-    if(surf_nom_save_guerrier == NULL){
+    /*---Affichage nom save1-------------------------------------------------------*/
+    surf_nom_save1 = TTF_RenderText_Blended(game->police, character_save1->save_name, blanc);
+    if(surf_nom_save1 == NULL){
         SDL_ExitWithError("Probleme surface nom save_guerrier");
     }
 
-    SDL_Texture * nom_save_guerrier = SDL_CreateTextureFromSurface(game->render, surf_nom_save_guerrier);
-    if(nom_save_guerrier == NULL){
+    SDL_Texture * nom_save1 = SDL_CreateTextureFromSurface(game->render, surf_nom_save1);
+    if(nom_save1 == NULL){
         SDL_ExitWithError("Probleme texture nom save_guerrier");
     }
-    /*---End Affichage nom save guerrier---------------------------------------------------*/
+    /*---End Affichage nom save1---------------------------------------------------*/
 
-
-    /*---Affichage nom save mage-------------------------------------------------------*/
-
-    surf_nom_save_mage = TTF_RenderText_Blended(game->police, "Mage", blanc);
-    if(surf_nom_save_mage == NULL){
+    /*---Affichage nom save2-------------------------------------------------------*/
+    surf_nom_save2 = TTF_RenderText_Blended(game->police, character_save2->save_name, blanc);
+    if(surf_nom_save2 == NULL){
         SDL_ExitWithError("Probleme surface nom save mage");
     }
 
-    SDL_Texture * nom_save_mage = SDL_CreateTextureFromSurface(game->render, surf_nom_save_mage);
-    if(nom_save_mage == NULL){
+    SDL_Texture * nom_save2 = SDL_CreateTextureFromSurface(game->render, surf_nom_save2);
+    if(nom_save2 == NULL){
         SDL_ExitWithError("Probleme texture nom save mage");
     }
+    /*---End Affichage nom save2---------------------------------------------------*/
 
-    /*---End Affichage nom save mage---------------------------------------------------*/
-
-
-    /*---Affichage nom save assassin-------------------------------------------------------*/
-
-    surf_nom_save_assassin = TTF_RenderText_Blended(game->police, "Assassin", blanc);
-    if(surf_nom_save_assassin == NULL){
+    /*---Affichage nom save3-------------------------------------------------------*/
+    surf_nom_save3 = TTF_RenderText_Blended(game->police, character_save3->save_name, blanc);
+    if(surf_nom_save3 == NULL){
         SDL_ExitWithError("Probleme surface nom save assassin");
     }
 
-    SDL_Texture * nom_save_assassin = SDL_CreateTextureFromSurface(game->render, surf_nom_save_assassin);
-    if(nom_save_assassin == NULL){
+    SDL_Texture * nom_save3 = SDL_CreateTextureFromSurface(game->render, surf_nom_save3);
+    if(nom_save3 == NULL){
         SDL_ExitWithError("Probleme texture nom save assassin");
     }
+    /*---End Affichage nom save3---------------------------------------------------*/
 
-    /*---End Affichage nom save assassin---------------------------------------------------*/
 
-
-    /*---Affichage position save--------------------------------------------------*/
-
-    surf_position1 = TTF_RenderText_Blended(game->police, "Position : ", blanc);
-    if(surf_position1 == NULL)
+    /*---Affichage position--------------------------------------------------*/
+    surf_position = TTF_RenderText_Blended(game->police, "Position : ", blanc);
+    if(surf_position == NULL)
     {
         SDL_ExitWithError("probleme surface position");
     }
-    SDL_Texture* position1 = SDL_CreateTextureFromSurface(game->render, surf_position1);
-    if(retour == NULL)
+    SDL_Texture* position = SDL_CreateTextureFromSurface(game->render, surf_position);
+    if(position == NULL)
     {
         SDL_ExitWithError("probleme texture position");
     }
+    /*---End Affichage position----------------------------------------------*/
 
-    /*---End Affichage position save----------------------------------------------*/
+    /*---Affichage position save1--------------------------------------------------*/
+    surf_position_save1 = TTF_RenderText_Blended(game->police, character_save1->position, blanc);
+    if(surf_position_save1 == NULL)
+    {
+        SDL_ExitWithError("probleme surface position save 1");
+    }
+    SDL_Texture* position_save1 = SDL_CreateTextureFromSurface(game->render, surf_position_save1);
+    if(position_save1 == NULL)
+    {
+        SDL_ExitWithError("probleme texture position save 1");
+    }
+
+    SDL_Rect pos_position_save1;
+    pos_position_save1.x = (*game->WINDOWWIDTH)/1.64 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+    pos_position_save1.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/7;
+    pos_position_save1.w = strlen(character_save1->position) * (*game->WINDOWWIDTH)/9/10;
+    pos_position_save1.h = (*game->WINDOWHEIGHT)/14;
+    /*---End Affichage position save1----------------------------------------------*/
+
+    /*---Affichage position save2--------------------------------------------------*/
+    surf_position_save2 = TTF_RenderText_Blended(game->police, character_save2->position, blanc);
+    if(surf_position_save2 == NULL)
+    {
+        SDL_ExitWithError("probleme surface position save 2");
+    }
+    SDL_Texture* position_save2 = SDL_CreateTextureFromSurface(game->render, surf_position_save2);
+    if(position_save2 == NULL)
+    {
+        SDL_ExitWithError("probleme texture position save 2");
+    }
+
+    SDL_Rect pos_position_save2;
+    pos_position_save2.x = (*game->WINDOWWIDTH)/1.64 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+    pos_position_save2.y = (*game->WINDOWHEIGHT)/1.87 - (*game->WINDOWWIDTH)/50;
+    pos_position_save2.w = strlen(character_save2->position) * (*game->WINDOWWIDTH)/9/10;
+    pos_position_save2.h = (*game->WINDOWHEIGHT)/14;
+    /*---End Affichage position save2----------------------------------------------*/
+
+    /*---Affichage position save3--------------------------------------------------*/
+    surf_position_save3 = TTF_RenderText_Blended(game->police, character_save3->position, blanc);
+    if(surf_position_save3 == NULL)
+    {
+        SDL_ExitWithError("probleme surface position save 3");
+    }
+    SDL_Texture* position_save3 = SDL_CreateTextureFromSurface(game->render, surf_position_save3);
+    if(position_save3 == NULL)
+    {
+        SDL_ExitWithError("probleme texture position save 3");
+    }
+
+    SDL_Rect pos_position_save3;
+    pos_position_save3.x = (*game->WINDOWWIDTH)/1.64 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+    pos_position_save3.y = (*game->WINDOWHEIGHT)/1.28 - (*game->WINDOWWIDTH)/50;
+    pos_position_save3.w = strlen(character_save3->position) * (*game->WINDOWWIDTH)/9/10;
+    pos_position_save3.h = (*game->WINDOWHEIGHT)/14;
+    /*---End Affichage position save3----------------------------------------------*/
 
 
-    /*---Affichage lvl save-------------------------------------------------------*/
-
-    surf_lvl1 = TTF_RenderText_Blended(game->police, "LVL : ", blanc);
-    if(surf_lvl1 == NULL)
+    /*---Affichage lvl-------------------------------------------------------*/
+    surf_lvl = TTF_RenderText_Blended(game->police, "LVL : ", blanc);
+    if(surf_lvl == NULL)
     {
         SDL_ExitWithError("probleme surface niveau");
     }
-    SDL_Texture* lvl1 = SDL_CreateTextureFromSurface(game->render, surf_lvl1);
-    if(retour == NULL)
+    SDL_Texture* lvl = SDL_CreateTextureFromSurface(game->render, surf_lvl);
+    if(lvl == NULL)
     {
         SDL_ExitWithError("probleme texture niveau");
     }
+    /*---End Affichage lvl---------------------------------------------------*/
 
-    /*---End Affichage lvl save---------------------------------------------------*/
+
+    /*---Affichage lvl save1-------------------------------------------------------*/
+    char char_lvl_save1[100];
+    itoa(character_save1->lvl, char_lvl_save1, 10);
+    surf_lvl_save1 = TTF_RenderText_Blended(game->police, char_lvl_save1 , blanc);
+    if(surf_lvl_save1 == NULL)
+    {
+        SDL_ExitWithError("probleme surface niveau save1");
+    }
+    SDL_Texture* lvl_save1 = SDL_CreateTextureFromSurface(game->render, surf_lvl_save1);
+    if(lvl_save1 == NULL)
+    {
+        SDL_ExitWithError("probleme texture niveau save1");
+    }
+
+    SDL_Rect pos_lvl_save1;
+    pos_lvl_save1.x = (*game->WINDOWWIDTH)/1.43 - (*game->WINDOWWIDTH)/50;
+    pos_lvl_save1.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/7.19;
+    pos_lvl_save1.w = strlen(char_lvl_save1) * (*game->WINDOWWIDTH)/14/5;
+    pos_lvl_save1.h = (*game->WINDOWHEIGHT)/16;
+    /*---End Affichage lvl save1---------------------------------------------------*/
+
+
+    /*---Affichage lvl save2-------------------------------------------------------*/
+    char char_lvl_save2[100];
+    itoa(character_save2->lvl, char_lvl_save2, 10);
+    surf_lvl_save2 = TTF_RenderText_Blended(game->police, char_lvl_save2 , blanc);
+    if(surf_lvl_save2 == NULL)
+    {
+        SDL_ExitWithError("probleme surface niveau save2");
+    }
+    SDL_Texture* lvl_save2 = SDL_CreateTextureFromSurface(game->render, surf_lvl_save2);
+    if(lvl_save2 == NULL)
+    {
+        SDL_ExitWithError("probleme texture niveau save2");
+    }
+
+    SDL_Rect pos_lvl_save2;
+    pos_lvl_save2.x = (*game->WINDOWWIDTH)/1.43 - (*game->WINDOWWIDTH)/50;
+    pos_lvl_save2.y = (*game->WINDOWHEIGHT)/1.86 - (*game->WINDOWWIDTH)/50;
+    pos_lvl_save2.w = strlen(char_lvl_save2) * (*game->WINDOWWIDTH)/14/5;
+    pos_lvl_save2.h = (*game->WINDOWHEIGHT)/16;
+    /*---End Affichage lvl save2---------------------------------------------------*/
+
+
+    /*---Affichage lvl save3-------------------------------------------------------*/
+    char char_lvl_save3[100];
+    itoa(character_save3->lvl, char_lvl_save3, 10);
+    surf_lvl_save3 = TTF_RenderText_Blended(game->police, char_lvl_save3 , blanc);
+    if(surf_lvl_save3 == NULL)
+    {
+        SDL_ExitWithError("probleme surface niveau save3");
+    }
+    SDL_Texture* lvl_save3 = SDL_CreateTextureFromSurface(game->render, surf_lvl_save3);
+    if(lvl_save3 == NULL)
+    {
+        SDL_ExitWithError("probleme texture niveau save3");
+    }
+
+    SDL_Rect pos_lvl_save3;
+    pos_lvl_save3.x = (*game->WINDOWWIDTH)/1.43 - (*game->WINDOWWIDTH)/50;
+    pos_lvl_save3.y = (*game->WINDOWHEIGHT)/1.28 - (*game->WINDOWWIDTH)/50;
+    pos_lvl_save3.w = strlen(char_lvl_save3) * (*game->WINDOWWIDTH)/14/5;
+    pos_lvl_save3.h = (*game->WINDOWHEIGHT)/16;
+    /*---End Affichage lvl save3---------------------------------------------------*/
 
 
     SDL_RenderClear(game->render);
@@ -794,19 +905,29 @@ void charger_partie_f(game_t * game, char * actual_save){
             else
             {
 
-                SDL_Rect pos_position1;
-                pos_position1.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
-                pos_position1.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/7;
-                pos_position1.w = (*game->WINDOWWIDTH)/9;
-                pos_position1.h = (*game->WINDOWHEIGHT)/14;
-                SDL_RenderCopy(game->render, position1, NULL, &pos_position1);
+                SDL_Rect pos_position;
+                pos_position.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+                pos_position.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/7;
+                pos_position.w = (*game->WINDOWWIDTH)/9;
+                pos_position.h = (*game->WINDOWHEIGHT)/14;
+                SDL_RenderCopy(game->render, position, NULL, &pos_position);
+                SDL_RenderCopy(game->render, position_save1, NULL, &pos_position_save1);
 
-                SDL_Rect pos_lvl1;
-                pos_lvl1.x = (*game->WINDOWWIDTH)/1.6 - (*game->WINDOWWIDTH)/50;
-                pos_lvl1.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/7.19;
-                pos_lvl1.w = (*game->WINDOWWIDTH)/14;
-                pos_lvl1.h = (*game->WINDOWHEIGHT)/16;
-                SDL_RenderCopy(game->render, lvl1, NULL, &pos_lvl1);
+
+                SDL_Rect pos_lvl;
+                pos_lvl.x = (*game->WINDOWWIDTH)/1.6 - (*game->WINDOWWIDTH)/50;
+                pos_lvl.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/7.19;
+                pos_lvl.w = (*game->WINDOWWIDTH)/14;
+                pos_lvl.h = (*game->WINDOWHEIGHT)/16;
+                SDL_RenderCopy(game->render, lvl, NULL, &pos_lvl);
+                SDL_RenderCopy(game->render, lvl_save1, NULL, &pos_lvl_save1);
+
+                SDL_Rect pos_nom_save1;
+                pos_nom_save1.w = strlen(character_save1->save_name)*(*game->WINDOWWIDTH)/7/10;
+                pos_nom_save1.h = (*game->WINDOWHEIGHT)/13.5;
+                pos_nom_save1.x = (*game->WINDOWWIDTH)/2 - pos_nom_save1.w/2;
+                pos_nom_save1.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/5.3;
+                SDL_RenderCopy(game->render, nom_save1, NULL, &pos_nom_save1);
 
                 if(strcmp(character_save1->charactere_name, "Guerrier") == 0) {
                     SDL_Rect pos_spriteGuerrier;
@@ -815,13 +936,6 @@ void charger_partie_f(game_t * game, char * actual_save){
                     pos_spriteGuerrier.w = (*game->WINDOWWIDTH) * 66.5 /1200;
                     pos_spriteGuerrier.h = (*game->WINDOWHEIGHT) * 105 /675;
                     SDL_RenderCopy(game->render, spriteGuerrier, &pos_sprite_guerrier, &pos_spriteGuerrier);
-
-                    SDL_Rect pos_nom_save_guerrier;
-                    pos_nom_save_guerrier.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/29 - (*game->WINDOWWIDTH)/29;
-                    pos_nom_save_guerrier.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/5.3;
-                    pos_nom_save_guerrier.w = (*game->WINDOWWIDTH)/7;
-                    pos_nom_save_guerrier.h = (*game->WINDOWHEIGHT)/13.5;
-                    SDL_RenderCopy(game->render, nom_save_guerrier, NULL, &pos_nom_save_guerrier);
 
                 }
                 else if(strcmp(character_save1->charactere_name, "Mage") == 0) {
@@ -832,13 +946,6 @@ void charger_partie_f(game_t * game, char * actual_save){
                     pos_spriteMage.h = (*game->WINDOWHEIGHT) * 108.5 /675;
                     SDL_RenderCopy(game->render, spriteMage, &pos_sprite_mage, &pos_spriteMage);
 
-                    SDL_Rect pos_nom_save_mage;
-                    pos_nom_save_mage.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/22;
-                    pos_nom_save_mage.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/5.3;
-                    pos_nom_save_mage.w = (*game->WINDOWWIDTH)/11;
-                    pos_nom_save_mage.h = (*game->WINDOWHEIGHT)/13.5;
-                    SDL_RenderCopy(game->render, nom_save_mage, NULL, &pos_nom_save_mage);
-
                 }
                 else if(strcmp(character_save1->charactere_name, "Assassin") == 0) {
                     SDL_Rect pos_spriteAssassin;
@@ -847,13 +954,6 @@ void charger_partie_f(game_t * game, char * actual_save){
                     pos_spriteAssassin.w = (*game->WINDOWWIDTH) * 63 /1200;
                     pos_spriteAssassin.h = (*game->WINDOWHEIGHT) * 105 /675;
                     SDL_RenderCopy(game->render, spriteAssassin, &pos_sprite_assassin, &pos_spriteAssassin);
-
-                    SDL_Rect pos_nom_save_assassin;
-                    pos_nom_save_assassin.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/29 - (*game->WINDOWWIDTH)/29;
-                    pos_nom_save_assassin.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/5.3;
-                    pos_nom_save_assassin.w = (*game->WINDOWWIDTH)/7;
-                    pos_nom_save_assassin.h = (*game->WINDOWHEIGHT)/13.5;
-                    SDL_RenderCopy(game->render, nom_save_assassin, NULL, &pos_nom_save_assassin);
                 }
             }
 
@@ -867,19 +967,29 @@ void charger_partie_f(game_t * game, char * actual_save){
             else
             {
 
-                SDL_Rect pos_position1;
-                pos_position1.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
-                pos_position1.y = (*game->WINDOWHEIGHT)/1.87 - (*game->WINDOWWIDTH)/50;
-                pos_position1.w = (*game->WINDOWWIDTH)/9;
-                pos_position1.h = (*game->WINDOWHEIGHT)/14;
-                SDL_RenderCopy(game->render, position1, NULL, &pos_position1);
+                SDL_Rect pos_position;
+                pos_position.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+                pos_position.y = (*game->WINDOWHEIGHT)/1.87 - (*game->WINDOWWIDTH)/50;
+                pos_position.w = (*game->WINDOWWIDTH)/9;
+                pos_position.h = (*game->WINDOWHEIGHT)/14;
+                SDL_RenderCopy(game->render, position, NULL, &pos_position);
+                SDL_RenderCopy(game->render, position_save2, NULL, &pos_position_save2);
 
-                SDL_Rect pos_lvl1;
-                pos_lvl1.x = (*game->WINDOWWIDTH)/1.6 - (*game->WINDOWWIDTH)/50;
-                pos_lvl1.y = (*game->WINDOWHEIGHT)/1.86 - (*game->WINDOWWIDTH)/50;
-                pos_lvl1.w = (*game->WINDOWWIDTH)/14;
-                pos_lvl1.h = (*game->WINDOWHEIGHT)/16;
-                SDL_RenderCopy(game->render, lvl1, NULL, &pos_lvl1);
+
+                SDL_Rect pos_lvl;
+                pos_lvl.x = (*game->WINDOWWIDTH)/1.6 - (*game->WINDOWWIDTH)/50;
+                pos_lvl.y = (*game->WINDOWHEIGHT)/1.86 - (*game->WINDOWWIDTH)/50;
+                pos_lvl.w = (*game->WINDOWWIDTH)/14;
+                pos_lvl.h = (*game->WINDOWHEIGHT)/16;
+                SDL_RenderCopy(game->render, lvl, NULL, &pos_lvl);
+                SDL_RenderCopy(game->render, lvl_save2, NULL, &pos_lvl_save2);
+
+                SDL_Rect pos_nom_save2;
+                pos_nom_save2.w = strlen(character_save2->save_name)*(*game->WINDOWWIDTH)/7/10;
+                pos_nom_save2.h = (*game->WINDOWHEIGHT)/13.5;
+                pos_nom_save2.x = (*game->WINDOWWIDTH)/2 - pos_nom_save2.w/2;
+                pos_nom_save2.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/22.7;
+                SDL_RenderCopy(game->render, nom_save2, NULL, &pos_nom_save2);
 
                 if(strcmp(character_save2->charactere_name, "Guerrier") == 0) {
                     SDL_Rect pos_spriteGuerrier;
@@ -888,13 +998,6 @@ void charger_partie_f(game_t * game, char * actual_save){
                     pos_spriteGuerrier.w = (*game->WINDOWWIDTH) * 66.5 /1200;
                     pos_spriteGuerrier.h = (*game->WINDOWHEIGHT) * 105 /675;
                     SDL_RenderCopy(game->render, spriteGuerrier, &pos_sprite_guerrier, &pos_spriteGuerrier);
-
-                    SDL_Rect pos_nom_save_guerrier;
-                    pos_nom_save_guerrier.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/29 - (*game->WINDOWWIDTH)/29;
-                    pos_nom_save_guerrier.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/22.7;
-                    pos_nom_save_guerrier.w = (*game->WINDOWWIDTH)/7;
-                    pos_nom_save_guerrier.h = (*game->WINDOWHEIGHT)/13.5;
-                    SDL_RenderCopy(game->render, nom_save_guerrier, NULL, &pos_nom_save_guerrier);
                 }
                 else if(strcmp(character_save2->charactere_name, "Mage") == 0) {
                     SDL_Rect pos_spriteMage;
@@ -903,13 +1006,6 @@ void charger_partie_f(game_t * game, char * actual_save){
                     pos_spriteMage.w = (*game->WINDOWWIDTH) * 49 /1200;
                     pos_spriteMage.h = (*game->WINDOWHEIGHT) * 108.5 /675;
                     SDL_RenderCopy(game->render, spriteMage, &pos_sprite_mage, &pos_spriteMage);
-
-                    SDL_Rect pos_nom_save_mage;
-                    pos_nom_save_mage.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/22;
-                    pos_nom_save_mage.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/22.7;
-                    pos_nom_save_mage.w = (*game->WINDOWWIDTH)/11;
-                    pos_nom_save_mage.h = (*game->WINDOWHEIGHT)/13.5;
-                    SDL_RenderCopy(game->render, nom_save_mage, NULL, &pos_nom_save_mage);
                 }
                 else if(strcmp(character_save2->charactere_name, "Assassin") == 0) {
                     SDL_Rect pos_spriteAssassin;
@@ -918,14 +1014,6 @@ void charger_partie_f(game_t * game, char * actual_save){
                     pos_spriteAssassin.w = (*game->WINDOWWIDTH) * 63 /1200;
                     pos_spriteAssassin.h = (*game->WINDOWHEIGHT) * 105 /675;
                     SDL_RenderCopy(game->render, spriteAssassin, &pos_sprite_assassin, &pos_spriteAssassin);
-
-                    SDL_Rect pos_nom_save_assassin;
-                    pos_nom_save_assassin.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/29 - (*game->WINDOWWIDTH)/29;
-                    pos_nom_save_assassin.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/22.7;
-                    pos_nom_save_assassin.w = (*game->WINDOWWIDTH)/7;
-                    pos_nom_save_assassin.h = (*game->WINDOWHEIGHT)/13.5;
-                    SDL_RenderCopy(game->render, nom_save_assassin, NULL, &pos_nom_save_assassin);
-
                 }
             }
 
@@ -939,19 +1027,29 @@ void charger_partie_f(game_t * game, char * actual_save){
             else
             {
 
-                SDL_Rect pos_position1;
-                pos_position1.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
-                pos_position1.y = (*game->WINDOWHEIGHT)/1.28 - (*game->WINDOWWIDTH)/50;
-                pos_position1.w = (*game->WINDOWWIDTH)/9;
-                pos_position1.h = (*game->WINDOWHEIGHT)/14;
-                SDL_RenderCopy(game->render, position1, NULL, &pos_position1);
+                SDL_Rect pos_position;
+                pos_position.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+                pos_position.y = (*game->WINDOWHEIGHT)/1.28 - (*game->WINDOWWIDTH)/50;
+                pos_position.w = (*game->WINDOWWIDTH)/9;
+                pos_position.h = (*game->WINDOWHEIGHT)/14;
+                SDL_RenderCopy(game->render, position, NULL, &pos_position);
+                SDL_RenderCopy(game->render, position_save3, NULL, &pos_position_save3);
 
-                SDL_Rect pos_lvl1;
-                pos_lvl1.x = (*game->WINDOWWIDTH)/1.6 - (*game->WINDOWWIDTH)/50;
-                pos_lvl1.y = (*game->WINDOWHEIGHT)/1.27 - (*game->WINDOWWIDTH)/50;
-                pos_lvl1.w = (*game->WINDOWWIDTH)/14;
-                pos_lvl1.h = (*game->WINDOWHEIGHT)/16;
-                SDL_RenderCopy(game->render, lvl1, NULL, &pos_lvl1);
+                SDL_Rect pos_lvl;
+                pos_lvl.x = (*game->WINDOWWIDTH)/1.6 - (*game->WINDOWWIDTH)/50;
+                pos_lvl.y = (*game->WINDOWHEIGHT)/1.27 - (*game->WINDOWWIDTH)/50;
+                pos_lvl.w = (*game->WINDOWWIDTH)/14;
+                pos_lvl.h = (*game->WINDOWHEIGHT)/16;
+                SDL_RenderCopy(game->render, lvl, NULL, &pos_lvl);
+                SDL_RenderCopy(game->render, lvl_save3, NULL, &pos_lvl_save3);
+
+                SDL_Rect pos_nom_save3;
+                pos_nom_save3.w = strlen(character_save3->save_name)*(*game->WINDOWWIDTH)/7/10;
+                pos_nom_save3.h = (*game->WINDOWHEIGHT)/13.5;
+                pos_nom_save3.x = (*game->WINDOWWIDTH)/2 - pos_nom_save3.w/2;
+                pos_nom_save3.y = (*game->WINDOWHEIGHT)/1.33 - (*game->WINDOWWIDTH)/22.7;
+                SDL_RenderCopy(game->render, nom_save3, NULL, &pos_nom_save3);
+
 
                 if(strcmp(character_save3->charactere_name, "Guerrier") == 0) {
                     SDL_Rect pos_spriteGuerrier;
@@ -960,14 +1058,6 @@ void charger_partie_f(game_t * game, char * actual_save){
                     pos_spriteGuerrier.w = (*game->WINDOWWIDTH) * 66.5 /1200;
                     pos_spriteGuerrier.h = (*game->WINDOWHEIGHT) * 105 /675;
                     SDL_RenderCopy(game->render, spriteGuerrier, &pos_sprite_guerrier, &pos_spriteGuerrier);
-
-                    SDL_Rect pos_nom_save_guerrier;
-                    pos_nom_save_guerrier.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/29 - (*game->WINDOWWIDTH)/29;
-                    pos_nom_save_guerrier.y = (*game->WINDOWHEIGHT)/1.33 - (*game->WINDOWWIDTH)/22.7;
-                    pos_nom_save_guerrier.w = (*game->WINDOWWIDTH)/7;
-                    pos_nom_save_guerrier.h = (*game->WINDOWHEIGHT)/13.5;
-                    SDL_RenderCopy(game->render, nom_save_guerrier, NULL, &pos_nom_save_guerrier);
-
                 }
                 else if(strcmp(character_save3->charactere_name, "Mage") == 0) {
                     SDL_Rect pos_spriteMage;
@@ -976,14 +1066,6 @@ void charger_partie_f(game_t * game, char * actual_save){
                     pos_spriteMage.w = (*game->WINDOWWIDTH) * 49 /1200;
                     pos_spriteMage.h = (*game->WINDOWHEIGHT) * 108.5 /675;
                     SDL_RenderCopy(game->render, spriteMage, &pos_sprite_mage, &pos_spriteMage);
-
-                    SDL_Rect pos_nom_save_mage;
-                    pos_nom_save_mage.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/22;
-                    pos_nom_save_mage.y = (*game->WINDOWHEIGHT)/1.33 - (*game->WINDOWWIDTH)/22.7;
-                    pos_nom_save_mage.w = (*game->WINDOWWIDTH)/11;
-                    pos_nom_save_mage.h = (*game->WINDOWHEIGHT)/13.5;
-                    SDL_RenderCopy(game->render, nom_save_mage, NULL, &pos_nom_save_mage);
-
                 }
                 else if(strcmp(character_save3->charactere_name, "Assassin") == 0) {
                     SDL_Rect pos_spriteAssassin;
@@ -992,13 +1074,6 @@ void charger_partie_f(game_t * game, char * actual_save){
                     pos_spriteAssassin.w = (*game->WINDOWWIDTH) * 63 /1200;
                     pos_spriteAssassin.h = (*game->WINDOWHEIGHT) * 105 /675;
                     SDL_RenderCopy(game->render, spriteAssassin, &pos_sprite_assassin, &pos_spriteAssassin);
-
-                    SDL_Rect pos_nom_save_assassin;
-                    pos_nom_save_assassin.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/29 - (*game->WINDOWWIDTH)/29;
-                    pos_nom_save_assassin.y = (*game->WINDOWHEIGHT)/1.33 - (*game->WINDOWWIDTH)/22.7;
-                    pos_nom_save_assassin.w = (*game->WINDOWWIDTH)/7;
-                    pos_nom_save_assassin.h = (*game->WINDOWHEIGHT)/13.5;
-                    SDL_RenderCopy(game->render, nom_save_assassin, NULL, &pos_nom_save_assassin);
 
                 }
             }
@@ -1057,6 +1132,17 @@ void charger_partie_f(game_t * game, char * actual_save){
     SDL_FreeSurface(surf_save1_vide);
     SDL_FreeSurface(surf_save2_vide);
     SDL_FreeSurface(surf_save3_vide);
+    SDL_FreeSurface(surf_lvl);
+    SDL_FreeSurface(surf_position);
+    SDL_FreeSurface(surf_lvl_save1);
+    SDL_FreeSurface(surf_lvl_save2);
+    SDL_FreeSurface(surf_lvl_save3);
+    SDL_FreeSurface(surf_nom_save1);
+    SDL_FreeSurface(surf_nom_save2);
+    SDL_FreeSurface(surf_nom_save3);
+    SDL_FreeSurface(surf_position_save1);
+    SDL_FreeSurface(surf_position_save2);
+    SDL_FreeSurface(surf_position_save3);
 
     SDL_DestroyTexture(choisir_empla);
     SDL_DestroyTexture(retour);
@@ -1070,6 +1156,17 @@ void charger_partie_f(game_t * game, char * actual_save){
     SDL_DestroyTexture(fond_cadre_save1);
     SDL_DestroyTexture(fond_cadre_save2);
     SDL_DestroyTexture(fond_cadre_save3);
+    SDL_DestroyTexture(lvl);
+    SDL_DestroyTexture(position);
+    SDL_DestroyTexture(lvl_save1);
+    SDL_DestroyTexture(lvl_save2);
+    SDL_DestroyTexture(lvl_save3);
+    SDL_DestroyTexture(nom_save1);
+    SDL_DestroyTexture(nom_save2);
+    SDL_DestroyTexture(nom_save3);
+    SDL_DestroyTexture(position_save1);
+    SDL_DestroyTexture(position_save2);
+    SDL_DestroyTexture(position_save3);
 
     /*--- End Free Memory --------------------------------------------------------*/
 
