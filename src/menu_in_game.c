@@ -284,7 +284,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
                 if(selection == 0)/*inventaire()*/;
                 if(selection == 1)/*caracteristiques(game, actual_save, texture_render_menu_ig)*/;
                 if(selection == 2){
-                    if(texte_confirmation(game, "Etes-vous sur de vouloir ecraser vos donnees precedentes ?"))sauvegarde(game, character, texture_render_menu_ig, echap_relache);
+                    if(texte_confirmation(game, "Etes-vous sur de vouloir ecraser vos donnees precedentes ?"))sauvegarde(game, character);
                 }
                 if(selection == 3)/*options_in_game()*/;
                 if(selection == 4){
