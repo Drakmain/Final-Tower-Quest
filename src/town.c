@@ -6,7 +6,7 @@
 #include "..\lib\frame.h"
 #include "..\lib\map.h"
 #include "..\lib\character.h"
-
+#include "..\lib\menu_in_game.h"
 /*!
  *
  * \file town.c
@@ -38,6 +38,9 @@ void town(game_t * game, character_t * character){
 
     /*--- Initialization Variable ------------------------------------------------*/
 
+    SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888,
+    		SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
+
     map_t* town = NULL;
     town = map_create(game->render, "src\\tileset\\Maps\\town.bmp", "src\\tileset\\Maps\\town.txt");
     if (town == NULL)
@@ -67,13 +70,19 @@ void town(game_t * game, character_t * character){
     int West_Walk = 0;
     int South_Walk = 0;
     int North_Walk = 0;
-    
+
     int x = 129; //A FINIR.
     int y = 85; //A FINIR.
 
+    SDL_Rect pos_texture_render;
+    pos_texture_render.x = 0;
+    pos_texture_render.y = 0;
+    pos_texture_render.w = (*game->WINDOWWIDTH);
+    pos_texture_render.h = (*game->WINDOWHEIGHT);
+
     /*--- End Initialization Variable --------------------------------------------*/
 
-    
+
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (*game->program_launch && town_bool)
@@ -81,18 +90,29 @@ void town(game_t * game, character_t * character){
 
         while (SDL_PollEvent(&event))
         {
-
-            while (*game->program_launch == SDL_TRUE || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP])))
+            if (keyState[SDL_SCANCODE_ESCAPE])
+            {
+                menu_in_game(game, texture_render);
+                SDL_RenderClear(game->render);
+                SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
+                SDL_RenderPresent(game->render);
+                while(keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)SDL_PollEvent(&event);
+            }
+            while (*game->program_launch == SDL_TRUE || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
                 SDL_PollEvent(&event);
 
-
-                if (event.type == SDL_QUIT || keyState[SDL_SCANCODE_ESCAPE])
+                if (event.type == SDL_QUIT)
                 {
-                    *game->program_launch = SDL_FALSE;
+                    (*game->program_launch) = SDL_FALSE;
+                }
+                if (keyState[SDL_SCANCODE_ESCAPE])
+                {
+                    menu_in_game(game, texture_render);
+                    while(keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)SDL_PollEvent(&event);
                 }
 
-                while (keyState[SDL_SCANCODE_RIGHT])
+                while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
                     East_Walk = 1;
 
@@ -134,7 +154,7 @@ void town(game_t * game, character_t * character){
                 }
 
 
-                while (keyState[SDL_SCANCODE_LEFT])
+                while (keyState[SDL_SCANCODE_LEFT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
 
                     for (int i = 0; i < 3; i++)
@@ -176,7 +196,7 @@ void town(game_t * game, character_t * character){
                 }
 
 
-                while (keyState[SDL_SCANCODE_UP])
+                while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
 
                     for (int i = 0; i < 3; i++)
@@ -218,7 +238,7 @@ void town(game_t * game, character_t * character){
                 }
 
 
-                while (keyState[SDL_SCANCODE_DOWN])
+                while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
 
                     for (int i = 0; i < 3; i++)
@@ -265,6 +285,11 @@ void town(game_t * game, character_t * character){
 
                 printf("Couleur : rouge = %i, vert = %i, bleu = %i", r, g, b);
                 */
+                SDL_SetRenderTarget(game->render, texture_render);
+                SDL_RenderClear(game->render);
+                SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
+                SDL_RenderCopy(game->render, character->texture, &character->mov, &pos_Wind_character);
+                SDL_SetRenderTarget(game->render, NULL);
 
             }
 
@@ -279,6 +304,8 @@ void town(game_t * game, character_t * character){
 
     town->free(&town);
     character->free(&character);
+    SDL_DestroyTexture(texture_render);
+
 
     /*--- End Free Memory --------------------------------------------------------*/
 
