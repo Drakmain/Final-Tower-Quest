@@ -1,15 +1,18 @@
 <map id="SDL_ExitWithError" name="SDL_ExitWithError">
-<area shape="rect" id="node1" title="Affichage du message d&#39;erreur SDL." alt="" coords="757,248,889,274"/>
-<area shape="rect" id="node2" href="$character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="420,158,539,185"/>
-<area shape="rect" id="node3" href="$charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702" title="A FINIR." alt="" coords="256,209,371,236"/>
-<area shape="rect" id="node4" href="$menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="A FINIR." alt="" coords="104,108,207,134"/>
-<area shape="rect" id="node6" href="$nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76" title="A FINIR." alt="" coords="255,96,372,122"/>
-<area shape="rect" id="node7" href="$character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="587,197,709,224"/>
-<area shape="rect" id="node8" href="$creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9" title="A FINIR." alt="" coords="426,45,533,72"/>
-<area shape="rect" id="node9" href="$game_8c.html#a8ece83091596e7efb1c3f6f65fa961ab" title="Permet la creation du l&#39;objet game." alt="" coords="107,285,204,312"/>
-<area shape="rect" id="node10" href="$map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="434,450,525,477"/>
-<area shape="rect" id="node11" href="$tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="287,476,340,502"/>
-<area shape="rect" id="node12" href="$map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="601,400,695,426"/>
-<area shape="rect" id="node13" href="$options_8c.html#adc9125ca38e48057d29d3746381c36f1" title="A FINIR." alt="" coords="442,298,517,325"/>
-<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,158,56,185"/>
+<area shape="rect" id="node1" title="Affichage du message d&#39;erreur SDL." alt="" coords="763,299,895,326"/>
+<area shape="rect" id="node2" href="$character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="420,97,539,123"/>
+<area shape="rect" id="node3" href="$charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702" title="A FINIR." alt="" coords="256,223,371,250"/>
+<area shape="rect" id="node4" href="$menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="A FINIR." alt="" coords="104,249,207,275"/>
+<area shape="rect" id="node6" href="$nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76" title="A FINIR." alt="" coords="255,147,372,174"/>
+<area shape="rect" id="node7" href="$character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="589,71,712,98"/>
+<area shape="rect" id="node8" href="$creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9" title="A FINIR." alt="" coords="426,147,533,174"/>
+<area shape="rect" id="node9" href="$game_8c.html#a8ece83091596e7efb1c3f6f65fa961ab" title="Permet la creation du l&#39;objet game." alt="" coords="107,350,204,377"/>
+<area shape="rect" id="node10" href="$map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="434,477,525,503"/>
+<area shape="rect" id="node11" href="$tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="287,451,340,478"/>
+<area shape="rect" id="node12" href="$map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="604,527,697,554"/>
+<area shape="rect" id="node13" href="$menu__in__game_8c.html#ab15cbe69b23d57272cf1596d790bfdb4" title="A FINIR." alt="" coords="424,603,535,630"/>
+<area shape="rect" id="node14" href="$nom__sauvegarde_8c.html#aa20c778a63ed62910cd605e6c733f4a7" title="A FINIR." alt="" coords="591,122,710,149"/>
+<area shape="rect" id="node15" href="$options_8c.html#adc9125ca38e48057d29d3746381c36f1" title="A FINIR." alt="" coords="276,325,351,351"/>
+<area shape="rect" id="node16" href="$texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="A FINIR." alt="" coords="587,629,715,655"/>
+<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,249,56,275"/>
 </map>

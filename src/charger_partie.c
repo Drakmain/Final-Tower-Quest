@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "..\lib\charger_partie.h"
+
 #include "..\lib\character.h"
 
 
@@ -28,7 +29,6 @@
 
 extern
 void charger_partie_f(game_t * game, char * actual_save){
-
 
     /*--- Initialization variable ------------------------------------------------*/
 

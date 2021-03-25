@@ -2,10 +2,10 @@
 <area shape="rect" id="node1" title="Affichage et gestion des options." alt="" coords="74,5,171,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="91,80,155,107"/>
-<area shape="rect" id="node4" href="$options_8h_source.html" title=" " alt="" coords="179,80,253,107"/>
-<area shape="rect" id="node5" href="$commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="173,229,256,256"/>
-<area shape="rect" id="node9" href="$game_8h_source.html" title=" " alt="" coords="218,155,283,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="93,304,152,331"/>
-<area shape="rect" id="node7" title=" " alt="" coords="177,304,253,331"/>
-<area shape="rect" id="node8" href="$error_8h_source.html" title=" " alt="" coords="277,304,336,331"/>
+<area shape="rect" id="node4" href="$options_8h_source.html" title=" " alt="" coords="179,80,283,107"/>
+<area shape="rect" id="node5" href="$commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="188,229,271,256"/>
+<area shape="rect" id="node9" href="$game_8h_source.html" title=" " alt="" coords="233,155,298,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="108,304,167,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="191,304,267,331"/>
+<area shape="rect" id="node8" href="$error_8h_source.html" title=" " alt="" coords="292,304,380,331"/>
 </map>

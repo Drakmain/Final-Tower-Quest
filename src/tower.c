@@ -46,16 +46,16 @@ void tower(game_t * game, character_t * character){
     SDL_Event event;
 
     SDL_Rect pos_Wind_character;
-    pos_Wind_character.h = character->North_Walk.rect.h * MULTIPLIER;
-    pos_Wind_character.w = character->North_Walk.rect.w * MULTIPLIER;
+    pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 2;
     pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
 
     SDL_Rect pos_Wind_tower;
-    pos_Wind_tower.x = 0;
-    pos_Wind_tower.y = 0;
-    pos_Wind_tower.h = tower->tile_set.h * MULTIPLIER;
-    pos_Wind_tower.w = tower->tile_set.w * MULTIPLIER;
+    pos_Wind_tower.x = tower->tile_set.x;
+    pos_Wind_tower.y = tower->tile_set.y;
+    pos_Wind_tower.h = tower->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_tower.w = tower->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
 
     int East_Walk = 0;
     int West_Walk = 0;

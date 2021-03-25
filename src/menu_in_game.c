@@ -9,7 +9,7 @@
 /*!
  *
  * \file menu_in_game.c
- * \brief Menu dans le jeu..
+ * \brief Menu dans le jeu.
  * \author Jeremy BOURGOUIN
  * \date 18/03/21
  *
@@ -18,10 +18,13 @@
 
 /*!
  *
- * \fn menu_in_game(game_t * game)
- * \brief A FINIR
+ * \fn menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, SDL_Texture * texture_render)
+ * \brief A FINIR.
  *
- * \param game A FINIR
+ * \param game A FINIR.
+ * \param town_bool A FINIR.
+ * \param character A FINIR.
+ * \param texture_render A FINIR.
  *
  */
 

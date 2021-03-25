@@ -4,6 +4,7 @@
 
 #include "..\lib\game.h"
 
+
 /*!
  *
  * \file game.c
@@ -62,7 +63,6 @@ void game_free(game_t ** game)
 
     /*--- End Free Memory --------------------------------------------------------*/
 
-    SDL_Quit();
 
     free(*game);
 

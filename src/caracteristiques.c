@@ -4,6 +4,26 @@
 #include "..\lib\caracteristiques.h"
 
 
+/*!
+ *
+ * \file caracteristiques.c
+ * \brief A FINIR.
+ * \author Jeremy BOURGOUIN
+ * \date 12/03/21
+ *
+ */
+
+
+/*!
+ *
+ * \fn caracteristiques(game_t * game, char * actual_save, SDL_Texture * texture_render_menu_ig)
+ * \brief A FINIR.
+ *
+ * \param game A FINIR.
+ * \param actual_save A FINIR.
+ * \param texture_render_menu_ig A FINIR.
+ *
+ */
 
 void caracteristiques(game_t * game, char * actual_save, SDL_Texture * texture_render_menu_ig){
 

@@ -107,7 +107,6 @@ int main(int argc, char ** argv)
     /*
     if (character_exist(character_save) == SDL_TRUE)
     {
-
         character_save->free(&character_save);
         if (character_exist(character_save) == SDL_FALSE)
         {

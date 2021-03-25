@@ -7,6 +7,8 @@
 #include "..\lib\map.h"
 #include "..\lib\character.h"
 #include "..\lib\menu_in_game.h"
+
+
 /*!
  *
  * \file town.c

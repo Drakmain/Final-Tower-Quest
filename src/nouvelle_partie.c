@@ -6,6 +6,7 @@
 #include "..\lib\creation_perso.h"
 #include "..\lib\character.h"
 
+
 /*!
  *
  * \file nouvelle_partie.c
