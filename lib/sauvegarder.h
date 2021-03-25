@@ -6,6 +6,6 @@
 #include "game.h"
 #include "character.h"
 
-void sauvegarde(game_t * game, character_t * character, SDL_Texture * texture_render_menu_ig, SDL_bool *echap_relache);
+void sauvegarde(game_t * game, character_t * character);
 
 #endif

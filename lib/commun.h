@@ -14,7 +14,6 @@
  *
  */
 
-#define MULTIPLIER 7.5 /*!< A FINIR */
 
 /*!
  *
