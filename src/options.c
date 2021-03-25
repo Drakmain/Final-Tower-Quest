@@ -291,8 +291,9 @@ void options_f(game_t * game){
             if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
             {
                 options_bool = SDL_FALSE;
+                fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;",resolution , *game->etat_fullscreen);
             }
-                
+
 
             /*--- End Event to Exit Program --------------------------------------*/
 
@@ -418,7 +419,7 @@ void options_f(game_t * game){
                     if(*game->etat_fullscreen == SDL_TRUE)*game->etat_fullscreen = SDL_FALSE;
                 }
 
-                switch (*game->etat_fullscreen) 
+                switch (*game->etat_fullscreen)
                 {
                     case SDL_FALSE: SDL_SetWindowFullscreen(game->window, 0);
                             SDL_SetWindowPosition(game->window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);

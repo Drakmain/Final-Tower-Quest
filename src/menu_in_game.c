@@ -25,7 +25,7 @@
  */
 
 extern
-void menu_in_game(game_t * game, SDL_Texture * texture_render){
+void menu_in_game(game_t * game, SDL_bool * town_bool, SDL_Texture * texture_render){
 
     /*--- Initialization variable ------------------------------------------------*/
     SDL_Color blanc = {255,255,255};
@@ -282,7 +282,10 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
                 if(selection == 1)/*caracteristiques(game, actual_save, texture_render_menu_ig)*/;
                 if(selection == 2)/*sauvegarder()*/;
                 if(selection == 3)/*options_in_game()*/;
-                if(selection == 4)/*retour au menu*/;
+                if(selection == 4){
+                    menu_bool = SDL_FALSE;
+                    *town_bool = SDL_FALSE;
+                }
             }
 
             /*--- Event to Exit Program ------------------------------------------*/
