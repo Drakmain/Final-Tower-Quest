@@ -106,7 +106,7 @@ int main(int argc, char ** argv)
     }
     /*
     if (character_exist(character_save) == SDL_TRUE)
-    {   
+    {
 
         character_save->free(&character_save);
         if (character_exist(character_save) == SDL_FALSE)
@@ -117,7 +117,7 @@ int main(int argc, char ** argv)
         {
             exit_with_error("Error while freeing the object character_t * character_save > main.c Line 100");
         }
-        
+
     }
     */
     /*--- End Free game ----------------------------------------------------------*/

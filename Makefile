@@ -2,8 +2,8 @@ CFLAGS=-Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
 
 all: main
 
-main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o
-	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
+main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o
+	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
 
 
 test: test_map.o test_character.o error.o map.o character.o
@@ -59,6 +59,9 @@ sauvegarder.o : src/sauvegarder.c
 
 tower.o: src/tower.c
 	gcc -c src/tower.c -I include -L lib $(CFLAGS)
+
+texte_confirmation.o : src/texte_confirmation.c
+	gcc -c src/texte_confirmation.c  -I include -L lib $(CFLAGS)
 
 
 test_map.o: src/test/test_map.c
