@@ -1,5 +1,5 @@
 RGB:          255, 255, 255;
-North_Walk:   3, 3, 24, 24, 28;
+North_Walk:   3, 3, 16, 31, 54;
 East_Walk:    3, 28, 21, 24, 25;
 South_Walk:   3, 53, 23, 24, 27;
 West_Walk:    3, 78, 21, 24, 25;

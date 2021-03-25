@@ -82,6 +82,7 @@ void character_free(character_t ** character)
     free((*character)->position);
 
     free(*character);
+    *character = NULL;
 
 }
 

@@ -1,6 +1,6 @@
-save_name: ah ;
-charactere: Assassin ;
-position:   ;
+save_name: Jeremy ;
+charactere_name: Guerrier ;
+position:  ;
 x: ;
 y: ;
 lvl: ;
