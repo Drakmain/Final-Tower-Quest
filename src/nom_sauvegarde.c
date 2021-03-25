@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "nom_sauvegarde.h"
+#include "..\lib\nom_sauvegarde.h"
 
 
 extern

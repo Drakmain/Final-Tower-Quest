@@ -3,7 +3,6 @@
 #include <string.h>
 
 #include "..\lib\charger_partie.h"
-
 #include "..\lib\character.h"
 
 
@@ -568,7 +567,6 @@ void charger_partie_f(game_t * game, char * actual_save){
     SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save2);
     SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save3);
 
-
     SDL_RenderPresent(game->render);
 
 
@@ -765,9 +763,6 @@ void charger_partie_f(game_t * game, char * actual_save){
             SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save1);
             SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save2);
             SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save3);
-            SDL_RenderCopy(game->render, save1_vide, NULL, &pos_save1_vide);
-
-
 
             if (character_save1->empty == SDL_TRUE)
             {
@@ -1027,11 +1022,11 @@ void charger_partie_f(game_t * game, char * actual_save){
 
 
     /*--- Free Memory ------------------------------------------------------------*/
-
+/*
     character_save1->free(&character_save1);
     character_save2->free(&character_save2);
     character_save3->free(&character_save3);
-
+*/
     SDL_FreeSurface(surf_choisir_empla);
     SDL_FreeSurface(surf_retour);
     SDL_FreeSurface(surf_fond);
