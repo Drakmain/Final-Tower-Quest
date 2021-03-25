@@ -300,7 +300,7 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
 
             if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN && echap_relache)
             {
-                menu = SDL_FALSE;
+                menu_bool = SDL_FALSE;
                 SDL_RenderClear(game->render);
                 SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
                 SDL_RenderPresent(game->render);
