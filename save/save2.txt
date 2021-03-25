@@ -1,9 +1,9 @@
-save_name: guerrier ;
+save_name: Mage ;
 charactere: Mage ;
-position:  ;
-x:
-y: ;
-lvl: ;
+position: Forge ;
+x: 0 ;
+y: 0 ;
+lvl: 10 ;
 xp: ;
 life: ;
 mana: ;
