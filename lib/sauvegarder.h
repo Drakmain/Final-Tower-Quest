@@ -4,7 +4,8 @@
 #include "commun.h"
 
 #include "game.h"
+#include "character.h"
 
-void sauvegarder(game_t * game, char * actual_save, SDL_Texture * texture_render_menu_ig);
+void sauvegarde(game_t * game, character_t * character, SDL_Texture * texture_render_menu_ig);
 
 #endif

@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 #include "..\lib\menu_in_game.h"
-
+#include "..\lib\sauvegarder.h"
+#include "..\lib\character.h"
 
 
 /*!
@@ -25,7 +26,7 @@
  */
 
 extern
-void menu_in_game(game_t * game, SDL_bool * town_bool, SDL_Texture * texture_render){
+void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, SDL_Texture * texture_render){
 
     /*--- Initialization variable ------------------------------------------------*/
     SDL_Color blanc = {255,255,255};
@@ -170,8 +171,8 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, SDL_Texture * texture_ren
     pos_fond_cadre.h = pos_cadre.h;
 
     SDL_Rect rect_fond_cadre;
-    rect_fond_cadre.x = (*game->WINDOWWIDTH)*12/1200;
-    rect_fond_cadre.y = (*game->WINDOWHEIGHT)*12/675;
+    rect_fond_cadre.x = (*game->WINDOWWIDTH)*12/1280;
+    rect_fond_cadre.y = (*game->WINDOWHEIGHT)*12/720;
     rect_fond_cadre.w = pos_fond_cadre.w - 2*rect_fond_cadre.x;
     rect_fond_cadre.h = pos_fond_cadre.h - 2*rect_fond_cadre.y;
 
@@ -280,7 +281,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, SDL_Texture * texture_ren
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN){
                 if(selection == 0)/*inventaire()*/;
                 if(selection == 1)/*caracteristiques(game, actual_save, texture_render_menu_ig)*/;
-                if(selection == 2)/*sauvegarder()*/;
+                if(selection == 2)sauvegarde(game, character, texture_render_menu_ig);
                 if(selection == 3)/*options_in_game()*/;
                 if(selection == 4){
                     menu_bool = SDL_FALSE;
@@ -292,7 +293,6 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, SDL_Texture * texture_ren
 
             if (event.type == SDL_QUIT)
             {
-                menu_bool = SDL_FALSE;
                 (*game->program_launch) = SDL_FALSE;
             }
 
