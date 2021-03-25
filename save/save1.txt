@@ -1,5 +1,5 @@
-save_name: guerrier ;
-charactere: Guerrier ;
+save_name: ;
+charactere:  ;
 position:  ;
 x: 
 y: ;

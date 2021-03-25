@@ -1,5 +1,5 @@
-save_name:   ;
-charactere:   ;
+save_name: ah ;
+charactere: Assassin ;
 position:   ;
 x: ;
 y: ;

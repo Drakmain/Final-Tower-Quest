@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "creation_perso.h"
-
+#include "nom_sauvegarde.h"
 /*!
  *
  * \file creation_perso.c
@@ -130,9 +130,9 @@ void creation_perso(game_t * game, char * actual_save){
 
     SDL_Rect pos_spriteGuerrier;
     pos_spriteGuerrier.x = (*game->WINDOWWIDTH)/2 + (*game->WINDOWWIDTH)/15;
-    pos_spriteGuerrier.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/5;
-    pos_spriteGuerrier.w = (*game->WINDOWWIDTH) * 144 /1200;
-    pos_spriteGuerrier.h = (*game->WINDOWHEIGHT) * 144 /675;
+    pos_spriteGuerrier.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/4.6;
+    pos_spriteGuerrier.w = (*game->WINDOWWIDTH) * 108 /1200;
+    pos_spriteGuerrier.h = (*game->WINDOWHEIGHT) * 180 /675;
 
     /*----------------------------------------------------------------------------*/
 
@@ -153,10 +153,10 @@ void creation_perso(game_t * game, char * actual_save){
     }
 
     SDL_Rect pos_spriteMage;
-    pos_spriteMage.x = (*game->WINDOWWIDTH)/2 + (*game->WINDOWWIDTH)/15;
-    pos_spriteMage.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/5;
-    pos_spriteMage.w = (*game->WINDOWWIDTH) * 144 /1200;
-    pos_spriteMage.h = (*game->WINDOWHEIGHT) * 144 /675;
+    pos_spriteMage.x = (*game->WINDOWWIDTH)/2 + (*game->WINDOWWIDTH)/14;
+    pos_spriteMage.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/4.6;
+    pos_spriteMage.w = (*game->WINDOWWIDTH) * 84 /1200;
+    pos_spriteMage.h = (*game->WINDOWHEIGHT) * 186 /675;
 
     /*----------------------------------------------------------------------------*/
 
@@ -507,17 +507,15 @@ void creation_perso(game_t * game, char * actual_save){
 
                 if(selection == 0)
                 {
-
+                    nom_sauvegarde(game, actual_save);
                 }
-
                 if(selection == 1)
                 {
-
+                    nom_sauvegarde(game, actual_save);
                 }
-                
                 if(selection == 2)
                 {
-
+                    nom_sauvegarde(game, actual_save);
                 }
 
             }

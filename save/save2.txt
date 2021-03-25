@@ -1,7 +1,7 @@
-save_name:   ;
-charactere:   ;
-position:   ;
-x: ;
+save_name: guerrier ;
+charactere: Mage ;
+position:  ;
+x:
 y: ;
 lvl: ;
 xp: ;
