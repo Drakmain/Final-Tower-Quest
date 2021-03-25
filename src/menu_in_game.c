@@ -4,7 +4,7 @@
 #include "..\lib\menu_in_game.h"
 #include "..\lib\sauvegarder.h"
 #include "..\lib\character.h"
-
+#include "..\lib\texte_confirmation.h"
 
 /*!
  *
@@ -283,11 +283,15 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN){
                 if(selection == 0)/*inventaire()*/;
                 if(selection == 1)/*caracteristiques(game, actual_save, texture_render_menu_ig)*/;
-                if(selection == 2)sauvegarde(game, character, texture_render_menu_ig, echap_relache);
+                if(selection == 2){
+                    if(texte_confirmation(game, "Etes-vous sur de vouloir ecraser vos donnees precedentes ?"))sauvegarde(game, character, texture_render_menu_ig, echap_relache);
+                }
                 if(selection == 3)/*options_in_game()*/;
                 if(selection == 4){
-                    menu_bool = SDL_FALSE;
-                    *town_bool = SDL_FALSE;
+                    if(texte_confirmation(game, "Etes-vous sur de vouloir retourner au menu principal ?")){
+                        menu_bool = SDL_FALSE;
+                        *town_bool = SDL_FALSE;
+                    }
                 }
             }
 
