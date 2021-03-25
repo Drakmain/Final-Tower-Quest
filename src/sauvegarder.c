@@ -22,7 +22,7 @@ void sauvegarde(game_t * game, character_t * character, SDL_Texture * texture_re
 
     /*---texture "cadre"--------------------------------------------------------*/
 
-    surf_cadre = SDL_LoadBMP("src\\image\\cadre_texte_confirmation_sauvegarde.bmp");
+    surf_cadre = SDL_LoadBMP("src\\image\\cadre_texte_confirmation.bmp");
     if(surf_cadre == NULL){
         SDL_ExitWithError("probleme chargement image fond menu accueil");
     }

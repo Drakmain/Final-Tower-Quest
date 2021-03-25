@@ -183,6 +183,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     SDL_RenderFillRect(game->render, &rect_fond_cadre);
     SDL_SetRenderTarget(game->render,NULL);
     /*------------------------------------------------------------------------------------*/
+
     SDL_Rect pos_texture_render;
     pos_texture_render.x = 0;
     pos_texture_render.y = 0;
