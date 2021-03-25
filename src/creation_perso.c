@@ -6,7 +6,7 @@
 /*!
  *
  * \file creation_perso.c
- * \brief Creation d'un perosnnage.
+ * \brief Gestion de la creation d'un perosnnage.
  * \author Alexis BOUFFARD
  * \date 12/03/21
  *
@@ -32,7 +32,7 @@ void creation_perso(game_t * game, char * actual_save){
     SDL_Color rouge = {255,0,0};
 
     SDL_Surface * surf_guerrier = NULL, * surf_mage = NULL, * surf_assassin = NULL, * surf_fond = NULL, * surf_spriteGuerrier = NULL, * surf_spriteMage = NULL, * surf_spriteAssassin = NULL, * surf_cadre = NULL;
-    SDL_Surface *surf_desc1 = NULL, *surf_desc2 = NULL, *surf_desc3 = NULL, *surf_desc4 = NULL, *surf_desc5 = NULL;
+    SDL_Surface * surf_desc1 = NULL, * surf_desc2 = NULL, * surf_desc3 = NULL, * surf_desc4 = NULL, * surf_desc5 = NULL;
 
     SDL_bool crea_perso_bool = SDL_TRUE;
 
@@ -115,12 +115,13 @@ void creation_perso(game_t * game, char * actual_save){
 
     /*--- Initialization texture "Guerrier" --------------------------------------*/
 
-    surf_spriteGuerrier = SDL_LoadBMP("src\\tileset\\PJ\\guerrier_frame.bmp");
-    SDL_SetColorKey(surf_spriteGuerrier, SDL_TRUE, SDL_MapRGB(surf_spriteGuerrier->format, 255,255,255));
+    surf_spriteGuerrier = SDL_LoadBMP("src\\tileset\\PJ\\Guerrier.bmp");
     if(surf_spriteGuerrier == NULL)
     {
         SDL_ExitWithError("probleme chargement sprite du guerrier");
     }
+
+    SDL_SetColorKey(surf_spriteGuerrier, SDL_TRUE, SDL_MapRGB(surf_spriteGuerrier->format, 255,255,255));
 
     SDL_Texture* spriteGuerrier = SDL_CreateTextureFromSurface(game->render, surf_spriteGuerrier);
     if(spriteGuerrier == NULL)
@@ -128,23 +129,30 @@ void creation_perso(game_t * game, char * actual_save){
         SDL_ExitWithError("probleme texture sprite du guerrier");
     }
 
-    SDL_Rect pos_spriteGuerrier;
-    pos_spriteGuerrier.x = (*game->WINDOWWIDTH)/2 + (*game->WINDOWWIDTH)/15;
-    pos_spriteGuerrier.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/4.6;
-    pos_spriteGuerrier.w = (*game->WINDOWWIDTH) * 108 /1200;
-    pos_spriteGuerrier.h = (*game->WINDOWHEIGHT) * 180 /675;
+    SDL_Rect pos_sprite_guerrier;
+    pos_sprite_guerrier.x = 3;
+    pos_sprite_guerrier.y = 3;
+    pos_sprite_guerrier.w = 20;
+    pos_sprite_guerrier.h = 30;
+
+    SDL_Rect pos_spritre_guerrier_window;
+    pos_spritre_guerrier_window.x = (*game->WINDOWWIDTH)/2 + (*game->WINDOWWIDTH)/15;
+    pos_spritre_guerrier_window.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/4.6;
+    pos_spritre_guerrier_window.w = (*game->WINDOWWIDTH) * 108 /1200;
+    pos_spritre_guerrier_window.h = (*game->WINDOWHEIGHT) * 180 /675;
 
     /*----------------------------------------------------------------------------*/
 
 
     /*--- Initialization texture "Mage" ------------------------------------------*/
 
-    surf_spriteMage = SDL_LoadBMP("src\\tileset\\PJ\\mage_frame.bmp");
-    SDL_SetColorKey(surf_spriteMage, SDL_TRUE, SDL_MapRGB(surf_spriteMage->format, 255,255,255));
+    surf_spriteMage = SDL_LoadBMP("src\\tileset\\PJ\\Mage.bmp");
     if(surf_spriteMage == NULL)
     {
         SDL_ExitWithError("probleme chargement sprite du mage");
     }
+
+    SDL_SetColorKey(surf_spriteMage, SDL_TRUE, SDL_MapRGB(surf_spriteMage->format, 255,255,255));
 
     SDL_Texture* spriteMage = SDL_CreateTextureFromSurface(game->render, surf_spriteMage);
     if(spriteMage == NULL)
@@ -152,23 +160,30 @@ void creation_perso(game_t * game, char * actual_save){
         SDL_ExitWithError("probleme texture sprite du mage");
     }
 
-    SDL_Rect pos_spriteMage;
-    pos_spriteMage.x = (*game->WINDOWWIDTH)/2 + (*game->WINDOWWIDTH)/14;
-    pos_spriteMage.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/4.6;
-    pos_spriteMage.w = (*game->WINDOWWIDTH) * 84 /1200;
-    pos_spriteMage.h = (*game->WINDOWHEIGHT) * 186 /675;
+    SDL_Rect pos_sprite_mage;
+    pos_sprite_mage.x = 3;
+    pos_sprite_mage.y = 3;
+    pos_sprite_mage.w = 16;
+    pos_sprite_mage.h = 31;
+
+    SDL_Rect pos_spritre_mage_window;
+    pos_spritre_mage_window.x = (*game->WINDOWWIDTH)/2 + (*game->WINDOWWIDTH)/15;
+    pos_spritre_mage_window.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/4.6;
+    pos_spritre_mage_window.w = (*game->WINDOWWIDTH) * 108 /1200;
+    pos_spritre_mage_window.h = (*game->WINDOWHEIGHT) * 180 /675;
 
     /*----------------------------------------------------------------------------*/
 
 
     /*--- Initialization texture "Assassin" --------------------------------------*/
 
-    surf_spriteAssassin = SDL_LoadBMP("src\\tileset\\PJ\\assassin_frame.bmp");
-    SDL_SetColorKey(surf_spriteAssassin, SDL_TRUE, SDL_MapRGB(surf_spriteAssassin->format, 255,255,255));
+    surf_spriteAssassin = SDL_LoadBMP("src\\tileset\\PJ\\Assassin.bmp");
     if(surf_spriteAssassin == NULL)
     {
         SDL_ExitWithError("probleme chargement sprite du assassin");
     }
+
+    SDL_SetColorKey(surf_spriteAssassin, SDL_TRUE, SDL_MapRGB(surf_spriteAssassin->format, 255,255,255));
 
     SDL_Texture* spriteAssassin = SDL_CreateTextureFromSurface(game->render, surf_spriteAssassin);
     if(spriteAssassin == NULL)
@@ -176,11 +191,17 @@ void creation_perso(game_t * game, char * actual_save){
         SDL_ExitWithError("probleme texture sprite du assassin");
     }
 
-    SDL_Rect pos_spriteAssassin;
-    pos_spriteAssassin.x = (*game->WINDOWWIDTH)/2 + (*game->WINDOWWIDTH)/15;
-    pos_spriteAssassin.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/4.6;
-    pos_spriteAssassin.w = (*game->WINDOWWIDTH) * 108 /1200;
-    pos_spriteAssassin.h = (*game->WINDOWHEIGHT) * 180 /675;
+    SDL_Rect pos_sprite_assassin;
+    pos_sprite_assassin.x = 3;
+    pos_sprite_assassin.y = 3;
+    pos_sprite_assassin.w = 18;
+    pos_sprite_assassin.h = 30;
+
+    SDL_Rect pos_spritre_assassin_window;
+    pos_spritre_assassin_window.x = (*game->WINDOWWIDTH)/2 + (*game->WINDOWWIDTH)/15;
+    pos_spritre_assassin_window.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/4.6;
+    pos_spritre_assassin_window.w = (*game->WINDOWWIDTH) * 108 /1200;
+    pos_spritre_assassin_window.h = (*game->WINDOWHEIGHT) * 180 /675;
 
     /*----------------------------------------------------------------------------*/
 
@@ -266,7 +287,7 @@ void creation_perso(game_t * game, char * actual_save){
     SDL_RenderCopy(game->render, guerrier, NULL, &pos_guerrier);
     SDL_RenderCopy(game->render, mage, NULL, &pos_mage);
     SDL_RenderCopy(game->render, assassin, NULL, &pos_assassin);
-    SDL_RenderCopy(game->render, spriteGuerrier, NULL, &pos_spriteGuerrier);
+    //SDL_RenderCopy(game->render, spriteGuerrier, &pos_sprite, &pos_spritre_window);
     SDL_RenderCopy(game->render, fond_cadre_desc, NULL, &pos_fond_cadre_desc);
     SDL_RenderCopy(game->render, cadre_desc, NULL, &pos_cadre_desc);
 
@@ -329,7 +350,7 @@ void creation_perso(game_t * game, char * actual_save){
                 surf_mage = TTF_RenderText_Blended(game->police, "Mage", blanc);
                 surf_assassin = TTF_RenderText_Blended(game->police, "Assassin", blanc);
 
-                SDL_RenderCopy(game->render, spriteGuerrier, NULL, &pos_spriteGuerrier);
+                SDL_RenderCopy(game->render, spriteGuerrier, &pos_sprite_guerrier, &pos_spritre_guerrier_window);
 
                 /*---Description Guerrier ----------------------------------------*/
 
@@ -390,9 +411,9 @@ void creation_perso(game_t * game, char * actual_save){
                 surf_mage = TTF_RenderText_Blended(game->police, "Mage", rouge);
                 surf_assassin = TTF_RenderText_Blended(game->police, "Assassin", blanc);
 
-                SDL_RenderCopy(game->render, spriteMage, NULL, &pos_spriteMage);
+                SDL_RenderCopy(game->render, spriteMage, &pos_sprite_mage, &pos_spritre_mage_window);
 
-                /*---Description Mage ----------------------------------------*/
+                /*--- Description Mage ----------------------------------------*/
 
                 surf_desc1 = TTF_RenderText_Blended(game->police, "Feu, glace, terre et air, il n'y a aucun element que le", blanc);
                 SDL_Texture* desc1 = SDL_CreateTextureFromSurface(game->render, surf_desc1);
@@ -441,9 +462,9 @@ void creation_perso(game_t * game, char * actual_save){
                 surf_mage = TTF_RenderText_Blended(game->police, "Mage", blanc);
                 surf_assassin = TTF_RenderText_Blended(game->police, "Assassin", rouge);
 
-                SDL_RenderCopy(game->render, spriteAssassin, NULL, &pos_spriteAssassin);
+                SDL_RenderCopy(game->render, spriteAssassin, &pos_sprite_assassin, &pos_spritre_assassin_window);
 
-                /*---Description Assassin ----------------------------------------*/
+                /*--- Description Assassin ----------------------------------------*/
 
                 surf_desc1 = TTF_RenderText_Blended(game->police, "Tapis dans l'ombre, l'assassin est comme un monstre dans", blanc);
                 SDL_Texture* desc1 = SDL_CreateTextureFromSurface(game->render, surf_desc1);

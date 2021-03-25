@@ -66,6 +66,8 @@ void game_free(game_t ** game)
 
     free(*game);
 
+    *game = NULL;
+
 }
 
 

@@ -96,8 +96,30 @@ int main(int argc, char ** argv)
     /*--- Free game --------------------------------------------------------------*/
 
     game->free(&game);
-    printf("game_t * game: freed\n\n");
+    if (game_exist(game) == SDL_FALSE)
+    {
+        printf("game_t * game: freed\n\n");
+    }
+    else
+    {
+        exit_with_error("Error while freeing the object character_t * character_save > main.c Line 100");
+    }
+    /*
+    if (character_exist(character_save) == SDL_TRUE)
+    {   
 
+        character_save->free(&character_save);
+        if (character_exist(character_save) == SDL_FALSE)
+        {
+            printf("character_t * character_save: freed\n\n");
+        }
+        else
+        {
+            exit_with_error("Error while freeing the object character_t * character_save > main.c Line 100");
+        }
+        
+    }
+    */
     /*--- End Free game ----------------------------------------------------------*/
 
 

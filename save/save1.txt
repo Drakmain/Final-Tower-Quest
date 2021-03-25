@@ -1,5 +1,5 @@
-save_name: Guerrier ;
-charactere_name: Guerrier ;
+save_name: Robin ;
+charactere_name: Assassin ;
 position: Taverne ;
 x: 0 ;
 y: 0 ;

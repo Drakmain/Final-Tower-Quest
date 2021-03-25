@@ -1,5 +1,5 @@
-save_name: Mage ;
-charactere: Mage ;
+save_name: Alexis ;
+charactere_name: Mage ;
 position: Forge ;
 x: 0 ;
 y: 0 ;
