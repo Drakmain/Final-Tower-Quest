@@ -93,7 +93,7 @@ void town(game_t * game, character_t * character){
         {
             if (keyState[SDL_SCANCODE_ESCAPE])
             {
-                menu_in_game(game, town_bool, texture_render);
+                menu_in_game(game, town_bool, character, texture_render);
                 SDL_RenderClear(game->render);
                 SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
                 SDL_RenderPresent(game->render);
@@ -109,7 +109,7 @@ void town(game_t * game, character_t * character){
                 }
                 if (keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    menu_in_game(game, town_bool, texture_render);
+                    menu_in_game(game, town_bool, character, texture_render);
                     while(keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)SDL_PollEvent(&event);
                 }
 
