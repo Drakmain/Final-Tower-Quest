@@ -289,7 +289,7 @@ void menu_in_game(game_t * game, SDL_Texture * texture_render){
 
             if (event.type == SDL_QUIT)
             {
-                menu = SDL_FALSE;
+                menu_bool = SDL_FALSE;
                 (*game->program_launch) = SDL_FALSE;
             }
 
