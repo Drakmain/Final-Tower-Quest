@@ -10,7 +10,6 @@
  * \file nom_sauvegarde.c
  * \brief A FINIR.
  * \author Alexis BOUFFARD
- * \date 12/03/21
  *
  */
 

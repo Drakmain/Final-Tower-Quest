@@ -8,7 +8,6 @@
  * \file map.c
  * \brief Gestion de l'objet map.
  * \author Enzo BRENNUS
- * \date 18/02/21
  * 
  */
 

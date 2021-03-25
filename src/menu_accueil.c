@@ -13,7 +13,6 @@
  * \file menu_accueil.c
  * \brief Menu d'accueil.
  * \author Jeremy BOURGOUIN
- * \date 10/02/21
  *
  */
 

@@ -12,7 +12,6 @@
  * \file charger_partie.c
  * \brief charger partie.
  * \author Jeremy BOURGOUIN
- * \date 12/03/21
  *
  */
 

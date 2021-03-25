@@ -10,7 +10,6 @@
  * \file sauvegarder.c
  * \brief Gestion de la creation d'un perosnnage.
  * \author Jeremy BOURGOUIN
- * \date 12/03/21
  *
  */
 

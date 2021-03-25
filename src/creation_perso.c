@@ -11,7 +11,6 @@
  * \file creation_perso.c
  * \brief Gestion de la creation d'un perosnnage.
  * \author Alexis BOUFFARD
- * \date 12/03/21
  *
  */
 

@@ -9,7 +9,6 @@
  * \file character.c
  * \brief Gestion de l'objet character.
  * \author Enzo BRENNUS
- * \date 18/02/21
  *
  */
 

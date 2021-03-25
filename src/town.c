@@ -14,7 +14,6 @@
  * \file town.c
  * \brief Gestion de la map town.
  * \author Enzo BRENNUS
- * \date 18/02/21
  *
  */
 
@@ -28,10 +27,11 @@ Uint8 * pixel(SDL_Surface * surface, int x, int y)
 
 /*!
  *
- * \fn town(game_t * game)
+ * \fn town(game_t * game, character_t * character)
  * \brief Permet la gestion de la premier map du jeu (town).
  *
  * \param game A FINIR.
+ * \param character A FINIR.
  *
  */
 
@@ -40,8 +40,7 @@ void town(game_t * game, character_t * character){
 
     /*--- Initialization Variable ------------------------------------------------*/
 
-    SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888,
-    		SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
+    SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
 
     map_t* town = NULL;
     town = map_create(game->render, "src\\tileset\\Maps\\town.bmp", "src\\tileset\\Maps\\town.txt");
@@ -86,6 +85,14 @@ void town(game_t * game, character_t * character){
     /*--- End Initialization Variable --------------------------------------------*/
 
 
+    SDL_RenderClear(game->render);
+
+    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
+    SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
+
+    SDL_RenderPresent(game->render);
+
+
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (*game->program_launch && *town_bool)
@@ -93,6 +100,7 @@ void town(game_t * game, character_t * character){
 
         while (SDL_PollEvent(&event))
         {
+
             if (keyState[SDL_SCANCODE_ESCAPE])
             {
                 menu_in_game(game, town_bool, character, texture_render);
@@ -109,6 +117,7 @@ void town(game_t * game, character_t * character){
                 {
                     (*game->program_launch) = SDL_FALSE;
                 }
+
                 if (keyState[SDL_SCANCODE_ESCAPE])
                 {
                     menu_in_game(game, town_bool, character, texture_render);
@@ -117,18 +126,15 @@ void town(game_t * game, character_t * character){
 
                 while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    East_Walk = 1;
-
+                    
                     for (int i = 0; i < 3; i++)
                     {
+                        East_Walk = 1;
 
                         frame_start =  SDL_GetTicks();
 
                         pos_Wind_town.x -= 25;
                         x -= 25;
-
-                        printf("x : %i\n",x);
-                        printf("y : %i\n\n",y);
 
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
 
@@ -163,13 +169,11 @@ void town(game_t * game, character_t * character){
                     for (int i = 0; i < 3; i++)
                     {
                         West_Walk = 1;
+
                         frame_start =  SDL_GetTicks();
 
                         pos_Wind_town.x += 25;
                         x += 25;
-
-                        printf("x : %i\n",x);
-                        printf("y : %i\n\n",y);
 
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
 
@@ -204,18 +208,16 @@ void town(game_t * game, character_t * character){
 
                     for (int i = 0; i < 3; i++)
                     {
-                        South_Walk = 1;
+                        North_Walk = 1;
+
                         frame_start =  SDL_GetTicks();
 
                         pos_Wind_town.y += 25;
                         y += 25;
 
-                        printf("x : %i\n",x);
-                        printf("y : %i\n\n",y);
-
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
 
-                        character->update(character, game->render, character->South_Walk, pos_Wind_character);
+                        character->update(character, game->render, character->North_Walk, pos_Wind_character);
 
                         render_frame(game->render);
 
@@ -230,14 +232,14 @@ void town(game_t * game, character_t * character){
 
                 }
 
-                if (South_Walk == 1)
+                if (North_Walk == 1)
                 {
                     character->mov.x = 0;
                     character->mov.y = 0;
                     town->update(town, game->render, town->tile_set, pos_Wind_town);
-                    character->update(character, game->render, character->South_Walk, pos_Wind_character);
+                    character->update(character, game->render, character->North_Walk, pos_Wind_character);
                     render_frame(game->render);
-                    South_Walk = 0;
+                    North_Walk = 0;
                 }
 
 
@@ -246,18 +248,16 @@ void town(game_t * game, character_t * character){
 
                     for (int i = 0; i < 3; i++)
                     {
-                        North_Walk = 1;
+                        South_Walk = 1;
+
                         frame_start =  SDL_GetTicks();
 
                         pos_Wind_town.y -= 25;
                         y -= 25;
 
-                        printf("x : %i\n",x);
-                        printf("y : %i\n\n",y);
-
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
 
-                        character->update(character, game->render, character->North_Walk, pos_Wind_character);
+                        character->update(character, game->render, character->South_Walk, pos_Wind_character);
 
                         render_frame(game->render);
 
@@ -271,14 +271,14 @@ void town(game_t * game, character_t * character){
                     SDL_PollEvent(&event);
                 }
 
-                if (North_Walk == 1)
+                if (South_Walk == 1)
                 {
                     character->mov.x = 0;
                     character->mov.y = 0;
                     town->update(town, game->render, town->tile_set, pos_Wind_town);
-                    character->update(character, game->render, character->North_Walk, pos_Wind_character);
+                    character->update(character, game->render, character->South_Walk, pos_Wind_character);
                     render_frame(game->render);
-                    North_Walk = 0;
+                    South_Walk = 0;
                 }
 
                 /*
@@ -306,9 +306,8 @@ void town(game_t * game, character_t * character){
     /*--- Free Memory ------------------------------------------------------------*/
 
     town->free(&town);
-    character->free(&character);
-    SDL_DestroyTexture(texture_render);
 
+    SDL_DestroyTexture(texture_render);
 
     /*--- End Free Memory --------------------------------------------------------*/
 

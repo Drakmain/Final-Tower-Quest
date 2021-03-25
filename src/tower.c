@@ -65,6 +65,14 @@ void tower(game_t * game, character_t * character){
     /*--- End Initialization Variable --------------------------------------------*/
 
 
+    SDL_RenderClear(game->render);
+
+    SDL_RenderCopy(game->render, tower->texture, &tower->tile_set, &pos_Wind_tower);
+    SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
+
+    SDL_RenderPresent(game->render);
+
+
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (*game->program_launch && tower_bool)
@@ -85,10 +93,10 @@ void tower(game_t * game, character_t * character){
 
                 while (keyState[SDL_SCANCODE_RIGHT])
                 {
-                    East_Walk = 1;
-
+                    
                     for (int i = 0; i < 3; i++)
                     {
+                        East_Walk = 1;
 
                         frame_start =  SDL_GetTicks();
 
@@ -167,6 +175,7 @@ void tower(game_t * game, character_t * character){
                     for (int i = 0; i < 3; i++)
                     {
                         South_Walk = 1;
+
                         frame_start =  SDL_GetTicks();
 
                         pos_Wind_tower.y += 25;
@@ -205,6 +214,7 @@ void tower(game_t * game, character_t * character){
                     for (int i = 0; i < 3; i++)
                     {
                         North_Walk = 1;
+
                         frame_start =  SDL_GetTicks();
 
                         pos_Wind_tower.y -= 25;
@@ -247,7 +257,6 @@ void tower(game_t * game, character_t * character){
     /*--- Free Memory ------------------------------------------------------------*/
 
     tower->free(&tower);
-    character->free(&character);
 
     /*--- End Free Memory --------------------------------------------------------*/
 

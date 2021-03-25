@@ -1,0 +1,12 @@
+<map id="town" name="town">
+<area shape="rect" id="node1" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="5,208,55,235"/>
+<area shape="rect" id="node2" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="272,5,379,32"/>
+<area shape="rect" id="node3" href="$map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="113,107,203,133"/>
+<area shape="rect" id="node6" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="437,208,569,235"/>
+<area shape="rect" id="node7" href="$menu__in__game_8c.html#ab15cbe69b23d57272cf1596d790bfdb4" title="A FINIR." alt="" coords="103,259,213,285"/>
+<area shape="rect" id="node10" href="$frame_8c.html#aff4977623e1b4fedc515c1933967f4cd" title="A FINIR." alt="" coords="109,309,207,336"/>
+<area shape="rect" id="node4" href="$map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="288,56,363,83"/>
+<area shape="rect" id="node5" href="$map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="279,107,372,133"/>
+<area shape="rect" id="node8" href="$sauvegarder_8c.html#ae0a24e8cfdb09be70e3e841361dd9482" title="A FINIR." alt="" coords="282,309,369,336"/>
+<area shape="rect" id="node9" href="$texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="A FINIR." alt="" coords="261,360,389,387"/>
+</map>

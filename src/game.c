@@ -10,7 +10,6 @@
  * \file game.c
  * \brief Gestion de l'objet game.
  * \author Enzo BRENNUS
- * \date 16/03/21
  *
  */
 

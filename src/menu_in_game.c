@@ -11,7 +11,6 @@
  * \file menu_in_game.c
  * \brief Menu dans le jeu.
  * \author Jeremy BOURGOUIN
- * \date 18/03/21
  *
  */
 
@@ -46,13 +45,13 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
 
     int selection = 0;
 
-    SDL_Texture *texture_render_menu_ig = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888,
-            SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
+    SDL_Texture *texture_render_menu_ig = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
 
     /*--- End Initialization variable --------------------------------------------*/
 
 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
+
     surf_inventaire = TTF_RenderText_Blended(game->police, "Inventaire", rouge);
     if(surf_inventaire == NULL){
         SDL_ExitWithError("probleme surface inventaire menu in game");
@@ -68,9 +67,12 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     pos_inventaire.y = (*game->WINDOWHEIGHT)*25/720;
     pos_inventaire.w = (*game->WINDOWWIDTH)*215/1200;
     pos_inventaire.h = (*game->WINDOWHEIGHT)*50/720;
+
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
+
     surf_caracteristique = TTF_RenderText_Blended(game->police, "Caracteristiques", blanc);
     if(surf_caracteristique == NULL){
         SDL_ExitWithError("probleme surface caracteristique menu in game");
@@ -86,9 +88,12 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     pos_caracteristique.y = (*game->WINDOWHEIGHT)*100/720;
     pos_caracteristique.w = (*game->WINDOWWIDTH)*322/1200;
     pos_caracteristique.h = (*game->WINDOWHEIGHT)*50/720;
+
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
+
     surf_sauvegarder = TTF_RenderText_Blended(game->police, "Sauvegarder", blanc);
     if(surf_sauvegarder == NULL){
         SDL_ExitWithError("probleme surface sauvegarder menu in game");
@@ -104,9 +109,12 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     pos_sauvegarder.y = (*game->WINDOWHEIGHT)*175/720;
     pos_sauvegarder.w = (*game->WINDOWWIDTH)*236/1200;
     pos_sauvegarder.h = (*game->WINDOWHEIGHT)*50/720;
+
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
+
     surf_options = TTF_RenderText_Blended(game->police, "Options", blanc);
     if(surf_options == NULL){
         SDL_ExitWithError("probleme surface options menu in game");
@@ -122,9 +130,12 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     pos_options.y = (*game->WINDOWHEIGHT)*250/720;
     pos_options.w = (*game->WINDOWWIDTH)*150/1200;
     pos_options.h = (*game->WINDOWHEIGHT)*50/720;
+
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
+
     surf_retourner_menu = TTF_RenderText_Blended(game->police, "Retourner au Menu", blanc);
     if(surf_retourner_menu == NULL){
         SDL_ExitWithError("probleme surface retourner_menu menu in game");
@@ -140,7 +151,9 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     pos_retourner_menu.y = (*game->WINDOWHEIGHT)*325/720;
     pos_retourner_menu.w = (*game->WINDOWWIDTH)*365/1200;
     pos_retourner_menu.h = (*game->WINDOWHEIGHT)*50/720;
+
     /*----------------------------------------------------------------------------*/
+
 
     /*---texture "cadre"--------------------------------------------------------*/
 
@@ -159,7 +172,9 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     pos_cadre.y = 0;
     pos_cadre.w = (*game->WINDOWWIDTH)*435/1280;
     pos_cadre.h = (*game->WINDOWHEIGHT)*400/720;
+
     /*------------------------------------------------------------------------------------*/
+
 
     /*---texture fond--------------------------------------------------------*/
 
@@ -185,6 +200,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     SDL_SetTextureBlendMode(fond_cadre, SDL_BLENDMODE_BLEND);
     SDL_RenderFillRect(game->render, &rect_fond_cadre);
     SDL_SetRenderTarget(game->render,NULL);
+
     /*------------------------------------------------------------------------------------*/
 
     SDL_Rect pos_texture_render;
@@ -204,6 +220,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     SDL_RenderCopy(game->render, retourner_menu, NULL, &pos_retourner_menu);
     SDL_RenderPresent(game->render);
 
+
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (menu_bool && (*game->program_launch))
@@ -211,7 +228,6 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
 
         while (SDL_PollEvent(&event))
         {
-
 
             /*--- Event pour selectionner ------------------------------------------*/
 
@@ -224,6 +240,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
             }
 
             /*--- End Event pour selectionner --------------------------------------*/
+
 
             if(selection < 0)selection = 4;
             selection %=5;
@@ -298,6 +315,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
                 }
             }
 
+
             /*--- Event to Exit Program ------------------------------------------*/
 
             if (event.type == SDL_QUIT)
@@ -320,13 +338,16 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
             }
 
             /*--- End Event to Exit Program --------------------------------------*/
+
         }
 
     }
+
     /*--- End Main Loop ----------------------------------------------------------*/
 
 
     /*--- Free Memory ------------------------------------------------------------*/
+
     SDL_FreeSurface(surf_cadre);
     SDL_FreeSurface(surf_inventaire);
     SDL_FreeSurface(surf_caracteristique);

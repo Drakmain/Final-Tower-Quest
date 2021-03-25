@@ -12,7 +12,6 @@
  * \file nouvelle_partie.c
  * \brief nouvelle partie.
  * \author Jeremy BOURGOUIN
- * \date 12/03/21
  *
  */
 
