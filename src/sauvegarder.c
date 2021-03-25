@@ -6,7 +6,7 @@
 
 
 
-void sauvegarde(game_t * game, character_t * character, SDL_Texture * texture_render_menu_ig){
+void sauvegarde(game_t * game, character_t * character, SDL_Texture * texture_render_menu_ig, SDL_bool *echap_relache){
 
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
@@ -177,7 +177,10 @@ void sauvegarde(game_t * game, character_t * character, SDL_Texture * texture_re
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN){
                 if(selection == 0);
-                if(selection == 1);
+                if(selection == 1){
+                    sauvegarde_bool = SDL_FALSE;
+                    *echap_relache = SDL_FALSE;
+                }
             }
             SDL_RenderClear(game->render);
             SDL_RenderCopy(game->render, texture_render_menu_ig, NULL, &pos_texture_render_menu_ig);
@@ -198,6 +201,7 @@ void sauvegarde(game_t * game, character_t * character, SDL_Texture * texture_re
             if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
             {
                 sauvegarde_bool = SDL_FALSE;
+                *echap_relache = SDL_FALSE;
             }
 
             /*--- End Event to Exit Program --------------------------------------*/

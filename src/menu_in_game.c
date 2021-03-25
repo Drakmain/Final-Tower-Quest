@@ -37,7 +37,8 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool menu_bool = SDL_TRUE;
-    SDL_bool echap_relache = SDL_FALSE;
+    SDL_bool *echap_relache = malloc(sizeof(SDL_bool));
+    *echap_relache = SDL_FALSE;
     SDL_Event event;
 
     int selection = 0;
@@ -281,7 +282,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN){
                 if(selection == 0)/*inventaire()*/;
                 if(selection == 1)/*caracteristiques(game, actual_save, texture_render_menu_ig)*/;
-                if(selection == 2)sauvegarde(game, character, texture_render_menu_ig);
+                if(selection == 2)sauvegarde(game, character, texture_render_menu_ig, echap_relache);
                 if(selection == 3)/*options_in_game()*/;
                 if(selection == 4){
                     menu_bool = SDL_FALSE;
@@ -298,10 +299,10 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
 
             if (!keyState[SDL_SCANCODE_ESCAPE])
             {
-                echap_relache = SDL_TRUE;
+                *echap_relache = SDL_TRUE;
             }
 
-            if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN && echap_relache)
+            if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN && *echap_relache)
             {
                 menu_bool = SDL_FALSE;
                 SDL_RenderClear(game->render);
