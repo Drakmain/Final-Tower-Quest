@@ -10,7 +10,7 @@
 /*!
  *
  * \file charger_partie.c
- * \brief charger partie.
+ * \brief Gestion du chargement d'une nouvelle partie.
  * \author Jeremy BOURGOUIN
  *
  */
@@ -19,7 +19,7 @@
 /*!
  *
  * \fn void charger_partie_f(game_t * game, char * actual_save)
- * \brief A FINIR.
+ * \brief Fonction qui permet le chargement d'une partie.
  *
  * \param game A FINIR.
  * \param actual_save A FINIR.

@@ -1,8 +1,8 @@
 RGB:          255, 255, 255;
-North_Walk:   3, 3, 16, 31, 54;
-East_Walk:    3, 28, 21, 24, 25;
-South_Walk:   3, 53, 23, 24, 27;
-West_Walk:    3, 78, 21, 24, 25;
-Damage_Taken: 3, 103, 22, 24;
-Weak:         3, 128, 23, 20;
-Dead:         3, 149, 24, 19;
+South_Walk:   3, 3, 16, 31, 54;
+East_Walk:    3, 35, 16, 31, 54;
+North_Walk:   3, 67, 14, 31, 48;
+West_Walk:    3, 99, 16, 31, 54;
+Damage_Taken: 3, 131, 22, 29;
+Weak:         3, 128, 20, 24;
+Dead:         3, 149, 32, 16;

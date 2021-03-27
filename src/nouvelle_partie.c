@@ -10,7 +10,7 @@
 /*!
  *
  * \file nouvelle_partie.c
- * \brief nouvelle partie.
+ * \brief Gestion des nouvelles partie.
  * \author Jeremy BOURGOUIN
  *
  */
@@ -19,7 +19,7 @@
 /*!
  *
  * \fn fcpy(FILE * source_file, FILE * dest_file)
- * \brief A FINIR.
+ * \brief Fonction qui permet la creation d'une nouvelle partie.
  *
  * \param source_file A FINIR.
  * \param dest_file A FINIR.
