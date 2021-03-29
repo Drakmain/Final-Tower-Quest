@@ -1,0 +1,5 @@
+Dragon_rouge: PV 100 ;
+Gardien: PV 100 ;
+La_Mort: PV 100 ;
+Reine_des_ténèbres: PV 100 ;
+Roi_aux_cornes: PV 100 ;

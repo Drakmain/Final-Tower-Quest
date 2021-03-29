@@ -51,14 +51,14 @@ void enemie_free(enemie_t ** enemie)
 
 /*!
  *
- * \fn enemie_t * enemie_create(SDL_Renderer * render, char * file_name_save)
+ * \fn enemie_t * enemie_create(SDL_Renderer * render, char * file_name_enemies)
  * \brief Permet la creation du l'objet enemie.
  *
  * \param render est un pointeur sur le rendu SDL.
- * \param file_name_save A FINIR.
+ * \param file_name_enemies est une chaîne de caractère contenant l'emplacement du fichier des informations de enemies.
  *
- * \return enemie Un objet enemie créé dans cette fonction.
- * \retval enemie_t * Un pointeur sur l'objet enemie.
+ * \return enemie Un objet enemie_t créé dans cette fonction.
+ * \retval enemie_t * Un pointeur sur l'objet enemie_t.
  *
  */
 
@@ -94,11 +94,12 @@ enemie_t * enemie_create(SDL_Renderer * render, char * file_name_enemies)
     /*--- End Initialization variable --------------------------------------------*/
 
 
-    /*--- Oue ----------------------------------------------------------*/
+    /*--- Open txt file ----------------------------------------------------------*/
     
     char enemies[16][30];
     
     enemei_rand = rand() % 15;
+    printf("enemei_rand: %i\n", enemei_rand);
 
     file = fopen(file_name_enemies, "r");
 

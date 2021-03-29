@@ -70,6 +70,9 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
 
     int selection = 0;
 
+    FILE * scr;
+    FILE * dst;
+
     /*--- End Initialization variable --------------------------------------------*/
 
 
@@ -1148,47 +1151,54 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
 
                 if(selection == 0)
                 {
-                    FILE * scr = fopen("save//save_base.txt", "r");
-                    FILE * dst = fopen(character_save1->file_name_save, "w+");
-
-                    fcpy(scr, dst);
-
-                    fclose(scr);
-                    fclose(dst);
 
                     if (character_save1->empty == SDL_FALSE)
                     {
-                        if(texte_confirmation(game, "Voulez-vous vraiment ecraser la sauvegarde ?")){
+                        if(texte_confirmation(game, "Voulez-vous vraiment ecraser la sauvegarde ?"))
+                        {
+                            
+                            scr = fopen("save//save_base.txt", "r");
+                            dst = fopen(character_save1->file_name_save, "w+");
+
+                            fcpy(scr, dst);
+
+                            fclose(scr);
+                            fclose(dst);
+
                             strcpy(actual_save, "save//save1.txt");
                             creation_perso(game, actual_save);
                         }
                     }
-                    else{
+                    else
+                    {
                         strcpy(actual_save, "save//save1.txt");
                         creation_perso(game, actual_save);
                     }
-
 
                 }
 
                 if(selection == 1)
                 {
-                    FILE * scr = fopen("save//save_base.txt", "r");
-                    FILE * dst = fopen(character_save2->file_name_save, "w+");
-
-                    fcpy(scr, dst);
-
-                    fclose(scr);
-                    fclose(dst);
-
+                    
                     if (character_save1->empty == SDL_FALSE)
                     {
-                        if(texte_confirmation(game, "Voulez-vous vraiment ecraser la sauvegarde ?")){
+                        if(texte_confirmation(game, "Voulez-vous vraiment ecraser la sauvegarde ?"))
+                        {
+
+                            scr = fopen("save//save_base.txt", "r");
+                            dst = fopen(character_save2->file_name_save, "w+");
+
+                            fcpy(scr, dst);
+
+                            fclose(scr);
+                            fclose(dst);
+
                             strcpy(actual_save, "save//save1.txt");
                             creation_perso(game, actual_save);
                         }
                     }
-                    else{
+                    else
+                    {
                         strcpy(actual_save, "save//save1.txt");
                         creation_perso(game, actual_save);
                     }
@@ -1197,22 +1207,26 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
 
                 if(selection == 2)
                 {
-                    FILE * scr = fopen("save//save_base.txt", "r");
-                    FILE * dst = fopen(character_save3->file_name_save, "w+");
-
-                    fcpy(scr, dst);
-
-                    fclose(scr);
-                    fclose(dst);
 
                     if (character_save1->empty == SDL_FALSE)
                     {
-                        if(texte_confirmation(game, "Voulez-vous vraiment ecraser la sauvegarde ?")){
+                        if(texte_confirmation(game, "Voulez-vous vraiment ecraser la sauvegarde ?"))
+                        {
+
+                            scr = fopen("save//save_base.txt", "r");
+                            dst = fopen(character_save3->file_name_save, "w+");
+
+                            fcpy(scr, dst);
+
+                            fclose(scr);
+                            fclose(dst);
+
                             strcpy(actual_save, "save//save1.txt");
                             creation_perso(game, actual_save);
                         }
                     }
-                    else{
+                    else
+                    {
                         strcpy(actual_save, "save//save1.txt");
                         creation_perso(game, actual_save);
                     }

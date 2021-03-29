@@ -42,7 +42,7 @@ void combat(game_t * game, character_t * character, map_t * map){
     enemie_t * enemie_2 = NULL;
     enemie_t * enemie_3 = NULL;
     enemie_t * enemie_4 = NULL;
-
+    
     int nb_enemie;
 
     const Uint8* keyState = SDL_GetKeyboardState(NULL);
@@ -57,35 +57,51 @@ void combat(game_t * game, character_t * character, map_t * map){
     pos_Wind_character.x = (*game->WINDOWWIDTH) / 1.5;
     pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
 
+    //POS 1
     SDL_Rect pos_Wind_enemie_1_1;
     pos_Wind_enemie_1_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_enemie_1_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_enemie_1_1.x = (*game->WINDOWWIDTH) / 3;
     pos_Wind_enemie_1_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
 
+    //POS 2
     SDL_Rect pos_Wind_enemie_2_1;
     pos_Wind_enemie_2_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_enemie_2_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_enemie_2_1.x = (*game->WINDOWWIDTH) / 3;
-    pos_Wind_enemie_2_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 3;
+    pos_Wind_enemie_2_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
 
     SDL_Rect pos_Wind_enemie_2_2;
     pos_Wind_enemie_2_2.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_enemie_2_2.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_enemie_2_2.x = (*game->WINDOWWIDTH) / 3;
-    pos_Wind_enemie_2_2.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 1.5;
+    pos_Wind_enemie_2_2.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 1.7;
 
+    //POS 3
+    SDL_Rect pos_Wind_enemie_3_1;
+    pos_Wind_enemie_3_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_enemie_3_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_enemie_3_1.x = (*game->WINDOWWIDTH) / 3;
+    pos_Wind_enemie_3_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 3.5;
+
+    SDL_Rect pos_Wind_enemie_3_3;
+    pos_Wind_enemie_3_3.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_enemie_3_3.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_enemie_3_3.x = (*game->WINDOWWIDTH) / 3;
+    pos_Wind_enemie_3_3.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 1.4;
+
+    //POS 4
     SDL_Rect pos_Wind_enemie_4_1;
     pos_Wind_enemie_4_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_enemie_4_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_enemie_4_1.x = (*game->WINDOWWIDTH) / 3;
-    pos_Wind_enemie_4_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
+    pos_Wind_enemie_4_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 6.1;
 
     SDL_Rect pos_Wind_enemie_4_4;
     pos_Wind_enemie_4_4.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_enemie_4_4.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_enemie_4_4.x = (*game->WINDOWWIDTH) / 3;
-    pos_Wind_enemie_4_4.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
+    pos_Wind_enemie_4_4.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 1.3;
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -93,7 +109,7 @@ void combat(game_t * game, character_t * character, map_t * map){
     /*--- Initialization Enemeis ------------------------------------------------*/
 
     nb_enemie = rand() % 4 + 1;
-    printf("nb_enemie : %i\n", nb_enemie);
+    
     switch (nb_enemie)
     {
     case 1:
@@ -137,9 +153,9 @@ void combat(game_t * game, character_t * character, map_t * map){
         break;
 
     case 3:
-        //SDL_RenderCopy(game->render, enemie_1->texture, NULL, &pos_Wind_enemie_3_1);
+        SDL_RenderCopy(game->render, enemie_1->texture, NULL, &pos_Wind_enemie_3_1);
         SDL_RenderCopy(game->render, enemie_2->texture, NULL, &pos_Wind_enemie_1_1);
-        //SDL_RenderCopy(game->render, enemie_3->texture, NULL, &pos_Wind_enemie_3_3);
+        SDL_RenderCopy(game->render, enemie_3->texture, NULL, &pos_Wind_enemie_3_3);
         break;
 
     case 4:
@@ -184,22 +200,21 @@ void combat(game_t * game, character_t * character, map_t * map){
     
     if (enemie_exist(enemie_1) == SDL_TRUE)
     {
-        printf("free 1\n");
         enemie_1->free(&enemie_1);
     }
+
     if (enemie_exist(enemie_2) == SDL_TRUE)
     {
-        printf("free 2\n");
         enemie_2->free(&enemie_2);
     }
+
     if (enemie_exist(enemie_3) == SDL_TRUE)
     {
-        printf("free 3\n");
         enemie_3->free(&enemie_3);
     }
+
     if (enemie_exist(enemie_4) == SDL_TRUE)
     {
-        printf("free 4\n");
         enemie_4->free(&enemie_4);
     }    
 

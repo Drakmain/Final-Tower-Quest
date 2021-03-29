@@ -1,0 +1,15 @@
+save_name:  ;
+classe_name: Assasin ;
+position: Village ;
+x: ;
+y: ;
+lvl: 1 ;
+xp: 0 ;
+life: 35 ;
+mana: 35 ;
+vitalite: 0 ;
+force: 0 ;
+intelligence: 0 ;
+agilite: 50 ;
+defense:  ;
+point_dispo: 0 ;
