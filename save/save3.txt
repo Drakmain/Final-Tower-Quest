@@ -1,6 +1,6 @@
 save_name: Jeremy ;
 charactere_name: Guerrier ;
-position: Paradis ;
+position: Armurie ;
 x: 0 ;
 y: 0 ;
 lvl: 38 ;

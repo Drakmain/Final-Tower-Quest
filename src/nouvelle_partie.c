@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "..\lib\nouvelle_partie.h"
 
+#include "..\lib\texte_confirmation.h"
 #include "..\lib\creation_perso.h"
 #include "..\lib\character.h"
 
@@ -58,16 +60,419 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
-    SDL_Surface *surf_save1 = NULL, *surf_save2 = NULL, *surf_save3 = NULL, *surf_cadre = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_choisir_empla = NULL;
+    SDL_Surface *surf_save1_vide = NULL, *surf_save2_vide = NULL, *surf_save3_vide = NULL, *surf_save1 = NULL, *surf_save2 = NULL, *surf_save3 = NULL, *surf_spriteGuerrier = NULL, *surf_spriteMage = NULL, *surf_spriteAssassin = NULL, *surf_nom_save1 = NULL, *surf_nom_save2 = NULL, *surf_nom_save3 = NULL, *surf_cadre = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_choisir_empla = NULL, *surf_position = NULL, *surf_position_save1 = NULL, *surf_position_save2 = NULL, *surf_position_save3 = NULL, *surf_lvl = NULL, *surf_lvl_save1 = NULL, *surf_lvl_save2 = NULL, *surf_lvl_save3 = NULL;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool nouv_part_bool = SDL_TRUE;
+
     SDL_Event event;
 
     int selection = 0;
 
     /*--- End Initialization variable --------------------------------------------*/
+
+    /*--- Open save file ---------------------------------------------------------*/
+
+    character_t * character_save1 = NULL;
+    character_save1 = character_create(game->render, "save//save1.txt");
+    if (character_save1 == NULL)
+    {
+        exit_with_error("Cannot create a character_t object > nouvelle_partie.c Line 341");
+    }
+    else if (character_save1->empty == SDL_TRUE)
+    {
+        //Affichage sauvegarde vide
+        printf("Save 1 vide\n");
+    }
+    else
+    {
+        printf("Sauvegarde non vide. Continuer ? ");
+        printf("%s\n", character_save1->save_name);
+    }
+
+
+    character_t * character_save2 = NULL;
+    character_save2 = character_create(game->render, "save//save2.txt");
+    if (character_save2 == NULL)
+    {
+        exit_with_error("Cannot create a character_t object > nouvelle_partie.c Line 337");
+    }
+    else if (character_save2->empty == SDL_TRUE)
+    {
+        //Affichage sauvegarde vide
+        printf("Save 2 vide\n");
+    }
+    else
+    {
+        printf("Sauvegarde non vide. Continuer ? ");
+        printf("%s\n", character_save2->save_name);
+    }
+
+
+    character_t * character_save3 = NULL;
+    character_save3 = character_create(game->render, "save//save3.txt");
+    if (character_save3 == NULL)
+    {
+        exit_with_error("Cannot create a character_t object > nouvelle_partie.c Line 374");
+    }
+    else if (character_save3->empty == SDL_TRUE)
+    {
+        //Affichage sauvegarde vide
+        printf("Save 3 vide\n\n");
+    }
+    else
+    {
+        printf("Sauvegarde non vide. Continuer ? ");
+        printf("%s\n\n", character_save3->save_name);
+    }
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Affichage save1 vide -----------------------------*/
+
+    surf_save1_vide = TTF_RenderText_Blended(game->police, "Sauvegarde vide", blanc);
+    if(surf_save1_vide == NULL)
+    {
+        SDL_ExitWithError("Probleme surface save1_vide");
+    }
+
+    SDL_Texture * save1_vide = SDL_CreateTextureFromSurface(game ->render, surf_save1_vide);
+    if(save1_vide == NULL)
+    {
+        SDL_ExitWithError("Probleme texture save1_vide");
+    }
+
+    SDL_Rect pos_save1_vide;
+    pos_save1_vide.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/8 - (*game->WINDOWWIDTH)/22;
+    pos_save1_vide.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/5.95;
+    pos_save1_vide.w = (*game->WINDOWWIDTH)/(500/129);
+    pos_save1_vide.h = (*game->WINDOWHEIGHT)/13.5;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Affichage nom save1 ----------------------------------------------------*/
+
+    SDL_Texture * nom_save1 = NULL;
+
+    if (character_save1->empty == SDL_FALSE)
+    {
+        surf_nom_save1 = TTF_RenderText_Blended(game->police, character_save1->save_name, blanc);
+        if(surf_nom_save1 == NULL)
+        {
+            SDL_ExitWithError("Probleme surface nom save 1");
+        }
+
+        nom_save1 = SDL_CreateTextureFromSurface(game->render, surf_nom_save1);
+        if(nom_save1 == NULL)
+        {
+            SDL_ExitWithError("Probleme texture nom save 1");
+        }
+    }
+
+    /*--- End Affichage nom save1 ---------------------------------------------------*/
+
+
+    /*--- Affichage position save1 --------------------------------------------------*/
+
+    SDL_Texture * position_save1 = NULL;
+
+    if (character_save1->empty == SDL_FALSE)
+    {
+        surf_position_save1 = TTF_RenderText_Blended(game->police, character_save1->position, blanc);
+        if(surf_position_save1 == NULL)
+        {
+            SDL_ExitWithError("probleme surface position save 1");
+        }
+
+        position_save1 = SDL_CreateTextureFromSurface(game->render, surf_position_save1);
+        if(position_save1 == NULL)
+        {
+            SDL_ExitWithError("probleme texture position save 1");
+        }
+    }
+
+    SDL_Rect pos_position_save1;
+    pos_position_save1.x = (*game->WINDOWWIDTH)/1.64 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+    pos_position_save1.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/7;
+    pos_position_save1.w = strlen(character_save1->position) * (*game->WINDOWWIDTH)/9/10;
+    pos_position_save1.h = (*game->WINDOWHEIGHT)/14;
+
+    /*--- End Affichage position save1 ----------------------------------------------*/
+
+
+    /*--- Affichage lvl save1 -------------------------------------------------------*/
+
+    char char_lvl_save1[10];
+    SDL_Texture * lvl_save1 = NULL;
+
+    if (character_save1->empty == SDL_FALSE)
+    {
+        itoa(character_save1->lvl, char_lvl_save1, 10);
+
+        surf_lvl_save1 = TTF_RenderText_Blended(game->police, char_lvl_save1 , blanc);
+        if(surf_lvl_save1 == NULL)
+        {
+            SDL_ExitWithError("probleme surface niveau save 1");
+        }
+
+        lvl_save1 = SDL_CreateTextureFromSurface(game->render, surf_lvl_save1);
+        if(lvl_save1 == NULL)
+        {
+            SDL_ExitWithError("probleme texture niveau save 1");
+        }
+    }
+
+    SDL_Rect pos_lvl_save1;
+    pos_lvl_save1.x = (*game->WINDOWWIDTH)/1.43 - (*game->WINDOWWIDTH)/50;
+    pos_lvl_save1.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/7.19;
+    pos_lvl_save1.w = strlen(char_lvl_save1) * (*game->WINDOWWIDTH)/14/5;
+    pos_lvl_save1.h = (*game->WINDOWHEIGHT)/16;
+
+    /*--- End Affichage lvl save1 ---------------------------------------------------*/
+
+
+    /*--- Affichage save2 vide -----------------------------*/
+
+    surf_save2_vide = TTF_RenderText_Blended(game->police, "Sauvegarde vide", blanc);
+    if(surf_save2_vide == NULL)
+    {
+        SDL_ExitWithError("Probleme surface save2_vide");
+    }
+
+    SDL_Texture * save2_vide = SDL_CreateTextureFromSurface(game ->render, surf_save2_vide);
+    if(save2_vide == NULL)
+    {
+        SDL_ExitWithError("Probleme texture save2_vide");
+    }
+
+    SDL_Rect pos_save2_vide;
+    pos_save2_vide.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/8 - (*game->WINDOWWIDTH)/22;
+    pos_save2_vide.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/33;
+    pos_save2_vide.w = (*game->WINDOWWIDTH)/(500/129);
+    pos_save2_vide.h = (*game->WINDOWHEIGHT)/13.5;
+
+    /*----------------------------------------------------------------------------*/
+
+
+    /*--- Affichage nom save2 -------------------------------------------------------*/
+
+    SDL_Texture * nom_save2 = NULL;
+
+    if (character_save2->empty == SDL_FALSE)
+    {
+        surf_nom_save2 = TTF_RenderText_Blended(game->police, character_save2->save_name, blanc);
+        if(surf_nom_save2 == NULL)
+        {
+        SDL_ExitWithError("Probleme surface nom save 2");
+        }
+
+        nom_save2 = SDL_CreateTextureFromSurface(game->render, surf_nom_save2);
+        if(nom_save2 == NULL)
+        {
+            SDL_ExitWithError("Probleme texture nom save 2");
+        }
+    }
+
+    /*--- End Affichage nom save2 ---------------------------------------------------*/
+
+
+    /*--- Affichage position save2 --------------------------------------------------*/
+
+    SDL_Texture * position_save2 = NULL;
+
+    if (character_save2->empty == SDL_FALSE)
+    {
+        surf_position_save2 = TTF_RenderText_Blended(game->police, character_save2->position, blanc);
+        if(surf_position_save2 == NULL)
+        {
+            SDL_ExitWithError("probleme surface position save 2");
+        }
+
+        position_save2 = SDL_CreateTextureFromSurface(game->render, surf_position_save2);
+        if(position_save2 == NULL)
+        {
+            SDL_ExitWithError("probleme texture position save 2");
+        }
+    }
+
+    SDL_Rect pos_position_save2;
+    pos_position_save2.x = (*game->WINDOWWIDTH)/1.64 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+    pos_position_save2.y = (*game->WINDOWHEIGHT)/1.87 - (*game->WINDOWWIDTH)/50;
+    pos_position_save2.w = strlen(character_save2->position) * (*game->WINDOWWIDTH)/9/10;
+    pos_position_save2.h = (*game->WINDOWHEIGHT)/14;
+
+    /*--- End Affichage position save2 ----------------------------------------------*/
+
+
+    /*--- Affichage lvl save2 -------------------------------------------------------*/
+
+    char char_lvl_save2[10];
+    SDL_Texture * lvl_save2 = NULL;
+
+    if (character_save2->empty == SDL_FALSE)
+    {
+        itoa(character_save2->lvl, char_lvl_save2, 10);
+
+        surf_lvl_save2 = TTF_RenderText_Blended(game->police, char_lvl_save2 , blanc);
+        if(surf_lvl_save2 == NULL)
+        {
+            SDL_ExitWithError("probleme surface niveau save 2");
+        }
+
+        lvl_save2 = SDL_CreateTextureFromSurface(game->render, surf_lvl_save2);
+        if(lvl_save2 == NULL)
+        {
+            SDL_ExitWithError("probleme texture niveau save 2");
+        }
+    }
+
+
+
+    SDL_Rect pos_lvl_save2;
+    pos_lvl_save2.x = (*game->WINDOWWIDTH)/1.43 - (*game->WINDOWWIDTH)/50;
+    pos_lvl_save2.y = (*game->WINDOWHEIGHT)/1.86 - (*game->WINDOWWIDTH)/50;
+    pos_lvl_save2.w = strlen(char_lvl_save2) * (*game->WINDOWWIDTH)/14/5;
+    pos_lvl_save2.h = (*game->WINDOWHEIGHT)/16;
+
+    /*--- End Affichage lvl save2 ---------------------------------------------------*/
+
+
+    /*--- Affichage save3 vide -----------------------------*/
+
+    surf_save3_vide = TTF_RenderText_Blended(game->police, "Sauvegarde vide", blanc);
+    if(surf_save3_vide == NULL){
+        SDL_ExitWithError("Probleme surface save3_vide");
+    }
+
+    SDL_Texture * save3_vide = SDL_CreateTextureFromSurface(game ->render, surf_save3_vide);
+    if(save3_vide == NULL){
+        SDL_ExitWithError("Probleme texture save3_vide");
+    }
+
+    SDL_Rect pos_save3_vide;
+    pos_save3_vide.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/8 - (*game->WINDOWWIDTH)/22;
+    pos_save3_vide.y = (*game->WINDOWHEIGHT)/1.38 - (*game->WINDOWWIDTH)/80;
+    pos_save3_vide.w = (*game->WINDOWWIDTH)/(500/129);
+    pos_save3_vide.h = (*game->WINDOWHEIGHT)/13.5;
+
+    /*----------------------------------------------------------------------------*/
+
+
+    /*--- Affichage nom save3 -------------------------------------------------------*/
+
+    SDL_Texture * nom_save3 = NULL;
+
+    if (character_save3->empty == SDL_FALSE)
+    {
+        surf_nom_save3 = TTF_RenderText_Blended(game->police, character_save3->save_name, blanc);
+        if(surf_nom_save3 == NULL)
+        {
+        SDL_ExitWithError("Probleme surface nom save 3");
+        }
+
+        nom_save3 = SDL_CreateTextureFromSurface(game->render, surf_nom_save3);
+        if(nom_save3 == NULL)
+        {
+            SDL_ExitWithError("Probleme texture nom save 3");
+        }
+    }
+
+    /*--- End Affichage nom save3 ---------------------------------------------------*/
+
+
+    /*--- Affichage position save3 --------------------------------------------------*/
+
+    SDL_Texture * position_save3 = NULL;
+
+    if (character_save3->empty == SDL_FALSE)
+    {
+        surf_position_save3 = TTF_RenderText_Blended(game->police, character_save3->position, blanc);
+        if(surf_position_save3 == NULL)
+        {
+            SDL_ExitWithError("probleme surface position save 3");
+        }
+
+        position_save3 = SDL_CreateTextureFromSurface(game->render, surf_position_save3);
+        if(position_save3 == NULL)
+        {
+            SDL_ExitWithError("probleme texture position save 3");
+        }
+    }
+
+    SDL_Rect pos_position_save3;
+    pos_position_save3.x = (*game->WINDOWWIDTH)/1.64 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+    pos_position_save3.y = (*game->WINDOWHEIGHT)/1.28 - (*game->WINDOWWIDTH)/50;
+    pos_position_save3.w = strlen(character_save3->position) * (*game->WINDOWWIDTH)/9/10;
+    pos_position_save3.h = (*game->WINDOWHEIGHT)/14;
+
+    /*---  End Affichage position save3 ----------------------------------------------*/
+
+
+    /*--- Affichage lvl save3 -------------------------------------------------------*/
+
+    char char_lvl_save3[10];
+    SDL_Texture * lvl_save3 = NULL;
+
+    if (character_save3->empty == SDL_FALSE)
+    {
+        itoa(character_save3->lvl, char_lvl_save3, 10);
+
+        surf_lvl_save3 = TTF_RenderText_Blended(game->police, char_lvl_save3 , blanc);
+        if(surf_lvl_save3 == NULL)
+        {
+            SDL_ExitWithError("probleme surface niveau save 3");
+        }
+
+        lvl_save3 = SDL_CreateTextureFromSurface(game->render, surf_lvl_save3);
+        if(lvl_save3 == NULL)
+        {
+            SDL_ExitWithError("probleme texture niveau save 3");
+        }
+    }
+
+
+
+    SDL_Rect pos_lvl_save3;
+    pos_lvl_save3.x = (*game->WINDOWWIDTH)/1.43 - (*game->WINDOWWIDTH)/50;
+    pos_lvl_save3.y = (*game->WINDOWHEIGHT)/1.28 - (*game->WINDOWWIDTH)/50;
+    pos_lvl_save3.w = strlen(char_lvl_save3) * (*game->WINDOWWIDTH)/14/5;
+    pos_lvl_save3.h = (*game->WINDOWHEIGHT)/16;
+
+    /*--- End Affichage lvl save3 ---------------------------------------------------*/
+
+
+    /*--- Affichage position --------------------------------------------------*/
+
+    surf_position = TTF_RenderText_Blended(game->police, "Position : ", blanc);
+    if(surf_position == NULL)
+    {
+        SDL_ExitWithError("probleme surface position");
+    }
+    SDL_Texture* position = SDL_CreateTextureFromSurface(game->render, surf_position);
+    if(position == NULL)
+    {
+        SDL_ExitWithError("probleme texture position");
+    }
+
+    /*--- End Affichage position ----------------------------------------------*/
+
+
+    /*--- Affichage lvl -------------------------------------------------------*/
+
+    surf_lvl = TTF_RenderText_Blended(game->police, "LVL : ", blanc);
+    if(surf_lvl == NULL)
+    {
+        SDL_ExitWithError("probleme surface niveau");
+    }
+    SDL_Texture* lvl = SDL_CreateTextureFromSurface(game->render, surf_lvl);
+    if(lvl == NULL)
+    {
+        SDL_ExitWithError("probleme texture niveau");
+    }
+
+    /*--- End Affichage lvl ---------------------------------------------------*/
+
 
 
     /*--- Creation text "choisissez emplacement" ---------------------------------*/
@@ -136,61 +541,12 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
 
     /*----------------------------------------------------------------------------*/
 
-
-    /*--- Creation texture "save 1" ----------------------------------------------*/
-
-    surf_save1 = TTF_RenderText_Blended(game->police, "options", blanc);
-    if(surf_save1 == NULL)
-    {
-        SDL_ExitWithError("probleme surface options");
-    }
-    SDL_Texture* save1 = SDL_CreateTextureFromSurface(game->render, surf_save1);
-    if(save1 == NULL)
-    {
-        SDL_ExitWithError("probleme texture options");
-    }
-
-    /*----------------------------------------------------------------------------*/
-
-
-    /*--- Creation texture "save 2" ----------------------------------------------*/
-
-    surf_save2 = TTF_RenderText_Blended(game->police, "options", blanc);
-    if(surf_save2 == NULL)
-    {
-        SDL_ExitWithError("probleme surface options");
-    }
-    SDL_Texture* save2 = SDL_CreateTextureFromSurface(game->render, surf_save2);
-    if(save2 == NULL)
-    {
-        SDL_ExitWithError("probleme texture options");
-    }
-
-    /*----------------------------------------------------------------------------*/
-
-
-    /*--- Creation texture "save 3" ----------------------------------------------*/
-
-    surf_save3 = TTF_RenderText_Blended(game->police, "options", blanc);
-    if(surf_save3 == NULL)
-    {
-        SDL_ExitWithError("probleme surface options");
-    }
-    SDL_Texture* save3 = SDL_CreateTextureFromSurface(game->render, surf_save3);
-    if(save3 == NULL)
-    {
-        SDL_ExitWithError("probleme texture options");
-    }
-
-    /*----------------------------------------------------------------------------*/
-
-
     /*--- Loading texture "cadre choix emplacement" ------------------------------*/
 
     surf_cadre = SDL_LoadBMP("src\\image\\cadre_choix_emplacement.bmp");
     if(surf_cadre == NULL)
     {
-        SDL_ExitWithError("probleme chargement image cadre choix emplacement");
+        SDL_ExitWithError("probleme chargement image cadre");
     }
 
     /*----------------------------------------------------------------------------*/
@@ -334,62 +690,79 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
     /*----------------------------------------------------------------------------*/
 
 
-    /*--- Open save file ---------------------------------------------------------*/
+    /*--- Initialization texture "Guerrier" --------------------------------------*/
 
-    character_t * character_save1 = NULL;
-    character_save1 = character_create(game->render, "save//save1.txt");
-    if (character_save1 == NULL)
+    surf_spriteGuerrier = SDL_LoadBMP("src\\tileset\\PJ\\Guerrier.bmp");
+    SDL_SetColorKey(surf_spriteGuerrier, SDL_TRUE, SDL_MapRGB(surf_spriteGuerrier->format, 255,255,255));
+    if(surf_spriteGuerrier == NULL)
     {
-        exit_with_error("Cannot create a character_t object > nouvelle_partie.c Line 341");
-    }
-    else if (character_save1->empty == SDL_TRUE)
-    {
-        //Affichage sauvegarde vide
-        printf("Save 1 vide\n");
-    }
-    else
-    {
-        printf("Sauvegarde non vide. Continuer ? ");
-        printf("%s\n", character_save1->save_name);
+        SDL_ExitWithError("probleme chargement sprite du guerrier");
     }
 
-
-    character_t * character_save2 = NULL;
-    character_save2 = character_create(game->render, "save//save2.txt");
-    if (character_save2 == NULL)
+    SDL_Texture* spriteGuerrier = SDL_CreateTextureFromSurface(game->render, surf_spriteGuerrier);
+    if(spriteGuerrier == NULL)
     {
-        exit_with_error("Cannot create a character_t object > nouvelle_partie.c Line 337");
-    }
-    else if (character_save2->empty == SDL_TRUE)
-    {
-        //Affichage sauvegarde vide
-        printf("Save 2 vide\n");
-    }
-    else
-    {
-        printf("Sauvegarde non vide. Continuer ? ");
-        printf("%s\n", character_save2->save_name);
+        SDL_ExitWithError("probleme texture sprite du guerrier");
     }
 
-
-    character_t * character_save3 = NULL;
-    character_save3 = character_create(game->render, "save//save3.txt");
-    if (character_save3 == NULL)
-    {
-        exit_with_error("Cannot create a character_t object > nouvelle_partie.c Line 374");
-    }
-    else if (character_save3->empty == SDL_TRUE)
-    {
-        //Affichage sauvegarde vide
-        printf("Save 3 vide\n\n");
-    }
-    else
-    {
-        printf("Sauvegarde non vide. Continuer ? ");
-        printf("%s\n\n", character_save3->save_name);
-    }
+    SDL_Rect pos_sprite_guerrier;
+    pos_sprite_guerrier.x = 3;
+    pos_sprite_guerrier.y = 3;
+    pos_sprite_guerrier.w = 20;
+    pos_sprite_guerrier.h = 30;
 
     /*----------------------------------------------------------------------------*/
+
+
+    /*--- Initialization texture "Mage" ------------------------------------------*/
+
+    surf_spriteMage = SDL_LoadBMP("src\\tileset\\PJ\\Mage.bmp");
+    SDL_SetColorKey(surf_spriteMage, SDL_TRUE, SDL_MapRGB(surf_spriteMage->format, 255,255,255));
+    if(surf_spriteMage == NULL)
+    {
+        SDL_ExitWithError("probleme chargement sprite du mage");
+    }
+
+    SDL_Texture* spriteMage = SDL_CreateTextureFromSurface(game->render, surf_spriteMage);
+    if(spriteMage == NULL)
+    {
+        SDL_ExitWithError("probleme texture sprite du mage");
+    }
+
+    SDL_Rect pos_sprite_mage;
+    pos_sprite_mage.x = 3;
+    pos_sprite_mage.y = 3;
+    pos_sprite_mage.w = 16;
+    pos_sprite_mage.h = 31;
+
+    /*----------------------------------------------------------------------------*/
+
+
+    /*--- Initialization texture "Assassin" --------------------------------------*/
+
+    surf_spriteAssassin = SDL_LoadBMP("src\\tileset\\PJ\\Assassin.bmp");
+    SDL_SetColorKey(surf_spriteAssassin, SDL_TRUE, SDL_MapRGB(surf_spriteAssassin->format, 255,255,255));
+    if(surf_spriteAssassin == NULL)
+    {
+        SDL_ExitWithError("probleme chargement sprite du assassin");
+    }
+
+    SDL_Texture* spriteAssassin = SDL_CreateTextureFromSurface(game->render, surf_spriteAssassin);
+    if(spriteAssassin == NULL)
+    {
+        SDL_ExitWithError("probleme texture sprite du assassin");
+    }
+
+    SDL_Rect pos_sprite_assassin;
+    pos_sprite_assassin.x = 3;
+    pos_sprite_assassin.y = 3;
+    pos_sprite_assassin.w = 18;
+    pos_sprite_assassin.h = 30;
+
+    /*----------------------------------------------------------------------------*/
+
+
+
 
 
     SDL_RenderClear(game->render);
@@ -479,6 +852,7 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
 
                 surf_retour = TTF_RenderText_Blended(game->police, "Retour", blanc);
                 retour = SDL_CreateTextureFromSurface(game->render, surf_retour);
+
             }
 
             if(selection == 1)
@@ -521,6 +895,7 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
                 rect_fond_cadre_save2.y = (*game->WINDOWHEIGHT)*12/675;
                 rect_fond_cadre_save2.w = pos_fond_cadre_save2.w - 2*rect_fond_cadre_save2.x;
                 rect_fond_cadre_save2.h = pos_fond_cadre_save2.h - 2*rect_fond_cadre_save2.y;
+
             }
 
             if(selection == 2)
@@ -593,11 +968,189 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
             SDL_RenderCopy(game->render, choisir_empla, NULL, &pos_choisir_empla);
             SDL_RenderCopy(game->render, retour, NULL, &pos_retour);
             SDL_RenderCopy(game->render, fond_cadre_save1, NULL, &pos_fond_cadre_save1);
-            SDL_RenderCopy(game->render, fond_cadre_save1, NULL, &pos_fond_cadre_save2);
-            SDL_RenderCopy(game->render, fond_cadre_save1, NULL, &pos_fond_cadre_save3);
+            SDL_RenderCopy(game->render, fond_cadre_save2, NULL, &pos_fond_cadre_save2);
+            SDL_RenderCopy(game->render, fond_cadre_save3, NULL, &pos_fond_cadre_save3);
             SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save1);
-            SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save2);
-            SDL_RenderCopy(game->render, cadre_save1, NULL, &pos_cadre_save3);
+            SDL_RenderCopy(game->render, cadre_save2, NULL, &pos_cadre_save2);
+            SDL_RenderCopy(game->render, cadre_save3, NULL, &pos_cadre_save3);
+
+
+            if (character_save1->empty == SDL_TRUE)
+            {
+                SDL_RenderCopy(game->render, save1_vide, NULL, &pos_save1_vide);
+            }
+            else
+            {
+
+                SDL_Rect pos_position;
+                pos_position.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+                pos_position.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/7;
+                pos_position.w = (*game->WINDOWWIDTH)/9;
+                pos_position.h = (*game->WINDOWHEIGHT)/14;
+                SDL_RenderCopy(game->render, position, NULL, &pos_position);
+                SDL_RenderCopy(game->render, position_save1, NULL, &pos_position_save1);
+
+                SDL_Rect pos_lvl;
+                pos_lvl.x = (*game->WINDOWWIDTH)/1.6 - (*game->WINDOWWIDTH)/50;
+                pos_lvl.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/7.19;
+                pos_lvl.w = (*game->WINDOWWIDTH)/14;
+                pos_lvl.h = (*game->WINDOWHEIGHT)/16;
+                SDL_RenderCopy(game->render, lvl, NULL, &pos_lvl);
+                SDL_RenderCopy(game->render, lvl_save1, NULL, &pos_lvl_save1);
+
+                SDL_Rect pos_nom_save1;
+                pos_nom_save1.w = strlen(character_save1->save_name)*(*game->WINDOWWIDTH)/7/10;
+                pos_nom_save1.h = (*game->WINDOWHEIGHT)/13.5;
+                pos_nom_save1.x = (*game->WINDOWWIDTH)/2 - pos_nom_save1.w/2;
+                pos_nom_save1.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/5.3;
+                SDL_RenderCopy(game->render, nom_save1, NULL, &pos_nom_save1);
+
+                if(strcmp(character_save1->charactere_name, "Guerrier") == 0) {
+                    SDL_Rect pos_spriteGuerrier;
+                    pos_spriteGuerrier.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6 - (*game->WINDOWWIDTH)/18;
+                    pos_spriteGuerrier.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/5.4;
+                    pos_spriteGuerrier.w = (*game->WINDOWWIDTH) * 66.5 /1200;
+                    pos_spriteGuerrier.h = (*game->WINDOWHEIGHT) * 105 /675;
+                    SDL_RenderCopy(game->render, spriteGuerrier, &pos_sprite_guerrier, &pos_spriteGuerrier);
+
+                }
+                else if(strcmp(character_save1->charactere_name, "Mage") == 0) {
+                    SDL_Rect pos_spriteMage;
+                    pos_spriteMage.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6 - (*game->WINDOWWIDTH)/18;
+                    pos_spriteMage.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/5.4;
+                    pos_spriteMage.w = (*game->WINDOWWIDTH) * 49 /1200;
+                    pos_spriteMage.h = (*game->WINDOWHEIGHT) * 108.5 /675;
+                    SDL_RenderCopy(game->render, spriteMage, &pos_sprite_mage, &pos_spriteMage);
+
+                }
+                else if(strcmp(character_save1->charactere_name, "Assassin") == 0) {
+                    SDL_Rect pos_spriteAssassin;
+                    pos_spriteAssassin.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6 - (*game->WINDOWWIDTH)/18;
+                    pos_spriteAssassin.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/5.4;
+                    pos_spriteAssassin.w = (*game->WINDOWWIDTH) * 63 /1200;
+                    pos_spriteAssassin.h = (*game->WINDOWHEIGHT) * 105 /675;
+                    SDL_RenderCopy(game->render, spriteAssassin, &pos_sprite_assassin, &pos_spriteAssassin);
+                }
+            }
+
+            if (character_save2->empty == SDL_TRUE)
+            {
+                SDL_RenderCopy(game->render, save2_vide, NULL, &pos_save2_vide);
+            }
+            else
+            {
+
+                SDL_Rect pos_position;
+                pos_position.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+                pos_position.y = (*game->WINDOWHEIGHT)/1.87 - (*game->WINDOWWIDTH)/50;
+                pos_position.w = (*game->WINDOWWIDTH)/9;
+                pos_position.h = (*game->WINDOWHEIGHT)/14;
+                SDL_RenderCopy(game->render, position, NULL, &pos_position);
+                SDL_RenderCopy(game->render, position_save2, NULL, &pos_position_save2);
+
+
+                SDL_Rect pos_lvl;
+                pos_lvl.x = (*game->WINDOWWIDTH)/1.6 - (*game->WINDOWWIDTH)/50;
+                pos_lvl.y = (*game->WINDOWHEIGHT)/1.86 - (*game->WINDOWWIDTH)/50;
+                pos_lvl.w = (*game->WINDOWWIDTH)/14;
+                pos_lvl.h = (*game->WINDOWHEIGHT)/16;
+                SDL_RenderCopy(game->render, lvl, NULL, &pos_lvl);
+                SDL_RenderCopy(game->render, lvl_save2, NULL, &pos_lvl_save2);
+
+                SDL_Rect pos_nom_save2;
+                pos_nom_save2.w = strlen(character_save2->save_name)*(*game->WINDOWWIDTH)/7/10;
+                pos_nom_save2.h = (*game->WINDOWHEIGHT)/13.5;
+                pos_nom_save2.x = (*game->WINDOWWIDTH)/2 - pos_nom_save2.w/2;
+                pos_nom_save2.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/22.7;
+                SDL_RenderCopy(game->render, nom_save2, NULL, &pos_nom_save2);
+
+                if(strcmp(character_save2->charactere_name, "Guerrier") == 0) {
+                    SDL_Rect pos_spriteGuerrier;
+                    pos_spriteGuerrier.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6 - (*game->WINDOWWIDTH)/18;
+                    pos_spriteGuerrier.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/22.7;
+                    pos_spriteGuerrier.w = (*game->WINDOWWIDTH) * 66.5 /1200;
+                    pos_spriteGuerrier.h = (*game->WINDOWHEIGHT) * 105 /675;
+                    SDL_RenderCopy(game->render, spriteGuerrier, &pos_sprite_guerrier, &pos_spriteGuerrier);
+                }
+                else if(strcmp(character_save2->charactere_name, "Mage") == 0) {
+                    SDL_Rect pos_spriteMage;
+                    pos_spriteMage.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6 - (*game->WINDOWWIDTH)/18;
+                    pos_spriteMage.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/22.7;
+                    pos_spriteMage.w = (*game->WINDOWWIDTH) * 49 /1200;
+                    pos_spriteMage.h = (*game->WINDOWHEIGHT) * 108.5 /675;
+                    SDL_RenderCopy(game->render, spriteMage, &pos_sprite_mage, &pos_spriteMage);
+                }
+                else if(strcmp(character_save2->charactere_name, "Assassin") == 0) {
+                    SDL_Rect pos_spriteAssassin;
+                    pos_spriteAssassin.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6 - (*game->WINDOWWIDTH)/18;
+                    pos_spriteAssassin.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/22.6;
+                    pos_spriteAssassin.w = (*game->WINDOWWIDTH) * 63 /1200;
+                    pos_spriteAssassin.h = (*game->WINDOWHEIGHT) * 105 /675;
+                    SDL_RenderCopy(game->render, spriteAssassin, &pos_sprite_assassin, &pos_spriteAssassin);
+                }
+            }
+
+            if (character_save3->empty == SDL_TRUE)
+            {
+                SDL_RenderCopy(game->render, save3_vide, NULL, &pos_save3_vide);
+            }
+            else
+            {
+
+                SDL_Rect pos_position;
+                pos_position.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
+                pos_position.y = (*game->WINDOWHEIGHT)/1.28 - (*game->WINDOWWIDTH)/50;
+                pos_position.w = (*game->WINDOWWIDTH)/9;
+                pos_position.h = (*game->WINDOWHEIGHT)/14;
+                SDL_RenderCopy(game->render, position, NULL, &pos_position);
+                SDL_RenderCopy(game->render, position_save3, NULL, &pos_position_save3);
+
+                SDL_Rect pos_lvl;
+                pos_lvl.x = (*game->WINDOWWIDTH)/1.6 - (*game->WINDOWWIDTH)/50;
+                pos_lvl.y = (*game->WINDOWHEIGHT)/1.27 - (*game->WINDOWWIDTH)/50;
+                pos_lvl.w = (*game->WINDOWWIDTH)/14;
+                pos_lvl.h = (*game->WINDOWHEIGHT)/16;
+                SDL_RenderCopy(game->render, lvl, NULL, &pos_lvl);
+                SDL_RenderCopy(game->render, lvl_save3, NULL, &pos_lvl_save3);
+
+                SDL_Rect pos_nom_save3;
+                pos_nom_save3.w = strlen(character_save3->save_name)*(*game->WINDOWWIDTH)/7/10;
+                pos_nom_save3.h = (*game->WINDOWHEIGHT)/13.5;
+                pos_nom_save3.x = (*game->WINDOWWIDTH)/2 - pos_nom_save3.w/2;
+                pos_nom_save3.y = (*game->WINDOWHEIGHT)/1.33 - (*game->WINDOWWIDTH)/22.7;
+                SDL_RenderCopy(game->render, nom_save3, NULL, &pos_nom_save3);
+
+
+                if(strcmp(character_save3->charactere_name, "Guerrier") == 0) {
+                    SDL_Rect pos_spriteGuerrier;
+                    pos_spriteGuerrier.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6 - (*game->WINDOWWIDTH)/18;
+                    pos_spriteGuerrier.y = (*game->WINDOWHEIGHT)/1.33 - (*game->WINDOWWIDTH)/22.7;
+                    pos_spriteGuerrier.w = (*game->WINDOWWIDTH) * 66.5 /1200;
+                    pos_spriteGuerrier.h = (*game->WINDOWHEIGHT) * 105 /675;
+                    SDL_RenderCopy(game->render, spriteGuerrier, &pos_sprite_guerrier, &pos_spriteGuerrier);
+                }
+                else if(strcmp(character_save3->charactere_name, "Mage") == 0) {
+                    SDL_Rect pos_spriteMage;
+                    pos_spriteMage.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6 - (*game->WINDOWWIDTH)/18;
+                    pos_spriteMage.y = (*game->WINDOWHEIGHT)/1.33 - (*game->WINDOWWIDTH)/22.7;
+                    pos_spriteMage.w = (*game->WINDOWWIDTH) * 49 /1200;
+                    pos_spriteMage.h = (*game->WINDOWHEIGHT) * 108.5 /675;
+                    SDL_RenderCopy(game->render, spriteMage, &pos_sprite_mage, &pos_spriteMage);
+                }
+                else if(strcmp(character_save3->charactere_name, "Assassin") == 0) {
+                    SDL_Rect pos_spriteAssassin;
+                    pos_spriteAssassin.x = (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH)/6 - (*game->WINDOWWIDTH)/18;
+                    pos_spriteAssassin.y = (*game->WINDOWHEIGHT)/1.33 - (*game->WINDOWWIDTH)/22.7;
+                    pos_spriteAssassin.w = (*game->WINDOWWIDTH) * 63 /1200;
+                    pos_spriteAssassin.h = (*game->WINDOWHEIGHT) * 105 /675;
+                    SDL_RenderCopy(game->render, spriteAssassin, &pos_sprite_assassin, &pos_spriteAssassin);
+
+                }
+            }
+
+
+
+
 
             SDL_RenderPresent(game->render);
 
@@ -614,8 +1167,14 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
                     fclose(scr);
                     fclose(dst);
 
+                    if (character_save1->empty == SDL_FALSE)
+                    {
+                        texte_confirmation(game, "Voulez-vous vraiment ecraser la sauvegarde ?");
+                    }
+
                     strcpy(actual_save, "save//save1.txt");
                     creation_perso(game, actual_save);
+
                 }
 
                 if(selection == 1)
@@ -680,9 +1239,6 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
     SDL_DestroyTexture(cadre_save1);
     SDL_DestroyTexture(cadre_save2);
     SDL_DestroyTexture(cadre_save3);
-    SDL_DestroyTexture(save1);
-    SDL_DestroyTexture(save2);
-    SDL_DestroyTexture(save3);
     SDL_DestroyTexture(fond_cadre_save1);
     SDL_DestroyTexture(fond_cadre_save2);
     SDL_DestroyTexture(fond_cadre_save3);

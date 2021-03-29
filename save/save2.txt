@@ -1,9 +1,9 @@
-save_name: Alexis ;
+save_name: Enzo ;
 charactere_name: Mage ;
 position: Forge ;
 x: 0 ;
 y: 0 ;
-lvl: 10 ;
+lvl: 81 ;
 xp: ;
 life: ;
 mana: ;

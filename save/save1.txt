@@ -3,7 +3,7 @@ charactere_name: Assassin ;
 position: Taverne ;
 x: 0 ;
 y: 0 ;
-lvl: 57 ;
+lvl: 27 ;
 xp: ;
 life: ;
 mana: ;
