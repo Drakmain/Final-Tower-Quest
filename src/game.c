@@ -4,12 +4,12 @@
 
 #include "..\lib\game.h"
 
+
 /*!
  *
  * \file game.c
  * \brief Gestion de l'objet game.
  * \author Enzo BRENNUS
- * \date 16/03/21
  *
  */
 
@@ -62,7 +62,6 @@ void game_free(game_t ** game)
 
     /*--- End Free Memory --------------------------------------------------------*/
 
-    SDL_Quit();
 
     free(*game);
 

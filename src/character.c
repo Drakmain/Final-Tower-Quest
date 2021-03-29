@@ -9,7 +9,6 @@
  * \file character.c
  * \brief Gestion de l'objet character.
  * \author Enzo BRENNUS
- * \date 18/02/21
  *
  */
 
@@ -186,9 +185,9 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
         }
 
         fscanf(file, "%*s %i, %i, %i;\n", &character->R, &character->G, &character->B);
-        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->North_Walk.rect.x, &character->North_Walk.rect.y, &character->North_Walk.rect.w, &character->North_Walk.rect.h, &character->North_Walk.limit);
-        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->East_Walk.rect.x, &character->East_Walk.rect.y, &character->East_Walk.rect.w, &character->East_Walk.rect.h, &character->East_Walk.limit);
         fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->South_Walk.rect.x, &character->South_Walk.rect.y, &character->South_Walk.rect.w, &character->South_Walk.rect.h, &character->South_Walk.limit);
+        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->East_Walk.rect.x, &character->East_Walk.rect.y, &character->East_Walk.rect.w, &character->East_Walk.rect.h, &character->East_Walk.limit);
+        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->North_Walk.rect.x, &character->North_Walk.rect.y, &character->North_Walk.rect.w, &character->North_Walk.rect.h, &character->North_Walk.limit);
         fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->West_Walk.rect.x, &character->West_Walk.rect.y, &character->West_Walk.rect.w, &character->West_Walk.rect.h, &character->West_Walk.limit);
         fscanf(file, "%*s %i, %i, %i, %i;\n", &character->Damage_Taken.x, &character->Damage_Taken.y, &character->Damage_Taken.w, &character->Damage_Taken.h);
         fscanf(file, "%*s %i, %i, %i, %i;\n", &character->Weak.x, &character->Weak.y, &character->Weak.w, &character->Weak.h);

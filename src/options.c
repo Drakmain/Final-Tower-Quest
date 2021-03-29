@@ -8,7 +8,6 @@
  * \file options.c
  * \brief Affichage et gestion des options.
  * \author Jeremy BOURGOUIN
- * \date 12/03/21
  *
  */
 

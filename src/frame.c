@@ -5,7 +5,6 @@
  * \file frame.c
  * \brief Gestion des FPS.
  * \author Enzo BRENNUS
- * \date 18/02/21
  * 
  */
 

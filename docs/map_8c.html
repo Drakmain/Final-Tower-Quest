@@ -69,7 +69,7 @@ $(document).ready(function(){initNavTree('map_8c.html',''); initResizable(); });
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &quot;map.h&quot;</code><br />
+<code>#include &quot;..\lib\map.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de map.c:</div>
 <div class="dyncontent">
@@ -78,11 +78,11 @@ Graphe des dépendances par inclusion de map.c:</div>
 <area shape="rect" title="Gestion de l&#39;objet map." alt="" coords="83,5,163,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
-<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="179,80,237,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="167,155,249,181"/>
-<area shape="rect" title=" " alt="" coords="87,229,145,256"/>
-<area shape="rect" title=" " alt="" coords="170,229,246,256"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="271,229,329,256"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="179,80,266,107"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="181,155,264,181"/>
+<area shape="rect" title=" " alt="" coords="101,229,160,256"/>
+<area shape="rect" title=" " alt="" coords="185,229,261,256"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="285,229,373,256"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -104,7 +104,6 @@ Fonctions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Gestion de l'objet map. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Enzo BRENNUS </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>18/02/21 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="ad3b40c348ab70a8e7b6522ecba122be8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad3b40c348ab70a8e7b6522ecba122be8">&#9670;&nbsp;</a></span>map_create()</h2>
@@ -171,8 +170,10 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="map_8c_ad3b40c348ab70a8e7b6522ecba122be8_icgraph.png" border="0" usemap="#amap_8c_ad3b40c348ab70a8e7b6522ecba122be8_icgraph" alt=""/></div>
 <map name="amap_8c_ad3b40c348ab70a8e7b6522ecba122be8_icgraph" id="amap_8c_ad3b40c348ab70a8e7b6522ecba122be8_icgraph">
-<area shape="rect" title="Permet la creation du l&#39;objet map_t." alt="" coords="107,5,197,32"/>
-<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="5,5,59,32"/>
+<area shape="rect" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
+<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="104,5,157,32"/>
+<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,56,56,83"/>
 </map>
 </div>
 
@@ -246,9 +247,11 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="map_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph.png" border="0" usemap="#amap_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph" alt=""/></div>
 <map name="amap_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph" id="amap_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph">
-<area shape="rect" title="Permet la liberation d&#39;un objet map_t." alt="" coords="245,5,320,32"/>
-<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="107,5,197,32"/>
-<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="5,5,59,32"/>
+<area shape="rect" title="Permet la liberation d&#39;un objet map_t." alt="" coords="344,31,419,57"/>
+<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
+<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="104,5,157,32"/>
+<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,56,56,83"/>
 </map>
 </div>
 
@@ -324,9 +327,11 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="map_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_icgraph.png" border="0" usemap="#amap_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_icgraph" alt=""/></div>
 <map name="amap_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_icgraph" id="amap_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_icgraph">
-<area shape="rect" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="245,5,339,32"/>
-<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="107,5,197,32"/>
-<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="5,5,59,32"/>
+<area shape="rect" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="344,31,437,57"/>
+<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
+<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="104,5,157,32"/>
+<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,56,56,83"/>
 </map>
 </div>
 

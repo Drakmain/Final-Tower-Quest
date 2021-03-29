@@ -1,7 +1,7 @@
 RGB:          255, 255, 255;
-North_Walk:   3, 3, 18, 30, 60;
+South_Walk:   3, 3, 18, 30, 60;
 East_Walk:    3, 34, 20, 31, 66;
-South_Walk:   3, 66, 18, 29, 60;
+North_Walk:   3, 66, 18, 29, 60;
 West_Walk:    3, 96, 20, 31, 66;
 Damage_Taken: 3, 128, 18, 30;
 Weak:         3, 159, 21, 24;

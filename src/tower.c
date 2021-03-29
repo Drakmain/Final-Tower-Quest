@@ -46,16 +46,16 @@ void tower(game_t * game, character_t * character){
     SDL_Event event;
 
     SDL_Rect pos_Wind_character;
-    pos_Wind_character.h = character->North_Walk.rect.h * MULTIPLIER;
-    pos_Wind_character.w = character->North_Walk.rect.w * MULTIPLIER;
+    pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 2;
     pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
 
     SDL_Rect pos_Wind_tower;
-    pos_Wind_tower.x = 0;
-    pos_Wind_tower.y = 0;
-    pos_Wind_tower.h = tower->tile_set.h * MULTIPLIER;
-    pos_Wind_tower.w = tower->tile_set.w * MULTIPLIER;
+    pos_Wind_tower.x = tower->tile_set.x;
+    pos_Wind_tower.y = tower->tile_set.y;
+    pos_Wind_tower.h = tower->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_tower.w = tower->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
 
     int East_Walk = 0;
     int West_Walk = 0;
@@ -63,6 +63,14 @@ void tower(game_t * game, character_t * character){
     int North_Walk = 0;
 
     /*--- End Initialization Variable --------------------------------------------*/
+
+
+    SDL_RenderClear(game->render);
+
+    SDL_RenderCopy(game->render, tower->texture, &tower->tile_set, &pos_Wind_tower);
+    SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
+
+    SDL_RenderPresent(game->render);
 
 
     /*--- Main Loop --------------------------------------------------------------*/
@@ -85,10 +93,10 @@ void tower(game_t * game, character_t * character){
 
                 while (keyState[SDL_SCANCODE_RIGHT])
                 {
-                    East_Walk = 1;
-
+                    
                     for (int i = 0; i < 3; i++)
                     {
+                        East_Walk = 1;
 
                         frame_start =  SDL_GetTicks();
 
@@ -167,6 +175,7 @@ void tower(game_t * game, character_t * character){
                     for (int i = 0; i < 3; i++)
                     {
                         South_Walk = 1;
+
                         frame_start =  SDL_GetTicks();
 
                         pos_Wind_tower.y += 25;
@@ -205,6 +214,7 @@ void tower(game_t * game, character_t * character){
                     for (int i = 0; i < 3; i++)
                     {
                         North_Walk = 1;
+
                         frame_start =  SDL_GetTicks();
 
                         pos_Wind_tower.y -= 25;
@@ -247,7 +257,6 @@ void tower(game_t * game, character_t * character){
     /*--- Free Memory ------------------------------------------------------------*/
 
     tower->free(&tower);
-    character->free(&character);
 
     /*--- End Free Memory --------------------------------------------------------*/
 

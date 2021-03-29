@@ -4,8 +4,29 @@
 #include "..\lib\texte_confirmation.h"
 
 
+/*!
+ *
+ * \file texte_confirmation.c
+ * \brief A FINIR.
+ * \author Jeremy BOURGOUIN
+ *
+ */
 
+
+/*!
+ *
+ * \fn texte_confirmation(game_t * game, char * message)
+ * \brief A FINIR.
+ *
+ * \param game A FINIR.
+ * \param message A FINIR.
+ *
+ */
+
+extern
 SDL_bool texte_confirmation(game_t * game, char * message){
+
+    /*--- Initialization Variable ------------------------------------------------*/
 
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
@@ -14,10 +35,12 @@ SDL_bool texte_confirmation(game_t * game, char * message){
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
-
     SDL_Event event;
 
     int selection = 0;
+
+    /*--- End Initialization Variable --------------------------------------------*/
+
 
     /*---texture "cadre"--------------------------------------------------------*/
 
@@ -36,7 +59,9 @@ SDL_bool texte_confirmation(game_t * game, char * message){
     pos_cadre.h = (*game->WINDOWHEIGHT)*200/720;
     pos_cadre.x = (*game->WINDOWWIDTH)/2 - pos_cadre.w/2;
     pos_cadre.y = (*game->WINDOWHEIGHT)/2 - pos_cadre.h/2;
+
     /*------------------------------------------------------------------------------------*/
+
 
     /*---texture fond--------------------------------------------------------*/
 
@@ -62,9 +87,12 @@ SDL_bool texte_confirmation(game_t * game, char * message){
     SDL_SetTextureBlendMode(fond_cadre, SDL_BLENDMODE_BLEND);
     SDL_RenderFillRect(game->render, &rect_fond_cadre);
     SDL_SetRenderTarget(game->render,NULL);
+
     /*------------------------------------------------------------------------------------*/
 
+
     /*--- Creation text "texte de confirmation" ----------------------------------------*/
+
     surf_confirmation = TTF_RenderText_Blended(game->police, message, blanc);
     if(surf_confirmation == NULL){
         SDL_ExitWithError("probleme surface texte de confirmation texte confimation");
@@ -83,7 +111,9 @@ SDL_bool texte_confirmation(game_t * game, char * message){
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "oui" ----------------------------------------*/
+
     surf_choix_oui = TTF_RenderText_Blended(game->police, "Oui", rouge);
     if(surf_choix_oui == NULL){
         SDL_ExitWithError("probleme surface choix oui texte confimation");
@@ -102,7 +132,9 @@ SDL_bool texte_confirmation(game_t * game, char * message){
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "non" ----------------------------------------*/
+
     surf_choix_non = TTF_RenderText_Blended(game->police, "Non", blanc);
     if(surf_choix_non == NULL){
         SDL_ExitWithError("probleme surface choix non texte confimation");
@@ -121,12 +153,17 @@ SDL_bool texte_confirmation(game_t * game, char * message){
 
     /*----------------------------------------------------------------------------*/
 
+
     SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
     SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
     SDL_RenderCopy(game->render, confirmation, NULL, &pos_confirmation);
     SDL_RenderCopy(game->render, choix_oui, NULL, &pos_choix_oui);
     SDL_RenderCopy(game->render, choix_non, NULL, &pos_choix_non);
+
     SDL_RenderPresent(game->render);
+    
+
+    /*--- Main Loop --------------------------------------------------------------*/
 
     while ((*game->program_launch))
     {
@@ -184,10 +221,12 @@ SDL_bool texte_confirmation(game_t * game, char * message){
         }
 
     }
+
     /*--- End Main Loop ----------------------------------------------------------*/
 
 
     /*--- Free Memory ------------------------------------------------------------*/
+
     SDL_FreeSurface(surf_cadre);
     SDL_FreeSurface(surf_confirmation);
     SDL_FreeSurface(surf_choix_oui);

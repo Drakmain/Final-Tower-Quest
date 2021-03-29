@@ -5,13 +5,27 @@
 #include "..\lib\nom_sauvegarde.h"
 
 
+/*!
+ *
+ * \file nom_sauvegarde.c
+ * \brief A FINIR.
+ * \author Alexis BOUFFARD
+ *
+ */
+
+
+/*!
+ *
+ * \fn nom_sauvegarde(game_t * game, char * actual_save)
+ * \brief A FINIR.
+ *
+ * \param game A FINIR.
+ * \param actual_save A FINIR.
+ *
+ */
+
 extern
 void nom_sauvegarde(game_t * game, char * actual_save){
-    TTF_Font *police = NULL;
-    police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf",50);
-    if(police == NULL){
-        SDL_ExitWithError("probleme chargement police fonction menu de creation de personnage");
-    }
 
     /*--- Initialization variable ----------------------------------------------------*/
 
@@ -24,8 +38,8 @@ void nom_sauvegarde(game_t * game, char * actual_save){
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_Event event;
-    /*--- End Initialization variable --------------------------------------------*/
 
+    /*--- End Initialization variable --------------------------------------------*/
 
 
     /*--- Initialization background image ----------------------------------------*/
@@ -109,7 +123,7 @@ void nom_sauvegarde(game_t * game, char * actual_save){
 
     /*--- Initialization text "Demande" -----------------------------------------*/
 
-    surf_demande = TTF_RenderText_Blended(police, "Votre nom de sauvegarde doit etre compris entre 1 et 10 caracteres :", blanc);
+    surf_demande = TTF_RenderText_Blended(game->police, "Votre nom de sauvegarde doit etre compris entre 1 et 10 caracteres :", blanc);
     if(surf_demande == NULL){
         SDL_ExitWithError("Probleme surface demande");
     }
@@ -127,21 +141,20 @@ void nom_sauvegarde(game_t * game, char * actual_save){
 
     /*----------------------------------------------------------------------------*/
 
+
     /*---Save de caractères-----------------------------------------------------*/
-
-
-
 
     /*---End Save de caractères-----------------------------------------------------*/
 
 
     SDL_RenderClear(game->render);
+
     SDL_RenderCopy(game->render, fond, NULL, &pos_fond);
     SDL_RenderCopy(game->render, demande, NULL, &pos_demande);
     SDL_RenderCopy(game->render, fond_cadre_nom_save, NULL, &pos_fond_cadre_nom_save);
     SDL_RenderCopy(game->render, cadre_nom_save, NULL, &pos_cadre_nom_save);
+    
     SDL_RenderPresent(game->render);
-
 
 
     /*--- Main Loop --------------------------------------------------------------*/
@@ -179,14 +192,15 @@ void nom_sauvegarde(game_t * game, char * actual_save){
 
     }
 
+    /*--- End Main Loop ----------------------------------------------------------*/
+
+
     /*--- Free Memory ------------------------------------------------------------*/
 
     SDL_FreeSurface(surf_fond);
 
     SDL_DestroyTexture(fond);
 
-
     /*--- End Free Memory --------------------------------------------------------*/
 
-    /*--- End Main Loop ----------------------------------------------------------*/
 }

@@ -3,12 +3,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 /*!
  * 
  * \file error.c
  * \brief Gestion d'affichage des erreur
  * \author Enzo BRENNUS
- * \date 18/02/21
  * 
  */
 

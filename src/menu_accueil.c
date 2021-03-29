@@ -11,9 +11,8 @@
 /*!
  *
  * \file menu_accueil.c
- * \brief Menu d'accueil.
+ * \brief Gestion du menu d'accueil du jeu.
  * \author Jeremy BOURGOUIN
- * \date 10/02/21
  *
  */
 
@@ -21,7 +20,7 @@
 /*!
  *
  * \fn menu_accueil(game_t * game, char * actual_save)
- * \brief A FINIR.
+ * \brief Fonction de gestion du menu d'accueil du jeu.
  *
  * \param game A FINIR.
  * \param actual_save A FINIR.
