@@ -51,7 +51,7 @@ struct character_s
     int agilite; /*!< A FINIR. */
     int defense; /*!< A FINIR. */
 
-    int point_dispo; /*!< A FINIR. */
+    int points_dispo; /*!< A FINIR. */
 
 };
 

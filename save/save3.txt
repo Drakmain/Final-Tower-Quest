@@ -11,5 +11,5 @@ vitalite: 0 ;
 force: 0 ;
 intelligence: 0 ;
 agilite: 0 ;
-defense: 0 ;
-point_dispo: 0 ;
+defense: 1 ;
+point_dispo: 10 ;

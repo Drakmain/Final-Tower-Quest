@@ -3,6 +3,7 @@
 
 #include "..\lib\caracteristiques.h"
 #include "..\lib\character.h"
+#include "..\lib\texte_confirmation.h"
 
 /*!
  *
@@ -29,14 +30,21 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
-    SDL_Surface * surf_cadre = NULL, *surf_caracteristiques = NULL, *surf_retour = NULL, *surf_vitalite = NULL, *surf_force = NULL, *surf_2point = NULL, *surf_intell = NULL, *surf_agi = NULL, *surf_def = NULL, *surf_point_dispo = NULL, *surf_nb_vitalite = NULL, *surf_nb_force = NULL, *surf_nb_intell = NULL, *surf_nb_agi = NULL, *surf_nb_def = NULL, *sur_nb_point_dispo = NULL;
-
+    SDL_Surface * surf_cadre = NULL, *surf_caracteristiques = NULL, *surf_retour = NULL, *surf_vitalite = NULL, *surf_force = NULL, *surf_2point = NULL, *surf_intell = NULL, *surf_agi = NULL, *surf_def = NULL, *surf_point_dispo = NULL, *surf_nb_vitalite = NULL, *surf_nb_force = NULL, *surf_nb_intell = NULL, *surf_nb_agi = NULL, *surf_nb_def = NULL, *surf_nb_point_dispo = NULL;
+    SDL_Surface *surf_valider = NULL, *surf_fleche = NULL;
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
-    SDL_bool carac_bool = SDL_TRUE;
+    SDL_bool carac_bool = SDL_TRUE, select_ret_val = SDL_TRUE;
     SDL_Event event;
 
     int selection = 0;
+    int points_uti_vitalite = 0, points_uti_force = 0, points_uti_intell = 0, points_uti_agi = 0, points_uti_def = 0;;
+    int character_vitalite = character->vitalite;
+    int character_force = character->force;
+    int character_intell = character->intelligence;
+    int character_agi = character->agilite;
+    int character_def = character->defense;
+    int character_points_dispo = character->points_dispo;
     /*---texture "cadre"--------------------------------------------------------*/
 
     surf_cadre = SDL_LoadBMP("src\\image\\cadre_caracteristiques.bmp");
@@ -125,6 +133,26 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*----------------------------------------------------------------------------*/
 
+    /*--- Creation text "Valider" ----------------------------------------*/
+
+    surf_valider = TTF_RenderText_Blended(game->police, "Valider", blanc);
+    if(surf_valider == NULL){
+        SDL_ExitWithError("probleme surface valider caracteristiques.c");
+    }
+
+    SDL_Texture* valider = SDL_CreateTextureFromSurface(game->render, surf_valider);
+    if(valider == NULL){
+        SDL_ExitWithError("probleme texture valider caracteristiques.c");
+    }
+
+    SDL_Rect pos_valider;
+    pos_valider.w = (*game->WINDOWWIDTH)*150.5/1200;
+    pos_valider.h = (*game->WINDOWHEIGHT)*50/720;
+    pos_valider.x = pos_cadre.x + pos_cadre.w - rect_fond_cadre.x - pos_valider.w - (*game->WINDOWWIDTH)*15/1280 ;
+    pos_valider.y = pos_retour.y;
+
+    /*----------------------------------------------------------------------------*/
+
     /*--- Creation text "Force" ----------------------------------------*/
 
     surf_2point = TTF_RenderText_Blended(game->police, " : ", blanc);
@@ -153,7 +181,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     SDL_Rect pos_vitalite;
     pos_vitalite.w = (*game->WINDOWWIDTH)*180/1200;
     pos_vitalite.h = (*game->WINDOWHEIGHT)*50/720;
-    pos_vitalite.x = (*game->WINDOWWIDTH)/2 - pos_vitalite.w/2 - (*game->WINDOWWIDTH)*45/1280;
+    pos_vitalite.x = (*game->WINDOWWIDTH)/2 - pos_vitalite.w/2 - (*game->WINDOWWIDTH)*60/1280;
     pos_vitalite.y = pos_caracteristiques.y + pos_caracteristiques.h + (*game->WINDOWHEIGHT)*50/720;
 
     /*----------------------------------------------------------------------------*/
@@ -173,7 +201,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     SDL_Rect pos_force;
     pos_force.w = (*game->WINDOWWIDTH)*180/1200;
     pos_force.h = (*game->WINDOWHEIGHT)*50/720;
-    pos_force.x = (*game->WINDOWWIDTH)/2 - pos_force.w/2 - (*game->WINDOWWIDTH)*45/1280;
+    pos_force.x = (*game->WINDOWWIDTH)/2 - pos_force.w/2 - (*game->WINDOWWIDTH)*60/1280;
     pos_force.y = pos_vitalite.y + pos_vitalite.h + (*game->WINDOWHEIGHT)*20/720;
 
     /*----------------------------------------------------------------------------*/
@@ -193,7 +221,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     SDL_Rect pos_intell;
     pos_intell.w = (*game->WINDOWWIDTH)*180/1200;
     pos_intell.h = (*game->WINDOWHEIGHT)*50/720;
-    pos_intell.x = (*game->WINDOWWIDTH)/2 - pos_intell.w/2 - (*game->WINDOWWIDTH)*45/1280;
+    pos_intell.x = (*game->WINDOWWIDTH)/2 - pos_intell.w/2 - (*game->WINDOWWIDTH)*60/1280;
     pos_intell.y = pos_force.y + pos_force.h + (*game->WINDOWHEIGHT)*20/720;
 
     /*----------------------------------------------------------------------------*/
@@ -213,7 +241,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     SDL_Rect pos_agi;
     pos_agi.w = (*game->WINDOWWIDTH)*180/1200;
     pos_agi.h = (*game->WINDOWHEIGHT)*50/720;
-    pos_agi.x = (*game->WINDOWWIDTH)/2 - pos_agi.w/2 - (*game->WINDOWWIDTH)*45/1280;
+    pos_agi.x = (*game->WINDOWWIDTH)/2 - pos_agi.w/2 - (*game->WINDOWWIDTH)*60/1280;
     pos_agi.y = pos_intell.y + pos_intell.h + (*game->WINDOWHEIGHT)*20/720;
 
     /*----------------------------------------------------------------------------*/
@@ -233,7 +261,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     SDL_Rect pos_def;
     pos_def.w = (*game->WINDOWWIDTH)*180/1200;
     pos_def.h = (*game->WINDOWHEIGHT)*50/720;
-    pos_def.x = (*game->WINDOWWIDTH)/2 - pos_def.w/2 - (*game->WINDOWWIDTH)*45/1280;
+    pos_def.x = (*game->WINDOWWIDTH)/2 - pos_def.w/2 - (*game->WINDOWWIDTH)*60/1280;
     pos_def.y = pos_agi.y + pos_agi.h + (*game->WINDOWHEIGHT)*20/720;
 
     /*----------------------------------------------------------------------------*/
@@ -253,16 +281,10 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     SDL_Rect pos_point_dispo;
     pos_point_dispo.w = (*game->WINDOWWIDTH)*330/1200;
     pos_point_dispo.h = (*game->WINDOWHEIGHT)*50/720;
-    pos_point_dispo.x = (*game->WINDOWWIDTH)/2 - pos_point_dispo.w/2 - (*game->WINDOWWIDTH)*45/1280;
+    pos_point_dispo.x = (*game->WINDOWWIDTH)/2 - pos_point_dispo.w/2 - (*game->WINDOWWIDTH)*60/1280;
     pos_point_dispo.y = pos_retour.y;
 
     /*----------------------------------------------------------------------------*/
-
-    SDL_Rect pos_texture_render_menu_ig;
-    pos_texture_render_menu_ig.x = 0;
-    pos_texture_render_menu_ig.y = 0;
-    pos_texture_render_menu_ig.w = (*game->WINDOWWIDTH);
-    pos_texture_render_menu_ig.h = (*game->WINDOWHEIGHT);
 
     SDL_Rect pos_2point_v;
     pos_2point_v.w = (*game->WINDOWWIDTH)*45/1200;
@@ -300,6 +322,183 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     pos_2point_point_dispo.x = pos_point_dispo.x + pos_point_dispo.w;
     pos_2point_point_dispo.y = pos_point_dispo.y;
 
+    /*--- Creation text "nb vitalite" ----------------------------------------*/
+    char character_nb_vitalite[10];
+    itoa(character_vitalite, character_nb_vitalite, 10);
+
+    surf_nb_vitalite = TTF_RenderText_Blended(game->police, character_nb_vitalite, blanc);
+    if(surf_nb_vitalite == NULL){
+        SDL_ExitWithError("probleme surface nb vitalite caracteristiques.c");
+    }
+
+    SDL_Texture* nb_vitalite = SDL_CreateTextureFromSurface(game->render, surf_nb_vitalite);
+    if(nb_vitalite == NULL){
+        SDL_ExitWithError("probleme texture nb vitalite caracteristiques.c");
+    }
+
+    SDL_Rect pos_nb_vitalite;
+    pos_nb_vitalite.w = strlen(character_nb_vitalite)*(*game->WINDOWWIDTH)*15/1280;
+    pos_nb_vitalite.h = (*game->WINDOWHEIGHT)*50/720;
+    pos_nb_vitalite.x = pos_vitalite.x + pos_vitalite.w + pos_2point_v.w + (*game->WINDOWWIDTH)*35/1280;
+    pos_nb_vitalite.y = pos_vitalite.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nb force" ----------------------------------------*/
+    char character_nb_force[10];
+    itoa(character_force, character_nb_force, 10);
+
+    surf_nb_force = TTF_RenderText_Blended(game->police, character_nb_force, blanc);
+    if(surf_nb_force == NULL){
+        SDL_ExitWithError("probleme surface nb force caracteristiques.c");
+    }
+
+    SDL_Texture* nb_force = SDL_CreateTextureFromSurface(game->render, surf_nb_force);
+    if(nb_force == NULL){
+        SDL_ExitWithError("probleme texture nb force caracteristiques.c");
+    }
+
+    SDL_Rect pos_nb_force;
+    pos_nb_force.w = strlen(character_nb_force)*(*game->WINDOWWIDTH)*15/1280;
+    pos_nb_force.h = (*game->WINDOWHEIGHT)*50/720;
+    pos_nb_force.x = pos_force.x + pos_force.w + pos_2point_f.w + (*game->WINDOWWIDTH)*35/1280;
+    pos_nb_force.y = pos_force.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nb intelligence" ----------------------------------------*/
+    char character_nb_intell[10];
+    itoa(character_intell, character_nb_intell, 10);
+
+    surf_nb_intell = TTF_RenderText_Blended(game->police, character_nb_intell, blanc);
+    if(surf_nb_intell == NULL){
+        SDL_ExitWithError("probleme surface nb intell caracteristiques.c");
+    }
+
+    SDL_Texture* nb_intell = SDL_CreateTextureFromSurface(game->render, surf_nb_intell);
+    if(nb_intell == NULL){
+        SDL_ExitWithError("probleme texture nb intell caracteristiques.c");
+    }
+
+    SDL_Rect pos_nb_intell;
+    pos_nb_intell.w = strlen(character_nb_intell)*(*game->WINDOWWIDTH)*15/1280;
+    pos_nb_intell.h = (*game->WINDOWHEIGHT)*50/720;
+    pos_nb_intell.x = pos_intell.x + pos_intell.w + pos_2point_i.w + (*game->WINDOWWIDTH)*35/1280;
+    pos_nb_intell.y = pos_intell.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nb agilite" ----------------------------------------*/
+    char character_nb_agi[10];
+    itoa(character_agi, character_nb_agi, 10);
+
+    surf_nb_agi = TTF_RenderText_Blended(game->police, character_nb_agi, blanc);
+    if(surf_nb_agi == NULL){
+        SDL_ExitWithError("probleme surface nb agi caracteristiques.c");
+    }
+
+    SDL_Texture* nb_agi = SDL_CreateTextureFromSurface(game->render, surf_nb_agi);
+    if(nb_agi == NULL){
+        SDL_ExitWithError("probleme texture nb agi caracteristiques.c");
+    }
+
+    SDL_Rect pos_nb_agi;
+    pos_nb_agi.w = strlen(character_nb_agi)*(*game->WINDOWWIDTH)*15/1280;
+    pos_nb_agi.h = (*game->WINDOWHEIGHT)*50/720;
+    pos_nb_agi.x = pos_agi.x + pos_agi.w + pos_2point_a.w + (*game->WINDOWWIDTH)*35/1280;
+    pos_nb_agi.y = pos_agi.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nb defense" ----------------------------------------*/
+    char character_nb_defense[10];
+    itoa(character_def, character_nb_defense, 10);
+
+    surf_nb_def = TTF_RenderText_Blended(game->police, character_nb_defense, blanc);
+    if(surf_nb_def == NULL){
+        SDL_ExitWithError("probleme surface nb def caracteristiques.c");
+    }
+
+    SDL_Texture* nb_def = SDL_CreateTextureFromSurface(game->render, surf_nb_def);
+    if(nb_def == NULL){
+        SDL_ExitWithError("probleme texture nb def caracteristiques.c");
+    }
+
+    SDL_Rect pos_nb_def;
+    pos_nb_def.w = strlen(character_nb_defense)*(*game->WINDOWWIDTH)*15/1280;
+    pos_nb_def.h = (*game->WINDOWHEIGHT)*50/720;
+    pos_nb_def.x = pos_def.x + pos_def.w + pos_2point_d.w + (*game->WINDOWWIDTH)*35/1280;
+    pos_nb_def.y = pos_def.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nb points dispo" ----------------------------------------*/
+    char character_nb_points_dispo[10];
+    itoa(character_points_dispo, character_nb_points_dispo, 10);
+
+    surf_nb_point_dispo = TTF_RenderText_Blended(game->police, character_nb_points_dispo, blanc);
+    if(surf_nb_point_dispo == NULL){
+        SDL_ExitWithError("probleme surface nb points dispo caracteristiques.c");
+    }
+
+    SDL_Texture* nb_point_dispo = SDL_CreateTextureFromSurface(game->render, surf_nb_point_dispo);
+    if(nb_point_dispo == NULL){
+        SDL_ExitWithError("probleme texture nb points dispo caracteristiques.c");
+    }
+
+    SDL_Rect pos_nb_point_dispo;
+    pos_nb_point_dispo.w = strlen(character_nb_points_dispo)*(*game->WINDOWWIDTH)*15/1280;
+    pos_nb_point_dispo.h = (*game->WINDOWHEIGHT)*50/720;
+    pos_nb_point_dispo.x = pos_point_dispo.x + pos_point_dispo.w + pos_2point_point_dispo.w + (*game->WINDOWWIDTH)*15/1280;
+    pos_nb_point_dispo.y = pos_point_dispo.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Initialization texture "fleche" -------------------------------------*/
+
+    surf_fleche = SDL_LoadBMP("src\\image\\fleche.bmp");
+    if(surf_fleche == NULL){
+        SDL_ExitWithError("probleme chargement image fleche gauche et droite");
+    }
+
+    SDL_Rect rect_fleche_gauche;
+    rect_fleche_gauche.x = 39;
+    rect_fleche_gauche.y = 0;
+    rect_fleche_gauche.w = 38;
+    rect_fleche_gauche.h = 28;
+
+    SDL_Texture* fleche_gauche = SDL_CreateTextureFromSurface(game->render, surf_fleche);
+    if(fleche_gauche == NULL)
+    {
+        SDL_ExitWithError("probleme texture fleche gauche");
+    }
+
+    SDL_Rect pos_fleche_gauche;
+    pos_fleche_gauche.w = (*game->WINDOWHEIGHT)*40/1280 * 38 / 28;
+    pos_fleche_gauche.h = (*game->WINDOWHEIGHT)*40/1280;
+
+    SDL_Texture* fleche_droite = SDL_CreateTextureFromSurface(game->render, surf_fleche);
+    if(fleche_droite == NULL)
+    {
+        SDL_ExitWithError("probleme texture fleche droite");
+    }
+    SDL_Rect rect_fleche_droite;
+    rect_fleche_droite.x = 0;
+    rect_fleche_droite.y = 0;
+    rect_fleche_droite.w = 38;
+    rect_fleche_droite.h = 28;
+
+    SDL_Rect pos_fleche_droite;
+    pos_fleche_droite.w = (*game->WINDOWHEIGHT)*40/1280 * 38 / 28;
+    pos_fleche_droite.h = (*game->WINDOWHEIGHT)*40/1280;
+    /*-------------------------------------------------------------------------*/
+
+    SDL_Rect pos_texture_render_menu_ig;
+    pos_texture_render_menu_ig.x = 0;
+    pos_texture_render_menu_ig.y = 0;
+    pos_texture_render_menu_ig.w = (*game->WINDOWWIDTH);
+    pos_texture_render_menu_ig.h = (*game->WINDOWHEIGHT);
+
     /*--- Main Loop --------------------------------------------------------------*/
 
     while ((*game->program_launch) && carac_bool)
@@ -321,21 +520,213 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
             /*--- End Event pour selectionner --------------------------------------*/
 
-            if(selection < 0)selection = 1;
-            selection %=2;
+            if(selection < 0)selection = 5;
+            selection %=6;
 
             if(selection == 0){
+                surf_retour = TTF_RenderText_Blended(game->police, "Retour", blanc);
+                retour = SDL_CreateTextureFromSurface(game->render, surf_retour);
+                surf_valider = TTF_RenderText_Blended(game->police, "Valider", blanc);
+                valider = SDL_CreateTextureFromSurface(game->render, surf_valider);
+
+                if(character_points_dispo > 0){
+                    if(keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN){
+                        character_points_dispo--;
+                        points_uti_vitalite++;
+                        character_vitalite++;
+                        rect_fleche_droite.y = 29;
+                    }
+                }
+
+                if(points_uti_vitalite > 0){
+                    if(keyState[SDL_SCANCODE_LEFT] && event.type == SDL_KEYDOWN){
+                        character_points_dispo++;
+                        points_uti_vitalite--;
+                        character_vitalite--;
+                        rect_fleche_gauche.y = 29;
+                    }
+                }
+
+                itoa(character_vitalite, character_nb_vitalite, 10);
+                pos_nb_vitalite.w = strlen(character_nb_vitalite)*(*game->WINDOWWIDTH)*15/1280;
+                surf_nb_vitalite = TTF_RenderText_Blended(game->police, character_nb_vitalite, blanc);
+                nb_vitalite = SDL_CreateTextureFromSurface(game->render, surf_nb_vitalite);
+
+                pos_fleche_droite.x = pos_nb_vitalite.x + pos_nb_vitalite.w + (*game->WINDOWWIDTH)*10/1280 ;
+                pos_fleche_droite.y = pos_vitalite.y - pos_fleche_droite.h/2 + (*game->WINDOWHEIGHT)*55/1280 ;
+
+                pos_fleche_gauche.x = pos_nb_vitalite.x - pos_fleche_gauche.w - (*game->WINDOWWIDTH)*10/1280 ;
+                pos_fleche_gauche.y = pos_vitalite.y - pos_fleche_gauche.h/2 + (*game->WINDOWHEIGHT)*55/1280 ;
             }
 
             if(selection == 1){
+                if(character_points_dispo > 0){
+                    if(keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN){
+                        character_points_dispo--;
+                        points_uti_force++;
+                        character_force++;
+                        rect_fleche_droite.y = 29;
+                    }
+                }
+
+                if(points_uti_force > 0){
+                    if(keyState[SDL_SCANCODE_LEFT] && event.type == SDL_KEYDOWN){
+                        character_points_dispo++;
+                        points_uti_force--;
+                        character_force--;
+                        rect_fleche_gauche.y = 29;
+                    }
+                }
+
+                itoa(character_force, character_nb_force, 10);
+                pos_nb_force.w = strlen(character_nb_force)*(*game->WINDOWWIDTH)*15/1280;
+                surf_nb_force = TTF_RenderText_Blended(game->police, character_nb_force, blanc);
+                nb_force = SDL_CreateTextureFromSurface(game->render, surf_nb_force);
+
+                pos_fleche_droite.x = pos_nb_force.x + pos_nb_force.w + (*game->WINDOWWIDTH)*10/1280 ;
+                pos_fleche_droite.y = pos_force.y - pos_fleche_droite.h/2 + (*game->WINDOWHEIGHT)*55/1280 ;
+
+                pos_fleche_gauche.x = pos_nb_force.x - pos_fleche_gauche.w - (*game->WINDOWWIDTH)*10/1280 ;
+                pos_fleche_gauche.y = pos_force.y - pos_fleche_gauche.h/2 + (*game->WINDOWHEIGHT)*55/1280 ;
             }
 
+            if(selection == 2){
+                if(character_points_dispo > 0){
+                    if(keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN){
+                        character_points_dispo--;
+                        points_uti_intell++;
+                        character_intell++;
+                        rect_fleche_droite.y = 29;
+                    }
+                }
 
+                if(points_uti_intell > 0){
+                    if(keyState[SDL_SCANCODE_LEFT] && event.type == SDL_KEYDOWN){
+                        character_points_dispo++;
+                        points_uti_intell--;
+                        character_intell--;
+                        rect_fleche_gauche.y = 29;
+                    }
+                }
+
+                itoa(character_intell, character_nb_intell, 10);
+                pos_nb_intell.w = strlen(character_nb_intell)*(*game->WINDOWWIDTH)*15/1280;
+                surf_nb_intell = TTF_RenderText_Blended(game->police, character_nb_intell, blanc);
+                nb_intell = SDL_CreateTextureFromSurface(game->render, surf_nb_intell);
+
+                pos_fleche_droite.x = pos_nb_intell.x + pos_nb_intell.w + (*game->WINDOWWIDTH)*10/1280 ;
+                pos_fleche_droite.y = pos_intell.y - pos_fleche_droite.h/2 + (*game->WINDOWHEIGHT)*55/1280 ;
+
+                pos_fleche_gauche.x = pos_nb_intell.x - pos_fleche_gauche.w - (*game->WINDOWWIDTH)*10/1280 ;
+                pos_fleche_gauche.y = pos_intell.y - pos_fleche_gauche.h/2 + (*game->WINDOWHEIGHT)*55/1280 ;
+            }
+
+            if(selection == 3){
+                if(character_points_dispo > 0){
+                    if(keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN){
+                        character_points_dispo--;
+                        points_uti_agi++;
+                        character_agi++;
+                        rect_fleche_droite.y = 29;
+                    }
+                }
+
+                if(points_uti_agi > 0){
+                    if(keyState[SDL_SCANCODE_LEFT] && event.type == SDL_KEYDOWN){
+                        character_points_dispo++;
+                        points_uti_agi--;
+                        character_agi--;
+                        rect_fleche_gauche.y = 29;
+                    }
+                }
+
+                    itoa(character_agi, character_nb_agi, 10);
+                pos_nb_agi.w = strlen(character_nb_agi)*(*game->WINDOWWIDTH)*15/1280;
+                surf_nb_agi = TTF_RenderText_Blended(game->police, character_nb_agi, blanc);
+                nb_agi = SDL_CreateTextureFromSurface(game->render, surf_nb_agi);
+
+                pos_fleche_droite.x = pos_nb_agi.x + pos_nb_agi.w + (*game->WINDOWWIDTH)*10/1280 ;
+                pos_fleche_droite.y = pos_agi.y - pos_fleche_droite.h/2 + (*game->WINDOWHEIGHT)*55/1280 ;
+
+                pos_fleche_gauche.x = pos_nb_agi.x - pos_fleche_gauche.w - (*game->WINDOWWIDTH)*10/1280 ;
+                pos_fleche_gauche.y = pos_agi.y - pos_fleche_gauche.h/2 + (*game->WINDOWHEIGHT)*55/1280 ;
+            }
+
+            if(selection == 4){
+
+                surf_retour = TTF_RenderText_Blended(game->police, "Retour", blanc);
+                retour = SDL_CreateTextureFromSurface(game->render, surf_retour);
+                surf_valider = TTF_RenderText_Blended(game->police, "Valider", blanc);
+                valider = SDL_CreateTextureFromSurface(game->render, surf_valider);
+
+                if(character_points_dispo > 0){
+                    if(keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN){
+                        character_points_dispo--;
+                        points_uti_def++;
+                        character_def++;
+                        rect_fleche_droite.y = 29;
+                    }
+                }
+
+                if(points_uti_def > 0){
+                    if(keyState[SDL_SCANCODE_LEFT] && event.type == SDL_KEYDOWN){
+                        character_points_dispo++;
+                        points_uti_def--;
+                        character_def--;
+                        rect_fleche_gauche.y = 29;
+                    }
+                }
+
+                itoa(character_def, character_nb_defense, 10);
+                pos_nb_def.w = strlen(character_nb_defense)*(*game->WINDOWWIDTH)*15/1280;
+                surf_nb_def = TTF_RenderText_Blended(game->police, character_nb_defense, blanc);
+                nb_def = SDL_CreateTextureFromSurface(game->render, surf_nb_def);
+
+                pos_fleche_droite.x = pos_nb_def.x + pos_nb_def.w + (*game->WINDOWWIDTH)*10/1280 ;
+                pos_fleche_droite.y = pos_def.y - pos_fleche_droite.h/2 + (*game->WINDOWHEIGHT)*55/1280 ;
+
+                pos_fleche_gauche.x = pos_nb_def.x - pos_fleche_gauche.w - (*game->WINDOWWIDTH)*10/1280 ;
+                pos_fleche_gauche.y = pos_def.y - pos_fleche_gauche.h/2 + (*game->WINDOWHEIGHT)*55/1280 ;
+            }
+
+            if(selection == 5){
+                if(keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN && select_ret_val && (points_uti_vitalite > 0 || points_uti_force > 0 || points_uti_intell > 0 || points_uti_agi > 0 || points_uti_def > 0)){
+                    select_ret_val = SDL_FALSE;
+                }
+                if(keyState[SDL_SCANCODE_LEFT] && event.type == SDL_KEYDOWN && !select_ret_val){
+                    select_ret_val = SDL_TRUE;
+                }
+                if(select_ret_val){
+                    surf_retour = TTF_RenderText_Blended(game->police, "Retour", rouge);
+                    surf_valider = TTF_RenderText_Blended(game->police, "Valider", blanc);
+                }
+                else{
+                    surf_retour = TTF_RenderText_Blended(game->police, "Retour", blanc);
+                    surf_valider = TTF_RenderText_Blended(game->police, "Valider", rouge);
+                }
+                retour = SDL_CreateTextureFromSurface(game->render, surf_retour);
+                valider = SDL_CreateTextureFromSurface(game->render, surf_valider);
+            }
+            itoa(character_points_dispo, character_nb_points_dispo, 10);
+            pos_nb_point_dispo.w = strlen(character_nb_points_dispo)*(*game->WINDOWWIDTH)*15/1280;
+            surf_nb_point_dispo = TTF_RenderText_Blended(game->police, character_nb_points_dispo, blanc);
+            nb_point_dispo = SDL_CreateTextureFromSurface(game->render, surf_nb_point_dispo);
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN){
-                if(selection == 0);
-                if(selection == 1);
+                if(selection == 5 && !select_ret_val){
+                    if(texte_confirmation(game,"Validez vos choix ?")){
+                        character->vitalite = character_vitalite;
+                        character->force = character_force;
+                        character->intelligence = character_intell;
+                        character->agilite = character_agi;
+                        character->defense = character_def;
+                        character->points_dispo = character_points_dispo;
+                        carac_bool = SDL_FALSE;
+                    }
+                }
             }
+
+            if(character_points_dispo == character->points_dispo)select_ret_val = SDL_TRUE;
 
             SDL_RenderClear(game->render);
             SDL_RenderCopy(game->render, texture_render_menu_ig, NULL, &pos_texture_render_menu_ig);
@@ -349,14 +740,31 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
             SDL_RenderCopy(game->render, agi, NULL, &pos_agi);
             SDL_RenderCopy(game->render, def, NULL, &pos_def);
             SDL_RenderCopy(game->render, point_dispo, NULL, &pos_point_dispo);
+            SDL_RenderCopy(game->render, nb_vitalite, NULL, &pos_nb_vitalite);
+            SDL_RenderCopy(game->render, nb_force, NULL, &pos_nb_force);
+            SDL_RenderCopy(game->render, nb_intell, NULL, &pos_nb_intell);
+            SDL_RenderCopy(game->render, nb_agi, NULL, &pos_nb_agi);
+            SDL_RenderCopy(game->render, nb_def, NULL, &pos_nb_def);
+            SDL_RenderCopy(game->render, nb_point_dispo, NULL, &pos_nb_point_dispo);
+            if(selection < 5 && character_points_dispo > 0)SDL_RenderCopy(game->render, fleche_droite, &rect_fleche_droite, &pos_fleche_droite);
+            switch(selection){
+                case 0:if(points_uti_vitalite > 0)SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);break;
+                case 1:if(points_uti_force > 0)SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);break;
+                case 2:if(points_uti_intell > 0)SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);break;
+                case 3:if(points_uti_agi > 0)SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);break;
+                case 4:if(points_uti_def > 0)SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);break;
+            }
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_v);
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_f);
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_i);
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_a);
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_d);
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_point_dispo);
+            if(points_uti_vitalite > 0 || points_uti_force > 0 || points_uti_intell > 0 || points_uti_agi > 0 || points_uti_def > 0)SDL_RenderCopy(game->render, valider, NULL, &pos_valider);
             SDL_RenderPresent(game->render);
 
+            rect_fleche_droite.y = 0;
+            rect_fleche_gauche.y = 0;
             /*--- Event to Exit Program ------------------------------------------*/
 
             if (event.type == SDL_QUIT)
@@ -387,9 +795,15 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     SDL_FreeSurface(surf_intell);
     SDL_FreeSurface(surf_agi);
     SDL_FreeSurface(surf_def);
+    SDL_FreeSurface(surf_nb_vitalite);
+    SDL_FreeSurface(surf_nb_force);
+    SDL_FreeSurface(surf_nb_intell);
+    SDL_FreeSurface(surf_nb_agi);
+    SDL_FreeSurface(surf_nb_def);
     SDL_FreeSurface(surf_2point);
     SDL_FreeSurface(surf_point_dispo);
-
+    SDL_FreeSurface(surf_nb_point_dispo);
+    SDL_FreeSurface(surf_valider);
 
     SDL_DestroyTexture(cadre);
     SDL_DestroyTexture(fond_cadre);
@@ -400,8 +814,15 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     SDL_DestroyTexture(intell);
     SDL_DestroyTexture(agi);
     SDL_DestroyTexture(def);
+    SDL_DestroyTexture(nb_vitalite);
+    SDL_DestroyTexture(nb_force);
+    SDL_DestroyTexture(nb_intell);
+    SDL_DestroyTexture(nb_agi);
+    SDL_DestroyTexture(nb_def);
     SDL_DestroyTexture(t_2point);
     SDL_DestroyTexture(point_dispo);
+    SDL_DestroyTexture(nb_point_dispo);
+    SDL_DestroyTexture(valider);
 
     /*--- End Free Memory --------------------------------------------------------*/
 
