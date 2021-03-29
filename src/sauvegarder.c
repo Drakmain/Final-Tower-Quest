@@ -38,13 +38,22 @@ void sauvegarde(game_t * game, character_t * character)
 
     fprintf(file, "save_name: %s ;\n", character->save_name);
     fprintf(file, "charactere_name: %s ;\n", character->charactere_name);
+
     fprintf(file, "position: %s ;\n", character->position);
     fprintf(file, "x: %d ;\n", character->x);
     fprintf(file, "y: %d ;\n", character->y);
+
     fprintf(file, "lvl: %d ;\n;", character->lvl);
     fprintf(file, "xp: %d ;\n", character->xp);
     fprintf(file, "life: %d ;\n", character->life);
-    fprintf(file, "mana: %d ;", character->mana);
+    fprintf(file, "mana: %d ;\n", character->mana);
+
+    fprintf(file, "vitalite: %d ;\n", character->vitalite);
+    fprintf(file, "force: %d ;\n", character->force);
+    fprintf(file, "intelligence: %d ;\n", character->intelligence);
+    fprintf(file, "agilite: %d ;\n", character->agilite);
+    fprintf(file, "defense: %d ;\n", character->defense);
+    fprintf(file, "point_dispo: %d ;", character->point_dispo);
 
     fclose(file);
 }

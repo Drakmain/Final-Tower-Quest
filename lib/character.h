@@ -5,7 +5,7 @@
 
 typedef struct character_s character_t;
 
-struct character_s 
+struct character_s
 {
     void (*update)(character_t *, SDL_Renderer *, tile_set_t, SDL_Rect); /*!< Permet la mise a jour d'un objet character_t. */
     void (*free)(character_t **); /*!< Permet la liberation d'un objet character_t. */
@@ -44,6 +44,14 @@ struct character_s
     int xp; /*!< A FINIR. */
     int life; /*!< A FINIR. */
     int mana; /*!< A FINIR. */
+
+    int vitalite; /*!< A FINIR. */
+    int force; /*!< A FINIR. */
+    int intelligence; /*!< A FINIR. */
+    int agilite; /*!< A FINIR. */
+    int defense; /*!< A FINIR. */
+
+    int point_dispo; /*!< A FINIR. */
 
 };
 

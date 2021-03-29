@@ -5,6 +5,6 @@
 
 #include "game.h"
 
-void caracteristiques(game_t * game, char * actual_save, SDL_Texture * texture_render_menu_ig);
+void caracteristiques(game_t * game, character_t * character, SDL_Texture * texture_render_menu_ig);
 
 #endif
