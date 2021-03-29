@@ -1,11 +1,12 @@
 <map id="src/caracteristiques.c" name="src/caracteristiques.c">
-<area shape="rect" id="node1" title="A FINIR." alt="" coords="49,5,196,32"/>
+<area shape="rect" id="node1" title="A FINIR." alt="" coords="116,5,263,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" id="node4" href="$caracteristiques_8h_source.html" title=" " alt="" coords="179,80,333,107"/>
-<area shape="rect" id="node5" href="$commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="213,229,296,256"/>
-<area shape="rect" id="node9" href="$game_8h_source.html" title=" " alt="" coords="258,155,323,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="133,304,192,331"/>
-<area shape="rect" id="node7" title=" " alt="" coords="217,304,293,331"/>
-<area shape="rect" id="node8" href="$error_8h_source.html" title=" " alt="" coords="317,304,405,331"/>
+<area shape="rect" id="node9" href="$character_8h_source.html" title=" " alt="" coords="319,155,406,181"/>
+<area shape="rect" id="node5" href="$commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="221,229,304,256"/>
+<area shape="rect" id="node10" href="$game_8h_source.html" title=" " alt="" coords="230,155,295,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="141,304,200,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="225,304,301,331"/>
+<area shape="rect" id="node8" href="$error_8h_source.html" title=" " alt="" coords="325,304,413,331"/>
 </map>

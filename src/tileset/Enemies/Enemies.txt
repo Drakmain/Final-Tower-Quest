@@ -1,0 +1,16 @@
+Brute : PV 100 ;
+Brute_armee : PV 100 ;
+Chevalier_squelettique : PV 100 ;
+Chimera : PV 100 ;
+Demon_squelettique : PV 100 ;
+Frere_cyclope : PV 100 ;
+Frere_goliath : PV 100 ;
+Frere_minotaure : PV 100 ;
+Gros_tas_de_lave : PV 100 ;
+Gros_tas_de_sable : PV 100 ;
+Grosse_brute : PV 100 ;
+Lizardo : PV 100 ;
+Medubras : PV 100 ;
+Mysterio : PV 100 ;
+Seigneur_squelettique : PV 100 ;
+Serpentin : PV 100 ;

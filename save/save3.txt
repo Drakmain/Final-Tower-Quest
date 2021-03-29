@@ -1,10 +1,10 @@
 save_name: Jeremy ;
-charactere_name: Guerrier ;
+classe_name: Guerrier ;
 position: Armurie ;
 x: 0 ;
 y: 0 ;
 lvl: 38 ;
-;xp: 0 ;
+xp: 0 ;
 life: 0 ;
 mana: 0 ;
 vitalite: 0 ;

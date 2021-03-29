@@ -1,5 +1,5 @@
 <map id="src/menu_accueil.c" name="src/menu_accueil.c">
-<area shape="rect" id="node1" title="Menu d&#39;accueil." alt="" coords="257,5,391,32"/>
+<area shape="rect" id="node1" title="Gestion du menu d&#39;accueil du jeu." alt="" coords="257,5,391,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" id="node4" href="$menu__accueil_8h_source.html" title=" " alt="" coords="179,80,322,107"/>

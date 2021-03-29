@@ -2,6 +2,8 @@ var annotated_dup =
 [
     [ "character_s", "structcharacter__s.html", "structcharacter__s" ],
     [ "character_t", "structcharacter__t.html", null ],
+    [ "enemie_s", "structenemie__s.html", "structenemie__s" ],
+    [ "enemie_t", "structenemie__t.html", null ],
     [ "game_s", "structgame__s.html", "structgame__s" ],
     [ "game_t", "structgame__t.html", null ],
     [ "map_s", "structmap__s.html", "structmap__s" ],
