@@ -195,7 +195,7 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
     SDL_Rect pos_position_save1;
     pos_position_save1.x = (*game->WINDOWWIDTH)/1.64 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
     pos_position_save1.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWWIDTH)/7;
-    pos_position_save1.w = strlen(character_save1->position) * (*game->WINDOWWIDTH)/9/10;
+    pos_position_save1.w = strlen(character_save1->position) * (*game->WINDOWWIDTH)/(9*11);
     pos_position_save1.h = (*game->WINDOWHEIGHT)/14;
 
     /*--- End Affichage position save1 ----------------------------------------------*/
@@ -299,7 +299,7 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
     SDL_Rect pos_position_save2;
     pos_position_save2.x = (*game->WINDOWWIDTH)/1.64 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
     pos_position_save2.y = (*game->WINDOWHEIGHT)/1.87 - (*game->WINDOWWIDTH)/50;
-    pos_position_save2.w = strlen(character_save2->position) * (*game->WINDOWWIDTH)/9/10;
+    pos_position_save2.w = strlen(character_save2->position) * (*game->WINDOWWIDTH)/(9*11);
     pos_position_save2.h = (*game->WINDOWHEIGHT)/14;
 
     /*--- End Affichage position save2 ----------------------------------------------*/
@@ -403,7 +403,7 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
     SDL_Rect pos_position_save3;
     pos_position_save3.x = (*game->WINDOWWIDTH)/1.64 - (*game->WINDOWWIDTH)/13 - (*game->WINDOWWIDTH)/14;
     pos_position_save3.y = (*game->WINDOWHEIGHT)/1.28 - (*game->WINDOWWIDTH)/50;
-    pos_position_save3.w = strlen(character_save3->position) * (*game->WINDOWWIDTH)/9/10;
+    pos_position_save3.w = strlen(character_save3->position) * (*game->WINDOWWIDTH)/(9*11);
     pos_position_save3.h = (*game->WINDOWHEIGHT)/14;
 
     /*---  End Affichage position save3 ----------------------------------------------*/
@@ -1169,11 +1169,16 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
 
                     if (character_save1->empty == SDL_FALSE)
                     {
-                        texte_confirmation(game, "Voulez-vous vraiment ecraser la sauvegarde ?");
+                        if(texte_confirmation(game, "Voulez-vous vraiment ecraser la sauvegarde ?")){
+                            strcpy(actual_save, "save//save1.txt");
+                            creation_perso(game, actual_save);
+                        }
+                    }
+                    else{
+                        strcpy(actual_save, "save//save1.txt");
+                        creation_perso(game, actual_save);
                     }
 
-                    strcpy(actual_save, "save//save1.txt");
-                    creation_perso(game, actual_save);
 
                 }
 
@@ -1187,8 +1192,18 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
                     fclose(scr);
                     fclose(dst);
 
-                    strcpy(actual_save, "save//save2.txt");
-                    creation_perso(game, actual_save);
+                    if (character_save1->empty == SDL_FALSE)
+                    {
+                        if(texte_confirmation(game, "Voulez-vous vraiment ecraser la sauvegarde ?")){
+                            strcpy(actual_save, "save//save1.txt");
+                            creation_perso(game, actual_save);
+                        }
+                    }
+                    else{
+                        strcpy(actual_save, "save//save1.txt");
+                        creation_perso(game, actual_save);
+                    }
+
                 }
 
                 if(selection == 2)
@@ -1201,8 +1216,18 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
                     fclose(scr);
                     fclose(dst);
 
-                    strcpy(actual_save, "save//save3.txt");
-                    creation_perso(game, actual_save);
+                    if (character_save1->empty == SDL_FALSE)
+                    {
+                        if(texte_confirmation(game, "Voulez-vous vraiment ecraser la sauvegarde ?")){
+                            strcpy(actual_save, "save//save1.txt");
+                            creation_perso(game, actual_save);
+                        }
+                    }
+                    else{
+                        strcpy(actual_save, "save//save1.txt");
+                        creation_perso(game, actual_save);
+                    }
+
                 }
 
                 if(selection == 3)
