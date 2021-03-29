@@ -161,7 +161,7 @@ SDL_bool texte_confirmation(game_t * game, char * message){
     SDL_RenderCopy(game->render, choix_non, NULL, &pos_choix_non);
 
     SDL_RenderPresent(game->render);
-    
+
 
     /*--- Main Loop --------------------------------------------------------------*/
 
@@ -214,6 +214,7 @@ SDL_bool texte_confirmation(game_t * game, char * message){
             if (event.type == SDL_QUIT)
             {
                 (*game->program_launch) = SDL_FALSE;
+                return SDL_FALSE;
             }
 
 
@@ -221,7 +222,8 @@ SDL_bool texte_confirmation(game_t * game, char * message){
         }
 
     }
-
+    
+    return SDL_FALSE;
     /*--- End Main Loop ----------------------------------------------------------*/
 
 
