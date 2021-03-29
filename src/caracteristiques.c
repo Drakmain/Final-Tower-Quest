@@ -725,6 +725,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
                         carac_bool = SDL_FALSE;
                     }
                 }
+                if(selection == 5 && select_ret_val)carac_bool = SDL_FALSE;
             }
 
             if(character_points_dispo == character->points_dispo)select_ret_val = SDL_TRUE;
