@@ -435,7 +435,7 @@ void nouvelle_partie_f(game_t * game, char * actual_save)
 
     SDL_Rect pos_lvl_save3;
     pos_lvl_save3.x = (*game->WINDOWWIDTH)/1.43 - (*game->WINDOWWIDTH)/50;
-    pos_lvl_save3.y = (*game->WINDOWHEIGHT)/1.28 - (*game->WINDOWWIDTH)/50;
+    pos_lvl_save3.y = (*game->WINDOWHEIGHT)/1.27 - (*game->WINDOWWIDTH)/50;
     pos_lvl_save3.w = strlen(char_lvl_save3) * (*game->WINDOWWIDTH)/14/5;
     pos_lvl_save3.h = (*game->WINDOWHEIGHT)/16;
 

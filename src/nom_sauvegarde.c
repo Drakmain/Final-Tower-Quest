@@ -32,6 +32,7 @@ void nom_sauvegarde(game_t * game, char * actual_save){
     SDL_Color blanc = {255,255,255};
 
     SDL_Surface *surf_fond = NULL, *surf_demande = NULL, *surf_cadre = NULL;
+    char cara[100];
 
     SDL_bool nom_sauvegarde_bool = SDL_TRUE;
 
@@ -153,7 +154,7 @@ void nom_sauvegarde(game_t * game, char * actual_save){
     SDL_RenderCopy(game->render, demande, NULL, &pos_demande);
     SDL_RenderCopy(game->render, fond_cadre_nom_save, NULL, &pos_fond_cadre_nom_save);
     SDL_RenderCopy(game->render, cadre_nom_save, NULL, &pos_cadre_nom_save);
-    
+
     SDL_RenderPresent(game->render);
 
 
@@ -188,6 +189,9 @@ void nom_sauvegarde(game_t * game, char * actual_save){
             demande = SDL_CreateTextureFromSurface(game->render, surf_demande);
 
             SDL_RenderPresent(game->render);
+
+            scanf("%s",cara);
+            printf("%s",cara);
         }
 
     }
