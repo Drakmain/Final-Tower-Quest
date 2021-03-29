@@ -16,12 +16,13 @@
 
 /*!
  *
- * \fn caracteristiques(game_t * game, char * actual_save, SDL_Texture * texture_render_menu_ig)
+ * \fn caracteristiques(game_t * game, character_t * character, SDL_Texture * texture_render_menu_ig, SDL_bool *echap_relache)
  * \brief A FINIR.
  *
  * \param game A FINIR.
  * \param character A FINIR.
  * \param texture_render_menu_ig A FINIR.
+ * \param echap_relache A FINIR.
  *
  */
 

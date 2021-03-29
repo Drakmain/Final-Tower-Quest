@@ -35,7 +35,7 @@ struct character_s
     SDL_Rect Dead; /*!< Tile set (SDL_Rect) A FINIR. */
 
     char * save_name; /*!< A FINIR. */
-    char * charactere_name; /*!< A FINIR. */
+    char * classe_name; /*!< A FINIR. */
     char * position; /*!< A FINIR. */
     int x; /*!< A FINIR. */
     int y; /*!< A FINIR. */

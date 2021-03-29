@@ -1,7 +1,7 @@
 <map id="character_create" name="character_create">
 <area shape="rect" id="node1" title="Permet la creation du l&#39;objet character." alt="" coords="420,56,539,83"/>
-<area shape="rect" id="node2" href="$charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702" title="A FINIR." alt="" coords="256,5,371,32"/>
+<area shape="rect" id="node2" href="$charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702" title="Fonction qui permet le chargement d&#39;une partie." alt="" coords="256,5,371,32"/>
 <area shape="rect" id="node4" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,81,56,108"/>
 <area shape="rect" id="node5" href="$nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76" title="A FINIR." alt="" coords="255,56,372,83"/>
-<area shape="rect" id="node3" href="$menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="A FINIR." alt="" coords="104,56,207,83"/>
+<area shape="rect" id="node3" href="$menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="Fonction de gestion du menu d&#39;accueil du jeu." alt="" coords="104,56,207,83"/>
 </map>

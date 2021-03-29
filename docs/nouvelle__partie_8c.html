@@ -65,11 +65,13 @@ $(document).ready(function(){initNavTree('nouvelle__partie_8c.html',''); initRes
 </div><!--header-->
 <div class="contents">
 
-<p>nouvelle partie.  
+<p>Gestion des nouvelles partie.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;..\lib\nouvelle_partie.h&quot;</code><br />
+<code>#include &quot;..\lib\texte_confirmation.h&quot;</code><br />
 <code>#include &quot;..\lib\creation_perso.h&quot;</code><br />
 <code>#include &quot;..\lib\character.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -77,31 +79,33 @@ Graphe des dépendances par inclusion de nouvelle_partie.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="nouvelle__partie_8c__incl.png" border="0" usemap="#asrc_2nouvelle__partie_8c" alt=""/></div>
 <map name="asrc_2nouvelle__partie_8c" id="asrc_2nouvelle__partie_8c">
-<area shape="rect" title="nouvelle partie." alt="" coords="182,5,322,32"/>
+<area shape="rect" title="Gestion des nouvelles partie." alt="" coords="273,5,413,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
-<area shape="rect" href="nouvelle__partie_8h_source.html" title=" " alt="" coords="179,80,325,107"/>
-<area shape="rect" href="creation__perso_8h_source.html" title=" " alt="" coords="349,80,496,107"/>
-<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="467,155,583,181"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="345,229,428,256"/>
-<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="319,155,385,181"/>
-<area shape="rect" title=" " alt="" coords="265,304,324,331"/>
-<area shape="rect" title=" " alt="" coords="349,304,425,331"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="449,304,537,331"/>
+<area shape="rect" title=" " alt="" coords="179,80,245,107"/>
+<area shape="rect" href="nouvelle__partie_8h_source.html" title=" " alt="" coords="269,80,416,107"/>
+<area shape="rect" href="texte__confirmation_8h_source.html" title=" " alt="" coords="440,80,608,107"/>
+<area shape="rect" href="creation__perso_8h_source.html" title=" " alt="" coords="632,80,779,107"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="741,155,857,181"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="553,229,636,256"/>
+<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="562,155,627,181"/>
+<area shape="rect" title=" " alt="" coords="473,304,532,331"/>
+<area shape="rect" title=" " alt="" coords="557,304,633,331"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="657,304,745,331"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:ac319746734774195921cfb816632e15d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nouvelle__partie_8c.html#ac319746734774195921cfb816632e15d">fcpy</a> (FILE *source_file, FILE *dest_file)</td></tr>
-<tr class="memdesc:ac319746734774195921cfb816632e15d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="nouvelle__partie_8c.html#ac319746734774195921cfb816632e15d">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ac319746734774195921cfb816632e15d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui permet la creation d'une nouvelle partie.  <a href="nouvelle__partie_8c.html#ac319746734774195921cfb816632e15d">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac319746734774195921cfb816632e15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab70eea4593070602887bc10370ed8f76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76">nouvelle_partie_f</a> (<a class="el" href="structgame__t.html">game_t</a> *game, char *actual_save)</td></tr>
 <tr class="memdesc:ab70eea4593070602887bc10370ed8f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ab70eea4593070602887bc10370ed8f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>nouvelle partie. </p>
+<div class="textblock"><p>Gestion des nouvelles partie. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Jeremy BOURGOUIN </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="ac319746734774195921cfb816632e15d"></a>
@@ -130,7 +134,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A FINIR. </p>
+<p>Fonction qui permet la creation d'une nouvelle partie. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">source_file</td><td>A FINIR. </td></tr>
@@ -143,9 +147,9 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="nouvelle__partie_8c_ac319746734774195921cfb816632e15d_icgraph.png" border="0" usemap="#anouvelle__partie_8c_ac319746734774195921cfb816632e15d_icgraph" alt=""/></div>
 <map name="anouvelle__partie_8c_ac319746734774195921cfb816632e15d_icgraph" id="anouvelle__partie_8c_ac319746734774195921cfb816632e15d_icgraph">
-<area shape="rect" title="A FINIR." alt="" coords="420,5,467,32"/>
+<area shape="rect" title="Fonction qui permet la creation d&#39;une nouvelle partie." alt="" coords="420,5,467,32"/>
 <area shape="rect" href="nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76" title="A FINIR." alt="" coords="255,5,372,32"/>
-<area shape="rect" href="menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="A FINIR." alt="" coords="104,5,207,32"/>
+<area shape="rect" href="menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="Fonction de gestion du menu d&#39;accueil du jeu." alt="" coords="104,5,207,32"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
 </map>
 </div>
@@ -191,15 +195,16 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="nouvelle__partie_8c_ab70eea4593070602887bc10370ed8f76_cgraph.png" border="0" usemap="#anouvelle__partie_8c_ab70eea4593070602887bc10370ed8f76_cgraph" alt=""/></div>
 <map name="anouvelle__partie_8c_ab70eea4593070602887bc10370ed8f76_cgraph" id="anouvelle__partie_8c_ab70eea4593070602887bc10370ed8f76_cgraph">
-<area shape="rect" title="A FINIR." alt="" coords="5,208,123,235"/>
-<area shape="rect" href="character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="171,107,289,133"/>
-<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="508,208,640,235"/>
-<area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="345,157,452,184"/>
-<area shape="rect" href="creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9" title="A FINIR." alt="" coords="177,259,283,285"/>
-<area shape="rect" href="nouvelle__partie_8c.html#ac319746734774195921cfb816632e15d" title="A FINIR." alt="" coords="207,309,253,336"/>
-<area shape="rect" href="character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="347,5,451,32"/>
-<area shape="rect" href="character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="337,56,460,83"/>
-<area shape="rect" href="nom__sauvegarde_8c.html#aa20c778a63ed62910cd605e6c733f4a7" title="A FINIR." alt="" coords="339,309,458,336"/>
+<area shape="rect" title="A FINIR." alt="" coords="5,233,123,260"/>
+<area shape="rect" href="character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="175,107,294,133"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="517,233,649,260"/>
+<area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="355,157,461,184"/>
+<area shape="rect" href="creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9" title="A FINIR." alt="" coords="181,259,288,285"/>
+<area shape="rect" href="nouvelle__partie_8c.html#ac319746734774195921cfb816632e15d" title="Fonction qui permet la creation d&#39;une nouvelle partie." alt="" coords="211,309,258,336"/>
+<area shape="rect" href="texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="A FINIR." alt="" coords="171,360,299,387"/>
+<area shape="rect" href="character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="356,5,460,32"/>
+<area shape="rect" href="character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="347,56,469,83"/>
+<area shape="rect" href="nom__sauvegarde_8c.html#aa20c778a63ed62910cd605e6c733f4a7" title="A FINIR." alt="" coords="349,309,467,336"/>
 </map>
 </div>
 <div class="dynheader">
@@ -208,7 +213,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="center"><img src="nouvelle__partie_8c_ab70eea4593070602887bc10370ed8f76_icgraph.png" border="0" usemap="#anouvelle__partie_8c_ab70eea4593070602887bc10370ed8f76_icgraph" alt=""/></div>
 <map name="anouvelle__partie_8c_ab70eea4593070602887bc10370ed8f76_icgraph" id="anouvelle__partie_8c_ab70eea4593070602887bc10370ed8f76_icgraph">
 <area shape="rect" title="A FINIR." alt="" coords="255,5,372,32"/>
-<area shape="rect" href="menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="A FINIR." alt="" coords="104,5,207,32"/>
+<area shape="rect" href="menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="Fonction de gestion du menu d&#39;accueil du jeu." alt="" coords="104,5,207,32"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
 </map>
 </div>

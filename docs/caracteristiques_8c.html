@@ -70,35 +70,37 @@ $(document).ready(function(){initNavTree('caracteristiques_8c.html',''); initRes
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &quot;..\lib\caracteristiques.h&quot;</code><br />
+<code>#include &quot;..\lib\character.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de caracteristiques.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="caracteristiques_8c__incl.png" border="0" usemap="#asrc_2caracteristiques_8c" alt=""/></div>
 <map name="asrc_2caracteristiques_8c" id="asrc_2caracteristiques_8c">
-<area shape="rect" title="A FINIR." alt="" coords="49,5,196,32"/>
+<area shape="rect" title="A FINIR." alt="" coords="116,5,263,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" href="caracteristiques_8h_source.html" title=" " alt="" coords="179,80,333,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="213,229,296,256"/>
-<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="258,155,323,181"/>
-<area shape="rect" title=" " alt="" coords="133,304,192,331"/>
-<area shape="rect" title=" " alt="" coords="217,304,293,331"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="317,304,405,331"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="319,155,406,181"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="221,229,304,256"/>
+<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="230,155,295,181"/>
+<area shape="rect" title=" " alt="" coords="141,304,200,331"/>
+<area shape="rect" title=" " alt="" coords="225,304,301,331"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="325,304,413,331"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ae0264ef7d120c239c2d22ab89b45dace"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="caracteristiques_8c.html#ae0264ef7d120c239c2d22ab89b45dace">caracteristiques</a> (<a class="el" href="structgame__t.html">game_t</a> *game, char *actual_save, SDL_Texture *texture_render_menu_ig)</td></tr>
-<tr class="memdesc:ae0264ef7d120c239c2d22ab89b45dace"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="caracteristiques_8c.html#ae0264ef7d120c239c2d22ab89b45dace">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae0264ef7d120c239c2d22ab89b45dace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5f473b1cdb7d4fd0eb72ddb1f54b3b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="caracteristiques_8c.html#ad5f473b1cdb7d4fd0eb72ddb1f54b3b1">caracteristiques</a> (<a class="el" href="structgame__t.html">game_t</a> *game, <a class="el" href="structcharacter__t.html">character_t</a> *character, SDL_Texture *texture_render_menu_ig, SDL_bool *echap_relache)</td></tr>
+<tr class="memdesc:ad5f473b1cdb7d4fd0eb72ddb1f54b3b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="caracteristiques_8c.html#ad5f473b1cdb7d4fd0eb72ddb1f54b3b1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad5f473b1cdb7d4fd0eb72ddb1f54b3b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>A FINIR. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Jeremy BOURGOUIN </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="ae0264ef7d120c239c2d22ab89b45dace"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0264ef7d120c239c2d22ab89b45dace">&#9670;&nbsp;</a></span>caracteristiques()</h2>
+<a id="ad5f473b1cdb7d4fd0eb72ddb1f54b3b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5f473b1cdb7d4fd0eb72ddb1f54b3b1">&#9670;&nbsp;</a></span>caracteristiques()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -112,14 +114,20 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>actual_save</em>, </td>
+          <td class="paramtype"><a class="el" href="structcharacter__t.html">character_t</a> *&#160;</td>
+          <td class="paramname"><em>character</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">SDL_Texture *&#160;</td>
-          <td class="paramname"><em>texture_render_menu_ig</em>&#160;</td>
+          <td class="paramname"><em>texture_render_menu_ig</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_bool *&#160;</td>
+          <td class="paramname"><em>echap_relache</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -133,11 +141,32 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">game</td><td>A FINIR. </td></tr>
-    <tr><td class="paramname">actual_save</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">character</td><td>A FINIR. </td></tr>
     <tr><td class="paramname">texture_render_menu_ig</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">echap_relache</td><td>A FINIR. </td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="caracteristiques_8c_ad5f473b1cdb7d4fd0eb72ddb1f54b3b1_cgraph.png" border="0" usemap="#acaracteristiques_8c_ad5f473b1cdb7d4fd0eb72ddb1f54b3b1_cgraph" alt=""/></div>
+<map name="acaracteristiques_8c_ad5f473b1cdb7d4fd0eb72ddb1f54b3b1_cgraph" id="acaracteristiques_8c_ad5f473b1cdb7d4fd0eb72ddb1f54b3b1_cgraph">
+<area shape="rect" title="A FINIR." alt="" coords="5,5,120,32"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="168,5,300,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="caracteristiques_8c_ad5f473b1cdb7d4fd0eb72ddb1f54b3b1_icgraph.png" border="0" usemap="#acaracteristiques_8c_ad5f473b1cdb7d4fd0eb72ddb1f54b3b1_icgraph" alt=""/></div>
+<map name="acaracteristiques_8c_ad5f473b1cdb7d4fd0eb72ddb1f54b3b1_icgraph" id="acaracteristiques_8c_ad5f473b1cdb7d4fd0eb72ddb1f54b3b1_icgraph">
+<area shape="rect" title="A FINIR." alt="" coords="360,5,475,32"/>
+<area shape="rect" href="menu__in__game_8c.html#ab15cbe69b23d57272cf1596d790bfdb4" title="A FINIR." alt="" coords="201,5,312,32"/>
+<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="104,5,153,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
+</map>
+</div>
 
 </div>
 </div>

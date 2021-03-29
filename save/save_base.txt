@@ -1,5 +1,5 @@
 save_name:  ;
-charactere_name:  ;
+classe_name:  ;
 position:  ;
 x: ;
 y: ;

@@ -77,7 +77,7 @@ void character_free(character_t ** character)
     free((*character)->file_name_save);
 
     free((*character)->save_name);
-    free((*character)->charactere_name);
+    free((*character)->classe_name);
     free((*character)->position);
 
     free(*character);
@@ -127,8 +127,8 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
     character->save_name = NULL;
     character->save_name = malloc(sizeof(char) * 20);
 
-    character->charactere_name = NULL;
-    character->charactere_name = malloc(sizeof(char) * 20);
+    character->classe_name = NULL;
+    character->classe_name = malloc(sizeof(char) * 20);
 
     character->position = NULL;
     character->position = malloc(sizeof(char) * 20);
@@ -156,7 +156,7 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
     }
     else
     {
-        fscanf(file, "%*s %s ;\n", character->charactere_name);
+        fscanf(file, "%*s %s ;\n", character->classe_name);
 
         fscanf(file, "%*s %s ;\n", character->position);
         fscanf(file, "%*s %i ;\n", &character->x);
@@ -183,7 +183,7 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
 
         /*--- Open txt file ----------------------------------------------------------*/
 
-        strcat(character->file_name_txt, character->charactere_name);
+        strcat(character->file_name_txt, character->classe_name);
         strcat(character->file_name_txt, ".txt");
 
         file = fopen(character->file_name_txt, "r");
@@ -208,7 +208,7 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
 
         /*--- Open bmp file ----------------------------------------------------------*/
 
-        strcat(character->file_name_bmp, character->charactere_name);
+        strcat(character->file_name_bmp, character->classe_name);
         strcat(character->file_name_bmp, ".bmp");
 
         character->surface = SDL_LoadBMP(character->file_name_bmp);

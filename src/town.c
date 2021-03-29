@@ -7,6 +7,7 @@
 #include "..\lib\map.h"
 #include "..\lib\character.h"
 #include "..\lib\menu_in_game.h"
+#include "..\lib\combat.h"
 
 
 /*!
@@ -97,8 +98,10 @@ void town(game_t * game, character_t * character){
 
         while (SDL_PollEvent(&event))
         {
+
             while ((*game->program_launch && *town_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
+                
                 SDL_PollEvent(&event);
 
                 SDL_SetRenderTarget(game->render, texture_render);
@@ -110,6 +113,11 @@ void town(game_t * game, character_t * character){
                 if (event.type == SDL_QUIT)
                 {
                     (*game->program_launch) = SDL_FALSE;
+                }
+
+                if (keyState[SDL_SCANCODE_RETURN])
+                {
+                    combat(game, character, town);
                 }
 
                 if (keyState[SDL_SCANCODE_ESCAPE])
