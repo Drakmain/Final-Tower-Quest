@@ -5,7 +5,7 @@
 #include "..\lib\character.h"
 
 /*!
- * 
+ *
  * \file character.c
  * \brief Gestion de l'objet character.
  * \author Enzo BRENNUS
@@ -14,10 +14,10 @@
 
 
 /*!
- * 
+ *
  * \struct character_t character.h "character.h"
  * \brief Structure de l'objet character_t.
- * 
+ *
  */
 
 
@@ -30,11 +30,11 @@
  * \param render est un pointeur sur le rendu SDL.
  * \param base_rect A FINIR
  * \param pos_wind_rect A FINIR
- * 
+ *
  */
 
 static
-void character_update(character_t * character, SDL_Renderer * render, tile_set_t base_rect, SDL_Rect pos_wind_rect) 
+void character_update(character_t * character, SDL_Renderer * render, tile_set_t base_rect, SDL_Rect pos_wind_rect)
 {
 
     character->mov.x += base_rect.rect.w + 1;
@@ -61,11 +61,11 @@ void character_update(character_t * character, SDL_Renderer * render, tile_set_t
  * \brief Permet la liberation d'un objet character.
  *
  * \param character est un objet character_t qui doit etre libéré.
- * 
+ *
  */
 
-static 
-void character_free(character_t ** character) 
+static
+void character_free(character_t ** character)
 {
 
     SDL_DestroyTexture((*character)->texture);
@@ -93,21 +93,21 @@ void character_free(character_t ** character)
  *
  * \param render est un pointeur sur le rendu SDL.
  * \param file_name_save A FINIR.
- * 
+ *
  * \return character Un objet character créé dans cette fonction.
  * \retval character_t * Un pointeur sur l'objet character.
- * 
+ *
  */
 
-extern 
-character_t * character_create(SDL_Renderer * render, char * file_name_save) 
-{   
+extern
+character_t * character_create(SDL_Renderer * render, char * file_name_save)
+{
 
     /*--- Initialization variable ----------------------------------------------------*/
 
     FILE * file;
 
-    character_t * character = NULL; 
+    character_t * character = NULL;
     character = malloc(sizeof(character_t));
 
     character->file_name_txt = NULL;
@@ -155,7 +155,7 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
         fclose(file);
     }
     else
-    {   
+    {
         fscanf(file, "%*s %s ;\n", character->charactere_name);
 
         fscanf(file, "%*s %s ;\n", character->position);
@@ -167,6 +167,14 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
 
         fscanf(file, "%*s %i ;\n", &character->life);
         fscanf(file, "%*s %i ;\n", &character->mana);
+
+        fscanf(file, "%*s %i ;\n", &character->vitalite);
+        fscanf(file, "%*s %i ;\n", &character->force);
+        fscanf(file, "%*s %i ;\n", &character->intelligence);
+        fscanf(file, "%*s %i ;\n", &character->agilite);
+        fscanf(file, "%*s %i ;\n", &character->defense);
+
+        fscanf(file, "%*s %i ;\n", &character->point_dispo);
 
         fclose(file);
 
@@ -238,22 +246,22 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
  * \brief Permet de verifier l'existence du l'objet character_t.
  *
  * \param character est un pointeur sur un objet character_t.
- * 
+ *
  * \retval SDL_bool Une variable booléenne SDL.
- * 
+ *
  */
 
-extern 
+extern
 SDL_bool character_exist(character_t * const character)
 {
 
     if(character == NULL)
     {
         return(SDL_FALSE);
-    }  
+    }
     else
     {
-        return(SDL_TRUE); 
+        return(SDL_TRUE);
     }
 
 }

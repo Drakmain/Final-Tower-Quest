@@ -107,7 +107,7 @@ SDL_bool texte_confirmation(game_t * game, char * message){
     pos_confirmation.w = strlen(message)*850/59;
     pos_confirmation.h = (*game->WINDOWHEIGHT)*50/720;
     pos_confirmation.x = (*game->WINDOWWIDTH)/2 - pos_confirmation.w/2;
-    pos_confirmation.y = pos_cadre.y + 22;
+    pos_confirmation.y = pos_cadre.y + (*game->WINDOWHEIGHT)*22/720;
 
     /*----------------------------------------------------------------------------*/
 
@@ -125,10 +125,10 @@ SDL_bool texte_confirmation(game_t * game, char * message){
     }
 
     SDL_Rect pos_choix_oui;
-    pos_choix_oui.w = pos_confirmation.w/59*3;
+    pos_choix_oui.w = pos_confirmation.w/strlen(message)*3;
     pos_choix_oui.h = (*game->WINDOWHEIGHT)*50/720;
     pos_choix_oui.x = (*game->WINDOWWIDTH)/2 - pos_choix_oui.w;
-    pos_choix_oui.y = pos_cadre.y + 75;
+    pos_choix_oui.y = pos_cadre.y + (*game->WINDOWHEIGHT)*75/720;
 
     /*----------------------------------------------------------------------------*/
 
@@ -146,10 +146,10 @@ SDL_bool texte_confirmation(game_t * game, char * message){
     }
 
     SDL_Rect pos_choix_non;
-    pos_choix_non.w = pos_confirmation.w/59*3;
+    pos_choix_non.w = pos_confirmation.w/strlen(message)*3;
     pos_choix_non.h = (*game->WINDOWHEIGHT)*50/720;
     pos_choix_non.x = (*game->WINDOWWIDTH)/2 - pos_choix_non.w;
-    pos_choix_non.y = pos_cadre.y + 125;
+    pos_choix_non.y = pos_cadre.y + (*game->WINDOWHEIGHT)*125/720;
 
     /*----------------------------------------------------------------------------*/
 
@@ -161,7 +161,7 @@ SDL_bool texte_confirmation(game_t * game, char * message){
     SDL_RenderCopy(game->render, choix_non, NULL, &pos_choix_non);
 
     SDL_RenderPresent(game->render);
-    
+
 
     /*--- Main Loop --------------------------------------------------------------*/
 
@@ -214,6 +214,7 @@ SDL_bool texte_confirmation(game_t * game, char * message){
             if (event.type == SDL_QUIT)
             {
                 (*game->program_launch) = SDL_FALSE;
+                return SDL_FALSE;
             }
 
 
@@ -221,7 +222,8 @@ SDL_bool texte_confirmation(game_t * game, char * message){
         }
 
     }
-
+    
+    return SDL_FALSE;
     /*--- End Main Loop ----------------------------------------------------------*/
 
 

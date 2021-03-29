@@ -308,7 +308,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
                 }
                 if(selection == 3)/*options_in_game()*/;
                 if(selection == 4){
-                    if(texte_confirmation(game, "Etes-vous sur de vouloir retourner au menu principal ?")){
+                    if(texte_confirmation(game, "Voulez-vous retourner au menu principal ?")){
                         menu_bool = SDL_FALSE;
                         *town_bool = SDL_FALSE;
                     }
