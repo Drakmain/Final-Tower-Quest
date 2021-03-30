@@ -174,7 +174,7 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
         fscanf(file, "%*s %i ;\n", &character->agilite);
         fscanf(file, "%*s %i ;\n", &character->defense);
 
-        fscanf(file, "%*s %i ;\n", &character->point_dispo);
+        fscanf(file, "%*s %i ;\n", &character->points_dispo);
 
         fclose(file);
 

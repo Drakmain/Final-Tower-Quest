@@ -52,7 +52,7 @@ void sauvegarde(game_t * game, character_t * character)
     fprintf(file, "intelligence: %d ;\n", character->intelligence);
     fprintf(file, "agilite: %d ;\n", character->agilite);
     fprintf(file, "defense: %d ;\n", character->defense);
-    fprintf(file, "point_dispo: %d ;", character->point_dispo);
+    fprintf(file, "point_dispo: %d ;", character->points_dispo);
 
     fclose(file);
 }

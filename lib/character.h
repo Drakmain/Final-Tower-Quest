@@ -51,7 +51,8 @@ struct character_s
     int agilite; /*!< A FINIR. */
     int defense; /*!< A FINIR. */
 
-    int point_dispo; /*!< A FINIR. */
+    int points_dispo; /*!< A FINIR. */
+
 };
 
 extern character_t * character_create(SDL_Renderer * render, char * file_name_save);
