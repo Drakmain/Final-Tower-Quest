@@ -38,7 +38,9 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     SDL_bool carac_bool = SDL_TRUE, select_ret_val = SDL_TRUE;
     SDL_Event event;
 
-    int selection = 0;
+    int selection;
+    if(character->points_dispo == 0)selection = 5;
+    else selection = 0;
     int points_uti_vitalite = 0, points_uti_force = 0, points_uti_intell = 0, points_uti_agi = 0, points_uti_def = 0;;
     int character_vitalite = character->vitalite;
     int character_force = character->force;
@@ -513,10 +515,25 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
             if (keyState[SDL_SCANCODE_DOWN] && event.type == SDL_KEYDOWN){
                 selection++;
+                selection %=6;
+                if(character_points_dispo == 0){
+                    if(selection == 0 && points_uti_vitalite == 0)selection++;
+                    if(selection == 1 && points_uti_force == 0)selection++;
+                    if(selection == 2 && points_uti_intell == 0)selection++;
+                    if(selection == 3 && points_uti_agi == 0)selection++;
+                    if(selection == 4 && points_uti_def == 0)selection++;
+                }
             }
 
             if (keyState[SDL_SCANCODE_UP] && event.type == SDL_KEYDOWN){
                 selection--;
+                if(character_points_dispo == 0){
+                    if(selection == 4 && points_uti_def == 0)selection--;
+                    if(selection == 3 && points_uti_agi == 0)selection--;
+                    if(selection == 2 && points_uti_intell == 0)selection--;
+                    if(selection == 1 && points_uti_force == 0)selection--;
+                    if(selection == 0 && points_uti_vitalite == 0)selection--;
+                }
             }
 
             /*--- End Event pour selectionner --------------------------------------*/
