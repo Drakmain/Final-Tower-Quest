@@ -28,16 +28,17 @@
  */
 
 extern
-void menu_accueil(game_t * game, char * actual_save){
+void menu_accueil(game_t * game, char * actual_save)
+{
 
     /*--- Initialization variable ------------------------------------------------*/
 
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
-    SDL_Surface *surf_nouvelle_partie = NULL, *surf_charger_partie = NULL, *surf_options = NULL, *surf_quitter = NULL, *surf_logo = NULL, *surf_fond = NULL;
+    SDL_Surface * surf_nouvelle_partie = NULL, * surf_charger_partie = NULL, * surf_options = NULL, * surf_quitter = NULL, * surf_logo = NULL, * surf_fond = NULL;
 
-    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
+    const Uint8 * keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool menu_ac_bool = SDL_TRUE;
 
@@ -324,9 +325,7 @@ void menu_accueil(game_t * game, char * actual_save){
 
                 if(selection == 0)
                 {
-                    printf("avant: %s\n",actual_save);
                     nouvelle_partie_f(game, actual_save);
-                    printf("apres: %s\n",actual_save);
                     if (strcmp(actual_save, "\0"))
                     {
                         menu_ac_bool = SDL_FALSE;

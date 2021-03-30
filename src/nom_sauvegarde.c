@@ -46,6 +46,7 @@ void fcpy(FILE * source_file, FILE * dest_file)
  *
  * \param game A FINIR.
  * \param actual_save A FINIR.
+* \param base_save A FINIR.
  *
  */
 

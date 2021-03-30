@@ -20,7 +20,7 @@ var structcharacter__s =
     [ "mana", "structcharacter__s.html#a0b461b6df17bd8c922b97c6d282ace10", null ],
     [ "mov", "structcharacter__s.html#a54fb1c951bf500b03827a65eacbd37d2", null ],
     [ "North_Walk", "structcharacter__s.html#acd5d27076993c20db991409efcb20d25", null ],
-    [ "point_dispo", "structcharacter__s.html#a846ab5cce63117fb5840da9a36fbddbe", null ],
+    [ "points_dispo", "structcharacter__s.html#a58ec2e5f19a9344ec336e728528df755", null ],
     [ "position", "structcharacter__s.html#a49a979086c822712ea2507ee8c41df2c", null ],
     [ "R", "structcharacter__s.html#a3d90133d3051fbc4816d02efd9566d8e", null ],
     [ "save_name", "structcharacter__s.html#addb4515e0011afe5a483564568c60d84", null ],

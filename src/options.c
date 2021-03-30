@@ -22,16 +22,17 @@
  */
 
 extern
-void options_f(game_t * game){
+void options_f(game_t * game)
+{
 
     /*--- Initialization variable ------------------------------------------------*/
 
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
-    SDL_Surface* surf_options = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_cadre = NULL, *surf_opt_resolution = NULL, *surf_choix_resolution = NULL, *surf_opt_fullscreen = NULL, *surf_choix_fullscreen = NULL, *surf_fleche = NULL;
+    SDL_Surface * surf_options = NULL, * surf_retour = NULL, * surf_fond = NULL, * surf_cadre = NULL, * surf_opt_resolution = NULL, * surf_choix_resolution = NULL, * surf_opt_fullscreen = NULL, * surf_choix_fullscreen = NULL, * surf_fleche = NULL;
 
-    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
+    const Uint8 * keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool options_bool = SDL_TRUE;
     

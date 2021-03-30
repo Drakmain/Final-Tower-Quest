@@ -2,8 +2,9 @@
 #include <stdlib.h>
 
 #include "..\lib\caracteristiques.h"
-#include "..\lib\character.h"
+
 #include "..\lib\texte_confirmation.h"
+
 
 /*!
  *
@@ -16,7 +17,7 @@
 
 /*!
  *
- * \fn caracteristiques(game_t * game, character_t * character, SDL_Texture * texture_render_menu_ig, SDL_bool *echap_relache)
+ * \fn caracteristiques(game_t * game, character_t * character, SDL_Texture * texture_render_menu_ig, SDL_bool * echap_relache)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -26,21 +27,29 @@
  *
  */
 
-void caracteristiques(game_t * game, character_t * character, SDL_Texture * texture_render_menu_ig, SDL_bool *echap_relache){
+extern
+void caracteristiques(game_t * game, character_t * character, SDL_Texture * texture_render_menu_ig, SDL_bool * echap_relache)
+{
+
+    /*--- Initialization variable ------------------------------------------------*/
 
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
-    SDL_Surface * surf_cadre = NULL, *surf_caracteristiques = NULL, *surf_retour = NULL, *surf_vitalite = NULL, *surf_force = NULL, *surf_2point = NULL, *surf_intell = NULL, *surf_agi = NULL, *surf_def = NULL, *surf_point_dispo = NULL, *surf_nb_vitalite = NULL, *surf_nb_force = NULL, *surf_nb_intell = NULL, *surf_nb_agi = NULL, *surf_nb_def = NULL, *surf_nb_point_dispo = NULL;
-    SDL_Surface *surf_valider = NULL, *surf_fleche = NULL;
-    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
+    SDL_Surface * surf_cadre = NULL, * surf_caracteristiques = NULL, * surf_retour = NULL, * surf_vitalite = NULL, * surf_force = NULL, * surf_2point = NULL, * surf_intell = NULL, * surf_agi = NULL, * surf_def = NULL, * surf_point_dispo = NULL, * surf_nb_vitalite = NULL, * surf_nb_force = NULL, * surf_nb_intell = NULL, * surf_nb_agi = NULL, * surf_nb_def = NULL, * surf_nb_point_dispo = NULL;
+    SDL_Surface * surf_valider = NULL, * surf_fleche = NULL;
+
+    const Uint8 * keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool carac_bool = SDL_TRUE, select_ret_val = SDL_TRUE;
+
     SDL_Event event;
 
     int selection;
+
     if(character->points_dispo == 0)selection = 5;
     else selection = 0;
+
     int points_uti_vitalite = 0, points_uti_force = 0, points_uti_intell = 0, points_uti_agi = 0, points_uti_def = 0;;
     int character_vitalite = character->vitalite;
     int character_force = character->force;
@@ -48,6 +57,10 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     int character_agi = character->agilite;
     int character_def = character->defense;
     int character_points_dispo = character->points_dispo;
+
+    /*--- End Initialization variable --------------------------------------------*/
+
+
     /*---texture "cadre"--------------------------------------------------------*/
 
     surf_cadre = SDL_LoadBMP("src\\image\\cadre_caracteristiques.bmp");
@@ -96,6 +109,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*------------------------------------------------------------------------------------*/
 
+
     /*--- Creation text "caracteristiques" ----------------------------------------*/
 
     surf_caracteristiques = TTF_RenderText_Blended(game->police, "CARACTERISTIQUES", blanc);
@@ -115,6 +129,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     pos_caracteristiques.y = pos_cadre.y + rect_fond_cadre.y + (*game->WINDOWHEIGHT)*15/720;
 
     /*----------------------------------------------------------------------------*/
+
 
     /*--- Creation text "Retour" ----------------------------------------*/
 
@@ -136,6 +151,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "Valider" ----------------------------------------*/
 
     surf_valider = TTF_RenderText_Blended(game->police, "Valider", blanc);
@@ -156,6 +172,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "Force" ----------------------------------------*/
 
     surf_2point = TTF_RenderText_Blended(game->police, " : ", blanc);
@@ -167,7 +184,9 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     if(t_2point == NULL){
         SDL_ExitWithError("probleme texture : caracteristiques.c");
     }
+
     /*----------------------------------------------------------------------------*/
+
 
     /*--- Creation text "Vitalite" ----------------------------------------*/
 
@@ -189,6 +208,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "Force" ----------------------------------------*/
 
     surf_force = TTF_RenderText_Blended(game->police, "Force       ", blanc);
@@ -208,6 +228,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     pos_force.y = pos_vitalite.y + pos_vitalite.h + (*game->WINDOWHEIGHT)*20/720;
 
     /*----------------------------------------------------------------------------*/
+
 
     /*--- Creation text "intelligence" ----------------------------------------*/
 
@@ -229,6 +250,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "agilite" ----------------------------------------*/
 
     surf_agi = TTF_RenderText_Blended(game->police, "Agilite     ", blanc);
@@ -248,6 +270,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     pos_agi.y = pos_intell.y + pos_intell.h + (*game->WINDOWHEIGHT)*20/720;
 
     /*----------------------------------------------------------------------------*/
+
 
     /*--- Creation text "defense" ----------------------------------------*/
 
@@ -269,6 +292,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "defense" ----------------------------------------*/
 
     surf_point_dispo = TTF_RenderText_Blended(game->police, "Point(s) disponible(s)", blanc);
@@ -288,6 +312,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     pos_point_dispo.y = pos_retour.y;
 
     /*----------------------------------------------------------------------------*/
+
 
     SDL_Rect pos_2point_v;
     pos_2point_v.w = (*game->WINDOWWIDTH)*45/1200;
@@ -325,7 +350,9 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     pos_2point_point_dispo.x = pos_point_dispo.x + pos_point_dispo.w;
     pos_2point_point_dispo.y = pos_point_dispo.y;
 
+
     /*--- Creation text "nb vitalite" ----------------------------------------*/
+
     char character_nb_vitalite[10];
     itoa(character_vitalite, character_nb_vitalite, 10);
 
@@ -347,7 +374,9 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "nb force" ----------------------------------------*/
+
     char character_nb_force[10];
     itoa(character_force, character_nb_force, 10);
 
@@ -369,7 +398,9 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "nb intelligence" ----------------------------------------*/
+
     char character_nb_intell[10];
     itoa(character_intell, character_nb_intell, 10);
 
@@ -391,7 +422,9 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "nb agilite" ----------------------------------------*/
+
     char character_nb_agi[10];
     itoa(character_agi, character_nb_agi, 10);
 
@@ -413,7 +446,9 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "nb defense" ----------------------------------------*/
+
     char character_nb_defense[10];
     itoa(character_def, character_nb_defense, 10);
 
@@ -435,7 +470,9 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Creation text "nb points dispo" ----------------------------------------*/
+
     char character_nb_points_dispo[10];
     itoa(character_points_dispo, character_nb_points_dispo, 10);
 
@@ -456,6 +493,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     pos_nb_point_dispo.y = pos_point_dispo.y;
 
     /*----------------------------------------------------------------------------*/
+
 
     /*--- Initialization texture "fleche" -------------------------------------*/
 
@@ -494,13 +532,16 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
     SDL_Rect pos_fleche_droite;
     pos_fleche_droite.w = (*game->WINDOWHEIGHT)*40/1280 * 38 / 28;
     pos_fleche_droite.h = (*game->WINDOWHEIGHT)*40/1280;
+
     /*-------------------------------------------------------------------------*/
+
 
     SDL_Rect pos_texture_render_menu_ig;
     pos_texture_render_menu_ig.x = 0;
     pos_texture_render_menu_ig.y = 0;
     pos_texture_render_menu_ig.w = (*game->WINDOWWIDTH);
     pos_texture_render_menu_ig.h = (*game->WINDOWHEIGHT);
+
 
     /*--- Main Loop --------------------------------------------------------------*/
 
@@ -509,7 +550,6 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
         while (SDL_PollEvent(&event))
         {
-
 
             /*--- Event pour selectionner ------------------------------------------*/
 
@@ -537,6 +577,7 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
             }
 
             /*--- End Event pour selectionner --------------------------------------*/
+
 
             if(selection < 0)selection = 5;
             selection %=6;
@@ -784,6 +825,8 @@ void caracteristiques(game_t * game, character_t * character, SDL_Texture * text
 
             rect_fleche_droite.y = 0;
             rect_fleche_gauche.y = 0;
+
+
             /*--- Event to Exit Program ------------------------------------------*/
 
             if (event.type == SDL_QUIT)

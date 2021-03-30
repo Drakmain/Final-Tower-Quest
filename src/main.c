@@ -58,7 +58,7 @@ int main(int argc, char ** argv)
     game = game_create();
     if (game == NULL)
     {
-        exit_with_error("Cannot create a game_t object > main.c Line 64");
+        exit_with_error("Cannot create a game_t object > main.c Line 58");
     }
 
     /*--- End Initialization game --------------------------------------------*/
@@ -103,7 +103,7 @@ int main(int argc, char ** argv)
     }
     else
     {
-        exit_with_error("Error while freeing the object character_t * character_save > main.c Line 100");
+        exit_with_error("Error while freeing the object character_t * character_save > main.c Line 99");
     }
     /*
     if (character_exist(character_save) == SDL_TRUE)

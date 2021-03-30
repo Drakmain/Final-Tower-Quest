@@ -1,0 +1,8 @@
+<map id="fcpy" name="fcpy">
+<area shape="rect" id="node1" title="Fonction qui permet la creation d&#39;une nouvelle partie." alt="" coords="741,5,788,32"/>
+<area shape="rect" id="node2" href="$nom__sauvegarde_8c.html#a2d119092227da43e871b72631e8c9a21" title="A FINIR." alt="" coords="575,5,693,32"/>
+<area shape="rect" id="node3" href="$creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9" title="A FINIR." alt="" coords="420,5,527,32"/>
+<area shape="rect" id="node4" href="$nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76" title="A FINIR." alt="" coords="255,5,372,32"/>
+<area shape="rect" id="node5" href="$menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="Fonction de gestion du menu d&#39;accueil du jeu." alt="" coords="104,5,207,32"/>
+<area shape="rect" id="node6" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
+</map>
