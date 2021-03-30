@@ -1,9 +1,9 @@
-save_name: Jeremy ;
-classe_name: Guerrier ;
-position: Armurie ;
+save_name:  ;
+classe_name:  ;
+position:  ;
 x: 0 ;
 y: 0 ;
-lvl: 38 ;
+lvl: 0 ;
 xp: 0 ;
 life: 0 ;
 mana: 0 ;

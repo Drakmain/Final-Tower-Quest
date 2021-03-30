@@ -1,9 +1,9 @@
-save_name: Robin ;
-classe_name: Assassin ;
-position: Taverne ;
+save_name:  ;
+classe_name:  ;
+position:  ;
 x: 0 ;
 y: 0 ;
-lvl: 57 ;
+lvl: 1 ;
 xp: 0 ;
 life: 0 ;
 mana: 0 ;

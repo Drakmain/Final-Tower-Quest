@@ -1,8 +1,7 @@
-save_name:  ;
-classe_name: Assasin ;
+classe_name: Assassin ;
 position: Village ;
-x: ;
-y: ;
+x: 0 ;
+y: 0 ;
 lvl: 1 ;
 xp: 0 ;
 life: 35 ;
@@ -11,5 +10,5 @@ vitalite: 0 ;
 force: 0 ;
 intelligence: 0 ;
 agilite: 50 ;
-defense:  ;
+defense: 0 ;
 point_dispo: 0 ;

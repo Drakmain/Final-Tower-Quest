@@ -16,7 +16,32 @@
 
 /*!
  *
- * \fn nom_sauvegarde(game_t * game, char * actual_save)
+ * \fn fcpy(FILE * source_file, FILE * dest_file)
+ * \brief Fonction qui permet la creation d'une nouvelle partie.
+ *
+ * \param source_file A FINIR.
+ * \param dest_file A FINIR.
+ *
+ */
+
+static
+void fcpy(FILE * source_file, FILE * dest_file)
+{
+
+    char c;
+    c = fgetc(source_file);
+    while (c != EOF)
+    {
+        fputc(c, dest_file);
+        c = fgetc(source_file);
+    }
+
+}
+
+
+/*!
+ *
+ * \fn nom_sauvegarde(game_t * game, char * actual_save, char * base_save)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -25,20 +50,26 @@
  */
 
 extern
-void nom_sauvegarde(game_t * game, char * actual_save){
+void nom_sauvegarde(game_t * game, char * actual_save, char * base_save){
 
     /*--- Initialization variable ----------------------------------------------------*/
 
     SDL_Color blanc = {255,255,255};
 
-    SDL_Surface *surf_fond = NULL, *surf_demande = NULL, *surf_cadre = NULL;
-    char cara[100];
+    SDL_Surface * surf_fond = NULL,  *surf_demande = NULL, * surf_cadre = NULL, * surf_nom_save = NULL;
 
     SDL_bool nom_sauvegarde_bool = SDL_TRUE;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_Event event;
+
+    char nom_save[11];
+
+    FILE * src;
+    FILE * dst;
+
+    int touche;
 
     /*--- End Initialization variable --------------------------------------------*/
 
@@ -50,7 +81,7 @@ void nom_sauvegarde(game_t * game, char * actual_save){
         SDL_ExitWithError("probleme chargement image fond menu de creation de personnage");
     }
 
-    SDL_Texture* fond = SDL_CreateTextureFromSurface(game->render, surf_fond);
+    SDL_Texture * fond = SDL_CreateTextureFromSurface(game->render, surf_fond);
     if(fond == NULL){
         SDL_ExitWithError("probleme texture fond menu de creation de personnage");
     }
@@ -71,7 +102,7 @@ void nom_sauvegarde(game_t * game, char * actual_save){
         SDL_ExitWithError("probleme chargement image cadre");
     }
 
-    SDL_Texture* cadre_nom_save = SDL_CreateTextureFromSurface(game->render, surf_cadre);
+    SDL_Texture * cadre_nom_save = SDL_CreateTextureFromSurface(game->render, surf_cadre);
     if(cadre_nom_save == NULL)
     {
         SDL_ExitWithError("probleme texture cadre_nom_save");
@@ -87,7 +118,7 @@ void nom_sauvegarde(game_t * game, char * actual_save){
 
     /*--- Creation texture background "cadre" ------------------------------------*/
 
-    SDL_Texture* fond_cadre_nom_save = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, pos_cadre_nom_save.w, pos_cadre_nom_save.h);
+    SDL_Texture * fond_cadre_nom_save = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, pos_cadre_nom_save.w, pos_cadre_nom_save.h);
     if(fond_cadre_nom_save == NULL)
     {
         SDL_ExitWithError("probleme texture fond_cadre_nom_save");
@@ -143,9 +174,18 @@ void nom_sauvegarde(game_t * game, char * actual_save){
     /*----------------------------------------------------------------------------*/
 
 
-    /*---Save de caractères-----------------------------------------------------*/
+    /*--- Initialization text "surf_nom_save" ------------------------------------*/
 
-    /*---End Save de caractères-----------------------------------------------------*/
+    surf_nom_save = TTF_RenderText_Blended(game->police, "", blanc);
+
+    SDL_Texture * texture_nom_save;
+
+    SDL_Rect pos_Wind_nom_save;
+    pos_Wind_nom_save.x = (*game->WINDOWHEIGHT) * 330 / 720;
+    pos_Wind_nom_save.y = (*game->WINDOWHEIGHT) * 315 / 720;
+    pos_Wind_nom_save.h = (*game->WINDOWHEIGHT) * 110 / 720;
+
+    /*----------------------------------------------------------------------------*/
 
 
     SDL_RenderClear(game->render);
@@ -181,17 +221,75 @@ void nom_sauvegarde(game_t * game, char * actual_save){
 
             /*--- End Event to Exit Program -------------------------------------------*/
 
+            if (strlen(nom_save) < 10)
+            {
+                if ((event.key.keysym.sym >= SDLK_a && event.key.keysym.sym <= SDLK_z) && event.type == SDL_KEYDOWN)
+                {
+                    touche = event.key.keysym.sym;
+                    if (event.key.keysym.mod == KMOD_LSHIFT)
+                    {
+                        nom_save[strlen(nom_save)] = touche - ('a' - 'A');
+                    }
+                    else
+                    {
+                        nom_save[strlen(nom_save)] = touche;
+                    }
+
+                }
+
+            }
+            
+            SDL_RenderClear(game->render);
+
             SDL_RenderCopy(game->render, fond, NULL, &pos_fond);
             SDL_RenderCopy(game->render, demande, NULL, &pos_demande);
             SDL_RenderCopy(game->render, fond_cadre_nom_save, NULL, &pos_fond_cadre_nom_save);
             SDL_RenderCopy(game->render, cadre_nom_save, NULL, &pos_cadre_nom_save);
 
-            demande = SDL_CreateTextureFromSurface(game->render, surf_demande);
+            if (keyState[SDL_SCANCODE_BACKSPACE] && event.type == SDL_KEYDOWN)
+            {   
+                nom_save[strlen(nom_save)-1] = '\0';
+            }
 
+            if (strcmp(nom_save, ""))
+            {
+                surf_nom_save = TTF_RenderText_Blended(game->police, nom_save, blanc);
+                if(surf_nom_save == NULL){
+                    SDL_ExitWithError("Probleme surface surf_nom_save > nom_sauvegarde.c Line 229");
+                }
+
+                texture_nom_save = SDL_CreateTextureFromSurface(game->render, surf_nom_save);
+                if(texture_nom_save == NULL){
+                    SDL_ExitWithError("Probleme texture texture_nom_save > nom_sauvegarde.c Line 304");
+                }
+
+                pos_Wind_nom_save.w = strlen(nom_save) * (*game->WINDOWHEIGHT) * 119 / 1440;
+
+                SDL_RenderCopy(game->render, texture_nom_save, NULL, &pos_Wind_nom_save);
+            }
+            
             SDL_RenderPresent(game->render);
 
-            scanf("%s",cara);
-            printf("%s",cara);
+            if (keyState[SDL_SCANCODE_RETURN])
+            {
+                dst = fopen(actual_save, "w");
+
+                fprintf(dst, "save_name: %s ;\n", nom_save);
+
+                fclose(dst);
+                dst = NULL;
+
+                dst = fopen(actual_save, "a");
+                src = fopen(base_save, "r");
+
+                fcpy(src, dst);
+
+                fclose(dst);
+                fclose(src);
+
+                nom_sauvegarde_bool = SDL_FALSE;
+            }
+
         }
 
     }
@@ -202,8 +300,14 @@ void nom_sauvegarde(game_t * game, char * actual_save){
     /*--- Free Memory ------------------------------------------------------------*/
 
     SDL_FreeSurface(surf_fond);
+    SDL_FreeSurface(surf_demande);
+    SDL_FreeSurface(surf_cadre);
+    SDL_FreeSurface(surf_nom_save);
 
     SDL_DestroyTexture(fond);
+    SDL_DestroyTexture(cadre_nom_save);
+    SDL_DestroyTexture(fond_cadre_nom_save);
+    SDL_DestroyTexture(texture_nom_save);
 
     /*--- End Free Memory --------------------------------------------------------*/
 

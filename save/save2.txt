@@ -1,9 +1,9 @@
-save_name: Enzo ;
-classe_name: Mage ;
-position: Forge ;
+save_name:  ;
+classe_name:  ;
+position:  ;
 x: 0 ;
 y: 0 ;
-lvl: 10 ;
+lvl: 0 ;
 xp: 0 ;
 life: 0 ;
 mana: 0 ;

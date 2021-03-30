@@ -43,7 +43,7 @@ void creation_perso(game_t * game, char * actual_save){
     SDL_Event event;
 
     int selection = 0;
-
+    
     /*--- End Initialization variable --------------------------------------------*/
 
 
@@ -530,15 +530,17 @@ void creation_perso(game_t * game, char * actual_save){
 
                 if(selection == 0)
                 {
-                    nom_sauvegarde(game, actual_save);
+                    nom_sauvegarde(game, actual_save, "save//save_base_Guerrier.txt");
                 }
+
                 if(selection == 1)
                 {
-                    nom_sauvegarde(game, actual_save);
+                    nom_sauvegarde(game, actual_save, "save//save_base_Mage.txt");
                 }
+
                 if(selection == 2)
                 {
-                    nom_sauvegarde(game, actual_save);
+                    nom_sauvegarde(game, actual_save, "save//save_base_Assassin.txt");
                 }
 
             }
