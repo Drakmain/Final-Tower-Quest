@@ -60,7 +60,7 @@ void nom_sauvegarde(game_t * game, char * actual_save, char * base_save){
 
     SDL_bool nom_sauvegarde_bool = SDL_TRUE;
 
-    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
+    const Uint8 * keyState = SDL_GetKeyboardState(NULL);
 
     SDL_Event event;
 
@@ -94,6 +94,7 @@ void nom_sauvegarde(game_t * game, char * actual_save, char * base_save){
 
     /*----------------------------------------------------------------------------*/
 
+
     /*--- Initialization texture "cadre" -----------------------------------------*/
 
     surf_cadre = SDL_LoadBMP("src\\image\\cadre_nom_save.bmp");
@@ -115,6 +116,7 @@ void nom_sauvegarde(game_t * game, char * actual_save, char * base_save){
     pos_cadre_nom_save.h = (*game->WINDOWHEIGHT) * 110 /720;
 
     /*----------------------------------------------------------------------------*/
+
 
     /*--- Creation texture background "cadre" ------------------------------------*/
 
@@ -144,6 +146,7 @@ void nom_sauvegarde(game_t * game, char * actual_save, char * base_save){
 
     /*----------------------------------------------------------------------------*/
 
+
     SDL_RenderClear(game->render);
 
     SDL_RenderCopy(game->render, fond, NULL, &pos_fond);
@@ -152,6 +155,7 @@ void nom_sauvegarde(game_t * game, char * actual_save, char * base_save){
 
 
     SDL_RenderPresent(game->render);
+
 
     /*--- Initialization text "Demande" -----------------------------------------*/
 

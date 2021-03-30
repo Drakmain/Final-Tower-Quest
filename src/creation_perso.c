@@ -38,7 +38,7 @@ void creation_perso(game_t * game, char * actual_save){
 
     SDL_bool crea_perso_bool = SDL_TRUE;
 
-    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
+    const Uint8 * keyState = SDL_GetKeyboardState(NULL);
 
     SDL_Event event;
 
@@ -531,16 +531,22 @@ void creation_perso(game_t * game, char * actual_save){
                 if(selection == 0)
                 {
                     nom_sauvegarde(game, actual_save, "save//save_base_Guerrier.txt");
+                    crea_perso_bool = SDL_FALSE;
+
                 }
 
                 if(selection == 1)
                 {
                     nom_sauvegarde(game, actual_save, "save//save_base_Mage.txt");
+                    crea_perso_bool = SDL_FALSE;
+
                 }
 
                 if(selection == 2)
                 {
                     nom_sauvegarde(game, actual_save, "save//save_base_Assassin.txt");
+                    crea_perso_bool = SDL_FALSE;
+
                 }
 
             }

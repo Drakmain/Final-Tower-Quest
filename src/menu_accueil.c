@@ -67,6 +67,7 @@ void menu_accueil(game_t * game, char * actual_save){
     pos_nouvelle_partie.y = (*game->WINDOWHEIGHT)/2;
     pos_nouvelle_partie.w = (*game->WINDOWWIDTH)/3.74;
     pos_nouvelle_partie.h = (*game->WINDOWHEIGHT)/13.5;
+    
     /*----------------------------------------------------------------------------*/
 
 
@@ -88,6 +89,7 @@ void menu_accueil(game_t * game, char * actual_save){
     pos_charger_partie.y = (*game->WINDOWHEIGHT)/2 + (*game->WINDOWHEIGHT)/9;
     pos_charger_partie.w = (*game->WINDOWWIDTH)/4;
     pos_charger_partie.h = (*game->WINDOWHEIGHT)/13.5;
+
     /*----------------------------------------------------------------------------*/
 
 
@@ -110,6 +112,7 @@ void menu_accueil(game_t * game, char * actual_save){
     pos_options.y = (*game->WINDOWHEIGHT)/2 + (*game->WINDOWHEIGHT)/4.5;
     pos_options.w = (*game->WINDOWWIDTH)/8;
     pos_options.h = (*game->WINDOWHEIGHT)/13.5;
+
     /*----------------------------------------------------------------------------*/
 
 
@@ -132,6 +135,7 @@ void menu_accueil(game_t * game, char * actual_save){
     pos_quitter.y = (*game->WINDOWHEIGHT)/2 + (*game->WINDOWHEIGHT)/3;
     pos_quitter.w = (*game->WINDOWWIDTH)/4;
     pos_quitter.h = (*game->WINDOWHEIGHT)/13.5;
+
     /*----------------------------------------------------------------------------*/
 
 
@@ -154,6 +158,7 @@ void menu_accueil(game_t * game, char * actual_save){
     pos_logo.y = (*game->WINDOWHEIGHT)/2 - (*game->WINDOWHEIGHT)*300/720;
     pos_logo.w = (*game->WINDOWWIDTH)*552/1280;
     pos_logo.h = (*game->WINDOWHEIGHT)*145/720;
+
     /*----------------------------------------------------------------------------*/
 
 
@@ -176,7 +181,9 @@ void menu_accueil(game_t * game, char * actual_save){
     pos_fond.y = 0;
     pos_fond.w = (*game->WINDOWWIDTH);
     pos_fond.h = (*game->WINDOWHEIGHT);
+
     /*----------------------------------------------------------------------------*/
+
 
     SDL_RenderClear(game->render);
 
@@ -317,7 +324,13 @@ void menu_accueil(game_t * game, char * actual_save){
 
                 if(selection == 0)
                 {
+                    printf("avant: %s\n",actual_save);
                     nouvelle_partie_f(game, actual_save);
+                    printf("apres: %s\n",actual_save);
+                    if (strcmp(actual_save, "\0"))
+                    {
+                        menu_ac_bool = SDL_FALSE;
+                    }
                 }
 
                 if(selection == 1)

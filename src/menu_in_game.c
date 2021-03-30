@@ -32,6 +32,7 @@ extern
 void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, SDL_Texture * texture_render){
 
     /*--- Initialization variable ------------------------------------------------*/
+
     SDL_Color blanc = {255,255,255};
     SDL_Color rouge = {255,0,0};
 
@@ -204,6 +205,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
 
     /*------------------------------------------------------------------------------------*/
 
+
     SDL_Rect pos_texture_render;
     pos_texture_render.x = 0;
     pos_texture_render.y = 0;
@@ -211,6 +213,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     pos_texture_render.h = (*game->WINDOWHEIGHT);
 
     SDL_RenderClear(game->render);
+
     SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
     SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
     SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
@@ -219,6 +222,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     SDL_RenderCopy(game->render, sauvegarder, NULL, &pos_sauvegarder);
     SDL_RenderCopy(game->render, options, NULL, &pos_options);
     SDL_RenderCopy(game->render, retourner_menu, NULL, &pos_retourner_menu);
+    
     SDL_RenderPresent(game->render);
 
 

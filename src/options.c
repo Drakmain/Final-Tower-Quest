@@ -34,9 +34,11 @@ void options_f(game_t * game){
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool options_bool = SDL_TRUE;
+    
     SDL_Event event;
 
     int selection = 0;
+
     SDL_bool changement = SDL_FALSE;
 
     /*--- End Initialization variable --------------------------------------------*/
@@ -261,6 +263,7 @@ void options_f(game_t * game){
 
     /*-------------------------------------------------------------------------*/
 
+
     /*--- Open options file ---------------------------------------------------*/
 
     FILE * opts = fopen("options.txt", "w");
@@ -270,6 +273,7 @@ void options_f(game_t * game){
     }
 
     /*-------------------------------------------------------------------------*/
+
 
     /*--- Main Loop -----------------------------------------------------------*/
 
@@ -291,6 +295,7 @@ void options_f(game_t * game){
             {
                 options_bool = SDL_FALSE;
                 fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;", resolution , *game->etat_fullscreen);
+                fclose(opts);
             }
 
             /*--- End Event to Exit Program --------------------------------------*/
@@ -538,6 +543,7 @@ void options_f(game_t * game){
                 {
                     options_bool = SDL_FALSE;
                     fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;",resolution , *game->etat_fullscreen);
+                    fclose(opts);
                 }
 
             }
@@ -550,8 +556,6 @@ void options_f(game_t * game){
 
 
     /*--- Free Memory ------------------------------------------------------------*/
-
-    fclose(opts);
 
     SDL_FreeSurface(surf_options);
     SDL_FreeSurface(surf_retour);

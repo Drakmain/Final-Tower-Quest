@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "..\lib\commun.h"
 
@@ -77,7 +78,8 @@ int main(int argc, char ** argv)
 
     while (*game->program_launch)
     {
-
+        strcpy(actual_save, "\0");
+        
         menu_accueil(game, actual_save);
 
         if (strcmp(actual_save, "\0"))

@@ -55,14 +55,6 @@ void charger_partie_f(game_t * game, char * actual_save){
     {
         exit_with_error("Cannot create a character_t object > charger_partie.c Line 341");
     }
-    else if (character_save1->empty == SDL_TRUE)
-    {
-        printf("Save 1 vide\n");
-    }
-    else
-    {
-        printf("%s\n", character_save1->save_name);
-    }
 
     character_t * character_save2 = NULL;
     character_save2 = character_create(game->render, "save//save2.txt");
@@ -70,28 +62,12 @@ void charger_partie_f(game_t * game, char * actual_save){
     {
         exit_with_error("Cannot create a character_t object > charger_partie.c Line 337");
     }
-    else if (character_save2->empty == SDL_TRUE)
-    {
-        printf("Save 2 vide\n");
-    }
-    else
-    {
-        printf("%s\n", character_save2->save_name);
-    }
 
     character_t * character_save3 = NULL;
     character_save3 = character_create(game->render, "save//save3.txt");
     if (character_save3 == NULL)
     {
         exit_with_error("Cannot create a character_t object > charger_partie.c Line 374");
-    }
-    else if (character_save3->empty == SDL_TRUE)
-    {
-        printf("Save 3 vide\n\n");
-    }
-    else
-    {
-        printf("%s\n\n", character_save3->save_name);
     }
 
     /*----------------------------------------------------------------------------*/
