@@ -12,14 +12,12 @@
  *
  */
 
-
 /*!
  *
  * \struct character_t character.h "character.h"
  * \brief Structure de l'objet character_t.
  *
  */
-
 
 /*!
  *
@@ -33,10 +31,8 @@
  *
  */
 
-static
-void character_update(character_t * character, SDL_Renderer * render, tile_set_t base_rect, SDL_Rect pos_wind_rect)
+static void character_update(character_t *character, SDL_Renderer *render, tile_set_t base_rect, SDL_Rect pos_wind_rect)
 {
-
     character->mov.x += base_rect.rect.w + 1;
 
     if (character->mov.x > base_rect.limit || character->mov.y != base_rect.rect.y)
@@ -51,9 +47,7 @@ void character_update(character_t * character, SDL_Renderer * render, tile_set_t
     {
         SDL_ExitWithError("Copy of rendering failed > character.c Line 51");
     }
-
 }
-
 
 /*!
  *
@@ -64,10 +58,8 @@ void character_update(character_t * character, SDL_Renderer * render, tile_set_t
  *
  */
 
-static
-void character_free(character_t ** character)
+static void character_free(character_t **character)
 {
-
     SDL_DestroyTexture((*character)->texture);
 
     SDL_FreeSurface((*character)->surface);
@@ -82,9 +74,7 @@ void character_free(character_t ** character)
 
     free(*character);
     *character = NULL;
-
 }
-
 
 /*!
  *
@@ -99,15 +89,13 @@ void character_free(character_t ** character)
  *
  */
 
-extern
-character_t * character_create(SDL_Renderer * render, char * file_name_save)
+extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
 {
-
     /*--- Initialization variable ----------------------------------------------------*/
 
-    FILE * file;
+    FILE *file;
 
-    character_t * character = NULL;
+    character_t *character = NULL;
     character = malloc(sizeof(character_t));
 
     character->file_name_txt = NULL;
@@ -138,7 +126,6 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
     character->surface = NULL;
 
     /*--- End Initialization variable --------------------------------------------*/
-
 
     /*--- Open save file ---------------------------------------------------------*/
 
@@ -180,7 +167,6 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
 
         /*----------------------------------------------------------------------------*/
 
-
         /*--- Open txt file ----------------------------------------------------------*/
 
         strcat(character->file_name_txt, character->classe_name);
@@ -205,7 +191,6 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
 
         /*----------------------------------------------------------------------------*/
 
-
         /*--- Open bmp file ----------------------------------------------------------*/
 
         strcat(character->file_name_bmp, character->classe_name);
@@ -226,7 +211,6 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
         }
 
         /*----------------------------------------------------------------------------*/
-
     }
 
     /*--- Initialization method --------------------------------------------------*/
@@ -236,9 +220,8 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
 
     /*----------------------------------------------------------------------------*/
 
-    return(character);
+    return (character);
 }
-
 
 /*!
  *
@@ -251,17 +234,14 @@ character_t * character_create(SDL_Renderer * render, char * file_name_save)
  *
  */
 
-extern
-SDL_bool character_exist(character_t * const character)
+extern SDL_bool character_exist(character_t *const character)
 {
-
-    if(character == NULL)
+    if (character == NULL)
     {
-        return(SDL_FALSE);
+        return (SDL_FALSE);
     }
     else
     {
-        return(SDL_TRUE);
+        return (SDL_TRUE);
     }
-
 }

@@ -5,6 +5,6 @@
 
 #include "game.h"
 
-void charger_partie_f(game_t * game, char * actual_save);
+void charger_partie_f(game_t *game, char *actual_save);
 
 #endif

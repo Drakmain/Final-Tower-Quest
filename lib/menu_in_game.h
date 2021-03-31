@@ -6,6 +6,6 @@
 #include "map.h"
 #include "character.h"
 
-void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, SDL_Texture * texture_render);
+void menu_in_game(game_t *game, SDL_bool *town_bool, character_t *character, SDL_Texture *texture_render);
 
 #endif

@@ -5,6 +5,6 @@
 
 #include "game.h"
 
-void menu_accueil(game_t * game, char * actual_save);
+void menu_accueil(game_t *game, char *actual_save);
 
 #endif

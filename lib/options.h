@@ -5,6 +5,6 @@
 
 #include "game.h"
 
-void options_f(game_t * game);
+void options_f(game_t *game);
 
 #endif

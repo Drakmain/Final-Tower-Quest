@@ -4,7 +4,6 @@
 
 #include "..\lib\game.h"
 
-
 /*!
  *
  * \file game.c
@@ -13,14 +12,12 @@
  *
  */
 
-
 /*!
  *
  * \struct game_t game.h "game.h"
  * \brief Structure de l'objet game_t.
  *
  */
-
 
 /*!
  *
@@ -31,8 +28,7 @@
  *
  */
 
-static
-void game_free(game_t ** game)
+static void game_free(game_t **game)
 {
     /*--- Free Memory ------------------------------------------------------------*/
 
@@ -62,13 +58,10 @@ void game_free(game_t ** game)
 
     /*--- End Free Memory --------------------------------------------------------*/
 
-
     free(*game);
 
     *game = NULL;
-
 }
-
 
 /*!
  *
@@ -80,13 +73,11 @@ void game_free(game_t ** game)
  *
  */
 
-extern
-game_t * game_create()
+extern game_t *game_create()
 {
-
     /*--- Initialization variable ------------------------------------------------*/
 
-    game_t * game = NULL;
+    game_t *game = NULL;
     game = malloc(sizeof(game_t));
 
     resolution_e res = -1;
@@ -102,10 +93,9 @@ game_t * game_create()
 
     /*--- End Initialization variable --------------------------------------------*/
 
-
     /*--- Open options file ------------------------------------------------------*/
 
-    FILE * opts = fopen("options.txt", "r");
+    FILE *opts = fopen("options.txt", "r");
     if (opts == NULL)
     {
         exit_with_error("Fichier options.txt ne pas etre ouvert > game.c Line 98");
@@ -119,24 +109,23 @@ game_t * game_create()
 
     switch (res)
     {
-        case RES_720P:
-            (*game->WINDOWWIDTH) = WINDOWWIDTH_720P;
-            (*game->WINDOWHEIGHT) = WINDOWHEIGHT_720P;
-            break;
-        case RES_900P:
-            (*game->WINDOWWIDTH) = WINDOWWIDTH_900P;
-            (*game->WINDOWHEIGHT) = WINDOWHEIGHT_900P;
-            break;
-        case RES_1080P:
-            (*game->WINDOWWIDTH) = WINDOWWIDTH_1080P;
-            (*game->WINDOWHEIGHT) = WINDOWHEIGHT_1080P;
-            break;
-        case RES_1440P:
-            (*game->WINDOWWIDTH) = WINDOWWIDTH_1440P;
-            (*game->WINDOWHEIGHT) = WINDOWHEIGHT_1440P;
-            break;
+    case RES_720P:
+        (*game->WINDOWWIDTH) = WINDOWWIDTH_720P;
+        (*game->WINDOWHEIGHT) = WINDOWHEIGHT_720P;
+        break;
+    case RES_900P:
+        (*game->WINDOWWIDTH) = WINDOWWIDTH_900P;
+        (*game->WINDOWHEIGHT) = WINDOWHEIGHT_900P;
+        break;
+    case RES_1080P:
+        (*game->WINDOWWIDTH) = WINDOWWIDTH_1080P;
+        (*game->WINDOWHEIGHT) = WINDOWHEIGHT_1080P;
+        break;
+    case RES_1440P:
+        (*game->WINDOWWIDTH) = WINDOWWIDTH_1440P;
+        (*game->WINDOWHEIGHT) = WINDOWHEIGHT_1440P;
+        break;
     }
-
 
     fscanf(opts, "%*s %i ;\n", game->etat_fullscreen);
     if (*game->etat_fullscreen != 0 && *game->etat_fullscreen != 1)
@@ -147,7 +136,6 @@ game_t * game_create()
     fclose(opts);
 
     /*----------------------------------------------------------------------------*/
-
 
     /*--- Initialization SDL Video -----------------------------------------------*/
 
@@ -162,7 +150,6 @@ game_t * game_create()
 
     /*--- End Initialization SDL Video -------------------------------------------*/
 
-
     /*--- Initialization SDL TTF -------------------------------------------------*/
 
     if (TTF_Init() == -1)
@@ -175,7 +162,6 @@ game_t * game_create()
     }
 
     /*--- End Initialization SDL TTF ---------------------------------------------*/
-
 
     /*--- Creation Window --------------------------------------------------------*/
 
@@ -201,7 +187,6 @@ game_t * game_create()
 
     /*--- End Creation Window ----------------------------------------------------*/
 
-
     /*--- Creation Render --------------------------------------------------------*/
 
     game->render = NULL;
@@ -224,18 +209,16 @@ game_t * game_create()
 
     /*--- End Creation Render ----------------------------------------------------*/
 
-
     /*--- Creation Police --------------------------------------------------------*/
 
     game->police = NULL;
-    game->police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf",50);
-    if(game->police == NULL)
+    game->police = TTF_OpenFont("src\\font\\dragon-quest-ix.ttf", 50);
+    if (game->police == NULL)
     {
         SDL_ExitWithError("probleme chargement police > game.c Line 179");
     }
 
     /*--- End Creation Police ----------------------------------------------------*/
-
 
     /*--- Initialization method --------------------------------------------------*/
 
@@ -243,9 +226,8 @@ game_t * game_create()
 
     /*----------------------------------------------------------------------------*/
 
-    return(game);
+    return (game);
 }
-
 
 /*!
  *
@@ -258,17 +240,10 @@ game_t * game_create()
  *
  */
 
-extern
-SDL_bool game_exist(game_t * const game)
+extern SDL_bool game_exist(game_t * const game)
 {
-
-    if(game == NULL)
-    {
-        return(SDL_FALSE);
-    }
+    if (game == NULL)
+        return (SDL_FALSE);
     else
-    {
-        return(SDL_TRUE);
-    }
-
+        return (SDL_TRUE);
 }

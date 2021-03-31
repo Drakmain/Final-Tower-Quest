@@ -13,14 +13,12 @@
  *
  */
 
-
 /*!
  *
  * \struct enemie_t enemie.h "enemie.h"
  * \brief Structure de l'objet enemie_t.
  *
  */
-
 
 /*!
  *
@@ -31,10 +29,8 @@
  *
  */
 
-static
-void enemie_free(enemie_t ** enemie)
+static void enemie_free(enemie_t **enemie)
 {
-
     SDL_DestroyTexture((*enemie)->texture);
 
     SDL_FreeSurface((*enemie)->surface);
@@ -45,9 +41,7 @@ void enemie_free(enemie_t ** enemie)
 
     free(*enemie);
     *enemie = NULL;
-
 }
-
 
 /*!
  *
@@ -62,14 +56,13 @@ void enemie_free(enemie_t ** enemie)
  *
  */
 
-extern
-enemie_t * enemie_create(SDL_Renderer * render, char * file_name_enemies)
+extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies)
 {
     srand(time(NULL));
 
     /*--- Initialization variable ----------------------------------------------------*/
 
-    enemie_t * enemie = NULL;
+    enemie_t *enemie = NULL;
     enemie = malloc(sizeof(enemie_t));
 
     enemie->file_name_bmp = NULL;
@@ -87,17 +80,16 @@ enemie_t * enemie_create(SDL_Renderer * render, char * file_name_enemies)
 
     int enemei_rand = 0;
 
-    FILE * file;
+    FILE *file;
 
     char temp[30];
 
     /*--- End Initialization variable --------------------------------------------*/
 
-
     /*--- Open txt file ----------------------------------------------------------*/
-    
+
     char enemies[16][30];
-    
+
     enemei_rand = rand() % 15;
     printf("enemei_rand: %i\n", enemei_rand);
 
@@ -111,11 +103,10 @@ enemie_t * enemie_create(SDL_Renderer * render, char * file_name_enemies)
     }
 
     strcpy(enemie->name, enemies[enemei_rand]);
-    
+
     fclose(file);
 
     /*----------------------------------------------------------------------------*/
-
 
     /*--- Open bmp file ----------------------------------------------------------*/
 
@@ -138,16 +129,14 @@ enemie_t * enemie_create(SDL_Renderer * render, char * file_name_enemies)
 
     /*----------------------------------------------------------------------------*/
 
-
     /*--- Initialization method --------------------------------------------------*/
 
     enemie->free = enemie_free;
 
     /*----------------------------------------------------------------------------*/
 
-    return(enemie);
+    return (enemie);
 }
-
 
 /*!
  *
@@ -160,17 +149,10 @@ enemie_t * enemie_create(SDL_Renderer * render, char * file_name_enemies)
  *
  */
 
-extern
-SDL_bool enemie_exist(enemie_t * const enemie)
+extern SDL_bool enemie_exist(enemie_t * const enemie)
 {
-
-    if(enemie == NULL)
-    {
-        return(SDL_FALSE);
-    }
+    if (enemie == NULL)
+        return (SDL_FALSE);
     else
-    {
-        return(SDL_TRUE);
-    }
-
+        return (SDL_TRUE);
 }
