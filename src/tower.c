@@ -16,7 +16,6 @@
  *
  */
 
-
 /*!
  *
  * \fn tower(game_t * game, character_t * character)
@@ -27,19 +26,18 @@
  * 
  */
 
-extern
-void tower(game_t * game, character_t * character){
-
+extern void tower(game_t *game, character_t *character)
+{
     /*--- Initialization Variable ------------------------------------------------*/
 
-    map_t* tower = NULL;
+    map_t *tower = NULL;
     tower = map_create(game->render, "src\\tileset\\Maps\\tower.bmp", "src\\tileset\\Maps\\tower.txt");
     if (tower == NULL)
     {
         exit_with_error("Cannot create a map_t object > tower.c Line 36");
     }
 
-    const Uint8* keyState = SDL_GetKeyboardState(NULL);
+    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool tower_bool = SDL_TRUE;
 
@@ -64,14 +62,12 @@ void tower(game_t * game, character_t * character){
 
     /*--- End Initialization Variable --------------------------------------------*/
 
-
     SDL_RenderClear(game->render);
 
     SDL_RenderCopy(game->render, tower->texture, &tower->tile_set, &pos_Wind_tower);
     SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
 
     SDL_RenderPresent(game->render);
-
 
     /*--- Main Loop --------------------------------------------------------------*/
 
@@ -85,7 +81,6 @@ void tower(game_t * game, character_t * character){
             {
                 SDL_PollEvent(&event);
 
-
                 if (event.type == SDL_QUIT || keyState[SDL_SCANCODE_ESCAPE])
                 {
                     *game->program_launch = SDL_FALSE;
@@ -93,12 +88,12 @@ void tower(game_t * game, character_t * character){
 
                 while (keyState[SDL_SCANCODE_RIGHT])
                 {
-                    
+
                     for (int i = 0; i < 3; i++)
                     {
                         East_Walk = 1;
 
-                        frame_start =  SDL_GetTicks();
+                        frame_start = SDL_GetTicks();
 
                         pos_Wind_tower.x -= 25;
 
@@ -112,11 +107,9 @@ void tower(game_t * game, character_t * character){
                         {
                             SDL_ExitWithError("Unable to clear rendering > tower.c Line 102");
                         }
-
                     }
 
                     SDL_PollEvent(&event);
-
                 }
                 if (East_Walk == 1)
                 {
@@ -128,16 +121,13 @@ void tower(game_t * game, character_t * character){
                     East_Walk = 0;
                 }
 
-
-
-
                 while (keyState[SDL_SCANCODE_LEFT])
                 {
 
                     for (int i = 0; i < 3; i++)
                     {
                         West_Walk = 1;
-                        frame_start =  SDL_GetTicks();
+                        frame_start = SDL_GetTicks();
 
                         pos_Wind_tower.x += 25;
 
@@ -151,11 +141,9 @@ void tower(game_t * game, character_t * character){
                         {
                             SDL_ExitWithError("Unable to clear rendering > tower.c Line 131");
                         }
-
                     }
 
                     SDL_PollEvent(&event);
-
                 }
 
                 if (West_Walk == 1)
@@ -168,7 +156,6 @@ void tower(game_t * game, character_t * character){
                     West_Walk = 0;
                 }
 
-
                 while (keyState[SDL_SCANCODE_UP])
                 {
 
@@ -176,7 +163,7 @@ void tower(game_t * game, character_t * character){
                     {
                         South_Walk = 1;
 
-                        frame_start =  SDL_GetTicks();
+                        frame_start = SDL_GetTicks();
 
                         pos_Wind_tower.y += 25;
 
@@ -190,11 +177,9 @@ void tower(game_t * game, character_t * character){
                         {
                             SDL_ExitWithError("Unable to clear rendering, tower.c Line 160");
                         }
-
                     }
 
                     SDL_PollEvent(&event);
-
                 }
 
                 if (South_Walk == 1)
@@ -207,7 +192,6 @@ void tower(game_t * game, character_t * character){
                     South_Walk = 0;
                 }
 
-
                 while (keyState[SDL_SCANCODE_DOWN])
                 {
 
@@ -215,7 +199,7 @@ void tower(game_t * game, character_t * character){
                     {
                         North_Walk = 1;
 
-                        frame_start =  SDL_GetTicks();
+                        frame_start = SDL_GetTicks();
 
                         pos_Wind_tower.y -= 25;
 
@@ -229,7 +213,6 @@ void tower(game_t * game, character_t * character){
                         {
                             SDL_ExitWithError("Unable to clear rendering > tower.c Line 189");
                         }
-
                     }
 
                     SDL_PollEvent(&event);
@@ -244,20 +227,15 @@ void tower(game_t * game, character_t * character){
                     render_frame(game->render);
                     North_Walk = 0;
                 }
-
             }
-
         }
-
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/
-
 
     /*--- Free Memory ------------------------------------------------------------*/
 
     tower->free(&tower);
 
     /*--- End Free Memory --------------------------------------------------------*/
-
 }

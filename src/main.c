@@ -10,7 +10,6 @@
 #include "..\lib\menu_accueil.h"
 #include "..\lib\game.h"
 
-
 /*!
  *
  * \file main.c
@@ -18,7 +17,6 @@
  * \author Enzo BRENNUS
  *
  */
-
 
 /*!
  *
@@ -32,7 +30,7 @@
  *
  */
 
-int main(int argc, char ** argv)
+int main(int argc, char **argv)
 {
 
     /*--- Print SDL & TTF Version ------------------------------------------------*/
@@ -51,10 +49,9 @@ int main(int argc, char ** argv)
 
     /*--- End Print SDL & TTF Version --------------------------------------------*/
 
-
     /*--- Initialization game ------------------------------------------------*/
 
-    game_t * game = NULL;
+    game_t *game = NULL;
     game = game_create();
     if (game == NULL)
     {
@@ -63,23 +60,20 @@ int main(int argc, char ** argv)
 
     /*--- End Initialization game --------------------------------------------*/
 
-
     /*--- Initialization Variable ------------------------------------------------*/
 
-    character_t * character_save = NULL;
+    character_t *character_save = NULL;
 
     char actual_save[20] = "\0";
 
-
     /*--- End Initialization Variable --------------------------------------------*/
-
 
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (*game->program_launch)
     {
         strcpy(actual_save, "\0");
-        
+
         menu_accueil(game, actual_save);
 
         if (strcmp(actual_save, "\0"))
@@ -88,11 +82,9 @@ int main(int argc, char ** argv)
             town(game, character_save);
             //tower(game, actual_save);
         }
-
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/
-
 
     /*--- Free game --------------------------------------------------------------*/
 
@@ -121,7 +113,6 @@ int main(int argc, char ** argv)
     }
     */
     /*--- End Free game ----------------------------------------------------------*/
-
 
     SDL_Quit();
 

@@ -14,7 +14,6 @@
  *
  */
 
-
 /*!
  *
  * \enum resolution_e
@@ -22,11 +21,12 @@
  *
  */
 
-typedef enum {
-    RES_720P, /*!< Type énuméré pour la resolution 720p (16:9). */
-    RES_900P, /*!< Type énuméré pour la resolution 900p (16:9). */
+typedef enum
+{
+    RES_720P,  /*!< Type énuméré pour la resolution 720p (16:9). */
+    RES_900P,  /*!< Type énuméré pour la resolution 900p (16:9). */
     RES_1080P, /*!< Type énuméré pour la resolution 1080 (16:9). */
-    RES_1440P /*!< Type énuméré pour la resolution 1440p (16:9). */
+    RES_1440P  /*!< Type énuméré pour la resolution 1440p (16:9). */
 } resolution_e;
 
 #define WINDOWWIDTH_720P 1280 /*!< Constante de la largeur d'une reoslution 720p (16:9). */
@@ -35,10 +35,10 @@ typedef enum {
 #define WINDOWWIDTH_900P 1600 /*!< Constante de la largeur d'une reoslution 900p (16:9). */
 #define WINDOWHEIGHT_900P 900 /*!< Constante de la hauteur d'une reoslution 900p (16:9). */
 
-#define WINDOWWIDTH_1080P 1920 /*!< Constante de la largeur d'une reoslution 1080 (16:9). */
+#define WINDOWWIDTH_1080P 1920  /*!< Constante de la largeur d'une reoslution 1080 (16:9). */
 #define WINDOWHEIGHT_1080P 1080 /*!< Constante de la hauteur d'une reoslution 1080 (16:9). */
 
-#define WINDOWWIDTH_1440P 2560 /*!< Constante de la largeur d'une reoslution 1440p (16:9). */
+#define WINDOWWIDTH_1440P 2560  /*!< Constante de la largeur d'une reoslution 1440p (16:9). */
 #define WINDOWHEIGHT_1440P 1440 /*!< Constante de la hauteur d'une reoslution 1440p (16:9). */
 
 /*!
@@ -53,7 +53,7 @@ typedef struct tile_set_s tile_set_t;
 struct tile_set_s
 {
     SDL_Rect rect; /*!< A FINIR */
-    int limit; /*!< A FINIR */
+    int limit;     /*!< A FINIR */
 };
 
 #endif

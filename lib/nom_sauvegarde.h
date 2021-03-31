@@ -5,7 +5,6 @@
 
 #include "game.h"
 
-
-void nom_sauvegarde(game_t * game, char * actual_save, char * base_save);
+void nom_sauvegarde(game_t *game, char *actual_save, char *base_save);
 
 #endif

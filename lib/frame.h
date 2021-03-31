@@ -5,6 +5,6 @@
 
 extern Uint32 frame_start;
 
-extern void render_frame(SDL_Renderer* render);
+extern void render_frame(SDL_Renderer *render);
 
 #endif

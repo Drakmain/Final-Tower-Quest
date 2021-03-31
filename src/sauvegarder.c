@@ -13,7 +13,6 @@
  *
  */
 
-
 /*!
  *
  * \fn sauvegarde(game_t * game, character_t * character)
@@ -24,12 +23,10 @@
  *
  */
 
-extern
-void sauvegarde(game_t * game, character_t * character)
+extern void sauvegarde(game_t *game, character_t *character)
 {
-
-    FILE * file;
-    file = fopen(character->file_name_save,"w");
+    FILE *file;
+    file = fopen(character->file_name_save, "w");
     if (file == NULL)
     {
         exit_with_error("Loading of a file failed > sauvegarder.c Line 36");

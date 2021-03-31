@@ -5,6 +5,6 @@
 
 #include "game.h"
 
-void creation_perso(game_t * game, char * actual_save);
+void creation_perso(game_t *game, char *actual_save);
 
 #endif

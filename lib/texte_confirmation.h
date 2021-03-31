@@ -5,7 +5,6 @@
 
 #include "game.h"
 
-
-SDL_bool texte_confirmation(game_t * game, char * message);
+SDL_bool texte_confirmation(game_t *game, char *message);
 
 #endif

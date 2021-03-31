@@ -5,6 +5,6 @@
 
 #include "game.h"
 
-void nouvelle_partie_f(game_t * game, char * actual_save);
+void nouvelle_partie_f(game_t *game, char *actual_save);
 
 #endif

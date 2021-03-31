@@ -9,7 +9,6 @@
 #include "..\lib\menu_in_game.h"
 #include "..\lib\combat.h"
 
-
 /*!
  *
  * \file town.c
@@ -18,13 +17,12 @@
  *
  */
 
-Uint8 * pixel(SDL_Surface * surface, int x, int y)
+Uint8 *pixel(SDL_Surface *surface, int x, int y)
 {
-    Uint8 * pixels = (Uint8*)surface->pixels;
-    Uint8 * pixel = pixels+y*surface->pitch+x;
+    Uint8 *pixels = (Uint8 *)surface->pixels;
+    Uint8 *pixel = pixels + y * surface->pitch + x;
     return pixel;
 }
-
 
 /*!
  *
@@ -36,23 +34,22 @@ Uint8 * pixel(SDL_Surface * surface, int x, int y)
  *
  */
 
-extern
-void town(game_t * game, character_t * character){
-
+extern void town(game_t *game, character_t *character)
+{
     /*--- Initialization Variable ------------------------------------------------*/
 
     SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
 
-    map_t* town = NULL;
+    map_t *town = NULL;
     town = map_create(game->render, "src\\tileset\\Maps\\town.bmp", "src\\tileset\\Maps\\town.txt");
     if (town == NULL)
     {
         exit_with_error("Cannot create a map_t object > town.c Line 35");
     }
 
-    const Uint8* keyState = SDL_GetKeyboardState(NULL);
+    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
-    SDL_bool * town_bool = malloc(sizeof(SDL_bool));
+    SDL_bool *town_bool = malloc(sizeof(SDL_bool));
     *town_bool = SDL_TRUE;
 
     SDL_Event event;
@@ -75,7 +72,7 @@ void town(game_t * game, character_t * character){
     int North_Walk = 0;
 
     int x = 129; //A FINIR.
-    int y = 85; //A FINIR.
+    int y = 85;  //A FINIR.
 
     /*--- End Initialization Variable --------------------------------------------*/
     character->mov.w = character->South_Walk.rect.w;
@@ -90,7 +87,6 @@ void town(game_t * game, character_t * character){
 
     SDL_RenderPresent(game->render);
 
-
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (*game->program_launch && *town_bool)
@@ -101,7 +97,7 @@ void town(game_t * game, character_t * character){
 
             while ((*game->program_launch && *town_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
-                
+
                 SDL_PollEvent(&event);
 
                 SDL_SetRenderTarget(game->render, texture_render);
@@ -123,7 +119,8 @@ void town(game_t * game, character_t * character){
                 if (keyState[SDL_SCANCODE_ESCAPE])
                 {
                     menu_in_game(game, town_bool, character, texture_render);
-                    while(keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)SDL_PollEvent(&event);
+                    while (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
+                        SDL_PollEvent(&event);
                 }
 
                 while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
@@ -133,7 +130,7 @@ void town(game_t * game, character_t * character){
                     {
                         East_Walk = 1;
 
-                        frame_start =  SDL_GetTicks();
+                        frame_start = SDL_GetTicks();
 
                         pos_Wind_town.x -= 25;
                         x -= 25;
@@ -148,11 +145,9 @@ void town(game_t * game, character_t * character){
                         {
                             SDL_ExitWithError("Unable to clear rendering > town.c Line 102");
                         }
-
                     }
 
                     SDL_PollEvent(&event);
-
                 }
                 if (East_Walk == 1)
                 {
@@ -164,7 +159,6 @@ void town(game_t * game, character_t * character){
                     East_Walk = 0;
                 }
 
-
                 while (keyState[SDL_SCANCODE_LEFT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
 
@@ -172,7 +166,7 @@ void town(game_t * game, character_t * character){
                     {
                         West_Walk = 1;
 
-                        frame_start =  SDL_GetTicks();
+                        frame_start = SDL_GetTicks();
 
                         pos_Wind_town.x += 25;
                         x += 25;
@@ -187,11 +181,9 @@ void town(game_t * game, character_t * character){
                         {
                             SDL_ExitWithError("Unable to clear rendering > town.c Line 131");
                         }
-
                     }
 
                     SDL_PollEvent(&event);
-
                 }
 
                 if (West_Walk == 1)
@@ -204,7 +196,6 @@ void town(game_t * game, character_t * character){
                     West_Walk = 0;
                 }
 
-
                 while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
 
@@ -212,7 +203,7 @@ void town(game_t * game, character_t * character){
                     {
                         North_Walk = 1;
 
-                        frame_start =  SDL_GetTicks();
+                        frame_start = SDL_GetTicks();
 
                         pos_Wind_town.y += 25;
                         y += 25;
@@ -227,11 +218,9 @@ void town(game_t * game, character_t * character){
                         {
                             SDL_ExitWithError("Unable to clear rendering, town.c Line 160");
                         }
-
                     }
 
                     SDL_PollEvent(&event);
-
                 }
 
                 if (North_Walk == 1)
@@ -244,7 +233,6 @@ void town(game_t * game, character_t * character){
                     North_Walk = 0;
                 }
 
-
                 while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
 
@@ -252,7 +240,7 @@ void town(game_t * game, character_t * character){
                     {
                         South_Walk = 1;
 
-                        frame_start =  SDL_GetTicks();
+                        frame_start = SDL_GetTicks();
 
                         pos_Wind_town.y -= 25;
                         y -= 25;
@@ -267,7 +255,6 @@ void town(game_t * game, character_t * character){
                         {
                             SDL_ExitWithError("Unable to clear rendering > town.c Line 189");
                         }
-
                     }
 
                     SDL_PollEvent(&event);
@@ -290,15 +277,11 @@ void town(game_t * game, character_t * character){
 
                 printf("Couleur : rouge = %i, vert = %i, bleu = %i", r, g, b);
                 */
-
             }
-
         }
-
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/
-
 
     /*--- Free Memory ------------------------------------------------------------*/
 
@@ -307,5 +290,4 @@ void town(game_t * game, character_t * character){
     SDL_DestroyTexture(texture_render);
 
     /*--- End Free Memory --------------------------------------------------------*/
-
 }

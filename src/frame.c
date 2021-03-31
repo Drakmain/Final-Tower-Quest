@@ -8,13 +8,11 @@
  * 
  */
 
-
-const int FPS = 15; /*!< Nombre maximum d'FPS. */
+const int FPS = 15;           /*!< Nombre maximum d'FPS. */
 int frame_delay = 1000 / FPS; /*!< Le delai en MS (milliseconde) d'une frame. */
 
 Uint32 frame_start; /*!< Debut d'une frame. */
 int frame_time = 0; /*!< Différence entre la frame de debut (frame_start) et un instant T (SDL_GetTicks()). */
-
 
 /*!
  *
@@ -25,10 +23,8 @@ int frame_time = 0; /*!< Différence entre la frame de debut (frame_start) et un
  * 
  */
 
-extern
-void render_frame(SDL_Renderer * render)
+extern void render_frame(SDL_Renderer *render)
 {
-
     SDL_RenderPresent(render);
 
     frame_time = SDL_GetTicks() - frame_start;
@@ -37,5 +33,4 @@ void render_frame(SDL_Renderer * render)
     {
         SDL_Delay(frame_delay - frame_time);
     }
-
 }

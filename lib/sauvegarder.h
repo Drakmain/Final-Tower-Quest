@@ -6,6 +6,6 @@
 #include "game.h"
 #include "character.h"
 
-void sauvegarde(game_t * game, character_t * character);
+void sauvegarde(game_t *game, character_t *character);
 
 #endif

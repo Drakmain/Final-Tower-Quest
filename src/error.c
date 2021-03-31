@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /*!
  * 
  * \file error.c
@@ -11,7 +10,6 @@
  * \author Enzo BRENNUS
  * 
  */
-
 
 /*!
  *
@@ -22,14 +20,12 @@
  * 
  */
 
-void SDL_ExitWithError(const char * message)
+void SDL_ExitWithError(const char *message)
 {
-
     SDL_Log("ERROR : %s > %s\n", message, SDL_GetError());
     SDL_Quit();
     exit(EXIT_FAILURE);
 }
-
 
 /*!
  *
@@ -40,10 +36,9 @@ void SDL_ExitWithError(const char * message)
  * 
  */
 
-void exit_with_error(const char * message)
+void exit_with_error(const char *message)
 {
-    
-    printf("ERROR : %s",message);
+    printf("ERROR : %s", message);
     SDL_Quit();
     exit(EXIT_FAILURE);
 }

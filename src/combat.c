@@ -10,7 +10,6 @@
 #include "..\lib\menu_in_game.h"
 #include "..\lib\enemie.h"
 
-
 /*!
  *
  * \file combat.c
@@ -18,7 +17,6 @@
  * \author Enzo BRENNUS
  *
  */
-
 
 /*!
  *
@@ -31,26 +29,25 @@
  *
  */
 
-extern
-void combat(game_t * game, character_t * character, map_t * map){
-
+extern void combat(game_t *game, character_t *character, map_t *map)
+{
     srand(time(NULL));
 
     /*--- Initialization Variable ------------------------------------------------*/
 
-    enemie_t * enemie_1 = NULL;
-    enemie_t * enemie_2 = NULL;
-    enemie_t * enemie_3 = NULL;
-    enemie_t * enemie_4 = NULL;
-    
+    enemie_t *enemie_1 = NULL;
+    enemie_t *enemie_2 = NULL;
+    enemie_t *enemie_3 = NULL;
+    enemie_t *enemie_4 = NULL;
+
     int nb_enemie;
 
-    SDL_Surface * surf_combat_cadre = NULL;
+    SDL_Surface *surf_combat_cadre = NULL;
 
-    const Uint8 * keyState = SDL_GetKeyboardState(NULL);
+    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool combat_bool = SDL_TRUE;
-    
+
     SDL_Event event;
 
     //POS CHARACTER
@@ -108,17 +105,16 @@ void combat(game_t * game, character_t * character, map_t * map){
 
     /*--- End Initialization Variable --------------------------------------------*/
 
-
     /*--- Loading texture "cadre choix emplacement" ------------------------------*/
 
     surf_combat_cadre = SDL_LoadBMP("src\\image\\cadre_choix_emplacement.bmp");
-    if(surf_combat_cadre == NULL)
+    if (surf_combat_cadre == NULL)
     {
         SDL_ExitWithError("Probleme chargement image surf_combat_cadre > combat.c Line 114");
     }
 
-    SDL_Texture * texture_combat_cadre = SDL_CreateTextureFromSurface(game->render, surf_combat_cadre);
-    if(texture_combat_cadre == NULL)
+    SDL_Texture *texture_combat_cadre = SDL_CreateTextureFromSurface(game->render, surf_combat_cadre);
+    if (texture_combat_cadre == NULL)
     {
         SDL_ExitWithError("Probleme texture texture_combat_cadre > combat.c Line 120");
     }
@@ -131,11 +127,10 @@ void combat(game_t * game, character_t * character, map_t * map){
 
     /*----------------------------------------------------------------------------*/
 
-
     /*--- Initialization Enemeis ------------------------------------------------*/
 
     nb_enemie = rand() % 4 + 1;
-    
+
     switch (nb_enemie)
     {
     case 1:
@@ -193,9 +188,8 @@ void combat(game_t * game, character_t * character, map_t * map){
     //SDL_RenderCopy(game->render, map->texture, &map->tile_set, &pos_Wind_town);
     SDL_RenderCopy(game->render, texture_combat_cadre, NULL, &pos_Wind_surf_cadre);
     SDL_RenderCopy(game->render, character->texture, &character->West_Walk.rect, &pos_Wind_character);
-    
+
     SDL_RenderPresent(game->render);
-    
 
     /*--- Main Loop --------------------------------------------------------------*/
 
@@ -214,16 +208,13 @@ void combat(game_t * game, character_t * character, map_t * map){
             {
                 combat_bool = SDL_FALSE;
             }
-
         }
-
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/
 
-
     /*--- Free Memory ------------------------------------------------------------*/
-    
+
     if (enemie_exist(enemie_1) == SDL_TRUE)
     {
         enemie_1->free(&enemie_1);
@@ -242,8 +233,7 @@ void combat(game_t * game, character_t * character, map_t * map){
     if (enemie_exist(enemie_4) == SDL_TRUE)
     {
         enemie_4->free(&enemie_4);
-    }    
+    }
 
     /*--- End Free Memory --------------------------------------------------------*/
-
 }
