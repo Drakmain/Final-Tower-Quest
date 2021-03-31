@@ -10,7 +10,6 @@
  * @file commun.h
  * @brief Définitions de structure et de constante commune
  * \author Enzo BRENNUS
- * \date 18/02/21
  *
  */
 

@@ -1094,19 +1094,28 @@ void charger_partie_f(game_t * game, char * actual_save){
                 if(selection == 0)
                 {
                     strcpy(actual_save, "save//save1.txt");
-                    char_part_bool = SDL_FALSE;
+                    if (character_save1->empty == SDL_FALSE)
+                    {
+                        char_part_bool = SDL_FALSE;
+                    }
                 }
 
                 if(selection == 1)
                 {
                     strcpy(actual_save, "save//save2.txt");
-                    char_part_bool = SDL_FALSE;
+                    if (character_save2->empty == SDL_FALSE)
+                    {
+                        char_part_bool = SDL_FALSE;
+                    }
                 }
 
                 if(selection == 2)
                 {
                     strcpy(actual_save, "save//save3.txt");
-                    char_part_bool = SDL_FALSE;
+                    if (character_save3->empty == SDL_FALSE)
+                    {
+                        char_part_bool = SDL_FALSE;
+                    }
                 }
 
                 if(selection == 3)
