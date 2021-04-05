@@ -140,7 +140,7 @@ extern void town(game_t *game, character_t *character)
 
                         frame_start = SDL_GetTicks();
 
-                        pos_Wind_town.x -= 25;
+                        pos_Wind_town.x -= (*game->WINDOWWIDTH) * 25 / 2560;
                         x -= 25;
 
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
@@ -176,7 +176,7 @@ extern void town(game_t *game, character_t *character)
 
                         frame_start = SDL_GetTicks();
 
-                        pos_Wind_town.x += 25;
+                        pos_Wind_town.x += (*game->WINDOWWIDTH) * 25 / 2560;
                         x += 25;
 
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
@@ -212,7 +212,7 @@ extern void town(game_t *game, character_t *character)
 
                         frame_start = SDL_GetTicks();
 
-                        pos_Wind_town.y += 25;
+                        pos_Wind_town.y += (*game->WINDOWWIDTH) * 25 / 2560;
                         y += 25;
 
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
@@ -248,7 +248,7 @@ extern void town(game_t *game, character_t *character)
 
                         frame_start = SDL_GetTicks();
 
-                        pos_Wind_town.y -= 25;
+                        pos_Wind_town.y -= (*game->WINDOWWIDTH) * 25 / 2560;
                         y -= 25;
 
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
