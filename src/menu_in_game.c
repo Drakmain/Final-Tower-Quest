@@ -362,9 +362,6 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
             rect_fond_cadre.w = pos_fond_cadre.w - 2*rect_fond_cadre.x + 1;
             rect_fond_cadre.h = pos_fond_cadre.h - 2*rect_fond_cadre.y + 1;
 
-            pos_texture_render.w = (*game->WINDOWWIDTH);
-            pos_texture_render.h = (*game->WINDOWHEIGHT);
-
             /*--- Event to Exit Program ------------------------------------------*/
 
             if (event.type == SDL_QUIT)
