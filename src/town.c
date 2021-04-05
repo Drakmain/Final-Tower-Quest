@@ -75,6 +75,7 @@ extern void town(game_t *game, character_t *character)
     int y = 85;  //A FINIR.
 
     /*--- End Initialization Variable --------------------------------------------*/
+
     character->mov.w = character->South_Walk.rect.w;
     character->mov.h = character->South_Walk.rect.h;
     character->mov.x = character->South_Walk.rect.x;
@@ -91,30 +92,31 @@ extern void town(game_t *game, character_t *character)
 
     while (*game->program_launch && *town_bool)
     {
-
         while (SDL_PollEvent(&event))
         {
-
             while ((*game->program_launch && *town_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
-
                 SDL_PollEvent(&event);
 
                 SDL_SetRenderTarget(game->render, texture_render);
+
                 SDL_RenderClear(game->render);
+
                 SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
                 SDL_RenderCopy(game->render, character->texture, &character->mov, &pos_Wind_character);
+
                 SDL_SetRenderTarget(game->render, NULL);
+
+                /*--- Event to Exit Program ------------------------------------------*/
 
                 if (event.type == SDL_QUIT)
                 {
                     (*game->program_launch) = SDL_FALSE;
                 }
 
-                if (keyState[SDL_SCANCODE_RETURN])
-                {
-                    combat(game, character, town);
-                }
+                /*--- End Event to Exit Program --------------------------------------*/
+
+                /*--- Event to enter in game menu ------------------------------------*/
 
                 if (keyState[SDL_SCANCODE_ESCAPE])
                 {
@@ -123,9 +125,15 @@ extern void town(game_t *game, character_t *character)
                         SDL_PollEvent(&event);
                 }
 
+                /*--- End Event to enter in game menu --------------------------------*/
+
+                if (keyState[SDL_SCANCODE_SPACE])
+                {
+                    combat(game, character, town);
+                }
+
                 while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-
                     for (int i = 0; i < 3; i++)
                     {
                         East_Walk = 1;
@@ -149,6 +157,7 @@ extern void town(game_t *game, character_t *character)
 
                     SDL_PollEvent(&event);
                 }
+
                 if (East_Walk == 1)
                 {
                     character->mov.x = 0;
@@ -161,7 +170,6 @@ extern void town(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_LEFT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-
                     for (int i = 0; i < 3; i++)
                     {
                         West_Walk = 1;
@@ -198,7 +206,6 @@ extern void town(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-
                     for (int i = 0; i < 3; i++)
                     {
                         North_Walk = 1;
@@ -235,7 +242,6 @@ extern void town(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-
                     for (int i = 0; i < 3; i++)
                     {
                         South_Walk = 1;

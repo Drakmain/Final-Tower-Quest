@@ -40,9 +40,9 @@ extern void combat(game_t *game, character_t *character, map_t *map)
     enemie_t *enemie_3 = NULL;
     enemie_t *enemie_4 = NULL;
 
-    int nb_enemie;
+    SDL_Color blanc = {255, 255, 255};
 
-    SDL_Surface *surf_combat_cadre = NULL;
+    int nb_enemie;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -55,59 +55,60 @@ extern void combat(game_t *game, character_t *character, map_t *map)
     pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 6.5 / 2560;
     pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 6.5 / 2560;
     pos_Wind_character.x = (*game->WINDOWWIDTH) / 1.5;
-    pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.5;
+    pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
 
     //POS ENEMIE 1
     SDL_Rect pos_Wind_enemie_1_1;
     pos_Wind_enemie_1_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_1_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_1_1.x = (*game->WINDOWWIDTH) / 3;
-    pos_Wind_enemie_1_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.5;
+    pos_Wind_enemie_1_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
 
     //POS ENEMIE 2
     SDL_Rect pos_Wind_enemie_2_1;
     pos_Wind_enemie_2_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_2_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_2_1.x = (*game->WINDOWWIDTH) / 3;
-    pos_Wind_enemie_2_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
+    pos_Wind_enemie_2_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 3.8;
 
     SDL_Rect pos_Wind_enemie_2_2;
     pos_Wind_enemie_2_2.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_2_2.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_2_2.x = (*game->WINDOWWIDTH) / 3;
-    pos_Wind_enemie_2_2.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 1.7;
+    pos_Wind_enemie_2_2.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.2;
 
     //POS ENEMIE 3
     SDL_Rect pos_Wind_enemie_3_1;
     pos_Wind_enemie_3_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_3_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-    pos_Wind_enemie_3_1.x = (*game->WINDOWWIDTH) / 3;
-    pos_Wind_enemie_3_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 3.5;
+    pos_Wind_enemie_3_1.x = (*game->WINDOWWIDTH) / 2.8;
+    pos_Wind_enemie_3_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 6;
 
     SDL_Rect pos_Wind_enemie_3_3;
     pos_Wind_enemie_3_3.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_3_3.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-    pos_Wind_enemie_3_3.x = (*game->WINDOWWIDTH) / 3;
-    pos_Wind_enemie_3_3.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 1.4;
+    pos_Wind_enemie_3_3.x = (*game->WINDOWWIDTH) / 2.8;
+    pos_Wind_enemie_3_3.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 1.8;
 
     //POS ENEMIE 4
     SDL_Rect pos_Wind_enemie_4_1;
     pos_Wind_enemie_4_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_4_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-    pos_Wind_enemie_4_1.x = (*game->WINDOWWIDTH) / 3;
-    pos_Wind_enemie_4_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 6.1;
+    pos_Wind_enemie_4_1.x = (*game->WINDOWWIDTH) / 2.8;
+    pos_Wind_enemie_4_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 15;
 
     SDL_Rect pos_Wind_enemie_4_4;
     pos_Wind_enemie_4_4.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_4_4.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-    pos_Wind_enemie_4_4.x = (*game->WINDOWWIDTH) / 3;
-    pos_Wind_enemie_4_4.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 1.3;
+    pos_Wind_enemie_4_4.x = (*game->WINDOWWIDTH) / 2.8;
+    pos_Wind_enemie_4_4.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 1.6;
 
     /*--- End Initialization Variable --------------------------------------------*/
 
     /*--- Loading texture "cadre choix emplacement" ------------------------------*/
 
-    surf_combat_cadre = SDL_LoadBMP("src\\image\\cadre_choix_emplacement.bmp");
+    SDL_Surface *surf_combat_cadre = NULL;
+    surf_combat_cadre = SDL_LoadBMP("src\\image\\sa.bmp");
     if (surf_combat_cadre == NULL)
     {
         SDL_ExitWithError("Probleme chargement image surf_combat_cadre > combat.c Line 114");
@@ -120,14 +121,106 @@ extern void combat(game_t *game, character_t *character, map_t *map)
     }
 
     SDL_Rect pos_Wind_surf_cadre;
-    pos_Wind_surf_cadre.h = 400;
+    pos_Wind_surf_cadre.h = (*game->WINDOWWIDTH) * 400 / 2560;
     pos_Wind_surf_cadre.w = (*game->WINDOWWIDTH);
     pos_Wind_surf_cadre.x = 0;
-    pos_Wind_surf_cadre.y = 1440 - pos_Wind_surf_cadre.h;
+    pos_Wind_surf_cadre.y = (*game->WINDOWHEIGHT) - pos_Wind_surf_cadre.h;
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Initialization Enemeis ------------------------------------------------*/
+    /*--- Creation text "nom enemie 1" ----------------------------------------*/
+
+    SDL_Surface *surf_nom_enemie_1 = NULL;
+    surf_nom_enemie_1 = TTF_RenderText_Blended(game->police, "Caracteristiques", blanc);
+    if (surf_nom_enemie_1 == NULL)
+    {
+        SDL_ExitWithError("probleme surface caracteristique menu in game");
+    }
+
+    SDL_Texture *texture_nom_enemie_1 = SDL_CreateTextureFromSurface(game->render, surf_nom_enemie_1);
+    if (texture_nom_enemie_1 == NULL)
+    {
+        SDL_ExitWithError("Probleme texture caracteristique menu in game");
+    }
+
+    SDL_Rect pos_Wind_nom_enemie_1;
+    pos_Wind_nom_enemie_1.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH) * 410 / 1280;
+    pos_Wind_nom_enemie_1.y = (*game->WINDOWHEIGHT) * 100 / 720;
+    pos_Wind_nom_enemie_1.w = (*game->WINDOWWIDTH) * 322 / 1200;
+    pos_Wind_nom_enemie_1.h = (*game->WINDOWHEIGHT) * 50 / 720;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nom enemie 2" ----------------------------------------*/
+
+    SDL_Surface *surf_nom_enemie_2 = NULL;
+    surf_nom_enemie_2 = TTF_RenderText_Blended(game->police, "Caracteristiques", blanc);
+    if (surf_nom_enemie_2 == NULL)
+    {
+        SDL_ExitWithError("probleme surface caracteristique menu in game");
+    }
+
+    SDL_Texture *texture_nom_enemie_2 = SDL_CreateTextureFromSurface(game->render, surf_nom_enemie_2);
+    if (texture_nom_enemie_2 == NULL)
+    {
+        SDL_ExitWithError("Probleme texture caracteristique menu in game");
+    }
+
+    SDL_Rect pos_Wind_nom_enemie_2;
+    pos_Wind_nom_enemie_2.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH) * 410 / 1280;
+    pos_Wind_nom_enemie_2.y = (*game->WINDOWHEIGHT) * 100 / 720;
+    pos_Wind_nom_enemie_2.w = (*game->WINDOWWIDTH) * 322 / 1200;
+    pos_Wind_nom_enemie_2.h = (*game->WINDOWHEIGHT) * 50 / 720;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nom enemie 3" ----------------------------------------*/
+
+    SDL_Surface *surf_nom_enemie_3 = NULL;
+    surf_nom_enemie_3 = TTF_RenderText_Blended(game->police, "Caracteristiques", blanc);
+    if (surf_nom_enemie_3 == NULL)
+    {
+        SDL_ExitWithError("probleme surface caracteristique menu in game");
+    }
+
+    SDL_Texture *texture_nom_enemie_3 = SDL_CreateTextureFromSurface(game->render, surf_nom_enemie_3);
+    if (texture_nom_enemie_3 == NULL)
+    {
+        SDL_ExitWithError("Probleme texture caracteristique menu in game");
+    }
+
+    SDL_Rect pos_Wind_nom_enemie_3;
+    pos_Wind_nom_enemie_3.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH) * 410 / 1280;
+    pos_Wind_nom_enemie_3.y = (*game->WINDOWHEIGHT) * 100 / 720;
+    pos_Wind_nom_enemie_3.w = (*game->WINDOWWIDTH) * 322 / 1200;
+    pos_Wind_nom_enemie_3.h = (*game->WINDOWHEIGHT) * 50 / 720;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nom enemie 4" ----------------------------------------*/
+
+    SDL_Surface *surf_nom_enemie_4 = NULL;
+    surf_nom_enemie_4 = TTF_RenderText_Blended(game->police, "Caracteristiques", blanc);
+    if (surf_nom_enemie_4 == NULL)
+    {
+        SDL_ExitWithError("probleme surface caracteristique menu in game");
+    }
+
+    SDL_Texture *texture_nom_enemie_4 = SDL_CreateTextureFromSurface(game->render, surf_nom_enemie_4);
+    if (texture_nom_enemie_4 == NULL)
+    {
+        SDL_ExitWithError("Probleme texture caracteristique menu in game");
+    }
+
+    SDL_Rect pos_Wind_nom_enemie_4;
+    pos_Wind_nom_enemie_4.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH) * 410 / 1280;
+    pos_Wind_nom_enemie_4.y = (*game->WINDOWHEIGHT) * 100 / 720;
+    pos_Wind_nom_enemie_4.w = (*game->WINDOWWIDTH) * 322 / 1200;
+    pos_Wind_nom_enemie_4.h = (*game->WINDOWHEIGHT) * 50 / 720;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Initialization Enemeis -------------------------------------------------*/
 
     nb_enemie = rand() % 4 + 1;
 
@@ -204,7 +297,7 @@ extern void combat(game_t *game, character_t *character, map_t *map)
                 (*game->program_launch) = SDL_FALSE;
             }
 
-            if (!keyState[SDL_SCANCODE_ESCAPE])
+            if (event.key.keysym.sym == SDLK_q)
             {
                 combat_bool = SDL_FALSE;
             }
