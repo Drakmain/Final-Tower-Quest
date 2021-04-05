@@ -17,13 +17,6 @@
  *
  */
 
-Uint8 *pixel(SDL_Surface *surface, int x, int y)
-{
-    Uint8 *pixels = (Uint8 *)surface->pixels;
-    Uint8 *pixel = pixels + y * surface->pitch + x;
-    return pixel;
-}
-
 /*!
  *
  * \fn town(game_t * game, character_t * character)
@@ -129,7 +122,7 @@ extern void town(game_t *game, character_t *character)
 
                 if (keyState[SDL_SCANCODE_SPACE])
                 {
-                    combat(game, character, town);
+                    combat(game, character, town, texture_render);
                 }
 
                 while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])

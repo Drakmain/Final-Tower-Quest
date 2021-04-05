@@ -30,7 +30,7 @@ struct enemie_s
     int life; /*!< A FINIR. */
 };
 
-extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_save);
+extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies, int enemei_rand);
 extern SDL_bool enemie_exist(enemie_t *const enemie);
 
 #endif

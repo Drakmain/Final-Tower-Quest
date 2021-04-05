@@ -209,15 +209,9 @@ extern void menu_in_game(game_t *game, SDL_bool *town_bool, character_t *charact
 
     /*------------------------------------------------------------------------------------*/
 
-    SDL_Rect pos_texture_render;
-    pos_texture_render.x = 0;
-    pos_texture_render.y = 0;
-    pos_texture_render.w = (*game->WINDOWWIDTH);
-    pos_texture_render.h = (*game->WINDOWHEIGHT);
-
     SDL_RenderClear(game->render);
 
-    SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
+    SDL_RenderCopy(game->render, texture_render, NULL, NULL);
     SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
     SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
     SDL_RenderCopy(game->render, inventaire, NULL, &pos_inventaire);
@@ -297,7 +291,7 @@ extern void menu_in_game(game_t *game, SDL_bool *town_bool, character_t *charact
 
             SDL_SetRenderTarget(game->render, texture_render_menu_ig);
             SDL_RenderClear(game->render);
-            SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
+            SDL_RenderCopy(game->render, texture_render, NULL, NULL);
             SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
             SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
             SDL_RenderCopy(game->render, inventaire, NULL, &pos_inventaire);
@@ -306,7 +300,7 @@ extern void menu_in_game(game_t *game, SDL_bool *town_bool, character_t *charact
             SDL_RenderCopy(game->render, options, NULL, &pos_options);
             SDL_RenderCopy(game->render, retourner_menu, NULL, &pos_retourner_menu);
             SDL_SetRenderTarget(game->render, NULL);
-            SDL_RenderCopy(game->render, texture_render_menu_ig, NULL, &pos_texture_render);
+            SDL_RenderCopy(game->render, texture_render_menu_ig, NULL, NULL);
             SDL_RenderPresent(game->render);
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
@@ -348,7 +342,7 @@ extern void menu_in_game(game_t *game, SDL_bool *town_bool, character_t *charact
             {
                 menu_bool = SDL_FALSE;
                 SDL_RenderClear(game->render);
-                SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
+                SDL_RenderCopy(game->render, texture_render, NULL, NULL);
                 SDL_RenderPresent(game->render);
                 while (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
                     SDL_PollEvent(&event);

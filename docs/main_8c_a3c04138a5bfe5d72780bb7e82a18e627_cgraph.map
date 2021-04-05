@@ -1,31 +1,32 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title="Fonction principale du jeu." alt="" coords="5,588,56,615"/>
-<area shape="rect" id="node2" href="$character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="420,867,539,893"/>
-<area shape="rect" id="node6" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="597,563,704,589"/>
-<area shape="rect" id="node7" href="$game_8c.html#a8ece83091596e7efb1c3f6f65fa961ab" title="Permet la creation du l&#39;objet game." alt="" coords="431,563,528,589"/>
-<area shape="rect" id="node9" href="$game_8c.html#acbeef7fed2df76650b33e0928d3bd19f" title="Permet de verifier l&#39;existence du l&#39;objet game_t." alt="" coords="111,613,200,640"/>
-<area shape="rect" id="node10" href="$menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="Fonction de gestion du menu d&#39;accueil du jeu." alt="" coords="104,765,207,792"/>
-<area shape="rect" id="node18" href="$town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="131,335,180,361"/>
-<area shape="rect" id="node3" href="$character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="599,765,703,792"/>
-<area shape="rect" id="node4" href="$character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="589,816,712,843"/>
-<area shape="rect" id="node5" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="763,512,895,539"/>
-<area shape="rect" id="node8" href="$game_8c.html#aa6e0bf6eeec26d5778b03f9918d0a4f0" title="Permet la liberation d&#39;un objet game." alt="" coords="609,613,692,640"/>
-<area shape="rect" id="node11" href="$charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702" title="Fonction qui permet le chargement d&#39;une partie." alt="" coords="256,689,371,716"/>
-<area shape="rect" id="node12" href="$nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76" title="A FINIR." alt="" coords="255,841,372,868"/>
-<area shape="rect" id="node17" href="$options_8c.html#adc9125ca38e48057d29d3746381c36f1" title="A FINIR." alt="" coords="442,765,517,792"/>
-<area shape="rect" id="node13" href="$creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9" title="A FINIR." alt="" coords="426,968,533,995"/>
-<area shape="rect" id="node16" href="$texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="A FINIR." alt="" coords="587,461,715,488"/>
-<area shape="rect" id="node14" href="$nom__sauvegarde_8c.html#a2d119092227da43e871b72631e8c9a21" title="A FINIR." alt="" coords="591,1019,710,1045"/>
-<area shape="rect" id="node15" href="$nom__sauvegarde_8c.html#ac319746734774195921cfb816632e15d" title="Fonction qui permet la creation d&#39;une nouvelle partie." alt="" coords="805,1019,852,1045"/>
-<area shape="rect" id="node19" href="$combat_8c.html#ae8cc3b16d8d38eaa747fdecba06e7d33" title="A FINIR." alt="" coords="447,69,512,96"/>
-<area shape="rect" id="node23" href="$map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="434,208,525,235"/>
-<area shape="rect" id="node26" href="$menu__in__game_8c.html#ab15cbe69b23d57272cf1596d790bfdb4" title="A FINIR." alt="" coords="258,335,369,361"/>
-<area shape="rect" id="node29" href="$frame_8c.html#aff4977623e1b4fedc515c1933967f4cd" title="A FINIR." alt="" coords="265,461,362,488"/>
-<area shape="rect" id="node20" href="$enemie_8c.html#a0a2e55ae9b251d84e3aa9abfec37044a" title="Permet la creation du l&#39;objet enemie." alt="" coords="597,5,704,32"/>
-<area shape="rect" id="node22" href="$enemie_8c.html#a7b573ce387c66f1849f4ac2205d4f0d6" title="Permet de verifier l&#39;existence du l&#39;objet enemie_t." alt="" coords="601,107,700,133"/>
-<area shape="rect" id="node21" href="$enemie_8c.html#ab156912d90ce379fbff3b18cc7d435ad" title="Permet la liberation d&#39;un objet enemie." alt="" coords="783,5,875,32"/>
-<area shape="rect" id="node24" href="$map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="613,208,688,235"/>
-<area shape="rect" id="node25" href="$map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="604,259,697,285"/>
-<area shape="rect" id="node27" href="$caracteristiques_8c.html#ad5f473b1cdb7d4fd0eb72ddb1f54b3b1" title="A FINIR." alt="" coords="422,309,537,336"/>
-<area shape="rect" id="node28" href="$sauvegarder_8c.html#ae0a24e8cfdb09be70e3e841361dd9482" title="A FINIR." alt="" coords="436,411,523,437"/>
+<area shape="rect" id="node1" title="Fonction principale du jeu." alt="" coords="5,716,56,743"/>
+<area shape="rect" id="node2" href="$character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="420,919,539,945"/>
+<area shape="rect" id="node6" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="597,665,704,692"/>
+<area shape="rect" id="node7" href="$game_8c.html#a8ece83091596e7efb1c3f6f65fa961ab" title="Permet la creation du l&#39;objet game." alt="" coords="431,463,528,489"/>
+<area shape="rect" id="node9" href="$game_8c.html#acbeef7fed2df76650b33e0928d3bd19f" title="Permet de verifier l&#39;existence du l&#39;objet game_t." alt="" coords="111,1147,200,1173"/>
+<area shape="rect" id="node10" href="$menu__accueil_8c.html#a03bd537831997b61eb5ee9d0f06a5972" title="Fonction de gestion du menu d&#39;accueil du jeu." alt="" coords="104,817,207,844"/>
+<area shape="rect" id="node18" href="$town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="131,412,180,439"/>
+<area shape="rect" id="node3" href="$character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="599,969,703,996"/>
+<area shape="rect" id="node4" href="$character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="589,919,712,945"/>
+<area shape="rect" id="node5" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="763,615,895,641"/>
+<area shape="rect" id="node8" href="$game_8c.html#aa6e0bf6eeec26d5778b03f9918d0a4f0" title="Permet la liberation d&#39;un objet game." alt="" coords="609,564,692,591"/>
+<area shape="rect" id="node11" href="$charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702" title="Fonction qui permet le chargement d&#39;une partie." alt="" coords="256,893,371,920"/>
+<area shape="rect" id="node12" href="$nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76" title="A FINIR." alt="" coords="255,817,372,844"/>
+<area shape="rect" id="node17" href="$options_8c.html#adc9125ca38e48057d29d3746381c36f1" title="A FINIR." alt="" coords="442,767,517,793"/>
+<area shape="rect" id="node13" href="$creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9" title="A FINIR." alt="" coords="426,868,533,895"/>
+<area shape="rect" id="node16" href="$texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="A FINIR." alt="" coords="587,57,715,84"/>
+<area shape="rect" id="node14" href="$nom__sauvegarde_8c.html#a2d119092227da43e871b72631e8c9a21" title="A FINIR." alt="" coords="591,868,710,895"/>
+<area shape="rect" id="node15" href="$nom__sauvegarde_8c.html#ac319746734774195921cfb816632e15d" title="Fonction qui permet la creation d&#39;une nouvelle partie." alt="" coords="805,868,852,895"/>
+<area shape="rect" id="node19" href="$combat_8c.html#a34a947ba9b6cfdc5982e34ccc831d677" title="A FINIR." alt="" coords="447,412,512,439"/>
+<area shape="rect" id="node24" href="$map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="434,361,525,388"/>
+<area shape="rect" id="node27" href="$menu__in__game_8c.html#ab15cbe69b23d57272cf1596d790bfdb4" title="A FINIR." alt="" coords="258,159,369,185"/>
+<area shape="rect" id="node30" href="$frame_8c.html#aff4977623e1b4fedc515c1933967f4cd" title="A FINIR." alt="" coords="265,463,362,489"/>
+<area shape="rect" id="node20" href="$combat_8c.html#a4896f158bd05e2239b00b3f5ddd5b8f4" title="A FINIR." alt="" coords="609,412,693,439"/>
+<area shape="rect" id="node21" href="$enemie_8c.html#a9bb3f703f955c5e9f2233c267806c91d" title="Permet la creation du l&#39;objet enemie." alt="" coords="597,159,704,185"/>
+<area shape="rect" id="node23" href="$enemie_8c.html#a7b573ce387c66f1849f4ac2205d4f0d6" title="Permet de verifier l&#39;existence du l&#39;objet enemie_t." alt="" coords="601,463,700,489"/>
+<area shape="rect" id="node22" href="$enemie_8c.html#ab156912d90ce379fbff3b18cc7d435ad" title="Permet la liberation d&#39;un objet enemie." alt="" coords="783,159,875,185"/>
+<area shape="rect" id="node25" href="$map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="613,311,688,337"/>
+<area shape="rect" id="node26" href="$map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="604,361,697,388"/>
+<area shape="rect" id="node28" href="$caracteristiques_8c.html#ad5f473b1cdb7d4fd0eb72ddb1f54b3b1" title="A FINIR." alt="" coords="422,7,537,33"/>
+<area shape="rect" id="node29" href="$sauvegarder_8c.html#ae0a24e8cfdb09be70e3e841361dd9482" title="A FINIR." alt="" coords="436,513,523,540"/>
 </map>
