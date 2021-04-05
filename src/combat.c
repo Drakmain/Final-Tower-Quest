@@ -64,6 +64,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     enemie_t *enemie_4 = NULL;
 
     SDL_Color blanc = {255, 255, 255};
+    SDL_Color rouge = {255, 0, 0};
 
     int nb_enemie;
 
@@ -84,7 +85,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     SDL_Rect pos_Wind_character;
     pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 6.5 / 2560;
     pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 6.5 / 2560;
-    pos_Wind_character.x = (*game->WINDOWWIDTH) / 1.5;
+    pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 1.5;
     pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
 
     //POS ENEMIE 1
@@ -217,10 +218,12 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             SDL_ExitWithError("Probleme texture nom enemie 1 > combat.c Line 198");
         }
 
-        pos_Wind_nom_enemie_1.x = 100;
-        pos_Wind_nom_enemie_1.y = 1050;
-        pos_Wind_nom_enemie_1.w = strlen(temp) * 25;
-        pos_Wind_nom_enemie_1.h = 75;
+        pos_Wind_nom_enemie_1.x = (*game->WINDOWWIDTH) * 100 / 2560;
+        pos_Wind_nom_enemie_1.y = (*game->WINDOWWIDTH) * 1050 / 2560;
+        ;
+        pos_Wind_nom_enemie_1.w = (*game->WINDOWWIDTH) * strlen(temp) * 25 / 2560;
+        pos_Wind_nom_enemie_1.h = (*game->WINDOWWIDTH) * 75 / 2560;
+        ;
     }
 
     /*----------------------------------------------------------------------------*/
@@ -248,10 +251,10 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             SDL_ExitWithError("Probleme texture nom enemie 2 > combat.c Line 198");
         }
 
-        pos_Wind_nom_enemie_2.x = 100;
-        pos_Wind_nom_enemie_2.y = 1150;
-        pos_Wind_nom_enemie_2.w = strlen(temp) * 25;
-        pos_Wind_nom_enemie_2.h = 75;
+        pos_Wind_nom_enemie_2.x = (*game->WINDOWWIDTH) * 100 / 2560;
+        pos_Wind_nom_enemie_2.y = (*game->WINDOWWIDTH) * 1150 / 2560;
+        pos_Wind_nom_enemie_2.w = (*game->WINDOWWIDTH) * strlen(temp) * 25 / 2560;
+        pos_Wind_nom_enemie_2.h = (*game->WINDOWWIDTH) * 75 / 2560;
     }
 
     /*----------------------------------------------------------------------------*/
@@ -279,10 +282,10 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             SDL_ExitWithError("Probleme texture nom enemie 3 > combat.c Line 198");
         }
 
-        pos_Wind_nom_enemie_3.x = 100;
-        pos_Wind_nom_enemie_3.y = 1250;
-        pos_Wind_nom_enemie_3.w = strlen(temp) * 25;
-        pos_Wind_nom_enemie_3.h = 75;
+        pos_Wind_nom_enemie_3.x = (*game->WINDOWWIDTH) * 100 / 2560;
+        pos_Wind_nom_enemie_3.y = (*game->WINDOWWIDTH) * 1250 / 2560;
+        pos_Wind_nom_enemie_3.w = (*game->WINDOWWIDTH) * strlen(temp) * 25 / 2560;
+        pos_Wind_nom_enemie_3.h = (*game->WINDOWWIDTH) * 75 / 2560;
     }
 
     /*----------------------------------------------------------------------------*/
@@ -310,11 +313,64 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             SDL_ExitWithError("Probleme texture nom enemie 4 > combat.c Line 198");
         }
 
-        pos_Wind_nom_enemie_4.x = 100;
-        pos_Wind_nom_enemie_4.y = 1350;
-        pos_Wind_nom_enemie_4.w = strlen(temp) * 25;
-        pos_Wind_nom_enemie_4.h = 75;
+        pos_Wind_nom_enemie_4.x = (*game->WINDOWWIDTH) * 100 / 2560;
+        pos_Wind_nom_enemie_4.y = (*game->WINDOWWIDTH) * 1350 / 2560;
+        pos_Wind_nom_enemie_4.w = (*game->WINDOWWIDTH) * strlen(temp) * 25 / 2560;
+        pos_Wind_nom_enemie_4.h = (*game->WINDOWWIDTH) * 75 / 2560;
     }
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nom personnage" ----------------------------------------*/
+
+    SDL_Surface *surf_nom_personnage = NULL;
+    surf_nom_personnage = TTF_RenderText_Blended(game->police, character->classe_name, blanc);
+    if (surf_nom_personnage == NULL)
+    {
+        SDL_ExitWithError("Probleme surface nom personnage > combat.c Line 192");
+    }
+
+    SDL_Texture *texture_nom_personnage = NULL;
+    texture_nom_personnage = SDL_CreateTextureFromSurface(game->render, surf_nom_personnage);
+    if (texture_nom_personnage == NULL)
+    {
+        SDL_ExitWithError("Probleme texture nom personnage > combat.c Line 198");
+    }
+
+    strcpy(temp, character->classe_name);
+
+    SDL_Rect pos_Wind_nom_personnage;
+    pos_Wind_nom_personnage.x = (*game->WINDOWWIDTH) * 2200 / 2560;
+    pos_Wind_nom_personnage.y = (*game->WINDOWWIDTH) * 1200 / 2560;
+    pos_Wind_nom_personnage.w = (*game->WINDOWWIDTH) * strlen(temp) * 25 / 2560;
+    pos_Wind_nom_personnage.h = (*game->WINDOWWIDTH) * 75 / 2560;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "PV personnage" ----------------------------------------*/
+
+    char char_character_life[3];
+    itoa(character->life, char_character_life, 10);
+
+    SDL_Surface *surf_PV_personnage = NULL;
+    surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
+    if (surf_PV_personnage == NULL)
+    {
+        SDL_ExitWithError("Probleme surface PV personnage > combat.c Line 192");
+    }
+
+    SDL_Texture *texture_PV_personnage = NULL;
+    texture_PV_personnage = SDL_CreateTextureFromSurface(game->render, surf_PV_personnage);
+    if (texture_PV_personnage == NULL)
+    {
+        SDL_ExitWithError("Probleme texture PV personnage > combat.c Line 198");
+    }
+
+    SDL_Rect pos_Wind_PV_personnage;
+    pos_Wind_PV_personnage.x = (*game->WINDOWWIDTH) * 2450 / 2560;
+    pos_Wind_PV_personnage.y = (*game->WINDOWWIDTH) * 1200 / 2560;
+    pos_Wind_PV_personnage.w = (*game->WINDOWWIDTH) * strlen(char_character_life) * 25 / 2560;
+    pos_Wind_PV_personnage.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
     /*----------------------------------------------------------------------------*/
 
@@ -358,6 +414,8 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     //SDL_RenderCopy(game->render, map->texture, &map->tile_set, &pos_Wind_town);
     SDL_RenderCopy(game->render, texture_combat_cadre, NULL, &pos_Wind_surf_cadre);
     SDL_RenderCopy(game->render, character->texture, &character->West_Walk.rect, &pos_Wind_character);
+    SDL_RenderCopy(game->render, texture_nom_personnage, NULL, &pos_Wind_nom_personnage);
+    SDL_RenderCopy(game->render, texture_PV_personnage, NULL, &pos_Wind_PV_personnage);
 
     SDL_RenderPresent(game->render);
 
@@ -365,9 +423,9 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
     while (*game->program_launch && combat_bool)
     {
-
         while (SDL_PollEvent(&event))
         {
+            /*--- Event to Exit Program ------------------------------------------*/
 
             if (event.type == SDL_QUIT)
             {
@@ -378,8 +436,113 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             {
                 combat_bool = SDL_FALSE;
             }
+
+            /*--- End Event to Exit Program --------------------------------------*/
+
+            if (event.key.keysym.sym == SDLK_p)
+            {
+                itoa(character->life, char_character_life, 10);
+
+                surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
+                texture_PV_personnage = SDL_CreateTextureFromSurface(game->render, surf_PV_personnage);
+
+                character->life++;
+            }
+
+            if (event.key.keysym.sym == SDLK_m)
+            {
+                itoa(character->life, char_character_life, 10);
+
+                surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
+                texture_PV_personnage = SDL_CreateTextureFromSurface(game->render, surf_PV_personnage);
+
+                character->life--;
+            }
+
+            if (character->life < 0)
+            {
+                character->life = 0;
+            }
+
+            if (character->life > character->max_life)
+            {
+                character->life = character->max_life;
+            }
+
+            SDL_RenderClear(game->render);
+
+            //SDL_RenderCopy(game->render, map->texture, &map->tile_set, &pos_Wind_town);
+            SDL_RenderCopy(game->render, texture_combat_cadre, NULL, &pos_Wind_surf_cadre);
+
+            switch (nb_enemie)
+            {
+            case 1:
+                SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
+                SDL_RenderCopy(game->render, enemie_1->texture, NULL, &pos_Wind_enemie_1_1);
+                break;
+
+            case 2:
+                SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
+                SDL_RenderCopy(game->render, enemie_1->texture, NULL, &pos_Wind_enemie_2_1);
+                SDL_RenderCopy(game->render, texture_nom_enemie_2, NULL, &pos_Wind_nom_enemie_2);
+                SDL_RenderCopy(game->render, enemie_2->texture, NULL, &pos_Wind_enemie_2_2);
+                break;
+
+            case 3:
+                SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
+                SDL_RenderCopy(game->render, enemie_1->texture, NULL, &pos_Wind_enemie_3_1);
+                SDL_RenderCopy(game->render, texture_nom_enemie_2, NULL, &pos_Wind_nom_enemie_2);
+                SDL_RenderCopy(game->render, enemie_2->texture, NULL, &pos_Wind_enemie_1_1);
+                SDL_RenderCopy(game->render, texture_nom_enemie_3, NULL, &pos_Wind_nom_enemie_3);
+                SDL_RenderCopy(game->render, enemie_3->texture, NULL, &pos_Wind_enemie_3_3);
+                break;
+
+            case 4:
+                SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
+                SDL_RenderCopy(game->render, enemie_1->texture, NULL, &pos_Wind_enemie_4_1);
+                SDL_RenderCopy(game->render, texture_nom_enemie_2, NULL, &pos_Wind_nom_enemie_2);
+                SDL_RenderCopy(game->render, enemie_2->texture, NULL, &pos_Wind_enemie_2_1);
+                SDL_RenderCopy(game->render, texture_nom_enemie_3, NULL, &pos_Wind_nom_enemie_3);
+                SDL_RenderCopy(game->render, enemie_3->texture, NULL, &pos_Wind_enemie_2_2);
+                SDL_RenderCopy(game->render, texture_nom_enemie_4, NULL, &pos_Wind_nom_enemie_4);
+                SDL_RenderCopy(game->render, enemie_4->texture, NULL, &pos_Wind_enemie_4_4);
+                break;
+            }
+
+            if (character->life == 0)
+            {
+                pos_Wind_character.h = character->Dead.h * (*game->WINDOWWIDTH) * 6.5 / 2560;
+                pos_Wind_character.w = character->Dead.w * (*game->WINDOWWIDTH) * 6.5 / 2560;
+                pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 1.5;
+                pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
+                SDL_RenderCopy(game->render, character->texture, &character->Dead, &pos_Wind_character);
+            }
+            else if (character->life < character->max_life / 4)
+            {
+                pos_Wind_character.h = character->Weak.h * (*game->WINDOWWIDTH) * 6.5 / 2560;
+                pos_Wind_character.w = character->Weak.w * (*game->WINDOWWIDTH) * 6.5 / 2560;
+                pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 1.5;
+                pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
+                SDL_RenderCopy(game->render, character->texture, &character->Weak, &pos_Wind_character);
+            }
+            else
+            {
+                pos_Wind_character.h = character->West_Walk.rect.h * (*game->WINDOWWIDTH) * 6.5 / 2560;
+                pos_Wind_character.w = character->West_Walk.rect.w * (*game->WINDOWWIDTH) * 6.5 / 2560;
+                pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 1.5;
+                pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
+                SDL_RenderCopy(game->render, character->texture, &character->West_Walk.rect, &pos_Wind_character);
+            }
+
+            SDL_RenderCopy(game->render, texture_nom_personnage, NULL, &pos_Wind_nom_personnage);
+            pos_Wind_PV_personnage.w = (*game->WINDOWWIDTH) * strlen(char_character_life) * 25 / 2560;
+            SDL_RenderCopy(game->render, texture_PV_personnage, NULL, &pos_Wind_PV_personnage);
+
+            SDL_RenderPresent(game->render);
         }
     }
+
+    /*--- End Main Loop ----------------------------------------------------------*/
 
     SDL_RenderClear(game->render);
 
@@ -387,10 +550,8 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
     SDL_RenderPresent(game->render);
 
-    /*--- End Main Loop ----------------------------------------------------------*/
-
     /*--- Free Memory ------------------------------------------------------------*/
-    printf("oue");
+
     if (enemie_exist(enemie_1) == SDL_TRUE)
     {
         SDL_FreeSurface(surf_nom_enemie_1);
@@ -418,6 +579,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
         SDL_DestroyTexture(texture_nom_enemie_4);
         enemie_4->free(&enemie_4);
     }
-    printf("oue");
+
     /*--- End Free Memory --------------------------------------------------------*/
 }

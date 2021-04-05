@@ -42,7 +42,9 @@ struct character_s
 
     int lvl;  /*!< A FINIR. */
     int xp;   /*!< A FINIR. */
+    int max_life; /*!< A FINIR. */
     int life; /*!< A FINIR. */
+    int max_mana; /*!< A FINIR. */
     int mana; /*!< A FINIR. */
 
     int vitalite;     /*!< A FINIR. */

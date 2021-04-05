@@ -152,7 +152,9 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
         fscanf(file, "%*s %i ;\n", &character->lvl);
         fscanf(file, "%*s %i ;\n", &character->xp);
 
+        fscanf(file, "%*s %i ;\n", &character->max_life);
         fscanf(file, "%*s %i ;\n", &character->life);
+        fscanf(file, "%*s %i ;\n", &character->max_mana);
         fscanf(file, "%*s %i ;\n", &character->mana);
 
         fscanf(file, "%*s %i ;\n", &character->vitalite);
