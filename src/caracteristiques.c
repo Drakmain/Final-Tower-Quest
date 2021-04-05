@@ -74,7 +74,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     }
 
     SDL_Rect pos_cadre;
-    pos_cadre.w = (*game->WINDOWWIDTH) * 900 / 1280;
+    pos_cadre.w = (*game->WINDOWWIDTH) * 950 / 1280;
     pos_cadre.h = (*game->WINDOWHEIGHT) * 600 / 720;
     pos_cadre.x = (*game->WINDOWWIDTH) / 2 - pos_cadre.w / 2;
     pos_cadre.y = (*game->WINDOWHEIGHT) / 2 - pos_cadre.h / 2;
@@ -98,8 +98,8 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_Rect rect_fond_cadre;
     rect_fond_cadre.x = (*game->WINDOWWIDTH) * 12 / 1280;
     rect_fond_cadre.y = (*game->WINDOWHEIGHT) * 12 / 720;
-    rect_fond_cadre.w = pos_fond_cadre.w - 2 * rect_fond_cadre.x;
-    rect_fond_cadre.h = pos_fond_cadre.h - 2 * rect_fond_cadre.y;
+    rect_fond_cadre.w = pos_fond_cadre.w - 2 * rect_fond_cadre.x + 1;
+    rect_fond_cadre.h = pos_fond_cadre.h - 2 * rect_fond_cadre.y + 1;
 
     SDL_SetRenderDrawColor(game->render, 0, 0, 0, 240);
     SDL_SetRenderTarget(game->render, fond_cadre);

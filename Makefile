@@ -2,8 +2,8 @@ CFLAGS=-Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
 
 all: main
 
-main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o
-	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
+main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o options_in_game.o
+	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o options_in_game.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
 
 
 test: test_map.o test_character.o error.o map.o character.o
@@ -62,6 +62,9 @@ menu_in_game.o : src/menu_in_game.c
 
 caracteristiques.o : src/caracteristiques.c
 	gcc -c src/caracteristiques.c  -I include -L lib $(CFLAGS)
+
+options_in_game.o : src/options_in_game.c
+	gcc -c src/options_in_game.c  -I include -L lib $(CFLAGS)
 
 sauvegarder.o : src/sauvegarder.c
 	gcc -c src/sauvegarder.c  -I include -L lib $(CFLAGS)

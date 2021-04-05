@@ -534,9 +534,10 @@ extern void options_f(game_t *game)
             SDL_RenderCopy(game->render, choix_resolution, NULL, &pos_choix_resolution);
             SDL_RenderCopy(game->render, opt_fullscreen, NULL, &pos_opt_fullscreen);
             SDL_RenderCopy(game->render, choix_fullscreen, NULL, &pos_choix_fullscreen);
-            SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);
-            SDL_RenderCopy(game->render, fleche_droite, &rect_fleche_droite, &pos_fleche_droite);
-
+            if(selection != 2){
+                SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);
+                SDL_RenderCopy(game->render, fleche_droite, &rect_fleche_droite, &pos_fleche_droite);
+            }
             SDL_RenderPresent(game->render);
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
@@ -565,6 +566,8 @@ extern void options_f(game_t *game)
     SDL_DestroyTexture(fond);
     SDL_DestroyTexture(cadre);
     SDL_DestroyTexture(opt_resolution);
+    SDL_DestroyTexture(fleche_droite);
+    SDL_DestroyTexture(fleche_gauche);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }
