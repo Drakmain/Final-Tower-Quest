@@ -136,6 +136,11 @@ extern void town(game_t *game, character_t *character)
 
                 /*--- End Event to enter in game menu --------------------------------*/
 
+                if (keyState[SDL_SCANCODE_SPACE])
+                {
+                    combat(game, character, town, texture_render);
+                }
+
                 while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
                     for (int i = 0; i < 3; i++)
