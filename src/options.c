@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "..\lib\options.h"
-
+#include "..\lib\commandes.h"
 /*!
  *
  * \file options.c
@@ -27,7 +27,7 @@ extern void options_f(game_t *game)
     SDL_Color blanc = {255, 255, 255};
     SDL_Color rouge = {255, 0, 0};
 
-    SDL_Surface *surf_options = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_cadre = NULL, *surf_opt_resolution = NULL, *surf_choix_resolution = NULL, *surf_opt_fullscreen = NULL, *surf_choix_fullscreen = NULL, *surf_fleche = NULL;
+    SDL_Surface *surf_options = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_cadre = NULL, *surf_opt_resolution = NULL, *surf_choix_resolution = NULL, *surf_opt_fullscreen = NULL, *surf_choix_fullscreen = NULL, *surf_fleche = NULL, *surf_commandes;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -38,6 +38,9 @@ extern void options_f(game_t *game)
     int selection = 0;
 
     SDL_bool changement = SDL_FALSE;
+    SDL_bool *echap_relache = malloc(sizeof(SDL_bool));
+    *echap_relache = SDL_FALSE;
+    SDL_Texture * texture_render_options;
 
     /*--- End Initialization variable --------------------------------------------*/
 
@@ -250,6 +253,22 @@ extern void options_f(game_t *game)
 
     /*-------------------------------------------------------------------------*/
 
+    /*--- Initialization text "commandes" ------------------------------------------*/
+
+    surf_commandes = TTF_RenderText_Blended(game->police, "Commandes", blanc);
+    if(surf_commandes == NULL)
+    {
+        SDL_ExitWithError("probleme surface commandes");
+    }
+    SDL_Texture* commandes = SDL_CreateTextureFromSurface(game->render, surf_commandes);
+    if(commandes == NULL)
+    {
+        SDL_ExitWithError("probleme texture commandes");
+    }
+
+    SDL_Rect pos_commandes;
+    /*-------------------------------------------------------------------------*/
+
     /*--- Open options file ---------------------------------------------------*/
 
     FILE *opts = fopen("options.txt", "w");
@@ -268,6 +287,11 @@ extern void options_f(game_t *game)
         while (SDL_PollEvent(&event))
         {
 
+            if (!keyState[SDL_SCANCODE_ESCAPE])
+            {
+                *echap_relache = SDL_TRUE;
+            }
+
             /*--- Event to Exit Program ------------------------------------------*/
 
             if (event.type == SDL_QUIT)
@@ -278,7 +302,7 @@ extern void options_f(game_t *game)
                 fclose(opts);
             }
 
-            if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
+            if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN && *echap_relache)
             {
                 options_bool = SDL_FALSE;
                 fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;", resolution, *game->etat_fullscreen);
@@ -302,8 +326,8 @@ extern void options_f(game_t *game)
             /*--- End Event pour selectionner --------------------------------------*/
 
             if (selection < 0)
-                selection = 2;
-            selection %= 3;
+                selection = 3;
+            selection %= 4;
 
             if (selection == 0)
             {
@@ -394,7 +418,7 @@ extern void options_f(game_t *game)
             {
                 surf_opt_resolution = TTF_RenderText_Blended(game->police, "Resolution", blanc);
                 surf_opt_fullscreen = TTF_RenderText_Blended(game->police, "Plein ecran", rouge);
-                surf_retour = TTF_RenderText_Blended(game->police, "Retour", blanc);
+                surf_commandes = TTF_RenderText_Blended(game->police, "Commandes", blanc);
 
                 pos_fleche_gauche.x = pos_choix_fullscreen.x - (*game->WINDOWHEIGHT) * 40 / 1280 * 38 / 28 - (*game->WINDOWWIDTH) * 20 / 1280;
                 pos_fleche_gauche.y = pos_choix_fullscreen.y + (*game->WINDOWWIDTH) * 23 / 1280;
@@ -443,13 +467,21 @@ extern void options_f(game_t *game)
             }
             if (selection == 2)
             {
-                surf_opt_resolution = TTF_RenderText_Blended(game->police, "Resolution", blanc);
+                surf_retour = TTF_RenderText_Blended(game->police, "Retour", blanc);
                 surf_opt_fullscreen = TTF_RenderText_Blended(game->police, "Plein ecran", blanc);
+                surf_commandes = TTF_RenderText_Blended(game->police, "Commandes", rouge);
+            }
+
+            if(selection == 3)
+            {
+                surf_commandes = TTF_RenderText_Blended(game->police, "Commandes", blanc);
                 surf_retour = TTF_RenderText_Blended(game->police, "Retour", rouge);
+                surf_opt_resolution = TTF_RenderText_Blended(game->police, "Resolution", blanc);
             }
 
             opt_resolution = SDL_CreateTextureFromSurface(game->render, surf_opt_resolution);
             opt_fullscreen = SDL_CreateTextureFromSurface(game->render, surf_opt_fullscreen);
+            commandes = SDL_CreateTextureFromSurface(game->render, surf_commandes);
             retour = SDL_CreateTextureFromSurface(game->render, surf_retour);
 
             pos_options.x = (*game->WINDOWWIDTH) / 2 - (*game->WINDOWWIDTH) * 107 / 1200;
@@ -512,6 +544,11 @@ extern void options_f(game_t *game)
             rect_fleche_gauche.w = 38;
             rect_fleche_gauche.h = 28;
 
+            pos_commandes.w = (*game->WINDOWWIDTH)*193/1200;
+            pos_commandes.h = (*game->WINDOWHEIGHT)/13.5;
+            pos_commandes.x = pos_opt_fullscreen.x;
+            pos_commandes.y = pos_opt_fullscreen.y + (*game->WINDOWHEIGHT) * 70 / 720;
+
             SDL_SetRenderDrawColor(game->render, 0, 0, 0, 200);
             SDL_SetRenderTarget(game->render, fond_cadre);
             SDL_SetTextureBlendMode(fond_cadre, SDL_BLENDMODE_BLEND);
@@ -529,15 +566,29 @@ extern void options_f(game_t *game)
             SDL_RenderCopy(game->render, choix_resolution, NULL, &pos_choix_resolution);
             SDL_RenderCopy(game->render, opt_fullscreen, NULL, &pos_opt_fullscreen);
             SDL_RenderCopy(game->render, choix_fullscreen, NULL, &pos_choix_fullscreen);
-            if(selection != 2){
+            if(selection == 0 || selection == 1){
                 SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);
                 SDL_RenderCopy(game->render, fleche_droite, &rect_fleche_droite, &pos_fleche_droite);
             }
+            SDL_RenderCopy(game->render, commandes, NULL, &pos_commandes);
             SDL_RenderPresent(game->render);
+
+            texture_render_options = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
+
+            SDL_SetRenderTarget(game->render, texture_render_options);
+
+            SDL_RenderClear(game->render);
+
+            SDL_RenderCopy(game->render, fond, NULL, &pos_fond);
+            SDL_RenderCopy(game->render, options, NULL, &pos_options);
+
+            SDL_SetRenderTarget(game->render, NULL);
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
             {
-                if (selection == 2)
+                if(selection == 2)
+                    menu_commandes(game, texture_render_options, echap_relache);
+                if (selection == 3)
                 {
                     options_bool = SDL_FALSE;
                     fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;", resolution, *game->etat_fullscreen);
@@ -555,6 +606,7 @@ extern void options_f(game_t *game)
     SDL_FreeSurface(surf_retour);
     SDL_FreeSurface(surf_fond);
     SDL_FreeSurface(surf_opt_resolution);
+    SDL_FreeSurface(surf_commandes);
 
     SDL_DestroyTexture(options);
     SDL_DestroyTexture(retour);
@@ -563,6 +615,7 @@ extern void options_f(game_t *game)
     SDL_DestroyTexture(opt_resolution);
     SDL_DestroyTexture(fleche_droite);
     SDL_DestroyTexture(fleche_gauche);
+    SDL_DestroyTexture(commandes);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

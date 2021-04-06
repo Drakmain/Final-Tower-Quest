@@ -63,8 +63,8 @@ extern void town(game_t *game, character_t *character)
     SDL_Event event;
 
     SDL_Rect pos_Wind_character;
-    pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560; 
-    pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560; 
+    pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     printf("HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_character.h, pos_Wind_character.w);
     pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 2;
     pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
@@ -128,7 +128,6 @@ extern void town(game_t *game, character_t *character)
                 if (keyState[SDL_SCANCODE_ESCAPE])
                 {
                     menu_in_game(game, town_bool, character, texture_render);
-
                     while (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
                         SDL_PollEvent(&event);
                 }

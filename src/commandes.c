@@ -21,7 +21,7 @@
  *
  */
 
-void menu_commandes(game_t * game, SDL_Texture * texture_render_menu_ig, SDL_bool *echap_relache){
+void menu_commandes(game_t * game, SDL_Texture * texture, SDL_bool *echap_relache){
 
     /*--- Initialization variable ------------------------------------------------*/
 
@@ -334,11 +334,11 @@ void menu_commandes(game_t * game, SDL_Texture * texture_render_menu_ig, SDL_boo
 
     /*----------------------------------------------------------------------------*/
 
-    SDL_Rect pos_texture_render_menu_ig;
-    pos_texture_render_menu_ig.x = 0;
-    pos_texture_render_menu_ig.y = 0;
-    pos_texture_render_menu_ig.w = (*game->WINDOWWIDTH);
-    pos_texture_render_menu_ig.h = (*game->WINDOWHEIGHT);
+    SDL_Rect pos_texture;
+    pos_texture.x = 0;
+    pos_texture.y = 0;
+    pos_texture.w = (*game->WINDOWWIDTH);
+    pos_texture.h = (*game->WINDOWHEIGHT);
 
         /*--- Main Loop -----------------------------------------------------------*/
 
@@ -367,7 +367,7 @@ void menu_commandes(game_t * game, SDL_Texture * texture_render_menu_ig, SDL_boo
 
             SDL_RenderClear(game->render);
 
-            SDL_RenderCopy(game->render, texture_render_menu_ig, NULL, &pos_texture_render_menu_ig);
+            SDL_RenderCopy(game->render, texture, NULL, &pos_texture);
             SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
             SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
             SDL_RenderCopy(game->render, commandes, NULL, &pos_commandes);
