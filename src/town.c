@@ -9,6 +9,7 @@
 #include "..\lib\character.h"
 #include "..\lib\colision.h"
 #include "..\lib\menu_in_game.h"
+#include "..\lib\combat.h"
 
 /*!
  *
@@ -92,6 +93,8 @@ extern void town(game_t *game, character_t *character)
     SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
     SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
 
+    SDL_SetRenderTarget(game->render, texture_render);
+
     SDL_RenderPresent(game->render);
 
     /*--- Main Loop --------------------------------------------------------------*/
@@ -103,8 +106,6 @@ extern void town(game_t *game, character_t *character)
             while ((*game->program_launch && *town_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
                 SDL_PollEvent(&event);
-
-                SDL_SetRenderTarget(game->render, texture_render);
 
                 SDL_RenderClear(game->render);
 
