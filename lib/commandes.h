@@ -1,5 +1,5 @@
-#ifndef _OPTIONS_IN_GAME_H_
-#define _OPTIONS_IN_GAME_H_
+#ifndef _COMMANDES_H_
+#define _COMMANDES_H_
 
 #include "commun.h"
 
