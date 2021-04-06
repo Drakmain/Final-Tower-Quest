@@ -93,8 +93,6 @@ extern void town(game_t *game, character_t *character)
     SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
     SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
 
-    SDL_SetRenderTarget(game->render, texture_render);
-
     SDL_RenderPresent(game->render);
 
     /*--- Main Loop --------------------------------------------------------------*/
@@ -106,6 +104,8 @@ extern void town(game_t *game, character_t *character)
             while ((*game->program_launch && *town_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
                 SDL_PollEvent(&event);
+
+                SDL_SetRenderTarget(game->render, texture_render);
 
                 SDL_RenderClear(game->render);
 
@@ -128,7 +128,10 @@ extern void town(game_t *game, character_t *character)
                 if (keyState[SDL_SCANCODE_ESCAPE])
                 {
                     menu_in_game(game, town_bool, character, texture_render);
-                    while(keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
+
+                    texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
+
+                    while (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
                         SDL_PollEvent(&event);
                 }
 
