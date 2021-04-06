@@ -63,8 +63,8 @@ extern void town(game_t *game, character_t *character)
     SDL_Event event;
 
     SDL_Rect pos_Wind_character;
-    pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560; //character->North_Walk.rect.h * MULTIPLIER;
-    pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560; //character->North_Walk.rect.w * MULTIPLIER;
+    pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560; 
+    pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560; 
     printf("HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_character.h, pos_Wind_character.w);
     pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 2;
     pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
@@ -72,8 +72,8 @@ extern void town(game_t *game, character_t *character)
     SDL_Rect pos_Wind_town;
     pos_Wind_town.x = town->tile_set.x + 200;
     pos_Wind_town.y = town->tile_set.y - 1000;
-    pos_Wind_town.h = town->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560; //town->tile_set.h * MULTIPLIER;
-    pos_Wind_town.w = town->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560; //town->tile_set.w * MULTIPLIER;
+    pos_Wind_town.h = town->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_town.w = town->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     printf("POUR LA MAP : HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_town.h, pos_Wind_town.w);
 
     int East_Walk = 0;
@@ -83,7 +83,7 @@ extern void town(game_t *game, character_t *character)
 
     /*int x = town->tile_set.w - (*WINDOWHEIGHT / 2);
     int y = town->tile_set.h - (*WINDOWWIDTH / 2);*/
-    int x = 885- 200; //885; // 1280 / 720 x = 312 y = 68
+    int x = 885 - 200;  //885; // 1280 / 720 x = 312 y = 68
     int y = 420 + 1000; //420; //1920 / 1080 x = 486 y = 102
 
     /*--- End Initialization Variable --------------------------------------------*/
@@ -128,8 +128,6 @@ extern void town(game_t *game, character_t *character)
                 if (keyState[SDL_SCANCODE_ESCAPE])
                 {
                     menu_in_game(game, town_bool, character, texture_render);
-
-                    texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
 
                     while (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
                         SDL_PollEvent(&event);
