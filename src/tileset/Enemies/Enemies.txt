@@ -15,6 +15,7 @@ Fracasseur : PV 100 ;
 Frere_cyclope : PV 100 ;
 Frere_goliath : PV 100 ;
 Frere_minotaure : PV 100 ;
+Furie_glaciale : PV 100 ;
 Gros_tas_de_lave : PV 100 ;
 Gros_tas_de_sable : PV 100 ;
 Grosse_brute : PV 100 ;
