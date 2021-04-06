@@ -139,7 +139,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     /*--- Loading texture "cadre choix emplacement" ------------------------------*/
 
     SDL_Surface *surf_combat_cadre = NULL;
-    surf_combat_cadre = SDL_LoadBMP("src\\image\\sa.bmp");
+    surf_combat_cadre = SDL_LoadBMP("src\\image\\cadre_combat.bmp");
     if (surf_combat_cadre == NULL)
     {
         SDL_ExitWithError("Probleme chargement image surf_combat_cadre > combat.c Line 114");
