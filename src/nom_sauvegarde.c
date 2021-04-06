@@ -25,7 +25,7 @@
 static void fcpy(FILE *source_file, FILE *dest_file)
 {
     char c;
-    
+
     c = fgetc(source_file);
     while (c != EOF)
     {
