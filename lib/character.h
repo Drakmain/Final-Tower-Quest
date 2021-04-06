@@ -4,46 +4,60 @@
 #include "commun.h"
 #include "map.h"
 
-
 typedef struct character_s character_t;
 
-struct character_s 
+struct character_s
 {
-    void (*update)(character_t *, SDL_Renderer *, tile_set_t, SDL_Rect); /*!< Permet la mise a jour d'un objet character_t. */
-    void (*free)(character_t **); /*!< Permet la liberation d'un objet character_t. */
+  void (*update)(character_t *, SDL_Renderer *, tile_set_t, SDL_Rect); /*!< Permet la mise a jour d'un objet character_t. */
+  void (*free)(character_t **);                                        /*!< Permet la liberation d'un objet character_t. */
 
-    SDL_Texture * texture; /*!< Pointeur sur une texture SDL de l'objet character_t. */
+  SDL_bool empty; /*!< A FINIR. */
 
-    SDL_Surface * surface; /*!< Pointeur sur une surface SDL de l'objet character_t. */
+  char *file_name_txt;  /*!< A FINIR. */
+  char *file_name_bmp;  /*!< A FINIR. */
+  char *file_name_save; /*!< A FINIR. */
 
-    SDL_Rect mov; /*!< Rectangle de "mouvement" de l'objet character_t. */
+  SDL_Texture *texture; /*!< Pointeur sur une texture SDL de l'objet character_t. */
 
-    int R, /*!< Code de la couleur rouge de la chroma key du .bmp */
-    G, /*!< Code de la couleur verte de la chroma key du .bmp */
-    B; /*!< Code de la couleur bleu de la chroma key du .bmp*/
+  SDL_Surface *surface; /*!< Pointeur sur une surface SDL de l'objet character_t. */
 
-    tile_set_t North_Walk; /*!< Tile set (tile_set_t) pour la marche vers le nord de l'objet character_t. */
-    tile_set_t East_Walk; /*!< Tile set (tile_set_t) pour la marche vers le est de l'objet character_t. */
-    tile_set_t South_Walk; /*!< Tile set (tile_set_t) pour la marche vers le sud de l'objet character_t. */
-    tile_set_t West_Walk; /*!< Tile set (tile_set_t) pour la marche vers le ouest de l'objet character_t. */
-    SDL_Rect Weak; /*!< Tile set (SDL_Rect) A FINIR. */
-    SDL_Rect Damage_Taken; /*!< Tile set (SDL_Rect) A FINIR. */
-    SDL_Rect Dead; /*!< Tile set (SDL_Rect) A FINIR. */
+  SDL_Rect mov; /*!< Rectangle de "mouvement" de l'objet character_t. */
 
+  int R, /*!< Code de la couleur rouge de la chroma key du .bmp */
+      G, /*!< Code de la couleur verte de la chroma key du .bmp */
+      B; /*!< Code de la couleur bleu de la chroma key du .bmp*/
+
+  tile_set_t North_Walk; /*!< Tile set (tile_set_t) pour la marche vers le nord de l'objet character_t. */
+  tile_set_t East_Walk;  /*!< Tile set (tile_set_t) pour la marche vers le est de l'objet character_t. */
+  tile_set_t South_Walk; /*!< Tile set (tile_set_t) pour la marche vers le sud de l'objet character_t. */
+  tile_set_t West_Walk;  /*!< Tile set (tile_set_t) pour la marche vers le ouest de l'objet character_t. */
+  SDL_Rect Weak;         /*!< Tile set (SDL_Rect) A FINIR. */
+  SDL_Rect Damage_Taken; /*!< Tile set (SDL_Rect) A FINIR. */
+  SDL_Rect Dead;         /*!< Tile set (SDL_Rect) A FINIR. */
+
+  char *save_name;   /*!< A FINIR. */
+  char *classe_name; /*!< A FINIR. */
+  char *position;    /*!< A FINIR. */
+  int x;             /*!< A FINIR. */
+  int y;             /*!< A FINIR. */
+
+  int lvl;      /*!< A FINIR. */
+  int xp;       /*!< A FINIR. */
+  int max_life; /*!< A FINIR. */
+  int life;     /*!< A FINIR. */
+  int max_mana; /*!< A FINIR. */
+  int mana;     /*!< A FINIR. */
+
+  int vitalite;     /*!< A FINIR. */
+  int force;        /*!< A FINIR. */
+  int intelligence; /*!< A FINIR. */
+  int agilite;      /*!< A FINIR. */
+  int defense;      /*!< A FINIR. */
+
+  int points_dispo; /*!< A FINIR. */
 };
 
-typedef struct load_image_s load_image_t;
-
-struct load_image_s
-{
-  char * nom_image;
-  SDL_Surface* surface;
-};
-
-
-extern character_t * character_create(SDL_Renderer * render, char * file_name_bmp, char * file_name_txt) ;
-extern SDL_bool character_exist(character_t * const character);
-extern int character_moving (/*character_t character, */SDL_Renderer* pRenderer, SDL_Surface* couleur_image, load_image_t tab_load_image[NB_IMAGE], int x, int y, int direction);
-extern void chargement_image(load_image_t tab_load_image[NB_IMAGE]);
+extern character_t *character_create(SDL_Renderer *render, char *file_name_save);
+extern SDL_bool character_exist(character_t *const character);
 
 #endif

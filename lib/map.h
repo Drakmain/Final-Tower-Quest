@@ -38,10 +38,6 @@ struct map_s
     int hauteur_carte, largeur_carte;
 };
 
-
-
-
-
 extern map_t * map_create(SDL_Renderer * render, char * file_name_bmp, char * file_name_txt);
 extern SDL_bool map_exist(map_t * const map);
 
