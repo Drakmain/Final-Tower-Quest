@@ -1,0 +1,4 @@
+Chevalier_squelettique : PV 100 ;
+Demon_squelettique : PV 100 ;
+Seigneur_squelettique : PV 100 ;
+Chimera : PV 100 ;

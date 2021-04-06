@@ -1,0 +1,6 @@
+Brute : PV 100 ;
+Brute_armee : PV 100 ;
+Grosse_brute : PV 100 ;
+Frere_cyclope : PV 100 ;
+Frere_goliath : PV 100 ;
+Frere_minotaure : PV 100 ;

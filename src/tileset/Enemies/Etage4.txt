@@ -1,0 +1,6 @@
+Chevaucheur_demoniaque : PV 100 ;
+Fracasseur_geant : PV 100 ;
+Verre_de_terre : PV 100 ;
+Charette_de_l@apocalypse : PV 100 ;
+Chimere_demoniaque : PV 100 ;
+Bipede_maudit : PV 100 ;

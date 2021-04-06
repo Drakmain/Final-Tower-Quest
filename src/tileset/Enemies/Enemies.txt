@@ -11,7 +11,7 @@ Cite_ancestrale : PV 100 ;
 Demon_squelettique : PV 100 ;
 Divinatrice : PV 100 ;
 Fleau_mystique : PV 100 ;
-Fracasseur : PV 100 ;
+Fracasseur_geant : PV 100 ;
 Frere_cyclope : PV 100 ;
 Frere_goliath : PV 100 ;
 Frere_minotaure : PV 100 ;

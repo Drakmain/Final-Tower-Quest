@@ -1,5 +1,5 @@
-save_name: aaa ;
-classe_name: Mage ;
+save_name: Enzo ;
+classe_name: Guerrier ;
 position: Village ;
 x: 0 ;
 y: 0 ;
