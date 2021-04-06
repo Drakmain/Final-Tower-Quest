@@ -7,7 +7,7 @@ Chevalier_squelettique : PV 100 ;
 Chevaucheur_demoniaque : PV 100 ;
 Chimera : PV 100 ;
 Chimere_demoniaque : PV 100 ;
-Cite_ancestrale : PV 100 ;
+Cite_cauchemardesque : PV 100 ;
 Demon_squelettique : PV 100 ;
 Divinatrice : PV 100 ;
 Fleau_mystique : PV 100 ;
