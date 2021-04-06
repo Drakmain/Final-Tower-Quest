@@ -1,0 +1,6 @@
+Furie_glaciale : PV 100 ;
+Gros_tas_de_lave : PV 100 ;
+Gros_tas_de_sable : PV 100 ;
+Harpie : PV 100 ;
+Lizardo : PV 100 ;
+Medubras : PV 100 ;

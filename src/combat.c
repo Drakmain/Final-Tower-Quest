@@ -220,10 +220,8 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
         pos_Wind_nom_enemie_1.x = (*game->WINDOWWIDTH) * 100 / 2560;
         pos_Wind_nom_enemie_1.y = (*game->WINDOWWIDTH) * 1050 / 2560;
-        ;
         pos_Wind_nom_enemie_1.w = (*game->WINDOWWIDTH) * strlen(temp) * 25 / 2560;
         pos_Wind_nom_enemie_1.h = (*game->WINDOWWIDTH) * 75 / 2560;
-        ;
     }
 
     /*----------------------------------------------------------------------------*/
