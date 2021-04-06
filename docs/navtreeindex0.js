@@ -15,7 +15,8 @@ var NAVTREEINDEX0 =
 "charger__partie_8h_source.html":[2,0,0,2],
 "classes.html":[1,1],
 "combat_8c.html":[2,0,1,3],
-"combat_8c.html#ae8cc3b16d8d38eaa747fdecba06e7d33":[2,0,1,3,0],
+"combat_8c.html#a34a947ba9b6cfdc5982e34ccc831d677":[2,0,1,3,1],
+"combat_8c.html#a4896f158bd05e2239b00b3f5ddd5b8f4":[2,0,1,3,0],
 "combat_8h_source.html":[2,0,0,3],
 "commun_8h.html":[2,0,0,4],
 "commun_8h.html#a0156d7658bf1754d013fcc4646161f6a":[2,0,0,4,8],
@@ -39,8 +40,8 @@ var NAVTREEINDEX0 =
 "dir_68267d1309a1af8e8297ef4c3efbcdba.html":[2,0,1],
 "dir_97aefd0d527b934f1d99a682da8fe6a9.html":[2,0,0],
 "enemie_8c.html":[2,0,1,5],
-"enemie_8c.html#a0a2e55ae9b251d84e3aa9abfec37044a":[2,0,1,5,0],
 "enemie_8c.html#a7b573ce387c66f1849f4ac2205d4f0d6":[2,0,1,5,1],
+"enemie_8c.html#a9bb3f703f955c5e9f2233c267806c91d":[2,0,1,5,0],
 "enemie_8c.html#ab156912d90ce379fbff3b18cc7d435ad":[2,0,1,5,2],
 "enemie_8h_source.html":[2,0,0,6],
 "error_8c.html":[2,0,1,6],
@@ -179,7 +180,6 @@ var NAVTREEINDEX0 =
 "tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1":[2,0,1,18,0],
 "tower_8h_source.html":[2,0,0,18],
 "town_8c.html":[2,0,1,19],
-"town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6":[2,0,1,19,1],
-"town_8c.html#aff6d6f3b0128f5a6f406c18981a3033b":[2,0,1,19,0],
+"town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6":[2,0,1,19,0],
 "town_8h_source.html":[2,0,0,19]
 };

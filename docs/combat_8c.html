@@ -69,6 +69,7 @@ $(document).ready(function(){initNavTree('combat_8c.html',''); initResizable(); 
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
 <code>#include &quot;..\lib\town.h&quot;</code><br />
 <code>#include &quot;..\lib\frame.h&quot;</code><br />
@@ -81,36 +82,96 @@ Graphe des dépendances par inclusion de combat.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="combat_8c__incl.png" border="0" usemap="#asrc_2combat_8c" alt=""/></div>
 <map name="asrc_2combat_8c" id="asrc_2combat_8c">
-<area shape="rect" title="A FINIR." alt="" coords="308,5,407,32"/>
+<area shape="rect" title="A FINIR." alt="" coords="357,5,456,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
-<area shape="rect" title=" " alt="" coords="179,80,237,107"/>
-<area shape="rect" href="town_8h_source.html" title=" " alt="" coords="313,80,402,107"/>
-<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="287,155,374,181"/>
-<area shape="rect" href="frame_8h_source.html" title=" " alt="" coords="650,155,745,181"/>
-<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="539,155,626,181"/>
-<area shape="rect" href="menu__in__game_8h_source.html" title=" " alt="" coords="426,80,577,107"/>
-<area shape="rect" href="enemie_8h_source.html" title=" " alt="" coords="769,155,873,181"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="460,229,543,256"/>
-<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="398,155,463,181"/>
-<area shape="rect" title=" " alt="" coords="380,304,439,331"/>
-<area shape="rect" title=" " alt="" coords="463,304,539,331"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="564,304,652,331"/>
+<area shape="rect" title=" " alt="" coords="179,80,245,107"/>
+<area shape="rect" title=" " alt="" coords="269,80,328,107"/>
+<area shape="rect" href="town_8h_source.html" title=" " alt="" coords="403,80,493,107"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="378,155,465,181"/>
+<area shape="rect" href="frame_8h_source.html" title=" " alt="" coords="741,155,835,181"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="630,155,717,181"/>
+<area shape="rect" href="menu__in__game_8h_source.html" title=" " alt="" coords="517,80,667,107"/>
+<area shape="rect" href="enemie_8h_source.html" title=" " alt="" coords="860,155,964,181"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="551,229,633,256"/>
+<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="489,155,554,181"/>
+<area shape="rect" title=" " alt="" coords="471,304,529,331"/>
+<area shape="rect" title=" " alt="" coords="554,304,630,331"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="655,304,743,331"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ae8cc3b16d8d38eaa747fdecba06e7d33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#ae8cc3b16d8d38eaa747fdecba06e7d33">combat</a> (<a class="el" href="structgame__t.html">game_t</a> *game, <a class="el" href="structcharacter__t.html">character_t</a> *character, <a class="el" href="structmap__t.html">map_t</a> *map)</td></tr>
-<tr class="memdesc:ae8cc3b16d8d38eaa747fdecba06e7d33"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="combat_8c.html#ae8cc3b16d8d38eaa747fdecba06e7d33">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae8cc3b16d8d38eaa747fdecba06e7d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4896f158bd05e2239b00b3f5ddd5b8f4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a4896f158bd05e2239b00b3f5ddd5b8f4">_toEspace</a> (<a class="el" href="structenemie__t.html">enemie_t</a> *enemie, int length)</td></tr>
+<tr class="memdesc:a4896f158bd05e2239b00b3f5ddd5b8f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="combat_8c.html#a4896f158bd05e2239b00b3f5ddd5b8f4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4896f158bd05e2239b00b3f5ddd5b8f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34a947ba9b6cfdc5982e34ccc831d677"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a34a947ba9b6cfdc5982e34ccc831d677">combat</a> (<a class="el" href="structgame__t.html">game_t</a> *game, <a class="el" href="structcharacter__t.html">character_t</a> *character, <a class="el" href="structmap__t.html">map_t</a> *map, SDL_Texture *texture_render)</td></tr>
+<tr class="memdesc:a34a947ba9b6cfdc5982e34ccc831d677"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="combat_8c.html#a34a947ba9b6cfdc5982e34ccc831d677">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a34a947ba9b6cfdc5982e34ccc831d677"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>A FINIR. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Enzo BRENNUS </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="ae8cc3b16d8d38eaa747fdecba06e7d33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8cc3b16d8d38eaa747fdecba06e7d33">&#9670;&nbsp;</a></span>combat()</h2>
+<a id="a4896f158bd05e2239b00b3f5ddd5b8f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4896f158bd05e2239b00b3f5ddd5b8f4">&#9670;&nbsp;</a></span>_toEspace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">_toEspace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structenemie__t.html">enemie_t</a> *&#160;</td>
+          <td class="paramname"><em>enemie</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A FINIR. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enemie</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">length</td><td>A FINIR. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="combat_8c_a4896f158bd05e2239b00b3f5ddd5b8f4_icgraph.png" border="0" usemap="#acombat_8c_a4896f158bd05e2239b00b3f5ddd5b8f4_icgraph" alt=""/></div>
+<map name="acombat_8c_a4896f158bd05e2239b00b3f5ddd5b8f4_icgraph" id="acombat_8c_a4896f158bd05e2239b00b3f5ddd5b8f4_icgraph">
+<area shape="rect" title="A FINIR." alt="" coords="315,5,399,32"/>
+<area shape="rect" href="combat_8c.html#a34a947ba9b6cfdc5982e34ccc831d677" title="A FINIR." alt="" coords="201,5,267,32"/>
+<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="104,5,153,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a34a947ba9b6cfdc5982e34ccc831d677"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34a947ba9b6cfdc5982e34ccc831d677">&#9670;&nbsp;</a></span>combat()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,7 +192,13 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structmap__t.html">map_t</a> *&#160;</td>
-          <td class="paramname"><em>map</em>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>texture_render</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -147,26 +214,28 @@ Fonctions</h2></td></tr>
     <tr><td class="paramname">game</td><td>A FINIR. </td></tr>
     <tr><td class="paramname">character</td><td>A FINIR. </td></tr>
     <tr><td class="paramname">map</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">texture_render</td><td>A FINIR. </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="combat_8c_ae8cc3b16d8d38eaa747fdecba06e7d33_cgraph.png" border="0" usemap="#acombat_8c_ae8cc3b16d8d38eaa747fdecba06e7d33_cgraph" alt=""/></div>
-<map name="acombat_8c_ae8cc3b16d8d38eaa747fdecba06e7d33_cgraph" id="acombat_8c_ae8cc3b16d8d38eaa747fdecba06e7d33_cgraph">
-<area shape="rect" title="A FINIR." alt="" coords="5,56,71,83"/>
-<area shape="rect" href="enemie_8c.html#a0a2e55ae9b251d84e3aa9abfec37044a" title="Permet la creation du l&#39;objet enemie." alt="" coords="119,5,225,32"/>
-<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="273,56,405,83"/>
-<area shape="rect" href="enemie_8c.html#a7b573ce387c66f1849f4ac2205d4f0d6" title="Permet de verifier l&#39;existence du l&#39;objet enemie_t." alt="" coords="123,107,221,133"/>
-<area shape="rect" href="enemie_8c.html#ab156912d90ce379fbff3b18cc7d435ad" title="Permet la liberation d&#39;un objet enemie." alt="" coords="293,5,385,32"/>
+<div class="center"><img src="combat_8c_a34a947ba9b6cfdc5982e34ccc831d677_cgraph.png" border="0" usemap="#acombat_8c_a34a947ba9b6cfdc5982e34ccc831d677_cgraph" alt=""/></div>
+<map name="acombat_8c_a34a947ba9b6cfdc5982e34ccc831d677_cgraph" id="acombat_8c_a34a947ba9b6cfdc5982e34ccc831d677_cgraph">
+<area shape="rect" title="A FINIR." alt="" coords="5,81,71,108"/>
+<area shape="rect" href="combat_8c.html#a4896f158bd05e2239b00b3f5ddd5b8f4" title="A FINIR." alt="" coords="130,5,214,32"/>
+<area shape="rect" href="enemie_8c.html#a9bb3f703f955c5e9f2233c267806c91d" title="Permet la creation du l&#39;objet enemie." alt="" coords="119,56,225,83"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="273,107,405,133"/>
+<area shape="rect" href="enemie_8c.html#a7b573ce387c66f1849f4ac2205d4f0d6" title="Permet de verifier l&#39;existence du l&#39;objet enemie_t." alt="" coords="123,157,221,184"/>
+<area shape="rect" href="enemie_8c.html#ab156912d90ce379fbff3b18cc7d435ad" title="Permet la liberation d&#39;un objet enemie." alt="" coords="293,56,385,83"/>
 </map>
 </div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="combat_8c_ae8cc3b16d8d38eaa747fdecba06e7d33_icgraph.png" border="0" usemap="#acombat_8c_ae8cc3b16d8d38eaa747fdecba06e7d33_icgraph" alt=""/></div>
-<map name="acombat_8c_ae8cc3b16d8d38eaa747fdecba06e7d33_icgraph" id="acombat_8c_ae8cc3b16d8d38eaa747fdecba06e7d33_icgraph">
+<div class="center"><img src="combat_8c_a34a947ba9b6cfdc5982e34ccc831d677_icgraph.png" border="0" usemap="#acombat_8c_a34a947ba9b6cfdc5982e34ccc831d677_icgraph" alt=""/></div>
+<map name="acombat_8c_a34a947ba9b6cfdc5982e34ccc831d677_icgraph" id="acombat_8c_a34a947ba9b6cfdc5982e34ccc831d677_icgraph">
 <area shape="rect" title="A FINIR." alt="" coords="201,5,267,32"/>
 <area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="104,5,153,32"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>

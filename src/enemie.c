@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 #include "..\lib\enemie.h"
 
@@ -45,21 +44,20 @@ static void enemie_free(enemie_t **enemie)
 
 /*!
  *
- * \fn enemie_t * enemie_create(SDL_Renderer * render, char * file_name_enemies)
+ * \fn enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies, int enemei_rand)
  * \brief Permet la creation du l'objet enemie.
  *
  * \param render est un pointeur sur le rendu SDL.
  * \param file_name_enemies est une chaîne de caractère contenant l'emplacement du fichier des informations de enemies.
+ * \param enemei_rand A FINIR.
  *
  * \return enemie Un objet enemie_t créé dans cette fonction.
  * \retval enemie_t * Un pointeur sur l'objet enemie_t.
  *
  */
 
-extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies)
+extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies, int enemei_rand)
 {
-    srand(time(NULL));
-
     /*--- Initialization variable ----------------------------------------------------*/
 
     enemie_t *enemie = NULL;
@@ -78,8 +76,6 @@ extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies)
 
     enemie->surface = NULL;
 
-    int enemei_rand = 0;
-
     FILE *file;
 
     char temp[30];
@@ -90,7 +86,6 @@ extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies)
 
     char enemies[16][30];
 
-    enemei_rand = rand() % 15;
     printf("enemei_rand: %i\n", enemei_rand);
 
     file = fopen(file_name_enemies, "r");
@@ -149,7 +144,7 @@ extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies)
  *
  */
 
-extern SDL_bool enemie_exist(enemie_t * const enemie)
+extern SDL_bool enemie_exist(enemie_t *const enemie)
 {
     if (enemie == NULL)
         return (SDL_FALSE);

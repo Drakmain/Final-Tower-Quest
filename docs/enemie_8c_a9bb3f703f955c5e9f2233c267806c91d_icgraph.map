@@ -1,0 +1,6 @@
+<map id="enemie_create" name="enemie_create">
+<area shape="rect" id="node1" title="Permet la creation du l&#39;objet enemie." alt="" coords="315,5,421,32"/>
+<area shape="rect" id="node2" href="$combat_8c.html#a34a947ba9b6cfdc5982e34ccc831d677" title="A FINIR." alt="" coords="201,5,267,32"/>
+<area shape="rect" id="node3" href="$town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="104,5,153,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
+</map>
