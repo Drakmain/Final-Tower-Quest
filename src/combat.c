@@ -37,6 +37,11 @@ static void _toEspace(enemie_t *enemie, int length)
         {
             enemie->name[i] = ' ';
         }
+
+        if (enemie->name[i] == '@')
+        {
+            enemie->name[i] = '\'';
+        }
     }
 }
 

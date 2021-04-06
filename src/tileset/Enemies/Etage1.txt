@@ -2,3 +2,6 @@ Chevalier_squelettique : PV 100 ;
 Demon_squelettique : PV 100 ;
 Seigneur_squelettique : PV 100 ;
 Chimera : PV 100 ;
+Big_grenouille : PV 100 ;
+Molosse : PV 100 ;
+Bosses\\Dragon_rouge : PV 100 ;

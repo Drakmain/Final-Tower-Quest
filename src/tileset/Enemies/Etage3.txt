@@ -4,3 +4,4 @@ Gros_tas_de_sable : PV 100 ;
 Harpie : PV 100 ;
 Lizardo : PV 100 ;
 Medubras : PV 100 ;
+Bosses\\Roi_aux_cornes : PV 100 ;

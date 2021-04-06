@@ -4,3 +4,4 @@ Divinatrice : PV 100 ;
 Vengeur_demoniaque : PV 100 ;
 Cite_cauchemardesque : PV 100 ;
 Guerrier_ancestrale : PV 100 ;
+Bosses\\L@arbre-monde : PV 100 ;
