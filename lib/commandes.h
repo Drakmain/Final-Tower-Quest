@@ -5,7 +5,7 @@
 
 #include "game.h"
 
-void options_in_game(game_t * game, SDL_Texture * texture_render_menu_ig, SDL_bool *echap_relache);
+void menu_commandes(game_t * game, SDL_Texture * texture_render_menu_ig, SDL_bool *echap_relache);
 
 #endif
 

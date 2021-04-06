@@ -6,7 +6,7 @@
 #include "..\lib\character.h"
 #include "..\lib\texte_confirmation.h"
 #include "..\lib\caracteristiques.h"
-#include "..\lib\options_in_game.h"
+#include "..\lib\commandes.h"
 /*!
  *
  * \file menu_in_game.c
@@ -34,7 +34,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     SDL_Color blanc = {255, 255, 255};
     SDL_Color rouge = {255, 0, 0};
 
-    SDL_Surface *surf_sac = NULL, *surf_caracteristique = NULL, *surf_sauvegarder = NULL, *surf_options = NULL, *surf_retourner_menu = NULL, *surf_cadre = NULL;
+    SDL_Surface *surf_sac = NULL, *surf_caracteristique = NULL, *surf_sauvegarder = NULL, *surf_commandes = NULL, *surf_retourner_menu = NULL, *surf_cadre = NULL;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -114,23 +114,23 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
 
-    surf_options = TTF_RenderText_Blended(game->police, "Options", blanc);
-    if (surf_options == NULL)
+    surf_commandes = TTF_RenderText_Blended(game->police, "Commandes", blanc);
+    if (surf_commandes == NULL)
     {
-        SDL_ExitWithError("probleme surface options menu in game");
+        SDL_ExitWithError("probleme surface commandes menu in game");
     }
 
-    SDL_Texture *options = SDL_CreateTextureFromSurface(game->render, surf_options);
-    if (options == NULL)
+    SDL_Texture *commandes = SDL_CreateTextureFromSurface(game->render, surf_commandes);
+    if (commandes == NULL)
     {
-        SDL_ExitWithError("probleme texture options menu in game");
+        SDL_ExitWithError("probleme texture commandes menu in game");
     }
 
-    SDL_Rect pos_options;
-    pos_options.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH) * 410 / 1280;
-    pos_options.y = (*game->WINDOWHEIGHT) * 250 / 720;
-    pos_options.w = (*game->WINDOWWIDTH) * 150 / 1200;
-    pos_options.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    SDL_Rect pos_commandes;
+    pos_commandes.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH) * 410 / 1280;
+    pos_commandes.y = (*game->WINDOWHEIGHT) * 250 / 720;
+    pos_commandes.w = (*game->WINDOWWIDTH) * 215 / 1200;
+    pos_commandes.h = (*game->WINDOWHEIGHT) * 50 / 720;
 
     /*----------------------------------------------------------------------------*/
 
@@ -161,13 +161,13 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     surf_cadre = SDL_LoadBMP("src\\image\\cadre_menu_in_game.bmp");
     if (surf_cadre == NULL)
     {
-        SDL_ExitWithError("probleme chargement image fond menu accueil");
+        SDL_ExitWithError("probleme chargement image cadre menu in game");
     }
 
     SDL_Texture *cadre = SDL_CreateTextureFromSurface(game->render, surf_cadre);
     if (cadre == NULL)
     {
-        SDL_ExitWithError("probleme texture nouvelle partie menu d'accueil");
+        SDL_ExitWithError("probleme texture cadre menu in game");
     }
 
     SDL_Rect pos_cadre;
@@ -183,7 +183,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     SDL_Texture *fond_cadre = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, pos_cadre.w, pos_cadre.h);
     if (fond_cadre == NULL)
     {
-        SDL_ExitWithError("probleme texture options");
+        SDL_ExitWithError("probleme texture fond cadre");
     }
 
     SDL_Rect pos_fond_cadre;
@@ -214,7 +214,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     SDL_RenderCopy(game->render, sac, NULL, &pos_sac);
     SDL_RenderCopy(game->render, caracteristique, NULL, &pos_caracteristique);
     SDL_RenderCopy(game->render, sauvegarder, NULL, &pos_sauvegarder);
-    SDL_RenderCopy(game->render, options, NULL, &pos_options);
+    SDL_RenderCopy(game->render, commandes, NULL, &pos_commandes);
     SDL_RenderCopy(game->render, retourner_menu, NULL, &pos_retourner_menu);
 
     SDL_RenderPresent(game->render);
@@ -263,27 +263,27 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
             {
                 surf_caracteristique = TTF_RenderText_Blended(game->police, "Caracteristiques", blanc);
                 surf_sauvegarder = TTF_RenderText_Blended(game->police, "Sauvegarder", rouge);
-                surf_options = TTF_RenderText_Blended(game->police, "Options", blanc);
+                surf_commandes = TTF_RenderText_Blended(game->police, "Commandes", blanc);
             }
 
             if (selection == 3)
             {
                 surf_sauvegarder = TTF_RenderText_Blended(game->police, "Sauvegarder", blanc);
-                surf_options = TTF_RenderText_Blended(game->police, "Options", rouge);
+                surf_commandes = TTF_RenderText_Blended(game->police, "Commandes", rouge);
                 surf_retourner_menu = TTF_RenderText_Blended(game->police, "Retourner au Menu", blanc);
             }
 
             if (selection == 4)
             {
                 surf_sac = TTF_RenderText_Blended(game->police, "Sac", blanc);
-                surf_options = TTF_RenderText_Blended(game->police, "Options", blanc);
+                surf_commandes = TTF_RenderText_Blended(game->police, "Commandes", blanc);
                 surf_retourner_menu = TTF_RenderText_Blended(game->police, "Retourner au Menu", rouge);
             }
 
             sac = SDL_CreateTextureFromSurface(game->render, surf_sac);
             caracteristique = SDL_CreateTextureFromSurface(game->render, surf_caracteristique);
             sauvegarder = SDL_CreateTextureFromSurface(game->render, surf_sauvegarder);
-            options = SDL_CreateTextureFromSurface(game->render, surf_options);
+            commandes = SDL_CreateTextureFromSurface(game->render, surf_commandes);
             retourner_menu = SDL_CreateTextureFromSurface(game->render, surf_retourner_menu);
 
             SDL_SetRenderTarget(game->render, texture_render_menu_ig);
@@ -294,7 +294,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
             SDL_RenderCopy(game->render, sac, NULL, &pos_sac);
             SDL_RenderCopy(game->render, caracteristique, NULL, &pos_caracteristique);
             SDL_RenderCopy(game->render, sauvegarder, NULL, &pos_sauvegarder);
-            SDL_RenderCopy(game->render, options, NULL, &pos_options);
+            SDL_RenderCopy(game->render, commandes, NULL, &pos_commandes);
             SDL_RenderCopy(game->render, retourner_menu, NULL, &pos_retourner_menu);
             SDL_SetRenderTarget(game->render, NULL);
             SDL_RenderCopy(game->render, texture_render_menu_ig, NULL, NULL);
@@ -310,7 +310,7 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
                         sauvegarde(game, character);
                 }
                 if(selection == 3)
-                    options_in_game(game, texture_render_menu_ig, echap_relache);
+                    menu_commandes(game, texture_render_menu_ig, echap_relache);
                 if(selection == 4)
                 {
                     if(texte_confirmation(game, "Voulez-vous retourner au menu principal ?"))
@@ -320,47 +320,6 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
                     }
                 }
             }
-            texture_render_menu_ig = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
-
-            pos_sac.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*410/1280;
-            pos_sac.y = (*game->WINDOWHEIGHT)*25/720;
-            pos_sac.w = (*game->WINDOWWIDTH)*64.5/1200;
-            pos_sac.h = (*game->WINDOWHEIGHT)*50/720;
-
-            pos_caracteristique.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*410/1280;
-            pos_caracteristique.y = (*game->WINDOWHEIGHT)*100/720;
-            pos_caracteristique.w = (*game->WINDOWWIDTH)*322/1200;
-            pos_caracteristique.h = (*game->WINDOWHEIGHT)*50/720;
-
-            pos_sauvegarder.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*410/1280;
-            pos_sauvegarder.y = (*game->WINDOWHEIGHT)*175/720;
-            pos_sauvegarder.w = (*game->WINDOWWIDTH)*236/1200;
-            pos_sauvegarder.h = (*game->WINDOWHEIGHT)*50/720;
-
-            pos_options.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*410/1280;
-            pos_options.y = (*game->WINDOWHEIGHT)*250/720;
-            pos_options.w = (*game->WINDOWWIDTH)*150/1200;
-            pos_options.h = (*game->WINDOWHEIGHT)*50/720;
-
-            pos_retourner_menu.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*410/1280;
-            pos_retourner_menu.y = (*game->WINDOWHEIGHT)*325/720;
-            pos_retourner_menu.w = (*game->WINDOWWIDTH)*365/1200;
-            pos_retourner_menu.h = (*game->WINDOWHEIGHT)*50/720;
-
-            pos_cadre.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH)*435/1280;
-            pos_cadre.y = 0;
-            pos_cadre.w = (*game->WINDOWWIDTH)*435/1280;
-            pos_cadre.h = (*game->WINDOWHEIGHT)*400/720;
-
-            pos_fond_cadre.x = pos_cadre.x;
-            pos_fond_cadre.y = pos_cadre.y;
-            pos_fond_cadre.w = pos_cadre.w;
-            pos_fond_cadre.h = pos_cadre.h;
-
-            rect_fond_cadre.x = (*game->WINDOWWIDTH)*12/1280;
-            rect_fond_cadre.y = (*game->WINDOWHEIGHT)*12/720;
-            rect_fond_cadre.w = pos_fond_cadre.w - 2*rect_fond_cadre.x + 1;
-            rect_fond_cadre.h = pos_fond_cadre.h - 2*rect_fond_cadre.y + 1;
 
             /*--- Event to Exit Program ------------------------------------------*/
 
@@ -396,13 +355,13 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     SDL_FreeSurface(surf_sac);
     SDL_FreeSurface(surf_caracteristique);
     SDL_FreeSurface(surf_sauvegarder);
-    SDL_FreeSurface(surf_options);
+    SDL_FreeSurface(surf_commandes);
     SDL_FreeSurface(surf_retourner_menu);
 
     SDL_DestroyTexture(sac);
     SDL_DestroyTexture(caracteristique);
     SDL_DestroyTexture(sauvegarder);
-    SDL_DestroyTexture(options);
+    SDL_DestroyTexture(commandes);
     SDL_DestroyTexture(retourner_menu);
     SDL_DestroyTexture(cadre);
     SDL_DestroyTexture(fond_cadre);
