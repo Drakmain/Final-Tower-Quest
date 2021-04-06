@@ -298,15 +298,11 @@ extern void options_f(game_t *game)
             {
                 *game->program_launch = SDL_FALSE;
                 options_bool = SDL_FALSE;
-                fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;", resolution, *game->etat_fullscreen);
-                fclose(opts);
             }
 
             if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN && *echap_relache)
             {
                 options_bool = SDL_FALSE;
-                fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;", resolution, *game->etat_fullscreen);
-                fclose(opts);
             }
 
             /*--- End Event to Exit Program --------------------------------------*/
@@ -591,9 +587,13 @@ extern void options_f(game_t *game)
                 if (selection == 3)
                 {
                     options_bool = SDL_FALSE;
-                    fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;", resolution, *game->etat_fullscreen);
-                    fclose(opts);
                 }
+            }
+
+            if(options_bool == SDL_FALSE || *game->program_launch == SDL_FALSE)
+            {
+                fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;", resolution, *game->etat_fullscreen);
+                fclose(opts);
             }
         }
     }

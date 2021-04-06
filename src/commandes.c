@@ -425,7 +425,7 @@ void menu_commandes(game_t * game, SDL_Texture * texture, SDL_bool *echap_relach
     SDL_DestroyTexture(image_return);
     SDL_DestroyTexture(image_E);
     SDL_DestroyTexture(t_2point);
-
+    SDL_DestroyTexture(fond_cadre);
 
     /*--- End Free Memory --------------------------------------------------------*/
 
