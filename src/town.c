@@ -128,10 +128,7 @@ extern void town(game_t *game, character_t *character)
                 if (keyState[SDL_SCANCODE_ESCAPE])
                 {
                     menu_in_game(game, town_bool, character, texture_render);
-
-                    texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
-
-                    while (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
+                    while(keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
                         SDL_PollEvent(&event);
                 }
 

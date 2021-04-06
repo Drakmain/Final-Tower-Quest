@@ -211,13 +211,6 @@ extern void options_f(game_t *game)
     SDL_Rect pos_fond_cadre;
 
     SDL_Rect rect_fond_cadre;
-
-    SDL_SetRenderDrawColor(game->render, 0, 0, 0, 200);
-    SDL_SetRenderTarget(game->render, fond_cadre);
-    SDL_SetTextureBlendMode(fond_cadre, SDL_BLENDMODE_BLEND);
-    SDL_RenderFillRect(game->render, &rect_fond_cadre);
-    SDL_SetRenderTarget(game->render, NULL);
-
     /*-------------------------------------------------------------------------*/
 
     /*--- Initialization texture "fleche" -------------------------------------*/
@@ -281,6 +274,8 @@ extern void options_f(game_t *game)
             {
                 *game->program_launch = SDL_FALSE;
                 options_bool = SDL_FALSE;
+                fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;", resolution, *game->etat_fullscreen);
+                fclose(opts);
             }
 
             if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
@@ -528,8 +523,8 @@ extern void options_f(game_t *game)
             SDL_RenderCopy(game->render, fond, NULL, &pos_fond);
             SDL_RenderCopy(game->render, options, NULL, &pos_options);
             SDL_RenderCopy(game->render, retour, NULL, &pos_retour);
-            SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
             SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
+            SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
             SDL_RenderCopy(game->render, opt_resolution, NULL, &pos_opt_resolution);
             SDL_RenderCopy(game->render, choix_resolution, NULL, &pos_choix_resolution);
             SDL_RenderCopy(game->render, opt_fullscreen, NULL, &pos_opt_fullscreen);

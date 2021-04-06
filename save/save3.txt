@@ -10,6 +10,6 @@ mana: 0 ;
 vitalite: 0 ;
 force: 0 ;
 intelligence: 0 ;
-agilite: 0 ;
+agilite: 15 ;
 defense: 0 ;
 point_dispo: 0 ;
