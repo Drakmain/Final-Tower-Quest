@@ -1,6 +1,7 @@
 var structcharacter__s =
 [
     [ "agilite", "structcharacter__s.html#a6745fcf7139df7934f56395c3e7d3a29", null ],
+    [ "attacks", "structcharacter__s.html#a66178f1d4708ee85239ca36c285d606a", null ],
     [ "B", "structcharacter__s.html#a12857102343f2f2a198414bdcc70e51b", null ],
     [ "classe_name", "structcharacter__s.html#a8ddaa54411507096eff645f8d8419dd2", null ],
     [ "Damage_Taken", "structcharacter__s.html#a8fe6c5d21e610c05239f56619efef757", null ],
@@ -18,6 +19,8 @@ var structcharacter__s =
     [ "life", "structcharacter__s.html#adf488ff0ce8098cd956c07890cbc5d50", null ],
     [ "lvl", "structcharacter__s.html#a6c7f440bf2fb555abdc789a41c6acf44", null ],
     [ "mana", "structcharacter__s.html#a0b461b6df17bd8c922b97c6d282ace10", null ],
+    [ "max_life", "structcharacter__s.html#a45a3628ada3f8149ba882d02ea4fc3bc", null ],
+    [ "max_mana", "structcharacter__s.html#a6d34aa2363333f8c59968519829ce7a9", null ],
     [ "mov", "structcharacter__s.html#a54fb1c951bf500b03827a65eacbd37d2", null ],
     [ "North_Walk", "structcharacter__s.html#acd5d27076993c20db991409efcb20d25", null ],
     [ "points_dispo", "structcharacter__s.html#a58ec2e5f19a9344ec336e728528df755", null ],

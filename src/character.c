@@ -14,6 +14,13 @@
 
 /*!
  *
+ * \struct attacks_t character.h "character.h"
+ * \brief Structure de l'objet attacks_t.
+ *
+ */
+
+/*!
+ *
  * \struct character_t character.h "character.h"
  * \brief Structure de l'objet character_t.
  *

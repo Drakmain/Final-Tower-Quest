@@ -1,0 +1,17 @@
+<map id="src/attaques.c" name="src/attaques.c">
+<area shape="rect" id="node1" title="A FINIR." alt="" coords="339,5,445,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="91,80,155,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="179,80,245,107"/>
+<area shape="rect" id="node5" href="$attaques_8h_source.html" title=" " alt="" coords="269,80,381,107"/>
+<area shape="rect" id="node11" href="$character_8h_source.html" title=" " alt="" coords="434,155,521,181"/>
+<area shape="rect" id="node13" href="$frame_8h_source.html" title=" " alt="" coords="566,229,661,256"/>
+<area shape="rect" id="node14" href="$enemie_8h_source.html" title=" " alt="" coords="647,155,751,181"/>
+<area shape="rect" id="node15" href="$combat_8h_source.html" title=" " alt="" coords="406,80,511,107"/>
+<area shape="rect" id="node6" href="$commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="436,304,519,331"/>
+<area shape="rect" id="node10" href="$game_8h_source.html" title=" " alt="" coords="293,155,358,181"/>
+<area shape="rect" id="node12" href="$map_8h_source.html" title=" " alt="" coords="377,229,436,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="356,379,415,405"/>
+<area shape="rect" id="node8" title=" " alt="" coords="439,379,515,405"/>
+<area shape="rect" id="node9" href="$error_8h_source.html" title=" " alt="" coords="540,379,628,405"/>
+</map>

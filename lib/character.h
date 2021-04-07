@@ -46,7 +46,7 @@ struct character_s
   SDL_Rect Damage_Taken; /*!< Tile set (SDL_Rect) A FINIR. */
   SDL_Rect Dead;         /*!< Tile set (SDL_Rect) A FINIR. */
 
-  attack_t *attacks;
+  attack_t *attacks; /*!< A FINIR. */
 
   char *save_name;   /*!< A FINIR. */
   char *classe_name; /*!< A FINIR. */

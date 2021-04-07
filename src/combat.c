@@ -21,10 +21,10 @@
 
 /*!
  *
- * \fn _toEspace(enemie_t *enemie, int length)
+ * \fn _toEspace(char *string, int length)
  * \brief A FINIR.
  *
- * \param enemie A FINIR.
+ * \param string A FINIR.
  * \param length A FINIR.
  *
  */

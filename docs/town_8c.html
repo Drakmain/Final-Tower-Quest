@@ -59,6 +59,7 @@ $(document).ready(function(){initNavTree('town_8c.html',''); initResizable(); })
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier town.c</div>  </div>
@@ -69,10 +70,12 @@ $(document).ready(function(){initNavTree('town_8c.html',''); initResizable(); })
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;SDL_image.h&gt;</code><br />
 <code>#include &quot;..\lib\town.h&quot;</code><br />
 <code>#include &quot;..\lib\frame.h&quot;</code><br />
 <code>#include &quot;..\lib\map.h&quot;</code><br />
 <code>#include &quot;..\lib\character.h&quot;</code><br />
+<code>#include &quot;..\lib\colision.h&quot;</code><br />
 <code>#include &quot;..\lib\menu_in_game.h&quot;</code><br />
 <code>#include &quot;..\lib\combat.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -80,23 +83,31 @@ Graphe des dépendances par inclusion de town.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="town_8c__incl.png" border="0" usemap="#asrc_2town_8c" alt=""/></div>
 <map name="asrc_2town_8c" id="asrc_2town_8c">
-<area shape="rect" title="Gestion de la map town." alt="" coords="321,5,404,32"/>
+<area shape="rect" title="Gestion de la map town." alt="" coords="431,5,513,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
-<area shape="rect" href="town_8h_source.html" title=" " alt="" coords="179,80,269,107"/>
-<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="262,155,349,181"/>
-<area shape="rect" href="frame_8h_source.html" title=" " alt="" coords="677,155,771,181"/>
-<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="566,155,653,181"/>
-<area shape="rect" href="menu__in__game_8h_source.html" title=" " alt="" coords="345,80,495,107"/>
-<area shape="rect" href="combat_8h_source.html" title=" " alt="" coords="519,80,625,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="416,229,499,256"/>
-<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="425,155,490,181"/>
-<area shape="rect" title=" " alt="" coords="336,304,395,331"/>
-<area shape="rect" title=" " alt="" coords="419,304,495,331"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="520,304,608,331"/>
+<area shape="rect" title=" " alt="" coords="179,80,279,107"/>
+<area shape="rect" href="town_8h_source.html" title=" " alt="" coords="355,80,445,107"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="390,155,477,181"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="641,229,700,256"/>
+<area shape="rect" href="frame_8h_source.html" title=" " alt="" coords="815,229,910,256"/>
+<area shape="rect" href="colision_8h_source.html" title=" " alt="" coords="895,155,1001,181"/>
+<area shape="rect" href="menu__in__game_8h_source.html" title=" " alt="" coords="469,80,619,107"/>
+<area shape="rect" href="combat_8h_source.html" title=" " alt="" coords="643,80,749,107"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="596,304,679,331"/>
+<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="501,155,566,181"/>
+<area shape="rect" title=" " alt="" coords="516,379,575,405"/>
+<area shape="rect" title=" " alt="" coords="599,379,675,405"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="700,379,788,405"/>
 </map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ab7ffb5a0ee7b15aecd0b32e84b93e2ee"><td class="memItemLeft" align="right" valign="top"><a id="ab7ffb5a0ee7b15aecd0b32e84b93e2ee"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MULTIPLIER</b>&#160;&#160;&#160;7.5</td></tr>
+<tr class="separator:ab7ffb5a0ee7b15aecd0b32e84b93e2ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a30cdcbca9c367fc3adbb62a2e48b09a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6">town</a> (<a class="el" href="structgame__t.html">game_t</a> *game, <a class="el" href="structcharacter__t.html">character_t</a> *character)</td></tr>
@@ -146,22 +157,12 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="town_8c_a30cdcbca9c367fc3adbb62a2e48b09a6_cgraph.png" border="0" usemap="#atown_8c_a30cdcbca9c367fc3adbb62a2e48b09a6_cgraph" alt=""/></div>
 <map name="atown_8c_a30cdcbca9c367fc3adbb62a2e48b09a6_cgraph" id="atown_8c_a30cdcbca9c367fc3adbb62a2e48b09a6_cgraph">
-<area shape="rect" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="5,360,55,387"/>
-<area shape="rect" href="combat_8c.html#a34a947ba9b6cfdc5982e34ccc831d677" title="A FINIR." alt="" coords="286,107,351,133"/>
-<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="600,335,732,361"/>
-<area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="435,360,541,387"/>
-<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="273,259,364,285"/>
-<area shape="rect" href="menu__in__game_8c.html#ab15cbe69b23d57272cf1596d790bfdb4" title="A FINIR." alt="" coords="103,411,213,437"/>
-<area shape="rect" href="frame_8c.html#aff4977623e1b4fedc515c1933967f4cd" title="A FINIR." alt="" coords="109,613,207,640"/>
-<area shape="rect" href="combat_8c.html#a4896f158bd05e2239b00b3f5ddd5b8f4" title="A FINIR." alt="" coords="446,5,530,32"/>
-<area shape="rect" href="enemie_8c.html#a9bb3f703f955c5e9f2233c267806c91d" title="Permet la creation du l&#39;objet enemie." alt="" coords="435,56,541,83"/>
-<area shape="rect" href="enemie_8c.html#a7b573ce387c66f1849f4ac2205d4f0d6" title="Permet de verifier l&#39;existence du l&#39;objet enemie_t." alt="" coords="439,107,537,133"/>
-<area shape="rect" href="enemie_8c.html#ab156912d90ce379fbff3b18cc7d435ad" title="Permet la liberation d&#39;un objet enemie." alt="" coords="620,56,712,83"/>
-<area shape="rect" href="map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="451,309,525,336"/>
-<area shape="rect" href="map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="441,259,535,285"/>
-<area shape="rect" href="caracteristiques_8c.html#ad5f473b1cdb7d4fd0eb72ddb1f54b3b1" title="A FINIR." alt="" coords="261,512,376,539"/>
-<area shape="rect" href="texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="A FINIR." alt="" coords="424,461,552,488"/>
-<area shape="rect" href="sauvegarder_8c.html#ae0a24e8cfdb09be70e3e841361dd9482" title="A FINIR." alt="" coords="275,360,362,387"/>
+<area shape="rect" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="5,31,55,57"/>
+<area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="241,5,348,32"/>
+<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="103,56,193,83"/>
+<area shape="rect" href="map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="257,56,332,83"/>
+<area shape="rect" href="map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="248,107,341,133"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="396,132,528,159"/>
 </map>
 </div>
 <div class="dynheader">

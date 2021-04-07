@@ -1,16 +1,18 @@
 <map id="src/town.c" name="src/town.c">
-<area shape="rect" id="node1" title="Gestion de la map town." alt="" coords="321,5,404,32"/>
+<area shape="rect" id="node1" title="Gestion de la map town." alt="" coords="431,5,513,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="91,80,155,107"/>
-<area shape="rect" id="node4" href="$town_8h_source.html" title=" " alt="" coords="179,80,269,107"/>
-<area shape="rect" id="node10" href="$character_8h_source.html" title=" " alt="" coords="262,155,349,181"/>
-<area shape="rect" id="node11" href="$frame_8h_source.html" title=" " alt="" coords="677,155,771,181"/>
-<area shape="rect" id="node12" href="$map_8h_source.html" title=" " alt="" coords="566,155,653,181"/>
-<area shape="rect" id="node13" href="$menu__in__game_8h_source.html" title=" " alt="" coords="345,80,495,107"/>
-<area shape="rect" id="node14" href="$combat_8h_source.html" title=" " alt="" coords="519,80,625,107"/>
-<area shape="rect" id="node5" href="$commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="416,229,499,256"/>
-<area shape="rect" id="node9" href="$game_8h_source.html" title=" " alt="" coords="425,155,490,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="336,304,395,331"/>
-<area shape="rect" id="node7" title=" " alt="" coords="419,304,495,331"/>
-<area shape="rect" id="node8" href="$error_8h_source.html" title=" " alt="" coords="520,304,608,331"/>
+<area shape="rect" id="node4" title=" " alt="" coords="179,80,279,107"/>
+<area shape="rect" id="node5" href="$town_8h_source.html" title=" " alt="" coords="355,80,445,107"/>
+<area shape="rect" id="node11" href="$character_8h_source.html" title=" " alt="" coords="390,155,477,181"/>
+<area shape="rect" id="node12" href="$map_8h_source.html" title=" " alt="" coords="641,229,700,256"/>
+<area shape="rect" id="node13" href="$frame_8h_source.html" title=" " alt="" coords="815,229,910,256"/>
+<area shape="rect" id="node14" href="$colision_8h_source.html" title=" " alt="" coords="895,155,1001,181"/>
+<area shape="rect" id="node15" href="$menu__in__game_8h_source.html" title=" " alt="" coords="469,80,619,107"/>
+<area shape="rect" id="node16" href="$combat_8h_source.html" title=" " alt="" coords="643,80,749,107"/>
+<area shape="rect" id="node6" href="$commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="596,304,679,331"/>
+<area shape="rect" id="node10" href="$game_8h_source.html" title=" " alt="" coords="501,155,566,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="516,379,575,405"/>
+<area shape="rect" id="node8" title=" " alt="" coords="599,379,675,405"/>
+<area shape="rect" id="node9" href="$error_8h_source.html" title=" " alt="" coords="700,379,788,405"/>
 </map>

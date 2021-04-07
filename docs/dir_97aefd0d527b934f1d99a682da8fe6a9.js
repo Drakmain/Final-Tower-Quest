@@ -1,9 +1,12 @@
 var dir_97aefd0d527b934f1d99a682da8fe6a9 =
 [
+    [ "attaques.h", "attaques_8h_source.html", null ],
     [ "caracteristiques.h", "caracteristiques_8h_source.html", null ],
     [ "character.h", "character_8h_source.html", null ],
     [ "charger_partie.h", "charger__partie_8h_source.html", null ],
+    [ "colision.h", "colision_8h_source.html", null ],
     [ "combat.h", "combat_8h_source.html", null ],
+    [ "commandes.h", "commandes_8h_source.html", null ],
     [ "commun.h", "commun_8h.html", "commun_8h" ],
     [ "creation_perso.h", "creation__perso_8h_source.html", null ],
     [ "enemie.h", "enemie_8h_source.html", null ],

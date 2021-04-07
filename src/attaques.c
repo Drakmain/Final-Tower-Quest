@@ -19,12 +19,11 @@
 
 /*!
  *
- * \fn attaques(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_combat)
+ * \fn attaques(game_t *game, character_t *character, SDL_Texture *texture_render_combat)
  * \brief A FINIR.
  *
  * \param game A FINIR.
  * \param character A FINIR.
- * \param map A FINIR.
  * \param texture_render_combat A FINIR.
  *
  */
