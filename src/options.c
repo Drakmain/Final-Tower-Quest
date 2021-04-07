@@ -40,7 +40,7 @@ extern void options_f(game_t *game)
     SDL_bool changement = SDL_FALSE;
     SDL_bool *echap_relache = malloc(sizeof(SDL_bool));
     *echap_relache = SDL_FALSE;
-    SDL_Texture * texture_render_options;
+    SDL_Texture *texture_render_options;
 
     /*--- End Initialization variable --------------------------------------------*/
 
@@ -214,6 +214,7 @@ extern void options_f(game_t *game)
     SDL_Rect pos_fond_cadre;
 
     SDL_Rect rect_fond_cadre;
+    
     /*-------------------------------------------------------------------------*/
 
     /*--- Initialization texture "fleche" -------------------------------------*/
@@ -256,26 +257,17 @@ extern void options_f(game_t *game)
     /*--- Initialization text "commandes" ------------------------------------------*/
 
     surf_commandes = TTF_RenderText_Blended(game->police, "Commandes", blanc);
-    if(surf_commandes == NULL)
+    if (surf_commandes == NULL)
     {
         SDL_ExitWithError("probleme surface commandes");
     }
-    SDL_Texture* commandes = SDL_CreateTextureFromSurface(game->render, surf_commandes);
-    if(commandes == NULL)
+    SDL_Texture *commandes = SDL_CreateTextureFromSurface(game->render, surf_commandes);
+    if (commandes == NULL)
     {
         SDL_ExitWithError("probleme texture commandes");
     }
 
     SDL_Rect pos_commandes;
-    /*-------------------------------------------------------------------------*/
-
-    /*--- Open options file ---------------------------------------------------*/
-
-    FILE *opts = fopen("options.txt", "w");
-    if (opts == NULL)
-    {
-        exit_with_error("Fichier options.txt ne pas etre ouvert > options.c Line 398");
-    }
 
     /*-------------------------------------------------------------------------*/
 
@@ -468,7 +460,7 @@ extern void options_f(game_t *game)
                 surf_commandes = TTF_RenderText_Blended(game->police, "Commandes", rouge);
             }
 
-            if(selection == 3)
+            if (selection == 3)
             {
                 surf_commandes = TTF_RenderText_Blended(game->police, "Commandes", blanc);
                 surf_retour = TTF_RenderText_Blended(game->police, "Retour", rouge);
@@ -540,8 +532,8 @@ extern void options_f(game_t *game)
             rect_fleche_gauche.w = 38;
             rect_fleche_gauche.h = 28;
 
-            pos_commandes.w = (*game->WINDOWWIDTH)*193/1200;
-            pos_commandes.h = (*game->WINDOWHEIGHT)/13.5;
+            pos_commandes.w = (*game->WINDOWWIDTH) * 193 / 1200;
+            pos_commandes.h = (*game->WINDOWHEIGHT) / 13.5;
             pos_commandes.x = pos_opt_fullscreen.x;
             pos_commandes.y = pos_opt_fullscreen.y + (*game->WINDOWHEIGHT) * 70 / 720;
 
@@ -562,7 +554,8 @@ extern void options_f(game_t *game)
             SDL_RenderCopy(game->render, choix_resolution, NULL, &pos_choix_resolution);
             SDL_RenderCopy(game->render, opt_fullscreen, NULL, &pos_opt_fullscreen);
             SDL_RenderCopy(game->render, choix_fullscreen, NULL, &pos_choix_fullscreen);
-            if(selection == 0 || selection == 1){
+            if (selection == 0 || selection == 1)
+            {
                 SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);
                 SDL_RenderCopy(game->render, fleche_droite, &rect_fleche_droite, &pos_fleche_droite);
             }
@@ -582,7 +575,7 @@ extern void options_f(game_t *game)
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
             {
-                if(selection == 2)
+                if (selection == 2)
                     menu_commandes(game, texture_render_options, echap_relache);
                 if (selection == 3)
                 {
@@ -590,9 +583,16 @@ extern void options_f(game_t *game)
                 }
             }
 
-            if(options_bool == SDL_FALSE || *game->program_launch == SDL_FALSE)
+            if (options_bool == SDL_FALSE || *game->program_launch == SDL_FALSE)
             {
+                FILE *opts = fopen("options.txt", "w");
+                if (opts == NULL)
+                {
+                    exit_with_error("Fichier options.txt ne pas etre ouvert > options.c Line 398");
+                }
+
                 fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;", resolution, *game->etat_fullscreen);
+
                 fclose(opts);
             }
         }

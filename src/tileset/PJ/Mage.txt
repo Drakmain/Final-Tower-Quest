@@ -6,3 +6,17 @@ West_Walk:    3, 99, 16, 31, 54;
 Damage_Taken: 3, 131, 22, 29;
 Weak:         3, 128, 20, 24;
 Dead:         3, 149, 32, 16;
+Niveau 1:
+Jet_de_pierre , 0, 0 - 0, Attaque_un_ennemi ;
+Eclair_tumultueux , 5, 0 - 0, Attaque_un_ennemi ;
+Eclat_stellaire , 15, 0-0, Attaque_3x_aleatoirement ;
+Niveau 5: Spores_celeste , 15, -1 - -1, Restaure_15%_la_sante ;
+Niveau 10: Volonte_bienfaisante , 15, -1 - -1, Une_chance_sur_trois_d'endormir_l'ennemi_pendant_2_tours ;
+Niveau 15: Coup_de_tonnerre , 10, 0 - 0, Attaque_un_ennemi ;
+Niveau 20: Vortex_d'elements , 20, 0 - 0, Attaque_tous_les_ennemies ;
+Niveau 25: Transfiguration , 25, -1 - -1, Endors_l'ennemi_pendant_2_tours ;
+Niveau 30: Raz-de-maree , 25, 0 - 0, Attaque_3x_aleatoirement ;
+Niveau 35: Magie_instable , 30 , -1 - -1, Une_chance_sur_trois_de_tuer_l'ennemi ;
+Niveau 40: Consecration , 20, -1 - -1, Restaure_35%_de_la_sante ;	
+Niveau 45: Blizzard , 20, 0 - 0, Attaque_un_ennemi ;
+Niveau 50: Fureur_divine , 50, -1 - -1, Mana_gratuit_pendant_3_tours ;

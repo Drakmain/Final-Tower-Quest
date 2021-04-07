@@ -4,6 +4,17 @@
 #include "commun.h"
 #include "map.h"
 
+typedef struct attack_s attack_t;
+
+struct attack_s
+{
+  char *name;   /*!< A FINIR. */
+  int mana;   /*!< A FINIR. */
+  int dmg_min;   /*!< A FINIR. */
+  int dmg_max;   /*!< A FINIR. */
+  char *description;   /*!< A FINIR. */
+};
+
 typedef struct character_s character_t;
 
 struct character_s
@@ -34,6 +45,8 @@ struct character_s
   SDL_Rect Weak;         /*!< Tile set (SDL_Rect) A FINIR. */
   SDL_Rect Damage_Taken; /*!< Tile set (SDL_Rect) A FINIR. */
   SDL_Rect Dead;         /*!< Tile set (SDL_Rect) A FINIR. */
+
+  attack_t *attacks;
 
   char *save_name;   /*!< A FINIR. */
   char *classe_name; /*!< A FINIR. */

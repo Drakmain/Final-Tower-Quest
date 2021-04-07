@@ -6,3 +6,17 @@ West_Walk:    3, 96, 19, 30, 63;
 Damage_Taken: 3, 127, 22, 28;
 Weak:         3, 156, 17, 24;
 Dead:         3, 181, 32, 16;
+Niveau 1: 
+Poing_de_fer , 0, 5 - 7, Attaque_un_ennemi ;
+Coup_espiegle , 5, 10 - 12, Attaque_un_ennemi ;
+Frappe_circulaire , 15, 5 - 10, Attaque_3x_aleatoirement ;
+Niveau 5: Carapace_de_dragon , 10, -1--1, Augmente_legerement_la_defense_pendant_2_tours_(-3_pts_de_degats) ;
+Niveau 10: Honneur_sans_faille , 10, -1 - -1, Augmente_legerement_la_force_pendant_2_tours_(+3_pts_de_degats) ;
+Niveau 15: Fleau_de_douleur , 10, 0 - 0, Attaque_un_ennemi ;
+Niveau 20: Ecrasement_sismique , 20, 0 - 0, Attaque_tous_les_ennemis ;
+Niveau 25: Volonte_du_guerrier , 15, -1 - -1, Augmente_grandement_la_defense_pendant_3_tours_(-8_pts_de_degats) ;
+Niveau 30: Triple_balayage , 25, 0 - 0, Attaque_3x_aleatoirement ;
+Niveau 35: Soulevement_draconique , 30, -1 - -1, Une_chance_sur_quatre_de_tuer_l'ennemi ;
+Niveau 40: Force_de_Gungnir , 15, -1 - -1, Augmente_la_force_pendant_3_tours_(x2_pts_de_degats) ;
+Niveau 45: Furie_terrestre , 20, 0 - 0, Attaque_un_ennemi ;
+Niveau 50: Colere_colossale , 50, -1 - -1, Ne_subit_aucun_degats_pendant_3_tours ;

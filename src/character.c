@@ -72,6 +72,12 @@ static void character_free(character_t **character)
     free((*character)->classe_name);
     free((*character)->position);
 
+    for (int i = 0; i < 13; i++)
+    {
+        free((*character)->attacks[i].name);
+        free((*character)->attacks[i].description);
+    }
+
     free(*character);
     *character = NULL;
 }
@@ -98,6 +104,8 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
     character_t *character = NULL;
     character = malloc(sizeof(character_t));
 
+    character->attacks = malloc(sizeof(attack_t) * 13);
+
     character->file_name_txt = NULL;
     character->file_name_txt = malloc(sizeof(char) * 50);
     strcpy(character->file_name_txt, "src\\tileset\\PJ\\");
@@ -120,6 +128,14 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
 
     character->position = NULL;
     character->position = malloc(sizeof(char) * 20);
+
+    for (int i = 0; i < 13; i++)
+    {
+        character->attacks[i].name = calloc(50, sizeof(char));
+        strcpy(character->attacks[i].name, "name");
+        character->attacks[i].description = calloc(100, sizeof(char));
+        strcpy(character->attacks[i].description, "desc");
+    }
 
     character->texture = NULL;
 
@@ -180,14 +196,29 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
             exit_with_error("Loading of a file failed > character.c Line 158");
         }
 
-        fscanf(file, "%*s %i, %i, %i;\n", &character->R, &character->G, &character->B);
-        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->South_Walk.rect.x, &character->South_Walk.rect.y, &character->South_Walk.rect.w, &character->South_Walk.rect.h, &character->South_Walk.limit);
-        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->East_Walk.rect.x, &character->East_Walk.rect.y, &character->East_Walk.rect.w, &character->East_Walk.rect.h, &character->East_Walk.limit);
-        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->North_Walk.rect.x, &character->North_Walk.rect.y, &character->North_Walk.rect.w, &character->North_Walk.rect.h, &character->North_Walk.limit);
-        fscanf(file, "%*s %i, %i, %i, %i, %i;\n", &character->West_Walk.rect.x, &character->West_Walk.rect.y, &character->West_Walk.rect.w, &character->West_Walk.rect.h, &character->West_Walk.limit);
-        fscanf(file, "%*s %i, %i, %i, %i;\n", &character->Damage_Taken.x, &character->Damage_Taken.y, &character->Damage_Taken.w, &character->Damage_Taken.h);
-        fscanf(file, "%*s %i, %i, %i, %i;\n", &character->Weak.x, &character->Weak.y, &character->Weak.w, &character->Weak.h);
-        fscanf(file, "%*s %i, %i, %i, %i;\n", &character->Dead.x, &character->Dead.y, &character->Dead.w, &character->Dead.h);
+        fscanf(file, "RGB:          %i, %i, %i;\n", &character->R, &character->G, &character->B);
+        fscanf(file, "South_Walk:   %i, %i, %i, %i, %i;\n", &character->South_Walk.rect.x, &character->South_Walk.rect.y, &character->South_Walk.rect.w, &character->South_Walk.rect.h, &character->South_Walk.limit);
+        fscanf(file, "East_Walk:    %i, %i, %i, %i, %i;\n", &character->East_Walk.rect.x, &character->East_Walk.rect.y, &character->East_Walk.rect.w, &character->East_Walk.rect.h, &character->East_Walk.limit);
+        fscanf(file, "North_Walk:   %i, %i, %i, %i, %i;\n", &character->North_Walk.rect.x, &character->North_Walk.rect.y, &character->North_Walk.rect.w, &character->North_Walk.rect.h, &character->North_Walk.limit);
+        fscanf(file, "West_Walk:    %i, %i, %i, %i, %i;\n", &character->West_Walk.rect.x, &character->West_Walk.rect.y, &character->West_Walk.rect.w, &character->West_Walk.rect.h, &character->West_Walk.limit);
+        fscanf(file, "Damage_Taken: %i, %i, %i, %i;\n", &character->Damage_Taken.x, &character->Damage_Taken.y, &character->Damage_Taken.w, &character->Damage_Taken.h);
+        fscanf(file, "Weak:         %i, %i, %i, %i;\n", &character->Weak.x, &character->Weak.y, &character->Weak.w, &character->Weak.h);
+        fscanf(file, "Dead:         %i, %i, %i, %i;\n", &character->Dead.x, &character->Dead.y, &character->Dead.w, &character->Dead.h);
+
+        fscanf(file, "Niveau 1:\n%s , %i, %i - %i, %s ;\n%s , %i, %i - %i, %s ;\n%s , %i, %i - %i, %s ;\n",
+                      character->attacks[0].name, &character->attacks[0].mana, &character->attacks[0].dmg_min, &character->attacks[0].dmg_max, character->attacks[0].description,   
+                      character->attacks[1].name, &character->attacks[1].mana, &character->attacks[1].dmg_min, &character->attacks[1].dmg_max, character->attacks[1].description,  
+                      character->attacks[2].name, &character->attacks[2].mana, &character->attacks[2].dmg_min, &character->attacks[2].dmg_max, character->attacks[2].description);
+        fscanf(file, "Niveau 5: %s , %i, %i - %i, %s ;\n", character->attacks[3].name, &character->attacks[3].mana, &character->attacks[3].dmg_min, &character->attacks[3].dmg_max, character->attacks[3].description);
+        fscanf(file, "Niveau 10: %s , %i, %i - %i, %s ;\n", character->attacks[4].name, &character->attacks[4].mana, &character->attacks[4].dmg_min, &character->attacks[4].dmg_max, character->attacks[4].description);
+        fscanf(file, "Niveau 15: %s , %i, %i - %i, %s ;\n", character->attacks[5].name, &character->attacks[5].mana, &character->attacks[5].dmg_min, &character->attacks[5].dmg_max, character->attacks[5].description);
+        fscanf(file, "Niveau 20: %s , %i, %i - %i, %s ;\n", character->attacks[6].name, &character->attacks[6].mana, &character->attacks[6].dmg_min, &character->attacks[6].dmg_max, character->attacks[6].description);
+        fscanf(file, "Niveau 25: %s , %i, %i - %i, %s ;\n", character->attacks[7].name, &character->attacks[7].mana, &character->attacks[7].dmg_min, &character->attacks[7].dmg_max, character->attacks[7].description);
+        fscanf(file, "Niveau 30: %s , %i, %i - %i, %s ;\n", character->attacks[8].name, &character->attacks[8].mana, &character->attacks[8].dmg_min, &character->attacks[8].dmg_max, character->attacks[8].description);
+        fscanf(file, "Niveau 35: %s , %i, %i - %i, %s ;\n", character->attacks[9].name, &character->attacks[9].mana, &character->attacks[9].dmg_min, &character->attacks[9].dmg_max, character->attacks[9].description);
+        fscanf(file, "Niveau 40: %s , %i, %i - %i, %s ;\n", character->attacks[10].name, &character->attacks[10].mana, &character->attacks[10].dmg_min, &character->attacks[10].dmg_max, character->attacks[10].description);
+        fscanf(file, "Niveau 45: %s , %i, %i - %i, %s ;\n", character->attacks[11].name, &character->attacks[11].mana, &character->attacks[11].dmg_min, &character->attacks[11].dmg_max, character->attacks[11].description);
+        fscanf(file, "Niveau 50: %s , %i, %i - %i, %s ;", character->attacks[12].name, &character->attacks[12].mana, &character->attacks[12].dmg_min, &character->attacks[12].dmg_max, character->attacks[12].description);
 
         fclose(file);
 

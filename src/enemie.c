@@ -84,7 +84,7 @@ extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies, in
 
     /*--- Open txt file ----------------------------------------------------------*/
 
-    char enemies[16][30];
+    char enemies[30][30];
 
     printf("enemei_rand: %i\n", enemei_rand);
 
@@ -92,7 +92,7 @@ extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies, in
 
     for (int i = 0; i < 16; i++)
     {
-        fscanf(file, "%s : %*s %i ;\n", temp, &enemie->life);
+        fscanf(file, "%s : W: %i, PV: %i ;\n", temp, &enemie->tile_set.w, &enemie->life);
         strcpy(enemies[i], temp);
         strcpy(temp, "");
     }

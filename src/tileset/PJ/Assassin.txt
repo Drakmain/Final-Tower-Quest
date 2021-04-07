@@ -6,3 +6,17 @@ West_Walk:    3, 96, 20, 31, 66;
 Damage_Taken: 3, 128, 18, 30;
 Weak:         3, 159, 21, 24;
 Dead:         3, 184, 32, 15;
+Niveau 1:
+Coup_furtif , 0, 0 - 0, Attaque_un_ennemi ;
+Ombre_tranchante , 5, 0 - 0, Attaque_un_ennemi ;
+Siphon_des_tenebres , 15, 0 - 0, Attaque_3x_aleatoirement ;
+Niveau 5: Parmis_les_ombres , 15, -1 - -1, Augmente_legerement_le_taux_d'esquive_pendant_5_tours ;
+Niveau 10: Sombrage_dans_la_folie , 15, -1 - -1, Une_chance_sur_trois_d'etourdir_l'ennemi_pendant_2_tours ;
+Niveau 15: Terreur_nocturne , 10, 0 - 0, Attaque_un_ennemi ;
+Niveau 20: Cauchemar_vivant , 20, 0 - 0, Attaque_tous_les_ennemis ;
+Niveau 25: Souffle_sombre , 25, -1 - -1, Etourdis_n'ennemi_pendant_2_tours ;
+Niveau 30: Deluge_de_malveillance , 25, 0 - 0, Attaque_3x_aleatoirement ;
+Niveau 35: Appel_de_l'apocalypse , 30, -1 - -1, Une_chance_sur_trois_de_tuer_l'ennemi ;
+Niveau 40: Coeur_des_tenebres , 15, -1 - -1, Augmente_la_force_pendant_3_tours ;
+Niveau 45: Devoreur_d'ame , 20, 0 - 0, Attaque_un_ennemi ;
+Niveau 50: Eclipse_funeste , 50, -1 - -1, Double_degats_pendant_3_tours ;
