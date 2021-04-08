@@ -6,8 +6,6 @@
 #include "..\lib\combat.h"
 
 #include "..\lib\frame.h"
-#include "..\lib\map.h"
-#include "..\lib\character.h"
 #include "..\lib\enemie.h"
 #include "..\lib\attaques.h"
 #include "..\lib\sac.h"
@@ -536,11 +534,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
                 (*game->program_launch) = SDL_FALSE;
             }
 
-            if (event.key.keysym.sym == SDLK_q)
-            {
-                combat_bool = SDL_FALSE;
-            }
-
             /*--- End Event to Exit Program --------------------------------------*/
 
             /*--- Event pour selectionner ------------------------------------------*/
@@ -710,7 +703,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             {
                 if (selection == 0)
                 {
-                   attaques(game, character, texture_render);
+                    attaques(game, character, texture_render);
                 }
 
                 if (selection == 1)

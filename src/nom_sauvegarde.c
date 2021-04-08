@@ -14,7 +14,7 @@
 
 /*!
  *
- * \fn fcpy(FILE * source_file, FILE * dest_file)
+ * \fn fcpy(FILE *source_file, FILE *dest_file)
  * \brief Fonction qui permet la creation d'une nouvelle partie.
  *
  * \param source_file A FINIR.
@@ -36,7 +36,7 @@ static void fcpy(FILE *source_file, FILE *dest_file)
 
 /*!
  *
- * \fn nom_sauvegarde(game_t * game, char * actual_save, char * base_save)
+ * \fn nom_sauvegarde(game_t *game, char *actual_save, char *base_save)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -127,7 +127,7 @@ extern void nom_sauvegarde(game_t *game, char *actual_save, char *base_save)
     pos_fond_cadre_nom_save.h = pos_cadre_nom_save.h;
 
     SDL_Rect rect_fond_cadre_nom_save;
-    rect_fond_cadre_nom_save.x =(*game->WINDOWWIDTH) * 12 / 1280;
+    rect_fond_cadre_nom_save.x = (*game->WINDOWWIDTH) * 12 / 1280;
     rect_fond_cadre_nom_save.y = (*game->WINDOWHEIGHT) * 12 / 720;
     rect_fond_cadre_nom_save.w = pos_fond_cadre_nom_save.w - 2 * rect_fond_cadre_nom_save.x + 1;
     rect_fond_cadre_nom_save.h = pos_fond_cadre_nom_save.h - 2 * rect_fond_cadre_nom_save.y + 1;

@@ -21,7 +21,7 @@
 
 /*!
  *
- * \fn void game_free(game_t ** game)
+ * \fn game_free(game_t ** game)
  * \brief Permet la liberation d'un objet game.
  *
  * \param game est un objet game_t qui doit etre libéré.
@@ -240,7 +240,7 @@ extern game_t *game_create()
  *
  */
 
-extern SDL_bool game_exist(game_t * const game)
+extern SDL_bool game_exist(game_t *const game)
 {
     if (game == NULL)
         return (SDL_FALSE);

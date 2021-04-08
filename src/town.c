@@ -24,7 +24,7 @@
 
 /*!
  *
- * \fn town(game_t * game, character_t * character)
+ * \fn town(game_t *game, character_t *character)
  * \brief Permet la gestion de la premier map du jeu (town).
  *
  * \param game A FINIR.
@@ -39,7 +39,7 @@ extern void town(game_t *game, character_t *character)
     SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
 
     map_t *town = NULL;
-    town = map_create(game->render, "src\\tileset\\Maps\\town.bmp", "src\\tileset\\Maps\\town.txt");
+    town = map_create(game->render, "town");
     if (town == NULL)
     {
         exit_with_error("Cannot create a map_t object > town.c Line 35");
@@ -96,6 +96,15 @@ extern void town(game_t *game, character_t *character)
 
     SDL_RenderPresent(game->render);
 
+    SDL_SetRenderTarget(game->render, texture_render);
+
+    SDL_RenderClear(game->render);
+
+    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
+    SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
+
+    SDL_SetRenderTarget(game->render, NULL);
+
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (*game->program_launch && *town_bool)
@@ -105,15 +114,6 @@ extern void town(game_t *game, character_t *character)
             while ((*game->program_launch && *town_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
                 SDL_PollEvent(&event);
-
-                SDL_SetRenderTarget(game->render, texture_render);
-
-                SDL_RenderClear(game->render);
-
-                SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
-                SDL_RenderCopy(game->render, character->texture, &character->mov, &pos_Wind_character);
-
-                SDL_SetRenderTarget(game->render, NULL);
 
                 /*--- Event to Exit Program ------------------------------------------*/
 
@@ -140,6 +140,12 @@ extern void town(game_t *game, character_t *character)
                     transition(game);
                     combat(game, character, town, texture_render);
                 }
+
+                SDL_RenderClear(game->render);
+
+                SDL_RenderCopy(game->render, texture_render, NULL, NULL);
+
+                SDL_RenderPresent(game->render);
 
                 while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
@@ -181,6 +187,16 @@ extern void town(game_t *game, character_t *character)
                     town->update(town, game->render, town->tile_set, pos_Wind_town);
                     character->update(character, game->render, character->East_Walk, pos_Wind_character);
                     render_frame(game->render);
+
+                    SDL_SetRenderTarget(game->render, texture_render);
+
+                    SDL_RenderClear(game->render);
+
+                    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
+                    SDL_RenderCopy(game->render, character->texture, &character->East_Walk.rect, &pos_Wind_character);
+
+                    SDL_SetRenderTarget(game->render, NULL);
+
                     East_Walk = 0;
                 }
 
@@ -224,6 +240,16 @@ extern void town(game_t *game, character_t *character)
                     town->update(town, game->render, town->tile_set, pos_Wind_town);
                     character->update(character, game->render, character->West_Walk, pos_Wind_character);
                     render_frame(game->render);
+
+                    SDL_SetRenderTarget(game->render, texture_render);
+
+                    SDL_RenderClear(game->render);
+
+                    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
+                    SDL_RenderCopy(game->render, character->texture, &character->West_Walk.rect, &pos_Wind_character);
+
+                    SDL_SetRenderTarget(game->render, NULL);
+
                     West_Walk = 0;
                 }
 
@@ -267,6 +293,16 @@ extern void town(game_t *game, character_t *character)
                     town->update(town, game->render, town->tile_set, pos_Wind_town);
                     character->update(character, game->render, character->North_Walk, pos_Wind_character);
                     render_frame(game->render);
+
+                    SDL_SetRenderTarget(game->render, texture_render);
+
+                    SDL_RenderClear(game->render);
+
+                    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
+                    SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
+
+                    SDL_SetRenderTarget(game->render, NULL);
+
                     North_Walk = 0;
                 }
 
@@ -310,6 +346,16 @@ extern void town(game_t *game, character_t *character)
                     town->update(town, game->render, town->tile_set, pos_Wind_town);
                     character->update(character, game->render, character->South_Walk, pos_Wind_character);
                     render_frame(game->render);
+
+                    SDL_SetRenderTarget(game->render, texture_render);
+
+                    SDL_RenderClear(game->render);
+
+                    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
+                    SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
+
+                    SDL_SetRenderTarget(game->render, NULL);
+
                     South_Walk = 0;
                 }
             }

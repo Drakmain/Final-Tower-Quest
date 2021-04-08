@@ -1,6 +1,6 @@
 <map id="game_create" name="game_create">
 <area shape="rect" id="node1" title="Permet la creation du l&#39;objet game." alt="" coords="5,56,103,83"/>
 <area shape="rect" id="node2" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="163,5,270,32"/>
-<area shape="rect" id="node3" href="$game_8c.html#aa6e0bf6eeec26d5778b03f9918d0a4f0" title="Permet la liberation d&#39;un objet game." alt="" coords="175,56,258,83"/>
+<area shape="rect" id="node3" href="$game_8c.html#a9cee37adbad644b0cfbcdab06e20fcf3" title="Permet la liberation d&#39;un objet game." alt="" coords="175,56,258,83"/>
 <area shape="rect" id="node4" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="151,107,283,133"/>
 </map>

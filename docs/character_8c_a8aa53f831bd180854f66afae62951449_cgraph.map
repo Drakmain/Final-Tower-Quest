@@ -1,0 +1,4 @@
+<map id="character_update" name="character_update">
+<area shape="rect" id="node1" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="5,5,128,32"/>
+<area shape="rect" id="node2" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="176,5,308,32"/>
+</map>

@@ -4,9 +4,7 @@
 
 #include "..\lib\attaques.h"
 
-#include "..\lib\frame.h"
 #include "..\lib\character.h"
-#include "..\lib\enemie.h"
 #include "..\lib\combat.h"
 
 /*!
@@ -101,7 +99,7 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
 
     /*----------------------------------------------------------------------------*/
 
-    for (int i = 0; i < 13; i++)
+    for (int i = 0; i < NB_ATTACKS; i++)
     {
         _toEspace(character->attacks[i].name, strlen(character->attacks[i].name));
     }

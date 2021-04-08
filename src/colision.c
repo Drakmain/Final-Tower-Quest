@@ -70,7 +70,7 @@ int character_moving(SDL_Renderer *pRenderer, SDL_Surface *couleur_image, load_i
 	//printf("rc = %i, gc = %i,bc =%i\n", rc, gc, bc);
 	printf("x = %i, y = %i\n", x, y);
 	if (direction == 0)
-	{ //Haut
+	{													  //Haut
 		pixel = getpixel(couleur_image, x + 68, y + 202); //Multiplier avec int pour arrondi en dessous
 		pixeld = getpixel(couleur_image, x, y + 202);
 		pixelg = getpixel(couleur_image, x + 135, y + 202);

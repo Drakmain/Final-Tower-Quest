@@ -1,5 +1,7 @@
 <map id="_toEspace" name="_toEspace">
-<area shape="rect" id="node1" title="A FINIR." alt="" coords="239,31,323,57"/>
-<area shape="rect" id="node2" href="$attaques_8c.html#a755cb46c6ddbc231005c13313b5570c7" title="A FINIR." alt="" coords="119,5,191,32"/>
-<area shape="rect" id="node3" href="$combat_8c.html#a725dbf3133c0110b98692b2851a9cc43" title="A FINIR." alt="" coords="5,31,71,57"/>
+<area shape="rect" id="node1" title="A FINIR." alt="" coords="548,31,632,57"/>
+<area shape="rect" id="node2" href="$attaques_8c.html#a755cb46c6ddbc231005c13313b5570c7" title="A FINIR." alt="" coords="428,5,500,32"/>
+<area shape="rect" id="node3" href="$combat_8c.html#a725dbf3133c0110b98692b2851a9cc43" title="A FINIR." alt="" coords="315,31,380,57"/>
+<area shape="rect" id="node4" href="$sac_8c.html#a08acda469c80e6df151e7866fdce3fc1" title="A FINIR." alt="" coords="164,31,267,57"/>
+<area shape="rect" id="node5" href="$menu__in__game_8c.html#ab15cbe69b23d57272cf1596d790bfdb4" title="A FINIR." alt="" coords="5,31,116,57"/>
 </map>

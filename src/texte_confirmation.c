@@ -13,7 +13,7 @@
 
 /*!
  *
- * \fn texte_confirmation(game_t * game, char * message)
+ * \fn texte_confirmation(game_t *game, char *message)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -75,10 +75,10 @@ extern SDL_bool texte_confirmation(game_t *game, char *message)
     pos_fond_cadre.h = pos_cadre.h;
 
     SDL_Rect rect_fond_cadre;
-    rect_fond_cadre.x = (*game->WINDOWWIDTH)*12/1280;
-    rect_fond_cadre.y = (*game->WINDOWHEIGHT)*12/720;
-    rect_fond_cadre.w = pos_fond_cadre.w - 2*rect_fond_cadre.x + 1;
-    rect_fond_cadre.h = pos_fond_cadre.h - 2*rect_fond_cadre.y + 1;
+    rect_fond_cadre.x = (*game->WINDOWWIDTH) * 12 / 1280;
+    rect_fond_cadre.y = (*game->WINDOWHEIGHT) * 12 / 720;
+    rect_fond_cadre.w = pos_fond_cadre.w - 2 * rect_fond_cadre.x + 1;
+    rect_fond_cadre.h = pos_fond_cadre.h - 2 * rect_fond_cadre.y + 1;
 
     SDL_SetRenderDrawColor(game->render, 0, 0, 0, 240);
     SDL_SetRenderTarget(game->render, fond_cadre);
@@ -103,10 +103,10 @@ extern SDL_bool texte_confirmation(game_t *game, char *message)
     }
 
     SDL_Rect pos_confirmation;
-    pos_confirmation.w = strlen(message)*(*game->WINDOWWIDTH)*850/1280/59;
-    pos_confirmation.h = (*game->WINDOWHEIGHT)*50/720;
-    pos_confirmation.x = (*game->WINDOWWIDTH)/2 - pos_confirmation.w/2;
-    pos_confirmation.y = pos_cadre.y + (*game->WINDOWHEIGHT)*22/720;
+    pos_confirmation.w = strlen(message) * (*game->WINDOWWIDTH) * 850 / 1280 / 59;
+    pos_confirmation.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_confirmation.x = (*game->WINDOWWIDTH) / 2 - pos_confirmation.w / 2;
+    pos_confirmation.y = pos_cadre.y + (*game->WINDOWHEIGHT) * 22 / 720;
 
     /*----------------------------------------------------------------------------*/
 

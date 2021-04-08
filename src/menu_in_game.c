@@ -19,7 +19,7 @@
 
 /*!
  *
- * \fn menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, SDL_Texture * texture_render)
+ * \fn menu_in_game(game_t *game, SDL_bool *town_bool, character_t *character, SDL_Texture *texture_render)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -29,7 +29,8 @@
  *
  */
 
-void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, SDL_Texture * texture_render){
+void menu_in_game(game_t *game, SDL_bool *town_bool, character_t *character, SDL_Texture *texture_render)
+{
 
     /*--- Initialization variable ------------------------------------------------*/
 
@@ -54,20 +55,22 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
 
     surf_sac = TTF_RenderText_Blended(game->police, "Sac", rouge);
-    if(surf_sac == NULL){
+    if (surf_sac == NULL)
+    {
         SDL_ExitWithError("probleme surface sac menu in game");
     }
 
-    SDL_Texture* sac = SDL_CreateTextureFromSurface(game->render, surf_sac);
-    if(sac == NULL){
+    SDL_Texture *sac = SDL_CreateTextureFromSurface(game->render, surf_sac);
+    if (sac == NULL)
+    {
         SDL_ExitWithError("probleme texture sac menu in game");
     }
 
     SDL_Rect pos_sac;
     pos_sac.x = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH) * 410 / 1280;
-    pos_sac.y = (*game->WINDOWHEIGHT)* 25 / 720;
-    pos_sac.w = (*game->WINDOWWIDTH)* 64.5 / 1200;
-    pos_sac.h = (*game->WINDOWHEIGHT)* 50 / 720;
+    pos_sac.y = (*game->WINDOWHEIGHT) * 25 / 720;
+    pos_sac.w = (*game->WINDOWWIDTH) * 64.5 / 1200;
+    pos_sac.h = (*game->WINDOWHEIGHT) * 50 / 720;
     /*----------------------------------------------------------------------------*/
 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
@@ -302,21 +305,22 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
             SDL_RenderCopy(game->render, texture_render_menu_ig, NULL, NULL);
             SDL_RenderPresent(game->render);
 
-            if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN){
-                if(selection == 0)
+            if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
+            {
+                if (selection == 0)
                     ouverture_sac(game, character, texture_render_menu_ig, echap_relache, SDL_FALSE);
-                if(selection == 1)
+                if (selection == 1)
                     caracteristiques(game, character, texture_render_menu_ig, echap_relache);
-                if(selection == 2)
+                if (selection == 2)
                 {
-                    if(texte_confirmation(game, "Etes-vous sur de vouloir ecraser vos donnees precedentes ?"))
+                    if (texte_confirmation(game, "Etes-vous sur de vouloir ecraser vos donnees precedentes ?"))
                         sauvegarde(game, character);
                 }
-                if(selection == 3)
+                if (selection == 3)
                     menu_commandes(game, texture_render_menu_ig, echap_relache);
-                if(selection == 4)
+                if (selection == 4)
                 {
-                    if(texte_confirmation(game, "Voulez-vous retourner au menu principal ?"))
+                    if (texte_confirmation(game, "Voulez-vous retourner au menu principal ?"))
                     {
                         menu_bool = SDL_FALSE;
                         *town_bool = SDL_FALSE;

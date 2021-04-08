@@ -69,50 +69,52 @@ $(document).ready(function(){initNavTree('map_8c.html',''); initResizable(); });
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;..\lib\map.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de map.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="map_8c__incl.png" border="0" usemap="#asrc_2map_8c" alt=""/></div>
 <map name="asrc_2map_8c" id="asrc_2map_8c">
-<area shape="rect" title="Gestion de l&#39;objet map." alt="" coords="83,5,163,32"/>
+<area shape="rect" title="Gestion de l&#39;objet map." alt="" coords="127,5,207,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
-<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="179,80,266,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="181,155,264,181"/>
-<area shape="rect" title=" " alt="" coords="101,229,160,256"/>
-<area shape="rect" title=" " alt="" coords="185,229,261,256"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="285,229,373,256"/>
+<area shape="rect" title=" " alt="" coords="179,80,245,107"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="269,80,355,107"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="271,155,353,181"/>
+<area shape="rect" title=" " alt="" coords="191,229,249,256"/>
+<area shape="rect" title=" " alt="" coords="274,229,350,256"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="375,229,463,256"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ab5ae2d5d1969b2a2eb83a283d8a099f6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6">map_update</a> (<a class="el" href="structmap__t.html">map_t</a> *map, SDL_Renderer *render, SDL_Rect src_rect, SDL_Rect pos_wind_rect)</td></tr>
-<tr class="memdesc:ab5ae2d5d1969b2a2eb83a283d8a099f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la mise a jour d'un objet <a class="el" href="structmap__t.html" title="Structure de l&#39;objet map_t.">map_t</a>.  <a href="map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ab5ae2d5d1969b2a2eb83a283d8a099f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7ecf55c98b6000e3fdc1ccd1b0a369"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a6e7ecf55c98b6000e3fdc1ccd1b0a369">map_update</a> (<a class="el" href="structmap__t.html">map_t</a> *map, SDL_Renderer *render, SDL_Rect src_rect, SDL_Rect pos_wind_rect)</td></tr>
+<tr class="memdesc:a6e7ecf55c98b6000e3fdc1ccd1b0a369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la mise a jour d'un objet <a class="el" href="structmap__t.html" title="Structure de l&#39;objet map_t.">map_t</a>.  <a href="map_8c.html#a6e7ecf55c98b6000e3fdc1ccd1b0a369">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6e7ecf55c98b6000e3fdc1ccd1b0a369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a7e46f45215efa69e1bf76bff1ab130"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130">map_free</a> (<a class="el" href="structmap__t.html">map_t</a> **map)</td></tr>
 <tr class="memdesc:a7a7e46f45215efa69e1bf76bff1ab130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la liberation d'un objet <a class="el" href="structmap__t.html" title="Structure de l&#39;objet map_t.">map_t</a>.  <a href="map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a7a7e46f45215efa69e1bf76bff1ab130"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3b40c348ab70a8e7b6522ecba122be8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmap__t.html">map_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8">map_create</a> (SDL_Renderer *render, char *file_name_bmp, char *file_name_txt)</td></tr>
-<tr class="memdesc:ad3b40c348ab70a8e7b6522ecba122be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la creation du l'objet <a class="el" href="structmap__t.html" title="Structure de l&#39;objet map_t.">map_t</a>.  <a href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ad3b40c348ab70a8e7b6522ecba122be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dabce34c91bfe8b6372c54a00681fc4"><td class="memItemLeft" align="right" valign="top">SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a6dabce34c91bfe8b6372c54a00681fc4">map_exist</a> (<a class="el" href="structmap__t.html">map_t</a> *const map)</td></tr>
-<tr class="memdesc:a6dabce34c91bfe8b6372c54a00681fc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de verifier l'existence du l'objet map.  <a href="map_8c.html#a6dabce34c91bfe8b6372c54a00681fc4">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a6dabce34c91bfe8b6372c54a00681fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85964a3e46ba4f1e718f0f9b39760587"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmap__t.html">map_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a85964a3e46ba4f1e718f0f9b39760587">map_create</a> (SDL_Renderer *render, char *name_map)</td></tr>
+<tr class="memdesc:a85964a3e46ba4f1e718f0f9b39760587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la creation du l'objet <a class="el" href="structmap__t.html" title="Structure de l&#39;objet map_t.">map_t</a>.  <a href="map_8c.html#a85964a3e46ba4f1e718f0f9b39760587">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a85964a3e46ba4f1e718f0f9b39760587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15f98d355f4e2454584754e9f07a5014"><td class="memItemLeft" align="right" valign="top">SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a15f98d355f4e2454584754e9f07a5014">map_exist</a> (<a class="el" href="structmap__t.html">map_t</a> *const map)</td></tr>
+<tr class="memdesc:a15f98d355f4e2454584754e9f07a5014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de verifier l'existence du l'objet map.  <a href="map_8c.html#a15f98d355f4e2454584754e9f07a5014">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a15f98d355f4e2454584754e9f07a5014"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Gestion de l'objet map. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Enzo BRENNUS </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="ad3b40c348ab70a8e7b6522ecba122be8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3b40c348ab70a8e7b6522ecba122be8">&#9670;&nbsp;</a></span>map_create()</h2>
+<a id="a85964a3e46ba4f1e718f0f9b39760587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85964a3e46ba4f1e718f0f9b39760587">&#9670;&nbsp;</a></span>map_create()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structmap__t.html">map_t</a> * map_create </td>
+          <td class="memname">map_create </td>
           <td>(</td>
           <td class="paramtype">SDL_Renderer *&#160;</td>
           <td class="paramname"><em>render</em>, </td>
@@ -121,13 +123,7 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>file_name_bmp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>file_name_txt</em>&#160;</td>
+          <td class="paramname"><em>name_map</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -141,8 +137,7 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">render</td><td>est un pointeur sur le rendu SDL. </td></tr>
-    <tr><td class="paramname">file_name_bmp</td><td>est une chaîne de caractères contenant le nom du fichier bmp. </td></tr>
-    <tr><td class="paramname">file_name_txt</td><td>est une chaîne de caractères contenant le nom du fichier txt.</td></tr>
+    <tr><td class="paramname">name_map</td><td>A FINIR.</td></tr>
   </table>
   </dd>
 </dl>
@@ -156,20 +151,20 @@ Fonctions</h2></td></tr>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="map_8c_ad3b40c348ab70a8e7b6522ecba122be8_cgraph.png" border="0" usemap="#amap_8c_ad3b40c348ab70a8e7b6522ecba122be8_cgraph" alt=""/></div>
-<map name="amap_8c_ad3b40c348ab70a8e7b6522ecba122be8_cgraph" id="amap_8c_ad3b40c348ab70a8e7b6522ecba122be8_cgraph">
+<div class="center"><img src="map_8c_a85964a3e46ba4f1e718f0f9b39760587_cgraph.png" border="0" usemap="#amap_8c_a85964a3e46ba4f1e718f0f9b39760587_cgraph" alt=""/></div>
+<map name="amap_8c_a85964a3e46ba4f1e718f0f9b39760587_cgraph" id="amap_8c_a85964a3e46ba4f1e718f0f9b39760587_cgraph">
 <area shape="rect" title="Permet la creation du l&#39;objet map_t." alt="" coords="5,81,96,108"/>
 <area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="144,5,251,32"/>
 <area shape="rect" href="map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="160,56,235,83"/>
-<area shape="rect" href="map_8c.html#ab5ae2d5d1969b2a2eb83a283d8a099f6" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="151,107,244,133"/>
+<area shape="rect" href="map_8c.html#a6e7ecf55c98b6000e3fdc1ccd1b0a369" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="151,107,244,133"/>
 <area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="299,132,431,159"/>
 </map>
 </div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="map_8c_ad3b40c348ab70a8e7b6522ecba122be8_icgraph.png" border="0" usemap="#amap_8c_ad3b40c348ab70a8e7b6522ecba122be8_icgraph" alt=""/></div>
-<map name="amap_8c_ad3b40c348ab70a8e7b6522ecba122be8_icgraph" id="amap_8c_ad3b40c348ab70a8e7b6522ecba122be8_icgraph">
+<div class="center"><img src="map_8c_a85964a3e46ba4f1e718f0f9b39760587_icgraph.png" border="0" usemap="#amap_8c_a85964a3e46ba4f1e718f0f9b39760587_icgraph" alt=""/></div>
+<map name="amap_8c_a85964a3e46ba4f1e718f0f9b39760587_icgraph" id="amap_8c_a85964a3e46ba4f1e718f0f9b39760587_icgraph">
 <area shape="rect" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
 <area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="104,5,157,32"/>
 <area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
@@ -179,14 +174,14 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
-<a id="a6dabce34c91bfe8b6372c54a00681fc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dabce34c91bfe8b6372c54a00681fc4">&#9670;&nbsp;</a></span>map_exist()</h2>
+<a id="a15f98d355f4e2454584754e9f07a5014"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15f98d355f4e2454584754e9f07a5014">&#9670;&nbsp;</a></span>map_exist()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SDL_bool map_exist </td>
+          <td class="memname">map_exist </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structmap__t.html">map_t</a> *const&#160;</td>
           <td class="paramname"><em>map</em></td><td>)</td>
@@ -248,7 +243,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="center"><img src="map_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph.png" border="0" usemap="#amap_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph" alt=""/></div>
 <map name="amap_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph" id="amap_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph">
 <area shape="rect" title="Permet la liberation d&#39;un objet map_t." alt="" coords="344,31,419,57"/>
-<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
+<area shape="rect" href="map_8c.html#a85964a3e46ba4f1e718f0f9b39760587" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
 <area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="104,5,157,32"/>
 <area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,56,56,83"/>
@@ -257,8 +252,8 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
-<a id="ab5ae2d5d1969b2a2eb83a283d8a099f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5ae2d5d1969b2a2eb83a283d8a099f6">&#9670;&nbsp;</a></span>map_update()</h2>
+<a id="a6e7ecf55c98b6000e3fdc1ccd1b0a369"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e7ecf55c98b6000e3fdc1ccd1b0a369">&#9670;&nbsp;</a></span>map_update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,7 +262,7 @@ Voici le graphe des appelants de cette fonction :</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void map_update </td>
+          <td class="memname">map_update </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structmap__t.html">map_t</a> *&#160;</td>
           <td class="paramname"><em>map</em>, </td>
@@ -308,16 +303,16 @@ Voici le graphe des appelants de cette fonction :</div>
   <table class="params">
     <tr><td class="paramname">map</td><td>est un pointeur sur un objet <a class="el" href="structmap__t.html" title="Structure de l&#39;objet map_t.">map_t</a>. </td></tr>
     <tr><td class="paramname">render</td><td>est un pointeur sur le rendu SDL. </td></tr>
-    <tr><td class="paramname">src_rect</td><td>A FINIR </td></tr>
-    <tr><td class="paramname">pos_wind_rect</td><td>A FINIR </td></tr>
+    <tr><td class="paramname">src_rect</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">pos_wind_rect</td><td>A FINIR. </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="map_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_cgraph.png" border="0" usemap="#amap_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_cgraph" alt=""/></div>
-<map name="amap_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_cgraph" id="amap_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_cgraph">
+<div class="center"><img src="map_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_cgraph.png" border="0" usemap="#amap_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_cgraph" alt=""/></div>
+<map name="amap_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_cgraph" id="amap_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_cgraph">
 <area shape="rect" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="5,5,99,32"/>
 <area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="147,5,279,32"/>
 </map>
@@ -325,10 +320,10 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="map_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_icgraph.png" border="0" usemap="#amap_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_icgraph" alt=""/></div>
-<map name="amap_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_icgraph" id="amap_8c_ab5ae2d5d1969b2a2eb83a283d8a099f6_icgraph">
+<div class="center"><img src="map_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_icgraph.png" border="0" usemap="#amap_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_icgraph" alt=""/></div>
+<map name="amap_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_icgraph" id="amap_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_icgraph">
 <area shape="rect" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="344,31,437,57"/>
-<area shape="rect" href="map_8c.html#ad3b40c348ab70a8e7b6522ecba122be8" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
+<area shape="rect" href="map_8c.html#a85964a3e46ba4f1e718f0f9b39760587" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
 <area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="104,5,157,32"/>
 <area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,56,56,83"/>

@@ -1,4 +1,4 @@
-save_name: Oue ;
+save_name: Alexis ;
 classe_name: Mage ;
 position: Village ;
 x: 0 ;

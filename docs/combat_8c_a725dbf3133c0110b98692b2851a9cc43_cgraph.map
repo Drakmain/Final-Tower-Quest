@@ -1,9 +1,12 @@
 <map id="combat" name="combat">
-<area shape="rect" id="node1" title="A FINIR." alt="" coords="5,84,71,111"/>
-<area shape="rect" id="node2" href="$combat_8c.html#ab7dacf25e69f61158c4622f8b8ba2b5b" title="A FINIR." alt="" coords="297,8,381,35"/>
-<area shape="rect" id="node3" href="$attaques_8c.html#a755cb46c6ddbc231005c13313b5570c7" title="A FINIR." alt="" coords="136,34,208,60"/>
-<area shape="rect" id="node4" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="273,84,405,111"/>
-<area shape="rect" id="node5" href="$enemie_8c.html#a9bb3f703f955c5e9f2233c267806c91d" title="Permet la creation du l&#39;objet enemie." alt="" coords="119,135,225,162"/>
-<area shape="rect" id="node7" href="$enemie_8c.html#a7b573ce387c66f1849f4ac2205d4f0d6" title="Permet de verifier l&#39;existence du l&#39;objet enemie_t." alt="" coords="123,186,221,212"/>
-<area shape="rect" id="node6" href="$enemie_8c.html#ab156912d90ce379fbff3b18cc7d435ad" title="Permet la liberation d&#39;un objet enemie." alt="" coords="293,135,385,162"/>
+<area shape="rect" id="node1" title="A FINIR." alt="" coords="5,157,71,184"/>
+<area shape="rect" id="node2" href="$combat_8c.html#ab7dacf25e69f61158c4622f8b8ba2b5b" title="A FINIR." alt="" coords="298,5,382,32"/>
+<area shape="rect" id="node3" href="$attaques_8c.html#a755cb46c6ddbc231005c13313b5570c7" title="A FINIR." alt="" coords="136,56,208,83"/>
+<area shape="rect" id="node4" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="455,208,587,235"/>
+<area shape="rect" id="node5" href="$enemie_8c.html#a9bb3f703f955c5e9f2233c267806c91d" title="Permet la creation du l&#39;objet enemie." alt="" coords="119,157,225,184"/>
+<area shape="rect" id="node7" href="$enemie_8c.html#a7b573ce387c66f1849f4ac2205d4f0d6" title="Permet de verifier l&#39;existence du l&#39;objet enemie_t." alt="" coords="123,208,221,235"/>
+<area shape="rect" id="node8" href="$sac_8c.html#a08acda469c80e6df151e7866fdce3fc1" title="A FINIR." alt="" coords="121,259,223,285"/>
+<area shape="rect" id="node6" href="$enemie_8c.html#ab156912d90ce379fbff3b18cc7d435ad" title="Permet la liberation d&#39;un objet enemie." alt="" coords="294,208,386,235"/>
+<area shape="rect" id="node9" href="$affichage__message_8c.html#aad1c753135ba89e73838f7deba2696df" title="A FINIR." alt="" coords="273,309,407,336"/>
+<area shape="rect" id="node10" href="$texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="A FINIR." alt="" coords="276,360,404,387"/>
 </map>

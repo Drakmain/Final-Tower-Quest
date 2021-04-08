@@ -1,0 +1,5 @@
+<map id="game_free" name="game_free">
+<area shape="rect" id="node1" title="Permet la liberation d&#39;un objet game." alt="" coords="249,5,332,32"/>
+<area shape="rect" id="node2" href="$game_8c.html#a8ece83091596e7efb1c3f6f65fa961ab" title="Permet la creation du l&#39;objet game." alt="" coords="104,5,201,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
+</map>

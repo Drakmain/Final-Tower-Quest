@@ -13,11 +13,12 @@
 
 /*!
  *
- * \fn affichage_message(game_t * game, char * message)
+ * \fn affichage_message(game_t *game, char *message, int nombre)
  * \brief A FINIR.
  *
  * \param game A FINIR.
  * \param message A FINIR.
+ * \param nombre A FINIR.
  *
  */
 
@@ -35,8 +36,9 @@ extern void affichage_message(game_t *game, char *message, int nombre)
 
     SDL_bool affichage_message_bool = SDL_TRUE;
 
-    char tab [100];
+    char tab[100];
     strcpy(tab, message);
+
     /*--- End Initialization Variable --------------------------------------------*/
 
     /*---texture "cadre"--------------------------------------------------------*/
@@ -76,10 +78,10 @@ extern void affichage_message(game_t *game, char *message, int nombre)
     pos_fond_cadre.h = pos_cadre.h;
 
     SDL_Rect rect_fond_cadre;
-    rect_fond_cadre.x = (*game->WINDOWWIDTH)*12/1280;
-    rect_fond_cadre.y = (*game->WINDOWHEIGHT)*12/720;
-    rect_fond_cadre.w = pos_fond_cadre.w - 2*rect_fond_cadre.x + 1;
-    rect_fond_cadre.h = pos_fond_cadre.h - 2*rect_fond_cadre.y + 1;
+    rect_fond_cadre.x = (*game->WINDOWWIDTH) * 12 / 1280;
+    rect_fond_cadre.y = (*game->WINDOWHEIGHT) * 12 / 720;
+    rect_fond_cadre.w = pos_fond_cadre.w - 2 * rect_fond_cadre.x + 1;
+    rect_fond_cadre.h = pos_fond_cadre.h - 2 * rect_fond_cadre.y + 1;
 
     SDL_SetRenderDrawColor(game->render, 0, 0, 0, 255);
     SDL_SetRenderTarget(game->render, fond_cadre);
@@ -89,28 +91,30 @@ extern void affichage_message(game_t *game, char *message, int nombre)
 
     /*------------------------------------------------------------------------------------*/
 
-    if(nombre != -1)
+    if (nombre != -1)
     {
-        int i = 0 ;
-        int y = 0 ;
+        int i = 0;
+        int y = 0;
         char memoire, memoire2;
         char nombre_char[10];
         itoa(nombre, nombre_char, 10);
 
-        while((tab[i] != '%' && tab[i + 1] != 'd') && tab[i] != '\0')i++;
+        while ((tab[i] != '%' && tab[i + 1] != 'd') && tab[i] != '\0')
+            i++;
 
-        if(tab[i] == '\0')SDL_ExitWithError("position du nombre dans le message non indique");
+        if (tab[i] == '\0')
+            SDL_ExitWithError("position du nombre dans le message non indique");
 
-        for( ;  nombre_char[y] != '\0' && y < 2; y++ ,i++)
+        for (; nombre_char[y] != '\0' && y < 2; y++, i++)
         {
             tab[i] = nombre_char[y];
         }
 
-        for(; nombre_char[y] != '\0' ; y++ ,i++)
+        for (; nombre_char[y] != '\0'; y++, i++)
         {
             memoire = tab[i];
             tab[i] = nombre_char[y];
-            for(int k = i + 1 ; k < strlen(tab) + 1 ; k++)
+            for (int k = i + 1; k < strlen(tab) + 1; k++)
             {
                 memoire2 = memoire;
                 memoire = tab[k];
@@ -118,14 +122,14 @@ extern void affichage_message(game_t *game, char *message, int nombre)
             }
         }
 
-        if(y == 1)
+        if (y == 1)
         {
-            for (int k = i + 1; k < strlen(tab) + 1; k++) {
+            for (int k = i + 1; k < strlen(tab) + 1; k++)
+            {
                 memoire = tab[k];
                 tab[k - 1] = memoire;
             }
         }
-
     }
 
     /*--- Creation text "texte de confirmation" ----------------------------------------*/
@@ -143,13 +147,12 @@ extern void affichage_message(game_t *game, char *message, int nombre)
     }
 
     SDL_Rect pos_message;
-    pos_message.w = strlen(tab)*(*game->WINDOWWIDTH)*850/1280/59;
-    pos_message.h = (*game->WINDOWHEIGHT)*50/720;
-    pos_message.x = (*game->WINDOWWIDTH)/2 - pos_message.w/2;
-    pos_message.y = pos_cadre.y + (*game->WINDOWHEIGHT)*22/720;
+    pos_message.w = strlen(tab) * (*game->WINDOWWIDTH) * 850 / 1280 / 59;
+    pos_message.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_message.x = (*game->WINDOWWIDTH) / 2 - pos_message.w / 2;
+    pos_message.y = pos_cadre.y + (*game->WINDOWHEIGHT) * 22 / 720;
 
     /*----------------------------------------------------------------------------*/
-
 
     SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
     SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
@@ -171,7 +174,6 @@ extern void affichage_message(game_t *game, char *message, int nombre)
                 SDL_RenderClear(game->render);
             }
 
-
             /*--- Event to Exit Program ------------------------------------------*/
 
             if (event.type == SDL_QUIT)
@@ -180,9 +182,7 @@ extern void affichage_message(game_t *game, char *message, int nombre)
             }
 
             /*--- End Event to Exit Program --------------------------------------*/
-
         }
-
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/
@@ -195,7 +195,6 @@ extern void affichage_message(game_t *game, char *message, int nombre)
     SDL_DestroyTexture(t_message);
     SDL_DestroyTexture(cadre);
     SDL_DestroyTexture(fond_cadre);
-
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

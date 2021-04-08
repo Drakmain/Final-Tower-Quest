@@ -18,6 +18,6 @@ point_dispo: 0 ;
 nb_petite_popo_soin: 0 ;
 nb_moyenne_popo_soin: 0 ;
 nb_petite_popo_mana: 0 ;
-nb_moyenne_popo_mana: 1000 ;
+nb_moyenne_popo_mana: 0 ;
 nb_popo_puissance: 0 ;
 nb_popo_agi: 0 ;
