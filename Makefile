@@ -2,8 +2,8 @@ CFLAGS=-Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
 
 all: main
 
-main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o attaques.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o commandes.o
-	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o attaques.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o commandes.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
+main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o commandes.o sac.o affichage_message.o
+	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o commandes.o sac.o affichage_message.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
 
 
 test: test_map.o test_character.o error.o map.o character.o
@@ -69,6 +69,9 @@ town.o: src/town.c
 menu_in_game.o : src/menu_in_game.c
 	gcc -c src/menu_in_game.c  -I include -L lib $(CFLAGS)
 
+sac.o : src/sac.c
+	gcc -c src/sac.c  -I include -L lib $(CFLAGS)
+
 caracteristiques.o : src/caracteristiques.c
 	gcc -c src/caracteristiques.c  -I include -L lib $(CFLAGS)
 
@@ -83,6 +86,9 @@ tower.o: src/tower.c
 
 texte_confirmation.o : src/texte_confirmation.c
 	gcc -c src/texte_confirmation.c  -I include -L lib $(CFLAGS)
+
+affichage_message.o : src/affichage_message.c
+	gcc -c src/affichage_message.c  -I include -L lib $(CFLAGS)
 
 
 test_map.o: src/test/test_map.c

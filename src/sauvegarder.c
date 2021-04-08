@@ -39,17 +39,26 @@ extern void sauvegarde(game_t *game, character_t *character)
     fprintf(file, "x: %d ;\n", character->x);
     fprintf(file, "y: %d ;\n", character->y);
 
-    fprintf(file, "lvl: %d ;\n;", character->lvl);
+    fprintf(file, "lvl: %d ;\n", character->lvl);
     fprintf(file, "xp: %d ;\n", character->xp);
+    fprintf(file, "max_life: %d ;\n", character->max_life);
     fprintf(file, "life: %d ;\n", character->life);
+    fprintf(file, "max_mana: %d ;\n", character->max_mana);
     fprintf(file, "mana: %d ;\n", character->mana);
 
     fprintf(file, "vitalite: %d ;\n", character->vitalite);
-    fprintf(file, "force: %d ;\n", character->force);
+    fprintf(file, "force: %d ;\n", character->puissance);
     fprintf(file, "intelligence: %d ;\n", character->intelligence);
     fprintf(file, "agilite: %d ;\n", character->agilite);
     fprintf(file, "defense: %d ;\n", character->defense);
-    fprintf(file, "point_dispo: %d ;", character->points_dispo);
+    fprintf(file, "point_dispo: %d ;\n", character->points_dispo);
+
+    fprintf(file, "nb_petite_popo_soin: %d ;\n", character->nb_petite_popo_soin);
+    fprintf(file, "nb_moyenne_popo_soin: %d ;\n", character->nb_moyenne_popo_soin);
+    fprintf(file, "nb_petite_popo_mana: %d ;\n", character->nb_petite_popo_mana);
+    fprintf(file, "nb_moyenne_popo_mana: %d ;\n", character->nb_moyenne_popo_mana);
+    fprintf(file, "nb_popo_puissance: %d ;\n", character->nb_popo_puissance);
+    fprintf(file, "nb_popo_agi: %d ;\n", character->nb_popo_agi);
 
     fclose(file);
 }
