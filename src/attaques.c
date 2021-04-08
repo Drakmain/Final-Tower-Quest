@@ -62,9 +62,9 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_cadre_attaque;
-    pos_Wind_cadre_attaque.h = 1248;
-    pos_Wind_cadre_attaque.w = 2560 / 3.3;
-    pos_Wind_cadre_attaque.x = 2560 - pos_Wind_cadre_attaque.w;
+    pos_Wind_cadre_attaque.h = (*game->WINDOWWIDTH) * 1248 / 2560;
+    pos_Wind_cadre_attaque.w = (*game->WINDOWWIDTH) * (2560 / 3.3) / 2560;
+    pos_Wind_cadre_attaque.x = (*game->WINDOWWIDTH) - pos_Wind_cadre_attaque.w;
     pos_Wind_cadre_attaque.y = 0;
 
     /*----------------------------------------------------------------------------*/
@@ -122,8 +122,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_1;
-    pos_Wind_attaque_1.x = 1850;
-    pos_Wind_attaque_1.y = 34;
+    pos_Wind_attaque_1.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_1.y = (*game->WINDOWWIDTH) * 34 / 2560;
     pos_Wind_attaque_1.w = (*game->WINDOWWIDTH) * strlen(character->attacks[0].name) * 25 / 2560;
     pos_Wind_attaque_1.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -145,8 +145,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_2;
-    pos_Wind_attaque_2.x = 1850;
-    pos_Wind_attaque_2.y = 125;
+    pos_Wind_attaque_2.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_2.y = (*game->WINDOWWIDTH) * 125 / 2560;
     pos_Wind_attaque_2.w = (*game->WINDOWWIDTH) * strlen(character->attacks[1].name) * 25 / 2560;
     pos_Wind_attaque_2.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -168,8 +168,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_3;
-    pos_Wind_attaque_3.x = 1850;
-    pos_Wind_attaque_3.y = 216;
+    pos_Wind_attaque_3.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_3.y = (*game->WINDOWWIDTH) * 216 / 2560;
     pos_Wind_attaque_3.w = (*game->WINDOWWIDTH) * strlen(character->attacks[2].name) * 25 / 2560;
     pos_Wind_attaque_3.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -191,8 +191,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_4;
-    pos_Wind_attaque_4.x = 1850;
-    pos_Wind_attaque_4.y = 307;
+    pos_Wind_attaque_4.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_4.y = (*game->WINDOWWIDTH) * 307 / 2560;
     pos_Wind_attaque_4.w = (*game->WINDOWWIDTH) * strlen(character->attacks[3].name) * 25 / 2560;
     pos_Wind_attaque_4.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -214,8 +214,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_5;
-    pos_Wind_attaque_5.x = 1850;
-    pos_Wind_attaque_5.y = 398;
+    pos_Wind_attaque_5.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_5.y = (*game->WINDOWWIDTH) * 398 / 2560;
     pos_Wind_attaque_5.w = (*game->WINDOWWIDTH) * strlen(character->attacks[4].name) * 25 / 2560;
     pos_Wind_attaque_5.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -237,8 +237,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_6;
-    pos_Wind_attaque_6.x = 1850;
-    pos_Wind_attaque_6.y = 489;
+    pos_Wind_attaque_6.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_6.y = (*game->WINDOWWIDTH) * 489 / 2560;
     pos_Wind_attaque_6.w = (*game->WINDOWWIDTH) * strlen(character->attacks[5].name) * 25 / 2560;
     pos_Wind_attaque_6.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -260,8 +260,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_7;
-    pos_Wind_attaque_7.x = 1850;
-    pos_Wind_attaque_7.y = 580;
+    pos_Wind_attaque_7.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_7.y = (*game->WINDOWWIDTH) * 580 / 2560;
     pos_Wind_attaque_7.w = (*game->WINDOWWIDTH) * strlen(character->attacks[6].name) * 25 / 2560;
     pos_Wind_attaque_7.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -283,8 +283,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_8;
-    pos_Wind_attaque_8.x = 1850;
-    pos_Wind_attaque_8.y = 671;
+    pos_Wind_attaque_8.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_8.y = (*game->WINDOWWIDTH) * 671 / 2560;
     pos_Wind_attaque_8.w = (*game->WINDOWWIDTH) * strlen(character->attacks[7].name) * 25 / 2560;
     pos_Wind_attaque_8.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -306,8 +306,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_9;
-    pos_Wind_attaque_9.x = 1850;
-    pos_Wind_attaque_9.y = 762;
+    pos_Wind_attaque_9.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_9.y = (*game->WINDOWWIDTH) * 762 / 2560;
     pos_Wind_attaque_9.w = (*game->WINDOWWIDTH) * strlen(character->attacks[8].name) * 25 / 2560;
     pos_Wind_attaque_9.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -329,8 +329,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_10;
-    pos_Wind_attaque_10.x = 1850;
-    pos_Wind_attaque_10.y = 853;
+    pos_Wind_attaque_10.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_10.y = (*game->WINDOWWIDTH) * 853 / 2560;
     pos_Wind_attaque_10.w = (*game->WINDOWWIDTH) * strlen(character->attacks[9].name) * 25 / 2560;
     pos_Wind_attaque_10.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -352,8 +352,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_11;
-    pos_Wind_attaque_11.x = 1850;
-    pos_Wind_attaque_11.y = 944;
+    pos_Wind_attaque_11.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_11.y = (*game->WINDOWWIDTH) * 944 / 2560;
     pos_Wind_attaque_11.w = (*game->WINDOWWIDTH) * strlen(character->attacks[10].name) * 25 / 2560;
     pos_Wind_attaque_11.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -375,8 +375,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_12;
-    pos_Wind_attaque_12.x = 1850;
-    pos_Wind_attaque_12.y = 1035;
+    pos_Wind_attaque_12.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_12.y = (*game->WINDOWWIDTH) * 1035 / 2560;
     pos_Wind_attaque_12.w = (*game->WINDOWWIDTH) * strlen(character->attacks[11].name) * 25 / 2560;
     pos_Wind_attaque_12.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -398,8 +398,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_attaque_13;
-    pos_Wind_attaque_13.x = 1850;
-    pos_Wind_attaque_13.y = 1126;
+    pos_Wind_attaque_13.x = (*game->WINDOWWIDTH) * 1850 / 2560;
+    pos_Wind_attaque_13.y = (*game->WINDOWWIDTH) * 1126 / 2560;
     pos_Wind_attaque_13.w = (*game->WINDOWWIDTH) * strlen(character->attacks[12].name) * 25 / 2560;
     pos_Wind_attaque_13.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -519,8 +519,8 @@ extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_
     }
 
     SDL_Rect pos_Wind_description_attaque;
-    pos_Wind_description_attaque.x = 800;
-    pos_Wind_description_attaque.y = 1320;
+    pos_Wind_description_attaque.x = (*game->WINDOWWIDTH) * 800 / 2560;
+    pos_Wind_description_attaque.y = (*game->WINDOWWIDTH) * 1320 / 2560;
     pos_Wind_description_attaque.w = (*game->WINDOWWIDTH) * strlen(" ") * 25 / 2560;
     pos_Wind_description_attaque.h = (*game->WINDOWWIDTH) * 75 / 2560;
 

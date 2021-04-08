@@ -221,8 +221,8 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     }
 
     SDL_Rect pos_Wind_attaque;
-    pos_Wind_attaque.x = 2300;
-    pos_Wind_attaque.y = 1085;
+    pos_Wind_attaque.x = (*game->WINDOWWIDTH) * 2300 / 2560;
+    pos_Wind_attaque.y = (*game->WINDOWWIDTH) * 1085 / 2560;
     pos_Wind_attaque.w = (*game->WINDOWWIDTH) * strlen("Attaque") * 25 / 2560;
     pos_Wind_attaque.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -244,8 +244,8 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     }
 
     SDL_Rect pos_Wind_sac;
-    pos_Wind_sac.x = 2300;
-    pos_Wind_sac.y = 1202;
+    pos_Wind_sac.x = (*game->WINDOWWIDTH) * 2300 / 2560;
+    pos_Wind_sac.y = (*game->WINDOWWIDTH) * 1202 / 2560;
     pos_Wind_sac.w = (*game->WINDOWWIDTH) * strlen("Sac") * 25 / 2560;
     pos_Wind_sac.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
@@ -267,8 +267,8 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     }
 
     SDL_Rect pos_Wind_fuite;
-    pos_Wind_fuite.x = 2300;
-    pos_Wind_fuite.y = 1319;
+    pos_Wind_fuite.x = (*game->WINDOWWIDTH) * 2300 / 2560;
+    pos_Wind_fuite.y = (*game->WINDOWWIDTH) * 1319 / 2560;
     pos_Wind_fuite.w = (*game->WINDOWWIDTH) * strlen("Fuite") * 25 / 2560;
     pos_Wind_fuite.h = (*game->WINDOWWIDTH) * 75 / 2560;
 

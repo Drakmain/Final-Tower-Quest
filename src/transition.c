@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL_image.h>
+#include <time.h>
 
 #include "..\lib\transition.h"
 
@@ -12,7 +12,7 @@
  *
  * \file transition.c
  * \brief A FINIR.
- * \author Alexis BRENNUS
+ * \author Alexis BOUFFARD
  *
  */
 
@@ -27,24 +27,27 @@
 
 extern void transition(game_t *game)
 {
+    srand(time(NULL));
+
     /*--- Initialization Variable ------------------------------------------------*/
 
-    SDL_Surface *surf_rectangle1 = NULL, *surf_rectangle2 = NULL, *surf_rectangle3 = NULL, *surf_rectangle4 = NULL;
+    int rand_nb;
 
     /*--- End Initialization Variable --------------------------------------------*/
 
-    /*--- Initialization rectangle1 --------------------------------------*/
+    /*--- Initialization rectangle 1 ---------------------------------------------*/
 
+    SDL_Surface *surf_rectangle1 = NULL;
     surf_rectangle1 = SDL_LoadBMP("src\\image\\rectangle.bmp");
     if (surf_rectangle1 == NULL)
     {
-        SDL_ExitWithError("probleme chargement rectangle1");
+        SDL_ExitWithError("probleme chargement rectangle1 > transition.c");
     }
 
     SDL_Texture *rectangle1 = SDL_CreateTextureFromSurface(game->render, surf_rectangle1);
     if (rectangle1 == NULL)
     {
-        SDL_ExitWithError("probleme texture rectangle1");
+        SDL_ExitWithError("probleme texture rectangle1 > transition.c");
     }
 
     SDL_Rect pos_rectangle1;
@@ -55,18 +58,19 @@ extern void transition(game_t *game)
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Initialization rectangle2 --------------------------------------*/
+    /*--- Creation rectangle 2 ---------------------------------------------------*/
 
+    SDL_Surface *surf_rectangle2 = NULL;
     surf_rectangle2 = SDL_LoadBMP("src\\image\\rectangle.bmp");
     if (surf_rectangle2 == NULL)
     {
-        SDL_ExitWithError("probleme chargement rectangle2");
+        SDL_ExitWithError("probleme chargement rectangle2 > transition.c");
     }
 
     SDL_Texture *rectangle2 = SDL_CreateTextureFromSurface(game->render, surf_rectangle2);
     if (rectangle2 == NULL)
     {
-        SDL_ExitWithError("probleme texture rectangle2");
+        SDL_ExitWithError("probleme texture rectangle2 > transition.c");
     }
 
     SDL_Rect pos_rectangle2;
@@ -77,18 +81,19 @@ extern void transition(game_t *game)
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Initialization rectangle3 --------------------------------------*/
+    /*--- Creation rectangle 3 ---------------------------------------------------*/
 
+    SDL_Surface *surf_rectangle3 = NULL;
     surf_rectangle3 = SDL_LoadBMP("src\\image\\rectangle.bmp");
     if (surf_rectangle3 == NULL)
     {
-        SDL_ExitWithError("probleme chargement rectangle3");
+        SDL_ExitWithError("probleme chargement rectangle3 > transition.c");
     }
 
     SDL_Texture *rectangle3 = SDL_CreateTextureFromSurface(game->render, surf_rectangle3);
     if (rectangle3 == NULL)
     {
-        SDL_ExitWithError("probleme texture rectangle3");
+        SDL_ExitWithError("probleme texture rectangle3 > transition.c");
     }
 
     SDL_Rect pos_rectangle3;
@@ -99,18 +104,19 @@ extern void transition(game_t *game)
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Initialization rectangle4 --------------------------------------*/
+    /*--- Creation rectangle 4 ---------------------------------------------------*/
 
+    SDL_Surface *surf_rectangle4 = NULL;
     surf_rectangle4 = SDL_LoadBMP("src\\image\\rectangle.bmp");
     if (surf_rectangle4 == NULL)
     {
-        SDL_ExitWithError("probleme chargement rectangle4");
+        SDL_ExitWithError("probleme chargement rectangle4 > transition.c");
     }
 
     SDL_Texture *rectangle4 = SDL_CreateTextureFromSurface(game->render, surf_rectangle4);
     if (rectangle4 == NULL)
     {
-        SDL_ExitWithError("probleme texture rectangle4");
+        SDL_ExitWithError("probleme texture rectangle4 > transition.c");
     }
 
     SDL_Rect pos_rectangle4;
@@ -120,6 +126,8 @@ extern void transition(game_t *game)
     pos_rectangle4.h = (*game->WINDOWHEIGHT) / 4;
 
     /*----------------------------------------------------------------------------*/
+
+    rand_nb = rand();
 
     for (int i = 0; i < 42; i++)
     {
@@ -136,11 +144,6 @@ extern void transition(game_t *game)
         SDL_RenderPresent(game->render);
         SDL_Delay(40);
     }
-
-    pos_rectangle1.x = -(*game->WINDOWWIDTH);
-    pos_rectangle2.x = (*game->WINDOWWIDTH);
-    pos_rectangle3.x = -(*game->WINDOWWIDTH);
-    pos_rectangle4.x = (*game->WINDOWWIDTH);
 
     /*--- Free Memory ------------------------------------------------------------*/
 
