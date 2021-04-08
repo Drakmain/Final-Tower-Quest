@@ -10,6 +10,7 @@
 #include "..\lib\character.h"
 #include "..\lib\enemie.h"
 #include "..\lib\attaques.h"
+#include "..\lib\sac.h"
 
 /*!
  *
@@ -714,7 +715,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
                 if (selection == 1)
                 {
-                    //Fonction sac Jeremy
+                    ouverture_sac(game, character, texture_render, NULL, 1);
                     selection = 1;
                 }
 
