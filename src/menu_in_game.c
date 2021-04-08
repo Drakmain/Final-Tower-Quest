@@ -7,6 +7,8 @@
 #include "..\lib\texte_confirmation.h"
 #include "..\lib\caracteristiques.h"
 #include "..\lib\commandes.h"
+#include "..\lib\sac.h"
+
 /*!
  *
  * \file menu_in_game.c
@@ -301,7 +303,8 @@ void menu_in_game(game_t * game, SDL_bool * town_bool, character_t * character, 
             SDL_RenderPresent(game->render);
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN){
-                if(selection == 0)/*sac()*/;
+                if(selection == 0)
+                    ouverture_sac(game, character, texture_render_menu_ig, echap_relache, SDL_FALSE);
                 if(selection == 1)
                     caracteristiques(game, character, texture_render_menu_ig, echap_relache);
                 if(selection == 2)

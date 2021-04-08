@@ -181,16 +181,25 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
         fscanf(file, "%*s %i ;\n", &character->mana);
 
         fscanf(file, "%*s %i ;\n", &character->vitalite);
-        fscanf(file, "%*s %i ;\n", &character->force);
+        fscanf(file, "%*s %i ;\n", &character->puissance);
         fscanf(file, "%*s %i ;\n", &character->intelligence);
         fscanf(file, "%*s %i ;\n", &character->agilite);
         fscanf(file, "%*s %i ;\n", &character->defense);
-
         fscanf(file, "%*s %i ;\n", &character->points_dispo);
+
+        fscanf(file, "%*s %i ;\n", &character->nb_petite_popo_soin);
+        fscanf(file, "%*s %i ;\n", &character->nb_moyenne_popo_soin);
+        fscanf(file, "%*s %i ;\n", &character->nb_petite_popo_mana);
+        fscanf(file, "%*s %i ;\n", &character->nb_moyenne_popo_mana);
+        fscanf(file, "%*s %i ;\n", &character->nb_popo_puissance);
+        fscanf(file, "%*s %i ;\n", &character->nb_popo_agi);
 
         fclose(file);
 
         /*----------------------------------------------------------------------------*/
+
+        character->nb_tour_restant_puissance = 0;
+        character->nb_tour_restant_agi = 0;
 
         /*--- Open txt file ----------------------------------------------------------*/
 

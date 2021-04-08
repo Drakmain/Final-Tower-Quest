@@ -203,17 +203,19 @@ extern SDL_bool texte_confirmation(game_t *game, char *message)
             choix_oui = SDL_CreateTextureFromSurface(game->render, surf_choix_oui);
             choix_non = SDL_CreateTextureFromSurface(game->render, surf_choix_non);
 
+            SDL_RenderCopy(game->render, choix_oui, NULL, &pos_choix_oui);
+            SDL_RenderCopy(game->render, choix_non, NULL, &pos_choix_non);
+            SDL_RenderPresent(game->render);
+
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
             {
+                SDL_RenderClear(game->render);
+
                 if (selection == 0)
                     return SDL_TRUE;
                 if (selection == 1)
                     return SDL_FALSE;
             }
-
-            SDL_RenderCopy(game->render, choix_oui, NULL, &pos_choix_oui);
-            SDL_RenderCopy(game->render, choix_non, NULL, &pos_choix_non);
-            SDL_RenderPresent(game->render);
 
             /*--- Event to Exit Program ------------------------------------------*/
 

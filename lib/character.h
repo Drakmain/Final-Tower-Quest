@@ -62,12 +62,21 @@ struct character_s
   int mana;     /*!< A FINIR. */
 
   int vitalite;     /*!< A FINIR. */
-  int force;        /*!< A FINIR. */
+  int puissance;        /*!< A FINIR. */
   int intelligence; /*!< A FINIR. */
   int agilite;      /*!< A FINIR. */
   int defense;      /*!< A FINIR. */
-
   int points_dispo; /*!< A FINIR. */
+
+  int nb_petite_popo_soin;  /*!< A FINIR. */
+  int nb_moyenne_popo_soin; /*!< A FINIR. */
+  int nb_petite_popo_mana;  /*!< A FINIR. */
+  int nb_moyenne_popo_mana; /*!< A FINIR. */
+  int nb_popo_puissance;    /*!< A FINIR. */
+  int nb_popo_agi;          /*!< A FINIR. */
+
+  int nb_tour_restant_puissance;    /*!< A FINIR. */
+  int nb_tour_restant_agi;    /*!< A FINIR. */
 };
 
 extern character_t *character_create(SDL_Renderer *render, char *file_name_save);

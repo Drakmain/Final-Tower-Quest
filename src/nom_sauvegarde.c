@@ -127,10 +127,10 @@ extern void nom_sauvegarde(game_t *game, char *actual_save, char *base_save)
     pos_fond_cadre_nom_save.h = pos_cadre_nom_save.h;
 
     SDL_Rect rect_fond_cadre_nom_save;
-    rect_fond_cadre_nom_save.x = pos_fond_cadre_nom_save.w * 12 / 1600;
-    rect_fond_cadre_nom_save.y = pos_fond_cadre_nom_save.h * 12 / 900;
-    rect_fond_cadre_nom_save.w = pos_fond_cadre_nom_save.w - 2 * pos_fond_cadre_nom_save.w * 12 / 1600;
-    rect_fond_cadre_nom_save.h = pos_fond_cadre_nom_save.h - 2 * pos_fond_cadre_nom_save.h * 12 / 900;
+    rect_fond_cadre_nom_save.x =(*game->WINDOWWIDTH) * 12 / 1280;
+    rect_fond_cadre_nom_save.y = (*game->WINDOWHEIGHT) * 12 / 720;
+    rect_fond_cadre_nom_save.w = pos_fond_cadre_nom_save.w - 2 * rect_fond_cadre_nom_save.x + 1;
+    rect_fond_cadre_nom_save.h = pos_fond_cadre_nom_save.h - 2 * rect_fond_cadre_nom_save.y + 1;
 
     SDL_SetRenderDrawColor(game->render, 0, 0, 0, 200);
     SDL_SetRenderTarget(game->render, fond_cadre_nom_save);
@@ -205,11 +205,6 @@ extern void nom_sauvegarde(game_t *game, char *actual_save, char *base_save)
             if (event.type == SDL_QUIT)
             {
                 *game->program_launch = SDL_FALSE;
-                nom_sauvegarde_bool = SDL_FALSE;
-            }
-
-            if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
-            {
                 nom_sauvegarde_bool = SDL_FALSE;
             }
 

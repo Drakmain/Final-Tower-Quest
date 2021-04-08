@@ -32,7 +32,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_Color blanc = {255, 255, 255};
     SDL_Color rouge = {255, 0, 0};
 
-    SDL_Surface *surf_cadre = NULL, *surf_caracteristiques = NULL, *surf_retour = NULL, *surf_vitalite = NULL, *surf_force = NULL, *surf_2point = NULL, *surf_intell = NULL, *surf_agi = NULL, *surf_def = NULL, *surf_point_dispo = NULL, *surf_nb_vitalite = NULL, *surf_nb_force = NULL, *surf_nb_intell = NULL, *surf_nb_agi = NULL, *surf_nb_def = NULL, *surf_nb_point_dispo = NULL;
+    SDL_Surface *surf_cadre = NULL, *surf_caracteristiques = NULL, *surf_retour = NULL, *surf_vitalite = NULL, *surf_puissance = NULL, *surf_2point = NULL, *surf_intell = NULL, *surf_agi = NULL, *surf_def = NULL, *surf_point_dispo = NULL, *surf_nb_vitalite = NULL, *surf_nb_puissance = NULL, *surf_nb_intell = NULL, *surf_nb_agi = NULL, *surf_nb_def = NULL, *surf_nb_point_dispo = NULL;
     SDL_Surface *surf_valider = NULL, *surf_fleche = NULL;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
@@ -48,10 +48,10 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     else
         selection = 0;
 
-    int points_uti_vitalite = 0, points_uti_force = 0, points_uti_intell = 0, points_uti_agi = 0, points_uti_def = 0;
+    int points_uti_vitalite = 0, points_uti_puissance = 0, points_uti_intell = 0, points_uti_agi = 0, points_uti_def = 0;
     ;
     int character_vitalite = character->vitalite;
-    int character_force = character->force;
+    int character_puissance = character->puissance;
     int character_intell = character->intelligence;
     int character_agi = character->agilite;
     int character_def = character->defense;
@@ -175,7 +175,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Creation text "Force" ----------------------------------------*/
+    /*--- Creation text "puissance" ----------------------------------------*/
 
     surf_2point = TTF_RenderText_Blended(game->police, " : ", blanc);
     if (surf_2point == NULL)
@@ -213,25 +213,25 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Creation text "Force" ----------------------------------------*/
+    /*--- Creation text "puissance" ----------------------------------------*/
 
-    surf_force = TTF_RenderText_Blended(game->police, "Force       ", blanc);
-    if (surf_force == NULL)
+    surf_puissance = TTF_RenderText_Blended(game->police, "Puissance       ", blanc);
+    if (surf_puissance == NULL)
     {
-        SDL_ExitWithError("probleme surface force caracteristiques.c");
+        SDL_ExitWithError("probleme surface puissance caracteristiques.c");
     }
 
-    SDL_Texture *force = SDL_CreateTextureFromSurface(game->render, surf_force);
-    if (force == NULL)
+    SDL_Texture *puissance = SDL_CreateTextureFromSurface(game->render, surf_puissance);
+    if (puissance == NULL)
     {
-        SDL_ExitWithError("probleme texture force caracteristiques.c");
+        SDL_ExitWithError("probleme texture puissance caracteristiques.c");
     }
 
-    SDL_Rect pos_force;
-    pos_force.w = (*game->WINDOWWIDTH) * 180 / 1200;
-    pos_force.h = (*game->WINDOWHEIGHT) * 50 / 720;
-    pos_force.x = (*game->WINDOWWIDTH) / 2 - pos_force.w / 2 - (*game->WINDOWWIDTH) * 60 / 1280;
-    pos_force.y = pos_vitalite.y + pos_vitalite.h + (*game->WINDOWHEIGHT) * 20 / 720;
+    SDL_Rect pos_puissance;
+    pos_puissance.w = (*game->WINDOWWIDTH) * 180 / 1200;
+    pos_puissance.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_puissance.x = (*game->WINDOWWIDTH) / 2 - pos_puissance.w / 2 - (*game->WINDOWWIDTH) * 60 / 1280;
+    pos_puissance.y = pos_vitalite.y + pos_vitalite.h + (*game->WINDOWHEIGHT) * 20 / 720;
 
     /*----------------------------------------------------------------------------*/
 
@@ -253,7 +253,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     pos_intell.w = (*game->WINDOWWIDTH) * 180 / 1200;
     pos_intell.h = (*game->WINDOWHEIGHT) * 50 / 720;
     pos_intell.x = (*game->WINDOWWIDTH) / 2 - pos_intell.w / 2 - (*game->WINDOWWIDTH) * 60 / 1280;
-    pos_intell.y = pos_force.y + pos_force.h + (*game->WINDOWHEIGHT) * 20 / 720;
+    pos_intell.y = pos_puissance.y + pos_puissance.h + (*game->WINDOWHEIGHT) * 20 / 720;
 
     /*----------------------------------------------------------------------------*/
 
@@ -332,8 +332,8 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_Rect pos_2point_f;
     pos_2point_f.w = (*game->WINDOWWIDTH) * 45 / 1200;
     pos_2point_f.h = (*game->WINDOWHEIGHT) * 50 / 720;
-    pos_2point_f.x = pos_force.x + pos_force.w;
-    pos_2point_f.y = pos_force.y;
+    pos_2point_f.x = pos_puissance.x + pos_puissance.w;
+    pos_2point_f.y = pos_puissance.y;
 
     SDL_Rect pos_2point_i;
     pos_2point_i.w = (*game->WINDOWWIDTH) * 45 / 1200;
@@ -384,28 +384,28 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Creation text "nb force" ----------------------------------------*/
+    /*--- Creation text "nb puissance" ----------------------------------------*/
 
-    char character_nb_force[10];
-    itoa(character_force, character_nb_force, 10);
+    char character_nb_puissance[10];
+    itoa(character_puissance, character_nb_puissance, 10);
 
-    surf_nb_force = TTF_RenderText_Blended(game->police, character_nb_force, blanc);
-    if (surf_nb_force == NULL)
+    surf_nb_puissance = TTF_RenderText_Blended(game->police, character_nb_puissance, blanc);
+    if (surf_nb_puissance == NULL)
     {
-        SDL_ExitWithError("probleme surface nb force caracteristiques.c");
+        SDL_ExitWithError("probleme surface nb puissance caracteristiques.c");
     }
 
-    SDL_Texture *nb_force = SDL_CreateTextureFromSurface(game->render, surf_nb_force);
-    if (nb_force == NULL)
+    SDL_Texture *nb_puissance = SDL_CreateTextureFromSurface(game->render, surf_nb_puissance);
+    if (nb_puissance == NULL)
     {
-        SDL_ExitWithError("probleme texture nb force caracteristiques.c");
+        SDL_ExitWithError("probleme texture nb puissance caracteristiques.c");
     }
 
-    SDL_Rect pos_nb_force;
-    pos_nb_force.w = strlen(character_nb_force) * (*game->WINDOWWIDTH) * 15 / 1280;
-    pos_nb_force.h = (*game->WINDOWHEIGHT) * 50 / 720;
-    pos_nb_force.x = pos_force.x + pos_force.w + pos_2point_f.w + (*game->WINDOWWIDTH) * 35 / 1280;
-    pos_nb_force.y = pos_force.y;
+    SDL_Rect pos_nb_puissance;
+    pos_nb_puissance.w = strlen(character_nb_puissance) * (*game->WINDOWWIDTH) * 15 / 1280;
+    pos_nb_puissance.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_nb_puissance.x = pos_puissance.x + pos_puissance.w + pos_2point_f.w + (*game->WINDOWWIDTH) * 35 / 1280;
+    pos_nb_puissance.y = pos_puissance.y;
 
     /*----------------------------------------------------------------------------*/
 
@@ -574,7 +574,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
                 {
                     if (selection == 0 && points_uti_vitalite == 0)
                         selection++;
-                    if (selection == 1 && points_uti_force == 0)
+                    if (selection == 1 && points_uti_puissance == 0)
                         selection++;
                     if (selection == 2 && points_uti_intell == 0)
                         selection++;
@@ -596,7 +596,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
                         selection--;
                     if (selection == 2 && points_uti_intell == 0)
                         selection--;
-                    if (selection == 1 && points_uti_force == 0)
+                    if (selection == 1 && points_uti_puissance == 0)
                         selection--;
                     if (selection == 0 && points_uti_vitalite == 0)
                         selection--;
@@ -657,33 +657,33 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
                     if (keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN)
                     {
                         character_points_dispo--;
-                        points_uti_force++;
-                        character_force++;
+                        points_uti_puissance++;
+                        character_puissance++;
                         rect_fleche_droite.y = 29;
                     }
                 }
 
-                if (points_uti_force > 0)
+                if (points_uti_puissance > 0)
                 {
                     if (keyState[SDL_SCANCODE_LEFT] && event.type == SDL_KEYDOWN)
                     {
                         character_points_dispo++;
-                        points_uti_force--;
-                        character_force--;
+                        points_uti_puissance--;
+                        character_puissance--;
                         rect_fleche_gauche.y = 29;
                     }
                 }
 
-                itoa(character_force, character_nb_force, 10);
-                pos_nb_force.w = strlen(character_nb_force) * (*game->WINDOWWIDTH) * 15 / 1280;
-                surf_nb_force = TTF_RenderText_Blended(game->police, character_nb_force, blanc);
-                nb_force = SDL_CreateTextureFromSurface(game->render, surf_nb_force);
+                itoa(character_puissance, character_nb_puissance, 10);
+                pos_nb_puissance.w = strlen(character_nb_puissance) * (*game->WINDOWWIDTH) * 15 / 1280;
+                surf_nb_puissance = TTF_RenderText_Blended(game->police, character_nb_puissance, blanc);
+                nb_puissance = SDL_CreateTextureFromSurface(game->render, surf_nb_puissance);
 
-                pos_fleche_droite.x = pos_nb_force.x + pos_nb_force.w + (*game->WINDOWWIDTH) * 10 / 1280;
-                pos_fleche_droite.y = pos_force.y - pos_fleche_droite.h / 2 + (*game->WINDOWHEIGHT) * 55 / 1280;
+                pos_fleche_droite.x = pos_nb_puissance.x + pos_nb_puissance.w + (*game->WINDOWWIDTH) * 10 / 1280;
+                pos_fleche_droite.y = pos_puissance.y - pos_fleche_droite.h / 2 + (*game->WINDOWHEIGHT) * 55 / 1280;
 
-                pos_fleche_gauche.x = pos_nb_force.x - pos_fleche_gauche.w - (*game->WINDOWWIDTH) * 10 / 1280;
-                pos_fleche_gauche.y = pos_force.y - pos_fleche_gauche.h / 2 + (*game->WINDOWHEIGHT) * 55 / 1280;
+                pos_fleche_gauche.x = pos_nb_puissance.x - pos_fleche_gauche.w - (*game->WINDOWWIDTH) * 10 / 1280;
+                pos_fleche_gauche.y = pos_puissance.y - pos_fleche_gauche.h / 2 + (*game->WINDOWHEIGHT) * 55 / 1280;
             }
 
             if (selection == 2)
@@ -802,7 +802,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
 
             if (selection == 5)
             {
-                if (keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN && select_ret_val && (points_uti_vitalite > 0 || points_uti_force > 0 || points_uti_intell > 0 || points_uti_agi > 0 || points_uti_def > 0))
+                if (keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN && select_ret_val && (points_uti_vitalite > 0 || points_uti_puissance > 0 || points_uti_intell > 0 || points_uti_agi > 0 || points_uti_def > 0))
                 {
                     select_ret_val = SDL_FALSE;
                 }
@@ -835,7 +835,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
                     if (texte_confirmation(game, "Validez vos choix ?"))
                     {
                         character->vitalite = character_vitalite;
-                        character->force = character_force;
+                        character->puissance = character_puissance;
                         character->intelligence = character_intell;
                         character->agilite = character_agi;
                         character->defense = character_def;
@@ -857,13 +857,13 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
             SDL_RenderCopy(game->render, caracteristiques, NULL, &pos_caracteristiques);
             SDL_RenderCopy(game->render, retour, NULL, &pos_retour);
             SDL_RenderCopy(game->render, vitalite, NULL, &pos_vitalite);
-            SDL_RenderCopy(game->render, force, NULL, &pos_force);
+            SDL_RenderCopy(game->render, puissance, NULL, &pos_puissance);
             SDL_RenderCopy(game->render, intell, NULL, &pos_intell);
             SDL_RenderCopy(game->render, agi, NULL, &pos_agi);
             SDL_RenderCopy(game->render, def, NULL, &pos_def);
             SDL_RenderCopy(game->render, point_dispo, NULL, &pos_point_dispo);
             SDL_RenderCopy(game->render, nb_vitalite, NULL, &pos_nb_vitalite);
-            SDL_RenderCopy(game->render, nb_force, NULL, &pos_nb_force);
+            SDL_RenderCopy(game->render, nb_puissance, NULL, &pos_nb_puissance);
             SDL_RenderCopy(game->render, nb_intell, NULL, &pos_nb_intell);
             SDL_RenderCopy(game->render, nb_agi, NULL, &pos_nb_agi);
             SDL_RenderCopy(game->render, nb_def, NULL, &pos_nb_def);
@@ -877,7 +877,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
                     SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);
                 break;
             case 1:
-                if (points_uti_force > 0)
+                if (points_uti_puissance > 0)
                     SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);
                 break;
             case 2:
@@ -899,7 +899,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_a);
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_d);
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_point_dispo);
-            if (points_uti_vitalite > 0 || points_uti_force > 0 || points_uti_intell > 0 || points_uti_agi > 0 || points_uti_def > 0)
+            if (points_uti_vitalite > 0 || points_uti_puissance > 0 || points_uti_intell > 0 || points_uti_agi > 0 || points_uti_def > 0)
                 SDL_RenderCopy(game->render, valider, NULL, &pos_valider);
             SDL_RenderPresent(game->render);
 
@@ -931,12 +931,12 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_FreeSurface(surf_caracteristiques);
     SDL_FreeSurface(surf_retour);
     SDL_FreeSurface(surf_vitalite);
-    SDL_FreeSurface(surf_force);
+    SDL_FreeSurface(surf_puissance);
     SDL_FreeSurface(surf_intell);
     SDL_FreeSurface(surf_agi);
     SDL_FreeSurface(surf_def);
     SDL_FreeSurface(surf_nb_vitalite);
-    SDL_FreeSurface(surf_nb_force);
+    SDL_FreeSurface(surf_nb_puissance);
     SDL_FreeSurface(surf_nb_intell);
     SDL_FreeSurface(surf_nb_agi);
     SDL_FreeSurface(surf_nb_def);
@@ -950,12 +950,12 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_DestroyTexture(caracteristiques);
     SDL_DestroyTexture(retour);
     SDL_DestroyTexture(vitalite);
-    SDL_DestroyTexture(force);
+    SDL_DestroyTexture(puissance);
     SDL_DestroyTexture(intell);
     SDL_DestroyTexture(agi);
     SDL_DestroyTexture(def);
     SDL_DestroyTexture(nb_vitalite);
-    SDL_DestroyTexture(nb_force);
+    SDL_DestroyTexture(nb_puissance);
     SDL_DestroyTexture(nb_intell);
     SDL_DestroyTexture(nb_agi);
     SDL_DestroyTexture(nb_def);
