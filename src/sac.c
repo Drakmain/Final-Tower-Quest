@@ -884,7 +884,9 @@ void ouverture_sac(game_t * game, character_t *character, SDL_Texture * texture_
 
             if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
             {
-                *echap_relache = SDL_FALSE;
+                if(echap_relache != NULL)
+                    *echap_relache = SDL_FALSE;
+
                 sac_bool = SDL_FALSE;
             }
 
