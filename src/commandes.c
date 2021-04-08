@@ -57,6 +57,7 @@ void menu_commandes(game_t * game, SDL_Texture * texture, SDL_bool *echap_relach
     pos_cadre.y = (*game->WINDOWHEIGHT)/6.75;
     pos_cadre.w = (*game->WINDOWWIDTH)*820/1200;
     pos_cadre.h = (*game->WINDOWHEIGHT)*460/675;
+    
     /*-------------------------------------------------------------------------*/
 
 

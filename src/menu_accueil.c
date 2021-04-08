@@ -73,6 +73,7 @@ extern void menu_accueil(game_t *game, char *actual_save)
     {
         SDL_ExitWithError("probleme surface charger partie menu d'accueil");
     }
+
     SDL_Texture *charger_partie = SDL_CreateTextureFromSurface(game->render, surf_charger_partie);
     if (charger_partie == NULL)
     {
@@ -190,10 +191,8 @@ extern void menu_accueil(game_t *game, char *actual_save)
 
     while (menu_ac_bool == SDL_TRUE && (*game->program_launch))
     {
-
         while (SDL_PollEvent(&event))
         {
-
             /*--- Event to Exit Program ------------------------------------------*/
 
             if (event.type == SDL_QUIT)

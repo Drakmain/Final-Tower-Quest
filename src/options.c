@@ -38,8 +38,10 @@ extern void options_f(game_t *game)
     int selection = 0;
 
     SDL_bool changement = SDL_FALSE;
+
     SDL_bool *echap_relache = malloc(sizeof(SDL_bool));
     *echap_relache = SDL_FALSE;
+
     SDL_Texture *texture_render_options;
 
     /*--- End Initialization variable --------------------------------------------*/
@@ -51,6 +53,7 @@ extern void options_f(game_t *game)
     {
         SDL_ExitWithError("probleme surface options");
     }
+
     SDL_Texture *options = SDL_CreateTextureFromSurface(game->render, surf_options);
     if (options == NULL)
     {
@@ -68,6 +71,7 @@ extern void options_f(game_t *game)
     {
         SDL_ExitWithError("probleme surface opt_resolution");
     }
+
     SDL_Texture *opt_resolution = SDL_CreateTextureFromSurface(game->render, surf_opt_resolution);
     if (opt_resolution == NULL)
     {
@@ -106,6 +110,7 @@ extern void options_f(game_t *game)
     {
         SDL_ExitWithError("probleme surface opt_fullscreen");
     }
+
     SDL_Texture *opt_fullscreen = SDL_CreateTextureFromSurface(game->render, surf_opt_fullscreen);
     if (opt_fullscreen == NULL)
     {
@@ -157,6 +162,7 @@ extern void options_f(game_t *game)
     {
         SDL_ExitWithError("probleme surface options");
     }
+
     SDL_Texture *retour = SDL_CreateTextureFromSurface(game->render, surf_retour);
     if (retour == NULL)
     {
@@ -214,7 +220,7 @@ extern void options_f(game_t *game)
     SDL_Rect pos_fond_cadre;
 
     SDL_Rect rect_fond_cadre;
-    
+
     /*-------------------------------------------------------------------------*/
 
     /*--- Initialization texture "fleche" -------------------------------------*/
@@ -225,17 +231,17 @@ extern void options_f(game_t *game)
         SDL_ExitWithError("probleme chargement image fleche gauche et droite");
     }
 
-    SDL_Rect rect_fleche_gauche;
-    rect_fleche_gauche.x = 39;
-    rect_fleche_gauche.y = 0;
-    rect_fleche_gauche.w = 38;
-    rect_fleche_gauche.h = 28;
-
     SDL_Texture *fleche_gauche = SDL_CreateTextureFromSurface(game->render, surf_fleche);
     if (fleche_gauche == NULL)
     {
         SDL_ExitWithError("probleme texture fleche gauche");
     }
+
+    SDL_Rect rect_fleche_gauche;
+    rect_fleche_gauche.x = 39;
+    rect_fleche_gauche.y = 0;
+    rect_fleche_gauche.w = 38;
+    rect_fleche_gauche.h = 28;
 
     SDL_Rect pos_fleche_gauche;
 
@@ -244,6 +250,7 @@ extern void options_f(game_t *game)
     {
         SDL_ExitWithError("probleme texture fleche droite");
     }
+
     SDL_Rect rect_fleche_droite;
     rect_fleche_droite.x = 0;
     rect_fleche_droite.y = 0;
@@ -275,10 +282,8 @@ extern void options_f(game_t *game)
 
     while (options_bool && *game->program_launch)
     {
-
         while (SDL_PollEvent(&event))
         {
-
             if (!keyState[SDL_SCANCODE_ESCAPE])
             {
                 *echap_relache = SDL_TRUE;
@@ -361,6 +366,7 @@ extern void options_f(game_t *game)
                     if (*game->etat_fullscreen == SDL_FALSE)
                         SDL_SetWindowPosition(game->window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
                     break;
+
                 case RES_900P:
                     (*game->WINDOWWIDTH) = 1600;
                     (*game->WINDOWHEIGHT) = 900;
@@ -369,10 +375,9 @@ extern void options_f(game_t *game)
                     fleche_gauche = SDL_CreateTextureFromSurface(game->render, surf_fleche);
                     fleche_droite = SDL_CreateTextureFromSurface(game->render, surf_fleche);
                     if (*game->etat_fullscreen == SDL_FALSE)
-                    {
                         SDL_SetWindowPosition(game->window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
-                    }
                     break;
+
                 case RES_1080P:
                     (*game->WINDOWWIDTH) = 1920;
                     (*game->WINDOWHEIGHT) = 1080;
@@ -383,6 +388,7 @@ extern void options_f(game_t *game)
                     if (*game->etat_fullscreen == SDL_FALSE)
                         SDL_SetWindowPosition(game->window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
                     break;
+
                 case RES_1440P:
                     (*game->WINDOWWIDTH) = 2560;
                     (*game->WINDOWHEIGHT) = 1440;
@@ -554,12 +560,15 @@ extern void options_f(game_t *game)
             SDL_RenderCopy(game->render, choix_resolution, NULL, &pos_choix_resolution);
             SDL_RenderCopy(game->render, opt_fullscreen, NULL, &pos_opt_fullscreen);
             SDL_RenderCopy(game->render, choix_fullscreen, NULL, &pos_choix_fullscreen);
+
             if (selection == 0 || selection == 1)
             {
                 SDL_RenderCopy(game->render, fleche_gauche, &rect_fleche_gauche, &pos_fleche_gauche);
                 SDL_RenderCopy(game->render, fleche_droite, &rect_fleche_droite, &pos_fleche_droite);
             }
+
             SDL_RenderCopy(game->render, commandes, NULL, &pos_commandes);
+
             SDL_RenderPresent(game->render);
 
             texture_render_options = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
@@ -576,7 +585,10 @@ extern void options_f(game_t *game)
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
             {
                 if (selection == 2)
+                {
                     menu_commandes(game, texture_render_options, echap_relache);
+                }
+
                 if (selection == 3)
                 {
                     options_bool = SDL_FALSE;
@@ -591,7 +603,7 @@ extern void options_f(game_t *game)
                     exit_with_error("Fichier options.txt ne pas etre ouvert > options.c Line 398");
                 }
 
-                fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;\nMusic:  ;", resolution, *game->etat_fullscreen);
+                fprintf(opts, "WindowResolution: %i ;\nFullscreen: %i ;", resolution, *game->etat_fullscreen);
 
                 fclose(opts);
             }

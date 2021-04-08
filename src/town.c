@@ -131,7 +131,7 @@ extern void town(game_t *game, character_t *character)
                     while (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
                         SDL_PollEvent(&event);
                 }
-
+                
                 /*--- End Event to enter in game menu --------------------------------*/
 
                 if (keyState[SDL_SCANCODE_SPACE])
