@@ -213,8 +213,8 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
         fscanf(file, "Dead:         %i, %i, %i, %i;\n", &character->Dead.x, &character->Dead.y, &character->Dead.w, &character->Dead.h);
 
         fscanf(file, "Niveau 1:\n%s , %i, %i - %i, %s ;\n%s , %i, %i - %i, %s ;\n%s , %i, %i - %i, %s ;\n",
-                      character->attacks[0].name, &character->attacks[0].mana, &character->attacks[0].dmg_min, &character->attacks[0].dmg_max, character->attacks[0].description,   
-                      character->attacks[1].name, &character->attacks[1].mana, &character->attacks[1].dmg_min, &character->attacks[1].dmg_max, character->attacks[1].description,  
+                      character->attacks[0].name, &character->attacks[0].mana, &character->attacks[0].dmg_min, &character->attacks[0].dmg_max, character->attacks[0].description,
+                      character->attacks[1].name, &character->attacks[1].mana, &character->attacks[1].dmg_min, &character->attacks[1].dmg_max, character->attacks[1].description,
                       character->attacks[2].name, &character->attacks[2].mana, &character->attacks[2].dmg_min, &character->attacks[2].dmg_max, character->attacks[2].description);
         fscanf(file, "Niveau 5: %s , %i, %i - %i, %s ;\n", character->attacks[3].name, &character->attacks[3].mana, &character->attacks[3].dmg_min, &character->attacks[3].dmg_max, character->attacks[3].description);
         fscanf(file, "Niveau 10: %s , %i, %i - %i, %s ;\n", character->attacks[4].name, &character->attacks[4].mana, &character->attacks[4].dmg_min, &character->attacks[4].dmg_max, character->attacks[4].description);
