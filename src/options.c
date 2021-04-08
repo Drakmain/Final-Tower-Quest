@@ -525,8 +525,10 @@ extern void options_f(game_t *game)
 
             rect_fond_cadre.x = (*game->WINDOWWIDTH) * 12 / 1200;
             rect_fond_cadre.y = (*game->WINDOWHEIGHT) * 12 / 675;
-            rect_fond_cadre.w = pos_fond_cadre.w - 2 * rect_fond_cadre.x;
-            rect_fond_cadre.h = pos_fond_cadre.h - 2 * rect_fond_cadre.y;
+            rect_fond_cadre.w = pos_fond_cadre.w - 2 * rect_fond_cadre.x + 1;
+            rect_fond_cadre.h = pos_fond_cadre.h - 2 * rect_fond_cadre.y + 1;
+
+            fond_cadre = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH) * 820 / 1200, (*game->WINDOWHEIGHT) * 460 / 675);
 
             rect_fleche_droite.x = 0;
             rect_fleche_droite.y = 0;
@@ -554,8 +556,8 @@ extern void options_f(game_t *game)
             SDL_RenderCopy(game->render, fond, NULL, &pos_fond);
             SDL_RenderCopy(game->render, options, NULL, &pos_options);
             SDL_RenderCopy(game->render, retour, NULL, &pos_retour);
-            SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
             SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
+            SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
             SDL_RenderCopy(game->render, opt_resolution, NULL, &pos_opt_resolution);
             SDL_RenderCopy(game->render, choix_resolution, NULL, &pos_choix_resolution);
             SDL_RenderCopy(game->render, opt_fullscreen, NULL, &pos_opt_fullscreen);
