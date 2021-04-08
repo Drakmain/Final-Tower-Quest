@@ -29,11 +29,7 @@ extern void transition(game_t *game)
 {
     /*--- Initialization Variable ------------------------------------------------*/
 
-    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
-
     SDL_Surface *surf_rectangle1 = NULL, *surf_rectangle2 = NULL, *surf_rectangle3 = NULL, *surf_rectangle4 = NULL;
-
-    SDL_Event event;
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -55,7 +51,7 @@ extern void transition(game_t *game)
     pos_rectangle1.x = -(*game->WINDOWWIDTH);
     pos_rectangle1.y = 0;
     pos_rectangle1.w = (*game->WINDOWWIDTH);
-    pos_rectangle1.h = (*game->WINDOWHEIGHT)/4;
+    pos_rectangle1.h = (*game->WINDOWHEIGHT) / 4;
 
     /*----------------------------------------------------------------------------*/
 
@@ -75,9 +71,9 @@ extern void transition(game_t *game)
 
     SDL_Rect pos_rectangle2;
     pos_rectangle2.x = (*game->WINDOWWIDTH);
-    pos_rectangle2.y = (*game->WINDOWHEIGHT)/4;
+    pos_rectangle2.y = (*game->WINDOWHEIGHT) / 4;
     pos_rectangle2.w = (*game->WINDOWWIDTH);
-    pos_rectangle2.h = (*game->WINDOWHEIGHT)/4;
+    pos_rectangle2.h = (*game->WINDOWHEIGHT) / 4;
 
     /*----------------------------------------------------------------------------*/
 
@@ -99,7 +95,7 @@ extern void transition(game_t *game)
     pos_rectangle3.x = -(*game->WINDOWWIDTH);
     pos_rectangle3.y = (*game->WINDOWHEIGHT) * 270 * 2 / 1080;
     pos_rectangle3.w = (*game->WINDOWWIDTH);
-    pos_rectangle3.h = (*game->WINDOWHEIGHT)/4;
+    pos_rectangle3.h = (*game->WINDOWHEIGHT) / 4;
 
     /*----------------------------------------------------------------------------*/
 
@@ -121,10 +117,9 @@ extern void transition(game_t *game)
     pos_rectangle4.x = (*game->WINDOWWIDTH);
     pos_rectangle4.y = (*game->WINDOWHEIGHT) * 270 * 3 / 1080;
     pos_rectangle4.w = (*game->WINDOWWIDTH);
-    pos_rectangle4.h = (*game->WINDOWHEIGHT)/4;
+    pos_rectangle4.h = (*game->WINDOWHEIGHT) / 4;
 
     /*----------------------------------------------------------------------------*/
-
 
     for (int i = 0; i < 42; i++)
     {
