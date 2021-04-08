@@ -2,8 +2,8 @@ CFLAGS=-Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
 
 all: main
 
-main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o creation_perso.o nom_sauvegarde.o attaques.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o commandes.o
-	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o creation_perso.o nom_sauvegarde.o attaques.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o commandes.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
+main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o attaques.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o commandes.o
+	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o attaques.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o enemie.o combat.o commandes.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
 
 
 test: test_map.o test_character.o error.o map.o character.o
@@ -34,19 +34,22 @@ colision.o : src/colision.c
 	gcc -c src/colision.c  -I include -L lib $(CFLAGS) -lSDL2_image
 
 charger_partie.o: src/charger_partie.c
-		gcc -c src/charger_partie.c -I include -L lib $(CFLAGS)
+	gcc -c src/charger_partie.c -I include -L lib $(CFLAGS)
 
 nouvelle_partie.o: src/nouvelle_partie.c
-		gcc -c src/nouvelle_partie.c -I include -L lib $(CFLAGS)
+	gcc -c src/nouvelle_partie.c -I include -L lib $(CFLAGS)
 
 options.o: src/options.c
-		gcc -c src/options.c -I include -L lib $(CFLAGS)
+	gcc -c src/options.c -I include -L lib $(CFLAGS)
+
+transition.o: src/transition.c
+	gcc -c src/transition.c -I include -L lib $(CFLAGS)
 
 combat.o: src/combat.c
-		gcc -c src/combat.c -I include -L lib $(CFLAGS)
+	gcc -c src/combat.c -I include -L lib $(CFLAGS)
 
 attaques.o: src/attaques.c
-		gcc -c src/attaques.c -I include -L lib $(CFLAGS)
+	gcc -c src/attaques.c -I include -L lib $(CFLAGS)
 
 creation_perso.o: src/creation_perso.c
 	gcc -c src/creation_perso.c  -I include -L lib $(CFLAGS)
