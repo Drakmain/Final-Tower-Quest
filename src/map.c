@@ -13,7 +13,6 @@
  * 
  */
 
-#define NB_ENEMIES 6
 #define NB_ATTACKS_ENEMIES 2
 
 /*!
@@ -169,8 +168,6 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
     strcat(file_name, name_map);
     strcat(file_name, ".txt");
 
-    printf("file_name: %s\n", file_name);
-
     file = fopen(file_name, "r");
     if (!file)
     {
@@ -188,8 +185,6 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
     strcpy(file_name, path_map);
     strcat(file_name, name_map);
     strcat(file_name, ".bmp");
-
-    printf("file_name: %s\n", file_name);
 
     map->surface = SDL_LoadBMP(file_name);
     if (!map->surface)
@@ -211,8 +206,6 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
     strcat(file_name, name_map);
     strcat(file_name, ".txt");
 
-    printf("file_name: %s\n", file_name);
-
     file = fopen(file_name, "r");
     if (!file)
     {
@@ -222,15 +215,12 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
     for (int i = 0; i < NB_ENEMIES; i++)
     {
         fscanf(file, "%s :\n", map->enemies[i].name);
-        _toEspace(map->enemies[i].name);
+        fscanf(file, "RGB: %i, %i, %i ;\n", &map->enemies[i].R, &map->enemies[i].G, &map->enemies[i].B);
         fscanf(file, "PV: %i ;\n", &map->enemies[i].life);
         fscanf(file, "%s : %i - %i ;\n", map->enemies[i].attack[0].name, &map->enemies[i].attack[0].dmg_min, &map->enemies[i].attack[0].dmg_max);
-        _toEspace(map->enemies[i].attack[0].name);
         fscanf(file, "%s : %i, %i - %i, %i, %i, %i ;\n", map->enemies[i].attack[1].name, &map->enemies[i].attack[1].percetange, &map->enemies[i].attack[1].dmg_min, &map->enemies[i].attack[1].dmg_max, &map->enemies[i].attack[1].modifier, &map->enemies[i].attack[1].effect_duration, &map->enemies[i].attack[1].effect_duration);
-        _toEspace(map->enemies[i].attack[1].name);
         fscanf(file, "EXP: %i ;\n\n", &map->enemies[i].exp);
     }
-
 
     fclose(file);
 
@@ -249,12 +239,28 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
         {
             SDL_ExitWithError("Loading of a bmp file failed > map.c Line 101");
         }
+        
+        if (map->enemies[i].R != -1 && map->enemies[i].G != -1 && map->enemies[i].B != -1)
+        {
+            SDL_SetColorKey(map->enemies[i].surface, SDL_TRUE, SDL_MapRGB(map->enemies[i].surface->format, map->enemies[i].R, map->enemies[i].G, map->enemies[i].B));
+        }
 
         map->enemies[i].texture = SDL_CreateTextureFromSurface(render, map->enemies[i].surface);
         if (!map->texture)
         {
             SDL_ExitWithError("Cannot create a texture from a surface > map.c Line 107");
         }
+    }
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Converting _ to espace -------------------------------------------------*/
+
+    for (int i = 0; i < NB_ENEMIES; i++)
+    {
+        _toEspace(map->enemies[i].name);
+        _toEspace(map->enemies[i].attack[0].name);
+        _toEspace(map->enemies[i].attack[1].name);
     }
 
     /*----------------------------------------------------------------------------*/

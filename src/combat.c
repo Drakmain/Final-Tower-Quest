@@ -42,14 +42,9 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     SDL_Color rouge = {255, 0, 0};
     SDL_Color bleu = {0, 0, 255};
 
-    int nb_enemie;
+    int nb_enemie_combat;
 
-    int rand_enemie_1;
-    int rand_enemie_2;
-    int rand_enemie_3;
-    int rand_enemie_4;
-
-    char temp[30];
+    int rand_enemie[4];
 
     int selection = 0;
 
@@ -70,12 +65,13 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
     /*--- Initialization ennemis -------------------------------------------------*/
 
-    nb_enemie = rand() % 4 + 1;
-
-    rand_enemie_1 = rand() % 4;
-    rand_enemie_2 = rand() % 4;
-    rand_enemie_3 = rand() % 4;
-    rand_enemie_4 = rand() % 4;
+    nb_enemie_combat = rand() % 4 + 1;
+    
+    for (int i = 0; i < 4; i++)
+    {
+        rand_enemie[i] = rand() % NB_ENEMIES;
+        printf("oue: %i\n", rand_enemie[i]);
+    }
 
     /*--- End Initialization ennemis ---------------------------------------------*/
 
@@ -84,46 +80,46 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     //POS ENEMIE 1
     SDL_Rect pos_Wind_enemie_1_1;
     pos_Wind_enemie_1_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
-    pos_Wind_enemie_1_1.w = (*game->WINDOWWIDTH) * 7 / 2560;
+    pos_Wind_enemie_1_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_1_1.x = (*game->WINDOWWIDTH) / 3;
     pos_Wind_enemie_1_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
 
     //POS ENEMIE 2
     SDL_Rect pos_Wind_enemie_2_1;
     pos_Wind_enemie_2_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
-    pos_Wind_enemie_2_1.w = (*game->WINDOWWIDTH) * 7 / 2560;
+    pos_Wind_enemie_2_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_2_1.x = (*game->WINDOWWIDTH) / 3;
     pos_Wind_enemie_2_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 3.8;
 
     SDL_Rect pos_Wind_enemie_2_2;
     pos_Wind_enemie_2_2.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
-    pos_Wind_enemie_2_2.w = (*game->WINDOWWIDTH) * 7 / 2560;
+    pos_Wind_enemie_2_2.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_2_2.x = (*game->WINDOWWIDTH) / 3;
     pos_Wind_enemie_2_2.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.2;
 
     //POS ENEMIE 3
     SDL_Rect pos_Wind_enemie_3_1;
     pos_Wind_enemie_3_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
-    pos_Wind_enemie_3_1.w = (*game->WINDOWWIDTH) * 7 / 2560;
+    pos_Wind_enemie_3_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_3_1.x = (*game->WINDOWWIDTH) / 2.8;
     pos_Wind_enemie_3_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 6;
 
     SDL_Rect pos_Wind_enemie_3_3;
     pos_Wind_enemie_3_3.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
-    pos_Wind_enemie_3_3.w = (*game->WINDOWWIDTH) * 7 / 2560;
+    pos_Wind_enemie_3_3.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_3_3.x = (*game->WINDOWWIDTH) / 2.8;
     pos_Wind_enemie_3_3.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 1.8;
 
     //POS ENEMIE 4
     SDL_Rect pos_Wind_enemie_4_1;
     pos_Wind_enemie_4_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
-    pos_Wind_enemie_4_1.w = (*game->WINDOWWIDTH) * 7 / 2560;
+    pos_Wind_enemie_4_1.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_4_1.x = (*game->WINDOWWIDTH) / 2.8;
     pos_Wind_enemie_4_1.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 15;
 
     SDL_Rect pos_Wind_enemie_4_4;
     pos_Wind_enemie_4_4.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;
-    pos_Wind_enemie_4_4.w = (*game->WINDOWWIDTH) * 7 / 2560;
+    pos_Wind_enemie_4_4.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
     pos_Wind_enemie_4_4.x = (*game->WINDOWWIDTH) / 2.8;
     pos_Wind_enemie_4_4.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 1.6;
 
@@ -226,9 +222,9 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     SDL_Rect pos_Wind_nom_enemie_1;
     SDL_Texture *texture_nom_enemie_1 = NULL;
     SDL_Surface *surf_nom_enemie_1 = NULL;
-    if (nb_enemie >= 1)
+    if (nb_enemie_combat >= 1)
     {
-        surf_nom_enemie_1 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemie_1].name, blanc);
+        surf_nom_enemie_1 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemie[0]].name, blanc);
         if (surf_nom_enemie_1 == NULL)
         {
             SDL_ExitWithError("Probleme surface nom enemie 1 > combat.c Line 192");
@@ -242,7 +238,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
         pos_Wind_nom_enemie_1.x = (*game->WINDOWWIDTH) * 59 / 2560;
         pos_Wind_nom_enemie_1.y = (*game->WINDOWWIDTH) * 1069 / 2560;
-        pos_Wind_nom_enemie_1.w = (*game->WINDOWWIDTH) * strlen(map->enemies[rand_enemie_1].name) * 25 / 2560;
+        pos_Wind_nom_enemie_1.w = (*game->WINDOWWIDTH) * strlen(map->enemies[rand_enemie[0]].name) * 25 / 2560;
         pos_Wind_nom_enemie_1.h = (*game->WINDOWWIDTH) * 75 / 2560;
     }
 
@@ -253,9 +249,9 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     SDL_Rect pos_Wind_nom_enemie_2;
     SDL_Texture *texture_nom_enemie_2 = NULL;
     SDL_Surface *surf_nom_enemie_2 = NULL;
-    if (nb_enemie >= 2)
+    if (nb_enemie_combat >= 2)
     {
-        surf_nom_enemie_2 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemie_2].name, blanc);
+        surf_nom_enemie_2 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemie[1]].name, blanc);
         if (surf_nom_enemie_2 == NULL)
         {
             SDL_ExitWithError("Probleme surface nom enemie 2 > combat.c Line 192");
@@ -269,7 +265,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
         pos_Wind_nom_enemie_2.x = (*game->WINDOWWIDTH) * 59 / 2560;
         pos_Wind_nom_enemie_2.y = (*game->WINDOWWIDTH) * 1150 / 2560;
-        pos_Wind_nom_enemie_2.w = (*game->WINDOWWIDTH) * strlen(map->enemies[rand_enemie_2].name) * 25 / 2560;
+        pos_Wind_nom_enemie_2.w = (*game->WINDOWWIDTH) * strlen(map->enemies[rand_enemie[1]].name) * 25 / 2560;
         pos_Wind_nom_enemie_2.h = (*game->WINDOWWIDTH) * 75 / 2560;
     }
 
@@ -280,9 +276,9 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     SDL_Rect pos_Wind_nom_enemie_3;
     SDL_Texture *texture_nom_enemie_3 = NULL;
     SDL_Surface *surf_nom_enemie_3 = NULL;
-    if (nb_enemie >= 3)
+    if (nb_enemie_combat >= 3)
     {
-        surf_nom_enemie_3 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemie_3].name, blanc);
+        surf_nom_enemie_3 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemie[2]].name, blanc);
         if (surf_nom_enemie_3 == NULL)
         {
             SDL_ExitWithError("Probleme surface nom enemie 3 > combat.c Line 192");
@@ -296,7 +292,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
         pos_Wind_nom_enemie_3.x = (*game->WINDOWWIDTH) * 59 / 2560;
         pos_Wind_nom_enemie_3.y = (*game->WINDOWWIDTH) * 1231 / 2560;
-        pos_Wind_nom_enemie_3.w = (*game->WINDOWWIDTH) * strlen(map->enemies[rand_enemie_3].name) * 25 / 2560;
+        pos_Wind_nom_enemie_3.w = (*game->WINDOWWIDTH) * strlen(map->enemies[rand_enemie[2]].name) * 25 / 2560;
         pos_Wind_nom_enemie_3.h = (*game->WINDOWWIDTH) * 75 / 2560;
     }
 
@@ -307,9 +303,9 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     SDL_Rect pos_Wind_nom_enemie_4;
     SDL_Texture *texture_nom_enemie_4 = NULL;
     SDL_Surface *surf_nom_enemie_4 = NULL;
-    if (nb_enemie >= 4)
+    if (nb_enemie_combat >= 4)
     {
-        surf_nom_enemie_4 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemie_4].name, blanc);
+        surf_nom_enemie_4 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemie[3]].name, blanc);
         if (surf_nom_enemie_4 == NULL)
         {
             SDL_ExitWithError("Probleme surface nom enemie 4 > combat.c Line 192");
@@ -323,7 +319,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
         pos_Wind_nom_enemie_4.x = (*game->WINDOWWIDTH) * 59 / 2560;
         pos_Wind_nom_enemie_4.y = (*game->WINDOWWIDTH) * 1312 / 2560;
-        pos_Wind_nom_enemie_4.w = (*game->WINDOWWIDTH) * strlen(map->enemies[rand_enemie_4].name) * 25 / 2560;
+        pos_Wind_nom_enemie_4.w = (*game->WINDOWWIDTH) * strlen(map->enemies[rand_enemie[3]].name) * 25 / 2560;
         pos_Wind_nom_enemie_4.h = (*game->WINDOWWIDTH) * 75 / 2560;
     }
 
@@ -345,12 +341,12 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
         SDL_ExitWithError("Probleme texture nom personnage > combat.c Line 198");
     }
 
-    strcpy(temp, character->classe_name);
+    //strcpy(temp, character->classe_name);
 
     SDL_Rect pos_Wind_nom_personnage;
     pos_Wind_nom_personnage.x = (*game->WINDOWWIDTH) * 800 / 2560;
     pos_Wind_nom_personnage.y = (*game->WINDOWWIDTH) * 1069 / 2560;
-    pos_Wind_nom_personnage.w = (*game->WINDOWWIDTH) * strlen(temp) * 25 / 2560;
+    pos_Wind_nom_personnage.w = (*game->WINDOWWIDTH) * strlen(character->classe_name) * 25 / 2560;
     pos_Wind_nom_personnage.h = (*game->WINDOWWIDTH) * 75 / 2560;
 
     /*----------------------------------------------------------------------------*/
@@ -411,38 +407,38 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
     SDL_RenderClear(game->render);
 
-    switch (nb_enemie)
+    switch (nb_enemie_combat)
     {
     case 1:
         SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
-        SDL_RenderCopy(game->render, map->enemies[rand_enemie_1].texture, NULL, &pos_Wind_enemie_1_1);
+        SDL_RenderCopy(game->render, map->enemies[rand_enemie[0]].texture, NULL, &pos_Wind_enemie_1_1);
         break;
 
     case 2:
         SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
-        SDL_RenderCopy(game->render, map->enemies[rand_enemie_1].texture, NULL, &pos_Wind_enemie_2_1);
+        SDL_RenderCopy(game->render, map->enemies[rand_enemie[0]].texture, NULL, &pos_Wind_enemie_2_1);
         SDL_RenderCopy(game->render, texture_nom_enemie_2, NULL, &pos_Wind_nom_enemie_2);
-        SDL_RenderCopy(game->render, map->enemies[rand_enemie_2].texture, NULL, &pos_Wind_enemie_2_2);
+        SDL_RenderCopy(game->render, map->enemies[rand_enemie[1]].texture, NULL, &pos_Wind_enemie_2_2);
         break;
 
     case 3:
         SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
-        SDL_RenderCopy(game->render, map->enemies[rand_enemie_1].texture, NULL, &pos_Wind_enemie_3_1);
+        SDL_RenderCopy(game->render, map->enemies[rand_enemie[0]].texture, NULL, &pos_Wind_enemie_3_1);
         SDL_RenderCopy(game->render, texture_nom_enemie_2, NULL, &pos_Wind_nom_enemie_2);
-        SDL_RenderCopy(game->render, map->enemies[rand_enemie_2].texture, NULL, &pos_Wind_enemie_1_1);
+        SDL_RenderCopy(game->render, map->enemies[rand_enemie[1]].texture, NULL, &pos_Wind_enemie_1_1);
         SDL_RenderCopy(game->render, texture_nom_enemie_3, NULL, &pos_Wind_nom_enemie_3);
-        SDL_RenderCopy(game->render, map->enemies[rand_enemie_3].texture, NULL, &pos_Wind_enemie_3_3);
+        SDL_RenderCopy(game->render, map->enemies[rand_enemie[2]].texture, NULL, &pos_Wind_enemie_3_3);
         break;
 
     case 4:
         SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
-        SDL_RenderCopy(game->render, map->enemies[rand_enemie_1].texture, NULL, &pos_Wind_enemie_4_1);
+        SDL_RenderCopy(game->render, map->enemies[rand_enemie[0]].texture, NULL, &pos_Wind_enemie_4_1);
         SDL_RenderCopy(game->render, texture_nom_enemie_2, NULL, &pos_Wind_nom_enemie_2);
-        SDL_RenderCopy(game->render, map->enemies[rand_enemie_2].texture, NULL, &pos_Wind_enemie_2_1);
+        SDL_RenderCopy(game->render, map->enemies[rand_enemie[1]].texture, NULL, &pos_Wind_enemie_2_1);
         SDL_RenderCopy(game->render, texture_nom_enemie_3, NULL, &pos_Wind_nom_enemie_3);
-        SDL_RenderCopy(game->render, map->enemies[rand_enemie_3].texture, NULL, &pos_Wind_enemie_2_2);
+        SDL_RenderCopy(game->render, map->enemies[rand_enemie[2]].texture, NULL, &pos_Wind_enemie_2_2);
         SDL_RenderCopy(game->render, texture_nom_enemie_4, NULL, &pos_Wind_nom_enemie_4);
-        SDL_RenderCopy(game->render, map->enemies[rand_enemie_4].texture, NULL, &pos_Wind_enemie_4_4);
+        SDL_RenderCopy(game->render, map->enemies[rand_enemie[3]].texture, NULL, &pos_Wind_enemie_4_4);
         break;
     }
 
@@ -558,38 +554,38 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             //SDL_RenderCopy(game->render, map->texture, &map->tile_set, &pos_Wind_town);
             SDL_RenderCopy(game->render, texture_combat_cadre, NULL, &pos_Wind_cadre_combat);
 
-            switch (nb_enemie)
+            switch (nb_enemie_combat)
             {
             case 1:
                 SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
-                SDL_RenderCopy(game->render, map->enemies[rand_enemie_1].texture, NULL, &pos_Wind_enemie_1_1);
+                SDL_RenderCopy(game->render, map->enemies[rand_enemie[0]].texture, NULL, &pos_Wind_enemie_1_1);
                 break;
 
             case 2:
                 SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
-                SDL_RenderCopy(game->render, map->enemies[rand_enemie_1].texture, NULL, &pos_Wind_enemie_2_1);
+                SDL_RenderCopy(game->render, map->enemies[rand_enemie[0]].texture, NULL, &pos_Wind_enemie_2_1);
                 SDL_RenderCopy(game->render, texture_nom_enemie_2, NULL, &pos_Wind_nom_enemie_2);
-                SDL_RenderCopy(game->render, map->enemies[rand_enemie_2].texture, NULL, &pos_Wind_enemie_2_2);
+                SDL_RenderCopy(game->render, map->enemies[rand_enemie[1]].texture, NULL, &pos_Wind_enemie_2_2);
                 break;
 
             case 3:
                 SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
-                SDL_RenderCopy(game->render, map->enemies[rand_enemie_1].texture, NULL, &pos_Wind_enemie_3_1);
+                SDL_RenderCopy(game->render, map->enemies[rand_enemie[0]].texture, NULL, &pos_Wind_enemie_3_1);
                 SDL_RenderCopy(game->render, texture_nom_enemie_2, NULL, &pos_Wind_nom_enemie_2);
-                SDL_RenderCopy(game->render, map->enemies[rand_enemie_2].texture, NULL, &pos_Wind_enemie_1_1);
+                SDL_RenderCopy(game->render, map->enemies[rand_enemie[1]].texture, NULL, &pos_Wind_enemie_1_1);
                 SDL_RenderCopy(game->render, texture_nom_enemie_3, NULL, &pos_Wind_nom_enemie_3);
-                SDL_RenderCopy(game->render, map->enemies[rand_enemie_3].texture, NULL, &pos_Wind_enemie_3_3);
+                SDL_RenderCopy(game->render, map->enemies[rand_enemie[2]].texture, NULL, &pos_Wind_enemie_3_3);
                 break;
 
             case 4:
                 SDL_RenderCopy(game->render, texture_nom_enemie_1, NULL, &pos_Wind_nom_enemie_1);
-                SDL_RenderCopy(game->render, map->enemies[rand_enemie_1].texture, NULL, &pos_Wind_enemie_4_1);
+                SDL_RenderCopy(game->render, map->enemies[rand_enemie[0]].texture, NULL, &pos_Wind_enemie_4_1);
                 SDL_RenderCopy(game->render, texture_nom_enemie_2, NULL, &pos_Wind_nom_enemie_2);
-                SDL_RenderCopy(game->render, map->enemies[rand_enemie_2].texture, NULL, &pos_Wind_enemie_2_1);
+                SDL_RenderCopy(game->render, map->enemies[rand_enemie[1]].texture, NULL, &pos_Wind_enemie_2_1);
                 SDL_RenderCopy(game->render, texture_nom_enemie_3, NULL, &pos_Wind_nom_enemie_3);
-                SDL_RenderCopy(game->render, map->enemies[rand_enemie_3].texture, NULL, &pos_Wind_enemie_2_2);
+                SDL_RenderCopy(game->render, map->enemies[rand_enemie[2]].texture, NULL, &pos_Wind_enemie_2_2);
                 SDL_RenderCopy(game->render, texture_nom_enemie_4, NULL, &pos_Wind_nom_enemie_4);
-                SDL_RenderCopy(game->render, map->enemies[rand_enemie_4].texture, NULL, &pos_Wind_enemie_4_4);
+                SDL_RenderCopy(game->render, map->enemies[rand_enemie[3]].texture, NULL, &pos_Wind_enemie_4_4);
                 break;
             }
 

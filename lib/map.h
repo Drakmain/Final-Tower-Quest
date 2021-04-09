@@ -3,6 +3,8 @@
 
 #include "commun.h"
 
+#define NB_ENEMIES 6
+
 typedef struct image_s image_t;
 
 struct image_s

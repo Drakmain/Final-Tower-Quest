@@ -1,40 +1,47 @@
 Chevalier_squelettique :
+RGB: -1, -1, -1 ;
 PV: 50 ;
 Lame_emoussee : 3 - 5 ;
 x : -1, -1 - -1, -1, -1, -1 ;
 EXP: 20 ;
 
 Demon_squelettique :
+RGB: -1, -1, -1 ;
 PV: 60 ;
 Lame_de_feu : 4 - 5 ;
 Brulures_ardentes : 5, 4 - 5, 3, 3, 0 ;
 EXP: 30 ;
 
 Seigneur_squelettique :
+RGB: -1, -1, -1 ;
 PV: 75 ;
 Quadruple_lames : 3 - 6 ;
 Saignement : 5, 4 - 5, 3, 3, 0 ;
 EXP: 40 ;
 
 Chimera :
+RGB: -1, -1, -1 ;
 PV: 50 ;
 Coup_de_griffes : 4 - 5 ;
 Saignement : 5, 4 - 5, 3, 3, 0 ;
 EXP: 30 ;
 
 Big_grenouille :
+RGB: 255, 0, 255 ;
 PV: 200 ;
 Coup_de_griffes : 1 - 2 ;
 Lechouille : 10, -1 - -1, -1, 1, 1 ;
 EXP: 40 ;
 
 Molosse :
+RGB: 255, 0, 255 ;
 PV: 40 ;
 Morsure : 3 - 5 ;
 Saignement : 5, 4 - 5, 3, 3, 0 ;
 EXP: 30 ;
 
 Bosses\\Dragon_rouge : 3
+RGB: -1, -1, -1 ;
 PV: 250 ;
 Feu_du_dragon : 7-9 ;
 Saignement : 5%, 4 - 5, 3, 3, 0 ;
