@@ -179,7 +179,6 @@ extern void transition(game_t *game)
 
 
     rand_nb = rand()%2;
-    printf("%i",rand_nb);
     if(rand_nb == 0) {
         for (int i = 0; i < 42; i++)
         {
