@@ -53,7 +53,8 @@ int main(int argc, char **argv)
 
     FILE *file;
 
-    if (file = fopen("options.txt", "r")){
+    if ((file = fopen("options.txt", "r")))
+    {
         fclose(file);
     }
     else
@@ -114,7 +115,7 @@ int main(int argc, char **argv)
     {
         exit_with_error("Error while freeing the object character_t * character_save > main.c Line 99");
     }
-    /*
+
     if (character_exist(character_save) == SDL_TRUE)
     {
         character_save->free(&character_save);
@@ -126,9 +127,8 @@ int main(int argc, char **argv)
         {
             exit_with_error("Error while freeing the object character_t * character_save > main.c Line 100");
         }
-
     }
-    */
+
     /*--- End Free game ----------------------------------------------------------*/
 
     SDL_Quit();

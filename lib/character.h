@@ -9,10 +9,11 @@ typedef struct attack_character_s attack_character_t;
 struct attack_character_s
 {
   char *name;        /*!< A FINIR. */
-  int mana;          /*!< A FINIR. */
-  int dmg_min;       /*!< A FINIR. */
-  int dmg_max;       /*!< A FINIR. */
   char *description; /*!< A FINIR. */
+
+  int dmg_min; /*!< A FINIR. */
+  int dmg_max; /*!< A FINIR. */
+  int mana;    /*!< A FINIR. */
 };
 
 typedef struct character_s character_t;
