@@ -12,8 +12,8 @@
 #include "..\lib\character.h"
 #include "..\lib\map.h"
 #include "..\lib\town.h"
+#include "..\lib\game.h"
 
-//reglage pixel à faire
 
 /*!
  * 
@@ -23,9 +23,12 @@
  *
  */
 
-void chargement_image(load_image_t tab_load_image[])
+void chargement_image(load_image_t tab_load_image[NB_IMAGE])
 {
-	tab_load_image[0].nom_image = "src\\tileset\\Maps\\town_hitbox.bmp";
+	tab_load_image[0].nom_image = "src\\tileset\\Maps\\town_hitbox_720p.bmp";
+	tab_load_image[1].nom_image = "src\\tileset\\Maps\\town_hitbox_900p.bmp";
+	tab_load_image[2].nom_image = "src\\tileset\\Maps\\town_hitbox_1080p.bmp";
+	tab_load_image[3].nom_image = "src\\tileset\\Maps\\town_hitbox_1440p.bmp";
 
 	for (int i = 0; i < NB_IMAGE; i++)
 	{
@@ -60,7 +63,7 @@ Uint32 getpixel(SDL_Surface *surface, int x, int y)
 
 //0 --> up, 1 --> down,2 --> right,3 --> left
 
-int character_moving(SDL_Renderer *pRenderer, SDL_Surface *couleur_image, load_image_t tab_load_image[NB_IMAGE], int x, int y, int direction)
+int character_moving(game_t *game, SDL_Renderer *pRenderer, SDL_Surface *couleur_image, load_image_t tab_load_image[NB_IMAGE], int x, int y, int direction)
 {
 	Uint8 r, rg, rd, rc, g, gg, gd, gc, b, bg, bd, bc;
 	Uint32 pixel, pixelg, pixeld, pixelc;
@@ -70,10 +73,10 @@ int character_moving(SDL_Renderer *pRenderer, SDL_Surface *couleur_image, load_i
 	//printf("rc = %i, gc = %i,bc =%i\n", rc, gc, bc);
 	printf("x = %i, y = %i\n", x, y);
 	if (direction == 0)
-	{													  //Haut
-		pixel = getpixel(couleur_image, x + 68, y + 202); //Multiplier avec int pour arrondi en dessous
-		pixeld = getpixel(couleur_image, x, y + 202);
-		pixelg = getpixel(couleur_image, x + 135, y + 202);
+	{ //Haut
+		pixel = getpixel(couleur_image, x + (*game->WINDOWWIDTH) * 33 / 1280, y + (*game->WINDOWWIDTH) * 101 / 1280);
+		pixeld = getpixel(couleur_image, x, y + (*game->WINDOWWIDTH) * 101 / 1280);
+		pixelg = getpixel(couleur_image, x + (*game->WINDOWWIDTH) * 63 / 1280, y + (*game->WINDOWWIDTH) * 101 / 1280);
 		SDL_GetRGB(pixel, couleur_image->format, &r, &g, &b);
 		SDL_GetRGB(pixelg, couleur_image->format, &rg, &gg, &bg);
 		SDL_GetRGB(pixeld, couleur_image->format, &rd, &gd, &bd);
@@ -83,6 +86,7 @@ int character_moving(SDL_Renderer *pRenderer, SDL_Surface *couleur_image, load_i
 		}
 		else
 		{
+			printf("%i\n", r);
 			printf("Pas possible\n");
 			return 0;
 		}
@@ -90,18 +94,19 @@ int character_moving(SDL_Renderer *pRenderer, SDL_Surface *couleur_image, load_i
 
 	else if (direction == 1)
 	{ //Bas
-		pixel = getpixel(couleur_image, x + 68, y + 240);
-		pixeld = getpixel(couleur_image, x, y + 240);
-		pixelg = getpixel(couleur_image, x + 135, y + 240);
+		pixel = getpixel(couleur_image, x + (*game->WINDOWWIDTH) * 33 / 1280, y + (*game->WINDOWWIDTH) * 120 / 1280);
+		pixeld = getpixel(couleur_image, x, y + (*game->WINDOWWIDTH) * 120 / 1280);
+		pixelg = getpixel(couleur_image, x + (*game->WINDOWWIDTH) * 63 / 1280, y + (*game->WINDOWWIDTH) * 120 / 1280);
 		SDL_GetRGB(pixel, couleur_image->format, &r, &g, &b);
 		SDL_GetRGB(pixelg, couleur_image->format, &rg, &gg, &bg);
 		SDL_GetRGB(pixeld, couleur_image->format, &rd, &gd, &bd);
-		if (y + 220 < 4185 && r != 255 && rg != 255 && rd != 255) // && rc != 255)
+		if (y + (*game->WINDOWWIDTH) * 112 / 1280 < (*game->WINDOWWIDTH) * 2092 / 1280 && r != 255 && rg != 255 && rd != 255) // && rc != 255)
 		{
 			return 1;
 		}
 		else
 		{
+			printf("%i\n", r);
 			printf("Pas possible\n");
 			return 0;
 		}
@@ -109,18 +114,19 @@ int character_moving(SDL_Renderer *pRenderer, SDL_Surface *couleur_image, load_i
 
 	else if (direction == 2)
 	{ //Droite
-		pixel = getpixel(couleur_image, x + 165, y + 225);
-		pixeld = getpixel(couleur_image, x + 165, y + 232);
-		pixelg = getpixel(couleur_image, x + 165, y + 217);
+		pixel = getpixel(couleur_image, x + (*game->WINDOWWIDTH) * 82 / 1280, y + (*game->WINDOWWIDTH) * 108 / 1280);
+		pixeld = getpixel(couleur_image, x + (*game->WINDOWWIDTH) *  82 / 1280, y + (*game->WINDOWWIDTH) * 112 / 1280);
+		pixelg = getpixel(couleur_image, x + (*game->WINDOWWIDTH) * 82 / 1280, y + (*game->WINDOWWIDTH) * 105 / 1280);
 		SDL_GetRGB(pixel, couleur_image->format, &r, &g, &b);
 		SDL_GetRGB(pixelg, couleur_image->format, &rg, &gg, &bg);
 		SDL_GetRGB(pixeld, couleur_image->format, &rd, &gd, &bd);
-		if (x + 130 < 3660 && r != 255 && rg != 255 && rd != 255) // && rc != 255)
+		if (x + (*game->WINDOWWIDTH) * 67 / 1280 < (*game->WINDOWWIDTH) * 1830 / 1280 && r != 255 && rg != 255 && rd != 255) // && rc != 255)
 		{
 			return 1;
 		}
 		else
 		{
+			printf("%i\n", r);
 			printf("Pas possible\n");
 			return 0;
 		}
@@ -128,9 +134,9 @@ int character_moving(SDL_Renderer *pRenderer, SDL_Surface *couleur_image, load_i
 
 	else if (direction == 3)
 	{ //Gauche
-		pixel = getpixel(couleur_image, x - 15, y + 225);
-		pixeld = getpixel(couleur_image, x - 15, y + 217);
-		pixelg = getpixel(couleur_image, x - 15, y + 232);
+		pixel = getpixel(couleur_image, x - (*game->WINDOWWIDTH) * 2 / 1280, y + (*game->WINDOWWIDTH) * 108 / 1280);
+		pixeld = getpixel(couleur_image, x - (*game->WINDOWWIDTH) * 2 / 1280, y + (*game->WINDOWWIDTH) * 105 / 1280);
+		pixelg = getpixel(couleur_image, x - (*game->WINDOWWIDTH) * 2 / 1280, y + (*game->WINDOWWIDTH) * 112 / 1280);
 		SDL_GetRGB(pixel, couleur_image->format, &r, &g, &b);
 		SDL_GetRGB(pixelg, couleur_image->format, &rg, &gg, &bg);
 		SDL_GetRGB(pixeld, couleur_image->format, &rd, &gd, &bd);
@@ -140,6 +146,8 @@ int character_moving(SDL_Renderer *pRenderer, SDL_Surface *couleur_image, load_i
 		}
 		else
 		{
+			//printf("%i\n", r);
+			printf("r = %i, g = %i,b =%i\n", r, g, b);
 			printf("Pas possible\n");
 			return 0;
 		}
