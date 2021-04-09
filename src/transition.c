@@ -35,7 +35,7 @@ extern void transition(game_t *game)
 
     /*--- End Initialization Variable --------------------------------------------*/
 
-    /*--- Initialization rectangle 1 ---------------------------------------------*/
+    /*--- Creation rectangle 1 pour transition 1---------------------------------------------*/
 
     SDL_Surface *surf_rectangle1 = NULL;
     surf_rectangle1 = SDL_LoadBMP("src\\image\\rectangle.bmp");
@@ -58,7 +58,7 @@ extern void transition(game_t *game)
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Creation rectangle 2 ---------------------------------------------------*/
+    /*--- Creation rectangle 2 pour transition 1---------------------------------------------------*/
 
     SDL_Surface *surf_rectangle2 = NULL;
     surf_rectangle2 = SDL_LoadBMP("src\\image\\rectangle.bmp");
@@ -81,7 +81,7 @@ extern void transition(game_t *game)
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Creation rectangle 3 ---------------------------------------------------*/
+    /*--- Creation rectangle 3 pour transition 1---------------------------------------------------*/
 
     SDL_Surface *surf_rectangle3 = NULL;
     surf_rectangle3 = SDL_LoadBMP("src\\image\\rectangle.bmp");
@@ -104,7 +104,7 @@ extern void transition(game_t *game)
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Creation rectangle 4 ---------------------------------------------------*/
+    /*--- Creation rectangle 4 pour transition 1 ---------------------------------------------------*/
 
     SDL_Surface *surf_rectangle4 = NULL;
     surf_rectangle4 = SDL_LoadBMP("src\\image\\rectangle.bmp");
@@ -127,22 +127,96 @@ extern void transition(game_t *game)
 
     /*----------------------------------------------------------------------------*/
 
-    rand_nb = rand();
+    /*--- Creation triangle 1 pour transition 2 ---------------------------------------------------*/
 
-    for (int i = 0; i < 42; i++)
+    SDL_Surface *surf_triangle1 = NULL;
+    surf_triangle1 = SDL_LoadBMP("src\\image\\triangle1.bmp");
+    if (surf_triangle1 == NULL)
     {
-        pos_rectangle1.x += (*game->WINDOWHEIGHT) * 50 / 1080;
-        pos_rectangle2.x -= (*game->WINDOWHEIGHT) * 50 / 1080;
-        pos_rectangle3.x += (*game->WINDOWHEIGHT) * 50 / 1080;
-        pos_rectangle4.x -= (*game->WINDOWHEIGHT) * 50 / 1080;
+        SDL_ExitWithError("probleme chargement triangle1 > transition.c");
+    }
 
-        SDL_RenderCopy(game->render, rectangle1, NULL, &pos_rectangle1);
-        SDL_RenderCopy(game->render, rectangle2, NULL, &pos_rectangle2);
-        SDL_RenderCopy(game->render, rectangle3, NULL, &pos_rectangle3);
-        SDL_RenderCopy(game->render, rectangle4, NULL, &pos_rectangle4);
+    SDL_Texture *triangle1 = SDL_CreateTextureFromSurface(game->render, surf_triangle1);
+    if (triangle1 == NULL)
+    {
+        SDL_ExitWithError("probleme texture triangle1 > transition.c");
+    }
 
-        SDL_RenderPresent(game->render);
-        SDL_Delay(40);
+    SDL_Rect pos_triangle1;
+    pos_triangle1.x = -(*game->WINDOWWIDTH);
+    pos_triangle1.y = 0;
+    pos_triangle1.w = (*game->WINDOWWIDTH);
+    pos_triangle1.h = (*game->WINDOWHEIGHT);
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation triangle 2 pour transition 2 ---------------------------------------------------*/
+
+    SDL_Surface *surf_triangle2 = NULL;
+    surf_triangle2 = SDL_LoadBMP("src\\image\\triangle2.bmp");
+    if (surf_triangle2 == NULL)
+    {
+        SDL_ExitWithError("probleme chargement triangle2 > transition.c");
+    }
+
+    SDL_Texture *triangle2 = SDL_CreateTextureFromSurface(game->render, surf_triangle2);
+    if (triangle2 == NULL)
+    {
+        SDL_ExitWithError("probleme texture triangle2 > transition.c");
+    }
+
+    SDL_Rect pos_triangle2;
+    pos_triangle2.x = (*game->WINDOWWIDTH);
+    pos_triangle2.y = 0;
+    pos_triangle2.w = (*game->WINDOWWIDTH);
+    pos_triangle2.h = (*game->WINDOWHEIGHT);
+
+    /*----------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+    rand_nb = rand()%2;
+    printf("%i",rand_nb);
+    if(rand_nb == 0) {
+        for (int i = 0; i < 42; i++)
+        {
+            pos_rectangle1.x += (*game->WINDOWHEIGHT) * 50 / 1080;
+            pos_rectangle2.x -= (*game->WINDOWHEIGHT) * 50 / 1080;
+            pos_rectangle3.x += (*game->WINDOWHEIGHT) * 50 / 1080;
+            pos_rectangle4.x -= (*game->WINDOWHEIGHT) * 50 / 1080;
+
+            SDL_RenderCopy(game->render, rectangle1, NULL, &pos_rectangle1);
+            SDL_RenderCopy(game->render, rectangle2, NULL, &pos_rectangle2);
+            SDL_RenderCopy(game->render, rectangle3, NULL, &pos_rectangle3);
+            SDL_RenderCopy(game->render, rectangle4, NULL, &pos_rectangle4);
+
+            SDL_RenderPresent(game->render);
+            SDL_Delay(40);
+        }
+    }
+    else if(rand_nb == 1){
+        for (int i = 0; i < 42 ; i++)
+        {
+            pos_triangle1.x += (*game->WINDOWHEIGHT) * 50 / 1080;
+            pos_triangle2.x -= (*game->WINDOWHEIGHT) * 50 / 1080;
+
+
+            SDL_RenderCopy(game->render, triangle1, NULL, &pos_triangle1);
+            SDL_RenderCopy(game->render, triangle2, NULL, &pos_triangle2);
+
+
+            SDL_RenderPresent(game->render);
+            SDL_Delay(40);
+
+        }
+
     }
 
     /*--- Free Memory ------------------------------------------------------------*/
