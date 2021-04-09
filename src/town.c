@@ -9,6 +9,8 @@
 #include "..\lib\character.h"
 #include "..\lib\colision.h"
 #include "..\lib\menu_in_game.h"
+#include "..\lib\combat.h"
+#include "..\lib\transition.h"
 
 /*!
  *
@@ -337,6 +339,12 @@ extern void town(game_t *game, character_t *character)
                     character->update(character, game->render, character->South_Walk, pos_Wind_character);
                     render_frame(game->render);
                     South_Walk = 0;
+                }
+
+                if (keyState[SDL_SCANCODE_SPACE])
+                {
+                    transition(game);
+                    combat(game, character, town, texture_render);
                 }
             }
         }
