@@ -4,5 +4,8 @@
 # Executables
 *.exe
 
+# Options file
+options.txt
+
 # Ignore IDE specific files
 .vscode/

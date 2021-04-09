@@ -340,12 +340,6 @@ extern void town(game_t *game, character_t *character)
                     render_frame(game->render);
                     South_Walk = 0;
                 }
-
-                if (keyState[SDL_SCANCODE_SPACE])
-                {
-                    transition(game);
-                    combat(game, character, town, texture_render);
-                }
             }
         }
     }

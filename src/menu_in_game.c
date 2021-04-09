@@ -292,6 +292,7 @@ void menu_in_game(game_t *game, SDL_bool *town_bool, character_t *character, SDL
             retourner_menu = SDL_CreateTextureFromSurface(game->render, surf_retourner_menu);
 
             SDL_SetRenderTarget(game->render, texture_render_menu_ig);
+
             SDL_RenderClear(game->render);
             SDL_RenderCopy(game->render, texture_render, NULL, NULL);
             SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
@@ -303,6 +304,7 @@ void menu_in_game(game_t *game, SDL_bool *town_bool, character_t *character, SDL
             SDL_RenderCopy(game->render, retourner_menu, NULL, &pos_retourner_menu);
             SDL_SetRenderTarget(game->render, NULL);
             SDL_RenderCopy(game->render, texture_render_menu_ig, NULL, NULL);
+
             SDL_RenderPresent(game->render);
 
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)

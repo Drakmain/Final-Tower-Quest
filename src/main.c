@@ -49,7 +49,23 @@ int main(int argc, char **argv)
 
     /*--- End Print SDL & TTF Version --------------------------------------------*/
 
-    /*--- Initialization game ------------------------------------------------*/
+    /*--- Creation of options.txt ------------------------------------------------*/
+
+    FILE *file;
+
+    if (file = fopen("options.txt", "r")){
+        fclose(file);
+    }
+    else
+    {
+        file = fopen("options.txt", "a");
+        fprintf(file, "WindowResolution: 0 ;\nFullscreen: 0 ;");
+        fclose(file);
+    }
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Initialization game ----------------------------------------------------*/
 
     game_t *game = NULL;
     game = game_create();
@@ -58,7 +74,7 @@ int main(int argc, char **argv)
         exit_with_error("Cannot create a game_t object > main.c Line 58");
     }
 
-    /*--- End Initialization game --------------------------------------------*/
+    /*--- End Initialization game ------------------------------------------------*/
 
     /*--- Initialization Variable ------------------------------------------------*/
 
