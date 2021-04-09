@@ -16,7 +16,7 @@
  *
  * \file town.c
  * \brief Gestion de la map town.
- * \author Enzo BRENNUS
+ * \author Enzo BRENNUS Robin PAPILLON
  *
  */
 
@@ -56,8 +56,8 @@ extern void town(game_t *game, character_t *character)
     SDL_Event event;
 
     SDL_Rect pos_Wind_character;
-    pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560; //character->North_Walk.rect.h * MULTIPLIER;
-    pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560; //character->North_Walk.rect.w * MULTIPLIER;
+    pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     printf("PERSO : HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_character.h, pos_Wind_character.w);
     pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 2;
     pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
@@ -65,8 +65,8 @@ extern void town(game_t *game, character_t *character)
     SDL_Rect pos_Wind_town;
     pos_Wind_town.x = town->tile_set.x - (*game->WINDOWWIDTH) * 259 / 1280;
     pos_Wind_town.y = town->tile_set.y - (*game->WINDOWWIDTH) * 390 / 1280;
-    pos_Wind_town.h = town->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560; //town->tile_set.h * MULTIPLIER;
-    pos_Wind_town.w = town->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560; //town->tile_set.w * MULTIPLIER;
+    pos_Wind_town.h = town->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_town.w = town->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     printf("POUR LA MAP : HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_town.h, pos_Wind_town.w);
 
     int East_Walk = 0;
@@ -80,7 +80,7 @@ extern void town(game_t *game, character_t *character)
     {
     case WINDOWHEIGHT_720P:
         surface = SDL_LoadBMP("src\\tileset\\Maps\\town_hitbox_720p.bmp");
-        printf("ça marche bien ou quoi?");
+        printf("Resolution : 720P\n");
         if (!surface)
         {
             SDL_ExitWithError("Loading of a BMP failed > town.c Line 83");
@@ -89,7 +89,7 @@ extern void town(game_t *game, character_t *character)
 
     case WINDOWHEIGHT_900P:
         surface = SDL_LoadBMP("src\\tileset\\Maps\\town_hitbox_900p.bmp");
-        printf("ça marche PAS");
+        printf("Resolution : 900P\n");
         if (!surface)
         {
             SDL_ExitWithError("Loading of a BMP failed > town.c Line 91");
@@ -98,6 +98,7 @@ extern void town(game_t *game, character_t *character)
 
     case WINDOWHEIGHT_1080P:
         surface = SDL_LoadBMP("src\\tileset\\Maps\\town_hitbox_1080p.bmp");
+        printf("Resolution : 1080P\n");
         if (!surface)
         {
             SDL_ExitWithError("Loading of a BMP failed > town.c Line 99");
@@ -106,6 +107,7 @@ extern void town(game_t *game, character_t *character)
 
     case WINDOWHEIGHT_1440P:
         surface = SDL_LoadBMP("src\\tileset\\Maps\\town_hitbox_1440p.bmp");
+        printf("Resolution : 1440P\n");
         if (!surface)
         {
             SDL_ExitWithError("Loading of a BMP failed > town.c Line 107");
@@ -113,10 +115,8 @@ extern void town(game_t *game, character_t *character)
         break;
     }
 
-    /*int x = town->tile_set.w - (*WINDOWHEIGHT / 2);
-    int y = town->tile_set.h - (*WINDOWWIDTH / 2);*/
-    int x = (*game->WINDOWWIDTH) * 867 / 1280;//(*game->WINDOWWIDTH) * 885 / 2560; // 1280 / 720 x = 312 y = 68
-    int y = (*game->WINDOWWIDTH) * 695 / 1280;//(*game->WINDOWWIDTH) * 420 / 2560; //1920 / 1080 x = 486 y = 102
+    int x = (*game->WINDOWWIDTH) * 867 / 1280;
+    int y = (*game->WINDOWWIDTH) * 695 / 1280;
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -173,7 +173,7 @@ extern void town(game_t *game, character_t *character)
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        if (character_moving(game, game->render, tab_load_image->surface, tab_load_image, x, y, 2) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                        if (character_moving(game, game->render, surface, tab_load_image, x, y, 2) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                         {
                             break;
                         }
@@ -216,7 +216,7 @@ extern void town(game_t *game, character_t *character)
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        if (character_moving(game, game->render, tab_load_image->surface, tab_load_image, x, y, 3) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                        if (character_moving(game, game->render, surface, tab_load_image, x, y, 3) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                         {
                             break;
                         }
@@ -259,7 +259,7 @@ extern void town(game_t *game, character_t *character)
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        if (character_moving(game, game->render, tab_load_image->surface, tab_load_image, x, y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                        if (character_moving(game, game->render, surface, tab_load_image, x, y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                         {
                             break;
                         }
@@ -302,7 +302,7 @@ extern void town(game_t *game, character_t *character)
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        if (character_moving(game, game->render, tab_load_image->surface, tab_load_image, x, y, 1) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                        if (character_moving(game, game->render, surface, tab_load_image, x, y, 1) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                         {
                             break;
                         }
