@@ -3,21 +3,15 @@
 
 #include "commun.h"
 
-#define NB_IMAGE 1
-
 typedef struct image_s image_t;
 
 struct image_s
 {
-  char *nom_image; /*!< A FINIR. */
-
-  int position_x, position_y; /*!< A FINIR. */
-
-  int largeur, hauteur; /*!< A FINIR. */
-
-  SDL_Rect src, dst; /*!< A FINIR. */
-
-  SDL_Texture *texture; /*!< A FINIR. */
+  char *nom_image;
+  int position_x, position_y;
+  int largeur, hauteur;
+  SDL_Rect src, dst;
+  SDL_Texture *texture;
 };
 
 typedef struct attack_enemie_s attack_enemie_t;
@@ -82,9 +76,9 @@ struct map_s
   //test
   image_t map_image; /*!< A FINIR. */
 
-  SDL_Surface *map_couleur; /*!< A FINIR. */
+  SDL_Surface *map_couleur;
 
-  int hauteur_carte, largeur_carte; /*!< A FINIR. */
+  int hauteur_carte, largeur_carte;
 };
 
 extern map_t *map_create(SDL_Renderer *render, char *name_map);

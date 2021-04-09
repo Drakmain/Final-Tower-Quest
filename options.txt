@@ -1,2 +1,2 @@
-WindowResolution: 0 ;
-Fullscreen: 0 ;
+WindowResolution: 2 ;
+Fullscreen: 1 ;

@@ -24,7 +24,7 @@
 
 /*!
  *
- * \fn town(game_t *game, character_t *character)
+ * \fn town(game_t * game, character_t * character)
  * \brief Permet la gestion de la premier map du jeu (town).
  *
  * \param game A FINIR.
@@ -39,11 +39,11 @@ extern void town(game_t *game, character_t *character)
     SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
 
     map_t *town = NULL;
-    town = map_create(game->render, "town");
-    if (town == NULL)
-    {
-        exit_with_error("Cannot create a map_t object > town.c Line 35");
-    }
+        town = map_create(game->render, "town");
+        if (town == NULL)
+        {
+            exit_with_error("Cannot create a map_t object > town.c Line 35");
+        }
 
     SDL_bool *town_bool = malloc(sizeof(SDL_bool));
     *town_bool = SDL_TRUE;
@@ -51,30 +51,22 @@ extern void town(game_t *game, character_t *character)
     load_image_t tab_load_image[NB_IMAGE];
     chargement_image(tab_load_image);
 
-    SDL_Surface *surface = NULL;
-
-    surface = SDL_LoadBMP("src\\tileset\\Maps\\town_hitbox.bmp");
-    if (!surface)
-    {
-        SDL_ExitWithError("Loading of a BMP failed > character.c Line 123");
-    }
-
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_Event event;
 
     SDL_Rect pos_Wind_character;
-    pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
-    pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
-    printf("HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_character.h, pos_Wind_character.w);
+    pos_Wind_character.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7.5 / 2560; //character->North_Walk.rect.h * MULTIPLIER;
+    pos_Wind_character.w = character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7.5 / 2560; //character->North_Walk.rect.w * MULTIPLIER;
+    printf("PERSO : HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_character.h, pos_Wind_character.w);
     pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 2;
     pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
 
     SDL_Rect pos_Wind_town;
-    pos_Wind_town.x = town->tile_set.x + 0;
-    pos_Wind_town.y = town->tile_set.y - 1000;
-    pos_Wind_town.h = town->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
-    pos_Wind_town.w = town->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
+    pos_Wind_town.x = town->tile_set.x - (*game->WINDOWWIDTH) * 259 / 1280;
+    pos_Wind_town.y = town->tile_set.y - (*game->WINDOWWIDTH) * 390 / 1280;
+    pos_Wind_town.h = town->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560; //town->tile_set.h * MULTIPLIER;
+    pos_Wind_town.w = town->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560; //town->tile_set.w * MULTIPLIER;
     printf("POUR LA MAP : HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_town.h, pos_Wind_town.w);
 
     int East_Walk = 0;
@@ -82,10 +74,49 @@ extern void town(game_t *game, character_t *character)
     int South_Walk = 0;
     int North_Walk = 0;
 
+    SDL_Surface *surface = NULL;
+
+    switch (*game->WINDOWHEIGHT)
+    {
+    case WINDOWHEIGHT_720P:
+        surface = SDL_LoadBMP("src\\tileset\\Maps\\town_hitbox_720p.bmp");
+        printf("ça marche bien ou quoi?");
+        if (!surface)
+        {
+            SDL_ExitWithError("Loading of a BMP failed > town.c Line 83");
+        }
+        break;
+
+    case WINDOWHEIGHT_900P:
+        surface = SDL_LoadBMP("src\\tileset\\Maps\\town_hitbox_900p.bmp");
+        printf("ça marche PAS");
+        if (!surface)
+        {
+            SDL_ExitWithError("Loading of a BMP failed > town.c Line 91");
+        }
+        break;
+
+    case WINDOWHEIGHT_1080P:
+        surface = SDL_LoadBMP("src\\tileset\\Maps\\town_hitbox_1080p.bmp");
+        if (!surface)
+        {
+            SDL_ExitWithError("Loading of a BMP failed > town.c Line 99");
+        }
+        break;
+
+    case WINDOWHEIGHT_1440P:
+        surface = SDL_LoadBMP("src\\tileset\\Maps\\town_hitbox_1440p.bmp");
+        if (!surface)
+        {
+            SDL_ExitWithError("Loading of a BMP failed > town.c Line 107");
+        }
+        break;
+    }
+
     /*int x = town->tile_set.w - (*WINDOWHEIGHT / 2);
     int y = town->tile_set.h - (*WINDOWWIDTH / 2);*/
-    int x = 885 - 200;  //885; // 1280 / 720 x = 312 y = 68
-    int y = 420 + 1000; //420; //1920 / 1080 x = 486 y = 102
+    int x = (*game->WINDOWWIDTH) * 867 / 1280;//(*game->WINDOWWIDTH) * 885 / 2560; // 1280 / 720 x = 312 y = 68
+    int y = (*game->WINDOWWIDTH) * 695 / 1280;//(*game->WINDOWWIDTH) * 420 / 2560; //1920 / 1080 x = 486 y = 102
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -96,15 +127,6 @@ extern void town(game_t *game, character_t *character)
 
     SDL_RenderPresent(game->render);
 
-    SDL_SetRenderTarget(game->render, texture_render);
-
-    SDL_RenderClear(game->render);
-
-    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
-    SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
-
-    SDL_SetRenderTarget(game->render, NULL);
-
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (*game->program_launch && *town_bool)
@@ -114,6 +136,15 @@ extern void town(game_t *game, character_t *character)
             while ((*game->program_launch && *town_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
                 SDL_PollEvent(&event);
+
+                SDL_SetRenderTarget(game->render, texture_render);
+
+                SDL_RenderClear(game->render);
+
+                SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
+                SDL_RenderCopy(game->render, character->texture, &character->mov, &pos_Wind_character);
+
+                SDL_SetRenderTarget(game->render, NULL);
 
                 /*--- Event to Exit Program ------------------------------------------*/
 
@@ -129,29 +160,20 @@ extern void town(game_t *game, character_t *character)
                 if (keyState[SDL_SCANCODE_ESCAPE])
                 {
                     menu_in_game(game, town_bool, character, texture_render);
+
+                    texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
+
                     while (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
                         SDL_PollEvent(&event);
                 }
 
                 /*--- End Event to enter in game menu --------------------------------*/
 
-                if (keyState[SDL_SCANCODE_SPACE])
-                {
-                    transition(game);
-                    combat(game, character, town, texture_render);
-                }
-
-                SDL_RenderClear(game->render);
-
-                SDL_RenderCopy(game->render, texture_render, NULL, NULL);
-
-                SDL_RenderPresent(game->render);
-
                 while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        if (character_moving(game->render, tab_load_image->surface, tab_load_image, x, y, 2) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                        if (character_moving(game, game->render, tab_load_image->surface, tab_load_image, x, y, 2) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                         {
                             break;
                         }
@@ -162,7 +184,7 @@ extern void town(game_t *game, character_t *character)
                             frame_start = SDL_GetTicks();
 
                             pos_Wind_town.x -= (*game->WINDOWWIDTH) * 25 / 2560;
-                            x -= 25;
+                            x += (*game->WINDOWWIDTH) * 25 / 2560;
 
                             town->update(town, game->render, town->tile_set, pos_Wind_town);
 
@@ -187,16 +209,6 @@ extern void town(game_t *game, character_t *character)
                     town->update(town, game->render, town->tile_set, pos_Wind_town);
                     character->update(character, game->render, character->East_Walk, pos_Wind_character);
                     render_frame(game->render);
-
-                    SDL_SetRenderTarget(game->render, texture_render);
-
-                    SDL_RenderClear(game->render);
-
-                    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
-                    SDL_RenderCopy(game->render, character->texture, &character->East_Walk.rect, &pos_Wind_character);
-
-                    SDL_SetRenderTarget(game->render, NULL);
-
                     East_Walk = 0;
                 }
 
@@ -204,7 +216,7 @@ extern void town(game_t *game, character_t *character)
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        if (character_moving(game->render, tab_load_image->surface, tab_load_image, x, y, 3) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                        if (character_moving(game, game->render, tab_load_image->surface, tab_load_image, x, y, 3) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                         {
                             break;
                         }
@@ -215,7 +227,7 @@ extern void town(game_t *game, character_t *character)
                             frame_start = SDL_GetTicks();
 
                             pos_Wind_town.x += (*game->WINDOWWIDTH) * 25 / 2560;
-                            x += 25;
+                            x -= (*game->WINDOWWIDTH) * 25 / 2560;
 
                             town->update(town, game->render, town->tile_set, pos_Wind_town);
 
@@ -240,16 +252,6 @@ extern void town(game_t *game, character_t *character)
                     town->update(town, game->render, town->tile_set, pos_Wind_town);
                     character->update(character, game->render, character->West_Walk, pos_Wind_character);
                     render_frame(game->render);
-
-                    SDL_SetRenderTarget(game->render, texture_render);
-
-                    SDL_RenderClear(game->render);
-
-                    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
-                    SDL_RenderCopy(game->render, character->texture, &character->West_Walk.rect, &pos_Wind_character);
-
-                    SDL_SetRenderTarget(game->render, NULL);
-
                     West_Walk = 0;
                 }
 
@@ -257,7 +259,7 @@ extern void town(game_t *game, character_t *character)
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        if (character_moving(game->render, tab_load_image->surface, tab_load_image, x, y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                        if (character_moving(game, game->render, tab_load_image->surface, tab_load_image, x, y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                         {
                             break;
                         }
@@ -268,7 +270,7 @@ extern void town(game_t *game, character_t *character)
                             frame_start = SDL_GetTicks();
 
                             pos_Wind_town.y += (*game->WINDOWWIDTH) * 25 / 2560;
-                            y += 25;
+                            y -= (*game->WINDOWWIDTH) * 25 / 2560;
 
                             town->update(town, game->render, town->tile_set, pos_Wind_town);
 
@@ -293,16 +295,6 @@ extern void town(game_t *game, character_t *character)
                     town->update(town, game->render, town->tile_set, pos_Wind_town);
                     character->update(character, game->render, character->North_Walk, pos_Wind_character);
                     render_frame(game->render);
-
-                    SDL_SetRenderTarget(game->render, texture_render);
-
-                    SDL_RenderClear(game->render);
-
-                    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
-                    SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
-
-                    SDL_SetRenderTarget(game->render, NULL);
-
                     North_Walk = 0;
                 }
 
@@ -310,7 +302,7 @@ extern void town(game_t *game, character_t *character)
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        if (character_moving(game->render, tab_load_image->surface, tab_load_image, x, y, 1) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                        if (character_moving(game, game->render, tab_load_image->surface, tab_load_image, x, y, 1) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                         {
                             break;
                         }
@@ -321,7 +313,7 @@ extern void town(game_t *game, character_t *character)
                             frame_start = SDL_GetTicks();
 
                             pos_Wind_town.y -= (*game->WINDOWWIDTH) * 25 / 2560;
-                            y -= 25;
+                            y += (*game->WINDOWWIDTH) * 25 / 2560;
 
                             town->update(town, game->render, town->tile_set, pos_Wind_town);
 
@@ -346,17 +338,13 @@ extern void town(game_t *game, character_t *character)
                     town->update(town, game->render, town->tile_set, pos_Wind_town);
                     character->update(character, game->render, character->South_Walk, pos_Wind_character);
                     render_frame(game->render);
-
-                    SDL_SetRenderTarget(game->render, texture_render);
-
-                    SDL_RenderClear(game->render);
-
-                    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
-                    SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
-
-                    SDL_SetRenderTarget(game->render, NULL);
-
                     South_Walk = 0;
+                }
+
+                if (keyState[SDL_SCANCODE_SPACE])
+                {
+                    transition(game);
+                    combat(game, character, town, texture_render);
                 }
             }
         }
