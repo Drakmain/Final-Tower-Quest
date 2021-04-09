@@ -168,7 +168,6 @@ extern void floor_1(game_t *game, character_t *character)
                         {
                             SDL_ExitWithError("Unable to clear rendering > floor_1.c Line 102");
                         }
-
                     }
 
                     SDL_PollEvent(&event);
@@ -307,7 +306,6 @@ extern void floor_1(game_t *game, character_t *character)
                         {
                             SDL_ExitWithError("Unable to clear rendering > floor_1.c Line 189");
                         }
-
                     }
 
                     SDL_PollEvent(&event);

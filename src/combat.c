@@ -66,7 +66,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     /*--- Initialization ennemis -------------------------------------------------*/
 
     nb_enemie_combat = rand() % 4 + 1;
-    
+
     for (int i = 0; i < 4; i++)
     {
         rand_enemie[i] = rand() % NB_ENEMIES;
