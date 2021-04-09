@@ -71,38 +71,41 @@ $(document).ready(function(){initNavTree('character_8c.html',''); initResizable(
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;..\lib\character.h&quot;</code><br />
+<code>#include &quot;..\lib\attaques.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de character.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="character_8c__incl.png" border="0" usemap="#asrc_2character_8c" alt=""/></div>
 <map name="asrc_2character_8c" id="asrc_2character_8c">
-<area shape="rect" title="Gestion de l&#39;objet character." alt="" coords="112,5,221,32"/>
+<area shape="rect" title="Gestion de l&#39;objet character." alt="" coords="157,5,267,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" title=" " alt="" coords="179,80,245,107"/>
-<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="269,80,385,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="285,229,368,256"/>
-<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="331,155,389,181"/>
-<area shape="rect" title=" " alt="" coords="205,304,264,331"/>
-<area shape="rect" title=" " alt="" coords="289,304,365,331"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="389,304,477,331"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="223,155,339,181"/>
+<area shape="rect" href="attaques_8h_source.html" title=" " alt="" coords="321,80,433,107"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="303,304,385,331"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="281,229,340,256"/>
+<area shape="rect" title=" " alt="" coords="223,379,281,405"/>
+<area shape="rect" title=" " alt="" coords="306,379,382,405"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="407,379,495,405"/>
+<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="415,229,481,256"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ad755cfed6ecb51c29baa6e4b685c1416"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416">character_update</a> (<a class="el" href="structcharacter__t.html">character_t</a> *character, SDL_Renderer *render, <a class="el" href="structtile__set__t.html">tile_set_t</a> base_rect, SDL_Rect pos_wind_rect)</td></tr>
-<tr class="memdesc:ad755cfed6ecb51c29baa6e4b685c1416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la mise a jour d'un objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>.  <a href="character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ad755cfed6ecb51c29baa6e4b685c1416"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a528221c16bc3157d8f838553c3791118"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a528221c16bc3157d8f838553c3791118">character_free</a> (<a class="el" href="structcharacter__t.html">character_t</a> **character)</td></tr>
-<tr class="memdesc:a528221c16bc3157d8f838553c3791118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la liberation d'un objet character.  <a href="character_8c.html#a528221c16bc3157d8f838553c3791118">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a528221c16bc3157d8f838553c3791118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aa53f831bd180854f66afae62951449"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a8aa53f831bd180854f66afae62951449">character_update</a> (<a class="el" href="structcharacter__t.html">character_t</a> *character, SDL_Renderer *render, <a class="el" href="structtile__set__t.html">tile_set_t</a> base_rect, SDL_Rect pos_wind_rect)</td></tr>
+<tr class="memdesc:a8aa53f831bd180854f66afae62951449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la mise a jour d'un objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>.  <a href="character_8c.html#a8aa53f831bd180854f66afae62951449">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8aa53f831bd180854f66afae62951449"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a135c00d42695fdf969e43501859df59c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a135c00d42695fdf969e43501859df59c">character_free</a> (<a class="el" href="structcharacter__t.html">character_t</a> **character)</td></tr>
+<tr class="memdesc:a135c00d42695fdf969e43501859df59c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la liberation d'un objet character.  <a href="character_8c.html#a135c00d42695fdf969e43501859df59c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a135c00d42695fdf969e43501859df59c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5c3090e483c66af771cdb96e0f0deec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcharacter__t.html">character_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#ae5c3090e483c66af771cdb96e0f0deec">character_create</a> (SDL_Renderer *render, char *file_name_save)</td></tr>
 <tr class="memdesc:ae5c3090e483c66af771cdb96e0f0deec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la creation du l'objet character.  <a href="character_8c.html#ae5c3090e483c66af771cdb96e0f0deec">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ae5c3090e483c66af771cdb96e0f0deec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e4bd763a6cfcaa857a55d8b6a382a09"><td class="memItemLeft" align="right" valign="top">SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a2e4bd763a6cfcaa857a55d8b6a382a09">character_exist</a> (<a class="el" href="structcharacter__t.html">character_t</a> *const character)</td></tr>
-<tr class="memdesc:a2e4bd763a6cfcaa857a55d8b6a382a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de verifier l'existence du l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>.  <a href="character_8c.html#a2e4bd763a6cfcaa857a55d8b6a382a09">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a2e4bd763a6cfcaa857a55d8b6a382a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95825cd24e90239e523b79852824afa1"><td class="memItemLeft" align="right" valign="top">SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character_8c.html#a95825cd24e90239e523b79852824afa1">character_exist</a> (<a class="el" href="structcharacter__t.html">character_t</a> *const character)</td></tr>
+<tr class="memdesc:a95825cd24e90239e523b79852824afa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de verifier l'existence du l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>.  <a href="character_8c.html#a95825cd24e90239e523b79852824afa1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a95825cd24e90239e523b79852824afa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Gestion de l'objet character. </p>
@@ -155,8 +158,8 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="center"><img src="character_8c_ae5c3090e483c66af771cdb96e0f0deec_cgraph.png" border="0" usemap="#acharacter_8c_ae5c3090e483c66af771cdb96e0f0deec_cgraph" alt=""/></div>
 <map name="acharacter_8c_ae5c3090e483c66af771cdb96e0f0deec_cgraph" id="acharacter_8c_ae5c3090e483c66af771cdb96e0f0deec_cgraph">
 <area shape="rect" title="Permet la creation du l&#39;objet character." alt="" coords="5,81,124,108"/>
-<area shape="rect" href="character_8c.html#a528221c16bc3157d8f838553c3791118" title="Permet la liberation d&#39;un objet character." alt="" coords="181,5,285,32"/>
-<area shape="rect" href="character_8c.html#ad755cfed6ecb51c29baa6e4b685c1416" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="172,56,295,83"/>
+<area shape="rect" href="character_8c.html#a135c00d42695fdf969e43501859df59c" title="Permet la liberation d&#39;un objet character." alt="" coords="181,5,285,32"/>
+<area shape="rect" href="character_8c.html#a8aa53f831bd180854f66afae62951449" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="172,56,295,83"/>
 <area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="343,81,475,108"/>
 <area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="180,157,287,184"/>
 </map>
@@ -176,14 +179,14 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
-<a id="a2e4bd763a6cfcaa857a55d8b6a382a09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e4bd763a6cfcaa857a55d8b6a382a09">&#9670;&nbsp;</a></span>character_exist()</h2>
+<a id="a95825cd24e90239e523b79852824afa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95825cd24e90239e523b79852824afa1">&#9670;&nbsp;</a></span>character_exist()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SDL_bool character_exist </td>
+          <td class="memname">character_exist </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structcharacter__t.html">character_t</a> *const&#160;</td>
           <td class="paramname"><em>character</em></td><td>)</td>
@@ -208,8 +211,8 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
-<a id="a528221c16bc3157d8f838553c3791118"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a528221c16bc3157d8f838553c3791118">&#9670;&nbsp;</a></span>character_free()</h2>
+<a id="a135c00d42695fdf969e43501859df59c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a135c00d42695fdf969e43501859df59c">&#9670;&nbsp;</a></span>character_free()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,7 +221,7 @@ Voici le graphe des appelants de cette fonction :</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void character_free </td>
+          <td class="memname">character_free </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structcharacter__t.html">character_t</a> **&#160;</td>
           <td class="paramname"><em>character</em></td><td>)</td>
@@ -242,8 +245,8 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="character_8c_a528221c16bc3157d8f838553c3791118_icgraph.png" border="0" usemap="#acharacter_8c_a528221c16bc3157d8f838553c3791118_icgraph" alt=""/></div>
-<map name="acharacter_8c_a528221c16bc3157d8f838553c3791118_icgraph" id="acharacter_8c_a528221c16bc3157d8f838553c3791118_icgraph">
+<div class="center"><img src="character_8c_a135c00d42695fdf969e43501859df59c_icgraph.png" border="0" usemap="#acharacter_8c_a135c00d42695fdf969e43501859df59c_icgraph" alt=""/></div>
+<map name="acharacter_8c_a135c00d42695fdf969e43501859df59c_icgraph" id="acharacter_8c_a135c00d42695fdf969e43501859df59c_icgraph">
 <area shape="rect" title="Permet la liberation d&#39;un objet character." alt="" coords="587,56,691,83"/>
 <area shape="rect" href="character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="420,56,539,83"/>
 <area shape="rect" href="charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702" title="Fonction qui permet le chargement d&#39;une partie." alt="" coords="256,5,371,32"/>
@@ -255,8 +258,8 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
-<a id="ad755cfed6ecb51c29baa6e4b685c1416"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad755cfed6ecb51c29baa6e4b685c1416">&#9670;&nbsp;</a></span>character_update()</h2>
+<a id="a8aa53f831bd180854f66afae62951449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aa53f831bd180854f66afae62951449">&#9670;&nbsp;</a></span>character_update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +268,7 @@ Voici le graphe des appelants de cette fonction :</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void character_update </td>
+          <td class="memname">character_update </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structcharacter__t.html">character_t</a> *&#160;</td>
           <td class="paramname"><em>character</em>, </td>
@@ -314,8 +317,8 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="character_8c_ad755cfed6ecb51c29baa6e4b685c1416_cgraph.png" border="0" usemap="#acharacter_8c_ad755cfed6ecb51c29baa6e4b685c1416_cgraph" alt=""/></div>
-<map name="acharacter_8c_ad755cfed6ecb51c29baa6e4b685c1416_cgraph" id="acharacter_8c_ad755cfed6ecb51c29baa6e4b685c1416_cgraph">
+<div class="center"><img src="character_8c_a8aa53f831bd180854f66afae62951449_cgraph.png" border="0" usemap="#acharacter_8c_a8aa53f831bd180854f66afae62951449_cgraph" alt=""/></div>
+<map name="acharacter_8c_a8aa53f831bd180854f66afae62951449_cgraph" id="acharacter_8c_a8aa53f831bd180854f66afae62951449_cgraph">
 <area shape="rect" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="5,5,128,32"/>
 <area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="176,5,308,32"/>
 </map>
@@ -323,8 +326,8 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="character_8c_ad755cfed6ecb51c29baa6e4b685c1416_icgraph.png" border="0" usemap="#acharacter_8c_ad755cfed6ecb51c29baa6e4b685c1416_icgraph" alt=""/></div>
-<map name="acharacter_8c_ad755cfed6ecb51c29baa6e4b685c1416_icgraph" id="acharacter_8c_ad755cfed6ecb51c29baa6e4b685c1416_icgraph">
+<div class="center"><img src="character_8c_a8aa53f831bd180854f66afae62951449_icgraph.png" border="0" usemap="#acharacter_8c_a8aa53f831bd180854f66afae62951449_icgraph" alt=""/></div>
+<map name="acharacter_8c_a8aa53f831bd180854f66afae62951449_icgraph" id="acharacter_8c_a8aa53f831bd180854f66afae62951449_icgraph">
 <area shape="rect" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="587,56,709,83"/>
 <area shape="rect" href="character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="420,56,539,83"/>
 <area shape="rect" href="charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702" title="Fonction qui permet le chargement d&#39;une partie." alt="" coords="256,5,371,32"/>

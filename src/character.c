@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "..\lib\character.h"
+#include "..\lib\attaques.h"
 
 /*!
  *
@@ -28,7 +29,7 @@
 
 /*!
  *
- * \fn void character_update(character_t * character, SDL_Renderer * render, tile_set_t base_rect, SDL_Rect pos_wind_rect)
+ * \fn character_update(character_t *character, SDL_Renderer *render, tile_set_t base_rect, SDL_Rect pos_wind_rect)
  * \brief Permet la mise a jour d'un objet character_t.
  *
  * \param character est un pointeur sur un objet character_t.
@@ -58,7 +59,7 @@ static void character_update(character_t *character, SDL_Renderer *render, tile_
 
 /*!
  *
- * \fn void character_free(character_t ** character)
+ * \fn character_free(character_t ** character)
  * \brief Permet la liberation d'un objet character.
  *
  * \param character est un objet character_t qui doit etre libéré.
@@ -79,7 +80,7 @@ static void character_free(character_t **character)
     free((*character)->classe_name);
     free((*character)->position);
 
-    for (int i = 0; i < 13; i++)
+    for (int i = 0; i < NB_ATTACKS; i++)
     {
         free((*character)->attacks[i].name);
         free((*character)->attacks[i].description);
@@ -111,7 +112,7 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
     character_t *character = NULL;
     character = malloc(sizeof(character_t));
 
-    character->attacks = malloc(sizeof(attack_t) * 13);
+    character->attacks = malloc(sizeof(attack_t) * NB_ATTACKS);
 
     character->file_name_txt = NULL;
     character->file_name_txt = malloc(sizeof(char) * 50);
@@ -124,6 +125,7 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
     character->file_name_save = NULL;
     character->file_name_save = malloc(sizeof(char) * 50);
     strcpy(character->file_name_save, file_name_save);
+    character->file_name_save = (char *)realloc(character->file_name_save, strlen(character->file_name_save) * sizeof(char) + 1);
 
     character->empty = SDL_FALSE;
 
@@ -136,12 +138,10 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
     character->position = NULL;
     character->position = malloc(sizeof(char) * 20);
 
-    for (int i = 0; i < 13; i++)
+    for (int i = 0; i < NB_ATTACKS; i++)
     {
         character->attacks[i].name = calloc(50, sizeof(char));
-        strcpy(character->attacks[i].name, "name");
         character->attacks[i].description = calloc(100, sizeof(char));
-        strcpy(character->attacks[i].description, "desc");
     }
 
     character->texture = NULL;
@@ -159,6 +159,8 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
     }
 
     fscanf(file, "%*s %s ;\n", character->save_name);
+    character->save_name = (char *)realloc(character->save_name, strlen(character->save_name) * sizeof(char) + 1);
+
     if (strcmp(character->save_name, ";") == 0)
     {
         character->empty = SDL_TRUE;
@@ -167,8 +169,11 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
     else
     {
         fscanf(file, "%*s %s ;\n", character->classe_name);
+        character->classe_name = (char *)realloc(character->classe_name, strlen(character->classe_name) * sizeof(char) + 1);
 
         fscanf(file, "%*s %s ;\n", character->position);
+        character->position = (char *)realloc(character->position, strlen(character->position) * sizeof(char) + 1);
+
         fscanf(file, "%*s %i ;\n", &character->x);
         fscanf(file, "%*s %i ;\n", &character->y);
 
@@ -205,6 +210,7 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
 
         strcat(character->file_name_txt, character->classe_name);
         strcat(character->file_name_txt, ".txt");
+        character->file_name_txt = (char *)realloc(character->file_name_txt, strlen(character->file_name_txt) * sizeof(char) + 1);
 
         file = fopen(character->file_name_txt, "r");
         if (file == NULL)
@@ -222,9 +228,9 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
         fscanf(file, "Dead:         %i, %i, %i, %i;\n", &character->Dead.x, &character->Dead.y, &character->Dead.w, &character->Dead.h);
 
         fscanf(file, "Niveau 1:\n%s , %i, %i - %i, %s ;\n%s , %i, %i - %i, %s ;\n%s , %i, %i - %i, %s ;\n",
-                      character->attacks[0].name, &character->attacks[0].mana, &character->attacks[0].dmg_min, &character->attacks[0].dmg_max, character->attacks[0].description,
-                      character->attacks[1].name, &character->attacks[1].mana, &character->attacks[1].dmg_min, &character->attacks[1].dmg_max, character->attacks[1].description,
-                      character->attacks[2].name, &character->attacks[2].mana, &character->attacks[2].dmg_min, &character->attacks[2].dmg_max, character->attacks[2].description);
+               character->attacks[0].name, &character->attacks[0].mana, &character->attacks[0].dmg_min, &character->attacks[0].dmg_max, character->attacks[0].description,
+               character->attacks[1].name, &character->attacks[1].mana, &character->attacks[1].dmg_min, &character->attacks[1].dmg_max, character->attacks[1].description,
+               character->attacks[2].name, &character->attacks[2].mana, &character->attacks[2].dmg_min, &character->attacks[2].dmg_max, character->attacks[2].description);
         fscanf(file, "Niveau 5: %s , %i, %i - %i, %s ;\n", character->attacks[3].name, &character->attacks[3].mana, &character->attacks[3].dmg_min, &character->attacks[3].dmg_max, character->attacks[3].description);
         fscanf(file, "Niveau 10: %s , %i, %i - %i, %s ;\n", character->attacks[4].name, &character->attacks[4].mana, &character->attacks[4].dmg_min, &character->attacks[4].dmg_max, character->attacks[4].description);
         fscanf(file, "Niveau 15: %s , %i, %i - %i, %s ;\n", character->attacks[5].name, &character->attacks[5].mana, &character->attacks[5].dmg_min, &character->attacks[5].dmg_max, character->attacks[5].description);
@@ -238,12 +244,19 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
 
         fclose(file);
 
+        for (int i = 0; i < NB_ATTACKS; i++)
+        {
+            character->attacks[i].name = (char *)realloc(character->attacks[i].name, strlen(character->attacks[i].name) * sizeof(char) + 1);
+            character->attacks[i].description = (char *)realloc(character->attacks[i].description, strlen(character->attacks[i].description) * sizeof(char) + 1);
+        }
+
         /*----------------------------------------------------------------------------*/
 
         /*--- Open bmp file ----------------------------------------------------------*/
 
         strcat(character->file_name_bmp, character->classe_name);
         strcat(character->file_name_bmp, ".bmp");
+        character->file_name_bmp = (char *)realloc(character->file_name_bmp, strlen(character->file_name_bmp) * sizeof(char) + 1);
 
         character->surface = SDL_LoadBMP(character->file_name_bmp);
         if (!character->surface)
@@ -274,7 +287,7 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
 
 /*!
  *
- * \fn SDL_bool character_exist(character_t * const character)
+ * \fn character_exist(character_t * const character)
  * \brief Permet de verifier l'existence du l'objet character_t.
  *
  * \param character est un pointeur sur un objet character_t.

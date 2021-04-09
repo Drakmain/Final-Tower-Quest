@@ -17,7 +17,7 @@
 
 /*!
  *
- * \fn menu_accueil(game_t * game, char * actual_save)
+ * \fn menu_accueil(game_t *game, char *actual_save)
  * \brief Fonction de gestion du menu d'accueil du jeu.
  *
  * \param game A FINIR.

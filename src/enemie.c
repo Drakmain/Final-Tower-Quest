@@ -98,6 +98,7 @@ extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies, in
     }
 
     strcpy(enemie->name, enemies[enemei_rand]);
+    enemie->name = (char *)realloc(enemie->name, strlen(enemie->name) * sizeof(char) + 1);
 
     fclose(file);
 
@@ -107,6 +108,7 @@ extern enemie_t *enemie_create(SDL_Renderer *render, char *file_name_enemies, in
 
     strcat(enemie->file_name_bmp, enemie->name);
     strcat(enemie->file_name_bmp, ".bmp");
+    enemie->file_name_bmp = (char *)realloc(enemie->file_name_bmp, strlen(enemie->file_name_bmp) * sizeof(char) + 1);
 
     enemie->surface = SDL_LoadBMP(enemie->file_name_bmp);
     if (!enemie->surface)

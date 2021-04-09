@@ -4,10 +4,6 @@
 
 #include "..\lib\transition.h"
 
-#include "..\lib\frame.h"
-#include "..\lib\map.h"
-#include "..\lib\combat.h"
-
 /*!
  *
  * \file transition.c
@@ -218,6 +214,8 @@ extern void transition(game_t *game)
         }
 
     }
+
+    SDL_RenderPresent(game->render);
 
     /*--- Free Memory ------------------------------------------------------------*/
 

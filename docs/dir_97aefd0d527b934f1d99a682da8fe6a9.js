@@ -1,5 +1,6 @@
 var dir_97aefd0d527b934f1d99a682da8fe6a9 =
 [
+    [ "affichage_message.h", "affichage__message_8h_source.html", null ],
     [ "attaques.h", "attaques_8h_source.html", null ],
     [ "caracteristiques.h", "caracteristiques_8h_source.html", null ],
     [ "character.h", "character_8h_source.html", null ],
@@ -19,8 +20,10 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "nom_sauvegarde.h", "nom__sauvegarde_8h_source.html", null ],
     [ "nouvelle_partie.h", "nouvelle__partie_8h_source.html", null ],
     [ "options.h", "options_8h_source.html", null ],
+    [ "sac.h", "sac_8h_source.html", null ],
     [ "sauvegarder.h", "sauvegarder_8h_source.html", null ],
     [ "texte_confirmation.h", "texte__confirmation_8h_source.html", null ],
     [ "tower.h", "tower_8h_source.html", null ],
-    [ "town.h", "town_8h_source.html", null ]
+    [ "town.h", "town_8h_source.html", null ],
+    [ "transition.h", "transition_8h_source.html", null ]
 ];

@@ -5,6 +5,6 @@
 
 #include "game.h"
 
-void menu_commandes(game_t * game, SDL_Texture * texture, SDL_bool *echap_relache);
+void menu_commandes(game_t *game, SDL_Texture *texture, SDL_bool *echap_relache);
 
 #endif

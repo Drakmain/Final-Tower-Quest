@@ -32,7 +32,6 @@
 
 int main(int argc, char **argv)
 {
-
     /*--- Print SDL & TTF Version ------------------------------------------------*/
 
     printf("/*--- Startup SDL -------*/\n");

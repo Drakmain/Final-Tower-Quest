@@ -18,7 +18,7 @@
 
 /*!
  *
- * \fn nouvelle_partie_f(game_t * game, char * actual_save)
+ * \fn nouvelle_partie_f(game_t *game, char *actual_save)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -29,7 +29,7 @@
 extern void nouvelle_partie_f(game_t *game, char *actual_save)
 {
     /*--- Initialization variable ----------------------------------------------------*/
-    
+
     SDL_Color blanc = {255, 255, 255};
     SDL_Color rouge = {255, 0, 0};
 

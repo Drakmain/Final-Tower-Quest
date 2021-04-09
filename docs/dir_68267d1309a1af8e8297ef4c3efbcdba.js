@@ -1,11 +1,13 @@
 var dir_68267d1309a1af8e8297ef4c3efbcdba =
 [
+    [ "affichage_message.c", "affichage__message_8c.html", "affichage__message_8c" ],
     [ "attaques.c", "attaques_8c.html", "attaques_8c" ],
     [ "caracteristiques.c", "caracteristiques_8c.html", "caracteristiques_8c" ],
     [ "character.c", "character_8c.html", "character_8c" ],
     [ "charger_partie.c", "charger__partie_8c.html", "charger__partie_8c" ],
     [ "colision.c", "colision_8c.html", "colision_8c" ],
     [ "combat.c", "combat_8c.html", "combat_8c" ],
+    [ "commandes.c", "commandes_8c.html", "commandes_8c" ],
     [ "creation_perso.c", "creation__perso_8c.html", "creation__perso_8c" ],
     [ "enemie.c", "enemie_8c.html", "enemie_8c" ],
     [ "error.c", "error_8c.html", "error_8c" ],
@@ -18,8 +20,10 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "nom_sauvegarde.c", "nom__sauvegarde_8c.html", "nom__sauvegarde_8c" ],
     [ "nouvelle_partie.c", "nouvelle__partie_8c.html", "nouvelle__partie_8c" ],
     [ "options.c", "options_8c.html", "options_8c" ],
+    [ "sac.c", "sac_8c.html", "sac_8c" ],
     [ "sauvegarder.c", "sauvegarder_8c.html", "sauvegarder_8c" ],
     [ "texte_confirmation.c", "texte__confirmation_8c.html", "texte__confirmation_8c" ],
     [ "tower.c", "tower_8c.html", "tower_8c" ],
-    [ "town.c", "town_8c.html", "town_8c" ]
+    [ "town.c", "town_8c.html", "town_8c" ],
+    [ "transition.c", "transition_8c.html", "transition_8c" ]
 ];

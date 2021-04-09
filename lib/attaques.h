@@ -5,7 +5,8 @@
 
 #include "game.h"
 #include "character.h"
-#include "map.h"
+
+#define NB_ATTACKS 13 /*!< A FINIR. */
 
 extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_render_combat);
 

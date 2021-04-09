@@ -1,24 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <SDL_image.h>
 
 #include "..\lib\tower.h"
 
 #include "..\lib\frame.h"
 #include "..\lib\map.h"
 #include "..\lib\character.h"
+#include "..\lib\colision.h"
+#include "..\lib\menu_in_game.h"
+#include "..\lib\combat.h"
+#include "..\lib\transition.h"
 
 /*!
  *
  * \file tower.c
  * \brief Gestion de la map tower.
  * \author Enzo BRENNUS
- * \date 18/02/21
  *
  */
 
 /*!
  *
- * \fn tower(game_t * game, character_t * character)
+ * \fn tower(game_t *game, character_t *character)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -31,7 +35,7 @@ extern void tower(game_t *game, character_t *character)
     /*--- Initialization Variable ------------------------------------------------*/
 
     map_t *tower = NULL;
-    tower = map_create(game->render, "src\\tileset\\Maps\\tower.bmp", "src\\tileset\\Maps\\tower.txt");
+    tower = map_create(game->render, "tower");
     if (tower == NULL)
     {
         exit_with_error("Cannot create a map_t object > tower.c Line 36");

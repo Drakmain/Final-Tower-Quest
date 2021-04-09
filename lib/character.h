@@ -8,11 +8,11 @@ typedef struct attack_s attack_t;
 
 struct attack_s
 {
-  char *name;   /*!< A FINIR. */
-  int mana;   /*!< A FINIR. */
-  int dmg_min;   /*!< A FINIR. */
-  int dmg_max;   /*!< A FINIR. */
-  char *description;   /*!< A FINIR. */
+  char *name;        /*!< A FINIR. */
+  int mana;          /*!< A FINIR. */
+  int dmg_min;       /*!< A FINIR. */
+  int dmg_max;       /*!< A FINIR. */
+  char *description; /*!< A FINIR. */
 };
 
 typedef struct character_s character_t;
@@ -62,7 +62,7 @@ struct character_s
   int mana;     /*!< A FINIR. */
 
   int vitalite;     /*!< A FINIR. */
-  int puissance;        /*!< A FINIR. */
+  int puissance;    /*!< A FINIR. */
   int intelligence; /*!< A FINIR. */
   int agilite;      /*!< A FINIR. */
   int defense;      /*!< A FINIR. */
@@ -75,8 +75,8 @@ struct character_s
   int nb_popo_puissance;    /*!< A FINIR. */
   int nb_popo_agi;          /*!< A FINIR. */
 
-  int nb_tour_restant_puissance;    /*!< A FINIR. */
-  int nb_tour_restant_agi;    /*!< A FINIR. */
+  int nb_tour_restant_puissance; /*!< A FINIR. */
+  int nb_tour_restant_agi;       /*!< A FINIR. */
 };
 
 extern character_t *character_create(SDL_Renderer *render, char *file_name_save);
