@@ -1,7 +1,9 @@
 var annotated_dup =
 [
-    [ "attack_s", "structattack__s.html", "structattack__s" ],
-    [ "attacks_t", "structattacks__t.html", null ],
+    [ "attack_character_s", "structattack__character__s.html", "structattack__character__s" ],
+    [ "attack_character_t", "structattack__character__t.html", null ],
+    [ "attack_enemie_s", "structattack__enemie__s.html", "structattack__enemie__s" ],
+    [ "attack_enemie_t", "structattack__enemie__t.html", null ],
     [ "character_s", "structcharacter__s.html", "structcharacter__s" ],
     [ "character_t", "structcharacter__t.html", null ],
     [ "enemie_s", "structenemie__s.html", "structenemie__s" ],

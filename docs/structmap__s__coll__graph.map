@@ -1,4 +1,5 @@
 <map id="map_s" name="map_s">
-<area shape="rect" id="node1" title=" " alt="" coords="10,95,71,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="61,95,122,121"/>
 <area shape="rect" id="node2" href="$structimage__s.html" title=" " alt="" coords="5,5,76,32"/>
+<area shape="rect" id="node3" href="$structenemie__t.html" title="Structure de l&#39;objet enemie_t." alt="" coords="106,5,181,32"/>
 </map>

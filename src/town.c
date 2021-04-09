@@ -20,8 +20,6 @@
  *
  */
 
-#define MULTIPLIER 7.5
-
 /*!
  *
  * \fn town(game_t * game, character_t * character)

@@ -7,5 +7,5 @@
 # Options file
 options.txt
 
-# Ignore IDE specific files
+# IDE specific files
 .vscode/

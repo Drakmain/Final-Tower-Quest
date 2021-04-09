@@ -1,5 +1,0 @@
-<map id="enemie_create" name="enemie_create">
-<area shape="rect" id="node1" title="Permet la creation du l&#39;objet enemie." alt="" coords="5,31,112,57"/>
-<area shape="rect" id="node2" href="$enemie_8c.html#ab156912d90ce379fbff3b18cc7d435ad" title="Permet la liberation d&#39;un objet enemie." alt="" coords="180,5,272,32"/>
-<area shape="rect" id="node3" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="160,56,292,83"/>
-</map>

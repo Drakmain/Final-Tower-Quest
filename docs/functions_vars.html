@@ -65,7 +65,7 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="structcharacter__s.html#a6745fcf7139df7934f56395c3e7d3a29">character_s</a>
 </li>
 <li>attacks
-: <a class="el" href="structcharacter__s.html#a66178f1d4708ee85239ca36c285d606a">character_s</a>
+: <a class="el" href="structcharacter__s.html#a23908ca5b777500dc552b615e5d9a44c">character_s</a>
 </li>
 </ul>
 
@@ -99,16 +99,16 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="structcharacter__s.html#ae46fe52f1051199d1dbf8f7976fb670d">character_s</a>
 </li>
 <li>description
-: <a class="el" href="structattack__s.html#a8444d6e0dfe2bbab0b5e7b24308f1559">attack_s</a>
+: <a class="el" href="structattack__character__s.html#a8444d6e0dfe2bbab0b5e7b24308f1559">attack_character_s</a>
+, <a class="el" href="structattack__enemie__s.html#a8444d6e0dfe2bbab0b5e7b24308f1559">attack_enemie_s</a>
 </li>
 <li>dmg_max
-: <a class="el" href="structattack__s.html#aa1477950db7518357b1a56b52f5d9469">attack_s</a>
+: <a class="el" href="structattack__character__s.html#aa1477950db7518357b1a56b52f5d9469">attack_character_s</a>
+, <a class="el" href="structattack__enemie__s.html#aa1477950db7518357b1a56b52f5d9469">attack_enemie_s</a>
 </li>
 <li>dmg_min
-: <a class="el" href="structattack__s.html#aba75ca018d266d645fe19c5dc74c97b8">attack_s</a>
-</li>
-<li>dst
-: <a class="el" href="structimage__s.html#ad095316bfeaf5b0b81d97ada73e36c5d">image_s</a>
+: <a class="el" href="structattack__character__s.html#aba75ca018d266d645fe19c5dc74c97b8">attack_character_s</a>
+, <a class="el" href="structattack__enemie__s.html#aba75ca018d266d645fe19c5dc74c97b8">attack_enemie_s</a>
 </li>
 </ul>
 
@@ -117,11 +117,20 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>East_Walk
 : <a class="el" href="structcharacter__s.html#ae07a67ffac1e23b05ba12f9b12ca1bcd">character_s</a>
 </li>
+<li>effect
+: <a class="el" href="structattack__enemie__s.html#a019737ba3404fa37cbba94f5dc7111c5">attack_enemie_s</a>
+</li>
+<li>effect_duration
+: <a class="el" href="structattack__enemie__s.html#a1a4c021f3fc2a1a16fd4cd65c31d2c14">attack_enemie_s</a>
+</li>
 <li>empty
 : <a class="el" href="structcharacter__s.html#ac15bc706e1a9b40db6663860caecf0c8">character_s</a>
 </li>
 <li>etat_fullscreen
 : <a class="el" href="structgame__s.html#a5fcbc95494bc98301c791b0202072072">game_s</a>
+</li>
+<li>exp
+: <a class="el" href="structenemie__s.html#a3bb4af16b31e7979f424cf66f1bfa6e2">enemie_s</a>
 </li>
 </ul>
 
@@ -129,7 +138,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <h3><a id="index_f"></a>- f -</h3><ul>
 <li>file_name_bmp
 : <a class="el" href="structcharacter__s.html#a593b34a162a5dc30af948783ee1efa30">character_s</a>
-, <a class="el" href="structenemie__s.html#a593b34a162a5dc30af948783ee1efa30">enemie_s</a>
 </li>
 <li>file_name_save
 : <a class="el" href="structcharacter__s.html#a33b3f89826a700b48d3f501112485f26">character_s</a>
@@ -154,13 +162,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 </ul>
 
 
-<h3><a id="index_h"></a>- h -</h3><ul>
-<li>hauteur
-: <a class="el" href="structimage__s.html#a5e94a2f98c16e8b6860f95c99da1c0d3">image_s</a>
-</li>
-</ul>
-
-
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>intelligence
 : <a class="el" href="structcharacter__s.html#a56dc32ed5947200ae2aed5343573fb7e">character_s</a>
@@ -169,9 +170,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
-<li>largeur_carte
-: <a class="el" href="structmap__s.html#a5600639cb5d314406fc71fac6c0f7815">map_s</a>
-</li>
 <li>life
 : <a class="el" href="structcharacter__s.html#adf488ff0ce8098cd956c07890cbc5d50">character_s</a>
 , <a class="el" href="structenemie__s.html#adf488ff0ce8098cd956c07890cbc5d50">enemie_s</a>
@@ -187,11 +185,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>mana
-: <a class="el" href="structattack__s.html#a0b461b6df17bd8c922b97c6d282ace10">attack_s</a>
+: <a class="el" href="structattack__character__s.html#a0b461b6df17bd8c922b97c6d282ace10">attack_character_s</a>
+, <a class="el" href="structattack__enemie__s.html#a0b461b6df17bd8c922b97c6d282ace10">attack_enemie_s</a>
 , <a class="el" href="structcharacter__s.html#a0b461b6df17bd8c922b97c6d282ace10">character_s</a>
-</li>
-<li>map_couleur
-: <a class="el" href="structmap__s.html#a1c8507e44c955d3e1db3e82305e7a60c">map_s</a>
 </li>
 <li>map_image
 : <a class="el" href="structmap__s.html#ac61aec4ac166a295da63b36131eec6f9">map_s</a>
@@ -202,16 +198,19 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>max_mana
 : <a class="el" href="structcharacter__s.html#a6d34aa2363333f8c59968519829ce7a9">character_s</a>
 </li>
+<li>modifier
+: <a class="el" href="structattack__enemie__s.html#a75316f8e4ed23559b01079c4af92cb68">attack_enemie_s</a>
+</li>
 <li>mov
 : <a class="el" href="structcharacter__s.html#a54fb1c951bf500b03827a65eacbd37d2">character_s</a>
-, <a class="el" href="structenemie__s.html#a54fb1c951bf500b03827a65eacbd37d2">enemie_s</a>
 </li>
 </ul>
 
 
 <h3><a id="index_n"></a>- n -</h3><ul>
 <li>name
-: <a class="el" href="structattack__s.html#a5ac083a645d964373f022d03df4849c8">attack_s</a>
+: <a class="el" href="structattack__character__s.html#a5ac083a645d964373f022d03df4849c8">attack_character_s</a>
+, <a class="el" href="structattack__enemie__s.html#a5ac083a645d964373f022d03df4849c8">attack_enemie_s</a>
 , <a class="el" href="structenemie__s.html#a5ac083a645d964373f022d03df4849c8">enemie_s</a>
 </li>
 <li>nb_moyenne_popo_mana
@@ -238,9 +237,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>nb_tour_restant_puissance
 : <a class="el" href="structcharacter__s.html#a64b0e29b270e1031972a87fb8daac461">character_s</a>
 </li>
-<li>nom_image
-: <a class="el" href="structimage__s.html#ac922b879060d8c65a8d1fcdba88eea2a">image_s</a>
-</li>
 <li>North_Walk
 : <a class="el" href="structcharacter__s.html#acd5d27076993c20db991409efcb20d25">character_s</a>
 </li>
@@ -248,6 +244,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
+<li>percetange
+: <a class="el" href="structattack__enemie__s.html#a78a8473f5580c1222726f68b4c790bd3">attack_enemie_s</a>
+</li>
 <li>points_dispo
 : <a class="el" href="structcharacter__s.html#a58ec2e5f19a9344ec336e728528df755">character_s</a>
 </li>
@@ -256,9 +255,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 </li>
 <li>position
 : <a class="el" href="structcharacter__s.html#a49a979086c822712ea2507ee8c41df2c">character_s</a>
-</li>
-<li>position_y
-: <a class="el" href="structimage__s.html#a1eb5a1ece1b3da34330d33deada890b0">image_s</a>
 </li>
 <li>program_launch
 : <a class="el" href="structgame__s.html#a0f9b4b6c24ac06f754e7eb90d26e8c6b">game_s</a>
@@ -290,6 +286,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>South_Walk
 : <a class="el" href="structcharacter__s.html#a7cc5bde1d5de3c49e0ab27fd270d4fcb">character_s</a>
 </li>
+<li>speed
+: <a class="el" href="structenemie__s.html#a218b4f7c6cc2681a99c23a3b089d68b1">enemie_s</a>
+</li>
 <li>surface
 : <a class="el" href="structcharacter__s.html#a2f5cac12e913bcfcff660305bf88dd3b">character_s</a>
 , <a class="el" href="structenemie__s.html#a2f5cac12e913bcfcff660305bf88dd3b">enemie_s</a>
@@ -302,7 +301,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>texture
 : <a class="el" href="structcharacter__s.html#a859b8efbf9abe8e82757ee5c75a0c97c">character_s</a>
 , <a class="el" href="structenemie__s.html#a859b8efbf9abe8e82757ee5c75a0c97c">enemie_s</a>
-, <a class="el" href="structimage__s.html#a859b8efbf9abe8e82757ee5c75a0c97c">image_s</a>
 , <a class="el" href="structmap__s.html#a859b8efbf9abe8e82757ee5c75a0c97c">map_s</a>
 </li>
 <li>tile_set

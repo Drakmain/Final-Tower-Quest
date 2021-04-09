@@ -1,7 +1,7 @@
 var structcharacter__s =
 [
     [ "agilite", "structcharacter__s.html#a6745fcf7139df7934f56395c3e7d3a29", null ],
-    [ "attacks", "structcharacter__s.html#a66178f1d4708ee85239ca36c285d606a", null ],
+    [ "attacks", "structcharacter__s.html#a23908ca5b777500dc552b615e5d9a44c", null ],
     [ "B", "structcharacter__s.html#a12857102343f2f2a198414bdcc70e51b", null ],
     [ "classe_name", "structcharacter__s.html#a8ddaa54411507096eff645f8d8419dd2", null ],
     [ "Damage_Taken", "structcharacter__s.html#a8fe6c5d21e610c05239f56619efef757", null ],

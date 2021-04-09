@@ -59,6 +59,7 @@ $(document).ready(function(){initNavTree('map_8c.html',''); initResizable(); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier map.c</div>  </div>
@@ -71,23 +72,33 @@ $(document).ready(function(){initNavTree('map_8c.html',''); initResizable(); });
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;..\lib\map.h&quot;</code><br />
+<code>#include &quot;..\lib\attacks_character.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de map.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="map_8c__incl.png" border="0" usemap="#asrc_2map_8c" alt=""/></div>
 <map name="asrc_2map_8c" id="asrc_2map_8c">
-<area shape="rect" title="Gestion de l&#39;objet map." alt="" coords="127,5,207,32"/>
+<area shape="rect" title="Gestion de l&#39;objet map." alt="" coords="172,5,252,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" title=" " alt="" coords="179,80,245,107"/>
-<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="269,80,355,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="271,155,353,181"/>
-<area shape="rect" title=" " alt="" coords="191,229,249,256"/>
-<area shape="rect" title=" " alt="" coords="274,229,350,256"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="375,229,463,256"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="270,229,357,256"/>
+<area shape="rect" href="attacks__character_8h_source.html" title=" " alt="" coords="341,80,507,107"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="379,304,461,331"/>
+<area shape="rect" title=" " alt="" coords="299,379,357,405"/>
+<area shape="rect" title=" " alt="" coords="382,379,458,405"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="483,379,571,405"/>
+<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="483,229,549,256"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="321,155,407,181"/>
 </map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a85bfff2ff26db33ddecaea914b1b041c"><td class="memItemLeft" align="right" valign="top"><a id="a85bfff2ff26db33ddecaea914b1b041c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>NB_ATTACKS_ENEMIES</b>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a85bfff2ff26db33ddecaea914b1b041c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a6e7ecf55c98b6000e3fdc1ccd1b0a369"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a6e7ecf55c98b6000e3fdc1ccd1b0a369">map_update</a> (<a class="el" href="structmap__t.html">map_t</a> *map, SDL_Renderer *render, SDL_Rect src_rect, SDL_Rect pos_wind_rect)</td></tr>
@@ -153,11 +164,9 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="map_8c_a85964a3e46ba4f1e718f0f9b39760587_cgraph.png" border="0" usemap="#amap_8c_a85964a3e46ba4f1e718f0f9b39760587_cgraph" alt=""/></div>
 <map name="amap_8c_a85964a3e46ba4f1e718f0f9b39760587_cgraph" id="amap_8c_a85964a3e46ba4f1e718f0f9b39760587_cgraph">
-<area shape="rect" title="Permet la creation du l&#39;objet map_t." alt="" coords="5,81,96,108"/>
-<area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="144,5,251,32"/>
-<area shape="rect" href="map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="160,56,235,83"/>
-<area shape="rect" href="map_8c.html#a6e7ecf55c98b6000e3fdc1ccd1b0a369" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="151,107,244,133"/>
-<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="299,132,431,159"/>
+<area shape="rect" title="Permet la creation du l&#39;objet map_t." alt="" coords="5,31,96,57"/>
+<area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="157,5,263,32"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="144,56,276,83"/>
 </map>
 </div>
 <div class="dynheader">
@@ -165,10 +174,11 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="map_8c_a85964a3e46ba4f1e718f0f9b39760587_icgraph.png" border="0" usemap="#amap_8c_a85964a3e46ba4f1e718f0f9b39760587_icgraph" alt=""/></div>
 <map name="amap_8c_a85964a3e46ba4f1e718f0f9b39760587_icgraph" id="amap_8c_a85964a3e46ba4f1e718f0f9b39760587_icgraph">
-<area shape="rect" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
-<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="104,5,157,32"/>
-<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
-<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,56,56,83"/>
+<area shape="rect" title="Permet la creation du l&#39;objet map_t." alt="" coords="212,56,303,83"/>
+<area shape="rect" href="floor__1_8c.html#ad51fab11313fca9a857e43996a9c7a7d" title="Permet la gestion de la premier map du jeu (floor_1)." alt="" coords="104,5,164,32"/>
+<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="107,56,161,83"/>
+<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="109,107,159,133"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,107,56,133"/>
 </map>
 </div>
 
@@ -237,18 +247,6 @@ Voici le graphe des appelants de cette fonction :</div>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph.png" border="0" usemap="#amap_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph" alt=""/></div>
-<map name="amap_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph" id="amap_8c_a7a7e46f45215efa69e1bf76bff1ab130_icgraph">
-<area shape="rect" title="Permet la liberation d&#39;un objet map_t." alt="" coords="344,31,419,57"/>
-<area shape="rect" href="map_8c.html#a85964a3e46ba4f1e718f0f9b39760587" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
-<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="104,5,157,32"/>
-<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
-<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,56,56,83"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -315,18 +313,6 @@ Voici le graphe d'appel pour cette fonction :</div>
 <map name="amap_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_cgraph" id="amap_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_cgraph">
 <area shape="rect" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="5,5,99,32"/>
 <area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="147,5,279,32"/>
-</map>
-</div>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_icgraph.png" border="0" usemap="#amap_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_icgraph" alt=""/></div>
-<map name="amap_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_icgraph" id="amap_8c_a6e7ecf55c98b6000e3fdc1ccd1b0a369_icgraph">
-<area shape="rect" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="344,31,437,57"/>
-<area shape="rect" href="map_8c.html#a85964a3e46ba4f1e718f0f9b39760587" title="Permet la creation du l&#39;objet map_t." alt="" coords="205,31,296,57"/>
-<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="104,5,157,32"/>
-<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="106,56,155,83"/>
-<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,56,56,83"/>
 </map>
 </div>
 

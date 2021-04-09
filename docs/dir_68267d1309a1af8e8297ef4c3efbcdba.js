@@ -1,7 +1,6 @@
 var dir_68267d1309a1af8e8297ef4c3efbcdba =
 [
     [ "affichage_message.c", "affichage__message_8c.html", "affichage__message_8c" ],
-    [ "attaques.c", "attaques_8c.html", "attaques_8c" ],
     [ "caracteristiques.c", "caracteristiques_8c.html", "caracteristiques_8c" ],
     [ "character.c", "character_8c.html", "character_8c" ],
     [ "charger_partie.c", "charger__partie_8c.html", "charger__partie_8c" ],
@@ -9,8 +8,8 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "combat.c", "combat_8c.html", "combat_8c" ],
     [ "commandes.c", "commandes_8c.html", "commandes_8c" ],
     [ "creation_perso.c", "creation__perso_8c.html", "creation__perso_8c" ],
-    [ "enemie.c", "enemie_8c.html", "enemie_8c" ],
     [ "error.c", "error_8c.html", "error_8c" ],
+    [ "floor_1.c", "floor__1_8c.html", "floor__1_8c" ],
     [ "frame.c", "frame_8c.html", "frame_8c" ],
     [ "game.c", "game_8c.html", "game_8c" ],
     [ "main.c", "main_8c.html", "main_8c" ],
