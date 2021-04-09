@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "..\lib\character.h"
-#include "..\lib\attaques.h"
+#include "..\lib\attacks_character.h"
 
 /*!
  *
@@ -15,8 +15,8 @@
 
 /*!
  *
- * \struct attacks_t character.h "character.h"
- * \brief Structure de l'objet attacks_t.
+ * \struct attack_character_t character.h "character.h"
+ * \brief Structure de l'objet attack_character_t.
  *
  */
 
@@ -112,7 +112,7 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
     character_t *character = NULL;
     character = malloc(sizeof(character_t));
 
-    character->attacks = malloc(sizeof(attack_t) * NB_ATTACKS);
+    character->attacks = malloc(sizeof(attack_character_t) * NB_ATTACKS);
 
     character->file_name_txt = NULL;
     character->file_name_txt = malloc(sizeof(char) * 50);

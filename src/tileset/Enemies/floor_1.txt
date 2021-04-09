@@ -1,49 +1,42 @@
 Chevalier_squelettique :
 PV: 50 ;
-VIT: 10 ;
-Lame_émoussée : 3 - 5 ;
-x : x%, x - x, x, x ;
+Lame_emoussee : 3 - 5 ;
+x : -1, -1 - -1, -1, -1, -1 ;
 EXP: 20 ;
 
 Demon_squelettique :
 PV: 60 ;
-VIT: 10 ;
 Lame_de_feu : 4 - 5 ;
-Brûlures ardentes : 5%, 4 - 5, 3, 3,  ;
+Brulures_ardentes : 5, 4 - 5, 3, 3, 0 ;
 EXP: 30 ;
 
 Seigneur_squelettique :
 PV: 75 ;
-VIT: 10 ;
 Quadruple_lames : 3 - 6 ;
-Saignement : 5%, 4 - 5, 3, 3 ;
+Saignement : 5, 4 - 5, 3, 3, 0 ;
 EXP: 40 ;
 
 Chimera :
 PV: 50 ;
-VIT: 10 ;
-Coup_de_griffes : 4 - 5, 
-Saignement : 5%, 4 - 5, 3, 3 ;
+Coup_de_griffes : 4 - 5 ;
+Saignement : 5, 4 - 5, 3, 3, 0 ;
 EXP: 30 ;
 
 Big_grenouille :
 PV: 200 ;
-VIT: 10 ;
 Coup_de_griffes : 1 - 2 ;
-Léchouille : 10%, x - x, x, 1 ;
+Lechouille : 10, -1 - -1, -1, 1, 1 ;
 EXP: 40 ;
 
 Molosse :
 PV: 40 ;
-VIT: 10 ;
 Morsure : 3 - 5 ;
-Saignement : 5%, 4 - 5, 3, 3 ;
+Saignement : 5, 4 - 5, 3, 3, 0 ;
 EXP: 30 ;
 
 Bosses\\Dragon_rouge : 3
 PV: 250 ;
-VIT: 10 ;
 Feu_du_dragon : 7-9 ;
-Saignement : 5%, 4 - 5, 3, 3 ;
-Immobilisation : 10%, 3 - 5, x, 1 ;
+Saignement : 5%, 4 - 5, 3, 3, 0 ;
+Immobilisation : 10, 3 - 5, x, 1, 1 ;
 EXP: 400 ;

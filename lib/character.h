@@ -4,9 +4,9 @@
 #include "commun.h"
 #include "map.h"
 
-typedef struct attack_s attack_t;
+typedef struct attack_character_s attack_character_t;
 
-struct attack_s
+struct attack_character_s
 {
   char *name;        /*!< A FINIR. */
   int mana;          /*!< A FINIR. */
@@ -46,7 +46,7 @@ struct character_s
   SDL_Rect Damage_Taken; /*!< Tile set (SDL_Rect) A FINIR. */
   SDL_Rect Dead;         /*!< Tile set (SDL_Rect) A FINIR. */
 
-  attack_t *attacks; /*!< A FINIR. */
+  attack_character_t *attacks; /*!< A FINIR. */
 
   char *save_name;   /*!< A FINIR. */
   char *classe_name; /*!< A FINIR. */

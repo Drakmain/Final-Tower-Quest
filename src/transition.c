@@ -208,7 +208,7 @@ extern void transition(game_t *game)
 
 
             SDL_RenderPresent(game->render);
-            SDL_Delay(40);
+            SDL_Delay(30);
 
         }
 

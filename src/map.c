@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "..\lib\map.h"
+#include "..\lib\attacks_character.h"
 
 /*!
  * 
@@ -10,6 +11,23 @@
  * \brief Gestion de l'objet map.
  * \author Enzo BRENNUS
  * 
+ */
+
+#define NB_ENEMIES 6
+#define NB_ATTACKS_ENEMIES 2
+
+/*!
+ *
+ * \struct attack_enemie_t map.h "map.h"
+ * \brief Structure de l'objet attack_enemie_t.
+ *
+ */
+
+/*!
+ *
+ * \struct enemie_t map.h "map.h"
+ * \brief Structure de l'objet enemie_t.
+ *
  */
 
 /*!
@@ -35,7 +53,7 @@ static void map_update(map_t *map, SDL_Renderer *render, SDL_Rect src_rect, SDL_
 {
     if (SDL_RenderCopy(render, map->texture, &src_rect, &pos_wind_rect) != 0)
     {
-        SDL_ExitWithError("Copy of rendering failed, map.c Line 40");
+        SDL_ExitWithError("Copy of rendering failed > map.c Line 40");
     }
 }
 
@@ -53,6 +71,24 @@ static void map_free(map_t **map)
     SDL_DestroyTexture((*map)->texture);
 
     SDL_FreeSurface((*map)->surface);
+
+    for (int i = 0; i < NB_ATTACKS_ENEMIES; i++)
+    {
+        free((*map)->enemies[i].attack[0].name);
+        free((*map)->enemies[i].attack[1].name);
+
+        free((*map)->enemies[i].attack[0].description);
+        free((*map)->enemies[i].attack[1].description);
+    }
+
+    for (int i = 0; i < NB_ENEMIES; i++)
+    {
+        free((*map)->enemies[i].name);
+
+        SDL_DestroyTexture((*map)->enemies[i].texture);
+
+        SDL_FreeSurface((*map)->enemies[i].surface);
+    }
 
     free(*map);
 }
@@ -72,47 +108,163 @@ static void map_free(map_t **map)
 
 extern map_t *map_create(SDL_Renderer *render, char *name_map)
 {
+    /*--- Initialization variable ----------------------------------------------------*/
     map_t *map = NULL;
     map = malloc(sizeof(map_t));
 
     map->texture = NULL;
 
-    char *file_name;
+    map->surface = NULL;
 
-    char *path = "src\\tileset\\Maps\\";
+    map->name = NULL;
+    map->name = malloc(sizeof(char) * 50);
+    strcpy(map->name, name_map);
+    map->name = (char *)realloc(map->name, strlen(map->name) * sizeof(char) + 1);
 
-    strcpy(file_name, path);
+    char *file_name = malloc(sizeof(char) * 50);
+
+    char *path_map = NULL;
+    path_map = malloc(sizeof(char) * 50);
+    strcpy(path_map, "src\\tileset\\Maps\\");
+    path_map = (char *)realloc(path_map, strlen(path_map) * sizeof(char) + 1);
+
+    char *path_enemies = NULL;
+    path_enemies = malloc(sizeof(char) * 50);
+    strcpy(path_enemies, "src\\tileset\\Enemies\\");
+    path_enemies = (char *)realloc(path_enemies, strlen(path_enemies) * sizeof(char) + 1);
+
+    FILE *file;
+
+    /*--- End Initialization variable --------------------------------------------*/
+
+    /*--- Initialization enemies ----------------------------------------------------*/
+
+    map->enemies = malloc(sizeof(enemie_t) * NB_ENEMIES);
+
+    for (int i = 0; i < NB_ENEMIES; i++)
+    {
+        map->enemies[i].texture = NULL;
+
+        map->enemies[i].surface = NULL;
+
+        map->enemies[i].name = NULL;
+        map->enemies[i].name = malloc(sizeof(char) * 50);
+
+        map->enemies[i].attack = malloc(sizeof(attack_enemie_t) * NB_ATTACKS_ENEMIES);
+
+        for (int y = 0; y < NB_ATTACKS_ENEMIES; y++)
+        {
+            map->enemies[i].attack[y].name = NULL;
+            map->enemies[i].attack[y].name = malloc(sizeof(char) * 50);
+
+            map->enemies[i].attack[y].description = NULL;
+        }
+    }
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Open map txt file ------------------------------------------------------*/
+
+    strcpy(file_name, path_map);
     strcat(file_name, name_map);
     strcat(file_name, ".txt");
 
-    printf("file_name: %s", file_name);
+    printf("file_name: %s\n", file_name);
 
-    FILE *file = fopen(file_name, "r");
+    file = fopen(file_name, "r");
     if (!file)
     {
-        exit_with_error("Loading of a txt file failed, map.c Line 93");
+        exit_with_error("Loading of a txt file failed > map.c Line 93");
     }
 
     fscanf(file, "%*s %i, %i, %i, %i;\n", &map->tile_set.x, &map->tile_set.y, &map->tile_set.w, &map->tile_set.h);
 
-    strcpy(file_name, path);
+    fclose(file);
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Open map bmp file ------------------------------------------------------*/
+
+    strcpy(file_name, path_map);
     strcat(file_name, name_map);
     strcat(file_name, ".bmp");
+
+    printf("file_name: %s\n", file_name);
 
     map->surface = SDL_LoadBMP(file_name);
     if (!map->surface)
     {
-        SDL_ExitWithError("Loading of a bmp file failed, map.c Line 101");
+        SDL_ExitWithError("Loading of a bmp file failed > map.c Line 101");
     }
 
     map->texture = SDL_CreateTextureFromSurface(render, map->surface);
     if (!map->texture)
     {
-        SDL_ExitWithError("Cannot create a texture from a surface, map.c Line 107");
+        SDL_ExitWithError("Cannot create a texture from a surface > map.c Line 107");
     }
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Open enemies txt file --------------------------------------------------*/
+
+    strcpy(file_name, path_enemies);
+    strcat(file_name, name_map);
+    strcat(file_name, ".txt");
+
+    printf("file_name: %s\n", file_name);
+
+    file = fopen(file_name, "r");
+    if (!file)
+    {
+        exit_with_error("Loading of a txt file failed > map.c Line 93");
+    }
+
+    for (int i = 0; i < NB_ENEMIES; i++)
+    {
+        fscanf(file, "%s :\n", map->enemies[i].name);
+        _toEspace(map->enemies[i].name);
+        fscanf(file, "PV: %i ;\n", &map->enemies[i].life);
+        fscanf(file, "%s : %i - %i ;\n", map->enemies[i].attack[0].name, &map->enemies[i].attack[0].dmg_min, &map->enemies[i].attack[0].dmg_max);
+        _toEspace(map->enemies[i].attack[0].name);
+        fscanf(file, "%s : %i, %i - %i, %i, %i, %i ;\n", map->enemies[i].attack[1].name, &map->enemies[i].attack[1].percetange, &map->enemies[i].attack[1].dmg_min, &map->enemies[i].attack[1].dmg_max, &map->enemies[i].attack[1].modifier, &map->enemies[i].attack[1].effect_duration, &map->enemies[i].attack[1].effect_duration);
+        _toEspace(map->enemies[i].attack[1].name);
+        fscanf(file, "EXP: %i ;\n\n", &map->enemies[i].exp);
+    }
+
+
+    fclose(file);
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Open enemies bmp file --------------------------------------------------*/
+
+    for (int i = 0; i < NB_ENEMIES; i++)
+    {
+        strcpy(file_name, path_enemies);
+        strcat(file_name, map->enemies[i].name);
+        strcat(file_name, ".bmp");
+
+        map->enemies[i].surface = SDL_LoadBMP(file_name);
+        if (!map->surface)
+        {
+            SDL_ExitWithError("Loading of a bmp file failed > map.c Line 101");
+        }
+
+        map->enemies[i].texture = SDL_CreateTextureFromSurface(render, map->enemies[i].surface);
+        if (!map->texture)
+        {
+            SDL_ExitWithError("Cannot create a texture from a surface > map.c Line 107");
+        }
+    }
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Initialization method --------------------------------------------------*/
 
     map->update = map_update;
     map->free = map_free;
+
+    /*----------------------------------------------------------------------------*/
 
     return (map);
 }
