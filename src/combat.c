@@ -20,27 +20,6 @@
 
 /*!
  *
- * \fn _toEspace(char *string, int length)
- * \brief A FINIR.
- *
- * \param string A FINIR.
- * \param length A FINIR.
- *
- */
-
-extern void _toEspace(char *string, int length)
-{
-    for (int i = 0; i < length; i++)
-    {
-        if (string[i] == '_')
-        {
-            string[i] = ' ';
-        }
-    }
-}
-
-/*!
- *
  * \fn combat(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town)
  * \brief A FINIR.
  *

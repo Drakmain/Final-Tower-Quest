@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "..\lib\map.h"
+#include "..\lib\attacks_character.h"
 
 /*!
  * 
@@ -221,20 +222,15 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
     for (int i = 0; i < NB_ENEMIES; i++)
     {
         fscanf(file, "%s :\n", map->enemies[i].name);
+        _toEspace(map->enemies[i].name);
         fscanf(file, "PV: %i ;\n", &map->enemies[i].life);
         fscanf(file, "%s : %i - %i ;\n", map->enemies[i].attack[0].name, &map->enemies[i].attack[0].dmg_min, &map->enemies[i].attack[0].dmg_max);
+        _toEspace(map->enemies[i].attack[0].name);
         fscanf(file, "%s : %i, %i - %i, %i, %i, %i ;\n", map->enemies[i].attack[1].name, &map->enemies[i].attack[1].percetange, &map->enemies[i].attack[1].dmg_min, &map->enemies[i].attack[1].dmg_max, &map->enemies[i].attack[1].modifier, &map->enemies[i].attack[1].effect_duration, &map->enemies[i].attack[1].effect_duration);
+        _toEspace(map->enemies[i].attack[1].name);
         fscanf(file, "EXP: %i ;\n\n", &map->enemies[i].exp);
     }
 
-    for (int i = 0; i < NB_ENEMIES; i++)
-    {
-        printf("%s :\n", map->enemies[i].name);
-        printf("PV: %i ;\n", map->enemies[i].life);
-        printf("%s : %i - %i ;\n", map->enemies[i].attack[0].name, map->enemies[i].attack[0].dmg_min, map->enemies[i].attack[0].dmg_max);
-        printf("%s : %i, %i - %i, %i, %i, %i ;\n", map->enemies[i].attack[1].name, map->enemies[i].attack[1].percetange, map->enemies[i].attack[1].dmg_min, map->enemies[i].attack[1].dmg_max, map->enemies[i].attack[1].modifier, map->enemies[i].attack[1].effect_duration, map->enemies[i].attack[1].effect_duration);
-        printf("EXP: %i :\n\n", map->enemies[i].exp);
-    }
 
     fclose(file);
 

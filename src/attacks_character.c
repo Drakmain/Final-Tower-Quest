@@ -17,6 +17,27 @@
 
 /*!
  *
+ * \fn _toEspace(char *string)
+ * \brief A FINIR.
+ *
+ * \param string A FINIR.
+ * \param length A FINIR.
+ *
+ */
+
+extern void _toEspace(char *string)
+{
+    for (int i = 0; i < strlen(string); i++)
+    {
+        if (string[i] == '_')
+        {
+            string[i] = ' ';
+        }
+    }
+}
+
+/*!
+ *
  * \fn attacks_character(game_t *game, character_t *character, SDL_Texture *texture_render_combat)
  * \brief A FINIR.
  *
@@ -101,7 +122,7 @@ extern void attacks_character(game_t *game, character_t *character, SDL_Texture 
 
     for (int i = 0; i < NB_ATTACKS; i++)
     {
-        _toEspace(character->attacks[i].name, strlen(character->attacks[i].name));
+        _toEspace(character->attacks[i].name);
     }
 
     /*--- Creation text "attaque 1" ----------------------------------------------*/
@@ -700,7 +721,7 @@ extern void attacks_character(game_t *game, character_t *character, SDL_Texture 
             pos_Wind_degat_attaque_NB.w = (*game->WINDOWWIDTH) * strlen(degat_NB) * 25 / 2560;
 
             //Mise a jour de la description de l'attaque
-            _toEspace(character->attacks[selection].description, strlen(character->attacks[selection].description));
+            _toEspace(character->attacks[selection].description);
             surf_description_attaque = TTF_RenderText_Blended(game->police, character->attacks[selection].description, blanc);
             pos_Wind_description_attaque.w = (*game->WINDOWWIDTH) * strlen(character->attacks[selection].description) * 25 / 2560;
 
