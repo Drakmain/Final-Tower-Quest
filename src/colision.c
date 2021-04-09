@@ -66,7 +66,7 @@ int character_moving(SDL_Renderer *pRenderer, SDL_Surface *couleur_image, load_i
 	Uint32 pixel, pixelg, pixeld, pixelc;
 	pixelc = getpixel(couleur_image, x, y);
 	SDL_GetRGB(pixelc, couleur_image->format, &rc, &gc, &bc);
-	printf("r = %i, rg = %i,rd =%i\n", r, rg, rd);
+	//printf("r = %i, rg = %i,rd =%i\n", r, rg, rd);
 	//printf("rc = %i, gc = %i,bc =%i\n", rc, gc, bc);
 	printf("x = %i, y = %i\n", x, y);
 	if (direction == 0)

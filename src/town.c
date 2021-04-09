@@ -84,7 +84,11 @@ extern void town(game_t *game, character_t *character)
 
     /*int x = town->tile_set.w - (*WINDOWHEIGHT / 2);
     int y = town->tile_set.h - (*WINDOWWIDTH / 2);*/
+<<<<<<< Updated upstream
     int x = 885 - 200;  //885; // 1280 / 720 x = 312 y = 68
+=======
+    int x = 885 - 200; //885; // 1280 / 720 x = 312 y = 68
+>>>>>>> Stashed changes
     int y = 420 + 1000; //420; //1920 / 1080 x = 486 y = 102
 
     /*--- End Initialization Variable --------------------------------------------*/
