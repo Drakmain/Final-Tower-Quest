@@ -37,11 +37,11 @@ extern void town(game_t *game, character_t *character)
     SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
 
     map_t *town = NULL;
-    town = map_create(game->render, "src\\tileset\\Maps\\town.bmp", "src\\tileset\\Maps\\town.txt");
-    if (town == NULL)
-    {
-        exit_with_error("Cannot create a map_t object > town.c Line 35");
-    }
+        town = map_create(game->render, "town");
+        if (town == NULL)
+        {
+            exit_with_error("Cannot create a map_t object > town.c Line 35");
+        }
 
     SDL_bool *town_bool = malloc(sizeof(SDL_bool));
     *town_bool = SDL_TRUE;
@@ -73,7 +73,7 @@ extern void town(game_t *game, character_t *character)
     int North_Walk = 0;
 
     SDL_Surface *surface = NULL;
-    
+
     switch (*game->WINDOWHEIGHT)
     {
     case WINDOWHEIGHT_720P:
