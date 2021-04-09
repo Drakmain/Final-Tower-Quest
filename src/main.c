@@ -4,11 +4,12 @@
 
 #include "..\lib\commun.h"
 
-#include "..\lib\town.h"
-#include "..\lib\tower.h"
+#include "..\lib\game.h"
 #include "..\lib\character.h"
 #include "..\lib\menu_accueil.h"
-#include "..\lib\game.h"
+#include "..\lib\town.h"
+#include "..\lib\tower.h"
+#include "..\lib\floor_1.h"
 
 /*!
  *
@@ -78,7 +79,8 @@ int main(int argc, char **argv)
         if (strcmp(actual_save, "\0"))
         {
             character_save = character_create(game->render, actual_save);
-            town(game, character_save);
+            floor_1(game, character_save);
+            //town(game, character_save);
             //tower(game, actual_save);
         }
     }

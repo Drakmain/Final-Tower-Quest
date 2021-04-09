@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "..\lib\attaques.h"
+#include "..\lib\attacks_character.h"
 
-#include "..\lib\character.h"
 #include "..\lib\combat.h"
+#include "..\lib\character.h"
 
 /*!
  *
@@ -17,7 +17,7 @@
 
 /*!
  *
- * \fn attaques(game_t *game, character_t *character, SDL_Texture *texture_render_combat)
+ * \fn attacks_character(game_t *game, character_t *character, SDL_Texture *texture_render_combat)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -26,7 +26,7 @@
  *
  */
 
-extern void attaques(game_t *game, character_t *character, SDL_Texture *texture_render_combat)
+extern void attacks_character(game_t *game, character_t *character, SDL_Texture *texture_render_combat)
 {
     /*--- Initialization Variable ------------------------------------------------*/
 

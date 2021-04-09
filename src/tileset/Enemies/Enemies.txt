@@ -1,7 +1,7 @@
-Ange_dechu : W: 127, PV: 100 ;
-Big_grenouille : W: 32, PV: 100 ;
-Bipede_maudit : W: 80, PV: 100 ;
-Brute : W: 50, PV: 100 ;
+Ange_dechu : W: 127, W: 127, PV: 100 ;
+Big_grenouille : W: 32, W: 127, PV: 100 ;
+Bipede_maudit : W: 80, W: 127, PV: 100 ;
+Brute : W: 50, V: 127, PV: 100 ;
 Brute_armee : W: 64, PV: 100 ;
 Charette_de_l'apocalypse : W: 96, PV: 100 ;
 Chevalier_squelettique : W: 35, PV: 100 ;
