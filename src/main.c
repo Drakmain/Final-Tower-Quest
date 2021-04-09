@@ -79,9 +79,9 @@ int main(int argc, char **argv)
         if (strcmp(actual_save, "\0"))
         {
             character_save = character_create(game->render, actual_save);
-            floor_1(game, character_save);
-            //town(game, character_save);
+            town(game, character_save);
             //tower(game, actual_save);
+            //floor_1(game, character_save);
         }
     }
 
