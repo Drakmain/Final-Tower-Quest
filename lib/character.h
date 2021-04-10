@@ -11,9 +11,11 @@ struct attack_character_s
   char *name;        /*!< A FINIR. */
   char *description; /*!< A FINIR. */
 
-  int dmg_min; /*!< A FINIR. */
-  int dmg_max; /*!< A FINIR. */
-  int mana;    /*!< A FINIR. */
+  int type;     /*!< A FINIR. */
+  int dmg_min;  /*!< A FINIR. */
+  int dmg_max;  /*!< A FINIR. */
+  int modifier; /*!< A FINIR. */
+  int mana;     /*!< A FINIR. */
 };
 
 typedef struct character_s character_t;
@@ -46,6 +48,7 @@ struct character_s
   SDL_Rect Weak;         /*!< Tile set (SDL_Rect) A FINIR. */
   SDL_Rect Damage_Taken; /*!< Tile set (SDL_Rect) A FINIR. */
   SDL_Rect Dead;         /*!< Tile set (SDL_Rect) A FINIR. */
+  SDL_Rect Attack;       /*!< Tile set (SDL_Rect) A FINIR. */
 
   attack_character_t *attacks; /*!< A FINIR. */
 
@@ -62,9 +65,12 @@ struct character_s
   int max_mana; /*!< A FINIR. */
   int mana;     /*!< A FINIR. */
 
+  int atb; /*!< A FINIR. */
+
   int vitalite;     /*!< A FINIR. */
   int puissance;    /*!< A FINIR. */
   int intelligence; /*!< A FINIR. */
+  int vitesse;      /*!< A FINIR. */
   int agilite;      /*!< A FINIR. */
   int defense;      /*!< A FINIR. */
   int points_dispo; /*!< A FINIR. */

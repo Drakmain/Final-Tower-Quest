@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "..\lib\attacks_character.h"
 
 #include "..\lib\combat.h"
-#include "..\lib\character.h"
+#include "..\lib\enemy_selection.h"
 
 /*!
  *
@@ -38,7 +39,7 @@ extern void _toEspace(char *string)
 
 /*!
  *
- * \fn attacks_character(game_t *game, character_t *character, SDL_Texture *texture_render_combat)
+ * \fn attacks_character(game_t *game, character_t *character, map_t *map, int nb_enemies_combat, int nb_enemies_combat_actif, int rand_enemies[], SDL_Texture *texture_render_combat)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -47,9 +48,13 @@ extern void _toEspace(char *string)
  *
  */
 
-extern void attacks_character(game_t *game, character_t *character, SDL_Texture *texture_render_combat)
+extern void attacks_character(game_t *game, character_t *character, map_t *map, int nb_enemies_combat, int nb_enemies_combat_actif, int rand_enemies[], SDL_Texture *texture_render_combat, SDL_bool *character_turn_bool)
 {
+    srand(time(NULL));
+
     /*--- Initialization Variable ------------------------------------------------*/
+
+    SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
 
     SDL_Color blanc = {255, 255, 255};
     SDL_Color rouge = {255, 0, 0};
@@ -57,11 +62,24 @@ extern void attacks_character(game_t *game, character_t *character, SDL_Texture 
 
     int selection = 0;
 
+    int selected_enemy;
+
+    int dmg;
+
+    int temp;
+
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
-    SDL_bool attaques_bool = SDL_TRUE;
+    SDL_bool attacks_bool = SDL_TRUE;
 
     SDL_Event event;
+
+    //POS CHARACTER
+    SDL_Rect pos_Wind_character;
+    pos_Wind_character.h = character->Attack.h * (*game->WINDOWWIDTH) * 6.5 / 2560;
+    pos_Wind_character.w = character->Attack.w * (*game->WINDOWWIDTH) * 6.5 / 2560;
+    pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 1.5;
+    pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -545,9 +563,63 @@ extern void attacks_character(game_t *game, character_t *character, SDL_Texture 
 
     /*----------------------------------------------------------------------------*/
 
+    /*--- Creation text "PV personnage" ------------------------------------------*/
+
+    char char_character_life[3];
+    itoa(character->life, char_character_life, 10);
+
+    SDL_Surface *surf_PV_personnage = NULL;
+    surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
+    if (surf_PV_personnage == NULL)
+    {
+        SDL_ExitWithError("Probleme surface PV personnage > combat.c Line 192");
+    }
+
+    SDL_Texture *texture_PV_personnage = NULL;
+    texture_PV_personnage = SDL_CreateTextureFromSurface(game->render, surf_PV_personnage);
+    if (texture_PV_personnage == NULL)
+    {
+        SDL_ExitWithError("Probleme texture PV personnage > combat.c Line 198");
+    }
+
+    SDL_Rect pos_Wind_PV_personnage;
+    pos_Wind_PV_personnage.x = (*game->WINDOWWIDTH) * 1050 / 2560;
+    pos_Wind_PV_personnage.y = (*game->WINDOWWIDTH) * 1069 / 2560;
+    pos_Wind_PV_personnage.w = (*game->WINDOWWIDTH) * strlen(char_character_life) * 25 / 2560;
+    pos_Wind_PV_personnage.h = (*game->WINDOWWIDTH) * 75 / 2560;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "PM personnage" ------------------------------------------*/
+
+    char char_character_mana[3];
+    itoa(character->mana, char_character_mana, 10);
+
+    SDL_Surface *surf_PM_personnage = NULL;
+    surf_PM_personnage = TTF_RenderText_Blended(game->police, char_character_mana, bleu);
+    if (surf_PM_personnage == NULL)
+    {
+        SDL_ExitWithError("Probleme surface PV personnage > combat.c Line 192");
+    }
+
+    SDL_Texture *texture_PM_personnage = NULL;
+    texture_PM_personnage = SDL_CreateTextureFromSurface(game->render, surf_PM_personnage);
+    if (texture_PM_personnage == NULL)
+    {
+        SDL_ExitWithError("Probleme texture PV personnage > combat.c Line 198");
+    }
+
+    SDL_Rect pos_Wind_PM_personnage;
+    pos_Wind_PM_personnage.x = (*game->WINDOWWIDTH) * 1150 / 2560;
+    pos_Wind_PM_personnage.y = (*game->WINDOWWIDTH) * 1069 / 2560;
+    pos_Wind_PM_personnage.w = (*game->WINDOWWIDTH) * strlen(char_character_mana) * 25 / 2560;
+    pos_Wind_PM_personnage.h = (*game->WINDOWWIDTH) * 75 / 2560;
+
+    /*----------------------------------------------------------------------------*/
+
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (*game->program_launch && attaques_bool)
+    while (*game->program_launch && attacks_bool)
     {
         while (SDL_PollEvent(&event))
         {
@@ -560,12 +632,12 @@ extern void attacks_character(game_t *game, character_t *character, SDL_Texture 
 
             if (keyState[SDL_SCANCODE_ESCAPE])
             {
-                attaques_bool = SDL_FALSE;
+                attacks_bool = SDL_FALSE;
             }
 
             /*--- End Event to Exit Program --------------------------------------*/
 
-            /*--- Event pour selectionner ------------------------------------------*/
+            /*--- Event pour selectionner ----------------------------------------*/
 
             if (keyState[SDL_SCANCODE_DOWN] && event.type == SDL_KEYDOWN)
             {
@@ -576,6 +648,8 @@ extern void attacks_character(game_t *game, character_t *character, SDL_Texture 
             {
                 selection--;
             }
+
+            /*--------------------------------------------------------------------*/
 
             if (selection < 0)
                 selection = 12;
@@ -743,6 +817,8 @@ extern void attacks_character(game_t *game, character_t *character, SDL_Texture 
             texture_degat_attaque_NB = SDL_CreateTextureFromSurface(game->render, surf_degat_attaque_NB);
             texture_description_attaque = SDL_CreateTextureFromSurface(game->render, surf_description_attaque);
 
+            SDL_SetRenderTarget(game->render, texture_render);
+
             SDL_RenderClear(game->render);
 
             SDL_RenderCopy(game->render, texture_render_combat, NULL, NULL);
@@ -764,67 +840,94 @@ extern void attacks_character(game_t *game, character_t *character, SDL_Texture 
             SDL_RenderCopy(game->render, texture_attaque_12, NULL, &pos_Wind_attaque_12);
             SDL_RenderCopy(game->render, texture_attaque_13, NULL, &pos_Wind_attaque_13);
 
+            SDL_RenderCopy(game->render, texture_PV_personnage, NULL, &pos_Wind_PV_personnage);
+            SDL_RenderCopy(game->render, texture_PM_personnage, NULL, &pos_Wind_PM_personnage);
             SDL_RenderCopy(game->render, texture_cout_attaque, NULL, &pos_Wind_cout_attaque);
             SDL_RenderCopy(game->render, texture_cout_attaque_NB, NULL, &pos_Wind_cout_attaque_NB);
             SDL_RenderCopy(game->render, texture_degat_attaque, NULL, &pos_Wind_degat_attaque);
             SDL_RenderCopy(game->render, texture_degat_attaque_NB, NULL, &pos_Wind_degat_attaque_NB);
             SDL_RenderCopy(game->render, texture_description_attaque, NULL, &pos_Wind_description_attaque);
 
+            //SDL_RenderCopy(game->render, character->texture, &character->Attack, &pos_Wind_character);
+            SDL_SetRenderTarget(game->render, NULL);
+
+            SDL_RenderCopy(game->render, texture_render, NULL, NULL);
+
             SDL_RenderPresent(game->render);
 
-            switch (selection)
+            if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
             {
-            case 0:
-                /* code */
-                break;
+                switch (character->attacks[selection].type)
+                {
+                case 0: //Attaque un ennemi
+                    selected_enemy = enemy_selection(game, character, map, nb_enemies_combat, nb_enemies_combat_actif, rand_enemies, texture_render);
+                    dmg = rand() % character->attacks[selection].dmg_max + character->attacks[selection].dmg_min;
+                    map->enemies[rand_enemies[selected_enemy]].life -= dmg;
+                    printf("map->enemies[selected_enemy].life: %i\n", map->enemies[rand_enemies[selected_enemy]].life);
+                    break;
 
-            case 1:
-                /* code */
-                break;
+                case 1: //Attaque tous les ennemis
+                    for (int i = 0; i < nb_enemies_combat; i++)
+                    {
+                        dmg = rand() % character->attacks[selection].dmg_max + character->attacks[selection].dmg_min;
+                        map->enemies[rand_enemies[i]].life -= dmg;
+                    }
+                    break;
 
-            case 2:
-                /* code */
-                break;
+                case 2: //Attaque 3x aleatoirement
+                    for (int i = 0; i < 3; i++)
+                    {
+                        temp = rand() % nb_enemies_combat_actif;
+                        dmg = rand() % character->attacks[selection].dmg_max + character->attacks[selection].dmg_min;
+                        if (map->enemies[rand_enemies[nb_enemies_combat_actif]].life == 0)
+                        {
+                            map->enemies[rand_enemies[nb_enemies_combat_actif]].life -= dmg;
+                        }
+                    }
+                    break;
 
-            case 3:
-                /* code */
-                break;
+                case 3: //Restaure un certain % la sante
+                    character->life += character->max_life * character->attacks[selection].modifier / 100;
+                    break;
 
-            case 4:
-                /* code */
-                break;
+                case 4:
+                    /* code */
+                    break;
 
-            case 5:
-                /* code */
-                break;
+                case 5:
+                    /* code */
+                    break;
 
-            case 6:
-                /* code */
-                break;
+                case 6:
+                    /* code */
+                    break;
 
-            case 7:
-                /* code */
-                break;
+                case 7:
+                    /* code */
+                    break;
 
-            case 8:
-                /* code */
-                break;
+                case 8:
+                    /* code */
+                    break;
 
-            case 9:
-                /* code */
-                break;
+                case 9:
+                    /* code */
+                    break;
 
-            case 10:
-                /* code */
-                break;
+                case 10:
+                    /* code */
+                    break;
 
-            case 11:
-                /* code */
-                break;
+                case 11:
+                    /* code */
+                    break;
 
-            case 12:
-                /* code */
-                break;
+                case 12:
+                    /* code */
+                    break;
+                }
+                *character_turn_bool = SDL_FALSE;
+                attacks_bool = SDL_FALSE;
             }
         }
     }

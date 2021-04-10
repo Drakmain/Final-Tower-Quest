@@ -2,8 +2,8 @@ CFLAGS=-Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
 
 all: main
 
-main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o combat.o commandes.o sac.o affichage_message.o attacks_character.o floor_1.o
-	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o combat.o commandes.o sac.o affichage_message.o attacks_character.o floor_1.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
+main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o combat.o commandes.o sac.o affichage_message.o attacks_character.o floor_1.o enemy_turn.o character_turn.o enemy_selection.o
+	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o combat.o commandes.o sac.o affichage_message.o attacks_character.o floor_1.o enemy_turn.o character_turn.o enemy_selection.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
 
 
 test: test_map.o test_character.o error.o map.o character.o
@@ -38,6 +38,15 @@ nouvelle_partie.o: src/nouvelle_partie.c
 
 floor_1.o: src/floor_1.c
 	gcc -c src/floor_1.c -I include -L lib $(CFLAGS)
+
+character_turn.o: src/character_turn.c
+	gcc -c src/character_turn.c -I include -L lib $(CFLAGS)
+
+enemy_selection.o: src/enemy_selection.c
+	gcc -c src/enemy_selection.c -I include -L lib $(CFLAGS)
+
+enemy_turn.o: src/enemy_turn.c
+	gcc -c src/enemy_turn.c -I include -L lib $(CFLAGS)
 
 options.o: src/options.c
 	gcc -c src/options.c -I include -L lib $(CFLAGS)
