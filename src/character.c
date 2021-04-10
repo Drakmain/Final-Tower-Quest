@@ -206,6 +206,19 @@ extern character_t *character_create(SDL_Renderer *render, char *file_name_save)
         character->nb_tour_restant_puissance = 0;
         character->nb_tour_restant_agi = 0;
 
+        for(int i = 0; i < 50 ; i++)
+        {
+            if(i == 0)character->tab_xp_max[i] = 0;
+            else if(i == 1)character->tab_xp_max[i] = 100;
+            else if(i == 2)character->tab_xp_max[i] = character->tab_xp_max[i - 1] + 140;
+            else if(i < 11)character->tab_xp_max[i] = character->tab_xp_max[i - 1] + character->tab_xp_max[i - 1] - character->tab_xp_max[i - 2] + 45;
+            else if(i < 21)character->tab_xp_max[i] = character->tab_xp_max[i - 1] + character->tab_xp_max[i - 1] - character->tab_xp_max[i - 2] + 50;
+            else if(i < 31)character->tab_xp_max[i] = character->tab_xp_max[i - 1] + character->tab_xp_max[i - 1] - character->tab_xp_max[i - 2] + 100;
+            else if(i < 41)character->tab_xp_max[i] = character->tab_xp_max[i - 1] + character->tab_xp_max[i - 1] - character->tab_xp_max[i - 2] + 300;
+            else if(i < 49)character->tab_xp_max[i] = character->tab_xp_max[i - 1] + character->tab_xp_max[i - 1] - character->tab_xp_max[i - 2] + 500 + 100 * (i - 41);
+            else if(i == 49)character->tab_xp_max[i] = character->tab_xp_max[i - 1] + 20870;
+        }
+
         /*--- Open txt file ----------------------------------------------------------*/
 
         strcat(character->file_name_txt, character->classe_name);

@@ -97,7 +97,7 @@ int main(int argc, char **argv)
         {
             character_save = character_create(game->render, actual_save);
             town(game, character_save);
-            //tower(game, actual_save);
+            //tower(game, character_save);
             //floor_1(game, character_save);
         }
     }

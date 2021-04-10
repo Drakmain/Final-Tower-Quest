@@ -55,12 +55,13 @@ struct character_s
   int x;             /*!< A FINIR. */
   int y;             /*!< A FINIR. */
 
-  int lvl;      /*!< A FINIR. */
-  int xp;       /*!< A FINIR. */
-  int max_life; /*!< A FINIR. */
-  int life;     /*!< A FINIR. */
-  int max_mana; /*!< A FINIR. */
-  int mana;     /*!< A FINIR. */
+  int lvl;            /*!< A FINIR. */
+  int xp;             /*!< A FINIR. */
+  int tab_xp_max[50]; /*!< A FINIR. */
+  int max_life;       /*!< A FINIR. */
+  int life;           /*!< A FINIR. */
+  int max_mana;       /*!< A FINIR. */
+  int mana;           /*!< A FINIR. */
 
   int vitalite;     /*!< A FINIR. */
   int puissance;    /*!< A FINIR. */
