@@ -187,8 +187,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier1;
     pos_damier1.x = (*game->WINDOWWIDTH) * 640 / 1920;
     pos_damier1.y = (*game->WINDOWHEIGHT) * 0 / 1080;
-    pos_damier1.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier1.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier1.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier1.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -210,8 +210,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier2;
     pos_damier2.x = (*game->WINDOWWIDTH) * 0 / 1920;
     pos_damier2.y = (*game->WINDOWHEIGHT) * 180 / 1080;
-    pos_damier2.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier2.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier2.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier2.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -233,8 +233,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier3;
     pos_damier3.x = (*game->WINDOWWIDTH) * 1280 / 1920;
     pos_damier3.y = (*game->WINDOWHEIGHT) * 360 / 1080;
-    pos_damier3.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier3.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier3.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier3.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -256,8 +256,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier4;
     pos_damier4.x = (*game->WINDOWWIDTH) * 320 / 1920;
     pos_damier4.y = (*game->WINDOWHEIGHT) * 540 / 1080;
-    pos_damier4.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier4.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier4.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier4.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -279,8 +279,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier5;
     pos_damier5.x = (*game->WINDOWWIDTH) * 1600 / 1920;
     pos_damier5.y = (*game->WINDOWHEIGHT) * 540 / 1080;
-    pos_damier5.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier5.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier5.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier5.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -302,8 +302,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier6;
     pos_damier6.x = (*game->WINDOWWIDTH) * 960 / 1920;
     pos_damier6.y = (*game->WINDOWHEIGHT) * 720 / 1080;
-    pos_damier6.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier6.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier6.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier6.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -325,8 +325,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier7;
     pos_damier7.x = (*game->WINDOWWIDTH) * 0 / 1920;
     pos_damier7.y = (*game->WINDOWHEIGHT) * 0 / 1080;
-    pos_damier7.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier7.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier7.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier7.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -348,8 +348,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier8;
     pos_damier8.x = (*game->WINDOWWIDTH) * 1280 / 1920;
     pos_damier8.y = (*game->WINDOWHEIGHT) * 0 / 1080;
-    pos_damier8.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier8.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier8.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier8.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -371,8 +371,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier9;
     pos_damier9.x = (*game->WINDOWWIDTH) * 640 / 1920;
     pos_damier9.y = (*game->WINDOWHEIGHT) * 360 / 1080;
-    pos_damier9.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier9.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier9.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier9.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -394,8 +394,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier10;
     pos_damier10.x = (*game->WINDOWWIDTH) * 0 / 1920;
     pos_damier10.y = (*game->WINDOWHEIGHT) * 540 / 1080;
-    pos_damier10.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier10.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier10.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier10.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -417,8 +417,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier11;
     pos_damier11.x = (*game->WINDOWWIDTH) * 1600 / 1920;
     pos_damier11.y = (*game->WINDOWHEIGHT) * 720 / 1080;
-    pos_damier11.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier11.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier11.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier11.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -440,8 +440,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier12;
     pos_damier12.x = (*game->WINDOWWIDTH) * 640 / 1920;
     pos_damier12.y = (*game->WINDOWHEIGHT) * 900 / 1080;
-    pos_damier12.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier12.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier12.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier12.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -463,8 +463,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier13;
     pos_damier13.x = (*game->WINDOWWIDTH) * 320 / 1920;
     pos_damier13.y = (*game->WINDOWHEIGHT) * 180 / 1080;
-    pos_damier13.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier13.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier13.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier13.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -486,8 +486,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier14;
     pos_damier14.x = (*game->WINDOWWIDTH) * 1600 / 1920;
     pos_damier14.y = (*game->WINDOWHEIGHT) * 180 / 1080;
-    pos_damier14.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier14.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier14.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier14.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -509,8 +509,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier15;
     pos_damier15.x = (*game->WINDOWWIDTH) * 640 / 1920;
     pos_damier15.y = (*game->WINDOWHEIGHT) * 540 / 1080;
-    pos_damier15.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier15.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier15.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier15.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -532,8 +532,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier16;
     pos_damier16.x = (*game->WINDOWWIDTH) * 320 / 1920;
     pos_damier16.y = (*game->WINDOWHEIGHT) * 720 / 1080;
-    pos_damier16.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier16.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier16.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier16.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -555,8 +555,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier17;
     pos_damier17.x = (*game->WINDOWWIDTH) * 0 / 1920;
     pos_damier17.y = (*game->WINDOWHEIGHT) * 900 / 1080;
-    pos_damier17.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier17.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier17.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier17.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -578,8 +578,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier18;
     pos_damier18.x = (*game->WINDOWWIDTH) * 1280 / 1920;
     pos_damier18.y = (*game->WINDOWHEIGHT) * 900 / 1080;
-    pos_damier18.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier18.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier18.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier18.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -601,8 +601,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier19;
     pos_damier19.x = (*game->WINDOWWIDTH) * 1600 / 1920;
     pos_damier19.y = (*game->WINDOWHEIGHT) * 0 / 1080;
-    pos_damier19.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier19.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier19.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier19.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -624,8 +624,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier20;
     pos_damier20.x = (*game->WINDOWWIDTH) * 960 / 1920;
     pos_damier20.y = (*game->WINDOWHEIGHT) * 180 / 1080;
-    pos_damier20.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier20.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier20.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier20.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -646,9 +646,9 @@ extern void transition(game_t *game)
 
     SDL_Rect pos_damier21;
     pos_damier21.x = (*game->WINDOWWIDTH) * 0 / 1920;
-    pos_damier21.y = (*game->WINDOWHEIGHT) * 360 / 1080;
-    pos_damier21.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier21.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier21.y = (*game->WINDOWWIDTH) * 360 / 1920;
+    pos_damier21.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier21.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -670,8 +670,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier22;
     pos_damier22.x = (*game->WINDOWWIDTH) * 960 / 1920;
     pos_damier22.y = (*game->WINDOWHEIGHT) * 540 / 1080;
-    pos_damier22.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier22.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier22.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier22.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -693,8 +693,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier23;
     pos_damier23.x = (*game->WINDOWWIDTH) * 1280 / 1920;
     pos_damier23.y = (*game->WINDOWHEIGHT) * 720 / 1080;
-    pos_damier23.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier23.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier23.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier23.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -716,8 +716,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier24;
     pos_damier24.x = (*game->WINDOWWIDTH) * 320 / 1920;
     pos_damier24.y = (*game->WINDOWHEIGHT) * 900 / 1080;
-    pos_damier24.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier24.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier24.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier24.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -739,8 +739,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier25;
     pos_damier25.x = (*game->WINDOWWIDTH) * 320 / 1920;
     pos_damier25.y = (*game->WINDOWHEIGHT) * 0 / 1080;
-    pos_damier25.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier25.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier25.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier25.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -762,8 +762,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier26;
     pos_damier26.x = (*game->WINDOWWIDTH) * 960 / 1920;
     pos_damier26.y = (*game->WINDOWHEIGHT) * 0 / 1080;
-    pos_damier26.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier26.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier26.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier26.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -785,8 +785,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier27;
     pos_damier27.x = (*game->WINDOWWIDTH) * 1280 / 1920;
     pos_damier27.y = (*game->WINDOWHEIGHT) * 180 / 1080;
-    pos_damier27.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier27.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier27.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier27.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -808,8 +808,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier28;
     pos_damier28.x = (*game->WINDOWWIDTH) * 320 / 1920;
     pos_damier28.y = (*game->WINDOWHEIGHT) * 360 / 1080;
-    pos_damier28.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier28.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier28.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier28.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -831,8 +831,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier29;
     pos_damier29.x = (*game->WINDOWWIDTH) * 1280 / 1920;
     pos_damier29.y = (*game->WINDOWHEIGHT) * 540 / 1080;
-    pos_damier29.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier29.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier29.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier29.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -854,8 +854,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier30;
     pos_damier30.x = (*game->WINDOWWIDTH) * 640 / 1920;
     pos_damier30.y = (*game->WINDOWHEIGHT) * 720 / 1080;
-    pos_damier30.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier30.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier30.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier30.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -877,8 +877,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier31;
     pos_damier31.x = (*game->WINDOWWIDTH) * 640 / 1920;
     pos_damier31.y = (*game->WINDOWHEIGHT) * 180 / 1080;
-    pos_damier31.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier31.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier31.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier31.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -900,8 +900,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier32;
     pos_damier32.x = (*game->WINDOWWIDTH) * 960 / 1920;
     pos_damier32.y = (*game->WINDOWHEIGHT) * 360 / 1080;
-    pos_damier32.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier32.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier32.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier32.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -923,8 +923,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier33;
     pos_damier33.x = (*game->WINDOWWIDTH) * 1600 / 1920;
     pos_damier33.y = (*game->WINDOWHEIGHT) * 360 / 1080;
-    pos_damier33.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier33.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier33.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier33.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -946,8 +946,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier34;
     pos_damier34.x = (*game->WINDOWWIDTH) * 0 / 1920;
     pos_damier34.y = (*game->WINDOWHEIGHT) * 720 / 1080;
-    pos_damier34.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier34.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier34.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier34.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -969,8 +969,8 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier35;
     pos_damier35.x = (*game->WINDOWWIDTH) * 960 / 1920;
     pos_damier35.y = (*game->WINDOWHEIGHT) * 900 / 1080;
-    pos_damier35.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier35.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier35.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier35.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
 
@@ -992,14 +992,10 @@ extern void transition(game_t *game)
     SDL_Rect pos_damier36;
     pos_damier36.x = (*game->WINDOWWIDTH) * 1600 / 1920;
     pos_damier36.y = (*game->WINDOWHEIGHT) * 900 / 1080;
-    pos_damier36.w = (*game->WINDOWWIDTH) / 6;
-    pos_damier36.h = (*game->WINDOWHEIGHT) / 6;
+    pos_damier36.w = (*game->WINDOWWIDTH) * 325 / 1920;
+    pos_damier36.h = (*game->WINDOWHEIGHT) * 185 / 1080;
 
     /*----------------------------------------------------------------------------*/
-
-
-
-
 
     rand_nb = rand()%3;
     if(rand_nb == 0) {
