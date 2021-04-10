@@ -6,6 +6,6 @@
 #include "game.h"
 
 extern
-void fin_combat(game_t *game, character_t *character, map_t *map, int nb_enemie_combat, int rand_enemie[]);
+void fin_combat(game_t *game, character_t *character, SDL_Texture * texture_render_combat, map_t *map, int nb_enemie_combat, int rand_enemie[]);
 
 #endif

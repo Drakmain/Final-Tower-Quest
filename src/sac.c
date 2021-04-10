@@ -902,7 +902,6 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
     pos_texture_render_menu_ig.h = (*game->WINDOWHEIGHT);
 
     /*--- Main Loop -----------------------------------------------------------*/
-
     while (sac_bool && *game->program_launch)
     {
         while (SDL_PollEvent(&event))
@@ -1098,7 +1097,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                     {
                         if (character->nb_petite_popo_soin == 0)
                         {
-                            affichage_message(game, "Vous n'en avez aucune dans votre sac.", -1);
+                            affichage_message(game, texture_render_sac, "Vous n'en avez aucune dans votre sac.", -1);
                         }
                         else if (texte_confirmation(game, "Voulez-vous utiliser une petite potion de soin ?"))
                         {
@@ -1108,16 +1107,16 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
 
                             if (character->life == character->max_life)
                             {
-                                affichage_message(game, "Cela n'a servit a rien.", -1);
+                                affichage_message(game, texture_render_sac, "Cela n'a servit a rien.", -1);
                             }
                             else if (character->max_life - character->life < 20)
                             {
-                                affichage_message(game, "Vous avez recupere %d PV.", character->max_life - character->life);
+                                affichage_message(game, texture_render_sac, "Vous avez recupere %d PV.", character->max_life - character->life);
                                 character->life = character->max_life;
                             }
                             else
                             {
-                                affichage_message(game, "Vous avez recupere %d PV.", 20);
+                                affichage_message(game, texture_render_sac, "Vous avez recupere %d PV.", 20);
                                 character->life += 20;
                             }
                             potion_utilise_bool = SDL_TRUE;
@@ -1143,7 +1142,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                     {
                         if (character->nb_moyenne_popo_soin == 0)
                         {
-                            affichage_message(game, "Vous n'en avez aucune dans votre sac.", -1);
+                            affichage_message(game, texture_render_sac, "Vous n'en avez aucune dans votre sac.", -1);
                         }
                         else if (texte_confirmation(game, "Voulez-vous utiliser une moyenne potion de soin ?"))
                         {
@@ -1153,16 +1152,16 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
 
                             if (character->life == character->max_life)
                             {
-                                affichage_message(game, "Cela n'a servit a rien.", -1);
+                                affichage_message(game, texture_render_sac, "Cela n'a servit a rien.", -1);
                             }
                             else if (character->max_life - character->life < 50)
                             {
-                                affichage_message(game, "Vous avez recupere %d PV.", character->max_life - character->life);
+                                affichage_message(game, texture_render_sac, "Vous avez recupere %d PV.", character->max_life - character->life);
                                 character->life = character->max_life;
                             }
                             else
                             {
-                                affichage_message(game, "Vous avez recupere %d PV.", 50);
+                                affichage_message(game, texture_render_sac, "Vous avez recupere %d PV.", 50);
                                 character->life += 50;
                             }
                             potion_utilise_bool = SDL_TRUE;
@@ -1191,7 +1190,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                     {
                         if (character->nb_petite_popo_mana == 0)
                         {
-                            affichage_message(game, "Vous n'en avez aucune dans votre sac.", -1);
+                            affichage_message(game, texture_render_sac, "Vous n'en avez aucune dans votre sac.", -1);
                         }
                         else if (texte_confirmation(game, "Voulez-vous utiliser une petite potion de mana ?"))
                         {
@@ -1201,16 +1200,16 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
 
                             if (character->mana == character->max_mana)
                             {
-                                affichage_message(game, "Cela n'a servit a rien.", -1);
+                                affichage_message(game, texture_render_sac, "Cela n'a servit a rien.", -1);
                             }
                             else if (character->max_mana - character->mana < 20)
                             {
-                                affichage_message(game, "Vous avez recupere %d PM.", character->max_mana - character->mana);
+                                affichage_message(game, texture_render_sac, "Vous avez recupere %d PM.", character->max_mana - character->mana);
                                 character->mana = character->max_mana;
                             }
                             else
                             {
-                                affichage_message(game, "Vous avez recupere %d PM.", 20);
+                                affichage_message(game, texture_render_sac, "Vous avez recupere %d PM.", 20);
                                 character->mana += 20;
                             }
                             potion_utilise_bool = SDL_TRUE;
@@ -1236,7 +1235,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                     {
                         if (character->nb_moyenne_popo_mana == 0)
                         {
-                            affichage_message(game, "Vous n'en avez aucune dans votre sac.", -1);
+                            affichage_message(game, texture_render_sac, "Vous n'en avez aucune dans votre sac.", -1);
                         }
                         else if (texte_confirmation(game, "Voulez-vous utiliser une moyenne potion de soin ?"))
                         {
@@ -1246,16 +1245,16 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
 
                             if (character->mana == character->max_mana)
                             {
-                                affichage_message(game, "Cela n'a servit a rien.", -1);
+                                affichage_message(game, texture_render_sac, "Cela n'a servit a rien.", -1);
                             }
                             else if (character->max_mana - character->mana < 50)
                             {
-                                affichage_message(game, "Vous avez recupere %d PM.", character->max_mana - character->mana);
+                                affichage_message(game, texture_render_sac, "Vous avez recupere %d PM.", character->max_mana - character->mana);
                                 character->mana = character->max_mana;
                             }
                             else
                             {
-                                affichage_message(game, "Vous avez recupere %d PM.", 50);
+                                affichage_message(game, texture_render_sac, "Vous avez recupere %d PM.", 50);
                                 character->mana += 50;
                             }
                             potion_utilise_bool = SDL_TRUE;
@@ -1289,7 +1288,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                     {
                         if (character->nb_popo_puissance == 0)
                         {
-                            affichage_message(game, "Vous n'en avez aucune dans votre sac.", -1);
+                            affichage_message(game, texture_render_sac, "Vous n'en avez aucune dans votre sac.", -1);
                         }
                         else if (texte_confirmation(game, "Voulez-vous utiliser une potion de puissance ?"))
                         {
@@ -1298,12 +1297,12 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                             SDL_RenderPresent(game->render);
 
                             if (character->nb_tour_restant_puissance > 0)
-                                affichage_message(game, "Une potion de puissance fait encore effet.", -1);
+                                affichage_message(game, texture_render_sac, "Une potion de puissance fait encore effet.", -1);
                             else if (character->nb_tour_restant_agi > 0)
-                                affichage_message(game, "Une potion d'agilite fait encore effet.", -1);
+                                affichage_message(game, texture_render_sac, "Une potion d'agilite fait encore effet.", -1);
                             else
                             {
-                                affichage_message(game, "Vous puissance a ete augmente de 10 pendant 3 tours", -1);
+                                affichage_message(game, texture_render_sac, "Vous puissance a ete augmente de 10 pendant 3 tours", -1);
                                 character->puissance += 10;
                                 character->nb_popo_puissance--;
                                 character->nb_tour_restant_puissance = 3;
@@ -1330,7 +1329,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                     {
                         if (character->nb_popo_agi == 0)
                         {
-                            affichage_message(game, "Vous n'en avez aucune dans votre sac.", -1);
+                            affichage_message(game, texture_render_sac, "Vous n'en avez aucune dans votre sac.", -1);
                         }
                         else if (texte_confirmation(game, "Voulez-vous utiliser une potion de puissance ?"))
                         {
@@ -1339,12 +1338,12 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                             SDL_RenderPresent(game->render);
 
                             if (character->nb_tour_restant_puissance > 0)
-                                affichage_message(game, "Une potion de puissance fait encore effet.", -1);
+                                affichage_message(game, texture_render_sac, "Une potion de puissance fait encore effet.", -1);
                             else if (character->nb_tour_restant_agi > 0)
-                                affichage_message(game, "Une potion d'agilite fait encore effet.", -1);
+                                affichage_message(game, texture_render_sac, "Une potion d'agilite fait encore effet.", -1);
                             else
                             {
-                                affichage_message(game, "Vous puissance a ete augmente de 10 pendant 3 tours", -1);
+                                affichage_message(game, texture_render_sac, "Vous puissance a ete augmente de 10 pendant 3 tours", -1);
                                 character->agilite += 10;
                                 character->nb_popo_agi--;
                                 character->nb_tour_restant_agi = 5;
