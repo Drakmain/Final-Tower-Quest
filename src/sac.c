@@ -1121,6 +1121,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                             }
                             potion_utilise_bool = SDL_TRUE;
                             character->nb_petite_popo_soin--;
+                            combat = SDL_FLASE;
 
                             if (character->nb_petite_popo_soin > 999)
                             {
@@ -1166,6 +1167,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                             }
                             potion_utilise_bool = SDL_TRUE;
                             character->nb_moyenne_popo_soin--;
+                            combat = SDL_FLASE;
 
                             if (character->nb_moyenne_popo_soin > 999)
                             {
@@ -1214,6 +1216,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                             }
                             potion_utilise_bool = SDL_TRUE;
                             character->nb_petite_popo_mana--;
+                            combat = SDL_FLASE;
 
                             if (character->nb_petite_popo_mana > 999)
                             {
@@ -1259,6 +1262,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                             }
                             potion_utilise_bool = SDL_TRUE;
                             character->nb_moyenne_popo_mana--;
+                            combat = SDL_FLASE;
 
                             if (character->nb_moyenne_popo_mana > 999)
                             {
@@ -1307,6 +1311,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                                 character->nb_popo_puissance--;
                                 character->nb_tour_restant_puissance = 3;
                                 potion_utilise_bool = SDL_TRUE;
+                                combat = SDL_FLASE;
                             }
 
                             if (character->nb_popo_puissance > 999)
@@ -1348,6 +1353,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                                 character->nb_popo_agi--;
                                 character->nb_tour_restant_agi = 5;
                                 potion_utilise_bool = SDL_TRUE;
+                                combat = SDL_FLASE;
                             }
 
                             if (character->nb_popo_agi > 999)
