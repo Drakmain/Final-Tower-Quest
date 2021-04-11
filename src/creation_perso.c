@@ -298,11 +298,6 @@ extern void creation_perso(game_t *game, char *actual_save)
                 crea_perso_bool = SDL_FALSE;
             }
 
-            if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
-            {
-                crea_perso_bool = SDL_FALSE;
-            }
-
             /*--- End Event to Exit Program -------------------------------------------*/
 
             /*--- Event pour selectionner ---------------------------------------------*/

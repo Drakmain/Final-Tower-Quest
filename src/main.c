@@ -89,16 +89,25 @@ int main(int argc, char **argv)
 
     while (*game->program_launch)
     {
-        strcpy(actual_save, "\0");
 
         menu_accueil(game, actual_save);
 
-        if (strcmp(actual_save, "\0"))
-        {
-            character_save = character_create(game->render, actual_save);
-            //town(game, character_save);
-            //tower(game, actual_save);
+        character_save = character_create(game->render, actual_save);
+
+        if(!strcmp(character_save->position,"Town"))
+            town(game, character_save);
+        if(!strcmp(character_save->position,"Tower"))
+            tower(game, character_save);
+        if(!strcmp(character_save->position,"Floor_1"))
             floor_1(game, character_save);
+        /*if(!strcmp(character_save->position,"Floor_2"))
+            floor_2(game, character_save);
+        if(!strcmp(character_save->position,"Floor_3"))
+            floor_3(game, character_save);
+        if(!strcmp(character_save->position,"Floor_4"))
+            floor_4(game, character_save);
+        if(!strcmp(character_save->position,"Floor_5"))
+            floor_5(game, character_save);*/
         }
     }
 

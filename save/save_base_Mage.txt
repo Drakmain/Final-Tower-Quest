@@ -1,5 +1,5 @@
 classe_name: Mage ;
-position: Village ;
+position: Town ;
 x: 0 ;
 y: 0 ;
 lvl: 1 ;
