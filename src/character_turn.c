@@ -266,6 +266,16 @@ extern void character_turn(game_t *game, character_t *character, enemy_t *enemie
     SDL_RenderCopy(game->render, texture_fuite, NULL, &pos_Wind_fuite);
     SDL_RenderCopy(game->render, character->texture, &character->Attack, &pos_Wind_character);
 
+    surf_attaque = TTF_RenderText_Blended(game->police, "Attaque", rouge);
+    surf_sac = TTF_RenderText_Blended(game->police, "Sac", blanc);
+    surf_fuite = TTF_RenderText_Blended(game->police, "Fuite", blanc);
+    texture_attaque = SDL_CreateTextureFromSurface(game->render, surf_attaque);
+    texture_sac = SDL_CreateTextureFromSurface(game->render, surf_sac);
+    texture_fuite = SDL_CreateTextureFromSurface(game->render, surf_fuite);
+    SDL_RenderCopy(game->render, texture_attaque, NULL, &pos_Wind_attaque);
+    SDL_RenderCopy(game->render, texture_sac, NULL, &pos_Wind_sac);
+    SDL_RenderCopy(game->render, texture_fuite, NULL, &pos_Wind_fuite);
+
     SDL_RenderPresent(game->render);
     SDL_Delay(100);
 
@@ -331,7 +341,7 @@ extern void character_turn(game_t *game, character_t *character, enemy_t *enemie
             texture_attaque = SDL_CreateTextureFromSurface(game->render, surf_attaque);
             texture_sac = SDL_CreateTextureFromSurface(game->render, surf_sac);
             texture_fuite = SDL_CreateTextureFromSurface(game->render, surf_fuite);
-            
+
             SDL_SetRenderTarget(game->render, texture_render_combat);
 
             SDL_RenderCopy(game->render, character->texture, &character->Attack, &pos_Wind_character);

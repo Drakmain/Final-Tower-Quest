@@ -197,7 +197,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
 
     strcpy(msg, enemies_cbt[num].name);
     strcat(msg, " utilise ");
-    
+
     if (attack_spe >= 0 && attack_spe <= enemies_cbt[num].attack[1].percentage && enemies_cbt[num].attack[1].percentage != -1)
     {
         switch (enemies_cbt[num].attack[1].effect)
@@ -209,9 +209,9 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
 
             enemies_cbt[num].attack[1].effect_remaining = enemies_cbt[num].attack[1].effect_duration;
             dmg_modifier = enemies_cbt[num].attack[1].modifier;
-            
-            strcat(msg, enemies_cbt[num].attack[1].name);          
-            
+
+            strcat(msg, enemies_cbt[num].attack[1].name);
+
             break;
 
         case 1: //Empêche l'ennemi d'attaquer pendant un certain nombre de tour
@@ -229,7 +229,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
     }
 
     strcat(msg, " %n ");
-    strcat(msg, "Vous avez subis ");  
+    strcat(msg, "Vous avez subis ");
     char_dmg = dmg + '0';
     strncat(msg, &char_dmg, 1);
     strcat(msg, " degats.");
@@ -237,7 +237,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
     surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
 
     SDL_RenderCopy(game->render, texture_render_combat, NULL, NULL);
-    
+
     SDL_RenderCopy(game->render, texture_PV_personnage, NULL, &pos_Wind_PV_personnage);
     SDL_RenderCopy(game->render, texture_PM_personnage, NULL, &pos_Wind_PM_personnage);
     SDL_RenderCopy(game->render, texture_attaque, NULL, &pos_Wind_attaque);
@@ -267,11 +267,10 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
         pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
         SDL_RenderCopy(game->render, character->texture, &character->West_Walk.rect, &pos_Wind_character);
     }
-    
+
     msg = (char *)realloc(msg, strlen(msg) * sizeof(char) + 1);
     printf("msg: %s\n", msg);
     affichage_message(game, texture_render, msg, -1);
-
 
     /*--- End Main Loop ----------------------------------------------------------*/
 

@@ -55,9 +55,9 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     SDL_bool *combat_bool = malloc(sizeof(SDL_bool));
     *combat_bool = SDL_TRUE;
 
-    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
-
     SDL_Event event;
+
+    int temp;
 
     //POS CHARACTER
     SDL_Rect pos_Wind_character;
@@ -71,7 +71,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     /*--- Initialization number of ennemis ---------------------------------------*/
 
     nb_enemies_combat = rand() % NB_MAX_ENEMIES_CBT + 1;
-    nb_enemies_combat = 4;
     nb_enemies_combat_actif = nb_enemies_combat;
 
     /*--- End Initialization number of ennemis -----------------------------------*/
@@ -107,19 +106,9 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
     for (int i = 0; i < nb_enemies_combat; i++)
     {
-        enemy_cpy(&(enemies_cbt[i]), &(map->enemies[i]), game->render);
+        temp = rand() % NB_ENEMIES;
+        enemy_cpy(&(enemies_cbt[i]), &(map->enemies[temp]), game->render);
     }
-
-    for (int i = nb_enemies_combat; i < NB_MAX_ENEMIES_CBT; i++)
-    {
-        enemies_cbt[i].texture = NULL;
-    }
-
-    for (int i = 0; i < nb_enemies_combat; i++)
-    {
-        printf("name: %s, attack1: %s, attack1: %s\n", enemies_cbt[i].name, enemies_cbt[i].attack[0].name, enemies_cbt[i].attack[1].name);
-    }
-    
 
     /*----------------------------------------------------------------------------*/
 
@@ -535,23 +524,13 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
                 break;
             }
             character->atb += character->vitesse;
-            
+            /*
             printf("character->atb: %i\n", character->atb);
             printf("enemies_cbt[0].atb: %i\n", enemies_cbt[0].atb);
             printf("enemies_cbt[0].atb: %i\n", enemies_cbt[0].atb);
             printf("enemies_cbt[0].atb: %i\n", enemies_cbt[0].atb);
-            printf("enemies_cbt[0].atb: %i\n\n", enemies_cbt[0].atb);
+            printf("enemies_cbt[0].atb: %i\n\n", enemies_cbt[0].atb);*/
         } while (character->atb <= 100 && enemies_cbt[0].atb <= 100 && enemies_cbt[1].atb <= 100 && enemies_cbt[2].atb <= 100 && enemies_cbt[3].atb <= 100);
-
-        if (character->life == 0)
-        {
-            //game_over()
-        }
-
-        if (enemies_cbt[0].life <= 0 && enemies_cbt[1].life <= 0 && enemies_cbt[2].life <= 0 && enemies_cbt[3].life <= 0)
-        {
-            //fin_combat(game, character, texture_render, map, nb_enemies_combat, rand_enemies);
-        }
 
         switch (nb_enemies_combat)
         {
@@ -562,6 +541,16 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
                 enemy_turn(game, character, enemies_cbt, 0, map, texture_render);
                 enemies_cbt[0].atb = 0;
             }
+
+            if (character->life < 0)
+            {
+                character->life = 0;
+            }
+
+            if (character->life == 0)
+            {
+                //game_over()
+            }
             break;
 
         case 2:
@@ -571,12 +560,21 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
                 enemy_turn(game, character, enemies_cbt, 0, map, texture_render);
                 enemies_cbt[0].atb = 0;
             }
-
-            if (enemies_cbt[1].atb >= 100 && enemies_cbt[1].life > 0)
+            else if (enemies_cbt[1].atb >= 100 && enemies_cbt[1].life > 0)
             {
                 printf("Tour enemies 2\n");
                 enemy_turn(game, character, enemies_cbt, 1, map, texture_render);
                 enemies_cbt[1].atb = 0;
+            }
+
+            if (character->life < 0)
+            {
+                character->life = 0;
+            }
+
+            if (character->life == 0)
+            {
+                //game_over()
             }
             break;
 
@@ -587,19 +585,27 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
                 enemy_turn(game, character, enemies_cbt, 0, map, texture_render);
                 enemies_cbt[0].atb = 0;
             }
-
-            if (enemies_cbt[1].atb >= 100 && enemies_cbt[1].life > 0)
+            else if (enemies_cbt[1].atb >= 100 && enemies_cbt[1].life > 0)
             {
                 printf("Tour enemies 2\n");
                 enemy_turn(game, character, enemies_cbt, 1, map, texture_render);
                 enemies_cbt[1].atb = 0;
             }
-
-            if (enemies_cbt[2].atb >= 100 && enemies_cbt[2].life > 0)
+            else if (enemies_cbt[2].atb >= 100 && enemies_cbt[2].life > 0)
             {
                 printf("Tour enemies 3\n");
                 enemy_turn(game, character, enemies_cbt, 2, map, texture_render);
                 enemies_cbt[2].atb = 0;
+            }
+
+            if (character->life < 0)
+            {
+                character->life = 0;
+            }
+
+            if (character->life == 0)
+            {
+                //game_over()
             }
             break;
 
@@ -610,26 +616,33 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
                 enemy_turn(game, character, enemies_cbt, 0, map, texture_render);
                 enemies_cbt[0].atb = 0;
             }
-
-            if (enemies_cbt[1].atb >= 100 && enemies_cbt[1].life > 0)
+            else if (enemies_cbt[1].atb >= 100 && enemies_cbt[1].life > 0)
             {
                 printf("Tour enemies 2\n");
                 enemy_turn(game, character, enemies_cbt, 1, map, texture_render);
                 enemies_cbt[1].atb = 0;
             }
-
-            if (enemies_cbt[2].atb >= 100 && enemies_cbt[2].life > 0)
+            else if (enemies_cbt[2].atb >= 100 && enemies_cbt[2].life > 0)
             {
                 printf("Tour enemies 3\n");
                 enemy_turn(game, character, enemies_cbt, 2, map, texture_render);
                 enemies_cbt[2].atb = 0;
             }
-
-            if (enemies_cbt[3].atb >= 100 && enemies_cbt[3].life > 0)
+            else if (enemies_cbt[3].atb >= 100 && enemies_cbt[3].life > 0)
             {
                 printf("Tour enemies 4\n");
                 enemy_turn(game, character, enemies_cbt, 3, map, texture_render);
                 enemies_cbt[3].atb = 0;
+            }
+
+            if (character->life < 0)
+            {
+                character->life = 0;
+            }
+
+            if (character->life == 0)
+            {
+                //game_over()
             }
             break;
         }
@@ -639,6 +652,11 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             printf("Tour character\n");
             character_turn(game, character, enemies_cbt, nb_enemies_combat, nb_enemies_combat_actif, texture_render);
             character->atb = 0;
+        }
+
+        if (enemies_cbt[0].life <= 0 && enemies_cbt[1].life <= 0 && enemies_cbt[2].life <= 0 && enemies_cbt[3].life <= 0)
+        {
+            //fin_combat(game, character, texture_render, map, nb_enemies_combat, rand_enemies);
         }
 
         SDL_RenderClear(game->render);
@@ -809,7 +827,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
         SDL_RenderCopy(game->render, texture_fuite, NULL, &pos_Wind_fuite);
 
         SDL_RenderPresent(game->render);
-
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/

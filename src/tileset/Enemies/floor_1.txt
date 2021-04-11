@@ -4,7 +4,7 @@ PV: 50 ;
 VIT: 10 ;
 Lame_emoussee : 3 - 5 ;
 x : -1, -1 - -1, -1, -1, -1 ;
-EXP: 20 ;
+EXP: 5 ;
 
 Demon_squelettique :
 RGB: -1, -1, -1 ;
@@ -12,7 +12,7 @@ PV: 60 ;
 VIT: 10 ;
 Lame_de_feu : 4 - 5 ;
 Brulures_ardentes : 5, 4 - 5, 3, 3, 0 ;
-EXP: 30 ;
+EXP: 10 ;
 
 Seigneur_squelettique :
 RGB: -1, -1, -1 ;
@@ -20,7 +20,7 @@ PV: 75 ;
 VIT: 10 ;
 Quadruple_lames : 3 - 6 ;
 Saignement : 5, 4 - 5, 3, 3, 0 ;
-EXP: 40 ;
+EXP: 15 ;
 
 Chimera :
 RGB: -1, -1, -1 ;
@@ -28,7 +28,7 @@ PV: 50 ;
 VIT: 10 ;
 Coup_de_griffes : 4 - 5 ;
 Saignement : 5, 4 - 5, 3, 3, 0 ;
-EXP: 30 ;
+EXP: 15 ;
 
 Big_grenouille :
 RGB: 255, 0, 255 ;
@@ -36,7 +36,7 @@ PV: 200 ;
 VIT: 10 ;
 Coup_de_griffes : 1 - 2 ;
 Lechouille : 10, -1 - -1, -1, 1, 1 ;
-EXP: 40 ;
+EXP: 25 ;
 
 Molosse :
 RGB: 255, 0, 255 ;
@@ -44,7 +44,7 @@ PV: 40 ;
 VIT: 10 ;
 Morsure : 3 - 5 ;
 Saignement : 5, 4 - 5, 3, 3, 0 ;
-EXP: 30 ;
+EXP: 10 ;
 
 Dragon_rouge : 3 ;
 RGB: -1, -1, -1 ;
@@ -53,4 +53,4 @@ VIT: 10 ;
 Feu_du_dragon : 7 - 9 ;
 Saignement : 5%, 4 - 5, 3, 3, 0 ;
 Immobilisation : 10, 3 - 5, -1, 1, 1 ;
-EXP: 400 ;
+EXP: 80 ;

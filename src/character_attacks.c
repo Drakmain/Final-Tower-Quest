@@ -865,12 +865,13 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     if (selected_enemy == -1)
                     {
                         break;
-                    }else if (enemies_cbt[selected_enemy].life <= 0)
+                    }
+                    else if (enemies_cbt[selected_enemy].life <= 0)
                     {
                         affichage_message(game, texture_render, "Cette ennemi est deja mort.", -1);
                         break;
                     }
-                    
+
                     dmg = rand() % character->attacks[selection].dmg_max + character->attacks[selection].dmg_min;
                     enemies_cbt[selected_enemy].life -= dmg;
 
@@ -920,12 +921,13 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     if (selected_enemy == -1)
                     {
                         break;
-                    }else if (enemies_cbt[selected_enemy].life <= 0)
+                    }
+                    else if (enemies_cbt[selected_enemy].life <= 0)
                     {
                         affichage_message(game, texture_render, "Cette ennemi est deja mort.", -1);
                         break;
                     }
-                    
+
                     if (selected_enemy == -1)
                     {
                         break;
