@@ -138,8 +138,6 @@ extern void floor_1(game_t *game, character_t *character)
                 {
                     transition(game);
                     combat(game, character, floor_1, texture_render, floor_1_bool);
-
-
                 }
 
 
@@ -333,6 +331,9 @@ extern void floor_1(game_t *game, character_t *character)
 
                     South_Walk = 0;
                 }
+
+                character->x = x;
+                character->y = y;
             }
         }
     }
