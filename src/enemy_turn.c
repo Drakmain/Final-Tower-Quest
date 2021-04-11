@@ -35,6 +35,8 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemy, map
 
     /*--- Initialization Variable ------------------------------------------------*/
 
+    SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
+
     SDL_Color bleu = {0, 0, 255};
     SDL_Color rouge = {255, 0, 0};
     SDL_Color gris = {100, 100, 100};
@@ -235,7 +237,10 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemy, map
     }
     texture_PV_personnage = SDL_CreateTextureFromSurface(game->render, surf_PV_personnage);
 
-    SDL_RenderCopy(game->render, texture_render_combat, NULL, NULL);
+    SDL_RenderClear(game->render);
+
+    SDL_SetRenderTarget(game->render, texture_render);
+    
     SDL_RenderCopy(game->render, texture_PV_personnage, NULL, &pos_Wind_PV_personnage);
     SDL_RenderCopy(game->render, texture_PM_personnage, NULL, &pos_Wind_PM_personnage);
     SDL_RenderCopy(game->render, texture_attaque, NULL, &pos_Wind_attaque);
@@ -265,7 +270,10 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemy, map
         pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
         SDL_RenderCopy(game->render, character->texture, &character->West_Walk.rect, &pos_Wind_character);
     }
-    affichage_message(game, msg, -1);
+
+    SDL_SetRenderTarget(game->render, NULL);
+
+    affichage_message(game, texture_render, msg, -1);
 
     /*--- End Main Loop ----------------------------------------------------------*/
 

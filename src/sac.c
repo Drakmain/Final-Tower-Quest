@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "..\lib\commun.h"
+#include "..\lib\sac.h"
 
 #include "..\lib\character.h"
 #include "..\lib\texte_confirmation.h"
@@ -17,7 +17,7 @@
 
 /*!
  *
- * \fn ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_render_menu_ig, SDL_bool *echap_relache, SDL_bool combat)
+ * \fn ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_render_menu_ig, SDL_bool *echap_relache, SDL_bool *combat)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -28,7 +28,7 @@
  *
  */
 
-void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_render_menu_ig, SDL_bool *echap_relache, SDL_bool combat)
+void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_render_menu_ig, SDL_bool *echap_relache, SDL_bool *combat)
 {
     /*--- Initialization variable ------------------------------------------------*/
 
@@ -936,23 +936,23 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
 
             if (keyState[SDL_SCANCODE_LEFT] && event.type == SDL_KEYDOWN && selection_horizontal)
             {
-                if (combat && selection_vertical != 3)
+                if (*combat && selection_vertical != 3)
                     selection_horizontal--;
 
-                if (!combat && selection_vertical != 2)
+                if (!*combat && selection_vertical != 2)
                     selection_horizontal--;
             }
 
             if (keyState[SDL_SCANCODE_RIGHT] && event.type == SDL_KEYDOWN && !selection_horizontal)
             {
-                if (combat && selection_vertical != 3)
+                if (*combat && selection_vertical != 3)
                     selection_horizontal++;
 
-                if (!combat && selection_vertical != 2)
+                if (!*combat && selection_vertical != 2)
                     selection_horizontal++;
             }
 
-            if (combat)
+            if (*combat)
             {
                 if (selection_vertical < 0)
                     selection_vertical = 3;
@@ -999,7 +999,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                 }
             }
 
-            if (combat && selection_vertical == 2)
+            if (*combat && selection_vertical == 2)
             {
                 surf_retour = TTF_RenderText_Blended(game->police, "Retour", blanc);
 
@@ -1016,12 +1016,12 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                 }
             }
 
-            if (!combat && selection_vertical == 2)
+            if (!*combat && selection_vertical == 2)
             {
                 surf_retour = TTF_RenderText_Blended(game->police, "Retour", rouge);
             }
 
-            if (combat && selection_vertical == 3)
+            if (*combat && selection_vertical == 3)
             {
                 surf_retour = TTF_RenderText_Blended(game->police, "Retour", rouge);
             }
@@ -1044,10 +1044,10 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
             SDL_RenderCopy(game->render, cadre_potions, NULL, &pos_cadre_popo_puissance);
             SDL_RenderCopy(game->render, cadre_potions, NULL, &pos_cadre_popo_agi);
 
-            if (combat && selection_vertical != 3)
+            if (*combat && selection_vertical != 3)
                 SDL_RenderCopy(game->render, cadre_rouge_potions, NULL, &pos_cadre_rouge_potions);
 
-            if (!combat && selection_vertical != 2)
+            if (!*combat && selection_vertical != 2)
                 SDL_RenderCopy(game->render, cadre_rouge_potions, NULL, &pos_cadre_rouge_potions);
 
             SDL_RenderCopy(game->render, fond_petite_popo_soin, NULL, &pos_fond_petite_popo_soin);
@@ -1277,12 +1277,12 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                     }
                 }
 
-                if (!combat && selection_vertical == 2)
+                if (!*combat && selection_vertical == 2)
                 {
                     sac_bool = SDL_FALSE;
                 }
 
-                if (combat && selection_vertical == 2)
+                if (*combat && selection_vertical == 2)
                 {
                     if (selection_horizontal == 0)
                     {
@@ -1367,15 +1367,15 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                     }
                 }
 
-                if (combat && selection_vertical == 3)
+                if (*combat && selection_vertical == 3)
                 {
                     sac_bool = SDL_FALSE;
                 }
 
-                if (combat && potion_utilise_bool)
+                if (*combat && potion_utilise_bool)
                 {
                     sac_bool = SDL_FALSE;
-                    combat = SDL_FALSE;
+                    *combat = SDL_FALSE;
                 }
             }
         }

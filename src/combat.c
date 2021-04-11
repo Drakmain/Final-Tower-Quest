@@ -516,19 +516,19 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             enemy_turn(game, character, &(map->enemies[rand_enemies[0]]), map, texture_render);
             map->enemies[rand_enemies[0]].atb = 0;
         }
-        if (map->enemies[rand_enemies[1]].atb >= 100 && map->enemies[rand_enemies[0]].life > 0)
+        if (map->enemies[rand_enemies[1]].atb >= 100 && map->enemies[rand_enemies[1]].life > 0)
         {
             printf("Tour enemies 2\n");
             enemy_turn(game, character, &(map->enemies[rand_enemies[1]]), map, texture_render);
             map->enemies[rand_enemies[1]].atb = 0;
         }
-        if (map->enemies[rand_enemies[2]].atb >= 100 && map->enemies[rand_enemies[0]].life > 0)
+        if (map->enemies[rand_enemies[2]].atb >= 100 && map->enemies[rand_enemies[2]].life > 0)
         {
             printf("Tour enemies 3\n");
             enemy_turn(game, character, &(map->enemies[rand_enemies[2]]), map, texture_render);
             map->enemies[rand_enemies[2]].atb = 0;
         }
-        if (map->enemies[rand_enemies[3]].atb >= 100 && map->enemies[rand_enemies[0]].life > 0)
+        if (map->enemies[rand_enemies[3]].atb >= 100 && map->enemies[rand_enemies[3]].life > 0)
         {
             printf("Tour enemies 4\n");
             enemy_turn(game, character, &(map->enemies[rand_enemies[3]]), map, texture_render);
@@ -579,7 +579,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
             if (map->enemies[rand_enemies[1]].life <= 0)
             {
-                printf("2 mort\n");
                 surf_nom_enemie_2 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemies[1]].name, gris);
             }
             else
@@ -593,7 +592,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
         case 3:
             if (map->enemies[rand_enemies[0]].life <= 0)
             {
-                printf("1 mort\n");
                 surf_nom_enemie_1 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemies[0]].name, gris);
             }
             else
@@ -605,7 +603,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
             if (map->enemies[rand_enemies[1]].life <= 0)
             {
-                printf("2 mort\n");
                 surf_nom_enemie_2 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemies[1]].name, gris);
             }
             else
@@ -617,7 +614,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
             if (map->enemies[rand_enemies[2]].life <= 0)
             {
-                printf("3 mort\n");
                 surf_nom_enemie_3 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemies[1]].name, gris);
             }
             else
@@ -631,7 +627,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
         case 4:
             if (map->enemies[rand_enemies[0]].life <= 0)
             {
-                printf("1 mort\n");
                 surf_nom_enemie_1 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemies[0]].name, gris);
             }
             else
@@ -643,7 +638,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
             if (map->enemies[rand_enemies[1]].life <= 0)
             {
-                printf("2 mort\n");
                 surf_nom_enemie_2 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemies[1]].name, gris);
             }
             else
@@ -655,7 +649,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
             if (map->enemies[rand_enemies[2]].life <= 0)
             {
-                printf("3 mort\n");
                 surf_nom_enemie_3 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemies[1]].name, gris);
             }
             else
@@ -667,7 +660,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
             if (map->enemies[rand_enemies[3]].life <= 0)
             {
-                printf("4 mort\n");
                 surf_nom_enemie_4 = TTF_RenderText_Blended(game->police, map->enemies[rand_enemies[1]].name, gris);
             }
             else

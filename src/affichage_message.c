@@ -22,7 +22,7 @@
  *
  */
 
-extern void affichage_message(game_t *game, SDL_Texture * texture_render, char *message, int nombre)
+extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *message, int nombre)
 {
     /*--- Initialization Variable ------------------------------------------------*/
     SDL_Color blanc = {255, 255, 255};
@@ -37,7 +37,7 @@ extern void affichage_message(game_t *game, SDL_Texture * texture_render, char *
 
     SDL_Event event;
 
-    SDL_bool affichage_message_bool = SDL_TRUE , part2_bool = SDL_FALSE;
+    SDL_bool affichage_message_bool = SDL_TRUE, part2_bool = SDL_FALSE;
 
     char tab_part1_message[strlen(message) + 20];
     char tab_part2_message[strlen(message) + 20];
@@ -109,7 +109,6 @@ extern void affichage_message(game_t *game, SDL_Texture * texture_render, char *
         if (tab_part1_message[i] == '\0')
             SDL_ExitWithError("position du nombre dans le message non indique");
 
-
         for (; nombre_char[y] != '\0' && y < 2; y++, i++)
         {
             tab_part1_message[i] = nombre_char[y];
@@ -142,13 +141,14 @@ extern void affichage_message(game_t *game, SDL_Texture * texture_render, char *
     while ((tab_part1_message[i] != '%' && tab_part1_message[i + 1] != 'n') && tab_part1_message[i] != '\0')
         i++;
 
-    if(tab_part1_message[i] == '%')
+    if (tab_part1_message[i] == '%')
     {
         part2_bool = SDL_TRUE;
         fin_part1 = i;
         i += 3;
 
-        for(int y = 0; i < strlen(tab_part1_message) + 1; i++, y++){
+        for (int y = 0; i < strlen(tab_part1_message) + 1; i++, y++)
+        {
             tab_part2_message[y] = tab_part1_message[i];
         }
         tab_part1_message[fin_part1] = '\0';
@@ -166,8 +166,6 @@ extern void affichage_message(game_t *game, SDL_Texture * texture_render, char *
         {
             SDL_ExitWithError("probleme texture cadre affichage_message");
         }
-
-
 
         pos_cadre.h = (*game->WINDOWHEIGHT) * 175 / 720;
         pos_cadre.y = (*game->WINDOWHEIGHT) / 2 - pos_cadre.h / 2;
@@ -242,14 +240,14 @@ extern void affichage_message(game_t *game, SDL_Texture * texture_render, char *
     SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
     SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
     SDL_RenderCopy(game->render, t_message, NULL, &pos_message);
-    if(part2_bool)
+    if (part2_bool)
         SDL_RenderCopy(game->render, t_message2, NULL, &pos_message2);
     SDL_RenderPresent(game->render);
 
     SDL_Rect pos_texture_render;
     pos_texture_render.x = 0;
     pos_texture_render.y = 0;
-    pos_texture_render.w = (*game-> WINDOWWIDTH);
+    pos_texture_render.w = (*game->WINDOWWIDTH);
     pos_texture_render.h = (*game->WINDOWHEIGHT);
     /*--- Main Loop --------------------------------------------------------------*/
     while ((*game->program_launch) && affichage_message_bool)
@@ -262,7 +260,7 @@ extern void affichage_message(game_t *game, SDL_Texture * texture_render, char *
             {
                 affichage_message_bool = SDL_FALSE;
                 SDL_RenderClear(game->render);
-                SDL_RenderCopy(game->render,texture_render, NULL, &pos_texture_render);
+                SDL_RenderCopy(game->render, texture_render, NULL, &pos_texture_render);
                 SDL_RenderPresent(game->render);
             }
 
@@ -285,7 +283,7 @@ extern void affichage_message(game_t *game, SDL_Texture * texture_render, char *
     SDL_FreeSurface(surf_message2);
 
     SDL_DestroyTexture(t_message);
-    if(part2_bool)
+    if (part2_bool)
         SDL_DestroyTexture(t_message2);
     SDL_DestroyTexture(cadre);
     SDL_DestroyTexture(fond_cadre);

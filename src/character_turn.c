@@ -203,7 +203,7 @@ extern void character_turn(game_t *game, character_t *character, map_t *map, int
     SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
 
     SDL_RenderPresent(game->render);
-    SDL_Delay(150);
+    SDL_Delay(100);
 
     //Affichage du character vers le est
     SDL_RenderClear(game->render);
@@ -219,7 +219,7 @@ extern void character_turn(game_t *game, character_t *character, map_t *map, int
     SDL_RenderCopy(game->render, character->texture, &character->East_Walk.rect, &pos_Wind_character);
 
     SDL_RenderPresent(game->render);
-    SDL_Delay(150);
+    SDL_Delay(100);
 
     //Affichage du character vers le sud
     SDL_RenderClear(game->render);
@@ -235,7 +235,7 @@ extern void character_turn(game_t *game, character_t *character, map_t *map, int
     SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
 
     SDL_RenderPresent(game->render);
-    SDL_Delay(150);
+    SDL_Delay(100);
 
     //Affichage du character vers le ouest
     SDL_RenderClear(game->render);
@@ -251,7 +251,7 @@ extern void character_turn(game_t *game, character_t *character, map_t *map, int
     SDL_RenderCopy(game->render, character->texture, &character->West_Walk.rect, &pos_Wind_character);
 
     SDL_RenderPresent(game->render);
-    SDL_Delay(150);
+    SDL_Delay(100);
 
     //Affichage du character avec une animation d'attaque
     SDL_RenderClear(game->render);
@@ -267,7 +267,7 @@ extern void character_turn(game_t *game, character_t *character, map_t *map, int
     SDL_RenderCopy(game->render, character->texture, &character->Attack, &pos_Wind_character);
 
     SDL_RenderPresent(game->render);
-    SDL_Delay(150);
+    SDL_Delay(100);
 
     /*--- Main Loop --------------------------------------------------------------*/
 
@@ -354,7 +354,7 @@ extern void character_turn(game_t *game, character_t *character, map_t *map, int
 
                 if (selection == 1)
                 {
-                    ouverture_sac(game, character, texture_render_combat, NULL, 1);
+                    ouverture_sac(game, character, texture_render_combat, NULL, &character_turn_bool);
                     selection = 1;
                 }
 
