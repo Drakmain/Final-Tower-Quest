@@ -1,6 +1,6 @@
 save_name: Enzo ;
 charactere_name: Guerrier ;
-position: Floor_1 ;
+position: Etage_1 ;
 x: 0 ;
 y: 0 ;
 lvl: 1 ;

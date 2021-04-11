@@ -1,6 +1,6 @@
 save_name: alexis ;
 classe_name: Mage ;
-position: Tower ;
+position: Tour ;
 x: 0 ;
 y: 0 ;
 lvl: 1 ;

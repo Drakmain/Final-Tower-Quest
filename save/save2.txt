@@ -1,6 +1,6 @@
 save_name: Jeremy ;
-classe_name: Guerrier ;
-position: Town ;
+charactere_name: Guerrier ;
+position: Tour ;
 x: 0 ;
 y: 0 ;
 lvl: 1 ;
@@ -12,7 +12,6 @@ mana: 20 ;
 vitalite: 0 ;
 force: 50 ;
 intelligence: 0 ;
-vitesse: 20 ;
 agilite: 50 ;
 defense: 0 ;
 point_dispo: 0 ;

@@ -16,7 +16,7 @@
 
 
 /*!
- * 
+ *
  * \file colision.c
  * \brief Systeme de colision.
  * \author Robin PAPILLON
@@ -144,4 +144,6 @@ int character_moving(game_t *game, SDL_Renderer *pRenderer, SDL_Surface *couleur
 			return 0;
 		}
 	}
+	
+	return 1;
 }

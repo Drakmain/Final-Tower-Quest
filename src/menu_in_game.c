@@ -310,7 +310,10 @@ void menu_in_game(game_t *game, SDL_bool *map_bool, character_t *character, SDL_
             if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
             {
                 if (selection == 0)
-                    ouverture_sac(game, character, texture_render_menu_ig, echap_relache, SDL_FALSE);
+                {
+                    SDL_bool combat = SDL_FALSE;
+                    ouverture_sac(game, character, texture_render_menu_ig, echap_relache, &combat);
+                }
                 if (selection == 1)
                     caracteristiques(game, character, texture_render_menu_ig, echap_relache);
                 if (selection == 2)
