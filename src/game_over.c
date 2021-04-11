@@ -246,6 +246,7 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
         {
             SDL_RenderClear(game->render);
             if (selection == 0){
+                free(character);
                 character = character_create(game->render, character->file_name_save);
                 *combat_bool = SDL_FALSE;
                 gameover_bool = SDL_FALSE;

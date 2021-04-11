@@ -15,7 +15,7 @@ intelligence: 0 ;
 vitesse: 20 ;
 agilite: 0 ;
 defense: 0 ;
-point_dispo: 0 ;
+point_dispo: 5 ;
 nb_petite_popo_soin: 0 ;
 nb_moyenne_popo_soin: 0 ;
 nb_petite_popo_mana: 0 ;
