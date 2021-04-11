@@ -9,8 +9,6 @@
 #include "..\lib\character.h"
 #include "..\lib\colision.h"
 #include "..\lib\menu_in_game.h"
-#include "..\lib\combat.h"
-#include "..\lib\transition.h"
 
 /*!
  *

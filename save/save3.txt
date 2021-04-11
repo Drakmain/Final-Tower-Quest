@@ -12,6 +12,7 @@ mana: 50 ;
 vitalite: 0 ;
 force: 0 ;
 intelligence: 50 ;
+vitesse: 20 ;
 agilite: 0 ;
 defense: 0 ;
 point_dispo: 0 ;

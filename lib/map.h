@@ -3,17 +3,17 @@
 
 #include "commun.h"
 
-#define NB_ENEMIES 6
+#define NB_ENEMIES 6 /*!< A FINIR. */
 
 typedef struct image_s image_t;
 
 struct image_s
 {
-  char *nom_image; /*!< A FINIR. */
+  char *nom_image;            /*!< A FINIR. */
   int position_x, position_y; /*!< A FINIR. */
-  int largeur, hauteur; /*!< A FINIR. */
-  SDL_Rect src, dst; /*!< A FINIR. */
-  SDL_Texture *texture; /*!< A FINIR. */
+  int largeur, hauteur;       /*!< A FINIR. */
+  SDL_Rect src, dst;          /*!< A FINIR. */
+  SDL_Texture *texture;       /*!< A FINIR. */
 };
 
 typedef struct attack_enemie_s attack_enemie_t;
@@ -27,18 +27,17 @@ struct attack_enemie_s
   int dmg_max; /*!< A FINIR. */
   int mana;    /*!< A FINIR. */
 
-  int effect;          /*!< A FINIR. */
-  int effect_duration; /*!< A FINIR. */
-  int modifier;        /*!< A FINIR. */
-  int percetange;      /*!< A FINIR. */
+  int effect;           /*!< A FINIR. */
+  int effect_duration;  /*!< A FINIR. */
+  int effect_remaining; /*!< A FINIR. */
+  int modifier;         /*!< A FINIR. */
+  int percentage;       /*!< A FINIR. */
 };
 
-typedef struct enemie_s enemie_t;
+typedef struct enemy_s enemy_t;
 
-struct enemie_s
+struct enemy_s
 {
-  void (*free)(enemie_t **); /*!< Permet la liberation d'un objet enemie_t. */
-
   SDL_Texture *texture; /*!< Pointeur sur une texture SDL de l'objet enemie_t. */
 
   SDL_Surface *surface; /*!< Pointeur sur une surface SDL de l'objet enemie_t. */
@@ -58,6 +57,8 @@ struct enemie_s
   int life;  /*!< A FINIR. */
   int speed; /*!< A FINIR. */
   int exp;   /*!< A FINIR. */
+
+  int atb; /*!< A FINIR. */
 };
 
 typedef struct map_s map_t;
@@ -75,14 +76,15 @@ struct map_s
 
   char *name; /*!< A FINIR. */
 
-  enemie_t *enemies; /*!< A FINIR. */
+  enemy_t *enemies; /*!< A FINIR. */
 
-  //test
-  image_t map_image; /*!< A FINIR. */
+  enemy_t *boss; /*!< A FINIR. */
 
-  SDL_Surface *map_couleur; /*!< A FINIR. */
-
-  int hauteur_carte, largeur_carte; /*!< A FINIR. */
+  /*
+  image_t map_image;
+  SDL_Surface *map_couleur;
+  int hauteur_carte, largeur_carte;
+  */
 };
 
 extern map_t *map_create(SDL_Renderer *render, char *name_map);

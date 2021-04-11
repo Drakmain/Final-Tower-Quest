@@ -19,17 +19,17 @@
 
 /*!
  *
- * \fn menu_in_game(game_t *game, SDL_bool *town_bool, character_t *character, SDL_Texture *texture_render)
+ * \fn menu_in_game(game_t *game, SDL_bool *map_bool, character_t *character, SDL_Texture *texture_render)
  * \brief A FINIR.
  *
  * \param game A FINIR.
- * \param town_bool A FINIR.
+ * \param map_bool A FINIR.
  * \param character A FINIR.
  * \param texture_render A FINIR.
  *
  */
 
-void menu_in_game(game_t *game, SDL_bool *town_bool, character_t *character, SDL_Texture *texture_render)
+void menu_in_game(game_t *game, SDL_bool *map_bool, character_t *character, SDL_Texture *texture_render)
 {
 
     /*--- Initialization variable ------------------------------------------------*/
@@ -325,7 +325,7 @@ void menu_in_game(game_t *game, SDL_bool *town_bool, character_t *character, SDL
                     if (texte_confirmation(game, "Voulez-vous retourner au menu principal ?"))
                     {
                         menu_bool = SDL_FALSE;
-                        *town_bool = SDL_FALSE;
+                        *map_bool = SDL_FALSE;
                     }
                 }
             }
