@@ -2,8 +2,8 @@ CFLAGS=-Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
 
 all: main
 
-main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o combat.o commandes.o sac.o affichage_message.o character_attacks.o floor_1.o enemy_turn.o character_turn.o enemy_selection.o fin_combat.o
-	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o combat.o commandes.o sac.o affichage_message.o character_attacks.o floor_1.o enemy_turn.o character_turn.o enemy_selection.o fin_combat.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
+main: main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o combat.o commandes.o sac.o affichage_message.o character_attacks.o floor_1.o enemy_turn.o character_turn.o enemy_selection.o fin_combat.o game_over.o
+	gcc  main.o error.o map.o character.o frame.o town.o tower.o menu_accueil.o charger_partie.o nouvelle_partie.o options.o colision.o transition.o creation_perso.o nom_sauvegarde.o game.o menu_in_game.o sauvegarder.o texte_confirmation.o caracteristiques.o combat.o commandes.o sac.o affichage_message.o character_attacks.o floor_1.o enemy_turn.o character_turn.o enemy_selection.o fin_combat.o game_over.o -o bin/Final_Tower_Quest -I include -L lib $(CFLAGS)
 
 
 test: test_map.o test_character.o error.o map.o character.o
@@ -59,6 +59,9 @@ combat.o: src/combat.c
 
 fin_combat.o: src/fin_combat.c
 	gcc -c src/fin_combat.c -I include -L lib $(CFLAGS)
+
+game_over.o: src/game_over.c
+	gcc -c src/game_over.c -I include -L lib $(CFLAGS)
 
 character_attacks.o: src/character_attacks.c
 	gcc -c src/character_attacks.c -I include -L lib $(CFLAGS)

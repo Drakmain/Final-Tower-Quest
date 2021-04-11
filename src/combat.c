@@ -11,7 +11,7 @@
 #include "..\lib\character_attacks.h"
 #include "..\lib\sac.h"
 #include "..\lib\fin_combat.h"
-//#include "..\lib\game_over.h"
+#include "..\lib\game_over.h"
 
 /*!
  *
@@ -33,7 +33,7 @@
  *
  */
 
-extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town)
+extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town, SDL_bool *floor_bool)
 {
     srand(time(NULL));
 
@@ -52,7 +52,12 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
     enemy_t *enemies_cbt;
 
-    SDL_bool combat_bool = SDL_TRUE;
+    SDL_bool *combat_bool = malloc(sizeof(SDL_bool));
+    *combat_bool = SDL_TRUE;
+
+    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
+
+    SDL_Event event;
 
     //POS CHARACTER
     SDL_Rect pos_Wind_character;
@@ -500,8 +505,9 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (*game->program_launch && combat_bool)
+    while (*game->program_launch && *combat_bool)
     {
+        SDL_PollEvent(&event);
         do
         {
             switch (nb_enemies_combat)
@@ -803,6 +809,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
         SDL_RenderCopy(game->render, texture_fuite, NULL, &pos_Wind_fuite);
 
         SDL_RenderPresent(game->render);
+
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/
