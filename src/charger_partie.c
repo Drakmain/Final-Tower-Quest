@@ -400,7 +400,7 @@ extern void charger_partie_f(game_t *game, char *actual_save)
 
     /*--- Creation text "choisissez emplacement a charger" -----------------------*/
 
-    surf_choisir_empla = TTF_RenderText_Blended(game->police, "CHOISISSEZ EMPLACEMENT A CHARGER", blanc);
+    surf_choisir_empla = TTF_RenderText_Blended(game->police, "CHOISISSEZ UN EMPLACEMENT A CHARGER", blanc);
     if (surf_choisir_empla == NULL)
     {
         SDL_ExitWithError("probleme surface choisir emplacement a charger");
