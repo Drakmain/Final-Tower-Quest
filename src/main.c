@@ -108,7 +108,6 @@ int main(int argc, char **argv)
             floor_4(game, character_save);
         if(!strcmp(character_save->position,"Floor_5"))
             floor_5(game, character_save);*/
-        }
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/
