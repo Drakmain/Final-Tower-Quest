@@ -137,13 +137,12 @@ extern void floor_1(game_t *game, character_t *character)
                 if (keyState[SDL_SCANCODE_SPACE])
                 {
                     transition(game);
-                    combat(game, character, floor_1, texture_render);
+                    combat(game, character, floor_1, texture_render, floor_1_bool);
+
+
                 }
 
-                if (keyState[SDL_SCANCODE_X] && event.type == SDL_KEYDOWN)
-                {
-                    game_over(game, character);
-                }
+
 
                 SDL_RenderClear(game->render);
 

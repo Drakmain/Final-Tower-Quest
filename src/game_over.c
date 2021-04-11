@@ -22,7 +22,7 @@
  *
  */
 
-extern void game_over(game_t *game, SDL_bool *floor_1_bool, SDL_bool *combat_bool, character_t *character)
+extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool, character_t *character)
 {
 
     /*--- Initialization variable ------------------------------------------------*/
@@ -197,7 +197,7 @@ extern void game_over(game_t *game, SDL_bool *floor_1_bool, SDL_bool *combat_boo
 
     /*--- Main Loop --------------------------------------------------------------*/
 
-    while (*floor_1_bool && (*game->program_launch))
+    while (gameover_bool && (*game->program_launch))
     {
 
         while (SDL_PollEvent(&event))
@@ -245,15 +245,18 @@ extern void game_over(game_t *game, SDL_bool *floor_1_bool, SDL_bool *combat_boo
         if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
         {
             SDL_RenderClear(game->render);
-
             if (selection == 0){
-                printf("ahah");
+                character = character_create(game->render, character->file_name_save);
+                *combat_bool = SDL_FALSE;
+                gameover_bool = SDL_FALSE;
             }
 
             if (selection == 1){
-                floor_1_bool = SDL_FALSE;
+                *floor_bool = SDL_FALSE;
+                *combat_bool = SDL_FALSE;
                 gameover_bool = SDL_FALSE;
             }
+
     }
 
 

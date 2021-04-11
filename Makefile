@@ -54,14 +54,14 @@ options.o: src/options.c
 transition.o: src/transition.c
 	gcc -c src/transition.c -I include -L lib $(CFLAGS)
 
-game_over.o: src/game_over.c
-	gcc -c src/game_over.c -I include -L lib $(CFLAGS)
-
 combat.o: src/combat.c
 	gcc -c src/combat.c -I include -L lib $(CFLAGS)
 
 fin_combat.o: src/fin_combat.c
 	gcc -c src/fin_combat.c -I include -L lib $(CFLAGS)
+
+game_over.o: src/game_over.c
+	gcc -c src/game_over.c -I include -L lib $(CFLAGS)
 
 attacks_character.o: src/attacks_character.c
 	gcc -c src/attacks_character.c -I include -L lib $(CFLAGS)
