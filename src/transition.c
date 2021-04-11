@@ -994,7 +994,176 @@ extern void transition(game_t *game)
 
     /*----------------------------------------------------------------------------*/
 
-    rand_nb = rand()%3;
+    /*--- Creation Store1 pour transition 4 ---------------------------------------------------*/
+    SDL_Surface *surf_store1 = NULL;
+    surf_store1 = SDL_LoadBMP("src\\image\\Store.bmp");
+    if (surf_store1 == NULL)
+    {
+        SDL_ExitWithError("probleme chargement store1 > transition.c");
+    }
+
+    SDL_Texture *store1 = SDL_CreateTextureFromSurface(game->render, surf_store1);
+    if (store1 == NULL)
+    {
+        SDL_ExitWithError("probleme texture store1 > transition.c");
+    }
+
+    SDL_Rect pos_store1;
+    pos_store1.x = 0;
+    pos_store1.y = 0;
+    pos_store1.w = (*game->WINDOWWIDTH) * 240 / 1920;
+    pos_store1.h = (*game->WINDOWHEIGHT);
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation Store2 pour transition 4 ---------------------------------------------------*/
+    SDL_Surface *surf_store2 = NULL;
+    surf_store2 = SDL_LoadBMP("src\\image\\Store.bmp");
+    if (surf_store2 == NULL)
+    {
+        SDL_ExitWithError("probleme chargement store2 > transition.c");
+    }
+
+    SDL_Texture *store2 = SDL_CreateTextureFromSurface(game->render, surf_store2);
+    if (store2 == NULL)
+    {
+        SDL_ExitWithError("probleme texture store2 > transition.c");
+    }
+
+    SDL_Rect pos_store2;
+    pos_store2.x = (*game->WINDOWHEIGHT) * 240 / 1080;
+    pos_store2.y = 0;
+    pos_store2.w = (*game->WINDOWWIDTH) * 240 / 1920;
+    pos_store2.h = (*game->WINDOWHEIGHT);
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation Store3 pour transition 4 ---------------------------------------------------*/
+    SDL_Surface *surf_store3 = NULL;
+    surf_store3 = SDL_LoadBMP("src\\image\\Store.bmp");
+    if (surf_store3 == NULL)
+    {
+        SDL_ExitWithError("probleme chargement store3 > transition.c");
+    }
+
+    SDL_Texture *store3 = SDL_CreateTextureFromSurface(game->render, surf_store3);
+    if (store3 == NULL)
+    {
+        SDL_ExitWithError("probleme texture store3 > transition.c");
+    }
+
+    SDL_Rect pos_store3;
+    pos_store3.x = (*game->WINDOWHEIGHT) * 480 / 1080;
+    pos_store3.y = 0;
+    pos_store3.w = (*game->WINDOWWIDTH) * 240 / 1920;
+    pos_store3.h = (*game->WINDOWHEIGHT);
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation Store4 pour transition 4 ---------------------------------------------------*/
+    SDL_Surface *surf_store4 = NULL;
+    surf_store4 = SDL_LoadBMP("src\\image\\Store.bmp");
+    if (surf_store4 == NULL)
+    {
+        SDL_ExitWithError("probleme chargement store4 > transition.c");
+    }
+
+    SDL_Texture *store4 = SDL_CreateTextureFromSurface(game->render, surf_store4);
+    if (store4 == NULL)
+    {
+        SDL_ExitWithError("probleme texture store4 > transition.c");
+    }
+
+    SDL_Rect pos_store4;
+    pos_store4.x = (*game->WINDOWHEIGHT) * 720 / 1080;
+    pos_store4.y = 0;
+    pos_store4.w = (*game->WINDOWWIDTH) * 240 / 1920;
+    pos_store4.h = (*game->WINDOWHEIGHT);
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation Store5 pour transition 4 ---------------------------------------------------*/
+    SDL_Surface *surf_store5 = NULL;
+    surf_store5 = SDL_LoadBMP("src\\image\\Store.bmp");
+    if (surf_store5 == NULL)
+    {
+        SDL_ExitWithError("probleme chargement store5 > transition.c");
+    }
+
+    SDL_Texture *store5 = SDL_CreateTextureFromSurface(game->render, surf_store5);
+    if (store5 == NULL)
+    {
+        SDL_ExitWithError("probleme texture store5 > transition.c");
+    }
+
+    SDL_Rect pos_store5;
+    pos_store5.x = (*game->WINDOWHEIGHT) * 960 / 1080;
+    pos_store5.y = 0;
+    pos_store5.w = (*game->WINDOWWIDTH) * 240 / 1920;
+    pos_store5.h = (*game->WINDOWHEIGHT);
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation Store6 pour transition 4 ---------------------------------------------------*/
+    SDL_Surface *surf_store6 = NULL;
+    surf_store6 = SDL_LoadBMP("src\\image\\Store.bmp");
+    if (surf_store6 == NULL)
+    {
+        SDL_ExitWithError("probleme chargement store6 > transition.c");
+    }
+
+    SDL_Texture *store6 = SDL_CreateTextureFromSurface(game->render, surf_store6);
+    if (store6 == NULL)
+    {
+        SDL_ExitWithError("probleme texture store6 > transition.c");
+    }
+
+    SDL_Rect pos_store6;
+    pos_store6.x = (*game->WINDOWHEIGHT) * 1200 / 1080;
+    pos_store6.y = 0;
+    pos_store6.w = (*game->WINDOWWIDTH) * 240 / 1920;
+    pos_store6.h = (*game->WINDOWHEIGHT);
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation Store7 pour transition 4 ---------------------------------------------------*/
+    SDL_Surface *surf_store7 = NULL;
+    surf_store7 = SDL_LoadBMP("src\\image\\Store.bmp");
+    if (surf_store7 == NULL)
+    {
+        SDL_ExitWithError("probleme chargement store7 > transition.c");
+    }
+
+    SDL_Texture *store7 = SDL_CreateTextureFromSurface(game->render, surf_store7);
+    if (store7 == NULL)
+    {
+        SDL_ExitWithError("probleme texture store7 > transition.c");
+    }
+
+    SDL_Rect pos_store7;
+    pos_store7.x = (*game->WINDOWHEIGHT) * 1440 / 1080;
+    pos_store7.y = 0;
+    pos_store7.w = (*game->WINDOWWIDTH) * 240 / 1920;
+    pos_store7.h = (*game->WINDOWHEIGHT);
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation Store8 pour transition 4 ---------------------------------------------------*/
+    SDL_Surface *surf_store8 = NULL;
+    surf_store8 = SDL_LoadBMP("src\\image\\Store.bmp");
+    if (surf_store8 == NULL)
+    {
+        SDL_ExitWithError("probleme chargement store8 > transition.c");
+    }
+
+    SDL_Texture *store8 = SDL_CreateTextureFromSurface(game->render, surf_store8);
+    if (store8 == NULL)
+    {
+        SDL_ExitWithError("probleme texture store8 > transition.c");
+    }
+
+    SDL_Rect pos_store8;
+    pos_store8.x = (*game->WINDOWHEIGHT) * 1680 / 1080;
+    pos_store8.y = 0;
+    pos_store8.w = (*game->WINDOWWIDTH) * 240 / 1920;
+    pos_store8.h = (*game->WINDOWHEIGHT);
+    /*----------------------------------------------------------------------------*/
+
+
+    rand_nb = rand()%4;
     if(rand_nb == 0) {
         for (int i = 0; i < 42; i++)
         {
@@ -1089,7 +1258,29 @@ extern void transition(game_t *game)
             SDL_Delay(300);
 
     }
+    else if(rand_nb == 3){
 
+            SDL_RenderCopy(game->render, store1, NULL, &pos_store1);
+            SDL_RenderCopy(game->render, store8, NULL, &pos_store8);
+            SDL_Delay(250);
+            SDL_RenderPresent(game->render);
+
+            SDL_RenderCopy(game->render, store2, NULL, &pos_store2);
+            SDL_RenderCopy(game->render, store7, NULL, &pos_store7);
+            SDL_Delay(250);
+            SDL_RenderPresent(game->render);
+
+            SDL_RenderCopy(game->render, store3, NULL, &pos_store3);
+            SDL_RenderCopy(game->render, store6, NULL, &pos_store6);
+            SDL_Delay(250);
+            SDL_RenderPresent(game->render);
+
+            SDL_RenderCopy(game->render, store4, NULL, &pos_store4);
+            SDL_RenderCopy(game->render, store5, NULL, &pos_store5);
+            SDL_Delay(250);
+            SDL_RenderPresent(game->render);
+            SDL_Delay(300);
+    }
 
     SDL_RenderPresent(game->render);
 
