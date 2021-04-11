@@ -3,7 +3,7 @@ charactere_name: Guerrier ;
 position: Etage_1 ;
 x: 685 ;
 y: 1620 ;
-lvl: 1 ;
+lvl: 50 ;
 xp: 0 ;
 max_life: 50 ;
 life: 50 ;

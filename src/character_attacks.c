@@ -57,6 +57,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     SDL_Color blanc = {255, 255, 255};
     SDL_Color rouge = {255, 0, 0};
     SDL_Color bleu = {0, 0, 255};
+    SDL_Color gris = {100, 100, 100};
 
     int selection = 0;
 
@@ -65,6 +66,8 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     int dmg;
 
     int temp;
+
+    int max_selec;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -144,7 +147,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 1" ----------------------------------------------*/
 
     SDL_Surface *surf_attaque_1 = NULL;
-    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, gris);
     if (surf_attaque_1 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 1 > attaques.c Line 194");
@@ -167,7 +170,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 2" ----------------------------------------------*/
 
     SDL_Surface *surf_attaque_2 = NULL;
-    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, gris);
     if (surf_attaque_2 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 2 > attaques.c Line 194");
@@ -190,7 +193,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 3" ----------------------------------------------*/
 
     SDL_Surface *surf_attaque_3 = NULL;
-    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, gris);
     if (surf_attaque_3 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 3 > attaques.c Line 194");
@@ -213,7 +216,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 4" ----------------------------------------------*/
 
     SDL_Surface *surf_attaque_4 = NULL;
-    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, gris);
     if (surf_attaque_4 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 4 > attaques.c Line 194");
@@ -236,7 +239,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 5" ----------------------------------------------*/
 
     SDL_Surface *surf_attaque_5 = NULL;
-    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
+    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, gris);
     if (surf_attaque_5 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 5 > attaques.c Line 194");
@@ -259,7 +262,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 6" ----------------------------------------------*/
 
     SDL_Surface *surf_attaque_6 = NULL;
-    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
+    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, gris);
     if (surf_attaque_6 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 6 > attaques.c Line 194");
@@ -282,7 +285,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 7" ----------------------------------------------*/
 
     SDL_Surface *surf_attaque_7 = NULL;
-    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, blanc);
+    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, gris);
     if (surf_attaque_7 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 7 > attaques.c Line 194");
@@ -305,7 +308,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 8" ----------------------------------------------*/
 
     SDL_Surface *surf_attaque_8 = NULL;
-    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[7].name, blanc);
+    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[7].name, gris);
     if (surf_attaque_8 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 8 > attaques.c Line 194");
@@ -328,7 +331,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 9" ----------------------------------------------*/
 
     SDL_Surface *surf_attaque_9 = NULL;
-    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[8].name, blanc);
+    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[8].name, gris);
     if (surf_attaque_9 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 9 > attaques.c Line 194");
@@ -351,7 +354,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 10" ---------------------------------------------*/
 
     SDL_Surface *surf_attaque_10 = NULL;
-    surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[9].name, blanc);
+    surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[9].name, gris);
     if (surf_attaque_10 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 10 > attaques.c Line 194");
@@ -374,7 +377,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 11" ---------------------------------------------*/
 
     SDL_Surface *surf_attaque_11 = NULL;
-    surf_attaque_11 = TTF_RenderText_Blended(game->police, character->attacks[10].name, blanc);
+    surf_attaque_11 = TTF_RenderText_Blended(game->police, character->attacks[10].name, gris);
     if (surf_attaque_11 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 11 > attaques.c Line 194");
@@ -397,7 +400,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 12" ---------------------------------------------*/
 
     SDL_Surface *surf_attaque_12 = NULL;
-    surf_attaque_12 = TTF_RenderText_Blended(game->police, character->attacks[11].name, blanc);
+    surf_attaque_12 = TTF_RenderText_Blended(game->police, character->attacks[11].name, gris);
     if (surf_attaque_12 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 12 > attaques.c Line 194");
@@ -420,7 +423,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     /*--- Creation text "attaque 13" ---------------------------------------------*/
 
     SDL_Surface *surf_attaque_13 = NULL;
-    surf_attaque_13 = TTF_RenderText_Blended(game->police, character->attacks[12].name, blanc);
+    surf_attaque_13 = TTF_RenderText_Blended(game->police, character->attacks[12].name, gris);
     if (surf_attaque_13 == NULL)
     {
         SDL_ExitWithError("Probleme surface attaque 13 > attaques.c Line 194");
@@ -615,6 +618,112 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
 
     /*----------------------------------------------------------------------------*/
 
+    if (character->lvl >= 50)
+    {
+        max_selec = 13;
+        surf_attaque_13 = TTF_RenderText_Blended(game->police, character->attacks[12].name, blanc);
+    }
+    if (character->lvl >= 45)
+    {
+        max_selec = 12;
+        surf_attaque_12 = TTF_RenderText_Blended(game->police, character->attacks[11].name, blanc);
+    }
+    if (character->lvl >= 40)
+    {
+        max_selec = 11;
+        surf_attaque_11 = TTF_RenderText_Blended(game->police, character->attacks[10].name, blanc);
+    }
+    if (character->lvl >= 35)
+    {
+        max_selec = 10;
+        surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[9].name, blanc);
+    }
+    if (character->lvl >= 30)
+    {
+        max_selec = 9;
+        surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[8].name, blanc);
+    }
+    if (character->lvl >= 25)
+    {
+        max_selec = 8;
+        surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[7].name, blanc);
+    }
+    if (character->lvl >= 20)
+    {
+        max_selec = 7;
+        surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, blanc);
+    }
+    if (character->lvl >= 15)
+    {
+        max_selec = 6;
+        surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
+    }
+    if (character->lvl >= 10)
+    {
+        printf(">= 10");
+        max_selec = 5;
+        surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
+    }
+    if (character->lvl >= 5)
+    {
+        printf(">= 5");
+        max_selec = 4;
+        surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+    }
+    if (character->lvl >= 1)
+    {
+        printf(">= 1");
+        surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+        surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+        surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+        max_selec = 3;
+    }
+
+    if (character->lvl >= 50)
+    {
+        max_selec = 13;
+    }
+    else if (character->lvl >= 45)
+    {
+        max_selec = 12;
+    }
+    else if (character->lvl >= 40)
+    {
+        max_selec = 11;
+    }
+    else if (character->lvl >= 35)
+    {
+        max_selec = 10;
+    }
+    else if (character->lvl >= 30)
+    {
+        max_selec = 9;
+    }
+    else if (character->lvl >= 25)
+    {
+        max_selec = 8;
+    }
+    else if (character->lvl >= 20)
+    {
+        max_selec = 7;
+    }
+    else if (character->lvl >= 15)
+    {
+        max_selec = 6;
+    }
+    else if (character->lvl >= 10)
+    {
+        max_selec = 5;
+    }
+    else if (character->lvl >= 5)
+    {
+        max_selec = 4;
+    }
+    else if (character->lvl >= 1)
+    {
+        max_selec = 3;
+    }
+
     /*--- Main Loop --------------------------------------------------------------*/
 
     while (*game->program_launch && attacks_bool)
@@ -650,124 +759,807 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
             /*--------------------------------------------------------------------*/
 
             if (selection < 0)
-                selection = 12;
-            selection %= 13;
+                selection = max_selec - 1;
+            selection %= max_selec;
 
-            if (selection == 0)
+            printf("selection: %i, max_selec: %i\n", selection, max_selec);
+
+            if (character->lvl >= 50)
             {
-                surf_attaque_13 = TTF_RenderText_Blended(game->police, character->attacks[12].name, blanc);
+                if (selection == 0)
+                {
+                    surf_attaque_13 = TTF_RenderText_Blended(game->police, character->attacks[12].name, blanc);
 
-                surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
 
-                surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                }
+
+                if (selection == 1)
+                {
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                }
+
+                if (selection == 2)
+                {
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+                }
+
+                if (selection == 3)
+                {
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 4)
+                {
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 5)
+                {
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
+
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 6)
+                {
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
+
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 7)
+                {
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, blanc);
+
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 8)
+                {
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[7].name, blanc);
+
+                    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 9)
+                {
+                    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[8].name, blanc);
+
+                    surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 11)
+                {
+                    surf_attaque_11 = TTF_RenderText_Blended(game->police, character->attacks[10].name, blanc);
+
+                    surf_attaque_12 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 12)
+                {
+                    surf_attaque_12 = TTF_RenderText_Blended(game->police, character->attacks[11].name, blanc);
+
+                    surf_attaque_13 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+            }
+            if (character->lvl >= 45)
+            {
+                if (selection == 0)
+                {
+                    surf_attaque_12 = TTF_RenderText_Blended(game->police, character->attacks[11].name, blanc);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                }
+
+                if (selection == 1)
+                {
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                }
+
+                if (selection == 2)
+                {
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+                }
+
+                if (selection == 3)
+                {
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 4)
+                {
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 5)
+                {
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
+
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 6)
+                {
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
+
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 7)
+                {
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, blanc);
+
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 8)
+                {
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[7].name, blanc);
+
+                    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 9)
+                {
+                    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[8].name, blanc);
+
+                    surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 11)
+                {
+                    surf_attaque_11 = TTF_RenderText_Blended(game->police, character->attacks[10].name, blanc);
+
+                    surf_attaque_12 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+            }
+            if (character->lvl >= 40)
+            {
+                if (selection == 0)
+                {
+                    surf_attaque_11 = TTF_RenderText_Blended(game->police, character->attacks[10].name, blanc);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                }
+
+                if (selection == 1)
+                {
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                }
+
+                if (selection == 2)
+                {
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+                }
+
+                if (selection == 3)
+                {
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 4)
+                {
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 5)
+                {
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
+
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 6)
+                {
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
+
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 7)
+                {
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, blanc);
+
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 8)
+                {
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[7].name, blanc);
+
+                    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 9)
+                {
+                    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[8].name, blanc);
+
+                    surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 10)
+                {
+                    surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[9].name, blanc);
+
+                    surf_attaque_11 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+            }
+            if (character->lvl >= 35)
+            {
+                if (selection == 0)
+                {
+                    surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[9].name, blanc);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                }
+
+                if (selection == 1)
+                {
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                }
+
+                if (selection == 2)
+                {
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+                }
+
+                if (selection == 3)
+                {
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 4)
+                {
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 5)
+                {
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
+
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 6)
+                {
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
+
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 7)
+                {
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, blanc);
+
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 8)
+                {
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[7].name, blanc);
+
+                    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 9)
+                {
+                    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[8].name, blanc);
+
+                    surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+            }
+            if (character->lvl >= 30)
+            {
+                if (selection == 0)
+                {
+                    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[8].name, blanc);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                }
+
+                if (selection == 1)
+                {
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                }
+
+                if (selection == 2)
+                {
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+                }
+
+                if (selection == 3)
+                {
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 4)
+                {
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 5)
+                {
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
+
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 6)
+                {
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
+
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 7)
+                {
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, blanc);
+
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 8)
+                {
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[7].name, blanc);
+
+                    surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+            }
+            if (character->lvl >= 25)
+            {
+                if (selection == 0)
+                {
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[7].name, blanc);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                }
+
+                if (selection == 1)
+                {
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                }
+
+                if (selection == 2)
+                {
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+                }
+
+                if (selection == 3)
+                {
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 4)
+                {
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 5)
+                {
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
+
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 6)
+                {
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
+
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 7)
+                {
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, blanc);
+
+                    surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+            }
+            if (character->lvl >= 20)
+            {
+                if (selection == 0)
+                {
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, blanc);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                }
+
+                if (selection == 1)
+                {
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                }
+
+                if (selection == 2)
+                {
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+                }
+
+                if (selection == 3)
+                {
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 4)
+                {
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 5)
+                {
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
+
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 6)
+                {
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
+
+                    surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+            }
+            if (character->lvl >= 15)
+            {
+                if (selection == 0)
+                {
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                }
+
+                if (selection == 1)
+                {
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                }
+
+                if (selection == 2)
+                {
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+                }
+
+                if (selection == 3)
+                {
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 4)
+                {
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 5)
+                {
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
+
+                    surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+            }
+            if (character->lvl >= 10)
+            {
+                if (selection == 0)
+                {
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                }
+
+                if (selection == 1)
+                {
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                }
+
+                if (selection == 2)
+                {
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+                }
+
+                if (selection == 3)
+                {
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+
+                if (selection == 4)
+                {
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+
+                    surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
+            }
+            if (character->lvl >= 5)
+            {
+                if (selection == 0)
+                {
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                }
+
+                if (selection == 1)
+                {
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                }
+
+                if (selection == 2)
+                {
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
+                }
+
+                if (selection == 3)
+                {
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+
+                    surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
             }
 
-            if (selection == 1)
+            if (character->lvl >= 1)
             {
-                surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                if (selection == 0)
+                {
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
 
-                surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, rouge);
 
-                surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
-            }
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                }
 
-            if (selection == 2)
-            {
-                surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
+                if (selection == 1)
+                {
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
 
-                surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
 
-                surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
-            }
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                }
 
-            if (selection == 3)
-            {
-                surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
+                if (selection == 2)
+                {
+                    surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
 
-                surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
+                    surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
 
-                surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
-            }
-
-            if (selection == 4)
-            {
-                surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
-
-                surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
-
-                surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
-            }
-
-            if (selection == 5)
-            {
-                surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
-
-                surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
-
-                surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, blanc);
-            }
-
-            if (selection == 6)
-            {
-                surf_attaque_6 = TTF_RenderText_Blended(game->police, character->attacks[5].name, blanc);
-
-                surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
-
-                surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[7].name, blanc);
-            }
-
-            if (selection == 7)
-            {
-                surf_attaque_7 = TTF_RenderText_Blended(game->police, character->attacks[6].name, blanc);
-
-                surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
-
-                surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[8].name, blanc);
-            }
-
-            if (selection == 8)
-            {
-                surf_attaque_8 = TTF_RenderText_Blended(game->police, character->attacks[7].name, blanc);
-
-                surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
-
-                surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[9].name, blanc);
-            }
-
-            if (selection == 9)
-            {
-                surf_attaque_9 = TTF_RenderText_Blended(game->police, character->attacks[8].name, blanc);
-
-                surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
-
-                surf_attaque_11 = TTF_RenderText_Blended(game->police, character->attacks[10].name, blanc);
-            }
-
-            if (selection == 10)
-            {
-                surf_attaque_10 = TTF_RenderText_Blended(game->police, character->attacks[9].name, blanc);
-
-                surf_attaque_11 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
-
-                surf_attaque_12 = TTF_RenderText_Blended(game->police, character->attacks[11].name, blanc);
-            }
-
-            if (selection == 11)
-            {
-                surf_attaque_11 = TTF_RenderText_Blended(game->police, character->attacks[10].name, blanc);
-
-                surf_attaque_12 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
-
-                surf_attaque_13 = TTF_RenderText_Blended(game->police, character->attacks[12].name, blanc);
-            }
-
-            if (selection == 12)
-            {
-                surf_attaque_12 = TTF_RenderText_Blended(game->police, character->attacks[11].name, blanc);
-
-                surf_attaque_13 = TTF_RenderText_Blended(game->police, character->attacks[selection].name, rouge);
-
-                surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                    surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
+                }
             }
 
             //Mise a jour du cout en mana de l'attaque

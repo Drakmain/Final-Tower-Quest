@@ -1,6 +1,6 @@
-save_name: alexis ;
+save_name: Alexis ;
 classe_name: Mage ;
-position: Tour ;
+position: Village ;
 x: 0 ;
 y: 0 ;
 lvl: 1 ;
