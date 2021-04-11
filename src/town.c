@@ -475,6 +475,8 @@ extern void town(game_t *game, character_t *character)
 
                     South_Walk = 0;
                 }
+                character->x = x;
+                character->y = y;
             }
         }
     }

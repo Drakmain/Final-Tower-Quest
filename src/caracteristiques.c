@@ -301,7 +301,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Creation text "defense" ----------------------------------------*/
+    /*--- Creation text "point dispo" ----------------------------------------*/
 
     surf_point_dispo = TTF_RenderText_Blended(game->police, "Point(s) disponible(s)", blanc);
     if (surf_point_dispo == NULL)

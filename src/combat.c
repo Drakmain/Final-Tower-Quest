@@ -810,6 +810,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
         SDL_RenderPresent(game->render);
 
+        game_over(game, floor_bool, combat_bool, character);
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/

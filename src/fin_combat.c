@@ -32,7 +32,7 @@
  */
 
  extern
- void fin_combat(game_t *game, character_t *character, SDL_Texture * texture_render_combat, map_t *map, int nb_enemie_combat, int rand_enemie[])
+ void fin_combat(game_t *game, character_t *character, SDL_Texture * texture_render_combat, enemy_t *enemies_cbt, int nb_enemie_combat)
 {
     srand(time(NULL));
 
@@ -42,7 +42,7 @@
 
     if(nb_enemie_combat == 1)
     {
-        nb_total_xp = map->enemies[rand_enemie[0]].exp;
+        nb_total_xp = enemies_cbt[0].exp;
         affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
 
         character->xp += nb_total_xp;
@@ -55,7 +55,7 @@
             character->points_dispo += 3;
         }
 
-        if(strcmp(map->name,"floor_1") == 0)
+        if(strcmp(map->name,"Etage_1") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 4)
@@ -80,7 +80,7 @@
             }
         }
 
-        else if(strcmp(map->name,"floor_2") == 0)
+        else if(strcmp(map->name,"Etage_2") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 4)
@@ -116,7 +116,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_3") == 0)
+        else if(strcmp(map->name,"Etage_3") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 4)
@@ -152,7 +152,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_4") == 0)
+        else if(strcmp(map->name,"Etage_4") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 4)
@@ -188,7 +188,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_5") == 0)
+        else if(strcmp(map->name,"Etage_5") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 4)
@@ -229,7 +229,7 @@
 
     else if(nb_enemie_combat == 2)
     {
-        nb_total_xp = map->enemies[rand_enemie[0]].exp + map->enemies[rand_enemie[1]].exp;
+        nb_total_xp =  enemies_cbt[0].exp +  enemies_cbt[1].exp;
         affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
         character->xp += nb_total_xp;
         if(character->lvl == 50)affichage_message(game, texture_render_combat, "Vous etes au summum, vous ne pouvez plus gagnez d'xp.", -1);
@@ -242,7 +242,7 @@
             character->points_dispo += 3;
         }
 
-        if(strcmp(map->name,"floor_1") == 0)
+        if(strcmp(map->name,"Etage_1") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 8)
@@ -267,7 +267,7 @@
             }
         }
 
-        else if(strcmp(map->name,"floor_2") == 0)
+        else if(strcmp(map->name,"Etage_2") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 8)
@@ -303,7 +303,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_3") == 0)
+        else if(strcmp(map->name,"Etage_3") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 8)
@@ -339,7 +339,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_4") == 0)
+        else if(strcmp(map->name,"Etage_4") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 8)
@@ -375,7 +375,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_5") == 0)
+        else if(strcmp(map->name,"Etage_5") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 8)
@@ -414,7 +414,7 @@
 
     else if(nb_enemie_combat == 3)
     {
-        nb_total_xp = map->enemies[rand_enemie[0]].exp + map->enemies[rand_enemie[1]].exp + map->enemies[rand_enemie[2]].exp;
+        nb_total_xp =  enemies_cbt[0].exp +  enemies_cbt[1].exp +  enemies_cbt[2].exp;
         affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
         character->xp += nb_total_xp;
         if(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
@@ -426,7 +426,7 @@
             character->points_dispo += 3;
         }
 
-        if(strcmp(map->name,"floor_1") == 0)
+        if(strcmp(map->name,"Etage_1") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 12)
@@ -451,7 +451,7 @@
             }
         }
 
-        else if(strcmp(map->name,"floor_2") == 0)
+        else if(strcmp(map->name,"Etage_2") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 12)
@@ -487,7 +487,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_3") == 0)
+        else if(strcmp(map->name,"Etage_3") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 12)
@@ -523,7 +523,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_4") == 0)
+        else if(strcmp(map->name,"Etage_4") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 12)
@@ -559,7 +559,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_5") == 0)
+        else if(strcmp(map->name,"Etage_5") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 12)
@@ -598,7 +598,7 @@
 
     else if(nb_enemie_combat == 4)
     {
-        nb_total_xp = map->enemies[rand_enemie[0]].exp + map->enemies[rand_enemie[1]].exp + map->enemies[rand_enemie[2]].exp + map->enemies[rand_enemie[3]].exp;
+        nb_total_xp =  enemies_cbt[0].exp +  enemies_cbt[1].exp +  enemies_cbt[2].exp +  enemies_cbt[3].exp;
         affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
         character->xp += nb_total_xp;
         if(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
@@ -610,7 +610,7 @@
             character->points_dispo += 3;
         }
 
-        if(strcmp(map->name,"floor_1") == 0)
+        if(strcmp(map->name,"Etage_1") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 16)
@@ -635,7 +635,7 @@
             }
         }
 
-        else if(strcmp(map->name,"floor_2") == 0)
+        else if(strcmp(map->name,"Etage_2") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 16)
@@ -671,7 +671,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_3") == 0)
+        else if(strcmp(map->name,"Etage_3") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 16)
@@ -707,7 +707,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_4") == 0)
+        else if(strcmp(map->name,"Etage_4") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 16)
@@ -743,7 +743,7 @@
 
         }
 
-        else if(strcmp(map->name,"floor_5") == 0)
+        else if(strcmp(map->name,"Etage_5") == 0)
         {
             random_drop_potions = rand()%100;
             if(random_drop_potions < 16)
