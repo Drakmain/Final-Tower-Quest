@@ -3,7 +3,8 @@
 
 #include "commun.h"
 
-#define NB_ENEMIES 6 /*!< A FINIR. */
+#define NB_ENEMIES 6         /*!< A FINIR. */
+#define NB_ATTACKS_ENEMIES 2 /*!< A FINIR. */
 
 typedef struct image_s image_t;
 
@@ -89,5 +90,6 @@ struct map_s
 
 extern map_t *map_create(SDL_Renderer *render, char *name_map);
 extern SDL_bool map_exist(map_t *const map);
+extern void enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render);
 
 #endif

@@ -6,7 +6,6 @@
 #include "..\lib\enemy_turn.h"
 
 #include "..\lib\frame.h"
-#include "..\lib\map.h"
 #include "..\lib\affichage_message.h"
 
 /*!
@@ -19,7 +18,7 @@
 
 /*!
  *
- * \fn enemy_turn(game_t *game, character_t *character, enemy_t *enemy, map_t *map, SDL_Texture *texture_render_combat)
+ * \fn enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int num, map_t *map, SDL_Texture *texture_render_combat)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -29,7 +28,7 @@
  *
  */
 
-extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemy, map_t *map, SDL_Texture *texture_render_combat)
+extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int num, map_t *map, SDL_Texture *texture_render_combat)
 {
     srand(time(NULL));
 
@@ -49,7 +48,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemy, map
     char char_dmg;
 
     char *msg;
-    msg = malloc(sizeof(char) * 50);
+    msg = malloc(sizeof(char) * 100);
 
     //POS CHARACTER
     SDL_Rect pos_Wind_character;
@@ -114,7 +113,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemy, map
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Creation text "Attaque" ----------------------------------------------*/
+    /*--- Creation text "Attaque" ------------------------------------------------*/
 
     SDL_Surface *surf_attaque = NULL;
     surf_attaque = TTF_RenderText_Blended(game->police, "Attaque", gris);
@@ -137,7 +136,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemy, map
 
     /*----------------------------------------------------------------------------*/
 
-    /*--- Creation text "Sac" ----------------------------------------------*/
+    /*--- Creation text "Sac" ----------------------------------------------------*/
 
     SDL_Surface *surf_sac = NULL;
     surf_sac = TTF_RenderText_Blended(game->police, "Sac", gris);
@@ -187,59 +186,57 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemy, map
 
     attack_spe = rand() % 101;
 
-    if (enemy->attack[1].effect_remaining == 0)
+    if (enemies_cbt[num].attack[1].effect_remaining == 0)
     {
         dmg_modifier = 0;
     }
     else
     {
-        enemy->attack[1].effect_remaining--;
+        enemies_cbt[num].attack[1].effect_remaining--;
     }
 
-    strcpy(msg, enemy->name);
-    strcat(msg, " vous a fait ");
-
-    if (attack_spe >= 0 && attack_spe <= enemy->attack[1].percentage && enemy->attack[1].percentage != -1)
+    strcpy(msg, enemies_cbt[num].name);
+    strcat(msg, " utilise ");
+    
+    if (attack_spe >= 0 && attack_spe <= enemies_cbt[num].attack[1].percentage && enemies_cbt[num].attack[1].percentage != -1)
     {
-        switch (enemy->attack[1].effect)
+        switch (enemies_cbt[num].attack[1].effect)
         {
         case 0: //Buff d'attaque pendant un certain nombre de tours
-            dmg = rand() % enemy->attack[1].dmg_max + enemy->attack[1].dmg_min;
+            dmg = rand() % enemies_cbt[num].attack[1].dmg_max + enemies_cbt[num].attack[1].dmg_min;
             character->life -= dmg + dmg_modifier;
             dmg += dmg_modifier;
 
-            enemy->attack[1].effect_remaining = enemy->attack[1].effect_duration;
-            dmg_modifier = enemy->attack[1].modifier;
-
-            char_dmg = dmg + '0';
-            strncat(msg, &char_dmg, 1);
-            strcat(msg, " degats avec une attaque spe.");
+            enemies_cbt[num].attack[1].effect_remaining = enemies_cbt[num].attack[1].effect_duration;
+            dmg_modifier = enemies_cbt[num].attack[1].modifier;
+            
+            strcat(msg, enemies_cbt[num].attack[1].name);          
+            
             break;
 
         case 1: //Empêche l'ennemi d'attaquer pendant un certain nombre de tour
             /* code */
             break;
         }
-
-        surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
     }
     else
     {
-        dmg = rand() % enemy->attack[0].dmg_max + enemy->attack[0].dmg_min;
+        dmg = rand() % enemies_cbt[num].attack[0].dmg_max + enemies_cbt[num].attack[0].dmg_min;
         character->life -= dmg + dmg_modifier;
         dmg += dmg_modifier;
 
-        char_dmg = dmg + '0';
-        strncat(msg, &char_dmg, 1);
-        strcat(msg, " de degats.");
-
-        surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
+        strcat(msg, enemies_cbt[num].attack[0].name);
     }
+
+    strcat(msg, " %n ");
+    strcat(msg, "Vous avez subis ");  
+    char_dmg = dmg + '0';
+    strncat(msg, &char_dmg, 1);
+    strcat(msg, " degats.");
     texture_PV_personnage = SDL_CreateTextureFromSurface(game->render, surf_PV_personnage);
+    surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
 
-    SDL_RenderClear(game->render);
-
-    SDL_SetRenderTarget(game->render, texture_render);
+    SDL_RenderCopy(game->render, texture_render_combat, NULL, NULL);
     
     SDL_RenderCopy(game->render, texture_PV_personnage, NULL, &pos_Wind_PV_personnage);
     SDL_RenderCopy(game->render, texture_PM_personnage, NULL, &pos_Wind_PM_personnage);
@@ -270,10 +267,11 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemy, map
         pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
         SDL_RenderCopy(game->render, character->texture, &character->West_Walk.rect, &pos_Wind_character);
     }
-
-    SDL_SetRenderTarget(game->render, NULL);
-
+    
+    msg = (char *)realloc(msg, strlen(msg) * sizeof(char) + 1);
+    printf("msg: %s\n", msg);
     affichage_message(game, texture_render, msg, -1);
+
 
     /*--- End Main Loop ----------------------------------------------------------*/
 

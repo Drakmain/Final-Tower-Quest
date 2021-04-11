@@ -17,7 +17,7 @@ Niveau 15: Coup_de_tonnerre , 10, 0 - 0, Attaque_un_ennemi , -1, 0 ;
 Niveau 20: Vortex_d'elements , 20, 0 - 0, Attaque_tous_les_ennemies , -1, -1 ;
 Niveau 25: Transfiguration , 25, -1 - -1, Endors_l'ennemi_pendant_2_tours , -1, -1 ;
 Niveau 30: Raz-de-maree , 25, 0 - 0, Attaque_3x_aleatoirement , -1, 1 ;
-Niveau 35: Magie_instable , 30, -1 - -1, Une_chance_sur_trois_de_tuer_l'ennemi , -1, -1 ;
+Niveau 35: Magie_instable , 30, -1 - -1, Une_chance_sur_trois_de_tuer_l'ennemi , 3, 5 ;
 Niveau 40: Consecration , 20, -1 - -1, Restaure_35%_de_la_sante , 15, 3 ;
 Niveau 45: Blizzard , 20, 0 - 0, Attaque_un_ennemi , -1, 0 ;
 Niveau 50: Fureur_divine , 50, -1 - -1, Mana_gratuit_pendant_3_tours , -1, -1 ;

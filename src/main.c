@@ -10,6 +10,10 @@
 #include "..\lib\town.h"
 #include "..\lib\tower.h"
 #include "..\lib\floor_1.h"
+//#include "..\lib\floor_2.h"
+//#include "..\lib\floor_3.h"
+//#include "..\lib\floor_4.h"
+//#include "..\lib\floor_5.h"
 
 /*!
  *

@@ -939,7 +939,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                 if (*combat && selection_vertical != 3)
                     selection_horizontal--;
 
-                if (!*combat && selection_vertical != 2)
+                if (!(*combat) && selection_vertical != 2)
                     selection_horizontal--;
             }
 
@@ -948,7 +948,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                 if (*combat && selection_vertical != 3)
                     selection_horizontal++;
 
-                if (!*combat && selection_vertical != 2)
+                if (!(*combat) && selection_vertical != 2)
                     selection_horizontal++;
             }
 
@@ -1016,7 +1016,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                 }
             }
 
-            if (!*combat && selection_vertical == 2)
+            if (!(*combat) && selection_vertical == 2)
             {
                 surf_retour = TTF_RenderText_Blended(game->police, "Retour", rouge);
             }
@@ -1047,7 +1047,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
             if (*combat && selection_vertical != 3)
                 SDL_RenderCopy(game->render, cadre_rouge_potions, NULL, &pos_cadre_rouge_potions);
 
-            if (!*combat && selection_vertical != 2)
+            if (!(*combat) && selection_vertical != 2)
                 SDL_RenderCopy(game->render, cadre_rouge_potions, NULL, &pos_cadre_rouge_potions);
 
             SDL_RenderCopy(game->render, fond_petite_popo_soin, NULL, &pos_fond_petite_popo_soin);
@@ -1277,7 +1277,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                     }
                 }
 
-                if (!*combat && selection_vertical == 2)
+                if (!(*combat) && selection_vertical == 2)
                 {
                     sac_bool = SDL_FALSE;
                 }

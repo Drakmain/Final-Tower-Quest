@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "..\lib\map.h"
-#include "..\lib\attacks_character.h"
+#include "..\lib\character_attacks.h"
 
 /*!
  * 
@@ -12,8 +12,6 @@
  * \author Enzo BRENNUS
  * 
  */
-
-#define NB_ATTACKS_ENEMIES 2
 
 /*!
  *
@@ -243,11 +241,9 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
             fscanf(file, "%s : %i, %i - %i, %i, %i, %i ;\n", map->enemies[i].attack[1].name, &map->enemies[i].attack[1].percentage, &map->enemies[i].attack[1].dmg_min, &map->enemies[i].attack[1].dmg_max, &map->enemies[i].attack[1].modifier, &map->enemies[i].attack[1].effect_duration, &map->enemies[i].attack[1].effect);
             fscanf(file, "EXP: %i ;\n\n", &map->enemies[i].exp);
             map->enemies[i].atb = 0;
-            map->enemies[i].attack[1].effect_remaining = 0;
+            map->enemies[i].attack[i].effect_remaining = 0;
             printf("atb: %i, speed: %i\n", map->enemies[i].atb, map->enemies[i].speed);
         }
-
-        
 
         //fscanf(file, "%s : %i ;\n", map->boss->name, &nb_attacks_boss);
         /*map->boss->attack = (enemy_t *)realloc(map->boss->attack, sizeof(enemy_t) * nb_attacks_boss);
@@ -326,6 +322,68 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
     /*----------------------------------------------------------------------------*/
 
     return (map);
+}
+
+/*!
+ *
+ * \fn enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render)
+ * \brief A FINIR.
+ *
+ * \param dst A FINIR.
+ * \param src A FINIR.
+ * \param render A FINIR.
+ * 
+ * \retval A FINIR.
+ * 
+ */
+
+extern void enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render)
+{
+    dst->surface = SDL_ConvertSurface(src->surface, src->surface->format, src->surface->flags);
+    if (!dst->surface)
+    {
+        SDL_ExitWithError("Erreur de duplication de la surface > map.c Line 343");
+    }
+
+    dst->texture = SDL_CreateTextureFromSurface(render, dst->surface);
+    if (!dst->texture)
+    {
+        SDL_ExitWithError("Cannot create a texture from a surface > map.c Line 348");
+    }
+
+    dst->R = src->R;
+    dst->G = src->G;
+    dst->B = src->B;
+
+    dst->tile_set.x = src->tile_set.x;
+    dst->tile_set.y = src->tile_set.y;
+    dst->tile_set.w = src->tile_set.w;
+    dst->tile_set.h = src->tile_set.h;
+
+    dst->boss = src->boss;
+
+    strcpy(dst->name, src->name);
+
+    for (int i = 0; i < NB_ATTACKS_ENEMIES; i++)
+    {
+        strcpy(dst->attack[i].name, src->attack[i].name);
+
+        dst->attack[i].dmg_min = src->attack[i].dmg_min;
+        dst->attack[i].dmg_max = src->attack[i].dmg_max;
+        dst->attack[i].mana = src->attack[i].mana;
+
+        dst->attack[i].effect = src->attack[i].effect;
+        dst->attack[i].effect_duration = src->attack[i].effect_duration;
+        dst->attack[i].effect_remaining = src->attack[i].effect_remaining;
+        dst->attack[i].modifier = src->attack[i].modifier;
+        dst->attack[i].percentage = src->attack[i].percentage;
+    }
+
+    dst->life = src->life;
+    dst->speed = src->speed;
+    dst->exp = src->exp;
+
+    dst->atb = src->atb;
 }
 
 /*!

@@ -3,10 +3,11 @@
 #include <string.h>
 #include <time.h>
 
-#include "..\lib\attacks_character.h"
+#include "..\lib\character_attacks.h"
 
 #include "..\lib\combat.h"
 #include "..\lib\enemy_selection.h"
+#include "..\lib\affichage_message.h"
 
 /*!
  *
@@ -39,7 +40,7 @@ extern void _toEspace(char *string)
 
 /*!
  *
- * \fn attacks_character(game_t *game, character_t *character, map_t *map, int nb_enemies_combat, int nb_enemies_combat_actif, int rand_enemies[], SDL_Texture *texture_render_combat)
+ * \fn character_attacks(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_combat, SDL_bool *character_turn_bool)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -48,7 +49,7 @@ extern void _toEspace(char *string)
  *
  */
 
-extern void attacks_character(game_t *game, character_t *character, map_t *map, int nb_enemies_combat, int nb_enemies_combat_actif, int rand_enemies[], SDL_Texture *texture_render_combat, SDL_bool *character_turn_bool)
+extern void character_attacks(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_combat, SDL_bool *character_turn_bool)
 {
     srand(time(NULL));
 
@@ -860,18 +861,32 @@ extern void attacks_character(game_t *game, character_t *character, map_t *map, 
                 switch (character->attacks[selection].type)
                 {
                 case 0: //Attaque un ennemi
-                    selected_enemy = enemy_selection(game, character, map, nb_enemies_combat, nb_enemies_combat_actif, rand_enemies, texture_render);
+                    selected_enemy = enemy_selection(game, character, enemies_cbt, nb_enemies_combat, nb_enemies_combat_actif, texture_render);
+                    if (selected_enemy == -1)
+                    {
+                        break;
+                    }else if (enemies_cbt[selected_enemy].life <= 0)
+                    {
+                        affichage_message(game, texture_render, "Cette ennemi est deja mort.", -1);
+                        break;
+                    }
+                    
                     dmg = rand() % character->attacks[selection].dmg_max + character->attacks[selection].dmg_min;
-                    map->enemies[rand_enemies[selected_enemy]].life -= dmg;
-                    printf("map->enemies[selected_enemy].life: %i\n", map->enemies[rand_enemies[selected_enemy]].life);
+                    enemies_cbt[selected_enemy].life -= dmg;
+
+                    *character_turn_bool = SDL_FALSE;
+                    attacks_bool = SDL_FALSE;
                     break;
 
                 case 1: //Attaque tous les ennemis
                     for (int i = 0; i < nb_enemies_combat; i++)
                     {
                         dmg = rand() % character->attacks[selection].dmg_max + character->attacks[selection].dmg_min;
-                        map->enemies[rand_enemies[i]].life -= dmg;
+                        enemies_cbt[i].life -= dmg;
                     }
+
+                    *character_turn_bool = SDL_FALSE;
+                    attacks_bool = SDL_FALSE;
                     break;
 
                 case 2: //Attaque 3x aleatoirement
@@ -879,23 +894,47 @@ extern void attacks_character(game_t *game, character_t *character, map_t *map, 
                     {
                         temp = rand() % nb_enemies_combat_actif;
                         dmg = rand() % character->attacks[selection].dmg_max + character->attacks[selection].dmg_min;
-                        if (map->enemies[rand_enemies[nb_enemies_combat_actif]].life == 0)
+                        if (!(enemies_cbt[temp].life == 0))
                         {
-                            map->enemies[rand_enemies[nb_enemies_combat_actif]].life -= dmg;
+                            enemies_cbt[temp].life -= dmg;
                         }
                     }
+
+                    *character_turn_bool = SDL_FALSE;
+                    attacks_bool = SDL_FALSE;
                     break;
 
                 case 3: //Restaure un certain % la sante
                     character->life += character->max_life * character->attacks[selection].modifier / 100;
+
+                    *character_turn_bool = SDL_FALSE;
+                    attacks_bool = SDL_FALSE;
                     break;
 
-                case 4:
+                case 4: //Augmente legerement(15)/grandement(30) une stat du personnage pendant X tours
                     /* code */
                     break;
 
-                case 5:
-                    /* code */
+                case 5: //Une chance sur X de tuer l'ennemi
+                    selected_enemy = enemy_selection(game, character, enemies_cbt, nb_enemies_combat, nb_enemies_combat_actif, texture_render);
+                    if (selected_enemy == -1)
+                    {
+                        break;
+                    }else if (enemies_cbt[selected_enemy].life <= 0)
+                    {
+                        affichage_message(game, texture_render, "Cette ennemi est deja mort.", -1);
+                        break;
+                    }
+                    
+                    if (selected_enemy == -1)
+                    {
+                        break;
+                    }
+                    temp = rand() % character->attacks[selection].modifier + 1;
+                    if (temp == 1)
+                    {
+                        enemies_cbt[selected_enemy].life = 0;
+                    }
                     break;
 
                 case 6:
@@ -926,8 +965,6 @@ extern void attacks_character(game_t *game, character_t *character, map_t *map, 
                     /* code */
                     break;
                 }
-                *character_turn_bool = SDL_FALSE;
-                attacks_bool = SDL_FALSE;
             }
         }
     }

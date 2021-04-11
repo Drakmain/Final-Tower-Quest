@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "..\lib\attacks_character.h"
+#include "..\lib\enemy_selection.h"
 
 #include "..\lib\combat.h"
-#include "..\lib\character.h"
 
 /*!
  *
@@ -17,7 +16,7 @@
 
 /*!
  *
- * \fn enemy_selection(game_t *game, character_t *character, map_t *map, int nb_enemies_combat, int nb_enemies_combat_actif, int rand_enemies[], SDL_Texture *texture_render_attacks)
+ * \fn enemy_selection(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_attacks)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -26,7 +25,7 @@
  *
  */
 
-extern int enemy_selection(game_t *game, character_t *character, map_t *map, int nb_enemies_combat, int nb_enemies_combat_actif, int rand_enemies[], SDL_Texture *texture_render_attacks)
+extern int enemy_selection(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_attacks)
 {
     /*--- Initialization Variable ------------------------------------------------*/
 
@@ -37,8 +36,6 @@ extern int enemy_selection(game_t *game, character_t *character, map_t *map, int
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool enemy_selec_bool = SDL_TRUE;
-
-    int arrow = -1;
 
     SDL_Event event;
 
@@ -124,62 +121,72 @@ extern int enemy_selection(game_t *game, character_t *character, map_t *map, int
     switch (nb_enemies_combat_actif)
     {
     case 1: //POS ENEMIE 1
+        selection = 0;
         pos_fleche_gauche.x = pos_Wind_enemie_1_1.x;
         pos_fleche_gauche.y = pos_Wind_enemie_1_1.y;
         break;
 
     case 2:
-        if (!map->enemies[rand_enemies[0]].life == 0) //POS ENEMIE 2_1
+        if (!enemies_cbt[0].life == 0) //POS ENEMIE 2_1
         {
+            selection = 0;
             pos_fleche_gauche.x = pos_Wind_enemie_2_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-            pos_fleche_gauche.y = pos_Wind_enemie_2_1.y + 100;
+            pos_fleche_gauche.y = pos_Wind_enemie_2_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!map->enemies[rand_enemies[1]].life == 0) //POS ENEMIE 2_2
+        else if (!enemies_cbt[1].life == 0) //POS ENEMIE 2_2
         {
+            selection = 1;
             pos_fleche_gauche.x = pos_Wind_enemie_2_2.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-            pos_fleche_gauche.y = pos_Wind_enemie_2_2.y + 100;
+            pos_fleche_gauche.y = pos_Wind_enemie_2_2.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
         break;
 
     case 3:
-        if (!map->enemies[rand_enemies[0]].life == 0) //POS ENEMIE 3_1
+        if (!enemies_cbt[0].life == 0) //POS ENEMIE 3_1
         {
+            selection = 0;
             pos_fleche_gauche.x = pos_Wind_enemie_3_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-            pos_fleche_gauche.y = pos_Wind_enemie_3_1.y + 100;
+            pos_fleche_gauche.y = pos_Wind_enemie_3_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!map->enemies[rand_enemies[1]].life == 0) //POS ENEMIE 1_1
+        else if (!enemies_cbt[1].life == 0) //POS ENEMIE 1_1
         {
+            selection = 1;
             pos_fleche_gauche.x = pos_Wind_enemie_1_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-            pos_fleche_gauche.y = pos_Wind_enemie_1_1.y + 100;
+            pos_fleche_gauche.y = pos_Wind_enemie_1_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!map->enemies[rand_enemies[2]].life == 0) //POS ENEMIE 3_3
+        else if (!enemies_cbt[2].life == 0) //POS ENEMIE 3_3
         {
+            selection = 2;
             pos_fleche_gauche.x = pos_Wind_enemie_3_3.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-            pos_fleche_gauche.y = pos_Wind_enemie_3_3.y + 100;
+            pos_fleche_gauche.y = pos_Wind_enemie_3_3.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
 
         break;
 
     case 4:
-        if (!map->enemies[rand_enemies[0]].life == 0) //POS ENEMIE 4_1
+        if (!enemies_cbt[0].life == 0) //POS ENEMIE 4_1
         {
+            selection = 0;
             pos_fleche_gauche.x = pos_Wind_enemie_4_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-            pos_fleche_gauche.y = pos_Wind_enemie_4_1.y + 100;
+            pos_fleche_gauche.y = pos_Wind_enemie_4_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!map->enemies[rand_enemies[1]].life == 0) //POS ENEMIE 2_1
+        else if (!enemies_cbt[1].life == 0) //POS ENEMIE 2_1
         {
+            selection = 1;
             pos_fleche_gauche.x = pos_Wind_enemie_2_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-            pos_fleche_gauche.y = pos_Wind_enemie_2_1.y + 100;
+            pos_fleche_gauche.y = pos_Wind_enemie_2_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!map->enemies[rand_enemies[2]].life == 0) //POS ENEMIE 2_2
+        else if (!enemies_cbt[2].life == 0) //POS ENEMIE 2_2
         {
+            selection = 2;
             pos_fleche_gauche.x = pos_Wind_enemie_2_2.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-            pos_fleche_gauche.y = pos_Wind_enemie_2_2.y + 100;
+            pos_fleche_gauche.y = pos_Wind_enemie_2_2.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!map->enemies[rand_enemies[3]].life == 0) //POS ENEMIE 4_4
+        else if (!enemies_cbt[3].life == 0) //POS ENEMIE 4_4
         {
+            selection = 3;
             pos_fleche_gauche.x = pos_Wind_enemie_4_4.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-            pos_fleche_gauche.y = pos_Wind_enemie_4_4.y + 100;
+            pos_fleche_gauche.y = pos_Wind_enemie_4_4.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
         break;
     }
@@ -201,6 +208,7 @@ extern int enemy_selection(game_t *game, character_t *character, map_t *map, int
 
             if (keyState[SDL_SCANCODE_ESCAPE])
             {
+                returnval = -1;
                 enemy_selec_bool = SDL_FALSE;
             }
 
@@ -210,145 +218,91 @@ extern int enemy_selection(game_t *game, character_t *character, map_t *map, int
 
             if (keyState[SDL_SCANCODE_DOWN] && event.type == SDL_KEYDOWN)
             {
-                arrow = 0;
                 selection++;
             }
 
             if (keyState[SDL_SCANCODE_UP] && event.type == SDL_KEYDOWN)
             {
-                arrow = 1;
                 selection--;
             }
 
             /*--------------------------------------------------------------------*/
 
             if (selection < 0)
-                selection = nb_enemies_combat_actif;
-            selection %= nb_enemies_combat_actif + 1;
-            //printf("selection: %i\n", selection);
+            {
+                selection = nb_enemies_combat - 1;
+            }
+            selection %= nb_enemies_combat;
+            printf("selection: %i\n", selection);
+
             if (selection == 0)
             {
-                if (map->enemies[rand_enemies[0]].life == 0)
+                switch (nb_enemies_combat)
                 {
-                    if (arrow == 0)
-                    {
-                        selection = 0;
-                    }
-                    else if (arrow == 1)
-                    {
-                        selection = nb_enemies_combat_actif - 1;
-                    }
-                }
-                else
-                {
-                    switch (nb_enemies_combat)
-                    {
-                    case 1:
-                        pos_fleche_gauche.x = pos_Wind_enemie_1_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-                        pos_fleche_gauche.y = pos_Wind_enemie_1_1.y + 100;
-                        break;
+                case 1:
+                    pos_fleche_gauche.x = pos_Wind_enemie_1_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
+                    pos_fleche_gauche.y = pos_Wind_enemie_1_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
+                    break;
 
-                    case 2:
-                        pos_fleche_gauche.x = pos_Wind_enemie_2_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-                        pos_fleche_gauche.y = pos_Wind_enemie_2_1.y + 100;
-                        break;
+                case 2:
+                    pos_fleche_gauche.x = pos_Wind_enemie_2_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
+                    pos_fleche_gauche.y = pos_Wind_enemie_2_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
+                    break;
 
-                    case 3:
-                        pos_fleche_gauche.x = pos_Wind_enemie_3_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-                        pos_fleche_gauche.y = pos_Wind_enemie_3_1.y + 100;
-                        break;
+                case 3:
+                    pos_fleche_gauche.x = pos_Wind_enemie_3_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
+                    pos_fleche_gauche.y = pos_Wind_enemie_3_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
+                    break;
 
-                    case 4:
-                        pos_fleche_gauche.x = pos_Wind_enemie_4_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-                        pos_fleche_gauche.y = pos_Wind_enemie_4_1.y + 100;
-                        break;
-                    }
+                case 4:
+                    pos_fleche_gauche.x = pos_Wind_enemie_4_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
+                    pos_fleche_gauche.y = pos_Wind_enemie_4_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
+                    break;
                 }
             }
 
             if (selection == 1)
             {
-                if (map->enemies[rand_enemies[1]].life == 0 || nb_enemies_combat < 2)
+                switch (nb_enemies_combat)
                 {
-                    if (arrow == 0)
-                    {
-                        selection = 0;
-                    }
-                    else if (arrow == 1)
-                    {
-                        selection = nb_enemies_combat_actif - 1;
-                    }
-                }
-                else
-                {
-                    switch (nb_enemies_combat)
-                    {
-                    case 2:
-                        pos_fleche_gauche.x = pos_Wind_enemie_2_2.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-                        pos_fleche_gauche.y = pos_Wind_enemie_2_2.y+ 100;
-                        break;
+                case 2:
+                    pos_fleche_gauche.x = pos_Wind_enemie_2_2.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
+                    pos_fleche_gauche.y = pos_Wind_enemie_2_2.y + (*game->WINDOWWIDTH) * 100 / 2560;
+                    break;
 
-                    case 3:
-                        pos_fleche_gauche.x = pos_Wind_enemie_1_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-                        pos_fleche_gauche.y = pos_Wind_enemie_1_1.y+ 100;
-                        break;
+                case 3:
+                    pos_fleche_gauche.x = pos_Wind_enemie_1_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
+                    pos_fleche_gauche.y = pos_Wind_enemie_1_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
+                    break;
 
-                    case 4:
-                        pos_fleche_gauche.x = pos_Wind_enemie_2_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-                        pos_fleche_gauche.y = pos_Wind_enemie_2_1.y+ 100;
-                        break;
-                    }
+                case 4:
+                    pos_fleche_gauche.x = pos_Wind_enemie_2_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
+                    pos_fleche_gauche.y = pos_Wind_enemie_2_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
+                    break;
                 }
             }
 
             if (selection == 2)
             {
-                if (map->enemies[rand_enemies[2]].life == 0 || nb_enemies_combat < 3)
+                switch (nb_enemies_combat)
                 {
-                    if (arrow == 0)
-                    {
-                        selection = 0;
-                    }
-                    else if (arrow == 1)
-                    {
-                        selection = nb_enemies_combat_actif - 1;
-                    }
-                }
-                else
-                {
-                    switch (nb_enemies_combat)
-                    {
-                    case 3:
-                        pos_fleche_gauche.x = pos_Wind_enemie_3_3.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-                        pos_fleche_gauche.y = pos_Wind_enemie_3_3.y+ 100;
-                        break;
+                case 3:
+                    pos_fleche_gauche.x = pos_Wind_enemie_3_3.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
+                    pos_fleche_gauche.y = pos_Wind_enemie_3_3.y + (*game->WINDOWWIDTH) * 100 / 2560;
+                    ;
+                    break;
 
-                    case 4:
-                        pos_fleche_gauche.x = pos_Wind_enemie_2_2.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-                        pos_fleche_gauche.y = pos_Wind_enemie_2_2.y+ 100;
-                        break;
-                    }
+                case 4:
+                    pos_fleche_gauche.x = pos_Wind_enemie_2_2.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
+                    pos_fleche_gauche.y = pos_Wind_enemie_2_2.y + (*game->WINDOWWIDTH) * 100 / 2560;
+                    break;
                 }
             }
 
             if (selection == 3)
             {
-                if (map->enemies[rand_enemies[3]].life == 0 || nb_enemies_combat < 4)
-                {
-                    if (arrow == 0)
-                    {
-                        selection = 0;
-                    }
-                    else if (arrow == 1)
-                    {
-                        selection = nb_enemies_combat_actif - 1;
-                    }
-                }
-                else
-                {
-                    pos_fleche_gauche.x = pos_Wind_enemie_4_4.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
-                    pos_fleche_gauche.y = pos_Wind_enemie_4_4.y+ 100;
-                }
+                pos_fleche_gauche.x = pos_Wind_enemie_4_4.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
+                pos_fleche_gauche.y = pos_Wind_enemie_4_4.y + (*game->WINDOWWIDTH) * 100 / 2560;
             }
 
             SDL_RenderClear(game->render);

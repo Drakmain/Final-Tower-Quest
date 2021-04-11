@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "..\lib\character.h"
-#include "..\lib\attacks_character.h"
+#include "..\lib\character_attacks.h"
 
 /*!
  *

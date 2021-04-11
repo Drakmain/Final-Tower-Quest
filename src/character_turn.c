@@ -5,7 +5,7 @@
 #include "..\lib\character_turn.h"
 
 #include "..\lib\frame.h"
-#include "..\lib\attacks_character.h"
+#include "..\lib\character_attacks.h"
 #include "..\lib\sac.h"
 
 /*!
@@ -18,7 +18,7 @@
 
 /*!
  *
- * \fn character_turn(game_t *game, character_t *character, map_t *map, int nb_enemies_combat, int nb_enemies_combat_actif, int rand_enemies[], SDL_Texture *texture_render_combat)
+ * \fn character_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, int rand_enemies[], SDL_Texture *texture_render_combat)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -28,7 +28,7 @@
  *
  */
 
-extern void character_turn(game_t *game, character_t *character, map_t *map, int nb_enemies_combat, int nb_enemies_combat_actif, int rand_enemies[], SDL_Texture *texture_render_combat)
+extern void character_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_combat)
 {
 
     /*--- Initialization Variable ------------------------------------------------*/
@@ -331,6 +331,12 @@ extern void character_turn(game_t *game, character_t *character, map_t *map, int
             texture_attaque = SDL_CreateTextureFromSurface(game->render, surf_attaque);
             texture_sac = SDL_CreateTextureFromSurface(game->render, surf_sac);
             texture_fuite = SDL_CreateTextureFromSurface(game->render, surf_fuite);
+            
+            SDL_SetRenderTarget(game->render, texture_render_combat);
+
+            SDL_RenderCopy(game->render, character->texture, &character->Attack, &pos_Wind_character);
+
+            SDL_SetRenderTarget(game->render, NULL);
 
             SDL_RenderClear(game->render);
 
@@ -349,7 +355,7 @@ extern void character_turn(game_t *game, character_t *character, map_t *map, int
             {
                 if (selection == 0)
                 {
-                    attacks_character(game, character, map, nb_enemies_combat, nb_enemies_combat_actif, rand_enemies, texture_render_combat, &character_turn_bool);
+                    character_attacks(game, character, enemies_cbt, nb_enemies_combat, nb_enemies_combat_actif, texture_render_combat, &character_turn_bool);
                 }
 
                 if (selection == 1)
