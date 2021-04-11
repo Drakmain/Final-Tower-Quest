@@ -43,6 +43,8 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
 
     int selection = 0;
 
+    char *temp = malloc(sizeof(char) * 20);
+
     /*--- End Initialization variable --------------------------------------------*/
 
     /*--- Open save file ---------------------------------------------------------*/
@@ -117,9 +119,13 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
 
     SDL_Texture *position_save1 = NULL;
 
+    strcpy(temp, character_save1->position);
+
+    _toEspace(temp);
+
     if (character_save1->empty == SDL_FALSE)
     {
-        surf_position_save1 = TTF_RenderText_Blended(game->police, character_save1->position, blanc);
+        surf_position_save1 = TTF_RenderText_Blended(game->police, temp, blanc);
         if (surf_position_save1 == NULL)
         {
             SDL_ExitWithError("probleme surface position save 1");
@@ -217,9 +223,13 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
 
     SDL_Texture *position_save2 = NULL;
 
+    strcpy(temp, character_save2->position);
+
+    _toEspace(temp);
+
     if (character_save2->empty == SDL_FALSE)
     {
-        surf_position_save2 = TTF_RenderText_Blended(game->police, character_save2->position, blanc);
+        surf_position_save2 = TTF_RenderText_Blended(game->police, temp, blanc);
         if (surf_position_save2 == NULL)
         {
             SDL_ExitWithError("probleme surface position save 2");
@@ -317,9 +327,13 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
 
     SDL_Texture *position_save3 = NULL;
 
+    strcpy(temp, character_save2->position);
+
+    _toEspace(temp);
+
     if (character_save3->empty == SDL_FALSE)
     {
-        surf_position_save3 = TTF_RenderText_Blended(game->police, character_save3->position, blanc);
+        surf_position_save3 = TTF_RenderText_Blended(game->police, temp, blanc);
         if (surf_position_save3 == NULL)
         {
             SDL_ExitWithError("probleme surface position save 3");

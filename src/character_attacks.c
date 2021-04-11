@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 #include "..\lib\character_attacks.h"
 
@@ -51,8 +50,6 @@ extern void _toEspace(char *string)
 
 extern void character_attacks(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_combat, SDL_bool *character_turn_bool)
 {
-    srand(time(NULL));
-
     /*--- Initialization Variable ------------------------------------------------*/
 
     SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
@@ -991,7 +988,10 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     SDL_FreeSurface(surf_attaque_13);
     SDL_FreeSurface(surf_cout_attaque);
     SDL_FreeSurface(surf_degat_attaque);
+    SDL_FreeSurface(surf_degat_attaque_NB);
     SDL_FreeSurface(surf_description_attaque);
+    SDL_FreeSurface(surf_PV_personnage);
+    SDL_FreeSurface(surf_PM_personnage);
 
     SDL_DestroyTexture(texture_attaques_cadre);
     SDL_DestroyTexture(texture_fond_attaques_cadre);
@@ -1011,6 +1011,10 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     SDL_DestroyTexture(texture_cout_attaque);
     SDL_DestroyTexture(texture_degat_attaque);
     SDL_DestroyTexture(texture_description_attaque);
+    SDL_DestroyTexture(texture_degat_attaque_NB);
+    SDL_DestroyTexture(texture_description_attaque);
+    SDL_DestroyTexture(texture_PV_personnage);
+    SDL_DestroyTexture(texture_PM_personnage);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

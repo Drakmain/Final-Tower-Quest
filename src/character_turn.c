@@ -7,6 +7,7 @@
 #include "..\lib\frame.h"
 #include "..\lib\character_attacks.h"
 #include "..\lib\sac.h"
+#include "..\lib\affichage_message.h"
 
 /*!
  *
@@ -18,7 +19,7 @@
 
 /*!
  *
- * \fn character_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, int rand_enemies[], SDL_Texture *texture_render_combat)
+ * \fn character_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_combat, SDL_bool *combat_bool)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -28,9 +29,8 @@
  *
  */
 
-extern void character_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_combat)
+extern void character_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_combat, SDL_bool *combat_bool)
 {
-
     /*--- Initialization Variable ------------------------------------------------*/
 
     SDL_Color blanc = {255, 255, 255};
@@ -45,6 +45,8 @@ extern void character_turn(game_t *game, character_t *character, enemy_t *enemie
     SDL_bool character_turn_bool = SDL_TRUE;
 
     SDL_Event event;
+
+    int temp;
 
     //POS CHARACTER
     SDL_Rect pos_Wind_character;
@@ -376,7 +378,58 @@ extern void character_turn(game_t *game, character_t *character, enemy_t *enemie
 
                 if (selection == 2)
                 {
-                    character_turn_bool = SDL_FALSE;
+                    temp = rand() % 101;
+                    affichage_message(game, texture_render_combat, "Vous essayez de fuir...", -1);
+                    switch (nb_enemies_combat)
+                    {
+                    case 1:
+                        if (temp >= 0 && temp <= 80)
+                        {
+                            affichage_message(game, texture_render_combat, "...et c'est un succes.", -1);
+                            character_turn_bool = SDL_FALSE;
+                            *combat_bool = SDL_FALSE;
+                            break;
+                        }
+                        affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", -1);
+                        character_turn_bool = SDL_FALSE;
+                        break;
+
+                    case 2:
+                        if (temp >= 0 && temp <= 70)
+                        {
+                            affichage_message(game, texture_render_combat, "...et c'est un succes.", -1);
+                            character_turn_bool = SDL_FALSE;
+                            *combat_bool = SDL_FALSE;
+                            break;
+                        }
+                        affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", -1);
+                        character_turn_bool = SDL_FALSE;
+                        break;
+
+                    case 3:
+                        if (temp >= 0 && temp <= 60)
+                        {
+                            affichage_message(game, texture_render_combat, "...et c'est un succes.", -1);
+                            character_turn_bool = SDL_FALSE;
+                            *combat_bool = SDL_FALSE;
+                            break;
+                        }
+                        affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", -1);
+                        character_turn_bool = SDL_FALSE;
+                        break;
+
+                    case 4:
+                        if (temp >= 0 && temp <= 50)
+                        {
+                            affichage_message(game, texture_render_combat, "...et c'est un succes.", -1);
+                            character_turn_bool = SDL_FALSE;
+                            *combat_bool = SDL_FALSE;
+                            break;
+                        }
+                        affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", -1);
+                        character_turn_bool = SDL_FALSE;
+                        break;
+                    }
                 }
             }
         }

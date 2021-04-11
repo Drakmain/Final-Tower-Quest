@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 #include "..\lib\combat.h"
 
@@ -35,8 +34,6 @@
 
 extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town, SDL_bool *floor_bool)
 {
-    srand(time(NULL));
-
     /*--- Initialization Variable ------------------------------------------------*/
 
     SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
@@ -95,8 +92,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
         {
             enemies_cbt[i].attack[y].name = NULL;
             enemies_cbt[i].attack[y].name = malloc(sizeof(char) * 50);
-
-            enemies_cbt[i].attack[y].description = NULL;
         }
     }
 
@@ -546,11 +541,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             {
                 character->life = 0;
             }
-
-            if (character->life == 0)
-            {
-                //game_over()
-            }
             break;
 
         case 2:
@@ -570,11 +560,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             if (character->life < 0)
             {
                 character->life = 0;
-            }
-
-            if (character->life == 0)
-            {
-                //game_over()
             }
             break;
 
@@ -601,11 +586,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             if (character->life < 0)
             {
                 character->life = 0;
-            }
-
-            if (character->life == 0)
-            {
-                //game_over()
             }
             break;
 
@@ -639,24 +619,19 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             {
                 character->life = 0;
             }
-
-            if (character->life == 0)
-            {
-                //game_over()
-            }
             break;
         }
 
         if (character->atb >= 100)
         {
             printf("Tour character\n");
-            character_turn(game, character, enemies_cbt, nb_enemies_combat, nb_enemies_combat_actif, texture_render);
+            character_turn(game, character, enemies_cbt, nb_enemies_combat, nb_enemies_combat_actif, texture_render, combat_bool);
             character->atb = 0;
         }
 
         if (enemies_cbt[0].life <= 0 && enemies_cbt[1].life <= 0 && enemies_cbt[2].life <= 0 && enemies_cbt[3].life <= 0)
         {
-            //fin_combat(game, character, texture_render, map, nb_enemies_combat, rand_enemies);
+            fin_combat(game, character, texture_render, map, enemies_cbt, nb_enemies_combat);
         }
 
         SDL_RenderClear(game->render);
@@ -827,6 +802,46 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
         SDL_RenderCopy(game->render, texture_fuite, NULL, &pos_Wind_fuite);
 
         SDL_RenderPresent(game->render);
+
+        switch (nb_enemies_combat)
+        {
+        case 1:
+            if (enemies_cbt[0].life <= 0)
+            {
+                fin_combat(game, character, texture_render, map, enemies_cbt, nb_enemies_combat);
+                *combat_bool = SDL_FALSE;
+            }
+            break;
+
+        case 2:
+            if (enemies_cbt[0].life <= 0 && enemies_cbt[1].life <= 0)
+            {
+                fin_combat(game, character, texture_render, map, enemies_cbt, nb_enemies_combat);
+                *combat_bool = SDL_FALSE;
+            }
+            break;
+
+        case 3:
+            if (enemies_cbt[0].life <= 0 && enemies_cbt[1].life <= 0 && enemies_cbt[2].life <= 0)
+            {
+                fin_combat(game, character, texture_render, map, enemies_cbt, nb_enemies_combat);
+                *combat_bool = SDL_FALSE;
+            }
+            break;
+
+        case 4:
+            if (enemies_cbt[0].life <= 0 && enemies_cbt[1].life <= 0 && enemies_cbt[2].life <= 0 && enemies_cbt[3].life <= 0)
+            {
+                fin_combat(game, character, texture_render, map, enemies_cbt, nb_enemies_combat);
+                *combat_bool = SDL_FALSE;
+            }
+            break;
+        }
+
+        if (character->life == 0)
+        {
+            game_over(game, floor_bool, combat_bool, character);
+        }
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/
@@ -839,29 +854,44 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
     /*--- Free Memory ------------------------------------------------------------*/
 
-    if (/*enemie_exist(enemie_1) == SDL_TRUE*/ 1)
+    for (int i = 0; i < nb_enemies_combat - 1; i++)
     {
-        SDL_FreeSurface(surf_nom_enemie_1);
-    }
+        for (int y = 0; y < NB_ATTACKS_ENEMIES; y++)
+        {
+            free(enemies_cbt[i].attack[y].name);
+        }
+        free(enemies_cbt[i].attack);
 
-    if (/*enemie_exist(enemie_2) == SDL_TRUE*/ 1)
-    {
-        SDL_FreeSurface(surf_nom_enemie_2);
-    }
+        free(enemies_cbt[i].name);
 
-    if (/*enemie_exist(enemie_3) == SDL_TRUE*/ 1)
-    {
-        SDL_FreeSurface(surf_nom_enemie_3);
-    }
+        SDL_DestroyTexture(enemies_cbt[i].texture);
 
-    if (/*enemie_exist(enemie_4) == SDL_TRUE*/ 1)
-    {
-        SDL_FreeSurface(surf_nom_enemie_4);
+        SDL_FreeSurface(enemies_cbt[i].surface);
     }
 
     SDL_FreeSurface(surf_combat_cadre);
+    SDL_FreeSurface(surf_attaque);
+    SDL_FreeSurface(surf_sac);
+    SDL_FreeSurface(surf_fuite);
+    SDL_FreeSurface(surf_nom_enemie_1);
+    SDL_FreeSurface(surf_nom_enemie_2);
+    SDL_FreeSurface(surf_nom_enemie_3);
+    SDL_FreeSurface(surf_nom_enemie_4);
+    SDL_FreeSurface(surf_nom_personnage);
+    SDL_FreeSurface(surf_PV_personnage);
+    SDL_FreeSurface(surf_PM_personnage);
 
     SDL_DestroyTexture(texture_combat_cadre);
+    SDL_DestroyTexture(texture_attaque);
+    SDL_DestroyTexture(texture_sac);
+    SDL_DestroyTexture(texture_fuite);
+    SDL_DestroyTexture(texture_nom_enemie_1);
+    SDL_DestroyTexture(texture_nom_enemie_2);
+    SDL_DestroyTexture(texture_nom_enemie_3);
+    SDL_DestroyTexture(texture_nom_enemie_4);
+    SDL_DestroyTexture(texture_nom_personnage);
+    SDL_DestroyTexture(texture_PV_personnage);
+    SDL_DestroyTexture(texture_PM_personnage);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

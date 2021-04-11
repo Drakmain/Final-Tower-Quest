@@ -21,6 +21,8 @@
  *
  */
 
+#define CHANCE_CBT 1
+
 /*!
  *
  * \fn floor_1(game_t *game, character_t *character)
@@ -59,6 +61,8 @@ extern void floor_1(game_t *game, character_t *character)
     }
     */
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
+
+    int rand_combat;
 
     SDL_Event event;
 
@@ -134,14 +138,6 @@ extern void floor_1(game_t *game, character_t *character)
 
                 /*--- End Event to enter in game menu --------------------------------*/
 
-                if (keyState[SDL_SCANCODE_SPACE])
-                {
-                    transition(game);
-                    combat(game, character, floor_1, texture_render, floor_1_bool);
-                }
-
-
-
                 SDL_RenderClear(game->render);
 
                 SDL_RenderCopy(game->render, texture_render, NULL, NULL);
@@ -164,6 +160,15 @@ extern void floor_1(game_t *game, character_t *character)
                         character->update(character, game->render, character->East_Walk, pos_Wind_character);
 
                         render_frame(game->render);
+
+                        rand_combat = rand() % 101;
+                        printf("rand_combat: %i\n", rand_combat);
+                        if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
+                        {
+                            transition(game);
+                            combat(game, character, floor_1, texture_render, floor_1_bool);
+                            break;
+                        }
 
                         if (SDL_RenderClear(game->render) != 0)
                         {
@@ -211,6 +216,15 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
+                        rand_combat = rand() % 101;
+                        printf("rand_combat: %i\n", rand_combat);
+                        if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
+                        {
+                            transition(game);
+                            combat(game, character, floor_1, texture_render, floor_1_bool);
+                            break;
+                        }
+
                         if (SDL_RenderClear(game->render) != 0)
                         {
                             SDL_ExitWithError("Unable to clear rendering > floor_1.c Line 131");
@@ -257,6 +271,15 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
+                        rand_combat = rand() % 101;
+                        printf("rand_combat: %i\n", rand_combat);
+                        if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
+                        {
+                            transition(game);
+                            combat(game, character, floor_1, texture_render, floor_1_bool);
+                            break;
+                        }
+
                         if (SDL_RenderClear(game->render) != 0)
                         {
                             SDL_ExitWithError("Unable to clear rendering, floor_1.c Line 160");
@@ -302,6 +325,15 @@ extern void floor_1(game_t *game, character_t *character)
                         character->update(character, game->render, character->South_Walk, pos_Wind_character);
 
                         render_frame(game->render);
+
+                        rand_combat = rand() % 101;
+                        printf("rand_combat: %i\n", rand_combat);
+                        if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
+                        {
+                            transition(game);
+                            combat(game, character, floor_1, texture_render, floor_1_bool);
+                            break;
+                        }
 
                         if (SDL_RenderClear(game->render) != 0)
                         {

@@ -98,11 +98,11 @@ int main(int argc, char **argv)
 
         character_save = character_create(game->render, actual_save);
 
-        if(!strcmp(character_save->position,"Village"))
+        if (!strcmp(character_save->position, "Village"))
             town(game, character_save);
-        if(!strcmp(character_save->position,"Tour"))
+        if (!strcmp(character_save->position, "Tour"))
             tower(game, character_save);
-        if(!strcmp(character_save->position,"Etage_1"))
+        if (!strcmp(character_save->position, "Etage_1"))
             floor_1(game, character_save);
         /*if(!strcmp(character_save->position,"Etage_2"))
             floor_2(game, character_save);

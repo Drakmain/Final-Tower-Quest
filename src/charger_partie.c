@@ -5,6 +5,7 @@
 #include "..\lib\charger_partie.h"
 
 #include "..\lib\character.h"
+#include "..\lib\character_attacks.h"
 
 /*!
  *
@@ -31,7 +32,7 @@ extern void charger_partie_f(game_t *game, char *actual_save)
     SDL_Color blanc = {255, 255, 255};
     SDL_Color rouge = {255, 0, 0};
 
-    SDL_Surface *surf_save1_vide = NULL, *surf_save2_vide = NULL, *surf_save3_vide = NULL, *surf_spriteGuerrier = NULL, *surf_spriteMage = NULL, *surf_spriteAssassin = NULL, *surf_nom_save1 = NULL, *surf_nom_save2 = NULL, *surf_nom_save3 = NULL, *surf_cadre = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_choisir_empla = NULL, *surf_position = NULL, *surf_position_save1 = NULL, *surf_position_save2 = NULL, *surf_position_save3 = NULL, *surf_lvl = NULL, *surf_lvl_save1 = NULL, *surf_lvl_save2 = NULL, *surf_lvl_save3 = NULL ;
+    SDL_Surface *surf_save1_vide = NULL, *surf_save2_vide = NULL, *surf_save3_vide = NULL, *surf_spriteGuerrier = NULL, *surf_spriteMage = NULL, *surf_spriteAssassin = NULL, *surf_nom_save1 = NULL, *surf_nom_save2 = NULL, *surf_nom_save3 = NULL, *surf_cadre = NULL, *surf_retour = NULL, *surf_fond = NULL, *surf_choisir_empla = NULL, *surf_position = NULL, *surf_position_save1 = NULL, *surf_position_save2 = NULL, *surf_position_save3 = NULL, *surf_lvl = NULL, *surf_lvl_save1 = NULL, *surf_lvl_save2 = NULL, *surf_lvl_save3 = NULL;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -40,6 +41,8 @@ extern void charger_partie_f(game_t *game, char *actual_save)
     SDL_Event event;
 
     int selection = 0;
+
+    char *temp = malloc(sizeof(char) * 20);
 
     /*--- End Initialization variable --------------------------------------------*/
 
@@ -115,9 +118,13 @@ extern void charger_partie_f(game_t *game, char *actual_save)
 
     SDL_Texture *position_save1 = NULL;
 
+    strcpy(temp, character_save1->position);
+
+    _toEspace(temp);
+
     if (character_save1->empty == SDL_FALSE)
     {
-        surf_position_save1 = TTF_RenderText_Blended(game->police, character_save1->position, blanc);
+        surf_position_save1 = TTF_RenderText_Blended(game->police, temp, blanc);
         if (surf_position_save1 == NULL)
         {
             SDL_ExitWithError("probleme surface position save 1");
@@ -214,6 +221,10 @@ extern void charger_partie_f(game_t *game, char *actual_save)
     /*--- Affichage position save2 --------------------------------------------------*/
 
     SDL_Texture *position_save2 = NULL;
+
+    strcpy(temp, character_save1->position);
+
+    _toEspace(temp);
 
     if (character_save2->empty == SDL_FALSE)
     {
@@ -314,6 +325,10 @@ extern void charger_partie_f(game_t *game, char *actual_save)
     /*--- Affichage position save3 --------------------------------------------------*/
 
     SDL_Texture *position_save3 = NULL;
+
+    strcpy(temp, character_save1->position);
+
+    _toEspace(temp);
 
     if (character_save3->empty == SDL_FALSE)
     {
@@ -472,8 +487,6 @@ extern void charger_partie_f(game_t *game, char *actual_save)
     }
 
     /*----------------------------------------------------------------------------*/
-
-
 
     /*--- Initialization texture "cadre save 1" ----------------------------------*/
 
@@ -1100,6 +1113,8 @@ extern void charger_partie_f(game_t *game, char *actual_save)
     /*--- End Main Loop ----------------------------------------------------------*/
 
     /*--- Free Memory ------------------------------------------------------------*/
+
+    free(temp);
 
     character_save1->free(&character_save1);
     character_save2->free(&character_save2);

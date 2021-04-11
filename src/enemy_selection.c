@@ -233,7 +233,6 @@ extern int enemy_selection(game_t *game, character_t *character, enemy_t *enemie
                 selection = nb_enemies_combat - 1;
             }
             selection %= nb_enemies_combat;
-            printf("selection: %i\n", selection);
 
             if (selection == 0)
             {

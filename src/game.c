@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "..\lib\game.h"
 
@@ -75,6 +76,8 @@ static void game_free(game_t **game)
 
 extern game_t *game_create()
 {
+    srand(time(NULL));
+
     /*--- Initialization variable ------------------------------------------------*/
 
     game_t *game = NULL;

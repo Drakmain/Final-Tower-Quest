@@ -39,7 +39,6 @@
     /*--- Initialization Variable ------------------------------------------------*/
     int random_drop_potions;
     int nb_total_xp;
-    for(int i = 0; i < 50; i++)printf("%d\n",character->tab_xp_max[i]);
 
     if(nb_enemie_combat == 1)
     {

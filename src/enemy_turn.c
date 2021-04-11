@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 #include "..\lib\enemy_turn.h"
 
@@ -30,8 +29,6 @@
 
 extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int num, map_t *map, SDL_Texture *texture_render_combat)
 {
-    srand(time(NULL));
-
     /*--- Initialization Variable ------------------------------------------------*/
 
     SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
@@ -228,11 +225,10 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
         strcat(msg, enemies_cbt[num].attack[0].name);
     }
 
-    strcat(msg, " %n ");
-    strcat(msg, "Vous avez subis ");
+    strcat(msg, " %n Vous avez subis de ");
     char_dmg = dmg + '0';
     strncat(msg, &char_dmg, 1);
-    strcat(msg, " degats.");
+    strcat(msg, " degats.\0");
     texture_PV_personnage = SDL_CreateTextureFromSurface(game->render, surf_PV_personnage);
     surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
 
@@ -269,12 +265,13 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
     }
 
     msg = (char *)realloc(msg, strlen(msg) * sizeof(char) + 1);
-    printf("msg: %s\n", msg);
     affichage_message(game, texture_render, msg, -1);
 
     /*--- End Main Loop ----------------------------------------------------------*/
 
     /*--- Free Memory ------------------------------------------------------------*/
+
+    free(msg);
 
     SDL_FreeSurface(surf_PV_personnage);
     SDL_FreeSurface(surf_PM_personnage);

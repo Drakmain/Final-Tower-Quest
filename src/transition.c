@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 #include "..\lib\transition.h"
 
@@ -23,8 +22,6 @@
 
 extern void transition(game_t *game)
 {
-    srand(time(NULL));
-
     /*--- Initialization Variable ------------------------------------------------*/
 
     int rand_nb;

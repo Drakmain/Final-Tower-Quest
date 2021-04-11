@@ -21,8 +21,7 @@ typedef struct attack_enemie_s attack_enemie_t;
 
 struct attack_enemie_s
 {
-  char *name;        /*!< A FINIR. */
-  char *description; /*!< A FINIR. */
+  char *name; /*!< A FINIR. */
 
   int dmg_min; /*!< A FINIR. */
   int dmg_max; /*!< A FINIR. */

@@ -71,17 +71,13 @@ static void map_free(map_t **map)
 
     if (strcmp((*map)->name, "town") && strcmp((*map)->name, "tower"))
     {
-        for (int i = 0; i < NB_ATTACKS_ENEMIES; i++)
-        {
-            free((*map)->enemies[i].attack[0].name);
-            free((*map)->enemies[i].attack[1].name);
-
-            free((*map)->enemies[i].attack[0].description);
-            free((*map)->enemies[i].attack[1].description);
-        }
-
         for (int i = 0; i < NB_ENEMIES; i++)
         {
+            for (int y = 0; y < NB_ATTACKS_ENEMIES; y++)
+            {
+                free((*map)->enemies[i].attack[y].name);
+            }
+
             free((*map)->enemies[i].name);
 
             SDL_DestroyTexture((*map)->enemies[i].texture);
@@ -109,6 +105,7 @@ static void map_free(map_t **map)
 extern map_t *map_create(SDL_Renderer *render, char *name_map)
 {
     /*--- Initialization variable ----------------------------------------------------*/
+
     map_t *map = NULL;
     map = malloc(sizeof(map_t));
 
@@ -199,13 +196,14 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
             {
                 map->enemies[i].attack[y].name = NULL;
                 map->enemies[i].attack[y].name = malloc(sizeof(char) * 50);
-
-                map->enemies[i].attack[y].description = NULL;
             }
         }
 
         map->boss = NULL;
         map->boss = malloc(sizeof(enemy_t));
+
+        map->boss->name = NULL;
+        map->boss->name = malloc(sizeof(char) * 50);
 
         map->boss->attack = malloc(sizeof(attack_enemie_t) * 5);
 
@@ -213,8 +211,6 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
         {
             map->boss->attack[i].name = NULL;
             map->boss->attack[i].name = malloc(sizeof(char) * 50);
-
-            map->boss->attack[i].description = NULL;
         }
 
         /*----------------------------------------------------------------------------*/
@@ -242,11 +238,9 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
             fscanf(file, "EXP: %i ;\n\n", &map->enemies[i].exp);
             map->enemies[i].atb = 0;
             map->enemies[i].attack[i].effect_remaining = 0;
-            printf("atb: %i, speed: %i\n", map->enemies[i].atb, map->enemies[i].speed);
         }
 
-        //fscanf(file, "%s : %i ;\n", map->boss->name, &nb_attacks_boss);
-        /*map->boss->attack = (enemy_t *)realloc(map->boss->attack, sizeof(enemy_t) * nb_attacks_boss);
+        fscanf(file, "%s : %i ;\n", map->boss->name, &nb_attacks_boss);
         fscanf(file, "RGB: %i, %i, %i ;\n", &map->boss->R, &map->boss->G, &map->boss->B);
         fscanf(file, "PV: %i ;\n", &map->boss->life);
         fscanf(file, "VIT: %i ;\n", &map->boss->speed);
@@ -254,11 +248,11 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
 
         for (int i = 1; i < nb_attacks_boss; i++)
         {
-            fscanf(file, "%s : %i, %i - %i, %i, %i, %i ;\n", map->boss->attack[nb_attacks_boss].name, &map->boss->attack[nb_attacks_boss].percetange, &map->boss->attack[nb_attacks_boss].dmg_min, &map->boss->attack[nb_attacks_boss].dmg_max, &map->boss->attack[nb_attacks_boss].modifier, &map->boss->attack[nb_attacks_boss].effect_duration, &map->boss->attack[nb_attacks_boss].effect_duration);
+            fscanf(file, "%s : %i, %i - %i, %i, %i, %i ;\n", map->boss->attack[nb_attacks_boss].name, &map->boss->attack[nb_attacks_boss].percentage, &map->boss->attack[nb_attacks_boss].dmg_min, &map->boss->attack[nb_attacks_boss].dmg_max, &map->boss->attack[nb_attacks_boss].modifier, &map->boss->attack[nb_attacks_boss].effect_duration, &map->boss->attack[nb_attacks_boss].effect_duration);
         }
 
         map->boss->boss = SDL_TRUE;
-*/
+
         fclose(file);
 
         /*----------------------------------------------------------------------------*/
@@ -302,7 +296,7 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
             map->enemies[i].attack[1].name = (char *)realloc(map->enemies[i].attack[1].name, strlen(map->enemies[i].attack[1].name) * sizeof(char) + 1);
             _toEspace(map->enemies[i].attack[1].name);
         }
-        /*
+
         for (int i = 0; i < nb_attacks_boss; i++)
         {
             map->boss->name = (char *)realloc(map->boss->name, strlen(map->boss->name) * sizeof(char) + 1);
@@ -310,7 +304,7 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
             map->boss->attack[i].name = (char *)realloc(map->boss->attack[i].name, strlen(map->boss->attack[i].name) * sizeof(char) + 1);
             _toEspace(map->boss->attack[i].name);
         }
-        */
+
         /*----------------------------------------------------------------------------*/
     }
 
