@@ -1262,25 +1262,25 @@ extern void transition(game_t *game)
 
     }
     else if(rand_nb == 3){
-        
+
             SDL_RenderCopy(game->render, store1, NULL, &pos_store1);
             SDL_RenderCopy(game->render, store8, NULL, &pos_store8);
-            SDL_Delay(300);
+            SDL_Delay(250);
             SDL_RenderPresent(game->render);
 
             SDL_RenderCopy(game->render, store2, NULL, &pos_store2);
             SDL_RenderCopy(game->render, store7, NULL, &pos_store7);
-            SDL_Delay(300);
+            SDL_Delay(250);
             SDL_RenderPresent(game->render);
 
             SDL_RenderCopy(game->render, store3, NULL, &pos_store3);
             SDL_RenderCopy(game->render, store6, NULL, &pos_store6);
-            SDL_Delay(300);
+            SDL_Delay(250);
             SDL_RenderPresent(game->render);
 
             SDL_RenderCopy(game->render, store4, NULL, &pos_store4);
             SDL_RenderCopy(game->render, store5, NULL, &pos_store5);
-            SDL_Delay(300);
+            SDL_Delay(250);
             SDL_RenderPresent(game->render);
             SDL_Delay(300);
     }
