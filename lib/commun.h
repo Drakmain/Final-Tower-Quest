@@ -40,6 +40,7 @@ typedef enum
 #define WINDOWWIDTH_1440P 2560  /*!< Constante de la largeur d'une reoslution 1440p (16:9). */
 #define WINDOWHEIGHT_1440P 1440 /*!< Constante de la hauteur d'une reoslution 1440p (16:9). */
 
+#define CHANCE_CBT 1
 /*!
  *
  * \struct tile_set_t commun.h "commun.h"

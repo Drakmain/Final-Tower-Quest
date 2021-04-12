@@ -136,6 +136,29 @@ extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *m
         }
     }
 
+
+    /*--- Creation text "partie 1 message" ----------------------------------------*/
+
+    surf_message = TTF_RenderText_Blended(game->police, tab_part1_message, blanc);
+    if (surf_message == NULL)
+    {
+        SDL_ExitWithError("probleme surface message d'affichage_message");
+    }
+
+    SDL_Texture *t_message = SDL_CreateTextureFromSurface(game->render, surf_message);
+    if (t_message == NULL)
+    {
+        SDL_ExitWithError("probleme texture message d'affichage_message");
+    }
+
+    SDL_Rect pos_message;
+    pos_message.w = strlen(tab_part1_message) * (*game->WINDOWWIDTH) * 850 / 1280 / 59;
+    pos_message.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_message.x = pos_cadre.x + rect_fond_cadre.x + (*game->WINDOWWIDTH) * 15 / 1280;
+    pos_message.y = pos_cadre.y + pos_cadre.h/2 - pos_message.h/2;
+
+    /*----------------------------------------------------------------------------*/
+
     int i = 0;
     int fin_part1;
     while ((tab_part1_message[i] != '%' && tab_part1_message[i + 1] != 'n') && tab_part1_message[i] != '\0')
@@ -183,7 +206,7 @@ extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *m
         pos_fond_cadre.y = pos_cadre.y;
         pos_fond_cadre.h = pos_cadre.h;
 
-        rect_fond_cadre.h = pos_fond_cadre.h - 2 * rect_fond_cadre.y + 1;
+        rect_fond_cadre.h = pos_fond_cadre.h - 2 * rect_fond_cadre.y + 2;
 
         SDL_SetRenderDrawColor(game->render, 0, 0, 0, 255);
         SDL_SetRenderTarget(game->render, fond_cadre);
@@ -213,29 +236,9 @@ extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *m
         pos_message2.y = pos_cadre.y + rect_fond_cadre.y + (*game->WINDOWHEIGHT) * 85 / 720;
 
         /*----------------------------------------------------------------------------*/
+        pos_message.y = pos_cadre.y + rect_fond_cadre.y + (*game->WINDOWHEIGHT) * 15 / 720;
+
     }
-
-    /*--- Creation text "partie 1 message" ----------------------------------------*/
-
-    surf_message = TTF_RenderText_Blended(game->police, tab_part1_message, blanc);
-    if (surf_message == NULL)
-    {
-        SDL_ExitWithError("probleme surface message d'affichage_message");
-    }
-
-    SDL_Texture *t_message = SDL_CreateTextureFromSurface(game->render, surf_message);
-    if (t_message == NULL)
-    {
-        SDL_ExitWithError("probleme texture message d'affichage_message");
-    }
-
-    SDL_Rect pos_message;
-    pos_message.w = strlen(tab_part1_message) * (*game->WINDOWWIDTH) * 850 / 1280 / 59;
-    pos_message.h = (*game->WINDOWHEIGHT) * 50 / 720;
-    pos_message.x = pos_cadre.x + rect_fond_cadre.x + (*game->WINDOWWIDTH) * 15 / 1280;
-    pos_message.y = pos_cadre.y + rect_fond_cadre.y + (*game->WINDOWHEIGHT) * 15 / 720;
-
-    /*----------------------------------------------------------------------------*/
 
     SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
     SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
