@@ -9,6 +9,6 @@
 
 #define NB_MAX_ENEMIES_CBT 4
 
-extern void combat_boss(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town, SDL_bool *floor_bool);
+extern int combat_boss(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town, SDL_bool *floor_bool);
 
 #endif

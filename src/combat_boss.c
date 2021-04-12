@@ -32,7 +32,7 @@
  *
  */
 
-extern void combat_boss(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town, SDL_bool *floor_bool)
+extern int combat_boss(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town, SDL_bool *floor_bool)
 {
     /*--- Initialization Variable ------------------------------------------------*/
 
@@ -44,6 +44,8 @@ extern void combat_boss(game_t *game, character_t *character, map_t *map, SDL_Te
     SDL_Color gris = {100, 100, 100};
 
     enemy_t *boss;
+
+    int returnval = -1;
 
     SDL_bool *combat_boss_bool = malloc(sizeof(SDL_bool));
     *combat_boss_bool = SDL_TRUE;
@@ -405,11 +407,13 @@ extern void combat_boss(game_t *game, character_t *character, map_t *map, SDL_Te
         {
             fin_combat(game, character, texture_render, map, boss, 1);
             *combat_boss_bool = SDL_FALSE;
+            returnval = 1;
         }
 
         if (character->life == 0)
         {
             game_over(game, floor_bool, combat_boss_bool, character);
+            returnval = 0;
         }
     }
 
@@ -454,4 +458,6 @@ extern void combat_boss(game_t *game, character_t *character, map_t *map, SDL_Te
     SDL_DestroyTexture(texture_PM_personnage);
 
     /*--- End Free Memory --------------------------------------------------------*/
+
+    return returnval;
 }
