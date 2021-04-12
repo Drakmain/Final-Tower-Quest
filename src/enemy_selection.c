@@ -16,7 +16,7 @@
 
 /*!
  *
- * \fn enemy_selection(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_attacks)
+ * \fn enemy_selection(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, SDL_Texture *texture_render_attacks)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -25,7 +25,7 @@
  *
  */
 
-extern int enemy_selection(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_attacks)
+extern int enemy_selection(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, SDL_Texture *texture_render_attacks)
 {
     /*--- Initialization Variable ------------------------------------------------*/
 
@@ -119,7 +119,7 @@ extern int enemy_selection(game_t *game, character_t *character, enemy_t *enemie
     pos_fleche_gauche.h = rect_fleche_gauche.h;
     pos_fleche_gauche.w = rect_fleche_gauche.w;
 
-    switch (nb_enemies_combat_actif)
+    switch (nb_enemies_combat)
     {
     case 1: //POS ENEMIE 1
         selection = 0;
@@ -128,13 +128,13 @@ extern int enemy_selection(game_t *game, character_t *character, enemy_t *enemie
         break;
 
     case 2:
-        if (!(enemies_cbt[0].life >= 0)) //POS ENEMIE 2_1
+        if (enemies_cbt[0].life >= 0) //POS ENEMIE 2_1
         {
             selection = 0;
             pos_fleche_gauche.x = pos_Wind_enemie_2_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
             pos_fleche_gauche.y = pos_Wind_enemie_2_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!(enemies_cbt[1].life >= 0)) //POS ENEMIE 2_2
+        else if (enemies_cbt[1].life >= 0) //POS ENEMIE 2_2
         {
             selection = 1;
             pos_fleche_gauche.x = pos_Wind_enemie_2_2.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
@@ -143,19 +143,19 @@ extern int enemy_selection(game_t *game, character_t *character, enemy_t *enemie
         break;
 
     case 3:
-        if (!(enemies_cbt[0].life >= 0)) //POS ENEMIE 3_1
+        if (enemies_cbt[0].life >= 0) //POS ENEMIE 3_1
         {
             selection = 0;
             pos_fleche_gauche.x = pos_Wind_enemie_3_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
             pos_fleche_gauche.y = pos_Wind_enemie_3_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!(enemies_cbt[1].life >= 0)) //POS ENEMIE 1_1
+        else if (enemies_cbt[1].life >= 0) //POS ENEMIE 1_1
         {
             selection = 1;
             pos_fleche_gauche.x = pos_Wind_enemie_1_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
             pos_fleche_gauche.y = pos_Wind_enemie_1_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!(enemies_cbt[2].life >= 0)) //POS ENEMIE 3_3
+        else if (enemies_cbt[2].life >= 0) //POS ENEMIE 3_3
         {
             selection = 2;
             pos_fleche_gauche.x = pos_Wind_enemie_3_3.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
@@ -165,25 +165,25 @@ extern int enemy_selection(game_t *game, character_t *character, enemy_t *enemie
         break;
 
     case 4:
-        if (!(enemies_cbt[0].life >= 0)) //POS ENEMIE 4_1
+        if (enemies_cbt[0].life >= 0) //POS ENEMIE 4_1
         {
             selection = 0;
             pos_fleche_gauche.x = pos_Wind_enemie_4_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
             pos_fleche_gauche.y = pos_Wind_enemie_4_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!(enemies_cbt[1].life >= 0)) //POS ENEMIE 2_1
+        else if (enemies_cbt[1].life >= 0) //POS ENEMIE 2_1
         {
             selection = 1;
             pos_fleche_gauche.x = pos_Wind_enemie_2_1.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
             pos_fleche_gauche.y = pos_Wind_enemie_2_1.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!(enemies_cbt[2].life >= 0)) //POS ENEMIE 2_2
+        else if (enemies_cbt[2].life >= 0) //POS ENEMIE 2_2
         {
             selection = 2;
             pos_fleche_gauche.x = pos_Wind_enemie_2_2.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;
             pos_fleche_gauche.y = pos_Wind_enemie_2_2.y + (*game->WINDOWWIDTH) * 100 / 2560;
         }
-        else if (!(enemies_cbt[3].life >= 0)) //POS ENEMIE 4_4
+        else if (enemies_cbt[3].life >= 0) //POS ENEMIE 4_4
         {
             selection = 3;
             pos_fleche_gauche.x = pos_Wind_enemie_4_4.x + character->North_Walk.rect.w * (*game->WINDOWWIDTH) * 7 / 2560;

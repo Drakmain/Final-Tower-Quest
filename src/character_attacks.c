@@ -1663,7 +1663,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                 switch (character->attacks[selection].type)
                 {
                 case 0: //Attaque un ennemi
-                    selected_enemy = enemy_selection(game, character, enemies_cbt, nb_enemies_combat, nb_enemies_combat_actif, texture_render);
+                    selected_enemy = enemy_selection(game, character, enemies_cbt, nb_enemies_combat, texture_render);
                     if (selected_enemy == -1)
                     {
                         break;
@@ -1725,7 +1725,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     break;
 
                 case 5: //Une chance sur X de tuer l'ennemi
-                    selected_enemy = enemy_selection(game, character, enemies_cbt, nb_enemies_combat, nb_enemies_combat_actif, texture_render);
+                    selected_enemy = enemy_selection(game, character, enemies_cbt, nb_enemies_combat, texture_render);
                     if (selected_enemy == -1)
                     {
                         break;

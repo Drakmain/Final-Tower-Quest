@@ -722,6 +722,7 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
             if (keyState[SDL_SCANCODE_ESCAPE] && event.type == SDL_KEYDOWN)
             {
                 nouv_part_bool = SDL_FALSE;
+                strcpy(actual_save, "\0");
             }
 
             /*--- End Event to Exit Program --------------------------------------*/
@@ -1136,6 +1137,7 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
                 if (selection == 3)
                 {
                     nouv_part_bool = SDL_FALSE;
+                    strcpy(actual_save, "\0");
                 }
             }
         }

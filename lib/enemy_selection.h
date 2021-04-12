@@ -7,6 +7,6 @@
 #include "map.h"
 #include "character.h"
 
-extern int enemy_selection(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_attacks);
+extern int enemy_selection(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, SDL_Texture *texture_render_attacks);
 
 #endif
