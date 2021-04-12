@@ -386,33 +386,6 @@ extern void town(game_t *game, character_t *character)
                     }
                     else if(r_character == 0 && g_character == 0 && b_character == 255)
                     {
-
-                        SDL_SetRenderTarget(game->render, texture_render);
-
-                        SDL_RenderClear(game->render);
-
-                        SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
-                        SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
-
-                        SDL_SetRenderTarget(game->render, NULL);
-
-                        while(opacite_transi != 255)
-                        {
-                            opacite_transi += 5;
-
-                            SDL_SetRenderDrawColor(game->render, 0, 0, 0, opacite_transi);
-                            SDL_SetRenderTarget(game->render, transi);
-                            SDL_SetTextureBlendMode(transi, SDL_BLENDMODE_BLEND);
-                            SDL_RenderFillRect(game->render, &rect_transi);
-                            SDL_SetRenderTarget(game->render, NULL);
-
-                            SDL_RenderClear(game->render);
-                            SDL_RenderCopy(game->render, texture_render, NULL, &pos_transi);
-                            SDL_RenderCopy(game->render, transi, NULL, &pos_transi);
-                            SDL_RenderPresent(game->render);
-                            SDL_Delay(10);
-                        }
-
                         *town_bool = SDL_FALSE;
                         South_Walk = 0;
                         strcpy(character->position, "Tour");
@@ -471,7 +444,31 @@ extern void town(game_t *game, character_t *character)
             }
         }
     }
+    SDL_SetRenderTarget(game->render, texture_render);
 
+    SDL_RenderClear(game->render);
+
+    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
+    SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
+
+    SDL_SetRenderTarget(game->render, NULL);
+
+    while(opacite_transi != 255)
+    {
+        opacite_transi += 5;
+
+        SDL_SetRenderDrawColor(game->render, 0, 0, 0, opacite_transi);
+        SDL_SetRenderTarget(game->render, transi);
+        SDL_SetTextureBlendMode(transi, SDL_BLENDMODE_BLEND);
+        SDL_RenderFillRect(game->render, &rect_transi);
+        SDL_SetRenderTarget(game->render, NULL);
+
+        SDL_RenderClear(game->render);
+        SDL_RenderCopy(game->render, texture_render, NULL, &pos_transi);
+        SDL_RenderCopy(game->render, transi, NULL, &pos_transi);
+        SDL_RenderPresent(game->render);
+        SDL_Delay(10);
+    }
     /*--- End Main Loop ----------------------------------------------------------*/
 
     /*--- Free Memory ------------------------------------------------------------*/
