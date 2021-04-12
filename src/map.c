@@ -379,6 +379,8 @@ extern void enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render, in
 
     strcpy(dst->name, src->name);
 
+    dst->boss = src->boss;
+
     if (src->boss == SDL_TRUE)
     {
         for (int i = 0; i < nb_attacks_boss; i++)

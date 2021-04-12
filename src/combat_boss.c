@@ -204,9 +204,9 @@ extern void combat_boss(game_t *game, character_t *character, map_t *map, SDL_Te
 
     SDL_Rect pos_Wind_nom_boss;
     pos_Wind_nom_boss.x = (*game->WINDOWWIDTH) * 59 / 2560;
-    pos_Wind_nom_boss.y = (*game->WINDOWWIDTH) * 1069 / 2560;
-    pos_Wind_nom_boss.w = (*game->WINDOWWIDTH) * strlen(boss->name) * 25 / 2560;
-    pos_Wind_nom_boss.h = (*game->WINDOWWIDTH) * 75 / 2560;
+    pos_Wind_nom_boss.y = (*game->WINDOWWIDTH) * 1180 / 2560;
+    pos_Wind_nom_boss.w = (*game->WINDOWWIDTH) * strlen(boss->name) * 35 / 2560;
+    pos_Wind_nom_boss.h = (*game->WINDOWWIDTH) * 80 / 2560;
 
     /*----------------------------------------------------------------------------*/
 

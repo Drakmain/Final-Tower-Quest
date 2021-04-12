@@ -42,12 +42,11 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
     int dmg;
     int dmg_modifier = 0;
 
-    char char_dmg;
+    char dmg_char[3];
 
     int i;
 
-    char *msg;
-    msg = malloc(sizeof(char) * 100);
+    char *msg = (char*)calloc(100, sizeof(char));
 
     //POS CHARACTER
     SDL_Rect pos_Wind_character;
@@ -191,25 +190,35 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
         for (i = 1; i < nb_attacks_boss; i++)
         {
             attack_spe = rand() % 101;
-            if (attack_spe >= 0 && attack_spe <= enemies_cbt->attack[1].percentage)
+
+            if (attack_spe >= 0 && attack_spe <= enemies_cbt->attack[i].percentage)
             {
                 break;
             }
+            else
+            {
+                dmg = rand() % enemies_cbt->attack[0].dmg_max + enemies_cbt->attack[0].dmg_min;
+                character->life -= dmg + dmg_modifier;
+                dmg += dmg_modifier;
+                
+                strcat(msg, enemies_cbt->attack[0].name);
+                i = -1;
+            }
         }
-        
-        if (attack_spe >= 0 && attack_spe <= enemies_cbt->attack[1].percentage && enemies_cbt->attack[1].percentage != -1)
+
+        if (i != -1)
         {
-            switch (enemies_cbt->attack[1].effect)
+            switch (enemies_cbt->attack[i].effect)
             {
             case 0: //Buff d'attaque pendant un certain nombre de tours
-                dmg = rand() % enemies_cbt->attack[1].dmg_max + enemies_cbt->attack[1].dmg_min;
+                dmg = rand() % enemies_cbt->attack[i].dmg_max + enemies_cbt->attack[i].dmg_min;
                 character->life -= dmg + dmg_modifier;
                 dmg += dmg_modifier;
 
-                enemies_cbt->attack[1].effect_remaining = enemies_cbt->attack[1].effect_duration;
-                dmg_modifier = enemies_cbt->attack[1].modifier;
+                enemies_cbt->attack[i].effect_remaining = enemies_cbt->attack[i].effect_duration;
+                dmg_modifier = enemies_cbt->attack[i].modifier;
 
-                strcat(msg, enemies_cbt->attack[1].name);
+                strcat(msg, enemies_cbt->attack[i].name);
 
                 break;
 
@@ -217,14 +226,6 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
                 /* code */
                 break;
             }
-        }
-        else
-        {
-            dmg = rand() % enemies_cbt->attack[0].dmg_max + enemies_cbt->attack[0].dmg_min;
-            character->life -= dmg + dmg_modifier;
-            dmg += dmg_modifier;
-
-            strcat(msg, enemies_cbt->attack[0].name);
         }
     }
     else
@@ -275,9 +276,10 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
     }
 
     strcat(msg, " %n Vous avez subis ");
-    char_dmg = dmg + '0';
-    strncat(msg, &char_dmg, 1);
-    strcat(msg, " de degats.\0");
+    itoa(dmg, dmg_char, 10);
+    strcat(msg, dmg_char);
+    strcat(msg, " de degats.");
+    
     texture_PV_personnage = SDL_CreateTextureFromSurface(game->render, surf_PV_personnage);
     surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
 
@@ -314,6 +316,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
     }
 
     msg = (char *)realloc(msg, strlen(msg) * sizeof(char) + 1);
+    printf("msg: %s", msg);
     affichage_message(game, texture_render, msg, -1);
 
     /*--- End Main Loop ----------------------------------------------------------*/

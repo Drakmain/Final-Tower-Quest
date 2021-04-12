@@ -660,19 +660,16 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     }
     if (character->lvl >= 10)
     {
-        printf(">= 10");
         max_selec = 5;
         surf_attaque_5 = TTF_RenderText_Blended(game->police, character->attacks[4].name, blanc);
     }
     if (character->lvl >= 5)
     {
-        printf(">= 5");
         max_selec = 4;
         surf_attaque_4 = TTF_RenderText_Blended(game->police, character->attacks[3].name, blanc);
     }
     if (character->lvl >= 1)
     {
-        printf(">= 1");
         surf_attaque_3 = TTF_RenderText_Blended(game->police, character->attacks[2].name, blanc);
         surf_attaque_2 = TTF_RenderText_Blended(game->police, character->attacks[1].name, blanc);
         surf_attaque_1 = TTF_RenderText_Blended(game->police, character->attacks[0].name, blanc);
@@ -761,8 +758,6 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
             if (selection < 0)
                 selection = max_selec - 1;
             selection %= max_selec;
-
-            printf("selection: %i, max_selec: %i\n", selection, max_selec);
 
             if (character->lvl >= 50)
             {
@@ -1682,6 +1677,8 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     dmg = rand() % character->attacks[selection].dmg_max + character->attacks[selection].dmg_min;
                     enemies_cbt[selected_enemy].life -= dmg;
 
+                    character->mana -= character->attacks[selection].mana;
+
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
                     break;
@@ -1708,12 +1705,16 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                         }
                     }
 
+                    character->mana -= character->attacks[selection].mana;
+
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
                     break;
 
                 case 3: //Restaure un certain % la sante
                     character->life += character->max_life * character->attacks[selection].modifier / 100;
+
+                    character->mana -= character->attacks[selection].mana;
 
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
@@ -1744,6 +1745,9 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     {
                         enemies_cbt[selected_enemy].life = 0;
                     }
+
+                    character->mana -= character->attacks[selection].mana;
+
                     break;
 
                 case 6:

@@ -139,11 +139,6 @@ extern void floor_1(game_t *game, character_t *character)
 
                 /*--- End Event to enter in game menu --------------------------------*/
 
-                if (keyState[SDL_SCANCODE_C] && event.type == SDL_KEYDOWN)
-                {
-                    combat_boss(game, character, floor_1, texture_render, floor_1_bool);
-                }
-
                 SDL_RenderClear(game->render);
 
                 SDL_RenderCopy(game->render, texture_render, NULL, NULL);

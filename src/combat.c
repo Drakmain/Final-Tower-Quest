@@ -845,7 +845,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     SDL_RenderPresent(game->render);
 
     /*--- Free Memory ------------------------------------------------------------*/
-/*
+
     for (int i = 0; i < nb_enemies_combat - 1; i++)
     {
         for (int y = 0; y < NB_ATTACKS_ENEMIES; y++)
@@ -860,7 +860,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
         SDL_FreeSurface(enemies_cbt[i].surface);
     }
-*/
+
     SDL_FreeSurface(surf_combat_cadre);
     SDL_FreeSurface(surf_attaque);
     SDL_FreeSurface(surf_sac);
