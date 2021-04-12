@@ -158,8 +158,8 @@ extern void floor_1(game_t *game, character_t *character)
 
                         frame_start = SDL_GetTicks();
 
-                        pos_Wind_floor_1.x -= (*game->WINDOWWIDTH) * 25 / 2560;
-                        x -= 25;
+                        pos_Wind_floor_1.x -= (*game->WINDOWWIDTH) * 24 / 2560;
+                        x -= (*game->WINDOWWIDTH) * 24 / 2560;;
 
                         floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
 
@@ -213,8 +213,8 @@ extern void floor_1(game_t *game, character_t *character)
 
                         frame_start = SDL_GetTicks();
 
-                        pos_Wind_floor_1.x += (*game->WINDOWWIDTH) * 25 / 2560;
-                        x += 25;
+                        pos_Wind_floor_1.x += (*game->WINDOWWIDTH) * 24 / 2560;
+                        x += (*game->WINDOWWIDTH) * 24 / 2560;;
 
                         floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
 
@@ -268,8 +268,8 @@ extern void floor_1(game_t *game, character_t *character)
 
                         frame_start = SDL_GetTicks();
 
-                        pos_Wind_floor_1.y += (*game->WINDOWWIDTH) * 25 / 2560;
-                        y += 25;
+                        pos_Wind_floor_1.y += (*game->WINDOWWIDTH) * 24 / 2560;
+                        y += (*game->WINDOWWIDTH) * 24 / 2560;;
 
                         floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
 
@@ -323,8 +323,8 @@ extern void floor_1(game_t *game, character_t *character)
 
                         frame_start = SDL_GetTicks();
 
-                        pos_Wind_floor_1.y -= (*game->WINDOWWIDTH) * 25 / 2560;
-                        y -= 25;
+                        pos_Wind_floor_1.y -= (*game->WINDOWWIDTH) * 24 / 2560;
+                        y -= (*game->WINDOWWIDTH) * 24 / 2560;;
 
                         floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
 
