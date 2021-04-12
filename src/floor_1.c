@@ -177,7 +177,7 @@ extern void floor_1(game_t *game, character_t *character)
 
     while (*game->program_launch && *floor_1_bool)
     {
-        while (SDL_PollEvent(&event))
+        while (SDL_PollEvent(&event) && *floor_1_bool)
         {
             while ((*game->program_launch && *floor_1_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
@@ -384,124 +384,6 @@ extern void floor_1(game_t *game, character_t *character)
                     West_Walk = 0;
                 }
 
-                while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE])
-                {
-                    if(character_moving(game, game->render, surface, x, y, 0) == 2)
-                   {
-                       if(keyState[SDL_SCANCODE_E])
-                       {
-
-                           SDL_SetRenderTarget(game->render, texture_render);
-
-                           SDL_RenderClear(game->render);
-
-                           SDL_RenderCopy(game->render, floor_1->texture, &floor_1->tile_set, &pos_Wind_floor_1);
-                           SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
-
-                           SDL_SetRenderTarget(game->render, NULL);
-
-                           character->life = character->max_life;
-                           character->mana = character->max_mana;
-                           affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", -1);
-                       }
-                       break;
-                    }
-                    if (character_moving(game, game->render, surface, x, y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
-                    {
-                        break;
-                    }
-                    else if(r_character == 0 && g_character == 0 && b_character == 255)
-                    {
-                        if(floor_1->boss->life <= 0)
-                        {
-                            SDL_SetRenderTarget(game->render, texture_render);
-
-                            SDL_RenderClear(game->render);
-
-                            SDL_RenderCopy(game->render, floor_1->texture, &floor_1->tile_set, &pos_Wind_floor_1);
-                            SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
-
-                            SDL_SetRenderTarget(game->render, NULL);
-
-                            while(opacite_transi != 255)
-                            {
-                                opacite_transi += 5;
-
-                                SDL_SetRenderDrawColor(game->render, 0, 0, 0, opacite_transi);
-                                SDL_SetRenderTarget(game->render, transi);
-                                SDL_SetTextureBlendMode(transi, SDL_BLENDMODE_BLEND);
-                                SDL_RenderFillRect(game->render, &rect_transi);
-                                SDL_SetRenderTarget(game->render, NULL);
-
-                                SDL_RenderClear(game->render);
-                                SDL_RenderCopy(game->render, texture_render, NULL, &pos_transi);
-                                SDL_RenderCopy(game->render, transi, NULL, &pos_transi);
-                                SDL_RenderPresent(game->render);
-                                SDL_Delay(10);
-                            }
-
-                            *floor_1_bool = SDL_FALSE;
-                            North_Walk = 0;
-                            strcpy(character->position, "Etage_2");
-                            sauvegarde(game, character);
-                        }
-                    }
-                    else
-                    {
-                        North_Walk = 1;
-
-                        frame_start = SDL_GetTicks();
-
-                        pos_Wind_floor_1.y += (*game->WINDOWWIDTH) * 24 / 2560;
-                        y -= (*game->WINDOWWIDTH) * 24 / 2560;
-
-                        floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
-
-                        character->update(character, game->render, character->North_Walk, pos_Wind_character);
-
-                        render_frame(game->render);
-
-                        rand_combat = 5; //rand() % 101;
-                        printf("rand_combat: %i\n", rand_combat);
-                        if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
-                        {
-                            transition(game);
-                            combat(game, character, floor_1, texture_render, floor_1_bool);
-                            break;
-                        }
-
-                        if (SDL_RenderClear(game->render) != 0)
-                        {
-                            SDL_ExitWithError("Unable to clear rendering, floor_1.c Line 160");
-                        }
-
-                        pixel_character = getpixel(surface, x + pos_Wind_character.w/2 , y + pos_Wind_character.h - pos_Wind_character.h/7.5);
-                        SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
-                    }
-
-                    SDL_PollEvent(&event);
-                }
-
-                if (North_Walk == 1)
-                {
-                    character->mov.x = 0;
-                    character->mov.y = 0;
-                    floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
-                    character->update(character, game->render, character->North_Walk, pos_Wind_character);
-                    render_frame(game->render);
-
-                    SDL_SetRenderTarget(game->render, texture_render);
-
-                    SDL_RenderClear(game->render);
-
-                    SDL_RenderCopy(game->render, floor_1->texture, &floor_1->tile_set, &pos_Wind_floor_1);
-                    SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
-
-                    SDL_SetRenderTarget(game->render, NULL);
-
-                    North_Walk = 0;
-                }
-
                 while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
                     if(character_moving(game, game->render, surface, x, y, 1) == 2)
@@ -582,6 +464,127 @@ extern void floor_1(game_t *game, character_t *character)
 
                     South_Walk = 0;
                 }
+
+                while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE] && *floor_1_bool)
+                {
+                    if(character_moving(game, game->render, surface, x, y, 0) == 2)
+                   {
+                       if(keyState[SDL_SCANCODE_E])
+                       {
+
+                           SDL_SetRenderTarget(game->render, texture_render);
+
+                           SDL_RenderClear(game->render);
+
+                           SDL_RenderCopy(game->render, floor_1->texture, &floor_1->tile_set, &pos_Wind_floor_1);
+                           SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
+
+                           SDL_SetRenderTarget(game->render, NULL);
+
+                           character->life = character->max_life;
+                           character->mana = character->max_mana;
+                           affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", -1);
+                       }
+                       break;
+                    }
+                    if (character_moving(game, game->render, surface, x, y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    {
+                        break;
+                    }
+                    else if(r_character == 0 && g_character == 0 && b_character == 255)
+                    {
+                        if(floor_1->boss->life <= 0)
+                        {
+                            SDL_SetRenderTarget(game->render, texture_render);
+
+                            SDL_RenderClear(game->render);
+
+                            SDL_RenderCopy(game->render, floor_1->texture, &floor_1->tile_set, &pos_Wind_floor_1);
+                            SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
+
+                            SDL_SetRenderTarget(game->render, NULL);
+
+                            combat_boss(game, character, floor_1, texture_render, floor_1_bool);
+
+                            while(opacite_transi != 255)
+                            {
+                                opacite_transi += 5;
+
+                                SDL_SetRenderDrawColor(game->render, 0, 0, 0, opacite_transi);
+                                SDL_SetRenderTarget(game->render, transi);
+                                SDL_SetTextureBlendMode(transi, SDL_BLENDMODE_BLEND);
+                                SDL_RenderFillRect(game->render, &rect_transi);
+                                SDL_SetRenderTarget(game->render, NULL);
+
+                                SDL_RenderClear(game->render);
+                                SDL_RenderCopy(game->render, texture_render, NULL, &pos_transi);
+                                SDL_RenderCopy(game->render, transi, NULL, &pos_transi);
+                                SDL_RenderPresent(game->render);
+                                SDL_Delay(10);
+                            }
+
+                            *floor_1_bool = SDL_FALSE;
+                            North_Walk = 0;
+                            strcpy(character->position, "Etage_2");
+                            sauvegarde(game, character);
+                        }
+                    }
+                    else
+                    {
+                        North_Walk = 1;
+
+                        frame_start = SDL_GetTicks();
+
+                        pos_Wind_floor_1.y += (*game->WINDOWWIDTH) * 24 / 2560;
+                        y -= (*game->WINDOWWIDTH) * 24 / 2560;
+
+                        floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
+
+                        character->update(character, game->render, character->North_Walk, pos_Wind_character);
+
+                        render_frame(game->render);
+
+                        rand_combat = rand() % 101;
+                        printf("rand_combat: %i\n", rand_combat);
+                        if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
+                        {
+                            transition(game);
+                            combat(game, character, floor_1, texture_render, floor_1_bool);
+                            break;
+                        }
+
+                        if (SDL_RenderClear(game->render) != 0)
+                        {
+                            SDL_ExitWithError("Unable to clear rendering, floor_1.c Line 160");
+                        }
+
+                        pixel_character = getpixel(surface, x + pos_Wind_character.w/2 , y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
+                    }
+
+                    SDL_PollEvent(&event);
+                }
+
+                if (North_Walk == 1)
+                {
+                    character->mov.x = 0;
+                    character->mov.y = 0;
+                    floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
+                    character->update(character, game->render, character->North_Walk, pos_Wind_character);
+                    render_frame(game->render);
+
+                    SDL_SetRenderTarget(game->render, texture_render);
+
+                    SDL_RenderClear(game->render);
+
+                    SDL_RenderCopy(game->render, floor_1->texture, &floor_1->tile_set, &pos_Wind_floor_1);
+                    SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
+
+                    SDL_SetRenderTarget(game->render, NULL);
+
+                    North_Walk = 0;
+                }
+
 
                 character->x = x;
                 character->y = y;

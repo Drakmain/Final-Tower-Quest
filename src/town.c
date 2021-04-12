@@ -172,7 +172,7 @@ extern void town(game_t *game, character_t *character)
 
     while (*game->program_launch && *town_bool)
     {
-        while (SDL_PollEvent(&event))
+        while (SDL_PollEvent(&event) && *town_bool)
         {
             while ((*game->program_launch && *town_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
@@ -365,7 +365,7 @@ extern void town(game_t *game, character_t *character)
                     North_Walk = 0;
                 }
 
-                while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE])
+                while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE] && *town_bool)
                 {
                     if (character_moving(game, game->render, surface, x, y, 1) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
