@@ -33,7 +33,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_Color rouge = {255, 0, 0};
 
     SDL_Surface *surf_cadre = NULL, *surf_caracteristiques = NULL, *surf_retour = NULL, *surf_vitalite = NULL, *surf_puissance = NULL, *surf_2point = NULL, *surf_intell = NULL, *surf_agi = NULL, *surf_def = NULL, *surf_point_dispo = NULL, *surf_nb_vitalite = NULL, *surf_nb_puissance = NULL, *surf_nb_intell = NULL, *surf_nb_agi = NULL, *surf_nb_def = NULL, *surf_nb_point_dispo = NULL;
-    SDL_Surface *surf_valider = NULL, *surf_fleche = NULL;
+    SDL_Surface *surf_valider = NULL, *surf_fleche = NULL, *surf_lvl = NULL, *surf_xp = NULL, *surf_nb_lvl = NULL, *surf_nb_xp = NULL, *surf_nb_xp_up = NULL;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -323,6 +323,50 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
 
     /*----------------------------------------------------------------------------*/
 
+    /*--- Creation text "lvl" ----------------------------------------*/
+
+    surf_lvl = TTF_RenderText_Blended(game->police, "LVL", blanc);
+    if (surf_lvl == NULL)
+    {
+        SDL_ExitWithError("probleme surface lvl caracteristiques.c");
+    }
+
+    SDL_Texture *lvl = SDL_CreateTextureFromSurface(game->render, surf_lvl);
+    if (lvl == NULL)
+    {
+        SDL_ExitWithError("probleme texture lvl caracteristiques.c");
+    }
+
+    SDL_Rect pos_lvl;
+    pos_lvl.w = (*game->WINDOWWIDTH) * 45 / 1200;
+    pos_lvl.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_lvl.x = pos_cadre.x + rect_fond_cadre.x + (*game->WINDOWWIDTH) * 40 / 1200;
+    pos_lvl.y = pos_vitalite.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "xp" ----------------------------------------*/
+
+    surf_xp = TTF_RenderText_Blended(game->police, "XP ", blanc);
+    if (surf_xp == NULL)
+    {
+        SDL_ExitWithError("probleme surface lvl caracteristiques.c");
+    }
+
+    SDL_Texture *xp = SDL_CreateTextureFromSurface(game->render, surf_xp);
+    if (xp == NULL)
+    {
+        SDL_ExitWithError("probleme texture lvl caracteristiques.c");
+    }
+
+    SDL_Rect pos_xp;
+    pos_xp.w = (*game->WINDOWWIDTH) * 45 / 1200;
+    pos_xp.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_xp.x = pos_cadre.x + rect_fond_cadre.x + (*game->WINDOWWIDTH) * 40 / 1200;
+    pos_xp.y = pos_puissance.y;
+
+    /*----------------------------------------------------------------------------*/
+
     SDL_Rect pos_2point_v;
     pos_2point_v.w = (*game->WINDOWWIDTH) * 45 / 1200;
     pos_2point_v.h = (*game->WINDOWHEIGHT) * 50 / 720;
@@ -358,6 +402,18 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     pos_2point_point_dispo.h = (*game->WINDOWHEIGHT) * 50 / 720;
     pos_2point_point_dispo.x = pos_point_dispo.x + pos_point_dispo.w;
     pos_2point_point_dispo.y = pos_point_dispo.y;
+
+    SDL_Rect pos_2point_lvl;
+    pos_2point_lvl.w = (*game->WINDOWWIDTH) * 45 / 1200;
+    pos_2point_lvl.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_2point_lvl.x = pos_lvl.x + pos_lvl.w;
+    pos_2point_lvl.y = pos_lvl.y;
+
+    SDL_Rect pos_2point_xp;
+    pos_2point_xp.w = (*game->WINDOWWIDTH) * 45 / 1200;
+    pos_2point_xp.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_2point_xp.x = pos_xp.x + pos_xp.w;
+    pos_2point_xp.y = pos_xp.y;
 
     /*--- Creation text "nb vitalite" ----------------------------------------*/
 
@@ -481,6 +537,83 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     pos_nb_def.h = (*game->WINDOWHEIGHT) * 50 / 720;
     pos_nb_def.x = pos_def.x + pos_def.w + pos_2point_d.w + (*game->WINDOWWIDTH) * 35 / 1280;
     pos_nb_def.y = pos_def.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nb lvl" ----------------------------------------*/
+
+    char character_nb_lvl[10];
+    itoa(character->lvl, character_nb_lvl, 10);
+
+    surf_nb_lvl = TTF_RenderText_Blended(game->police, character_nb_lvl, blanc);
+    if (surf_nb_lvl == NULL)
+    {
+        SDL_ExitWithError("probleme surface nb lvl caracteristiques.c");
+    }
+
+    SDL_Texture *nb_lvl = SDL_CreateTextureFromSurface(game->render, surf_nb_lvl);
+    if (nb_lvl == NULL)
+    {
+        SDL_ExitWithError("probleme texture nb lvl caracteristiques.c");
+    }
+
+    SDL_Rect pos_nb_lvl;
+    pos_nb_lvl.w = strlen(character_nb_lvl) * (*game->WINDOWWIDTH) * 10 / 1280;
+    pos_nb_lvl.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_nb_lvl.x = pos_lvl.x + pos_lvl.w + pos_2point_lvl.w + (*game->WINDOWWIDTH) * 15 / 1280;
+    pos_nb_lvl.y = pos_lvl.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nb xp" ----------------------------------------*/
+
+    char character_nb_xp[10];
+    itoa(character->xp, character_nb_xp, 10);
+
+    strcat(character_nb_xp, " / ");
+
+    surf_nb_xp = TTF_RenderText_Blended(game->police, character_nb_xp, blanc);
+    if (surf_nb_xp == NULL)
+    {
+        SDL_ExitWithError("probleme surface nb def caracteristiques.c");
+    }
+
+    SDL_Texture *nb_xp = SDL_CreateTextureFromSurface(game->render, surf_nb_xp);
+    if (nb_xp == NULL)
+    {
+        SDL_ExitWithError("probleme texture nb def caracteristiques.c");
+    }
+
+    SDL_Rect pos_nb_xp;
+    pos_nb_xp.w = strlen(character_nb_xp) * (*game->WINDOWWIDTH) * 10 / 1280;
+    pos_nb_xp.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_nb_xp.x = pos_xp.x + pos_xp.w + pos_2point_xp.w + (*game->WINDOWWIDTH) * 15 / 1280;
+    pos_nb_xp.y = pos_xp.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nb xp up" ----------------------------------------*/
+
+    char character_nb_xp_up[10];
+    itoa(character->tab_xp_max[character->lvl] - character->tab_xp_max[character->lvl - 1], character_nb_xp_up, 10);
+
+    surf_nb_xp_up = TTF_RenderText_Blended(game->police, character_nb_xp_up, blanc);
+    if (surf_nb_xp_up == NULL)
+    {
+        SDL_ExitWithError("probleme surface nb def caracteristiques.c");
+    }
+
+    SDL_Texture *nb_xp_up = SDL_CreateTextureFromSurface(game->render, surf_nb_xp_up);
+    if (nb_xp_up == NULL)
+    {
+        SDL_ExitWithError("probleme texture nb def caracteristiques.c");
+    }
+
+    SDL_Rect pos_nb_xp_up;
+    pos_nb_xp_up.w = strlen(character_nb_xp_up) * (*game->WINDOWWIDTH) * 10 / 1280;
+    pos_nb_xp_up.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_nb_xp_up.x = pos_nb_xp.x + pos_nb_xp.w;
+    pos_nb_xp_up.y = pos_xp.y;
 
     /*----------------------------------------------------------------------------*/
 
@@ -861,12 +994,17 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
             SDL_RenderCopy(game->render, intell, NULL, &pos_intell);
             SDL_RenderCopy(game->render, agi, NULL, &pos_agi);
             SDL_RenderCopy(game->render, def, NULL, &pos_def);
+            SDL_RenderCopy(game->render, lvl, NULL, &pos_lvl);
+            SDL_RenderCopy(game->render, xp, NULL, &pos_xp);
             SDL_RenderCopy(game->render, point_dispo, NULL, &pos_point_dispo);
             SDL_RenderCopy(game->render, nb_vitalite, NULL, &pos_nb_vitalite);
             SDL_RenderCopy(game->render, nb_puissance, NULL, &pos_nb_puissance);
             SDL_RenderCopy(game->render, nb_intell, NULL, &pos_nb_intell);
             SDL_RenderCopy(game->render, nb_agi, NULL, &pos_nb_agi);
             SDL_RenderCopy(game->render, nb_def, NULL, &pos_nb_def);
+            SDL_RenderCopy(game->render, nb_lvl, NULL, &pos_nb_lvl);
+            SDL_RenderCopy(game->render, nb_xp, NULL, &pos_nb_xp);
+            SDL_RenderCopy(game->render, nb_xp_up, NULL, &pos_nb_xp_up);
             SDL_RenderCopy(game->render, nb_point_dispo, NULL, &pos_nb_point_dispo);
             if (selection < 5 && character_points_dispo > 0)
                 SDL_RenderCopy(game->render, fleche_droite, &rect_fleche_droite, &pos_fleche_droite);
@@ -898,6 +1036,8 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_i);
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_a);
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_d);
+            SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_lvl);
+            SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_xp);
             SDL_RenderCopy(game->render, t_2point, NULL, &pos_2point_point_dispo);
             if (points_uti_vitalite > 0 || points_uti_puissance > 0 || points_uti_intell > 0 || points_uti_agi > 0 || points_uti_def > 0)
                 SDL_RenderCopy(game->render, valider, NULL, &pos_valider);
@@ -944,6 +1084,11 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_FreeSurface(surf_point_dispo);
     SDL_FreeSurface(surf_nb_point_dispo);
     SDL_FreeSurface(surf_valider);
+    SDL_FreeSurface(surf_lvl);
+    SDL_FreeSurface(surf_xp);
+    SDL_FreeSurface(surf_nb_lvl);
+    SDL_FreeSurface(surf_nb_xp);
+    SDL_FreeSurface(surf_nb_xp_up);
 
     SDL_DestroyTexture(cadre);
     SDL_DestroyTexture(fond_cadre);
@@ -963,6 +1108,11 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_DestroyTexture(point_dispo);
     SDL_DestroyTexture(nb_point_dispo);
     SDL_DestroyTexture(valider);
+    SDL_DestroyTexture(lvl);
+    SDL_DestroyTexture(xp);
+    SDL_DestroyTexture(nb_lvl);
+    SDL_DestroyTexture(nb_xp);
+    SDL_DestroyTexture(nb_xp_up);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

@@ -42,17 +42,25 @@
 
     if(nb_enemie_combat == 1)
     {
-        nb_total_xp = enemies_cbt[0].exp;
-        affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
+        if(character->lvl == 50)affichage_message(game, texture_render_combat, "Vous etes au summum, vous ne pouvez plus gagnez d'xp.", -1);
+        else{
+            nb_total_xp =  enemies_cbt[0].exp;
+            affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
+            character->xp += nb_total_xp;
 
-        character->xp += nb_total_xp;
-        if((character->xp + character->tab_xp_max[character->lvl - 1] == character->tab_xp_max[character->lvl]) || (character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl]))
-        {
-            character->xp = character->xp + character->tab_xp_max[character->lvl - 1] - character->tab_xp_max[character->lvl];
-            affichage_message(game, texture_render_combat, "Vous avez gagne un niveau.", -1);
-            character->lvl++;
-            affichage_message(game, texture_render_combat, "Vous avez obtenu 3 points de competence.", -1);
-            character->points_dispo += 3;
+            while(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
+            {
+                character->xp = character->xp + character->tab_xp_max[character->lvl - 1] - character->tab_xp_max[character->lvl];
+                affichage_message(game, texture_render_combat, "Vous avez gagne un niveau.", -1);
+                character->lvl++;
+                affichage_message(game, texture_render_combat, "Vous avez obtenu 3 points de competence.", -1);
+                character->points_dispo += 3;
+                character->vitalite++;
+                character->puissance++;
+                character->agilite++;
+                character->defense++;
+                character->intelligence++;
+            }
         }
 
         if(strcmp(map->name,"floor_1") == 0)
@@ -229,17 +237,25 @@
 
     else if(nb_enemie_combat == 2)
     {
-        nb_total_xp =  enemies_cbt[0].exp +  enemies_cbt[1].exp;
-        affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
-        character->xp += nb_total_xp;
         if(character->lvl == 50)affichage_message(game, texture_render_combat, "Vous etes au summum, vous ne pouvez plus gagnez d'xp.", -1);
-        if(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
-        {
-            character->xp = character->xp + character->tab_xp_max[character->lvl - 1] - character->tab_xp_max[character->lvl];
-            affichage_message(game, texture_render_combat, "Vous avez gagne un niveau.", -1);
-            character->lvl++;
-            affichage_message(game, texture_render_combat, "Vous avez obtenu 3 points de competence.", -1);
-            character->points_dispo += 3;
+        else{
+            nb_total_xp =  enemies_cbt[0].exp +  enemies_cbt[1].exp;
+            affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
+            character->xp += nb_total_xp;
+
+            while(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
+            {
+                character->xp = character->xp + character->tab_xp_max[character->lvl - 1] - character->tab_xp_max[character->lvl];
+                affichage_message(game, texture_render_combat, "Vous avez gagne un niveau.", -1);
+                character->lvl++;
+                affichage_message(game, texture_render_combat, "Vous avez obtenu 3 points de competence.", -1);
+                character->points_dispo += 3;
+                character->vitalite++;
+                character->puissance++;
+                character->agilite++;
+                character->defense++;
+                character->intelligence++;
+            }
         }
 
         if(strcmp(map->name,"floor_1") == 0)
@@ -414,16 +430,25 @@
 
     else if(nb_enemie_combat == 3)
     {
-        nb_total_xp =  enemies_cbt[0].exp +  enemies_cbt[1].exp +  enemies_cbt[2].exp;
-        affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
-        character->xp += nb_total_xp;
-        if(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
-        {
-            character->xp = character->xp + character->tab_xp_max[character->lvl - 1] - character->tab_xp_max[character->lvl];
-            affichage_message(game, texture_render_combat, "Vous avez gagne un niveau.", -1);
-            character->lvl++;
-            affichage_message(game, texture_render_combat, "Vous avez obtenu 3 points de competence.", -1);
-            character->points_dispo += 3;
+        if(character->lvl == 50)affichage_message(game, texture_render_combat, "Vous etes au summum, vous ne pouvez plus gagnez d'xp.", -1);
+        else{
+            nb_total_xp =  enemies_cbt[0].exp + enemies_cbt[1].exp + enemies_cbt[2].exp;
+            affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
+            character->xp += nb_total_xp;
+
+            while(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
+            {
+                character->xp = character->xp + character->tab_xp_max[character->lvl - 1] - character->tab_xp_max[character->lvl];
+                affichage_message(game, texture_render_combat, "Vous avez gagne un niveau.", -1);
+                character->lvl++;
+                affichage_message(game, texture_render_combat, "Vous avez obtenu 3 points de competence.", -1);
+                character->points_dispo += 3;
+                character->vitalite++;
+                character->puissance++;
+                character->agilite++;
+                character->defense++;
+                character->intelligence++;
+            }
         }
 
         if(strcmp(map->name,"floor_1") == 0)
@@ -598,16 +623,25 @@
 
     else if(nb_enemie_combat == 4)
     {
-        nb_total_xp =  enemies_cbt[0].exp +  enemies_cbt[1].exp +  enemies_cbt[2].exp +  enemies_cbt[3].exp;
-        affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
-        character->xp += nb_total_xp;
-        if(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
-        {
-            character->xp = character->xp + character->tab_xp_max[character->lvl - 1] - character->tab_xp_max[character->lvl];
-            affichage_message(game, texture_render_combat, "Vous avez gagne un niveau.", -1);
-            character->lvl++;
-            affichage_message(game, texture_render_combat, "Vous avez obtenu 3 points de competence.", -1);
-            character->points_dispo += 3;
+        if(character->lvl == 50)affichage_message(game, texture_render_combat, "Vous etes au summum, vous ne pouvez plus gagnez d'xp.", -1);
+        else{
+            nb_total_xp =  enemies_cbt[0].exp + enemies_cbt[1].exp + enemies_cbt[2].exp + enemies_cbt[3].exp;
+            affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
+            character->xp += nb_total_xp;
+
+            while(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
+            {
+                character->xp = character->xp + character->tab_xp_max[character->lvl - 1] - character->tab_xp_max[character->lvl];
+                affichage_message(game, texture_render_combat, "Vous avez gagne un niveau.", -1);
+                character->lvl++;
+                affichage_message(game, texture_render_combat, "Vous avez obtenu 3 points de competence.", -1);
+                character->points_dispo += 3;
+                character->vitalite++;
+                character->puissance++;
+                character->agilite++;
+                character->defense++;
+                character->intelligence++;
+            }
         }
 
         if(strcmp(map->name,"floor_1") == 0)

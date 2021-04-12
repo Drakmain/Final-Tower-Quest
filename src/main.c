@@ -98,7 +98,7 @@ int main(int argc, char **argv)
         {
             break;
         }
-        
+
         if (strcmp(actual_save, "save//save1.txt") == 0 || strcmp(actual_save, "save//save2.txt") == 0 || strcmp(actual_save, "save//save3.txt") == 0)
         {
             character_save = character_create(game->render, actual_save);
