@@ -1,8 +1,8 @@
-save_name: Alexis ;
+save_name: Jeremy ;
 charactere_name: Mage ;
-position: Tour ;
-x: 1408 ;
-y: 2482 ;
+position: Village  ;
+x: 867 ;
+y: 695 ;
 lvl: 1 ;
 xp: 0 ;
 max_life: 20 ;
