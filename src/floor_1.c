@@ -73,8 +73,8 @@ extern void floor_1(game_t *game, character_t *character)
     SDL_Rect pos_Wind_floor_1;
     pos_Wind_floor_1.h = floor_1->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_floor_1.w = floor_1->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
-    pos_Wind_floor_1.x = -pos_Wind_floor_1.w/2 + (*game->WINDOWWIDTH) * 120 / 1280  + (*game->WINDOWWIDTH)/2;
-    pos_Wind_floor_1.y = -pos_Wind_floor_1.h + pos_Wind_character.y + pos_Wind_character.h + (*game->WINDOWWIDTH) * 45 / 1280;
+    pos_Wind_floor_1.x = -character->x + (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH) * 71 / 1280 /2;
+    pos_Wind_floor_1.y = -character->y + (*game->WINDOWHEIGHT)/2 - (*game->WINDOWHEIGHT) * 112 / 1280;
     printf("POUR LA MAP : HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_floor_1.h, pos_Wind_floor_1.w);
 
     int East_Walk = 0;
@@ -152,9 +152,6 @@ extern void floor_1(game_t *game, character_t *character)
         break;
     }
 
-    int x = (*game->WINDOWWIDTH) * 1764 / 1280;
-    int y = (*game->WINDOWWIDTH) * 3684 / 1280;
-
     /*--- End Initialization Variable --------------------------------------------*/
 
     SDL_RenderClear(game->render);
@@ -192,7 +189,7 @@ extern void floor_1(game_t *game, character_t *character)
     {
         while (SDL_PollEvent(&event) && *floor_1_bool)
         {
-            while ((*game->program_launch && *floor_1_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
+            while ((*game->program_launch && *floor_1_bool) && (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
                 SDL_PollEvent(&event);
 
@@ -216,7 +213,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                 /*--- End Event to enter in game menu --------------------------------*/
 
-                if(character_moving(game, game->render, surface, x, y, 0) == 2  || character_moving(game, game->render, surface, x, y, 1) == 2 || character_moving(game, game->render, surface, x, y, 2) == 2 || character_moving(game, game->render, surface, x, y, 3) == 2)
+                if(character_moving(game, game->render, surface, character->x, character->y, 0) == 2  || character_moving(game, game->render, surface, character->x, character->y, 1) == 2 || character_moving(game, game->render, surface, character->x, character->y, 2) == 2 || character_moving(game, game->render, surface, character->x, character->y, 3) == 2)
                 {
                     if(keyState[SDL_SCANCODE_E])
                     {
@@ -237,7 +234,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if(character_moving(game, game->render, surface, x, y, 2) == 2)
+                    if(character_moving(game, game->render, surface, character->x, character->y, 2) == 2)
                     {
                         if(keyState[SDL_SCANCODE_E])
                         {
@@ -256,7 +253,7 @@ extern void floor_1(game_t *game, character_t *character)
                         }
                         break;
                     }
-                    if (character_moving(game, game->render, surface, x, y, 2) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface, character->x, character->y, 2) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
@@ -267,7 +264,7 @@ extern void floor_1(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_floor_1.x -= (*game->WINDOWWIDTH) * 24 / 2560;
-                        x += (*game->WINDOWWIDTH) * 24 / 2560;
+                        character->x += (*game->WINDOWWIDTH) * 24 / 2560;
 
                         floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
 
@@ -275,7 +272,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = rand() % 101;
+                        rand_combat = 5;//rand() % 101;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {
@@ -289,10 +286,10 @@ extern void floor_1(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > floor_1.c Line 102");
                         }
 
-                        pixel_character = getpixel(surface, x + pos_Wind_character.w/2 , y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w/2 , character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
                     }
-
+printf("x = %i,character->y = %i\n",character->x,character->y);
                     SDL_PollEvent(&event);
                 }
 
@@ -318,7 +315,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_LEFT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if(character_moving(game, game->render, surface, x, y, 3) == 2)
+                    if(character_moving(game, game->render, surface, character->x, character->y, 3) == 2)
                     {
                         if(keyState[SDL_SCANCODE_E])
                         {
@@ -337,7 +334,7 @@ extern void floor_1(game_t *game, character_t *character)
                         }
                         break;
                     }
-                    if (character_moving(game, game->render, surface, x, y, 3) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface, character->x, character->y, 3) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
@@ -348,7 +345,7 @@ extern void floor_1(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_floor_1.x += (*game->WINDOWWIDTH) * 24 / 2560;
-                        x -= (*game->WINDOWWIDTH) * 24 / 2560;
+                        character->x -= (*game->WINDOWWIDTH) * 24 / 2560;
 
                         floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
 
@@ -356,7 +353,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = rand() % 101;
+                        rand_combat = 5;//rand() % 101;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {
@@ -370,10 +367,10 @@ extern void floor_1(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > floor_1.c Line 131");
                         }
 
-                        pixel_character = getpixel(surface, x + pos_Wind_character.w/2 , y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w/2 , character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
                     }
-
+printf("x = %i,character->y = %i\n",character->x,character->y);
                     SDL_PollEvent(&event);
                 }
 
@@ -399,7 +396,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if(character_moving(game, game->render, surface, x, y, 1) == 2)
+                    if(character_moving(game, game->render, surface, character->x, character->y, 1) == 2)
                     {
                         if(keyState[SDL_SCANCODE_E])
                         {
@@ -418,7 +415,7 @@ extern void floor_1(game_t *game, character_t *character)
                         }
                         break;
                     }
-                    if (character_moving(game, game->render, surface, x, y, 1) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface, character->x, character->y, 1) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
@@ -429,7 +426,7 @@ extern void floor_1(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_floor_1.y -= (*game->WINDOWWIDTH) * 24 / 2560;
-                        y += (*game->WINDOWWIDTH) * 24 / 2560;
+                        character->y += (*game->WINDOWWIDTH) * 24 / 2560;
 
                         floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
 
@@ -437,7 +434,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = rand() % 101;
+                        rand_combat = 5;//rand() % 101;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {
@@ -451,10 +448,10 @@ extern void floor_1(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > floor_1.c Line 189");
                         }
 
-                        pixel_character = getpixel(surface, x + pos_Wind_character.w/2, y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w/2, character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
                     }
-
+printf("x = %i,character->y = %i\n",character->x,character->y);
                     SDL_PollEvent(&event);
                 }
 
@@ -480,7 +477,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE] && *floor_1_bool)
                 {
-                    if(character_moving(game, game->render, surface, x, y, 0) == 2)
+                    if(character_moving(game, game->render, surface, character->x, character->y, 0) == 2)
                    {
                        if(keyState[SDL_SCANCODE_E])
                        {
@@ -500,7 +497,7 @@ extern void floor_1(game_t *game, character_t *character)
                        }
                        break;
                     }
-                    if (character_moving(game, game->render, surface, x, y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface, character->x, character->y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
@@ -514,7 +511,7 @@ extern void floor_1(game_t *game, character_t *character)
                         SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
 
                         SDL_SetRenderTarget(game->render, NULL);
-
+                        transition(game);
                         if(combat_boss(game, character, floor_1, texture_render, floor_1_bool))
                         {
                             *floor_1_bool = SDL_FALSE;
@@ -530,7 +527,7 @@ extern void floor_1(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_floor_1.y += (*game->WINDOWWIDTH) * 24 / 2560;
-                        y -= (*game->WINDOWWIDTH) * 24 / 2560;
+                        character->y -= (*game->WINDOWWIDTH) * 24 / 2560;
 
                         floor_1->update(floor_1, game->render, floor_1->tile_set, pos_Wind_floor_1);
 
@@ -538,7 +535,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = rand() % 101;
+                        rand_combat = 5;//rand() % 101;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {
@@ -552,10 +549,10 @@ extern void floor_1(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering, floor_1.c Line 160");
                         }
 
-                        pixel_character = getpixel(surface, x + pos_Wind_character.w/2 , y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w/2 , character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
                     }
-
+printf("x = %i,character->y = %i\n",character->x,character->y);
                     SDL_PollEvent(&event);
                 }
 
@@ -578,18 +575,12 @@ extern void floor_1(game_t *game, character_t *character)
 
                     North_Walk = 0;
                 }
-
-
-                character->x = x;
-                character->y = y;
             }
         }
     }
-    while(opacite_transi != 255)
+    for (int i = 0; i <= 255; i += 5)
     {
-        opacite_transi += 5;
-
-        SDL_SetRenderDrawColor(game->render, 0, 0, 0, opacite_transi);
+        SDL_SetRenderDrawColor(game->render, 0, 0, 0, i);
         SDL_SetRenderTarget(game->render, transi);
         SDL_SetTextureBlendMode(transi, SDL_BLENDMODE_BLEND);
         SDL_RenderFillRect(game->render, &rect_transi);
@@ -599,7 +590,7 @@ extern void floor_1(game_t *game, character_t *character)
         SDL_RenderCopy(game->render, texture_render, NULL, &pos_transi);
         SDL_RenderCopy(game->render, transi, NULL, &pos_transi);
         SDL_RenderPresent(game->render);
-        SDL_Delay(5);
+        SDL_Delay(10);
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/

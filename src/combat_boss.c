@@ -45,7 +45,7 @@ extern int combat_boss(game_t *game, character_t *character, map_t *map, SDL_Tex
 
     enemy_t *boss;
 
-    int returnval = -1;
+    int returnval = 0;
 
     SDL_bool *combat_boss_bool = malloc(sizeof(SDL_bool));
     *combat_boss_bool = SDL_TRUE;

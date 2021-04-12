@@ -64,8 +64,8 @@ extern void tower(game_t *game, character_t *character)
     SDL_Rect pos_Wind_tower;
     pos_Wind_tower.h = tower->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_tower.w = tower->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
-    pos_Wind_tower.x = ((*game->WINDOWWIDTH) - pos_Wind_tower.w)/2 ;
-    pos_Wind_tower.y = -pos_Wind_tower.h + (*game->WINDOWWIDTH) * 450 / 1280;
+    pos_Wind_tower.x = -character->x + (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH) * 71 / 1280 /2;
+    pos_Wind_tower.y = -character->y + (*game->WINDOWHEIGHT)/2 - (*game->WINDOWHEIGHT) * 112 / 1280;
 
     printf("POUR LA MAP : HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_tower.h, pos_Wind_tower.w);
 
@@ -144,10 +144,8 @@ extern void tower(game_t *game, character_t *character)
         }
         break;
     }
-    int x = (*game->WINDOWWIDTH) * 448 / 1280;
-    int y = (*game->WINDOWWIDTH) * 2160 / 1280;
 
-    pixel_character = getpixel(surface, x + pos_Wind_character.w/2 , y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+    pixel_character = getpixel(surface,character->x + pos_Wind_character.w/2 ,character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
     SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
 
     /*--- End Initialization Variable --------------------------------------------*/
@@ -187,7 +185,7 @@ extern void tower(game_t *game, character_t *character)
     {
         while (SDL_PollEvent(&event) && *tower_bool)
         {
-            while ((*game->program_launch && *tower_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
+            while ((*game->program_launch && *tower_bool) && (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
             {
                 SDL_PollEvent(&event);
 
@@ -214,7 +212,7 @@ extern void tower(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if (character_moving(game, game->render, surface, x, y, 2) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface,character->x,character->y, 2) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
@@ -225,7 +223,7 @@ extern void tower(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_tower.x -= (*game->WINDOWWIDTH) * 24 / 2560;
-                        x += (*game->WINDOWWIDTH) * 24 / 2560;
+                        character->x += (*game->WINDOWWIDTH) * 24 / 2560;
 
                         tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
 
@@ -238,7 +236,7 @@ extern void tower(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > tower.c Line 102");
                         }
 
-                        pixel_character = getpixel(surface, x + pos_Wind_character.w/2 , y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface,character->x + pos_Wind_character.w/2 ,character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
                     }
 
@@ -268,7 +266,7 @@ extern void tower(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_LEFT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if (character_moving(game, game->render, surface, x, y, 3) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface,character->x,character->y, 3) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
@@ -279,7 +277,7 @@ extern void tower(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_tower.x += (*game->WINDOWWIDTH) * 24 / 2560;
-                        x -= (*game->WINDOWWIDTH) * 24 / 2560;
+                       character->x -= (*game->WINDOWWIDTH) * 24 / 2560;
 
                         tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
 
@@ -292,7 +290,7 @@ extern void tower(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > tower.c Line 131");
                         }
 
-                        pixel_character = getpixel(surface, x + pos_Wind_character.w/2 , y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface,character->x + pos_Wind_character.w/2 ,character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
                     }
 
@@ -322,7 +320,7 @@ extern void tower(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if (character_moving(game, game->render, surface, x, y, 1) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface,character->x,character->y, 1) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
@@ -333,7 +331,7 @@ extern void tower(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_tower.y -= (*game->WINDOWWIDTH) * 24 / 2560;
-                        y += (*game->WINDOWWIDTH) * 24 / 2560;
+                       character->y += (*game->WINDOWWIDTH) * 24 / 2560;
 
                         tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
 
@@ -346,7 +344,7 @@ extern void tower(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > tower.c Line 189");
                         }
 
-                        pixel_character = getpixel(surface, x + pos_Wind_character.w/2, y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface,character->x + pos_Wind_character.w/2,character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
                     }
 
@@ -375,7 +373,7 @@ extern void tower(game_t *game, character_t *character)
                 }
                 while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE] && *tower_bool)
                 {
-                    if (character_moving(game, game->render, surface, x, y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface,character->x,character->y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
@@ -384,6 +382,8 @@ extern void tower(game_t *game, character_t *character)
                         *tower_bool = SDL_FALSE;
                         North_Walk = 0;
                         strcpy(character->position, "Etage_1");
+                        character->x = (*game->WINDOWWIDTH) * 1764 / 1280;
+                        character->y = (*game->WINDOWWIDTH) * 3684 / 1280;
                         sauvegarde(game, character);
                     }
                     else
@@ -393,7 +393,7 @@ extern void tower(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_tower.y += (*game->WINDOWWIDTH) * 24 / 2560;
-                        y -= (*game->WINDOWWIDTH) * 24 / 2560;
+                       character->y -= (*game->WINDOWWIDTH) * 24 / 2560;
 
                         tower->update(tower, game->render, tower->tile_set, pos_Wind_tower);
 
@@ -406,7 +406,7 @@ extern void tower(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering, tower.c Line 160");
                         }
 
-                        pixel_character = getpixel(surface, x + pos_Wind_character.w/2 , y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface,character->x + pos_Wind_character.w/2 ,character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
                     }
 
@@ -445,11 +445,9 @@ extern void tower(game_t *game, character_t *character)
 
     SDL_SetRenderTarget(game->render, NULL);
 
-    while(opacite_transi != 255)
+    for (int i = 0; i <= 255; i += 5)
     {
-        opacite_transi += 5;
-
-        SDL_SetRenderDrawColor(game->render, 0, 0, 0, opacite_transi);
+        SDL_SetRenderDrawColor(game->render, 0, 0, 0, i);
         SDL_SetRenderTarget(game->render, transi);
         SDL_SetTextureBlendMode(transi, SDL_BLENDMODE_BLEND);
         SDL_RenderFillRect(game->render, &rect_transi);
