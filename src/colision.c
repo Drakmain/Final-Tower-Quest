@@ -79,6 +79,7 @@ int character_moving(game_t *game, SDL_Renderer *pRenderer, SDL_Surface *couleur
 
 		if (r != 255 && rg != 255 && rd != 255)
 		{
+			printf("x = %i,y = %i\n",x,y);
 			return 1;
 		}
 		else if (r == 255 && g == 255 && rg == 255 && gg == 255 && rd == 255 && gd == 255)
@@ -103,6 +104,7 @@ int character_moving(game_t *game, SDL_Renderer *pRenderer, SDL_Surface *couleur
 
 		if (r != 255 && rg != 255 && rd != 255)
 		{
+			printf("x = %i,y = %i\n",x,y);
 			return 1;
 		}
 		else if (r == 255 && g == 255 && rg == 255 && gg == 255 && rd == 255 && gd == 255)
@@ -126,6 +128,7 @@ int character_moving(game_t *game, SDL_Renderer *pRenderer, SDL_Surface *couleur
 		SDL_GetRGB(pixeld, couleur_image->format, &rd, &gd, &bd);
 		if (r != 255 && rg != 255 && rd != 255)
 		{
+			printf("x = %i,y = %i\n",x,y);
 			return 1;
 		}
 		else if (r == 255 && g == 255 && rg == 255 && gg == 255 && rd == 255 && gd == 255)
@@ -149,6 +152,7 @@ int character_moving(game_t *game, SDL_Renderer *pRenderer, SDL_Surface *couleur
 		SDL_GetRGB(pixeld, couleur_image->format, &rd, &gd, &bd);
 		if (r != 255 && rg != 255 && rd != 255)
 		{
+			printf("x = %i,y = %i\n",x,y);
 			return 1;
 		}
 		else if (r == 255 && g == 255 && rg == 255 && gg == 255 && rd == 255 && gd == 255)
@@ -157,7 +161,7 @@ int character_moving(game_t *game, SDL_Renderer *pRenderer, SDL_Surface *couleur
 		}
 		else
 		{
-			printf("Pas possible\n");
+			//printf("Pas possible\n");
 			return 0;
 		}
 	}

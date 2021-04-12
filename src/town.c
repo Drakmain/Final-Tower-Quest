@@ -389,6 +389,15 @@ extern void town(game_t *game, character_t *character)
                     }
                     else if(r_character == 0 && g_character == 0 && b_character == 255)
                     {
+                        SDL_SetRenderTarget(game->render, texture_render);
+
+                        SDL_RenderClear(game->render);
+
+                        SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
+                        SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
+
+                        SDL_SetRenderTarget(game->render, NULL);
+
                         *town_bool = SDL_FALSE;
                         South_Walk = 0;
                         strcpy(character->position, "Tour");
@@ -447,14 +456,6 @@ extern void town(game_t *game, character_t *character)
             }
         }
     }
-    SDL_SetRenderTarget(game->render, texture_render);
-
-    SDL_RenderClear(game->render);
-
-    SDL_RenderCopy(game->render, town->texture, &town->tile_set, &pos_Wind_town);
-    SDL_RenderCopy(game->render, character->texture, &character->South_Walk.rect, &pos_Wind_character);
-
-    SDL_SetRenderTarget(game->render, NULL);
 
     for (int i = 0; i <= 255; i += 5)
     {

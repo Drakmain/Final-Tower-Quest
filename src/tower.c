@@ -379,6 +379,15 @@ extern void tower(game_t *game, character_t *character)
                     }
                     else if(r_character == 0 && g_character == 0 && b_character == 255)
                     {
+                        SDL_SetRenderTarget(game->render, texture_render);
+
+                        SDL_RenderClear(game->render);
+
+                        SDL_RenderCopy(game->render, tower->texture, &tower->tile_set, &pos_Wind_tower);
+                        SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
+
+                        SDL_SetRenderTarget(game->render, NULL);
+
                         *tower_bool = SDL_FALSE;
                         North_Walk = 0;
                         strcpy(character->position, "Etage_1");
@@ -436,14 +445,6 @@ extern void tower(game_t *game, character_t *character)
             }
         }
     }
-    SDL_SetRenderTarget(game->render, texture_render);
-
-    SDL_RenderClear(game->render);
-
-    SDL_RenderCopy(game->render, tower->texture, &tower->tile_set, &pos_Wind_tower);
-    SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
-
-    SDL_SetRenderTarget(game->render, NULL);
 
     for (int i = 0; i <= 255; i += 5)
     {
