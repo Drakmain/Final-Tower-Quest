@@ -15,7 +15,7 @@ struct load_image_s
 };
 
 extern void chargement_image(load_image_t tab_load_image[]);
-extern int character_moving (game_t *game, SDL_Renderer* pRenderer, SDL_Surface* couleur_image, load_image_t tab_load_image[NB_IMAGE], int x, int y, int direction);
+extern int character_moving (game_t *game, SDL_Renderer* pRenderer, SDL_Surface* couleur_image, int x, int y, int direction);
 Uint32 getpixel(SDL_Surface *surface, int x, int y);
 
 #endif

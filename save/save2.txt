@@ -1,8 +1,8 @@
-save_name: Jeremy ;
+save_name: jeremy ;
 charactere_name: Assassin ;
 position: Tour ;
-x: 1734 ;
-y: 3715 ;
+x: 807 ;
+y: 1679 ;
 lvl: 1 ;
 xp: 0 ;
 max_life: 35 ;

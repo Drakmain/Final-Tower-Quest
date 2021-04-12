@@ -629,11 +629,6 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             character->atb = 0;
         }
 
-        if (enemies_cbt[0].life <= 0 && enemies_cbt[1].life <= 0 && enemies_cbt[2].life <= 0 && enemies_cbt[3].life <= 0)
-        {
-            fin_combat(game, character, texture_render, map, enemies_cbt, nb_enemies_combat);
-        }
-
         SDL_RenderClear(game->render);
 
         SDL_SetRenderTarget(game->render, texture_render);
