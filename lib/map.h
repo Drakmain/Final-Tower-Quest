@@ -48,9 +48,9 @@ struct enemy_s
 
   SDL_Rect tile_set; /*!< Tile set (SDL_Rect) A FINIR. */
 
-  SDL_bool boss; /*!< A FINIR. */
-
   char *name; /*!< A FINIR. */
+
+  SDL_bool boss;
 
   attack_enemie_t *attack; /*!< A FINIR. */
 
@@ -79,6 +79,8 @@ struct map_s
   enemy_t *enemies; /*!< A FINIR. */
 
   enemy_t *boss; /*!< A FINIR. */
+  int nb_attacks_boss;
+  int boss_W, boss_H, boss_multiplier;
 
   /*
   image_t map_image;
@@ -89,6 +91,6 @@ struct map_s
 
 extern map_t *map_create(SDL_Renderer *render, char *name_map);
 extern SDL_bool map_exist(map_t *const map);
-extern void enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render);
+extern void enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render, int nb_attacks_boss);
 
 #endif

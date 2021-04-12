@@ -132,8 +132,6 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
 
     FILE *file;
 
-    int nb_attacks_boss;
-
     /*--- End Initialization variable --------------------------------------------*/
 
     /*--- Open map txt file ------------------------------------------------------*/
@@ -238,18 +236,22 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
             fscanf(file, "EXP: %i ;\n\n", &map->enemies[i].exp);
             map->enemies[i].atb = 0;
             map->enemies[i].attack[i].effect_remaining = 0;
+            map->enemies[i].boss = SDL_FALSE;
         }
 
-        fscanf(file, "%s : %i ;\n", map->boss->name, &nb_attacks_boss);
+        fscanf(file, "%s : %i ;\n", map->boss->name, &map->nb_attacks_boss);
+        fscanf(file, "W: %i H: %i M: %i ;\n", &map->boss_W, &map->boss_H, &map->boss_multiplier);
         fscanf(file, "RGB: %i, %i, %i ;\n", &map->boss->R, &map->boss->G, &map->boss->B);
         fscanf(file, "PV: %i ;\n", &map->boss->life);
         fscanf(file, "VIT: %i ;\n", &map->boss->speed);
         fscanf(file, "%s : %i - %i ;\n", map->boss->attack[0].name, &map->boss->attack[0].dmg_min, &map->boss->attack[0].dmg_max);
 
-        for (int i = 1; i < nb_attacks_boss; i++)
+        for (int i = 1; i < map->nb_attacks_boss; i++)
         {
-            fscanf(file, "%s : %i, %i - %i, %i, %i, %i ;\n", map->boss->attack[nb_attacks_boss].name, &map->boss->attack[nb_attacks_boss].percentage, &map->boss->attack[nb_attacks_boss].dmg_min, &map->boss->attack[nb_attacks_boss].dmg_max, &map->boss->attack[nb_attacks_boss].modifier, &map->boss->attack[nb_attacks_boss].effect_duration, &map->boss->attack[nb_attacks_boss].effect_duration);
+            fscanf(file, "%s : %i, %i - %i, %i, %i, %i ;\n", map->boss->attack[i].name, &map->boss->attack[i].percentage, &map->boss->attack[i].dmg_min, &map->boss->attack[i].dmg_max, &map->boss->attack[i].modifier, &map->boss->attack[i].effect_duration, &map->boss->attack[i].effect_duration);
         }
+
+        map->boss->atb = 0;
 
         map->boss->boss = SDL_TRUE;
 
@@ -266,7 +268,7 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
             strcat(file_name, ".bmp");
 
             map->enemies[i].surface = SDL_LoadBMP(file_name);
-            if (!map->surface)
+            if (!map->enemies[i].surface)
             {
                 SDL_ExitWithError("Loading of a bmp file failed > map.c Line 101");
             }
@@ -277,10 +279,31 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
             }
 
             map->enemies[i].texture = SDL_CreateTextureFromSurface(render, map->enemies[i].surface);
-            if (!map->texture)
+            if (!map->enemies[i].texture)
             {
                 SDL_ExitWithError("Cannot create a texture from a surface > map.c Line 107");
             }
+        }
+
+        strcpy(file_name, "src\\tileset\\Bosses\\");
+        strcat(file_name, map->boss->name);
+        strcat(file_name, ".bmp");
+
+        map->boss->surface = SDL_LoadBMP(file_name);
+        if (!map->boss->surface)
+        {
+            SDL_ExitWithError("Loading of a bmp file failed > map.c Line 101");
+        }
+
+        if (map->boss->R != -1 && map->boss->G != -1 && map->boss->B != -1)
+        {
+            SDL_SetColorKey(map->boss->surface, SDL_TRUE, SDL_MapRGB(map->boss->surface->format, map->boss->R, map->boss->G, map->boss->B));
+        }
+
+        map->boss->texture = SDL_CreateTextureFromSurface(render, map->boss->surface);
+        if (!map->boss->texture)
+        {
+            SDL_ExitWithError("Cannot create a texture from a surface > map.c Line 107");
         }
 
         /*----------------------------------------------------------------------------*/
@@ -297,7 +320,7 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
             _toEspace(map->enemies[i].attack[1].name);
         }
 
-        for (int i = 0; i < nb_attacks_boss; i++)
+        for (int i = 0; i < map->nb_attacks_boss; i++)
         {
             map->boss->name = (char *)realloc(map->boss->name, strlen(map->boss->name) * sizeof(char) + 1);
             _toEspace(map->boss->name);
@@ -320,7 +343,7 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
 
 /*!
  *
- * \fn enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render)
+ * \fn enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render, int nb_attacks_boss)
  * \brief A FINIR.
  *
  * \param dst A FINIR.
@@ -331,7 +354,7 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
  * 
  */
 
-extern void enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render)
+extern void enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render, int nb_attacks_boss)
 {
     dst->surface = SDL_ConvertSurface(src->surface, src->surface->format, src->surface->flags);
     if (!dst->surface)
@@ -354,23 +377,41 @@ extern void enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render)
     dst->tile_set.w = src->tile_set.w;
     dst->tile_set.h = src->tile_set.h;
 
-    dst->boss = src->boss;
-
     strcpy(dst->name, src->name);
 
-    for (int i = 0; i < NB_ATTACKS_ENEMIES; i++)
+    if (src->boss == SDL_TRUE)
     {
-        strcpy(dst->attack[i].name, src->attack[i].name);
+        for (int i = 0; i < nb_attacks_boss; i++)
+        {
+            strcpy(dst->attack[i].name, src->attack[i].name);
 
-        dst->attack[i].dmg_min = src->attack[i].dmg_min;
-        dst->attack[i].dmg_max = src->attack[i].dmg_max;
-        dst->attack[i].mana = src->attack[i].mana;
+            dst->attack[i].dmg_min = src->attack[i].dmg_min;
+            dst->attack[i].dmg_max = src->attack[i].dmg_max;
+            dst->attack[i].mana = src->attack[i].mana;
 
-        dst->attack[i].effect = src->attack[i].effect;
-        dst->attack[i].effect_duration = src->attack[i].effect_duration;
-        dst->attack[i].effect_remaining = src->attack[i].effect_remaining;
-        dst->attack[i].modifier = src->attack[i].modifier;
-        dst->attack[i].percentage = src->attack[i].percentage;
+            dst->attack[i].effect = src->attack[i].effect;
+            dst->attack[i].effect_duration = src->attack[i].effect_duration;
+            dst->attack[i].effect_remaining = src->attack[i].effect_remaining;
+            dst->attack[i].modifier = src->attack[i].modifier;
+            dst->attack[i].percentage = src->attack[i].percentage;
+        }
+    }
+    else
+    {
+        for (int i = 0; i < NB_ATTACKS_ENEMIES; i++)
+        {
+            strcpy(dst->attack[i].name, src->attack[i].name);
+
+            dst->attack[i].dmg_min = src->attack[i].dmg_min;
+            dst->attack[i].dmg_max = src->attack[i].dmg_max;
+            dst->attack[i].mana = src->attack[i].mana;
+
+            dst->attack[i].effect = src->attack[i].effect;
+            dst->attack[i].effect_duration = src->attack[i].effect_duration;
+            dst->attack[i].effect_remaining = src->attack[i].effect_remaining;
+            dst->attack[i].modifier = src->attack[i].modifier;
+            dst->attack[i].percentage = src->attack[i].percentage;
+        }
     }
 
     dst->life = src->life;

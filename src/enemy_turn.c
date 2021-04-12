@@ -17,7 +17,7 @@
 
 /*!
  *
- * \fn enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int num, map_t *map, SDL_Texture *texture_render_combat)
+ * \fn enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int num, map_t *map, SDL_Texture *texture_render_combat, int nb_attacks_boss)
  * \brief A FINIR.
  *
  * \param game A FINIR.
@@ -27,7 +27,7 @@
  *
  */
 
-extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int num, map_t *map, SDL_Texture *texture_render_combat)
+extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int num, map_t *map, SDL_Texture *texture_render_combat, int nb_attacks_boss)
 {
     /*--- Initialization Variable ------------------------------------------------*/
 
@@ -43,6 +43,8 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
     int dmg_modifier = 0;
 
     char char_dmg;
+
+    int i;
 
     char *msg;
     msg = malloc(sizeof(char) * 100);
@@ -181,54 +183,101 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
 
     /*--- Main Loop --------------------------------------------------------------*/
 
-    attack_spe = rand() % 101;
-
-    if (enemies_cbt[num].attack[1].effect_remaining == 0)
+    if (enemies_cbt->boss == SDL_TRUE)
     {
-        dmg_modifier = 0;
-    }
-    else
-    {
-        enemies_cbt[num].attack[1].effect_remaining--;
-    }
+        strcpy(msg, enemies_cbt->name);
+        strcat(msg, " utilise ");
 
-    strcpy(msg, enemies_cbt[num].name);
-    strcat(msg, " utilise ");
-
-    if (attack_spe >= 0 && attack_spe <= enemies_cbt[num].attack[1].percentage && enemies_cbt[num].attack[1].percentage != -1)
-    {
-        switch (enemies_cbt[num].attack[1].effect)
+        for (i = 1; i < nb_attacks_boss; i++)
         {
-        case 0: //Buff d'attaque pendant un certain nombre de tours
-            dmg = rand() % enemies_cbt[num].attack[1].dmg_max + enemies_cbt[num].attack[1].dmg_min;
+            attack_spe = rand() % 101;
+            if (attack_spe >= 0 && attack_spe <= enemies_cbt->attack[1].percentage)
+            {
+                break;
+            }
+        }
+        
+        if (attack_spe >= 0 && attack_spe <= enemies_cbt->attack[1].percentage && enemies_cbt->attack[1].percentage != -1)
+        {
+            switch (enemies_cbt->attack[1].effect)
+            {
+            case 0: //Buff d'attaque pendant un certain nombre de tours
+                dmg = rand() % enemies_cbt->attack[1].dmg_max + enemies_cbt->attack[1].dmg_min;
+                character->life -= dmg + dmg_modifier;
+                dmg += dmg_modifier;
+
+                enemies_cbt->attack[1].effect_remaining = enemies_cbt->attack[1].effect_duration;
+                dmg_modifier = enemies_cbt->attack[1].modifier;
+
+                strcat(msg, enemies_cbt->attack[1].name);
+
+                break;
+
+            case 1: //Empêche l'ennemi d'attaquer pendant un certain nombre de tour
+                /* code */
+                break;
+            }
+        }
+        else
+        {
+            dmg = rand() % enemies_cbt->attack[0].dmg_max + enemies_cbt->attack[0].dmg_min;
             character->life -= dmg + dmg_modifier;
             dmg += dmg_modifier;
 
-            enemies_cbt[num].attack[1].effect_remaining = enemies_cbt[num].attack[1].effect_duration;
-            dmg_modifier = enemies_cbt[num].attack[1].modifier;
-
-            strcat(msg, enemies_cbt[num].attack[1].name);
-
-            break;
-
-        case 1: //Empêche l'ennemi d'attaquer pendant un certain nombre de tour
-            /* code */
-            break;
+            strcat(msg, enemies_cbt->attack[0].name);
         }
     }
     else
     {
-        dmg = rand() % enemies_cbt[num].attack[0].dmg_max + enemies_cbt[num].attack[0].dmg_min;
-        character->life -= dmg + dmg_modifier;
-        dmg += dmg_modifier;
+        attack_spe = rand() % 101;
 
-        strcat(msg, enemies_cbt[num].attack[0].name);
+        if (enemies_cbt[num].attack[1].effect_remaining == 0)
+        {
+            dmg_modifier = 0;
+        }
+        else
+        {
+            enemies_cbt[num].attack[1].effect_remaining--;
+        }
+
+        strcpy(msg, enemies_cbt[num].name);
+        strcat(msg, " utilise ");
+
+        if (attack_spe >= 0 && attack_spe <= enemies_cbt[num].attack[1].percentage && enemies_cbt[num].attack[1].percentage != -1)
+        {
+            switch (enemies_cbt[num].attack[1].effect)
+            {
+            case 0: //Buff d'attaque pendant un certain nombre de tours
+                dmg = rand() % enemies_cbt[num].attack[1].dmg_max + enemies_cbt[num].attack[1].dmg_min;
+                character->life -= dmg + dmg_modifier;
+                dmg += dmg_modifier;
+
+                enemies_cbt[num].attack[1].effect_remaining = enemies_cbt[num].attack[1].effect_duration;
+                dmg_modifier = enemies_cbt[num].attack[1].modifier;
+
+                strcat(msg, enemies_cbt[num].attack[1].name);
+
+                break;
+
+            case 1: //Empêche l'ennemi d'attaquer pendant un certain nombre de tour
+                /* code */
+                break;
+            }
+        }
+        else
+        {
+            dmg = rand() % enemies_cbt[num].attack[0].dmg_max + enemies_cbt[num].attack[0].dmg_min;
+            character->life -= dmg + dmg_modifier;
+            dmg += dmg_modifier;
+
+            strcat(msg, enemies_cbt[num].attack[0].name);
+        }
     }
 
-    strcat(msg, " %n Vous avez subis de ");
+    strcat(msg, " %n Vous avez subis ");
     char_dmg = dmg + '0';
     strncat(msg, &char_dmg, 1);
-    strcat(msg, " degats.\0");
+    strcat(msg, " de degats.\0");
     texture_PV_personnage = SDL_CreateTextureFromSurface(game->render, surf_PV_personnage);
     surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
 

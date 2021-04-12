@@ -7,6 +7,6 @@
 #include "character.h"
 #include "map.h"
 
-extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int num, map_t *map, SDL_Texture *texture_render_combat);
+extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int num, map_t *map, SDL_Texture *texture_render_combat, int nb_attacks_boss);
 
 #endif

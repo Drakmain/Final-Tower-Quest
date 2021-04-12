@@ -327,7 +327,7 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
 
     SDL_Texture *position_save3 = NULL;
 
-    strcpy(temp, character_save2->position);
+    strcpy(temp, character_save3->position);
 
     _toEspace(temp);
 
@@ -382,9 +382,9 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
     pos_lvl_save3.w = strlen(char_lvl_save3) * (*game->WINDOWWIDTH) / 14 / 5;
     pos_lvl_save3.h = (*game->WINDOWHEIGHT) / 16;
 
-    /*--- End Affichage lvl save3 ---------------------------------------------------*/
+    /*--- End Affichage lvl save3 ------------------------------------------------*/
 
-    /*--- Affichage position --------------------------------------------------*/
+    /*--- Affichage position -----------------------------------------------------*/
 
     surf_position = TTF_RenderText_Blended(game->police, "Position : ", blanc);
     if (surf_position == NULL)
@@ -397,9 +397,9 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
         SDL_ExitWithError("probleme texture position");
     }
 
-    /*--- End Affichage position ----------------------------------------------*/
+    /*--- End Affichage position -------------------------------------------------*/
 
-    /*--- Affichage lvl -------------------------------------------------------*/
+    /*--- Affichage lvl ----------------------------------------------------------*/
 
     surf_lvl = TTF_RenderText_Blended(game->police, "LVL : ", blanc);
     if (surf_lvl == NULL)
@@ -412,7 +412,7 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
         SDL_ExitWithError("probleme texture niveau");
     }
 
-    /*--- End Affichage lvl ---------------------------------------------------*/
+    /*--- End Affichage lvl ------------------------------------------------------*/
 
     /*--- Creation text "choisissez emplacement" ---------------------------------*/
 

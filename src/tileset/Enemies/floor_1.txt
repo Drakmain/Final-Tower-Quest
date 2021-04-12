@@ -47,10 +47,11 @@ Saignement : 5, 4 - 5, 3, 3, 0 ;
 EXP: 10 ;
 
 Dragon_rouge : 3 ;
+W: 125 H: 124 M: 3 ;
 RGB: -1, -1, -1 ;
 PV: 250 ;
-VIT: 10 ;
+VIT: 20 ;
 Feu_du_dragon : 7 - 9 ;
-Saignement : 5%, 4 - 5, 3, 3, 0 ;
+Saignement : 5, 4 - 5, 3, 3, 0 ;
 Immobilisation : 10, 3 - 5, -1, 1, 1 ;
 EXP: 80 ;

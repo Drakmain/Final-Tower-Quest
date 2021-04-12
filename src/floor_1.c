@@ -10,6 +10,7 @@
 #include "..\lib\colision.h"
 #include "..\lib\menu_in_game.h"
 #include "..\lib\combat.h"
+#include "..\lib\combat_boss.h"
 #include "..\lib\transition.h"
 #include "..\lib\game_over.h"
 
@@ -137,6 +138,11 @@ extern void floor_1(game_t *game, character_t *character)
                 }
 
                 /*--- End Event to enter in game menu --------------------------------*/
+
+                if (keyState[SDL_SCANCODE_C] && event.type == SDL_KEYDOWN)
+                {
+                    combat_boss(game, character, floor_1, texture_render, floor_1_bool);
+                }
 
                 SDL_RenderClear(game->render);
 
