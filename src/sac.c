@@ -37,7 +37,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
 
     SDL_Surface *surf_sac = NULL, *surf_retour = NULL, *surf_cadre_sac = NULL, *surf_cadre_potions = NULL, *surf_potions = NULL, *surf_cadre_rouge_potions = NULL, *surf_effet_petite_popo_soin = NULL, *surf_effet_moyenne_popo_soin = NULL, *surf_effet_petite_popo_mana = NULL, *surf_effet_moyenne_popo_mana = NULL, *surf_effet_popo_puissance = NULL, *surf_effet_popo_agi = NULL, *surf_possede = NULL;
     SDL_Surface *surf_nb_petite_popo_soin = NULL, *surf_nb_moyenne_popo_soin = NULL, *surf_nb_petite_popo_mana = NULL, *surf_nb_moyenne_popo_mana = NULL, *surf_nb_popo_puissance = NULL, *surf_nb_popo_agi = NULL;
-
+    SDL_Surface *surf_pdv = NULL, * surf_nb_pdv = NULL, *surf_nb_life_max = NULL, *surf_pm = NULL, *surf_nb_mana = NULL, *surf_nb_mana_max = NULL, *surf_2point = NULL;
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool sac_bool = SDL_TRUE;
@@ -627,6 +627,179 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
 
     /*-------------------------------------------------------------------------*/
 
+    /*--- Creation text " : " ----------------------------------------*/
+
+    surf_2point = TTF_RenderText_Blended(game->police, " : ", blanc);
+    if (surf_2point == NULL)
+    {
+        SDL_ExitWithError("probleme surface : sac.c");
+    }
+
+    SDL_Texture *t_2point = SDL_CreateTextureFromSurface(game->render, surf_2point);
+    if (t_2point == NULL)
+    {
+        SDL_ExitWithError("probleme texture : sac.c");
+    }
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "pdv" ----------------------------------------*/
+
+    surf_pdv = TTF_RenderText_Blended(game->police, "PDV", blanc);
+    if (surf_pdv == NULL)
+    {
+        SDL_ExitWithError("probleme surface pdv sac.c");
+    }
+
+    SDL_Texture *pdv = SDL_CreateTextureFromSurface(game->render, surf_pdv);
+    if (pdv == NULL)
+    {
+        SDL_ExitWithError("probleme texture pdv sac.c");
+    }
+
+    SDL_Rect pos_pdv;
+    pos_pdv.w = (*game->WINDOWWIDTH) * 45 / 1200;
+    pos_pdv.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_pdv.x = pos_cadre_sac.x + rect_fond_cadre_sac.x + (*game->WINDOWWIDTH) * 40 / 1200;
+    pos_pdv.y = pos_sac.y;
+
+    SDL_Rect pos_2points_pdv;
+    pos_2points_pdv.x = pos_pdv.x + pos_pdv.w;
+    pos_2points_pdv.y = pos_pdv.y;
+    pos_2points_pdv.w = (*game->WINDOWWIDTH) * 45 / 1200;
+    pos_2points_pdv.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "PM" ----------------------------------------*/
+
+    surf_pm = TTF_RenderText_Blended(game->police, "PM ", blanc);
+    if (surf_pm == NULL)
+    {
+        SDL_ExitWithError("probleme surface pm sac.c");
+    }
+
+    SDL_Texture *pm = SDL_CreateTextureFromSurface(game->render, surf_pm);
+    if (pm == NULL)
+    {
+        SDL_ExitWithError("probleme texture pm sac.c");
+    }
+
+    SDL_Rect pos_pm;
+    pos_pm.w = (*game->WINDOWWIDTH) * 45 / 1200;
+    pos_pm.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_pm.x = pos_cadre_sac.x + rect_fond_cadre_sac.x + (*game->WINDOWWIDTH) * 40 / 1200;
+    pos_pm.y = pos_pdv.y + (*game->WINDOWHEIGHT) * 50 / 720;
+
+    SDL_Rect pos_2points_pm;
+    pos_2points_pm.x = pos_pm.x + pos_pm.w;
+    pos_2points_pm.y = pos_pm.y;
+    pos_2points_pm.w = (*game->WINDOWWIDTH) * 45 / 1200;
+    pos_2points_pm.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text " nb pdv" ----------------------------------------*/
+
+    char character_nb_pdv[10];
+    itoa(character->life, character_nb_pdv, 10);
+    strcat(character_nb_pdv, " / ");
+
+    surf_nb_pdv = TTF_RenderText_Blended(game->police, character_nb_pdv, blanc);
+    if (surf_nb_pdv == NULL)
+    {
+        SDL_ExitWithError("probleme surface nb pdv sac.c");
+    }
+
+    SDL_Texture *nb_pdv = SDL_CreateTextureFromSurface(game->render, surf_nb_pdv);
+    if (nb_pdv == NULL)
+    {
+        SDL_ExitWithError("probleme texture nb pdv sac.c");
+    }
+
+    SDL_Rect pos_nb_pdv;
+    pos_nb_pdv.w = strlen(character_nb_pdv) * (*game->WINDOWWIDTH) * 10 / 1280;
+    pos_nb_pdv.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_nb_pdv.x = pos_2points_pdv.x + pos_2points_pdv.w;
+    pos_nb_pdv.y = pos_pdv.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nb xp" ----------------------------------------*/
+
+    char character_nb_mana[10];
+    itoa(character->mana, character_nb_mana, 10);
+
+    strcat(character_nb_mana, " / ");
+
+    surf_nb_mana = TTF_RenderText_Blended(game->police, character_nb_mana, blanc);
+    if (surf_nb_mana == NULL)
+    {
+        SDL_ExitWithError("probleme surface nb mana sac.c");
+    }
+
+    SDL_Texture *nb_mana = SDL_CreateTextureFromSurface(game->render, surf_nb_mana);
+    if (nb_mana == NULL)
+    {
+        SDL_ExitWithError("probleme texture nb mana sac.c");
+    }
+
+    SDL_Rect pos_nb_mana;
+    pos_nb_mana.w = strlen(character_nb_mana) * (*game->WINDOWWIDTH) * 10 / 1280;
+    pos_nb_mana.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_nb_mana.x = pos_2points_pm.x + pos_2points_pm.w;
+    pos_nb_mana.y = pos_pm.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nb life max" ----------------------------------------*/
+
+    char character_nb_life_max[10];
+    itoa(character->max_life, character_nb_life_max, 10);
+
+    surf_nb_life_max = TTF_RenderText_Blended(game->police, character_nb_life_max, blanc);
+    if (surf_nb_life_max == NULL)
+    {
+        SDL_ExitWithError("probleme surface nb life max sac.c");
+    }
+
+    SDL_Texture *nb_life_max = SDL_CreateTextureFromSurface(game->render, surf_nb_life_max);
+    if (nb_life_max == NULL)
+    {
+        SDL_ExitWithError("probleme texture nb life max sac.c");
+    }
+
+    SDL_Rect pos_nb_life_max;
+    pos_nb_life_max.w = strlen(character_nb_life_max) * (*game->WINDOWWIDTH) * 10 / 1280;
+    pos_nb_life_max.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_nb_life_max.x = pos_nb_pdv.x + pos_nb_pdv.w;
+    pos_nb_life_max.y = pos_nb_pdv.y;
+
+    /*----------------------------------------------------------------------------*/
+
+    /*--- Creation text "nb mana max" ----------------------------------------*/
+
+    char character_nb_mana_max[10];
+    itoa(character->max_mana, character_nb_mana_max, 10);
+
+    surf_nb_mana_max = TTF_RenderText_Blended(game->police, character_nb_mana_max, blanc);
+    if (surf_nb_mana_max == NULL)
+    {
+        SDL_ExitWithError("probleme surface nb mana max sac.c");
+    }
+
+    SDL_Texture *nb_mana_max = SDL_CreateTextureFromSurface(game->render, surf_nb_mana_max);
+    if (nb_mana_max == NULL)
+    {
+        SDL_ExitWithError("probleme texture nb mana max sac.c");
+    }
+
+    SDL_Rect pos_nb_mana_max;
+    pos_nb_mana_max.w = strlen(character_nb_mana_max) * (*game->WINDOWWIDTH) * 10 / 1280;
+    pos_nb_mana_max.h = (*game->WINDOWHEIGHT) * 50 / 720;
+    pos_nb_mana_max.x = pos_nb_mana.x + pos_nb_mana.w;
+    pos_nb_mana_max.y = pos_nb_mana.y;
+
+    /*----------------------------------------------------------------------------*/
+
     /*--- Initialization text "effet popo agi" ----------------------------------------*/
 
     surf_possede = TTF_RenderText_Blended(game->police, "Possede : ", blanc);
@@ -1085,6 +1258,16 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
             SDL_RenderCopy(game->render, nb_popo_puissance, NULL, &pos_nb_popo_puissance);
             SDL_RenderCopy(game->render, nb_popo_agi, NULL, &pos_nb_popo_agi);
 
+            SDL_RenderCopy(game->render, pdv, NULL, &pos_pdv);
+            SDL_RenderCopy(game->render, pm, NULL, &pos_pm);
+            SDL_RenderCopy(game->render, nb_pdv, NULL, &pos_nb_pdv);
+            SDL_RenderCopy(game->render, nb_mana, NULL, &pos_nb_mana);
+            SDL_RenderCopy(game->render, nb_life_max, NULL, &pos_nb_life_max);
+            SDL_RenderCopy(game->render, nb_mana_max, NULL, &pos_nb_mana_max);
+            SDL_RenderCopy(game->render, t_2point, NULL, &pos_2points_pdv);
+            SDL_RenderCopy(game->render, t_2point, NULL, &pos_2points_pm);
+
+
             SDL_SetRenderTarget(game->render, NULL);
             SDL_RenderCopy(game->render, texture_render_sac, NULL, &pos_texture_render_menu_ig);
             SDL_RenderPresent(game->render);
@@ -1403,6 +1586,13 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
     SDL_FreeSurface(surf_nb_moyenne_popo_mana);
     SDL_FreeSurface(surf_nb_popo_puissance);
     SDL_FreeSurface(surf_nb_popo_agi);
+    SDL_FreeSurface(surf_pdv);
+    SDL_FreeSurface(surf_nb_pdv);
+    SDL_FreeSurface(surf_nb_life_max);
+    SDL_FreeSurface(surf_pm);
+    SDL_FreeSurface(surf_nb_mana);
+    SDL_FreeSurface(surf_nb_mana_max);
+    SDL_FreeSurface(surf_2point);
 
     SDL_DestroyTexture(sac);
     SDL_DestroyTexture(retour);
@@ -1429,6 +1619,13 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
     SDL_DestroyTexture(nb_moyenne_popo_mana);
     SDL_DestroyTexture(nb_popo_puissance);
     SDL_DestroyTexture(nb_popo_agi);
+    SDL_DestroyTexture(pdv);
+    SDL_DestroyTexture(pm);
+    SDL_DestroyTexture(nb_pdv);
+    SDL_DestroyTexture(nb_mana);
+    SDL_DestroyTexture(nb_life_max);
+    SDL_DestroyTexture(nb_mana_max);
+    SDL_DestroyTexture(t_2point);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

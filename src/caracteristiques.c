@@ -560,7 +560,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_Rect pos_nb_lvl;
     pos_nb_lvl.w = strlen(character_nb_lvl) * (*game->WINDOWWIDTH) * 10 / 1280;
     pos_nb_lvl.h = (*game->WINDOWHEIGHT) * 50 / 720;
-    pos_nb_lvl.x = pos_lvl.x + pos_lvl.w + pos_2point_lvl.w + (*game->WINDOWWIDTH) * 15 / 1280;
+    pos_nb_lvl.x = pos_lvl.x + pos_lvl.w + pos_2point_lvl.w;
     pos_nb_lvl.y = pos_lvl.y;
 
     /*----------------------------------------------------------------------------*/
@@ -587,7 +587,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_Rect pos_nb_xp;
     pos_nb_xp.w = strlen(character_nb_xp) * (*game->WINDOWWIDTH) * 10 / 1280;
     pos_nb_xp.h = (*game->WINDOWHEIGHT) * 50 / 720;
-    pos_nb_xp.x = pos_xp.x + pos_xp.w + pos_2point_xp.w + (*game->WINDOWWIDTH) * 15 / 1280;
+    pos_nb_xp.x = pos_xp.x + pos_xp.w + pos_2point_xp.w;
     pos_nb_xp.y = pos_xp.y;
 
     /*----------------------------------------------------------------------------*/
