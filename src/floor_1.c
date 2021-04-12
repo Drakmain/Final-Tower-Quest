@@ -162,8 +162,6 @@ extern void floor_1(game_t *game, character_t *character)
     SDL_RenderCopy(game->render, floor_1->texture, &floor_1->tile_set, &pos_Wind_floor_1);
     SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
 
-    SDL_RenderPresent(game->render);
-
     SDL_SetRenderTarget(game->render, texture_render);
 
     SDL_RenderClear(game->render);
@@ -172,6 +170,21 @@ extern void floor_1(game_t *game, character_t *character)
     SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
 
     SDL_SetRenderTarget(game->render, NULL);
+
+    for (int i = 255; i >= 0; i -= 5)
+    {
+        SDL_SetRenderDrawColor(game->render, 0, 0, 0, i);
+        SDL_SetRenderTarget(game->render, transi);
+        SDL_SetTextureBlendMode(transi, SDL_BLENDMODE_BLEND);
+        SDL_RenderFillRect(game->render, &rect_transi);
+        SDL_SetRenderTarget(game->render, NULL);
+
+        SDL_RenderClear(game->render);
+        SDL_RenderCopy(game->render, texture_render, NULL, &pos_transi);
+        SDL_RenderCopy(game->render, transi, NULL, &pos_transi);
+        SDL_RenderPresent(game->render);
+        SDL_Delay(10);
+    }
 
     /*--- Main Loop --------------------------------------------------------------*/
 
@@ -597,6 +610,8 @@ extern void floor_1(game_t *game, character_t *character)
     /*--- Free Memory ------------------------------------------------------------*/
 
     floor_1->free(&floor_1);
+
+    SDL_FreeSurface(surface);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

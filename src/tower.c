@@ -75,6 +75,7 @@ extern void tower(game_t *game, character_t *character)
     int North_Walk = 0;
 
     /*---texture fond cadre sac--------------------------------------------------------*/
+
     int opacite_transi = 0;
 
     SDL_Texture *transi = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
@@ -156,8 +157,6 @@ extern void tower(game_t *game, character_t *character)
     SDL_RenderCopy(game->render, tower->texture, &tower->tile_set, &pos_Wind_tower);
     SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
 
-    SDL_RenderPresent(game->render);
-
     SDL_SetRenderTarget(game->render, texture_render);
 
     SDL_RenderClear(game->render);
@@ -166,6 +165,21 @@ extern void tower(game_t *game, character_t *character)
     SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
 
     SDL_SetRenderTarget(game->render, NULL);
+
+    for (int i = 255; i >= 0; i -= 5)
+    {
+        SDL_SetRenderDrawColor(game->render, 0, 0, 0, i);
+        SDL_SetRenderTarget(game->render, transi);
+        SDL_SetTextureBlendMode(transi, SDL_BLENDMODE_BLEND);
+        SDL_RenderFillRect(game->render, &rect_transi);
+        SDL_SetRenderTarget(game->render, NULL);
+
+        SDL_RenderClear(game->render);
+        SDL_RenderCopy(game->render, texture_render, NULL, &pos_transi);
+        SDL_RenderCopy(game->render, transi, NULL, &pos_transi);
+        SDL_RenderPresent(game->render);
+        SDL_Delay(10);
+    }
 
     /*--- Main Loop --------------------------------------------------------------*/
 
@@ -456,6 +470,9 @@ extern void tower(game_t *game, character_t *character)
 
     tower->free(&tower);
 
+    SDL_FreeSurface(surface);
+
     SDL_DestroyTexture(transi);
+
     /*--- End Free Memory --------------------------------------------------------*/
 }

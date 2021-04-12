@@ -93,25 +93,34 @@ int main(int argc, char **argv)
 
     while (*game->program_launch)
     {
-
         menu_accueil(game, actual_save);
+        if (*game->program_launch == SDL_FALSE)
+        {
+            break;
+        }
+        
+        if (strcmp(actual_save, "save//save1.txt") == 0 || strcmp(actual_save, "save//save2.txt") == 0 || strcmp(actual_save, "save//save3.txt") == 0)
+        {
+            character_save = character_create(game->render, actual_save);
+        }
 
-        character_save = character_create(game->render, actual_save);
-
-        if (!strcmp(character_save->position, "Village"))
-            town(game, character_save);
-        if (!strcmp(character_save->position, "Tour"))
-            tower(game, character_save);
-        if (!strcmp(character_save->position, "Etage_1"))
-            floor_1(game, character_save);
-        /*if(!strcmp(character_save->position,"Etage_2"))
-            floor_2(game, character_save);
-        if(!strcmp(character_save->position,"Etage_3"))
-            floor_3(game, character_save);
-        if(!strcmp(character_save->position,"Etage_4"))
-            floor_4(game, character_save);
-        if(!strcmp(character_save->position,"Etage_5"))
-            floor_5(game, character_save);*/
+        if (strcmp(character_save->file_name_save, "\0"))
+        {
+            if (strcmp(character_save->position, "Village") == 0)
+                town(game, character_save);
+            if (strcmp(character_save->position, "Tour") == 0)
+                tower(game, character_save);
+            if (strcmp(character_save->position, "Etage_1") == 0)
+                floor_1(game, character_save);
+            /*if(!strcmp(character_save->position,"Etage_2"))
+                floor_2(game, character_save);
+            if(!strcmp(character_save->position,"Etage_3"))
+                floor_3(game, character_save);
+            if(!strcmp(character_save->position,"Etage_4"))
+                floor_4(game, character_save);
+            if(!strcmp(character_save->position,"Etage_5"))
+                floor_5(game, character_save);*/
+        }
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/

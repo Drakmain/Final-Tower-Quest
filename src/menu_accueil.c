@@ -333,6 +333,7 @@ extern void menu_accueil(game_t *game, char *actual_save)
 
                 if (selection == 3)
                 {
+                    //strcpy(actual_save, "\0");
                     menu_ac_bool = SDL_FALSE;
                     (*game->program_launch) = SDL_FALSE;
                 }
