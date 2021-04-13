@@ -152,6 +152,9 @@ extern void floor_1(game_t *game, character_t *character)
         break;
     }
 
+    pixel_character = getpixel(surface, character->x + pos_Wind_character.w/2 , character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+    SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
+
     /*--- End Initialization Variable --------------------------------------------*/
 
     SDL_RenderClear(game->render);
