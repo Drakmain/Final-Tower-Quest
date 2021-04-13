@@ -275,7 +275,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = 5;//rand() % 101;
+                        rand_combat = rand() % 101;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {
@@ -356,7 +356,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = 5;//rand() % 101;
+                        rand_combat = rand() % 101;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {
@@ -436,7 +436,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = 5;//rand() % 101;
+                        rand_combat = rand() % 101;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {
@@ -536,7 +536,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = 5;//rand() % 101;
+                        rand_combat = rand() % 101;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {
