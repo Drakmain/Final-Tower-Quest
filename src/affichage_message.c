@@ -269,7 +269,7 @@ extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *m
     SDL_FreeSurface(surf_message2);
 
     SDL_DestroyTexture(t_message);
-    if (part2_bool)
+    if (message_2 != NULL)
         SDL_DestroyTexture(t_message2);
     SDL_DestroyTexture(cadre);
     SDL_DestroyTexture(fond_cadre);
