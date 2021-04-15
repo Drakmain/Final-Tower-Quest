@@ -190,10 +190,9 @@ extern void floor_1(game_t *game, character_t *character)
     {
         while (SDL_PollEvent(&event) && *floor_1_bool && *game->program_launch)
         {
-            while ((*game->program_launch && *floor_1_bool) && (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE] || keyState[SDL_SCANCODE_E])))
+            while ((*game->program_launch && *floor_1_bool) || (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE] || keyState[SDL_SCANCODE_E])))
             {
                 SDL_PollEvent(&event);
-
                 /*--- Event to enter in game menu ------------------------------------*/
 
                 if (keyState[SDL_SCANCODE_ESCAPE])
@@ -224,7 +223,7 @@ extern void floor_1(game_t *game, character_t *character)
                     }
                 }
 
-                while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
+                while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE] && *game->program_launch)
                 {
                     if (character_moving(game, game->render, surface, character->x, character->y, 2) == 2)
                     {
@@ -307,7 +306,7 @@ extern void floor_1(game_t *game, character_t *character)
                     East_Walk = 0;
                 }
 
-                while (keyState[SDL_SCANCODE_LEFT] && !keyState[SDL_SCANCODE_ESCAPE])
+                while (keyState[SDL_SCANCODE_LEFT] && !keyState[SDL_SCANCODE_ESCAPE] && *game->program_launch)
                 {
                     if (character_moving(game, game->render, surface, character->x, character->y, 3) == 2)
                     {
@@ -389,7 +388,7 @@ extern void floor_1(game_t *game, character_t *character)
                     West_Walk = 0;
                 }
 
-                while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE])
+                while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE] && *game->program_launch)
                 {
                     if (character_moving(game, game->render, surface, character->x, character->y, 1) == 2)
                     {
@@ -471,7 +470,7 @@ extern void floor_1(game_t *game, character_t *character)
                     South_Walk = 0;
                 }
 
-                while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE] && *floor_1_bool)
+                while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE] && *floor_1_bool && *game->program_launch)
                 {
                     if (character_moving(game, game->render, surface, character->x, character->y, 0) == 2)
                     {
