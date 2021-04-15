@@ -182,6 +182,28 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
 
     /*----------------------------------------------------------------------------*/
 
+    /*--- Creation image defaite ----------------------------------------*/
+    SDL_Surface *surf_pepe = NULL;
+    surf_pepe = SDL_LoadBMP("src\\image\\pepe.bmp");
+    if (surf_pepe == NULL)
+    {
+        SDL_ExitWithError("probleme chargement image pepe");
+    }
+
+    SDL_Texture *pepe = SDL_CreateTextureFromSurface(game->render, surf_pepe);
+    if (pepe == NULL)
+    {
+        SDL_ExitWithError("probleme texture image pepe");
+    }
+
+    SDL_Rect pos_pepe;
+    pos_pepe.x = (*game->WINDOWWIDTH) * 1841 / 1920;
+    pos_pepe.y = (*game->WINDOWHEIGHT) * 946 / 1080;
+    pos_pepe.w = (*game->WINDOWWIDTH) * 79 / 1920;
+    pos_pepe.h = (*game->WINDOWHEIGHT) * 134 / 1080;
+    /*----------------------------------------------------------------------------*/
+
+
     SDL_RenderClear(game->render);
 
     SDL_RenderCopy(game->render, text_gameOver, NULL, &pos_text_gameOver);
@@ -190,6 +212,7 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
     SDL_RenderCopy(game->render, confirmation, NULL, &pos_confirmation);
     SDL_RenderCopy(game->render, choix_oui, NULL, &pos_choix_oui);
     SDL_RenderCopy(game->render, choix_non, NULL, &pos_choix_non);
+    SDL_RenderCopy(game->render, pepe, NULL, &pos_pepe);
 
     SDL_RenderPresent(game->render);
 
