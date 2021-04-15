@@ -22,7 +22,7 @@
  *
  */
 
-extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *message, int nombre)
+extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *message, char *message_2, int nombre)
 {
     /*--- Initialization Variable ------------------------------------------------*/
     SDL_Color blanc = {255, 255, 255};
@@ -37,11 +37,11 @@ extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *m
 
     SDL_Event event;
 
-    SDL_bool affichage_message_bool = SDL_TRUE, part2_bool = SDL_FALSE;
+    SDL_bool affichage_message_bool = SDL_TRUE;
 
-    char tab_part1_message[strlen(message) + 20];
-    char tab_part2_message[strlen(message) + 20];
-    strcpy(tab_part1_message, message);
+    char tab[100];
+    char tab2[100];
+    strcpy(tab, message);
 
     /*--- End Initialization Variable --------------------------------------------*/
 
@@ -103,35 +103,35 @@ extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *m
         char nombre_char[10];
         itoa(nombre, nombre_char, 10);
 
-        while ((tab_part1_message[i] != '%' && tab_part1_message[i + 1] != 'd') && tab_part1_message[i] != '\0')
+        while ((tab[i] != '%' && tab[i + 1] != 'd') && tab[i] != '\0')
             i++;
 
-        if (tab_part1_message[i] == '\0')
+        if (tab[i] == '\0')
             SDL_ExitWithError("position du nombre dans le message non indique");
 
         for (; nombre_char[y] != '\0' && y < 2; y++, i++)
         {
-            tab_part1_message[i] = nombre_char[y];
+            tab[i] = nombre_char[y];
         }
 
         for (; nombre_char[y] != '\0'; y++, i++)
         {
-            memoire = tab_part1_message[i];
-            tab_part1_message[i] = nombre_char[y];
-            for (int k = i + 1; k < strlen(tab_part1_message) + 1; k++)
+            memoire = tab[i];
+            tab[i] = nombre_char[y];
+            for (int k = i + 1; k < strlen(tab) + 1; k++)
             {
                 memoire2 = memoire;
-                memoire = tab_part1_message[k];
-                tab_part1_message[k] = memoire2;
+                memoire = tab[k];
+                tab[k] = memoire2;
             }
         }
 
         if (y == 1)
         {
-            for (int k = i + 1; k < strlen(tab_part1_message) + 1; k++)
+            for (int k = i + 1; k < strlen(tab) + 1; k++)
             {
-                memoire = tab_part1_message[k];
-                tab_part1_message[k - 1] = memoire;
+                memoire = tab[k];
+                tab[k - 1] = memoire;
             }
         }
     }
@@ -139,7 +139,7 @@ extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *m
 
     /*--- Creation text "partie 1 message" ----------------------------------------*/
 
-    surf_message = TTF_RenderText_Blended(game->police, tab_part1_message, blanc);
+    surf_message = TTF_RenderText_Blended(game->police, tab, blanc);
     if (surf_message == NULL)
     {
         SDL_ExitWithError("probleme surface message d'affichage_message");
@@ -152,31 +152,15 @@ extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *m
     }
 
     SDL_Rect pos_message;
-    pos_message.w = strlen(tab_part1_message) * (*game->WINDOWWIDTH) * 850 / 1280 / 59;
+    pos_message.w = strlen(tab) * (*game->WINDOWWIDTH) * 850 / 1280 / 59;
     pos_message.h = (*game->WINDOWHEIGHT) * 50 / 720;
     pos_message.x = pos_cadre.x + rect_fond_cadre.x + (*game->WINDOWWIDTH) * 15 / 1280;
     pos_message.y = pos_cadre.y + pos_cadre.h/2 - pos_message.h/2;
 
     /*----------------------------------------------------------------------------*/
-
-    int i = 0;
-    int fin_part1;
-    while ((tab_part1_message[i] != '%' && tab_part1_message[i + 1] != 'n') && tab_part1_message[i] != '\0')
-        i++;
-
-    if (tab_part1_message[i] == '%')
+    if(message_2 != NULL)
     {
-        part2_bool = SDL_TRUE;
-        fin_part1 = i;
-        i += 3;
-
-        for (int y = 0; i < strlen(tab_part1_message) + 1; i++, y++)
-        {
-            tab_part2_message[y] = tab_part1_message[i];
-        }
-        tab_part1_message[fin_part1] = '\0';
-
-        /*---texture "cadre"--------------------------------------------------------*/
+        strcpy(tab2, message_2);
 
         surf_cadre = SDL_LoadBMP("src\\image\\cadre_affichage_message_2lignes.bmp");
         if (surf_cadre == NULL)
@@ -218,7 +202,7 @@ extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *m
 
         /*--- Creation text "partie 2 message" ----------------------------------------*/
 
-        surf_message2 = TTF_RenderText_Blended(game->police, tab_part2_message, blanc);
+        surf_message2 = TTF_RenderText_Blended(game->police, tab2, blanc);
         if (surf_message2 == NULL)
         {
             SDL_ExitWithError("probleme surface message d'affichage_message");
@@ -230,20 +214,19 @@ extern void affichage_message(game_t *game, SDL_Texture *texture_render, char *m
             SDL_ExitWithError("probleme texture message d'affichage_message");
         }
 
-        pos_message2.w = strlen(tab_part2_message) * (*game->WINDOWWIDTH) * 850 / 1280 / 59;
+        pos_message2.w = strlen(tab2) * (*game->WINDOWWIDTH) * 850 / 1280 / 59;
         pos_message2.h = (*game->WINDOWHEIGHT) * 50 / 720;
         pos_message2.x = pos_cadre.x + rect_fond_cadre.x + (*game->WINDOWWIDTH) * 15 / 1280;
         pos_message2.y = pos_cadre.y + rect_fond_cadre.y + (*game->WINDOWHEIGHT) * 85 / 720;
 
         /*----------------------------------------------------------------------------*/
         pos_message.y = pos_cadre.y + rect_fond_cadre.y + (*game->WINDOWHEIGHT) * 15 / 720;
-
     }
 
     SDL_RenderCopy(game->render, fond_cadre, NULL, &pos_fond_cadre);
     SDL_RenderCopy(game->render, cadre, NULL, &pos_cadre);
     SDL_RenderCopy(game->render, t_message, NULL, &pos_message);
-    if (part2_bool)
+    if (message_2 != NULL)
         SDL_RenderCopy(game->render, t_message2, NULL, &pos_message2);
     SDL_RenderPresent(game->render);
 

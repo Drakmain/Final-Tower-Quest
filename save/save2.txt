@@ -1,8 +1,8 @@
-save_name: Alexis ;
+save_name: alexis ;
 charactere_name: Mage ;
 position: Tour ;
 x: 448 ;
-y: 2160 ;
+y: 300 ;
 lvl: 1 ;
 xp: 0 ;
 max_life: 20 ;
