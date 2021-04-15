@@ -317,7 +317,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
 
     msg = (char *)realloc(msg, strlen(msg) * sizeof(char) + 1);
     printf("msg: %s", msg);
-    affichage_message(game, texture_render, msg, -1);
+    affichage_message(game, texture_render, msg, NULL, -1);
 
     /*--- End Main Loop ----------------------------------------------------------*/
 

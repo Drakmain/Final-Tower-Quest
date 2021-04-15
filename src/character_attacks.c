@@ -1669,7 +1669,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                 case 0: //Attaque un ennemi
                     if (character->mana - character->attacks[selection].mana < 0)
                     {
-                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", -1);
+                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", NULL, -1);
                         break;
                     }
 
@@ -1680,7 +1680,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     }
                     else if (enemies_cbt[selected_enemy].life <= 0)
                     {
-                        affichage_message(game, texture_render, "Cette ennemi est deja mort.", -1);
+                        affichage_message(game, texture_render, "Cette ennemi est deja mort.", NULL, -1);
                         break;
                     }
 
@@ -1697,7 +1697,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     itoa(dmg, dmg_char, 10);
                     strcat(msg, dmg_char);
                     strcat(msg, " de degat.");
-                    affichage_message(game, texture_render, msg, -1);
+                    affichage_message(game, texture_render, msg, NULL, -1);
 
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
@@ -1706,7 +1706,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                 case 1: //Attaque tous les ennemis
                     if (character->mana - character->attacks[selection].mana < 0)
                     {
-                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", -1);
+                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", NULL, -1);
                         break;
                     }
 
@@ -1724,7 +1724,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     itoa(dmg, dmg_char, 10);
                     strcat(msg, dmg_char);
                     strcat(msg, " de degat.");
-                    affichage_message(game, texture_render, msg, -1);
+                    affichage_message(game, texture_render, msg, NULL, -1);
 
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
@@ -1733,7 +1733,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                 case 2: //Attaque 3x aleatoirement
                     if (character->mana - character->attacks[selection].mana < 0)
                     {
-                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", -1);
+                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", NULL, -1);
                         break;
                     }
 
@@ -1754,7 +1754,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     strcat(msg, character->attacks[selection].name);
                     strcat(msg, ". %n ");
                     strcat(msg, "Vous avez attaquez trois fois alatoirement.");
-                    affichage_message(game, texture_render, msg, -1);
+                    affichage_message(game, texture_render, msg, NULL, -1);
 
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
@@ -1763,7 +1763,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                 case 3: //Restaure un certain % la sante
                     if (character->mana - character->attacks[selection].mana < 0)
                     {
-                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", -1);
+                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", NULL, -1);
                         break;
                     }
 
@@ -1779,7 +1779,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     itoa(character->attacks[selection].modifier, modifier_char, 10);
                     strcat(msg, modifier_char);
                     strcat(msg, "\%.");
-                    affichage_message(game, texture_render, msg, -1);
+                    affichage_message(game, texture_render, msg, NULL, -1);
 
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
@@ -1792,7 +1792,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                 case 5: //Une chance sur X de tuer l'ennemi
                     if (character->mana - character->attacks[selection].mana < 0)
                     {
-                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", -1);
+                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", NULL, -1);
                         break;
                     }
 
@@ -1803,7 +1803,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     }
                     else if (enemies_cbt[selected_enemy].life <= 0)
                     {
-                        affichage_message(game, texture_render, "Cette ennemi est deja mort.", -1);
+                        affichage_message(game, texture_render, "Cette ennemi est deja mort.", NULL, -1);
                         break;
                     }
 
@@ -1817,7 +1817,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                         strcat(msg, character->attacks[selection].name);
                         strcat(msg, ". %n ");
                         strcat(msg, "Vous avez tuez votre ennemi.");
-                        affichage_message(game, texture_render, msg, -1);
+                        affichage_message(game, texture_render, msg, NULL, -1);
                     }
                     else
                     {
@@ -1826,7 +1826,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                         strcat(msg, character->attacks[selection].name);
                         strcat(msg, ". %n ");
                         strcat(msg, "Cela n'as pas marcher.");
-                        affichage_message(game, texture_render, msg, -1);
+                        affichage_message(game, texture_render, msg, NULL, -1);
                     }
 
                     character->mana -= character->attacks[selection].mana;

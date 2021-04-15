@@ -381,62 +381,62 @@ extern void character_turn(game_t *game, character_t *character, enemy_t *enemie
                     if (enemies_cbt->boss == SDL_FALSE)
                     {
                         temp = rand() % 101;
-                        affichage_message(game, texture_render_combat, "Vous essayez de fuir...", -1);
+                        affichage_message(game, texture_render_combat, "Vous essayez de fuir...", NULL, -1);
                         switch (nb_enemies_combat)
                         {
                         case 1:
                             if (temp >= 0 && temp <= 80)
                             {
-                                affichage_message(game, texture_render_combat, "...et c'est un succes.", -1);
+                                affichage_message(game, texture_render_combat, "...et c'est un succes.", NULL, -1);
                                 character_turn_bool = SDL_FALSE;
                                 *combat_bool = SDL_FALSE;
                                 break;
                             }
-                            affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", -1);
+                            affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", NULL, -1);
                             character_turn_bool = SDL_FALSE;
                             break;
 
                         case 2:
                             if (temp >= 0 && temp <= 70)
                             {
-                                affichage_message(game, texture_render_combat, "...et c'est un succes.", -1);
+                                affichage_message(game, texture_render_combat, "...et c'est un succes.", NULL, -1);
                                 character_turn_bool = SDL_FALSE;
                                 *combat_bool = SDL_FALSE;
                                 break;
                             }
-                            affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", -1);
+                            affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", NULL, -1);
                             character_turn_bool = SDL_FALSE;
                             break;
 
                         case 3:
                             if (temp >= 0 && temp <= 60)
                             {
-                                affichage_message(game, texture_render_combat, "...et c'est un succes.", -1);
+                                affichage_message(game, texture_render_combat, "...et c'est un succes.", NULL, -1);
                                 character_turn_bool = SDL_FALSE;
                                 *combat_bool = SDL_FALSE;
                                 break;
                             }
-                            affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", -1);
+                            affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", NULL, -1);
                             character_turn_bool = SDL_FALSE;
                             break;
 
                         case 4:
                             if (temp >= 0 && temp <= 50)
                             {
-                                affichage_message(game, texture_render_combat, "...et c'est un succes.", -1);
+                                affichage_message(game, texture_render_combat, "...et c'est un succes.", NULL, -1);
                                 character_turn_bool = SDL_FALSE;
                                 *combat_bool = SDL_FALSE;
                                 break;
                             }
-                            affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", -1);
+                            affichage_message(game, texture_render_combat, "Mais l'ennemi vous en empeche.", NULL, -1);
                             character_turn_bool = SDL_FALSE;
                             break;
                         }
                     }
                     else
                     {
-                        affichage_message(game, texture_render_combat, "Vous essayez de fuir...", -1);
-                        affichage_message(game, texture_render_combat, "La défaite est inévitable.", -1);
+                        affichage_message(game, texture_render_combat, "Vous essayez de fuir...", NULL, -1);
+                        affichage_message(game, texture_render_combat, "La défaite est inévitable.", NULL, -1);
                         character_turn_bool = SDL_FALSE;
                         *combat_bool = SDL_FALSE;
                     }
