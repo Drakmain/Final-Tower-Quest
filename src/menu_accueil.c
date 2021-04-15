@@ -50,7 +50,7 @@ extern void menu_accueil(game_t *game, char *actual_save)
 
     /*--- Creation text "nouvelle partie" ----------------------------------------*/
 
-    surf_nouvelle_partie = TTF_RenderText_Blended(game->police, "Nouvelle partie", rouge);
+    surf_nouvelle_partie = TTF_RenderText_Blended(game->police, "Nouvelle partie", blanc);
     if (surf_nouvelle_partie == NULL)
     {
         SDL_ExitWithError("probleme surface nouvelle partie menu d'accueil");
