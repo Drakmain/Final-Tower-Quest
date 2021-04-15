@@ -25,8 +25,6 @@
  *
  */
 
-#define CHANCE_CBT 1
-
 /*!
  *
  * \fn floor_1(game_t *game, character_t *character)
@@ -266,7 +264,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = rand() % 101;
+                        rand_combat = rand() % CHANCE_CBT_MAX + 1;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {
@@ -349,7 +347,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = rand() % 101;
+                        rand_combat = rand() % CHANCE_CBT_MAX + 1;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {
@@ -431,7 +429,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = rand() % 101;
+                        rand_combat = rand() % CHANCE_CBT_MAX + 1;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {
@@ -509,7 +507,15 @@ extern void floor_1(game_t *game, character_t *character)
                         SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
 
                         SDL_SetRenderTarget(game->render, NULL);
+
+                        SDL_RenderClear(game->render);
+
+                        SDL_RenderCopy(game->render, texture_render, NULL, NULL);
+
+                        SDL_RenderPresent(game->render);
+
                         transition(game);
+
                         if (combat_boss(game, character, floor_1, texture_render, floor_1_bool))
                         {
                             *floor_1_bool = SDL_FALSE;
@@ -533,7 +539,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         render_frame(game->render);
 
-                        rand_combat = rand() % 101;
+                        rand_combat = rand() % CHANCE_CBT_MAX + 1;
                         printf("rand_combat: %i\n", rand_combat);
                         if (rand_combat >= 0 && rand_combat <= CHANCE_CBT)
                         {

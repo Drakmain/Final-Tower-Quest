@@ -626,6 +626,21 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
             character->atb = 0;
         }
 
+        if (character->life > character->max_life)
+        {
+            character->life = character->max_life;
+        }
+
+        if (character->mana > character->max_mana)
+        {
+            character->mana = character->max_mana;
+        }
+
+        if (character->mana < 0)
+        {
+            character->mana = 0;
+        }
+
         SDL_RenderClear(game->render);
 
         SDL_SetRenderTarget(game->render, texture_render);

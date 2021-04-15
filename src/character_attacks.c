@@ -69,6 +69,10 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
 
     int max_selec;
 
+    char msg[100];
+    char dmg_char[3];
+    char modifier_char[3];
+
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool attacks_bool = SDL_TRUE;
@@ -1663,6 +1667,12 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                 switch (character->attacks[selection].type)
                 {
                 case 0: //Attaque un ennemi
+                    if (character->mana - character->attacks[selection].mana < 0)
+                    {
+                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", -1);
+                        break;
+                    }
+
                     selected_enemy = enemy_selection(game, character, enemies_cbt, nb_enemies_combat, texture_render);
                     if (selected_enemy == -1)
                     {
@@ -1679,22 +1689,54 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
 
                     character->mana -= character->attacks[selection].mana;
 
+                    strcpy(msg, "Vous avez utilise ");
+                    printf("%s\n", character->attacks[selection].name);
+                    strcat(msg, character->attacks[selection].name);
+                    strcat(msg, ". %n ");
+                    strcat(msg, "Vous avez fait ");
+                    itoa(dmg, dmg_char, 10);
+                    strcat(msg, dmg_char);
+                    strcat(msg, " de degat.");
+                    affichage_message(game, texture_render, msg, -1);
+
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
                     break;
 
                 case 1: //Attaque tous les ennemis
+                    if (character->mana - character->attacks[selection].mana < 0)
+                    {
+                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", -1);
+                        break;
+                    }
+
                     for (int i = 0; i < nb_enemies_combat; i++)
                     {
                         dmg = rand() % character->attacks[selection].dmg_max + character->attacks[selection].dmg_min;
                         enemies_cbt[i].life -= dmg;
                     }
 
+                    strcpy(msg, "Vous avez utilise ");
+                    printf("%s\n", character->attacks[selection].name);
+                    strcat(msg, character->attacks[selection].name);
+                    strcat(msg, ". %n ");
+                    strcat(msg, "Vous avez fait ");
+                    itoa(dmg, dmg_char, 10);
+                    strcat(msg, dmg_char);
+                    strcat(msg, " de degat.");
+                    affichage_message(game, texture_render, msg, -1);
+
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
                     break;
 
                 case 2: //Attaque 3x aleatoirement
+                    if (character->mana - character->attacks[selection].mana < 0)
+                    {
+                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", -1);
+                        break;
+                    }
+
                     for (int i = 0; i < 3; i++)
                     {
                         temp = rand() % nb_enemies_combat_actif;
@@ -1707,14 +1749,37 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
 
                     character->mana -= character->attacks[selection].mana;
 
+                    strcpy(msg, "Vous avez utilise ");
+                    printf("%s\n", character->attacks[selection].name);
+                    strcat(msg, character->attacks[selection].name);
+                    strcat(msg, ". %n ");
+                    strcat(msg, "Vous avez attaquez trois fois alatoirement.");
+                    affichage_message(game, texture_render, msg, -1);
+
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
                     break;
 
                 case 3: //Restaure un certain % la sante
+                    if (character->mana - character->attacks[selection].mana < 0)
+                    {
+                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", -1);
+                        break;
+                    }
+
                     character->life += character->max_life * character->attacks[selection].modifier / 100;
 
                     character->mana -= character->attacks[selection].mana;
+
+                    strcpy(msg, "Vous avez utilise ");
+                    printf("%s\n", character->attacks[selection].name);
+                    strcat(msg, character->attacks[selection].name);
+                    strcat(msg, ". %n ");
+                    strcat(msg, "Vous vous etes restaurez la sante de ");
+                    itoa(character->attacks[selection].modifier, modifier_char, 10);
+                    strcat(msg, modifier_char);
+                    strcat(msg, "\%.");
+                    affichage_message(game, texture_render, msg, -1);
 
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
@@ -1725,6 +1790,12 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     break;
 
                 case 5: //Une chance sur X de tuer l'ennemi
+                    if (character->mana - character->attacks[selection].mana < 0)
+                    {
+                        affichage_message(game, texture_render, "Vous n'avez plus assez de mana pour cette attaque.", -1);
+                        break;
+                    }
+
                     selected_enemy = enemy_selection(game, character, enemies_cbt, nb_enemies_combat, texture_render);
                     if (selected_enemy == -1)
                     {
@@ -1736,14 +1807,26 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                         break;
                     }
 
-                    if (selected_enemy == -1)
-                    {
-                        break;
-                    }
                     temp = rand() % character->attacks[selection].modifier + 1;
                     if (temp == 1)
                     {
                         enemies_cbt[selected_enemy].life = 0;
+
+                        strcpy(msg, "Vous avez utilise ");
+                        printf("%s\n", character->attacks[selection].name);
+                        strcat(msg, character->attacks[selection].name);
+                        strcat(msg, ". %n ");
+                        strcat(msg, "Vous avez tuez votre ennemi.");
+                        affichage_message(game, texture_render, msg, -1);
+                    }
+                    else
+                    {
+                        strcpy(msg, "Vous avez utilise ");
+                        printf("%s\n", character->attacks[selection].name);
+                        strcat(msg, character->attacks[selection].name);
+                        strcat(msg, ". %n ");
+                        strcat(msg, "Cela n'as pas marcher.");
+                        affichage_message(game, texture_render, msg, -1);
                     }
 
                     character->mana -= character->attacks[selection].mana;
