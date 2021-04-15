@@ -182,6 +182,7 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
 
     /*----------------------------------------------------------------------------*/
 
+
     SDL_RenderClear(game->render);
 
     SDL_RenderCopy(game->render, text_gameOver, NULL, &pos_text_gameOver);

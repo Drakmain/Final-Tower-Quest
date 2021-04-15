@@ -30,7 +30,7 @@ Coup_de_griffes : 4 - 5 ;
 Saignement : 5, 4 - 5, 3, 3, 0 ;
 EXP: 15 ;
 
-Big_grenouille :
+Da_frog :
 RGB: 255, 0, 255 ;
 PV: 200 ;
 VIT: 10 ;
