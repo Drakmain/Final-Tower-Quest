@@ -1387,7 +1387,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
                             }
                             else if (character->max_mana - character->mana < 20)
                             {
-                                affichage_message(game, texture_render_sac, "Vous avez recupere %d PM.", character->max_mana - character->mana);
+                                affichage_message(game, texture_render_sac, "Vous avez recupere %d PM.", NULL, character->max_mana - character->mana);
                                 character->mana = character->max_mana;
                             }
                             else
