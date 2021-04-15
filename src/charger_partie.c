@@ -222,7 +222,7 @@ extern void charger_partie_f(game_t *game, char *actual_save)
 
     SDL_Texture *position_save2 = NULL;
 
-    strcpy(temp, character_save1->position);
+    strcpy(temp, character_save2->position);
 
     _toEspace(temp);
 

@@ -46,7 +46,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
 
     int i;
 
-    char *msg = (char*)calloc(100, sizeof(char));
+    char *msg = (char *)calloc(100, sizeof(char));
 
     //POS CHARACTER
     SDL_Rect pos_Wind_character;
@@ -200,7 +200,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
                 dmg = rand() % enemies_cbt->attack[0].dmg_max + enemies_cbt->attack[0].dmg_min;
                 character->life -= dmg + dmg_modifier;
                 dmg += dmg_modifier;
-                
+
                 strcat(msg, enemies_cbt->attack[0].name);
                 i = -1;
             }
@@ -279,7 +279,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
     itoa(dmg, dmg_char, 10);
     strcat(msg, dmg_char);
     strcat(msg, " de degats.");
-    
+
     texture_PV_personnage = SDL_CreateTextureFromSurface(game->render, surf_PV_personnage);
     surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
 

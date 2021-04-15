@@ -55,7 +55,8 @@ extern void town(game_t *game, character_t *character)
 
     SDL_Event event;
 
-    if (character->x == 0 && character->y == 0){
+    if (character->x == 0 && character->y == 0)
+    {
         character->x = (*game->WINDOWWIDTH) * 867 / 1280;
         character->y = (*game->WINDOWWIDTH) * 695 / 1280;
     }
@@ -68,8 +69,8 @@ extern void town(game_t *game, character_t *character)
     pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2;
 
     SDL_Rect pos_Wind_town;
-    pos_Wind_town.x = -character->x + (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH) * 71 / 1280 /2;
-    pos_Wind_town.y = -character->y + (*game->WINDOWHEIGHT)/2 - (*game->WINDOWHEIGHT) * 112 / 1280;
+    pos_Wind_town.x = -character->x + (*game->WINDOWWIDTH) / 2 - (*game->WINDOWWIDTH) * 71 / 1280 / 2;
+    pos_Wind_town.y = -character->y + (*game->WINDOWHEIGHT) / 2 - (*game->WINDOWHEIGHT) * 112 / 1280;
     pos_Wind_town.h = town->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_town.w = town->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
     printf("POUR LA MAP : HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_town.h, pos_Wind_town.w);
@@ -149,8 +150,7 @@ extern void town(game_t *game, character_t *character)
         break;
     }
 
-
-    pixel_character = getpixel(surface,character->x + pos_Wind_character.w/2 ,character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+    pixel_character = getpixel(surface, character->x + pos_Wind_character.w / 2, character->y + pos_Wind_character.h - pos_Wind_character.h / 7.5);
     SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
 
     /*--- End Initialization Variable --------------------------------------------*/
@@ -217,7 +217,7 @@ extern void town(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if (character_moving(game, game->render, surface,character->x,character->y, 2) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface, character->x, character->y, 2) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
@@ -228,7 +228,7 @@ extern void town(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_town.x -= (*game->WINDOWWIDTH) * 24 / 2560;
-                       character->x += (*game->WINDOWWIDTH) * 24 / 2560;
+                        character->x += (*game->WINDOWWIDTH) * 24 / 2560;
 
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
 
@@ -241,11 +241,10 @@ extern void town(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > town.c Line 102");
                         }
 
-                        pixel_character = getpixel(surface,character->x + pos_Wind_character.w/2 ,character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w / 2, character->y + pos_Wind_character.h - pos_Wind_character.h / 7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
-                        printf("x = %i,character->y = %i\n",character->x,character->y);
+                        printf("x = %i,character->y = %i\n", character->x, character->y);
                     }
-
 
                     SDL_PollEvent(&event);
                 }
@@ -273,7 +272,7 @@ extern void town(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_LEFT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if (character_moving(game, game->render, surface,character->x,character->y, 3) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface, character->x, character->y, 3) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
@@ -284,7 +283,7 @@ extern void town(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_town.x += (*game->WINDOWWIDTH) * 24 / 2560;
-                       character->x -= (*game->WINDOWWIDTH) * 24 / 2560;
+                        character->x -= (*game->WINDOWWIDTH) * 24 / 2560;
 
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
 
@@ -297,9 +296,9 @@ extern void town(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > town.c Line 131");
                         }
 
-                        pixel_character = getpixel(surface,character->x + pos_Wind_character.w/2 ,character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w / 2, character->y + pos_Wind_character.h - pos_Wind_character.h / 7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
-                        printf("x = %i,character->y = %i\n",character->x,character->y);
+                        printf("x = %i,character->y = %i\n", character->x, character->y);
                     }
 
                     SDL_PollEvent(&event);
@@ -328,7 +327,7 @@ extern void town(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if (character_moving(game, game->render, surface,character->x,character->y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface, character->x, character->y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
@@ -339,7 +338,7 @@ extern void town(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_town.y += (*game->WINDOWWIDTH) * 24 / 2560;
-                       character->y -= (*game->WINDOWWIDTH) * 24 / 2560;
+                        character->y -= (*game->WINDOWWIDTH) * 24 / 2560;
 
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
 
@@ -352,9 +351,9 @@ extern void town(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering, town.c Line 160");
                         }
 
-                        pixel_character = getpixel(surface,character->x + pos_Wind_character.w/2 ,character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w / 2, character->y + pos_Wind_character.h - pos_Wind_character.h / 7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
-                        printf("x = %i,character->y = %i\n",character->x,character->y);
+                        printf("x = %i,character->y = %i\n", character->x, character->y);
                     }
 
                     SDL_PollEvent(&event);
@@ -383,11 +382,11 @@ extern void town(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE] && *town_bool)
                 {
-                    if (character_moving(game, game->render, surface,character->x,character->y, 1) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
+                    if (character_moving(game, game->render, surface, character->x, character->y, 1) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
-                    else if(r_character == 0 && g_character == 0 && b_character == 255)
+                    else if (r_character == 0 && g_character == 0 && b_character == 255)
                     {
                         SDL_SetRenderTarget(game->render, texture_render);
 
@@ -412,7 +411,7 @@ extern void town(game_t *game, character_t *character)
                         frame_start = SDL_GetTicks();
 
                         pos_Wind_town.y -= (*game->WINDOWWIDTH) * 24 / 2560;
-                       character->y += (*game->WINDOWWIDTH) * 24 / 2560;
+                        character->y += (*game->WINDOWWIDTH) * 24 / 2560;
 
                         town->update(town, game->render, town->tile_set, pos_Wind_town);
 
@@ -425,9 +424,9 @@ extern void town(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > town.c Line 189");
                         }
 
-                        pixel_character = getpixel(surface,character->x + pos_Wind_character.w/2,character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w / 2, character->y + pos_Wind_character.h - pos_Wind_character.h / 7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
-                        printf("x = %i,character->y = %i\n",character->x,character->y);
+                        printf("x = %i,character->y = %i\n", character->x, character->y);
                     }
 
                     SDL_PollEvent(&event);

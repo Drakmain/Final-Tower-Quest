@@ -46,7 +46,6 @@ extern int enemy_selection(game_t *game, character_t *character, enemy_t *enemie
     pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 1.5;
     pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
 
-    
     //POS ENEMIE 1
     SDL_Rect pos_Wind_enemie_1_1;
     pos_Wind_enemie_1_1.h = character->North_Walk.rect.h * (*game->WINDOWWIDTH) * 7 / 2560;

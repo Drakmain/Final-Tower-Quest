@@ -73,8 +73,8 @@ extern void floor_1(game_t *game, character_t *character)
     SDL_Rect pos_Wind_floor_1;
     pos_Wind_floor_1.h = floor_1->tile_set.h * (*game->WINDOWWIDTH) * 7.5 / 2560;
     pos_Wind_floor_1.w = floor_1->tile_set.w * (*game->WINDOWWIDTH) * 7.5 / 2560;
-    pos_Wind_floor_1.x = -character->x + (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH) * 71 / 1280 /2;
-    pos_Wind_floor_1.y = -character->y + (*game->WINDOWHEIGHT)/2 - (*game->WINDOWHEIGHT) * 112 / 1280;
+    pos_Wind_floor_1.x = -character->x + (*game->WINDOWWIDTH) / 2 - (*game->WINDOWWIDTH) * 71 / 1280 / 2;
+    pos_Wind_floor_1.y = -character->y + (*game->WINDOWHEIGHT) / 2 - (*game->WINDOWHEIGHT) * 112 / 1280;
     printf("POUR LA MAP : HAUTEUR = %d et LARGEUR = %d \n", pos_Wind_floor_1.h, pos_Wind_floor_1.w);
 
     int East_Walk = 0;
@@ -152,7 +152,7 @@ extern void floor_1(game_t *game, character_t *character)
         break;
     }
 
-    pixel_character = getpixel(surface, character->x + pos_Wind_character.w/2 , character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+    pixel_character = getpixel(surface, character->x + pos_Wind_character.w / 2, character->y + pos_Wind_character.h - pos_Wind_character.h / 7.5);
     SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
 
     /*--- End Initialization Variable --------------------------------------------*/
@@ -216,9 +216,9 @@ extern void floor_1(game_t *game, character_t *character)
 
                 /*--- End Event to enter in game menu --------------------------------*/
 
-                if(character_moving(game, game->render, surface, character->x, character->y, 0) == 2  || character_moving(game, game->render, surface, character->x, character->y, 1) == 2 || character_moving(game, game->render, surface, character->x, character->y, 2) == 2 || character_moving(game, game->render, surface, character->x, character->y, 3) == 2)
+                if (character_moving(game, game->render, surface, character->x, character->y, 0) == 2 || character_moving(game, game->render, surface, character->x, character->y, 1) == 2 || character_moving(game, game->render, surface, character->x, character->y, 2) == 2 || character_moving(game, game->render, surface, character->x, character->y, 3) == 2)
                 {
-                    if(keyState[SDL_SCANCODE_E])
+                    if (keyState[SDL_SCANCODE_E])
                     {
                         SDL_SetRenderTarget(game->render, texture_render);
 
@@ -237,9 +237,9 @@ extern void floor_1(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_RIGHT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if(character_moving(game, game->render, surface, character->x, character->y, 2) == 2)
+                    if (character_moving(game, game->render, surface, character->x, character->y, 2) == 2)
                     {
-                        if(keyState[SDL_SCANCODE_E])
+                        if (keyState[SDL_SCANCODE_E])
                         {
                             SDL_SetRenderTarget(game->render, texture_render);
 
@@ -289,9 +289,9 @@ extern void floor_1(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > floor_1.c Line 102");
                         }
 
-                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w/2 , character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w / 2, character->y + pos_Wind_character.h - pos_Wind_character.h / 7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
-                        printf("r : %d g : %d b : %d",r_character, g_character, b_character);
+                        printf("r : %d g : %d b : %d", r_character, g_character, b_character);
                     }
                     SDL_PollEvent(&event);
                 }
@@ -318,9 +318,9 @@ extern void floor_1(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_LEFT] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if(character_moving(game, game->render, surface, character->x, character->y, 3) == 2)
+                    if (character_moving(game, game->render, surface, character->x, character->y, 3) == 2)
                     {
-                        if(keyState[SDL_SCANCODE_E])
+                        if (keyState[SDL_SCANCODE_E])
                         {
                             SDL_SetRenderTarget(game->render, texture_render);
 
@@ -370,7 +370,7 @@ extern void floor_1(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > floor_1.c Line 131");
                         }
 
-                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w/2 , character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w / 2, character->y + pos_Wind_character.h - pos_Wind_character.h / 7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
                     }
                     SDL_PollEvent(&event);
@@ -398,9 +398,9 @@ extern void floor_1(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_DOWN] && !keyState[SDL_SCANCODE_ESCAPE])
                 {
-                    if(character_moving(game, game->render, surface, character->x, character->y, 1) == 2)
+                    if (character_moving(game, game->render, surface, character->x, character->y, 1) == 2)
                     {
-                        if(keyState[SDL_SCANCODE_E])
+                        if (keyState[SDL_SCANCODE_E])
                         {
                             SDL_SetRenderTarget(game->render, texture_render);
 
@@ -450,7 +450,7 @@ extern void floor_1(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering > floor_1.c Line 189");
                         }
 
-                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w/2, character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w / 2, character->y + pos_Wind_character.h - pos_Wind_character.h / 7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
                     }
                     SDL_PollEvent(&event);
@@ -478,31 +478,31 @@ extern void floor_1(game_t *game, character_t *character)
 
                 while (keyState[SDL_SCANCODE_UP] && !keyState[SDL_SCANCODE_ESCAPE] && *floor_1_bool)
                 {
-                    if(character_moving(game, game->render, surface, character->x, character->y, 0) == 2)
-                   {
-                       if(keyState[SDL_SCANCODE_E])
-                       {
+                    if (character_moving(game, game->render, surface, character->x, character->y, 0) == 2)
+                    {
+                        if (keyState[SDL_SCANCODE_E])
+                        {
 
-                           SDL_SetRenderTarget(game->render, texture_render);
+                            SDL_SetRenderTarget(game->render, texture_render);
 
-                           SDL_RenderClear(game->render);
+                            SDL_RenderClear(game->render);
 
-                           SDL_RenderCopy(game->render, floor_1->texture, &floor_1->tile_set, &pos_Wind_floor_1);
-                           SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
+                            SDL_RenderCopy(game->render, floor_1->texture, &floor_1->tile_set, &pos_Wind_floor_1);
+                            SDL_RenderCopy(game->render, character->texture, &character->North_Walk.rect, &pos_Wind_character);
 
-                           SDL_SetRenderTarget(game->render, NULL);
+                            SDL_SetRenderTarget(game->render, NULL);
 
-                           character->life = character->max_life;
-                           character->mana = character->max_mana;
-                           affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", -1);
-                       }
-                       break;
+                            character->life = character->max_life;
+                            character->mana = character->max_mana;
+                            affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", -1);
+                        }
+                        break;
                     }
                     if (character_moving(game, game->render, surface, character->x, character->y, 0) == 0) /*0 --> up, 1 --> down,2 --> right,3 --> left*/
                     {
                         break;
                     }
-                    else if(r_character == 0 && g_character == 0 && b_character == 255)
+                    else if (r_character == 0 && g_character == 0 && b_character == 255)
                     {
                         SDL_SetRenderTarget(game->render, texture_render);
 
@@ -513,7 +513,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         SDL_SetRenderTarget(game->render, NULL);
                         transition(game);
-                        if(combat_boss(game, character, floor_1, texture_render, floor_1_bool))
+                        if (combat_boss(game, character, floor_1, texture_render, floor_1_bool))
                         {
                             *floor_1_bool = SDL_FALSE;
                             North_Walk = 0;
@@ -550,7 +550,7 @@ extern void floor_1(game_t *game, character_t *character)
                             SDL_ExitWithError("Unable to clear rendering, floor_1.c Line 160");
                         }
 
-                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w/2 , character->y + pos_Wind_character.h - pos_Wind_character.h/7.5);
+                        pixel_character = getpixel(surface, character->x + pos_Wind_character.w / 2, character->y + pos_Wind_character.h - pos_Wind_character.h / 7.5);
                         SDL_GetRGB(pixel_character, surface->format, &r_character, &g_character, &b_character);
                     }
 
