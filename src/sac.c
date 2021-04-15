@@ -1201,6 +1201,18 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
 
             retour = SDL_CreateTextureFromSurface(game->render, surf_retour);
 
+            itoa(character->life, character_nb_pdv, 10);
+            strcat(character_nb_pdv, " / ");
+            surf_nb_pdv = TTF_RenderText_Blended(game->police, character_nb_pdv, blanc);
+            nb_pdv = SDL_CreateTextureFromSurface(game->render, surf_nb_pdv);
+            pos_nb_pdv.w = strlen(character_nb_pdv) * (*game->WINDOWWIDTH) * 10 / 1280;
+
+            itoa(character->mana, character_nb_mana, 10);
+            strcat(character_nb_mana, " / ");
+            surf_nb_mana = TTF_RenderText_Blended(game->police, character_nb_mana, blanc);
+            nb_mana = SDL_CreateTextureFromSurface(game->render, surf_nb_mana);
+            pos_nb_mana.w = strlen(character_nb_mana) * (*game->WINDOWWIDTH) * 10 / 1280;
+
             SDL_RenderClear(game->render);
             SDL_SetRenderTarget(game->render, texture_render_sac);
 
