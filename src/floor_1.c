@@ -196,15 +196,6 @@ extern void floor_1(game_t *game, character_t *character)
             {
                 SDL_PollEvent(&event);
 
-                /*--- Event to Exit Program ------------------------------------------*/
-
-                if (event.type == SDL_QUIT)
-                {
-                    (*game->program_launch) = SDL_FALSE;
-                }
-
-                /*--- End Event to Exit Program --------------------------------------*/
-
                 /*--- Event to enter in game menu ------------------------------------*/
 
                 if (keyState[SDL_SCANCODE_ESCAPE])
@@ -281,6 +272,8 @@ extern void floor_1(game_t *game, character_t *character)
                         {
                             transition(game);
                             combat(game, character, floor_1, texture_render, floor_1_bool);
+                            pos_Wind_floor_1.x = -character->x + (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH) * 71 / 1280 /2;
+                            pos_Wind_floor_1.y = -character->y + (*game->WINDOWHEIGHT)/2 - (*game->WINDOWHEIGHT) * 112 / 1280;
                             break;
                         }
 
@@ -362,6 +355,8 @@ extern void floor_1(game_t *game, character_t *character)
                         {
                             transition(game);
                             combat(game, character, floor_1, texture_render, floor_1_bool);
+                            pos_Wind_floor_1.x = -character->x + (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH) * 71 / 1280 /2;
+                            pos_Wind_floor_1.y = -character->y + (*game->WINDOWHEIGHT)/2 - (*game->WINDOWHEIGHT) * 112 / 1280;
                             break;
                         }
 
@@ -442,6 +437,8 @@ extern void floor_1(game_t *game, character_t *character)
                         {
                             transition(game);
                             combat(game, character, floor_1, texture_render, floor_1_bool);
+                            pos_Wind_floor_1.x = -character->x + (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH) * 71 / 1280 /2;
+                            pos_Wind_floor_1.y = -character->y + (*game->WINDOWHEIGHT)/2 - (*game->WINDOWHEIGHT) * 112 / 1280;
                             break;
                         }
 
@@ -542,6 +539,8 @@ extern void floor_1(game_t *game, character_t *character)
                         {
                             transition(game);
                             combat(game, character, floor_1, texture_render, floor_1_bool);
+                            pos_Wind_floor_1.x = -character->x + (*game->WINDOWWIDTH)/2 - (*game->WINDOWWIDTH) * 71 / 1280 /2;
+                            pos_Wind_floor_1.y = -character->y + (*game->WINDOWHEIGHT)/2 - (*game->WINDOWHEIGHT) * 112 / 1280;
                             break;
                         }
 
@@ -576,6 +575,15 @@ extern void floor_1(game_t *game, character_t *character)
 
                     North_Walk = 0;
                 }
+
+                /*--- Event to Exit Program ------------------------------------------*/
+
+                if (event.type == SDL_QUIT)
+                {
+                    (*game->program_launch) = SDL_FALSE;
+                }
+
+                /*--- End Event to Exit Program --------------------------------------*/
             }
         }
     }
