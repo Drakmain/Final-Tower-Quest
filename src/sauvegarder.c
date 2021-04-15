@@ -49,7 +49,7 @@ extern void sauvegarde(game_t *game, character_t *character)
     fprintf(file, "vitalite: %d ;\n", character->vitalite);
     fprintf(file, "force: %d ;\n", character->puissance);
     fprintf(file, "intelligence: %d ;\n", character->intelligence);
-    fprintf(file, "intelligence: %d ;\n", character->vitesse);
+    fprintf(file, "vitesse: %d ;\n", character->vitesse);
     fprintf(file, "agilite: %d ;\n", character->agilite);
     fprintf(file, "defense: %d ;\n", character->defense);
     fprintf(file, "point_dispo: %d ;\n", character->points_dispo);
