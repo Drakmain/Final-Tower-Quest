@@ -240,7 +240,7 @@
         if(character->lvl == 50)affichage_message(game, texture_render_combat, "Vous etes au summum, vous ne pouvez plus gagnez d'xp.", NULL, -1);
         else{
             nb_total_xp =  enemies_cbt[0].exp +  enemies_cbt[1].exp;
-            affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
+            affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", NULL, nb_total_xp);
             character->xp += nb_total_xp;
 
             while(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
@@ -433,7 +433,7 @@
         if(character->lvl == 50)affichage_message(game, texture_render_combat, "Vous etes au summum, vous ne pouvez plus gagnez d'xp.", NULL, -1);
         else{
             nb_total_xp =  enemies_cbt[0].exp + enemies_cbt[1].exp + enemies_cbt[2].exp;
-            affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
+            affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", NULL, nb_total_xp);
             character->xp += nb_total_xp;
 
             while(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
@@ -626,7 +626,7 @@
         if(character->lvl == 50)affichage_message(game, texture_render_combat, "Vous etes au summum, vous ne pouvez plus gagnez d'xp.", NULL, -1);
         else{
             nb_total_xp =  enemies_cbt[0].exp + enemies_cbt[1].exp + enemies_cbt[2].exp + enemies_cbt[3].exp;
-            affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", nb_total_xp);
+            affichage_message(game, texture_render_combat, "Vous avez gagne %d xp.", NULL, nb_total_xp);
             character->xp += nb_total_xp;
 
             while(character->xp + character->tab_xp_max[character->lvl - 1] > character->tab_xp_max[character->lvl])
