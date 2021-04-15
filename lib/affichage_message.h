@@ -5,6 +5,6 @@
 
 #include "game.h"
 
-void affichage_message(game_t *game, SDL_Texture * texture_render, char *message, int nombre);
+void affichage_message(game_t *game, SDL_Texture * texture_render, char *message, char *message_2, int nombre);
 
 #endif
