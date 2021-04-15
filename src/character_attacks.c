@@ -69,7 +69,8 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
 
     int max_selec;
 
-    char msg[100];
+    char msg1[50];
+    char msg2[50];
     char dmg_char[3];
     char modifier_char[3];
 
@@ -1689,15 +1690,14 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
 
                     character->mana -= character->attacks[selection].mana;
 
-                    strcpy(msg, "Vous avez utilise ");
-                    printf("%s\n", character->attacks[selection].name);
-                    strcat(msg, character->attacks[selection].name);
-                    strcat(msg, ". %n ");
-                    strcat(msg, "Vous avez fait ");
+                    strcpy(msg1, "Vous avez utilise ");
+                    strcat(msg1, character->attacks[selection].name);
+                    strcat(msg1, ".");
+                    strcpy(msg2, "Vous avez fait ");
                     itoa(dmg, dmg_char, 10);
-                    strcat(msg, dmg_char);
-                    strcat(msg, " de degat.");
-                    affichage_message(game, texture_render, msg, NULL, -1);
+                    strcat(msg2, dmg_char);
+                    strcat(msg2, " de degat.");
+                    affichage_message(game, texture_render, msg1, msg2, -1);
 
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
@@ -1716,15 +1716,15 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                         enemies_cbt[i].life -= dmg;
                     }
 
-                    strcpy(msg, "Vous avez utilise ");
+                    strcpy(msg1, "Vous avez utilise ");
                     printf("%s\n", character->attacks[selection].name);
-                    strcat(msg, character->attacks[selection].name);
-                    strcat(msg, ". %n ");
-                    strcat(msg, "Vous avez fait ");
+                    strcat(msg1, character->attacks[selection].name);
+                    strcat(msg1, ".");
+                    strcpy(msg2, "Vous avez fait ");
                     itoa(dmg, dmg_char, 10);
-                    strcat(msg, dmg_char);
-                    strcat(msg, " de degat.");
-                    affichage_message(game, texture_render, msg, NULL, -1);
+                    strcat(msg2, dmg_char);
+                    strcat(msg2, " de degat.");
+                    affichage_message(game, texture_render, msg1, msg2, -1);
 
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
@@ -1749,12 +1749,11 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
 
                     character->mana -= character->attacks[selection].mana;
 
-                    strcpy(msg, "Vous avez utilise ");
-                    printf("%s\n", character->attacks[selection].name);
-                    strcat(msg, character->attacks[selection].name);
-                    strcat(msg, ". %n ");
-                    strcat(msg, "Vous avez attaquez trois fois alatoirement.");
-                    affichage_message(game, texture_render, msg, NULL, -1);
+                    strcpy(msg1, "Vous avez utilise ");
+                    strcat(msg1, character->attacks[selection].name);
+                    strcat(msg1, ".");
+                    strcpy(msg2, "Vous avez attaquez trois fois alatoirement.");
+                    affichage_message(game, texture_render, msg1, msg2, -1);
 
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
@@ -1771,15 +1770,14 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
 
                     character->mana -= character->attacks[selection].mana;
 
-                    strcpy(msg, "Vous avez utilise ");
-                    printf("%s\n", character->attacks[selection].name);
-                    strcat(msg, character->attacks[selection].name);
-                    strcat(msg, ". %n ");
-                    strcat(msg, "Vous vous etes restaurez la sante de ");
+                    strcpy(msg1, "Vous avez utilise ");
+                    strcat(msg1, character->attacks[selection].name);
+                    strcat(msg1, ".");
+                    strcpy(msg2, "Vous vous etes restaurez la sante de ");
                     itoa(character->attacks[selection].modifier, modifier_char, 10);
-                    strcat(msg, modifier_char);
-                    strcat(msg, "\%.");
-                    affichage_message(game, texture_render, msg, NULL, -1);
+                    strcat(msg2, modifier_char);
+                    strcat(msg2, "\%.");
+                    affichage_message(game, texture_render, msg1, msg2, -1);
 
                     *character_turn_bool = SDL_FALSE;
                     attacks_bool = SDL_FALSE;
@@ -1812,21 +1810,20 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
                     {
                         enemies_cbt[selected_enemy].life = 0;
 
-                        strcpy(msg, "Vous avez utilise ");
+                        strcpy(msg1, "Vous avez utilise ");
                         printf("%s\n", character->attacks[selection].name);
-                        strcat(msg, character->attacks[selection].name);
-                        strcat(msg, ". %n ");
-                        strcat(msg, "Vous avez tuez votre ennemi.");
-                        affichage_message(game, texture_render, msg, NULL, -1);
+                        strcat(msg1, character->attacks[selection].name);
+                        strcat(msg1, ".");
+                        strcpy(msg2, "Vous avez tuez votre ennemi.");
+                        affichage_message(game, texture_render, msg1, msg2, -1);
                     }
                     else
                     {
-                        strcpy(msg, "Vous avez utilise ");
-                        printf("%s\n", character->attacks[selection].name);
-                        strcat(msg, character->attacks[selection].name);
-                        strcat(msg, ". %n ");
-                        strcat(msg, "Cela n'as pas marcher.");
-                        affichage_message(game, texture_render, msg, NULL, -1);
+                        strcpy(msg1, "Vous avez utilise ");
+                        strcat(msg1, character->attacks[selection].name);
+                        strcat(msg1, ".");
+                        strcpy(msg2, "Cela n'as pas marcher.");
+                        affichage_message(game, texture_render, msg1, msg1, -1);
                     }
 
                     character->mana -= character->attacks[selection].mana;

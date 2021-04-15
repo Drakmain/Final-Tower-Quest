@@ -46,7 +46,8 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
 
     int i;
 
-    char *msg = (char *)calloc(100, sizeof(char));
+    char msg1[50];
+    char msg2[50];
 
     //POS CHARACTER
     SDL_Rect pos_Wind_character;
@@ -184,8 +185,8 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
 
     if (enemies_cbt->boss == SDL_TRUE)
     {
-        strcpy(msg, enemies_cbt->name);
-        strcat(msg, " utilise ");
+        strcpy(msg1, enemies_cbt->name);
+        strcat(msg1, " utilise ");
 
         for (i = 1; i < nb_attacks_boss; i++)
         {
@@ -201,7 +202,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
                 character->life -= dmg + dmg_modifier;
                 dmg += dmg_modifier;
 
-                strcat(msg, enemies_cbt->attack[0].name);
+                strcat(msg1, enemies_cbt->attack[0].name);
                 i = -1;
             }
         }
@@ -218,7 +219,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
                 enemies_cbt->attack[i].effect_remaining = enemies_cbt->attack[i].effect_duration;
                 dmg_modifier = enemies_cbt->attack[i].modifier;
 
-                strcat(msg, enemies_cbt->attack[i].name);
+                strcat(msg1, enemies_cbt->attack[i].name);
 
                 break;
 
@@ -241,8 +242,8 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
             enemies_cbt[num].attack[1].effect_remaining--;
         }
 
-        strcpy(msg, enemies_cbt[num].name);
-        strcat(msg, " utilise ");
+        strcpy(msg1, enemies_cbt[num].name);
+        strcat(msg1, " utilise ");
 
         if (attack_spe >= 0 && attack_spe <= enemies_cbt[num].attack[1].percentage && enemies_cbt[num].attack[1].percentage != -1)
         {
@@ -256,7 +257,7 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
                 enemies_cbt[num].attack[1].effect_remaining = enemies_cbt[num].attack[1].effect_duration;
                 dmg_modifier = enemies_cbt[num].attack[1].modifier;
 
-                strcat(msg, enemies_cbt[num].attack[1].name);
+                strcat(msg1, enemies_cbt[num].attack[1].name);
 
                 break;
 
@@ -271,14 +272,14 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
             character->life -= dmg + dmg_modifier;
             dmg += dmg_modifier;
 
-            strcat(msg, enemies_cbt[num].attack[0].name);
+            strcat(msg1, enemies_cbt[num].attack[0].name);
         }
     }
 
-    strcat(msg, " %n Vous avez subis ");
+    strcpy(msg2, "Vous avez subis ");
     itoa(dmg, dmg_char, 10);
-    strcat(msg, dmg_char);
-    strcat(msg, " de degats.");
+    strcat(msg2, dmg_char);
+    strcat(msg2, " de degats.");
 
     texture_PV_personnage = SDL_CreateTextureFromSurface(game->render, surf_PV_personnage);
     surf_PV_personnage = TTF_RenderText_Blended(game->police, char_character_life, rouge);
@@ -315,15 +316,11 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
         SDL_RenderCopy(game->render, character->texture, &character->West_Walk.rect, &pos_Wind_character);
     }
 
-    msg = (char *)realloc(msg, strlen(msg) * sizeof(char) + 1);
-    printf("msg: %s", msg);
-    affichage_message(game, texture_render, msg, NULL, -1);
+    affichage_message(game, texture_render, msg1, msg2, -1);
 
     /*--- End Main Loop ----------------------------------------------------------*/
 
     /*--- Free Memory ------------------------------------------------------------*/
-
-    free(msg);
 
     SDL_FreeSurface(surf_PV_personnage);
     SDL_FreeSurface(surf_PM_personnage);
