@@ -190,9 +190,9 @@ extern void floor_1(game_t *game, character_t *character)
 
     while (*game->program_launch && *floor_1_bool)
     {
-        while (SDL_PollEvent(&event) && *floor_1_bool)
+        while (SDL_PollEvent(&event) && *floor_1_bool && *game->program_launch)
         {
-            while ((*game->program_launch && *floor_1_bool) && (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE])))
+            while ((*game->program_launch && *floor_1_bool) && (event.type == SDL_KEYDOWN && (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_DOWN] || keyState[SDL_SCANCODE_UP] || keyState[SDL_SCANCODE_ESCAPE] || keyState[SDL_SCANCODE_E])))
             {
                 SDL_PollEvent(&event);
 
