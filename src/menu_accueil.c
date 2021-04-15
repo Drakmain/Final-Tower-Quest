@@ -34,6 +34,8 @@ extern void menu_accueil(game_t *game, char *actual_save)
 
     SDL_Surface *surf_nouvelle_partie = NULL, *surf_charger_partie = NULL, *surf_options = NULL, *surf_quitter = NULL, *surf_logo = NULL, *surf_fond = NULL;
 
+    SDL_Texture *texture_render = SDL_CreateTexture(game->render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (*game->WINDOWWIDTH), (*game->WINDOWHEIGHT));
+
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
     SDL_bool menu_ac_bool = SDL_TRUE;
@@ -41,6 +43,8 @@ extern void menu_accueil(game_t *game, char *actual_save)
     SDL_Event event;
 
     int selection = 0;
+
+    int i = 0;
 
     /*--- End Initialization variable --------------------------------------------*/
 
@@ -132,6 +136,28 @@ extern void menu_accueil(game_t *game, char *actual_save)
 
     /*----------------------------------------------------------------------------*/
 
+    /*--- Creation tour ----------------------------------------*/
+
+    SDL_Surface *surf_tour = NULL;
+    surf_tour = SDL_LoadBMP("src\\image\\tour.bmp");
+    if (surf_tour == NULL)
+    {
+        SDL_ExitWithError("probleme chargement tour > transition.c");
+    }
+
+    SDL_Texture *tour = SDL_CreateTextureFromSurface(game->render, surf_tour);
+    if (tour == NULL)
+    {
+        SDL_ExitWithError("probleme texture tour > transition.c");
+    }
+
+    SDL_Rect pos_tour;
+    pos_tour.x = (*game->WINDOWWIDTH) * 1190 / 1920;
+    pos_tour.y = (*game->WINDOWWIDTH) - (*game->WINDOWWIDTH) * 800 / 1920 ;
+    pos_tour.w = (*game->WINDOWWIDTH) * 731 / 1920;
+    pos_tour.h = (*game->WINDOWHEIGHT) * 810 / 1080;
+    /*----------------------------------------------------------------------------*/
+
     /*--- Creation texture logo --------------------------------------------------*/
 
     surf_logo = SDL_LoadBMP("src\\image\\Final-Tower-Quest.bmp");
@@ -148,7 +174,7 @@ extern void menu_accueil(game_t *game, char *actual_save)
 
     SDL_Rect pos_logo;
     pos_logo.x = (*game->WINDOWWIDTH) / 2 - (*game->WINDOWWIDTH) * 275 / 1280;
-    pos_logo.y = (*game->WINDOWHEIGHT) / 2 - (*game->WINDOWHEIGHT) * 300 / 720;
+    pos_logo.y = (*game->WINDOWHEIGHT) * -202 / 1080;
     pos_logo.w = (*game->WINDOWWIDTH) * 552 / 1280;
     pos_logo.h = (*game->WINDOWHEIGHT) * 145 / 720;
 
@@ -175,8 +201,9 @@ extern void menu_accueil(game_t *game, char *actual_save)
     pos_fond.h = (*game->WINDOWHEIGHT);
 
     /*----------------------------------------------------------------------------*/
+    SDL_SetRenderTarget(game->render, texture_render);
 
-    SDL_RenderClear(game->render);
+    //SDL_RenderClear(game->render);
 
     SDL_RenderCopy(game->render, fond, NULL, &pos_fond);
     SDL_RenderCopy(game->render, nouvelle_partie, NULL, &pos_nouvelle_partie);
@@ -185,12 +212,33 @@ extern void menu_accueil(game_t *game, char *actual_save)
     SDL_RenderCopy(game->render, quitter, NULL, &pos_quitter);
     SDL_RenderCopy(game->render, logo, NULL, &pos_logo);
 
-    SDL_RenderPresent(game->render);
+    SDL_SetRenderTarget(game->render, NULL);
+
+    SDL_RenderClear(game->render);
 
     /*--- Main Loop --------------------------------------------------------------*/
 
+
+    for (i = 0; i < 46; i++)
+    {
+
+        pos_tour.y -= (*game->WINDOWHEIGHT) * 16 / 1080;
+        pos_logo.y += (*game->WINDOWHEIGHT) * 6 / 1080;
+
+        SDL_RenderCopy(game->render, texture_render, NULL, NULL);
+        SDL_RenderCopy(game->render, tour, NULL, &pos_tour);
+        SDL_RenderCopy(game->render, logo, NULL, &pos_logo);
+
+        SDL_RenderPresent(game->render);
+
+        SDL_Delay(30);
+    }
+    printf("%d",pos_tour.y);
+    SDL_RenderPresent(game->render);
+
     while (menu_ac_bool == SDL_TRUE && (*game->program_launch))
     {
+
         while (SDL_PollEvent(&event))
         {
             /*--- Event to Exit Program ------------------------------------------*/
@@ -222,7 +270,6 @@ extern void menu_accueil(game_t *game, char *actual_save)
             }
 
             /*--- End Event pour selectionner --------------------------------------*/
-
             if (selection < 0)
                 selection = 3;
             selection %= 4;
@@ -284,15 +331,20 @@ extern void menu_accueil(game_t *game, char *actual_save)
             pos_quitter.w = (*game->WINDOWWIDTH) / 4;
             pos_quitter.h = (*game->WINDOWHEIGHT) / 13.5;
 
-            pos_logo.x = (*game->WINDOWWIDTH) / 2 - (*game->WINDOWWIDTH) * 275 / 1280;
-            pos_logo.y = (*game->WINDOWHEIGHT) / 2 - (*game->WINDOWHEIGHT) * 300 / 720;
-            pos_logo.w = (*game->WINDOWWIDTH) * 552 / 1280;
-            pos_logo.h = (*game->WINDOWHEIGHT) * 145 / 720;
-
             pos_fond.x = 0;
             pos_fond.y = 0;
             pos_fond.w = (*game->WINDOWWIDTH);
             pos_fond.h = (*game->WINDOWHEIGHT);
+
+            pos_logo.x = (*game->WINDOWWIDTH) / 2 - (*game->WINDOWWIDTH) * 275 / 1280;
+            pos_logo.y = (*game->WINDOWHEIGHT) * 57 / 720;
+            pos_logo.w = (*game->WINDOWWIDTH) * 552 / 1280;
+            pos_logo.h = (*game->WINDOWHEIGHT) * 145 / 720;
+
+            pos_tour.x = (*game->WINDOWWIDTH) * 1190 / 1920;
+            pos_tour.y = (*game->WINDOWHEIGHT) * 394 / 1080;
+            pos_tour.w = (*game->WINDOWWIDTH) * 731 / 1920;
+            pos_tour.h = (*game->WINDOWHEIGHT) * 810 / 1080;
 
             SDL_RenderClear(game->render);
 
@@ -302,6 +354,7 @@ extern void menu_accueil(game_t *game, char *actual_save)
             SDL_RenderCopy(game->render, options, NULL, &pos_options);
             SDL_RenderCopy(game->render, quitter, NULL, &pos_quitter);
             SDL_RenderCopy(game->render, logo, NULL, &pos_logo);
+            SDL_RenderCopy(game->render, tour, NULL, &pos_tour);
 
             SDL_RenderPresent(game->render);
 
