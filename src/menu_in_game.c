@@ -327,7 +327,6 @@ void menu_in_game(game_t *game, SDL_bool *map_bool, character_t *character, SDL_
                 {
                     if (texte_confirmation(game, "Voulez-vous retourner au menu principal ?"))
                     {
-                        strcpy(character->file_name_save , "\0");
                         menu_bool = SDL_FALSE;
                         *map_bool = SDL_FALSE;
                     }
