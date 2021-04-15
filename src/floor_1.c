@@ -219,7 +219,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                         character->life = character->max_life;
                         character->mana = character->max_mana;
-                        affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", -1);
+                        affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", NULL, -1);
                     }
                 }
 
@@ -240,7 +240,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                             character->life = character->max_life;
                             character->mana = character->max_mana;
-                            affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", -1);
+                            affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", NULL, -1);
                         }
                         break;
                     }
@@ -323,7 +323,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                             character->life = character->max_life;
                             character->mana = character->max_mana;
-                            affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", -1);
+                            affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", NULL, -1);
                         }
                         break;
                     }
@@ -405,7 +405,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                             character->life = character->max_life;
                             character->mana = character->max_mana;
-                            affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", -1);
+                            affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", NULL, -1);
                         }
                         break;
                     }
@@ -488,7 +488,7 @@ extern void floor_1(game_t *game, character_t *character)
 
                             character->life = character->max_life;
                             character->mana = character->max_mana;
-                            affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", -1);
+                            affichage_message(game, texture_render, "Vos points de vie et de mana ont ete regeneres.", NULL, -1);
                         }
                         break;
                     }
