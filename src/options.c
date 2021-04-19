@@ -14,9 +14,9 @@
 /*!
  *
  * \fn options_f(game_t * game)
- * \brief A FINIR.
+ * \brief Fonction pour afficher et gérer les options.
  *
- * \param game A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
  *
  */
 

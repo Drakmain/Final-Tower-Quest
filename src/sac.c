@@ -10,7 +10,7 @@
 /*!
  *
  * \file sac.c
- * \brief A FINIR.
+ * \brief Affichage du sac et utilisation des potions.
  * \author Jeremy BOURGOUIN
  *
  */
@@ -18,13 +18,13 @@
 /*!
  *
  * \fn ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_render_menu_ig, SDL_bool *echap_relache, SDL_bool *combat)
- * \brief A FINIR.
+ * \brief Fonction permettant l'affichage du sac et l'utilisation des potions.
  *
- * \param game A FINIR.
- * \param character A FINIR.
- * \param texture_render_menu_ig A FINIR.
- * \param echap_relache A FINIR.
- * \param combat A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param character est un pointeur sur l'objet character_t actuel.
+ * \param texture_render_menu_ig est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
+ * \param echap_relache est un pointeur sur un booléen pour savoir si la touche échap est relachée.
+ * \param combat est un pointeur sur un booléen permettant de savoir si on ouvre le sac en combat ou non.
  *
  */
 
