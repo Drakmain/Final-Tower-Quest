@@ -1,12 +1,13 @@
 <map id="nouvelle_partie_f" name="nouvelle_partie_f">
-<area shape="rect" id="node1" title="A FINIR." alt="" coords="5,132,123,159"/>
-<area shape="rect" id="node2" href="$character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="175,132,294,159"/>
-<area shape="rect" id="node5" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="517,220,649,247"/>
-<area shape="rect" id="node6" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="355,43,461,69"/>
-<area shape="rect" id="node7" href="$creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9" title="A FINIR." alt="" coords="181,296,288,323"/>
-<area shape="rect" id="node10" href="$texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="A FINIR." alt="" coords="171,220,299,247"/>
-<area shape="rect" id="node3" href="$character_8c.html#a135c00d42695fdf969e43501859df59c" title="Permet la liberation d&#39;un objet character." alt="" coords="356,93,460,120"/>
-<area shape="rect" id="node4" href="$character_8c.html#a8aa53f831bd180854f66afae62951449" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="347,144,469,171"/>
-<area shape="rect" id="node8" href="$nom__sauvegarde_8c.html#a2d119092227da43e871b72631e8c9a21" title="A FINIR." alt="" coords="349,347,467,373"/>
-<area shape="rect" id="node9" href="$nom__sauvegarde_8c.html#ac319746734774195921cfb816632e15d" title="Fonction qui permet la creation d&#39;une nouvelle partie." alt="" coords="560,347,607,373"/>
+<area shape="rect" id="node1" title="Fonction qui permet la création d&#39;une nouvelle partie." alt="" coords="5,132,123,159"/>
+<area shape="rect" id="node2" href="$character__attacks_8c.html#ab11373c7331f944b056055cfbb54496c" title="Fonction permettant de changer les _ d&#39;une chaîne de caractères en espace." alt="" coords="193,5,277,32"/>
+<area shape="rect" id="node3" href="$character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="175,208,294,235"/>
+<area shape="rect" id="node6" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="517,284,649,311"/>
+<area shape="rect" id="node7" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="355,157,461,184"/>
+<area shape="rect" id="node8" href="$creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9" title="fonction permettant de sélectionner le personnage que l&#39;on souhaite jouer." alt="" coords="181,360,288,387"/>
+<area shape="rect" id="node11" href="$texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="Fonction permettant d&#39;afficher un message demandant la confirmation du joueur." alt="" coords="171,107,299,133"/>
+<area shape="rect" id="node4" href="$character_8c.html#a135c00d42695fdf969e43501859df59c" title="Permet la liberation d&#39;un objet character." alt="" coords="356,208,460,235"/>
+<area shape="rect" id="node5" href="$character_8c.html#a8aa53f831bd180854f66afae62951449" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="347,259,469,285"/>
+<area shape="rect" id="node9" href="$nom__sauvegarde_8c.html#a2d119092227da43e871b72631e8c9a21" title="A FINIR." alt="" coords="349,411,467,437"/>
+<area shape="rect" id="node10" href="$nom__sauvegarde_8c.html#ac319746734774195921cfb816632e15d" title="Fonction qui permet la creation d&#39;une nouvelle partie." alt="" coords="560,411,607,437"/>
 </map>

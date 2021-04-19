@@ -10,7 +10,7 @@
 
 /*!
  *
- * \file attaques.c
+ * \file character_attacks.c
  * \brief Gestion de la selection d'une ennemi pour une attaque.
  * \author Enzo BRENNUS
  *

@@ -65,7 +65,7 @@ $(document).ready(function(){initNavTree('sac_8c.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 
-<p>A FINIR.  
+<p>Affichage du sac et utilisation des potions.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -78,7 +78,7 @@ Graphe des dépendances par inclusion de sac.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="sac_8c__incl.png" border="0" usemap="#asrc_2sac_8c" alt=""/></div>
 <map name="asrc_2sac_8c" id="asrc_2sac_8c">
-<area shape="rect" title="A FINIR." alt="" coords="221,5,297,32"/>
+<area shape="rect" title="Affichage du sac et utilisation des potions." alt="" coords="221,5,297,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" href="sac_8h_source.html" title=" " alt="" coords="179,80,261,107"/>
@@ -97,11 +97,11 @@ Graphe des dépendances par inclusion de sac.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a10eaffb2bdd95aee2ee03f86c064a1cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sac_8c.html#a10eaffb2bdd95aee2ee03f86c064a1cd">ouverture_sac</a> (<a class="el" href="structgame__t.html">game_t</a> *game, <a class="el" href="structcharacter__t.html">character_t</a> *character, SDL_Texture *texture_render_menu_ig, SDL_bool *echap_relache, SDL_bool *<a class="el" href="combat_8c.html#aa9f579324d602993f0259e3d3659fbed">combat</a>)</td></tr>
-<tr class="memdesc:a10eaffb2bdd95aee2ee03f86c064a1cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="sac_8c.html#a10eaffb2bdd95aee2ee03f86c064a1cd">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a10eaffb2bdd95aee2ee03f86c064a1cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant l'affichage du sac et l'utilisation des potions.  <a href="sac_8c.html#a10eaffb2bdd95aee2ee03f86c064a1cd">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a10eaffb2bdd95aee2ee03f86c064a1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>A FINIR. </p>
+<div class="textblock"><p>Affichage du sac et utilisation des potions. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Jeremy BOURGOUIN </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="a10eaffb2bdd95aee2ee03f86c064a1cd"></a>
@@ -148,14 +148,14 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A FINIR. </p>
+<p>Fonction permettant l'affichage du sac et l'utilisation des potions. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">game</td><td>A FINIR. </td></tr>
-    <tr><td class="paramname">character</td><td>A FINIR. </td></tr>
-    <tr><td class="paramname">texture_render_menu_ig</td><td>A FINIR. </td></tr>
-    <tr><td class="paramname">echap_relache</td><td>A FINIR. </td></tr>
-    <tr><td class="paramname">combat</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">game</td><td>est un pointeur sur l'objet <a class="el" href="structgame__t.html" title="Structure de l&#39;objet game_t.">game_t</a> du jeu. </td></tr>
+    <tr><td class="paramname">character</td><td>est un pointeur sur l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a> actuel. </td></tr>
+    <tr><td class="paramname">texture_render_menu_ig</td><td>est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction. </td></tr>
+    <tr><td class="paramname">echap_relache</td><td>est un pointeur sur un booléen pour savoir si la touche échap est relachée. </td></tr>
+    <tr><td class="paramname">combat</td><td>est un pointeur sur un booléen permettant de savoir si on ouvre le sac en combat ou non. </td></tr>
   </table>
   </dd>
 </dl>
@@ -164,10 +164,18 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="sac_8c_a10eaffb2bdd95aee2ee03f86c064a1cd_cgraph.png" border="0" usemap="#asac_8c_a10eaffb2bdd95aee2ee03f86c064a1cd_cgraph" alt=""/></div>
 <map name="asac_8c_a10eaffb2bdd95aee2ee03f86c064a1cd_cgraph" id="asac_8c_a10eaffb2bdd95aee2ee03f86c064a1cd_cgraph">
-<area shape="rect" title="A FINIR." alt="" coords="5,81,108,108"/>
-<area shape="rect" href="combat_8c.html#aa9f579324d602993f0259e3d3659fbed" title="Permet de gerer les combats contre les ennemis des différent etages." alt="" coords="156,56,221,83"/>
-<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="407,56,539,83"/>
-<area shape="rect" href="map_8c.html#a8bc25a1fa628f6cda951d317e13ed3f5" title="Permet la copie d&#39;un type enemy_t dans un autre." alt="" coords="269,5,359,32"/>
+<area shape="rect" title="Fonction permettant l&#39;affichage du sac et l&#39;utilisation des potions." alt="" coords="5,93,108,120"/>
+<area shape="rect" href="affichage__message_8c.html#ab06f8d1321536236010a9e90993b2d23" title="Fonction permettant d&#39;afficher un message dans un cadre d&#39;une ou deux ligne." alt="" coords="465,93,599,120"/>
+<area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="817,220,949,247"/>
+<area shape="rect" href="combat_8c.html#aa9f579324d602993f0259e3d3659fbed" title="Permet de gerer les combats contre les ennemis des différent etages." alt="" coords="187,144,253,171"/>
+<area shape="rect" href="texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="Fonction permettant d&#39;afficher un message demandant la confirmation du joueur." alt="" coords="156,347,284,373"/>
+<area shape="rect" href="map_8c.html#a8bc25a1fa628f6cda951d317e13ed3f5" title="Permet la copie d&#39;un type enemy_t dans un autre." alt="" coords="487,195,577,221"/>
+<area shape="rect" href="fin__combat_8c.html#acb4f23360a3e76a74ab8ae8a46b87150" title="Fonction permettant de gérer l&#39;obtention de l&#39;expérience et de potion à la fin d&#39;un combat." alt="" coords="332,93,417,120"/>
+<area shape="rect" href="game__over_8c.html#a8d8586a68be78008f8ea66affb0163ed" title="Fonction permettant l&#39;affichage du gamer over, permet au joueur de choisir si il veut continuer la pa..." alt="" coords="333,245,417,272"/>
+<area shape="rect" href="character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="473,347,591,373"/>
+<area shape="rect" href="character_8c.html#a135c00d42695fdf969e43501859df59c" title="Permet la liberation d&#39;un objet character." alt="" coords="656,397,760,424"/>
+<area shape="rect" href="character_8c.html#a8aa53f831bd180854f66afae62951449" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="647,347,769,373"/>
+<area shape="rect" href="error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="655,448,761,475"/>
 </map>
 </div>
 <div class="dynheader">
@@ -175,8 +183,12 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="sac_8c_a10eaffb2bdd95aee2ee03f86c064a1cd_icgraph.png" border="0" usemap="#asac_8c_a10eaffb2bdd95aee2ee03f86c064a1cd_icgraph" alt=""/></div>
 <map name="asac_8c_a10eaffb2bdd95aee2ee03f86c064a1cd_icgraph" id="asac_8c_a10eaffb2bdd95aee2ee03f86c064a1cd_icgraph">
-<area shape="rect" title="A FINIR." alt="" coords="164,5,267,32"/>
-<area shape="rect" href="menu__in__game_8c.html#aaccdae75d50ed209f6989f48201a6326" title="A FINIR." alt="" coords="5,5,116,32"/>
+<area shape="rect" title="Fonction permettant l&#39;affichage du sac et l&#39;utilisation des potions." alt="" coords="371,56,473,83"/>
+<area shape="rect" href="menu__in__game_8c.html#aaccdae75d50ed209f6989f48201a6326" title="Fonction du menu dans le jeu." alt="" coords="212,56,323,83"/>
+<area shape="rect" href="floor__1_8c.html#ad51fab11313fca9a857e43996a9c7a7d" title="Permet la gestion de la premier map du jeu (floor_1)." alt="" coords="104,5,164,32"/>
+<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="107,56,161,83"/>
+<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="109,107,159,133"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,56,56,83"/>
 </map>
 </div>
 

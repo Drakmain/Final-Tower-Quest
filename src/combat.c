@@ -29,6 +29,7 @@
  * \param character est un pointeur sur l'objet character_t actuel.
  * \param map est un pointeur sur l'objet map_t actuel.
  * \param texture_render_town est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
+ * \param floor_bool A FINIR.
  *
  */
 

@@ -1,7 +1,8 @@
 <map id="map_create" name="map_create">
-<area shape="rect" id="node1" title="Permet la creation du l&#39;objet map_t." alt="" coords="5,81,96,108"/>
-<area shape="rect" id="node2" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="144,5,251,32"/>
-<area shape="rect" id="node3" href="$map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="160,56,235,83"/>
-<area shape="rect" id="node4" href="$map_8c.html#a6e7ecf55c98b6000e3fdc1ccd1b0a369" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="151,107,244,133"/>
-<area shape="rect" id="node5" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="299,132,431,159"/>
+<area shape="rect" id="node1" title="Permet la creation du l&#39;objet map_t." alt="" coords="5,107,96,133"/>
+<area shape="rect" id="node2" href="$character__attacks_8c.html#ab11373c7331f944b056055cfbb54496c" title="Fonction permettant de changer les _ d&#39;une chaîne de caractères en espace." alt="" coords="155,5,239,32"/>
+<area shape="rect" id="node3" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="144,56,251,83"/>
+<area shape="rect" id="node4" href="$map_8c.html#a7a7e46f45215efa69e1bf76bff1ab130" title="Permet la liberation d&#39;un objet map_t." alt="" coords="160,107,235,133"/>
+<area shape="rect" id="node5" href="$map_8c.html#a6e7ecf55c98b6000e3fdc1ccd1b0a369" title="Permet la mise a jour d&#39;un objet map_t." alt="" coords="151,157,244,184"/>
+<area shape="rect" id="node6" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="299,183,431,209"/>
 </map>

@@ -3,6 +3,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "affichage_message.c", "affichage__message_8c.html", "affichage__message_8c" ],
     [ "caracteristiques.c", "caracteristiques_8c.html", "caracteristiques_8c" ],
     [ "character.c", "character_8c.html", "character_8c" ],
+    [ "character_attacks.c", "character__attacks_8c.html", "character__attacks_8c" ],
     [ "charger_partie.c", "charger__partie_8c.html", "charger__partie_8c" ],
     [ "colision.c", "colision_8c.html", "colision_8c" ],
     [ "combat.c", "combat_8c.html", "combat_8c" ],

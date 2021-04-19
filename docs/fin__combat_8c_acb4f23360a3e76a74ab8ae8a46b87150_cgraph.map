@@ -1,0 +1,5 @@
+<map id="fin_combat" name="fin_combat">
+<area shape="rect" id="node1" title="Fonction permettant de gérer l&#39;obtention de l&#39;expérience et de potion à la fin d&#39;un combat." alt="" coords="5,5,91,32"/>
+<area shape="rect" id="node2" href="$affichage__message_8c.html#ab06f8d1321536236010a9e90993b2d23" title="Fonction permettant d&#39;afficher un message dans un cadre d&#39;une ou deux ligne." alt="" coords="139,5,272,32"/>
+<area shape="rect" id="node3" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="320,5,452,32"/>
+</map>
