@@ -8,16 +8,16 @@
  *
  * \file nom_sauvegarde.c
  * \brief A FINIR.
- * \author Alexis BOUFFARD
+ * \author Alexis BOUFFARD, Enzo BRENNUS.
  *
  */
 
 /*!
  *
  * \fn fcpy(FILE *source_file, FILE *dest_file)
- * \brief Fonction qui permet la creation d'une nouvelle partie.
+ * \brief
  *
- * \param source_file 
+ * \param source_file
  * \param dest_file
  *
  */
@@ -37,11 +37,11 @@ static void fcpy(FILE *source_file, FILE *dest_file)
 /*!
  *
  * \fn nom_sauvegarde(game_t *game, char *actual_save, char *base_save)
- * \brief A FINIR.
+ * \brief Fonction qui permet la creation d'une nouvelle partie.
  *
- * \param game A FINIR.
- * \param actual_save A FINIR.
-* \param base_save A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param actual_save représente le fichier initialisé lorsque le joueur sélectionne le personnage.
+ * \param base_save est une chaîne de caractère que l'on récupère à la fin de la fonction et qui est copié dans actual_save
  *
  */
 
