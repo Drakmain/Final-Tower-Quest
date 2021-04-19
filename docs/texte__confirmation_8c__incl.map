@@ -1,5 +1,5 @@
 <map id="src/texte_confirmation.c" name="src/texte_confirmation.c">
-<area shape="rect" id="node1" title="A FINIR." alt="" coords="42,5,203,32"/>
+<area shape="rect" id="node1" title="Permet d&#39;afficher un message demandant la confirmation du joueur." alt="" coords="42,5,203,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" id="node4" href="$texte__confirmation_8h_source.html" title=" " alt="" coords="179,80,347,107"/>

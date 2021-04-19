@@ -6,7 +6,7 @@
 /*!
  *
  * \file texte_confirmation.c
- * \brief A FINIR.
+ * \brief Permet d'afficher un message demandant la confirmation du joueur.
  * \author Jeremy BOURGOUIN
  *
  */
@@ -14,10 +14,10 @@
 /*!
  *
  * \fn texte_confirmation(game_t *game, char *message)
- * \brief A FINIR.
+ * \brief Fonction permettant d'afficher un message demandant la confirmation du joueur.
  *
- * \param game A FINIR.
- * \param message A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param message est la question qui est affichée pour demander confirmation.
  *
  */
 

@@ -1,0 +1,4 @@
+<map id="affichage_message" name="affichage_message">
+<area shape="rect" id="node1" title="Fonction permettant d&#39;afficher un message dans un cadre d&#39;une ou deux ligne." alt="" coords="5,5,139,32"/>
+<area shape="rect" id="node2" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="187,5,319,32"/>
+</map>

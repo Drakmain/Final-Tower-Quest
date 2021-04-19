@@ -6,19 +6,21 @@
 /*!
  *
  * \file affichage_message.c
- * \brief A FINIR.
+ * \brief Affichage d'un message de une ou deux ligne dans un cadre.
  * \author Jeremy BOURGOUIN
  *
  */
 
 /*!
  *
- * \fn affichage_message(game_t *game, char *message, int nombre)
- * \brief A FINIR.
+ * \fn affichage_message(game_t *game, SDL_Texture *texture_render, char *message, char *message_2, int nombre)
+ * \brief Fonction permettant d'afficher un message dans un cadre d'une ou deux ligne.
  *
- * \param game A FINIR.
- * \param message A FINIR.
- * \param nombre A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param texture_render est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
+ * \param message est le texte qui va apparaître sur la première ligne.
+ * \param message_2 est le texte qui va apparaître sur la deuxième ligne (NULL si il n'ya pas de deuxième ligne à afficher).
+ * \param nombre est le nombre a afficher dans le message où il y a %d (-1 si pas de nombre à afficher).
  *
  */
 

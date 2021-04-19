@@ -6,7 +6,7 @@
 /*!
  *
  * \file commandes.c
- * \brief A FINIR.
+ * \brief Affichage du cadre avec les commandes.
  * \author Jeremy BOURGOUIN
  *
  */
@@ -14,11 +14,11 @@
 /*!
  *
  * \fn menu_commandes(game_t *game, SDL_Texture *texture, SDL_bool *echap_relache)
- * \brief A FINIR.
+ * \brief Fonction permettant l'affichage du cadre avec les commandes.
  *
- * \param game A FINIR.
- * \param texture A FINIR.
- * \param echap_relache A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param texture est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
+ * \param echap_relache est un pointeur sur un booléen pour savoir si la touche échap est relachée.
  *
  */
 
@@ -323,7 +323,7 @@ void menu_commandes(game_t *game, SDL_Texture *texture, SDL_bool *echap_relache)
     pos_image_E.y = pos_interagir.y + (*game->WINDOWHEIGHT) * 8 / 1280;
     pos_image_E.w = (*game->WINDOWWIDTH) * 50 / 1200;
     pos_image_E.h = pos_interagir.h;
-    
+
     /*-------------------------------------------------------------------------*/
 
     /*--- Creation text " : " ----------------------------------------*/

@@ -1,5 +1,5 @@
 <map id="src/affichage_message.c" name="src/affichage_message.c">
-<area shape="rect" id="node1" title="A FINIR." alt="" coords="39,5,206,32"/>
+<area shape="rect" id="node1" title="Affichage d&#39;un message de une ou deux ligne dans un cadre." alt="" coords="39,5,206,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" id="node4" href="$affichage__message_8h_source.html" title=" " alt="" coords="179,80,352,107"/>

@@ -33,9 +33,9 @@
  * \brief Permet la mise a jour d'un objet character_t.
  *
  * \param character est un pointeur sur un objet character_t.
- * \param render est un pointeur sur le rendu SDL.
- * \param base_rect A FINIR
- * \param pos_wind_rect A FINIR
+ * \param render est un pointeur sur le rendu SDL du jeu.
+ * \param base_rect est un tile_set_t de base de l'animation.
+ * \param pos_wind_rect est un SDL_Rect de la position du character sur la fenetre.
  *
  */
 
@@ -96,7 +96,7 @@ static void character_free(character_t **character)
  * \brief Permet la creation du l'objet character.
  *
  * \param render est un pointeur sur le rendu SDL.
- * \param file_name_save A FINIR.
+ * \param file_name_save est un nom de sauvegarde qui doit etre chargé dans l'objet character_t.
  *
  * \return character Un objet character créé dans cette fonction.
  * \retval character_t * Un pointeur sur l'objet character.

@@ -5,7 +5,6 @@
 #include "..\lib\game_over.h"
 #include "..\lib\character.h"
 
-
 /*!
  *
  * \file game_over.c
@@ -16,7 +15,7 @@
 
 /*!
  *
- * \fn game_over(game_t *game,  char *actual_save)
+ * \fn game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool, character_t *character)
  * \brief Fonction permettant l'affichage du gamer over, permet au joueur de choisir si il veut continuer la partie après sa mort ou non.
  *
  * \param game est un pointeur sur l'objet game_t du jeu.
@@ -28,7 +27,6 @@
 
 extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool, character_t *character)
 {
-
     /*--- Initialization variable ------------------------------------------------*/
 
     SDL_Color blanc = {255, 255, 255};
@@ -45,7 +43,6 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
     int selection = 0;
 
     /*--- End Initialization variable --------------------------------------------*/
-
 
     /*--- Creation text "Game Over" ----------------------------------------*/
 
@@ -64,8 +61,8 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
     SDL_Rect pos_text_gameOver;
     pos_text_gameOver.w = (*game->WINDOWWIDTH) * 1000 / 1920;
     pos_text_gameOver.h = (*game->WINDOWHEIGHT) * 320 / 1080;
-    pos_text_gameOver.x = (*game->WINDOWWIDTH)/2 - pos_text_gameOver.w/2;
-    pos_text_gameOver.y = (*game->WINDOWHEIGHT)/3.5 - pos_text_gameOver.h/2;
+    pos_text_gameOver.x = (*game->WINDOWWIDTH) / 2 - pos_text_gameOver.w / 2;
+    pos_text_gameOver.y = (*game->WINDOWHEIGHT) / 3.5 - pos_text_gameOver.h / 2;
 
     /*----------------------------------------------------------------------------*/
 
@@ -135,7 +132,7 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
     SDL_Rect pos_confirmation;
     pos_confirmation.w = (*game->WINDOWWIDTH) * 500 / 1200;
     pos_confirmation.h = (*game->WINDOWHEIGHT) / 13.5;
-    pos_confirmation.x = (*game->WINDOWWIDTH) / 2 - pos_confirmation.w/2;
+    pos_confirmation.x = (*game->WINDOWWIDTH) / 2 - pos_confirmation.w / 2;
     pos_confirmation.y = (*game->WINDOWHEIGHT) / 1.8;
 
     /*----------------------------------------------------------------------------*/
@@ -157,9 +154,8 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
     SDL_Rect pos_choix_oui;
     pos_choix_oui.w = (*game->WINDOWWIDTH) * 64 / 1200;
     pos_choix_oui.h = (*game->WINDOWHEIGHT) / 13.5;
-    pos_choix_oui.x = (*game->WINDOWWIDTH) / 2 - pos_choix_oui.w/2;
+    pos_choix_oui.x = (*game->WINDOWWIDTH) / 2 - pos_choix_oui.w / 2;
     pos_choix_oui.y = (*game->WINDOWHEIGHT) / 1.58;
-
 
     /*----------------------------------------------------------------------------*/
 
@@ -180,12 +176,10 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
     SDL_Rect pos_choix_non;
     pos_choix_non.w = (*game->WINDOWWIDTH) * 64 / 1200;
     pos_choix_non.h = (*game->WINDOWHEIGHT) / 13.5;
-    pos_choix_non.x = (*game->WINDOWWIDTH) / 2 - pos_choix_non.w/2;
+    pos_choix_non.x = (*game->WINDOWWIDTH) / 2 - pos_choix_non.w / 2;
     pos_choix_non.y = (*game->WINDOWHEIGHT) / 1.42;
 
-
     /*----------------------------------------------------------------------------*/
-
 
     SDL_RenderClear(game->render);
 
@@ -244,33 +238,28 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
             SDL_RenderCopy(game->render, choix_oui, NULL, &pos_choix_oui);
             SDL_RenderCopy(game->render, choix_non, NULL, &pos_choix_non);
             SDL_RenderPresent(game->render);
-
-
         }
         if (keyState[SDL_SCANCODE_RETURN] && event.type == SDL_KEYDOWN)
         {
             SDL_RenderClear(game->render);
-            if (selection == 0){
+            if (selection == 0)
+            {
                 free(character);
                 character = character_create(game->render, character->file_name_save);
                 *combat_bool = SDL_FALSE;
                 gameover_bool = SDL_FALSE;
             }
 
-            if (selection == 1){
+            if (selection == 1)
+            {
                 *floor_bool = SDL_FALSE;
                 *combat_bool = SDL_FALSE;
                 gameover_bool = SDL_FALSE;
             }
-
-    }
-
-
+        }
     }
 
     /*--- End Main Loop ----------------------------------------------------------*/
-
-
 
     /*--- Free Memory ------------------------------------------------------------*/
     SDL_FreeSurface(surf_text_gameOver);
@@ -279,7 +268,6 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
     SDL_FreeSurface(surf_choix_oui);
     SDL_FreeSurface(surf_choix_non);
 
-
     SDL_DestroyTexture(text_gameOver);
     SDL_DestroyTexture(cadre);
     SDL_DestroyTexture(confirmation);
@@ -287,7 +275,4 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
     SDL_DestroyTexture(choix_non);
 
     /*--- End Free Memory --------------------------------------------------------*/
-
-
-
 }

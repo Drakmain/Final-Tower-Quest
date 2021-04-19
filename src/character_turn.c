@@ -12,7 +12,7 @@
 /*!
  *
  * \file combat.c
- * \brief A FINIR.
+ * \brief Gestion du tour de character_t en combat.
  * \author Enzo BRENNUS
  *
  */
@@ -20,12 +20,13 @@
 /*!
  *
  * \fn character_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_combat, SDL_bool *combat_bool)
- * \brief A FINIR.
+ * \brief Fonction permettant de gerer le tour du personnage en combat.
  *
- * \param game A FINIR.
- * \param character A FINIR.
- * \param map A FINIR.
- * \param texture_render A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param character est un pointeur sur l'objet character_t actuel.
+ * \param map est un pointeur sur l'objet map_t actuel.
+ * \param texture_render est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
+ * \param combat_bool A FINIR.
  *
  */
 

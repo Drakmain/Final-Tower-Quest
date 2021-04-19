@@ -1,0 +1,7 @@
+<map id="character_attacks" name="character_attacks">
+<area shape="rect" id="node1" title="Fonction permettant au joueur de selectionner un ennemi pour une attaque." alt="" coords="5,81,132,108"/>
+<area shape="rect" id="node2" href="$character__attacks_8c.html#ab11373c7331f944b056055cfbb54496c" title="Fonction permettant de changer les _ d&#39;une chaîne de caractères en espace." alt="" coords="205,5,289,32"/>
+<area shape="rect" id="node3" href="$affichage__message_8c.html#ab06f8d1321536236010a9e90993b2d23" title="Fonction permettant d&#39;afficher un message dans un cadre d&#39;une ou deux ligne." alt="" coords="180,56,313,83"/>
+<area shape="rect" id="node4" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="361,107,493,133"/>
+<area shape="rect" id="node5" href="$enemy__selection_8c.html#a3038b7d995c99b14207952522f998731" title="A FINIR." alt="" coords="187,157,307,184"/>
+</map>

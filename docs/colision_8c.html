@@ -107,20 +107,200 @@ Graphe des dépendances par inclusion de colision.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:aed042061bb1aefd0cd49d4153f3a841d"><td class="memItemLeft" align="right" valign="top"><a id="aed042061bb1aefd0cd49d4153f3a841d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>chargement_image</b> (<a class="el" href="structload__image__s.html">load_image_t</a> tab_load_image[NB_IMAGE])</td></tr>
-<tr class="separator:aed042061bb1aefd0cd49d4153f3a841d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62e59210ffa856d8cc4443972ab6b49f"><td class="memItemLeft" align="right" valign="top"><a id="a62e59210ffa856d8cc4443972ab6b49f"></a>
-Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>getpixel</b> (SDL_Surface *surface, int x, int y)</td></tr>
-<tr class="separator:a62e59210ffa856d8cc4443972ab6b49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a509ee2281d2d23f4d035abec7e0c6f96"><td class="memItemLeft" align="right" valign="top"><a id="a509ee2281d2d23f4d035abec7e0c6f96"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>character_moving</b> (<a class="el" href="structgame__t.html">game_t</a> *game, SDL_Renderer *pRenderer, SDL_Surface *couleur_image, <a class="el" href="structload__image__s.html">load_image_t</a> tab_load_image[NB_IMAGE], int x, int y, int direction)</td></tr>
-<tr class="separator:a509ee2281d2d23f4d035abec7e0c6f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be0412d7aa8ca0a088b4d6168e514ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="colision_8c.html#a7be0412d7aa8ca0a088b4d6168e514ee">chargement_image</a> (<a class="el" href="structload__image__s.html">load_image_t</a> tab_load_image[NB_IMAGE])</td></tr>
+<tr class="memdesc:a7be0412d7aa8ca0a088b4d6168e514ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="colision_8c.html#a7be0412d7aa8ca0a088b4d6168e514ee">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7be0412d7aa8ca0a088b4d6168e514ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb1a28c1e85d8541762f8b49e1fa80a3"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="colision_8c.html#acb1a28c1e85d8541762f8b49e1fa80a3">getpixel</a> (SDL_Surface *surface, int x, int y)</td></tr>
+<tr class="memdesc:acb1a28c1e85d8541762f8b49e1fa80a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="colision_8c.html#acb1a28c1e85d8541762f8b49e1fa80a3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acb1a28c1e85d8541762f8b49e1fa80a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf987d63ecee4cdcae3499b88806a4ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="colision_8c.html#adf987d63ecee4cdcae3499b88806a4ae">character_moving</a> (<a class="el" href="structgame__t.html">game_t</a> *game, SDL_Renderer *pRenderer, SDL_Surface *couleur_image, int x, int y, int direction)</td></tr>
+<tr class="memdesc:adf987d63ecee4cdcae3499b88806a4ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FINIR.  <a href="colision_8c.html#adf987d63ecee4cdcae3499b88806a4ae">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adf987d63ecee4cdcae3499b88806a4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Systeme de colision. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Robin PAPILLON </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="adf987d63ecee4cdcae3499b88806a4ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf987d63ecee4cdcae3499b88806a4ae">&#9670;&nbsp;</a></span>character_moving()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">character_moving </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame__t.html">game_t</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>pRenderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>couleur_image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A FINIR. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>est un pointeur sur l'objet <a class="el" href="structgame__t.html" title="Structure de l&#39;objet game_t.">game_t</a> du jeu. </td></tr>
+    <tr><td class="paramname">pRenderer</td><td>est un pointeur sur le rendu SDL du jeu. </td></tr>
+    <tr><td class="paramname">couleur_image</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">x</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">y</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">direction</td><td>A FINIR. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="colision_8c_adf987d63ecee4cdcae3499b88806a4ae_cgraph.png" border="0" usemap="#acolision_8c_adf987d63ecee4cdcae3499b88806a4ae_cgraph" alt=""/></div>
+<map name="acolision_8c_adf987d63ecee4cdcae3499b88806a4ae_cgraph" id="acolision_8c_adf987d63ecee4cdcae3499b88806a4ae_cgraph">
+<area shape="rect" title="A FINIR." alt="" coords="5,5,128,32"/>
+<area shape="rect" href="colision_8c.html#acb1a28c1e85d8541762f8b49e1fa80a3" title="A FINIR." alt="" coords="176,5,243,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="colision_8c_adf987d63ecee4cdcae3499b88806a4ae_icgraph.png" border="0" usemap="#acolision_8c_adf987d63ecee4cdcae3499b88806a4ae_icgraph" alt=""/></div>
+<map name="acolision_8c_adf987d63ecee4cdcae3499b88806a4ae_icgraph" id="acolision_8c_adf987d63ecee4cdcae3499b88806a4ae_icgraph">
+<area shape="rect" title="A FINIR." alt="" coords="212,56,335,83"/>
+<area shape="rect" href="floor__1_8c.html#ad51fab11313fca9a857e43996a9c7a7d" title="Permet la gestion de la premier map du jeu (floor_1)." alt="" coords="104,5,164,32"/>
+<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="107,56,161,83"/>
+<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="109,107,159,133"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,56,56,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7be0412d7aa8ca0a088b4d6168e514ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7be0412d7aa8ca0a088b4d6168e514ee">&#9670;&nbsp;</a></span>chargement_image()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">chargement_image </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structload__image__s.html">load_image_t</a>&#160;</td>
+          <td class="paramname"><em>tab_load_image</em>[NB_IMAGE]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A FINIR. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">load_image_t</td><td>A FINIR. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="colision_8c_a7be0412d7aa8ca0a088b4d6168e514ee_icgraph.png" border="0" usemap="#acolision_8c_a7be0412d7aa8ca0a088b4d6168e514ee_icgraph" alt=""/></div>
+<map name="acolision_8c_a7be0412d7aa8ca0a088b4d6168e514ee_icgraph" id="acolision_8c_a7be0412d7aa8ca0a088b4d6168e514ee_icgraph">
+<area shape="rect" title="A FINIR." alt="" coords="201,5,333,32"/>
+<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="104,5,153,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,5,56,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acb1a28c1e85d8541762f8b49e1fa80a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb1a28c1e85d8541762f8b49e1fa80a3">&#9670;&nbsp;</a></span>getpixel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getpixel </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A FINIR. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">x</td><td>A FINIR. </td></tr>
+    <tr><td class="paramname">y</td><td>A FINIR. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="colision_8c_acb1a28c1e85d8541762f8b49e1fa80a3_icgraph.png" border="0" usemap="#acolision_8c_acb1a28c1e85d8541762f8b49e1fa80a3_icgraph" alt=""/></div>
+<map name="acolision_8c_acb1a28c1e85d8541762f8b49e1fa80a3_icgraph" id="acolision_8c_acb1a28c1e85d8541762f8b49e1fa80a3_icgraph">
+<area shape="rect" title="A FINIR." alt="" coords="383,56,449,83"/>
+<area shape="rect" href="colision_8c.html#adf987d63ecee4cdcae3499b88806a4ae" title="A FINIR." alt="" coords="212,31,335,57"/>
+<area shape="rect" href="floor__1_8c.html#ad51fab11313fca9a857e43996a9c7a7d" title="Permet la gestion de la premier map du jeu (floor_1)." alt="" coords="104,5,164,32"/>
+<area shape="rect" href="tower_8c.html#a294603cf9b0e2425a421d2cd4cf3b7b1" title="A FINIR." alt="" coords="107,56,161,83"/>
+<area shape="rect" href="town_8c.html#a30cdcbca9c367fc3adbb62a2e48b09a6" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="109,107,159,133"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale du jeu." alt="" coords="5,56,56,83"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

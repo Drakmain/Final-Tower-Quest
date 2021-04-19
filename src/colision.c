@@ -14,12 +14,20 @@
 #include "..\lib\town.h"
 #include "..\lib\game.h"
 
-
 /*!
  *
  * \file colision.c
  * \brief Systeme de colision.
  * \author Robin PAPILLON
+ *
+ */
+
+/*!
+ *
+ * \fn chargement_image(load_image_t tab_load_image[NB_IMAGE])
+ * \brief A FINIR.
+ *
+ * \param load_image_t A FINIR.
  *
  */
 
@@ -35,6 +43,17 @@ void chargement_image(load_image_t tab_load_image[NB_IMAGE])
 		tab_load_image[i].surface = SDL_LoadBMP(tab_load_image[i].nom_image);
 	}
 }
+
+/*!
+ *
+ * \fn getpixel(SDL_Surface *surface, int x, int y)
+ * \brief A FINIR.
+ *
+ * \param surface A FINIR.
+ * \param x A FINIR.
+ * \param y A FINIR.
+ *
+ */
 
 Uint32 getpixel(SDL_Surface *surface, int x, int y)
 {
@@ -62,6 +81,20 @@ Uint32 getpixel(SDL_Surface *surface, int x, int y)
 }
 
 //0 --> up, 1 --> down,2 --> right,3 --> left
+
+/*!
+ *
+ * \fn character_moving(game_t *game, SDL_Renderer *pRenderer, SDL_Surface *couleur_image, int x, int y, int direction)
+ * \brief A FINIR.
+ *
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param pRenderer est un pointeur sur le rendu SDL du jeu.
+ * \param couleur_image A FINIR.
+ * \param x A FINIR.
+ * \param y A FINIR.
+ * \param direction A FINIR.
+ *
+ */
 
 int character_moving(game_t *game, SDL_Renderer *pRenderer, SDL_Surface *couleur_image, int x, int y, int direction)
 {
@@ -117,7 +150,7 @@ int character_moving(game_t *game, SDL_Renderer *pRenderer, SDL_Surface *couleur
 	else if (direction == 2)
 	{ //Droite
 		pixel = getpixel(couleur_image, x + (*game->WINDOWWIDTH) * 83 / 1280, y + (*game->WINDOWWIDTH) * 97 / 1280);
-		pixeld = getpixel(couleur_image, x + (*game->WINDOWWIDTH) *  83 / 1280, y + (*game->WINDOWWIDTH) * 112 / 1280);
+		pixeld = getpixel(couleur_image, x + (*game->WINDOWWIDTH) * 83 / 1280, y + (*game->WINDOWWIDTH) * 112 / 1280);
 		pixelg = getpixel(couleur_image, x + (*game->WINDOWWIDTH) * 83 / 1280, y + (*game->WINDOWWIDTH) * 105 / 1280);
 		SDL_GetRGB(pixel, couleur_image->format, &r, &g, &b);
 		SDL_GetRGB(pixelg, couleur_image->format, &rg, &gg, &bg);

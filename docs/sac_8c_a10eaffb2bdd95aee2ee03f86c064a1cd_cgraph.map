@@ -1,0 +1,14 @@
+<map id="ouverture_sac" name="ouverture_sac">
+<area shape="rect" id="node1" title="Fonction permettant l&#39;affichage du sac et l&#39;utilisation des potions." alt="" coords="5,93,108,120"/>
+<area shape="rect" id="node2" href="$affichage__message_8c.html#ab06f8d1321536236010a9e90993b2d23" title="Fonction permettant d&#39;afficher un message dans un cadre d&#39;une ou deux ligne." alt="" coords="465,93,599,120"/>
+<area shape="rect" id="node3" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="817,220,949,247"/>
+<area shape="rect" id="node4" href="$combat_8c.html#aa9f579324d602993f0259e3d3659fbed" title="Permet de gerer les combats contre les ennemis des différent etages." alt="" coords="187,144,253,171"/>
+<area shape="rect" id="node12" href="$texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="Fonction permettant d&#39;afficher un message demandant la confirmation du joueur." alt="" coords="156,347,284,373"/>
+<area shape="rect" id="node5" href="$map_8c.html#a8bc25a1fa628f6cda951d317e13ed3f5" title="Permet la copie d&#39;un type enemy_t dans un autre." alt="" coords="487,195,577,221"/>
+<area shape="rect" id="node6" href="$fin__combat_8c.html#acb4f23360a3e76a74ab8ae8a46b87150" title="Fonction permettant de gérer l&#39;obtention de l&#39;expérience et de potion à la fin d&#39;un combat." alt="" coords="332,93,417,120"/>
+<area shape="rect" id="node7" href="$game__over_8c.html#a8d8586a68be78008f8ea66affb0163ed" title="Fonction permettant l&#39;affichage du gamer over, permet au joueur de choisir si il veut continuer la pa..." alt="" coords="333,245,417,272"/>
+<area shape="rect" id="node8" href="$character_8c.html#ae5c3090e483c66af771cdb96e0f0deec" title="Permet la creation du l&#39;objet character." alt="" coords="473,347,591,373"/>
+<area shape="rect" id="node9" href="$character_8c.html#a135c00d42695fdf969e43501859df59c" title="Permet la liberation d&#39;un objet character." alt="" coords="656,397,760,424"/>
+<area shape="rect" id="node10" href="$character_8c.html#a8aa53f831bd180854f66afae62951449" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="647,347,769,373"/>
+<area shape="rect" id="node11" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="655,448,761,475"/>
+</map>

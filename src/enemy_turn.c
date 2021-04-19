@@ -10,7 +10,7 @@
 /*!
  *
  * \file combat.c
- * \brief A FINIR.
+ * \brief Gestion des tours des ennemis ou boss.
  * \author Enzo BRENNUS
  *
  */
@@ -18,13 +18,16 @@
 /*!
  *
  * \fn enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int num, map_t *map, SDL_Texture *texture_render_combat, int nb_attacks_boss)
- * \brief A FINIR.
+ * \brief Fonction permetant de faire le tour d'un ennemi ou du boss dinal d'un etage.
  *
- * \param game A FINIR.
- * \param character A FINIR.
- * \param map A FINIR.
- * \param texture_render_town A FINIR.
- *
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param character est un pointeur sur l'objet character_t actuel.
+ * \param enemies_cbt est un tableau contenant les ennemis en face du personnage.
+ * \param num est un entier representant l'ennemi qui joue.
+ * \param map est un pointeur sur l'objet map_t actuelle.
+ * \param texture_render_combat est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
+ * \param nb_attacks_boss est un entier representant le nombre d'attaque du boss final.
+ * 
  */
 
 extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cbt, int num, map_t *map, SDL_Texture *texture_render_combat, int nb_attacks_boss)
@@ -291,31 +294,9 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
     SDL_RenderCopy(game->render, texture_attaque, NULL, &pos_Wind_attaque);
     SDL_RenderCopy(game->render, texture_sac, NULL, &pos_Wind_sac);
     SDL_RenderCopy(game->render, texture_fuite, NULL, &pos_Wind_fuite);
-    if (character->life == 0)
-    {
-        pos_Wind_character.h = character->Dead.h * (*game->WINDOWWIDTH) * 6.5 / 2560;
-        pos_Wind_character.w = character->Dead.w * (*game->WINDOWWIDTH) * 6.5 / 2560;
-        pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 1.5;
-        pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
-        SDL_RenderCopy(game->render, character->texture, &character->Dead, &pos_Wind_character);
-    }
-    else if (character->life < character->max_life / 4)
-    {
-        pos_Wind_character.h = character->Weak.h * (*game->WINDOWWIDTH) * 6.5 / 2560;
-        pos_Wind_character.w = character->Weak.w * (*game->WINDOWWIDTH) * 6.5 / 2560;
-        pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 1.5;
-        pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
-        SDL_RenderCopy(game->render, character->texture, &character->Weak, &pos_Wind_character);
-    }
-    else
-    {
-        pos_Wind_character.h = character->West_Walk.rect.h * (*game->WINDOWWIDTH) * 6.5 / 2560;
-        pos_Wind_character.w = character->West_Walk.rect.w * (*game->WINDOWWIDTH) * 6.5 / 2560;
-        pos_Wind_character.x = ((*game->WINDOWWIDTH) - pos_Wind_character.w) / 1.5;
-        pos_Wind_character.y = ((*game->WINDOWHEIGHT) - pos_Wind_character.h) / 2.8;
-        SDL_RenderCopy(game->render, character->texture, &character->West_Walk.rect, &pos_Wind_character);
-    }
-
+    
+    SDL_RenderCopy(game->render, character->texture, &character->Damage_Taken, &pos_Wind_character);
+    
     affichage_message(game, texture_render, msg1, msg2, -1);
 
     /*--- End Main Loop ----------------------------------------------------------*/
@@ -333,6 +314,8 @@ extern void enemy_turn(game_t *game, character_t *character, enemy_t *enemies_cb
     SDL_DestroyTexture(texture_attaque);
     SDL_DestroyTexture(texture_sac);
     SDL_DestroyTexture(texture_fuite);
+
+    SDL_DestroyTexture(texture_render);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

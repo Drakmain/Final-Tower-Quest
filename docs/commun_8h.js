@@ -1,6 +1,8 @@
 var commun_8h =
 [
     [ "tile_set_s", "structtile__set__s.html", "structtile__set__s" ],
+    [ "CHANCE_CBT", "commun_8h.html#aff9669059c27e4e9c95271ee20697013", null ],
+    [ "CHANCE_CBT_MAX", "commun_8h.html#a3b3fadd4e3d8eef13b2a3960fede46d4", null ],
     [ "WINDOWHEIGHT_1080P", "commun_8h.html#a062499078b0d3600b49488ef8e18dfb2", null ],
     [ "WINDOWHEIGHT_1440P", "commun_8h.html#a246cbf13f33a9607cde518ddf2cef1d2", null ],
     [ "WINDOWHEIGHT_720P", "commun_8h.html#af9a0aaa1bdb3ddb17b47e52e00ea0416", null ],

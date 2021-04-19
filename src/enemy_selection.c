@@ -19,9 +19,11 @@
  * \fn enemy_selection(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, SDL_Texture *texture_render_attacks)
  * \brief A FINIR.
  *
- * \param game A FINIR.
- * \param character A FINIR.
- * \param texture_render_combat A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param character est un pointeur sur l'objet character_t actuel.
+ * \param enemies_cbt est un tableau contenant les ennemis en face du personnage.
+ * \param nb_enemies_combat est un entier contenant le nombre total d'ennemis en face du personnage.
+ * \param texture_render_attacks est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
  *
  */
 

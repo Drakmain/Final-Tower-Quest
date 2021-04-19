@@ -1,5 +1,5 @@
 <map id="caracteristiques" name="caracteristiques">
-<area shape="rect" id="node1" title="A FINIR." alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node1" title="Fonction permettant d&#39;afficher et de gérer les caractéristiques du personnage." alt="" coords="5,5,120,32"/>
 <area shape="rect" id="node2" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="344,5,476,32"/>
-<area shape="rect" id="node3" href="$texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="A FINIR." alt="" coords="168,31,296,57"/>
+<area shape="rect" id="node3" href="$texte__confirmation_8c.html#af7a07837e9e5ebb9e2c130f56a881445" title="Fonction permettant d&#39;afficher un message demandant la confirmation du joueur." alt="" coords="168,31,296,57"/>
 </map>

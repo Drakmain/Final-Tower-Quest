@@ -1,5 +1,5 @@
 <map id="src/creation_perso.c" name="src/creation_perso.c">
-<area shape="rect" id="node1" title="Gestion de la creation d&#39;un perosnnage." alt="" coords="117,5,257,32"/>
+<area shape="rect" id="node1" title="Gestion de la sélection d&#39;un perosnnage." alt="" coords="117,5,257,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" id="node4" href="$creation__perso_8h_source.html" title=" " alt="" coords="179,80,325,107"/>

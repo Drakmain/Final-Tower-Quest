@@ -14,21 +14,22 @@
 
 /*!
  *
- * \file combat.c
- * \brief A FINIR.
+ * \file combat_boss.c
+ * \brief Gestion des combats contre le boss final d'un etage.
  * \author Enzo BRENNUS
  *
  */
 
 /*!
  *
- * \fn combat_boss(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town)
- * \brief A FINIR.
+ * \fn combat_boss(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town, SDL_bool *floor_bool)
+ * \brief Permet de gerer les combats contre le boss final de l'etage.
  *
- * \param game A FINIR.
- * \param character A FINIR.
- * \param map A FINIR.
- * \param texture_render_town A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param character est un pointeur sur l'objet character_t actuel.
+ * \param map est un pointeur sur l'objet map_t actuel.
+ * \param texture_render_town est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
+ * \param floor_bool A FINIR.
  *
  */
 
@@ -49,8 +50,6 @@ extern int combat_boss(game_t *game, character_t *character, map_t *map, SDL_Tex
 
     SDL_bool *combat_boss_bool = malloc(sizeof(SDL_bool));
     *combat_boss_bool = SDL_TRUE;
-
-    int temp;
 
     //POS CHARACTER
     SDL_Rect pos_Wind_character;
@@ -73,7 +72,7 @@ extern int combat_boss(game_t *game, character_t *character, map_t *map, SDL_Tex
     boss->name = NULL;
     boss->name = malloc(sizeof(char) * 50);
 
-    boss->attack = malloc(sizeof(attack_enemie_t) * map->nb_attacks_boss);
+    boss->attack = malloc(sizeof(attack_enemy_t) * map->nb_attacks_boss);
 
     for (int i = 0; i < map->nb_attacks_boss; i++)
     {
@@ -456,6 +455,8 @@ extern int combat_boss(game_t *game, character_t *character, map_t *map, SDL_Tex
     SDL_DestroyTexture(texture_nom_personnage);
     SDL_DestroyTexture(texture_PV_personnage);
     SDL_DestroyTexture(texture_PM_personnage);
+
+    SDL_DestroyTexture(texture_render);
 
     /*--- End Free Memory --------------------------------------------------------*/
 
