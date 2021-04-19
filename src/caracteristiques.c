@@ -8,7 +8,7 @@
 /*!
  *
  * \file caracteristiques.c
- * \brief A FINIR.
+ * \brief Affichage et gestion des caractéristiques du personnage.
  * \author Jeremy BOURGOUIN
  *
  */
@@ -16,12 +16,12 @@
 /*!
  *
  * \fn caracteristiques(game_t *game, character_t *character, SDL_Texture *texture_render_menu_ig, SDL_bool *echap_relache)
- * \brief A FINIR.
+ * \brief Fonction permettant d'afficher et de gérer les caractéristiques du personnage.
  *
- * \param game A FINIR.
- * \param character A FINIR.
- * \param texture_render_menu_ig A FINIR.
- * \param echap_relache A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param character est un pointeur sur l'objet character_t actuel.
+ * \param texture_render_menu_ig est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
+ * \param echap_relache est un pointeur sur un booléen pour savoir si la touche échap est relachée.
  *
  */
 

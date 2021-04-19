@@ -13,21 +13,22 @@
 /*!
  *
  * \file fin_combat.c
- * \brief A FINIR.
+ * \brief Permet la gestion de l'obtention d'expérience et de potion à la fin d'un combat.
  * \author Jeremy BOURGOUIN
  *
  */
 
 /*!
  *
- * \fn combat(game_t *game, character_t *character, map_t *map, int nb_enemie_combat, int rand_enemie)
- * \brief A FINIR.
+ * \fn fin_combat(game_t *game, character_t *character, SDL_Texture * texture_render_combat, map_t *map, enemy_t *enemies_cbt, int nb_enemie_combat)
+ * \brief Fonction permettant de gérer l'obtention de l'expérience et de potion à la fin d'un combat.
  *
- * \param game A FINIR.
- * \param character A FINIR.
- * \param map A FINIR.
- * \param nb_enemie_combat A FINIR.
- * \param rand_enemie A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param character est un pointeur sur l'objet character_t actuel.
+ * \param texture_render_combat est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
+ * \param map est un pointeur sur l'objet map_t actuel.
+ * \param enemies_cbt est un tableau contenant les ennemis en face du personnage.
+ * \param nb_enemie_combat est le nombre d'ennemis dans le combat.
  *
  */
 

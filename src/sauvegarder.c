@@ -8,7 +8,7 @@
 /*!
  *
  * \file sauvegarder.c
- * \brief A FINIR.
+ * \brief Permet de sauvegarder.
  * \author Jeremy BOURGOUIN
  *
  */
@@ -16,10 +16,10 @@
 /*!
  *
  * \fn sauvegarde(game_t *game, character_t *character)
- * \brief A FINIR.
+ * \brief Fonction permettant de sauvegarder les données du personnage.
  *
- * \param game A FINIR.
- * \param character A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param character est un pointeur sur l'objet character_t actuel.
  *
  */
 

@@ -20,12 +20,12 @@
 /*!
  *
  * \fn menu_in_game(game_t *game, SDL_bool *map_bool, character_t *character, SDL_Texture *texture_render)
- * \brief A FINIR.
+ * \brief Fonction du menu dans le jeu.
  *
- * \param game A FINIR.
- * \param map_bool A FINIR.
- * \param character A FINIR.
- * \param texture_render A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param map_bool est un pointeur sur le booléen gérant la fonction de la carte.
+ * \param character est un pointeur sur l'objet character_t actuel.
+ * \param texture_render est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
  *
  */
 

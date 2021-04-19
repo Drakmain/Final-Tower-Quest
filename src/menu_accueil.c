@@ -10,7 +10,7 @@
 /*!
  *
  * \file menu_accueil.c
- * \brief Gestion du menu d'accueil du jeu.
+ * \brief Menu d'accueil du jeu.
  * \author Jeremy BOURGOUIN
  *
  */
@@ -18,10 +18,10 @@
 /*!
  *
  * \fn menu_accueil(game_t *game, char *actual_save)
- * \brief Fonction de gestion du menu d'accueil du jeu.
+ * \brief Fonction du menu d'accueil du jeu.
  *
- * \param game A FINIR.
- * \param actual_save A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param actual_save représente le fichier initialisé lorsque le joueur sélectionne le personnage..
  *
  */
 
