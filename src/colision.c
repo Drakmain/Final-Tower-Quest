@@ -17,7 +17,7 @@
 /*!
  *
  * \file colision.c
- * \brief Systeme de colision.
+ * \brief Systeme de collision.
  * \author Robin PAPILLON
  *
  */
@@ -25,9 +25,9 @@
 /*!
  *
  * \fn chargement_image(load_image_t tab_load_image[NB_IMAGE])
- * \brief A FINIR.
+ * \brief permet de charger les images des hitboxs dans le programme
  *
- * \param load_image_t A FINIR.
+ * \param load_image_t structure de chargement d'image
  *
  */
 
@@ -47,11 +47,11 @@ void chargement_image(load_image_t tab_load_image[NB_IMAGE])
 /*!
  *
  * \fn getpixel(SDL_Surface *surface, int x, int y)
- * \brief A FINIR.
+ * \brief Fonction permettant de récupérer un pixel sur une carte.
  *
- * \param surface A FINIR.
- * \param x A FINIR.
- * \param y A FINIR.
+ * \param surface carte
+ * \param x position x
+ * \param y position y
  *
  */
 
@@ -85,14 +85,14 @@ Uint32 getpixel(SDL_Surface *surface, int x, int y)
 /*!
  *
  * \fn character_moving(game_t *game, SDL_Renderer *pRenderer, SDL_Surface *couleur_image, int x, int y, int direction)
- * \brief A FINIR.
+ * \brief Fonction permettant de savoir si le joueur à le droit de se déplacer
  *
  * \param game est un pointeur sur l'objet game_t du jeu.
  * \param pRenderer est un pointeur sur le rendu SDL du jeu.
- * \param couleur_image A FINIR.
- * \param x A FINIR.
- * \param y A FINIR.
- * \param direction A FINIR.
+ * \param couleur_image carte en couleur
+ * \param x position x
+ * \param y position y
+ * \param direction direction du joueur
  *
  */
 
