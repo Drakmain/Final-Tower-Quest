@@ -1,0 +1,7 @@
+<map id="enemy_cpy" name="enemy_cpy">
+<area shape="rect" id="node1" title="Permet la copie d&#39;un type enemy_t dans un autre." alt="" coords="463,31,552,57"/>
+<area shape="rect" id="node2" href="$combat_8c.html#aa9f579324d602993f0259e3d3659fbed" title="Permet de gerer les combats contre les ennemis des différent etages." alt="" coords="332,5,397,32"/>
+<area shape="rect" id="node5" href="$combat__boss_8c.html#ab2ae050e430224c70ea605e2f4bfdb27" title="Permet de gerer les combats contre le boss final de l&#39;etage." alt="" coords="315,56,415,83"/>
+<area shape="rect" id="node3" href="$menu__in__game_8c.html#aaccdae75d50ed209f6989f48201a6326" title="A FINIR." alt="" coords="5,5,116,32"/>
+<area shape="rect" id="node4" href="$sac_8c.html#a10eaffb2bdd95aee2ee03f86c064a1cd" title="A FINIR." alt="" coords="164,31,267,57"/>
+</map>

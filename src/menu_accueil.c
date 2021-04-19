@@ -233,7 +233,7 @@ extern void menu_accueil(game_t *game, char *actual_save)
 
         SDL_Delay(30);
     }
-    printf("%d",pos_tour.y);
+    
     SDL_RenderPresent(game->render);
 
     while (menu_ac_bool == SDL_TRUE && (*game->program_launch))

@@ -71,7 +71,7 @@ $(document).ready(function(){initNavTree('character_8c.html',''); initResizable(
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;..\lib\character.h&quot;</code><br />
-<code>#include &quot;..\lib\attacks_character.h&quot;</code><br />
+<code>#include &quot;..\lib\character_attacks.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de character.c:</div>
 <div class="dyncontent">
@@ -81,14 +81,14 @@ Graphe des dépendances par inclusion de character.c:</div>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" title=" " alt="" coords="179,80,245,107"/>
-<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="237,155,353,181"/>
-<area shape="rect" href="attacks__character_8h_source.html" title=" " alt="" coords="321,80,487,107"/>
-<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="323,304,405,331"/>
-<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="301,229,360,256"/>
-<area shape="rect" title=" " alt="" coords="243,379,301,405"/>
-<area shape="rect" title=" " alt="" coords="326,379,402,405"/>
-<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="427,379,515,405"/>
-<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="435,229,501,256"/>
+<area shape="rect" href="character_8h_source.html" title=" " alt="" coords="225,155,341,181"/>
+<area shape="rect" href="character__attacks_8h_source.html" title=" " alt="" coords="321,80,487,107"/>
+<area shape="rect" href="commun_8h.html" title="Définitions de structure et de constante commune." alt="" coords="355,304,437,331"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="333,229,392,256"/>
+<area shape="rect" title=" " alt="" coords="275,379,333,405"/>
+<area shape="rect" title=" " alt="" coords="358,379,434,405"/>
+<area shape="rect" href="error_8h_source.html" title=" " alt="" coords="459,379,547,405"/>
+<area shape="rect" href="game_8h_source.html" title=" " alt="" coords="467,229,533,256"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -141,7 +141,7 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">render</td><td>est un pointeur sur le rendu SDL. </td></tr>
-    <tr><td class="paramname">file_name_save</td><td>A FINIR.</td></tr>
+    <tr><td class="paramname">file_name_save</td><td>est un nom de sauvegarde qui doit etre chargé dans l'objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>.</td></tr>
   </table>
   </dd>
 </dl>
@@ -317,9 +317,9 @@ Voici le graphe des appelants de cette fonction :</div>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">character</td><td>est un pointeur sur un objet <a class="el" href="structcharacter__t.html" title="Structure de l&#39;objet character_t.">character_t</a>. </td></tr>
-    <tr><td class="paramname">render</td><td>est un pointeur sur le rendu SDL. </td></tr>
-    <tr><td class="paramname">base_rect</td><td>A FINIR </td></tr>
-    <tr><td class="paramname">pos_wind_rect</td><td>A FINIR </td></tr>
+    <tr><td class="paramname">render</td><td>est un pointeur sur le rendu SDL du jeu. </td></tr>
+    <tr><td class="paramname">base_rect</td><td>est un <a class="el" href="structtile__set__t.html" title="Structure de l&#39;objet tile_set_t.">tile_set_t</a> de base de l'animation. </td></tr>
+    <tr><td class="paramname">pos_wind_rect</td><td>est un SDL_Rect de la position du character sur la fenetre. </td></tr>
   </table>
   </dd>
 </dl>

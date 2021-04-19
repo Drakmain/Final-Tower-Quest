@@ -15,7 +15,7 @@
  *
  * \file town.c
  * \brief Gestion de la map town.
- * \author Enzo BRENNUS Robin PAPILLON
+ * \author Enzo BRENNUS, Jeremy BOURGOUIN, Robin PAPILLON.
  *
  */
 

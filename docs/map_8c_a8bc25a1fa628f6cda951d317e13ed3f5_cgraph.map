@@ -1,0 +1,4 @@
+<map id="enemy_cpy" name="enemy_cpy">
+<area shape="rect" id="node1" title="Permet la copie d&#39;un type enemy_t dans un autre." alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node2" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="143,5,275,32"/>
+</map>

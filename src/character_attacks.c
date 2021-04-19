@@ -11,7 +11,7 @@
 /*!
  *
  * \file attaques.c
- * \brief A FINIR.
+ * \brief Gestion de la selection d'une ennemi pour une attaque.
  * \author Enzo BRENNUS
  *
  */
@@ -19,10 +19,9 @@
 /*!
  *
  * \fn _toEspace(char *string)
- * \brief A FINIR.
+ * \brief Fonction permettant de changer les _ d'une chaîne de caractères en espace.
  *
- * \param string A FINIR.
- * \param length A FINIR.
+ * \param string est une chaîne de caractères a tranformer.
  *
  */
 
@@ -40,11 +39,14 @@ extern void _toEspace(char *string)
 /*!
  *
  * \fn character_attacks(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_combat, SDL_bool *character_turn_bool)
- * \brief A FINIR.
+ * \brief Fonction permettant au joueur de selectionner un ennemi pour une attaque.
  *
- * \param game A FINIR.
- * \param character A FINIR.
- * \param texture_render_combat A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param character est un pointeur sur l'objet character_t actuel.
+ * \param enemies_cbt est un tableau contenant les ennemis en face du personnage.
+ * \param nb_enemies_combat_actif est un entier contenant le nombre d'ennemis actif en face du personnage.
+ * \param texture_render_combat est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
+ * \param character_turn_bool A FINIR.
  *
  */
 
@@ -1909,6 +1911,8 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     SDL_DestroyTexture(texture_description_attaque);
     SDL_DestroyTexture(texture_PV_personnage);
     SDL_DestroyTexture(texture_PM_personnage);
+
+    SDL_DestroyTexture(texture_render);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

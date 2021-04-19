@@ -15,15 +15,15 @@
 
 /*!
  *
- * \struct attack_enemie_t map.h "map.h"
- * \brief Structure de l'objet attack_enemie_t.
+ * \struct attack_enemy_t map.h "map.h"
+ * \brief Structure de l'objet attack_enemy_t.
  *
  */
 
 /*!
  *
- * \struct enemie_t map.h "map.h"
- * \brief Structure de l'objet enemie_t.
+ * \struct enemy_t map.h "map.h"
+ * \brief Structure de l'objet enemy_t.
  *
  */
 
@@ -94,8 +94,8 @@ static void map_free(map_t **map)
  * \fn map_create(SDL_Renderer *render, char *name_map)
  * \brief Permet la creation du l'objet map_t.
  *
- * \param render est un pointeur sur le rendu SDL.
- * \param name_map A FINIR.
+ * \param render est un pointeur sur le rendu SDL du jeu.
+ * \param name_map Nom de la carte a mettre dans l'objet map_t.
  * 
  * \return map Un objet map_t créé dans cette fonction.
  * \retval map_t * Un pointeur sur l'objet map_t.
@@ -188,7 +188,7 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
             map->enemies[i].name = NULL;
             map->enemies[i].name = malloc(sizeof(char) * 50);
 
-            map->enemies[i].attack = malloc(sizeof(attack_enemie_t) * NB_ATTACKS_ENEMIES);
+            map->enemies[i].attack = malloc(sizeof(attack_enemy_t) * NB_ATTACKS_ENEMIES);
 
             for (int y = 0; y < NB_ATTACKS_ENEMIES; y++)
             {
@@ -203,7 +203,7 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
         map->boss->name = NULL;
         map->boss->name = malloc(sizeof(char) * 50);
 
-        map->boss->attack = malloc(sizeof(attack_enemie_t) * 5);
+        map->boss->attack = malloc(sizeof(attack_enemy_t) * 5);
 
         for (int i = 0; i < 5; i++)
         {
@@ -344,13 +344,12 @@ extern map_t *map_create(SDL_Renderer *render, char *name_map)
 /*!
  *
  * \fn enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render, int nb_attacks_boss)
- * \brief A FINIR.
+ * \brief Permet la copie d'un type enemy_t dans un autre.
  *
- * \param dst A FINIR.
- * \param src A FINIR.
- * \param render A FINIR.
- * 
- * \retval A FINIR.
+ * \param dst est le type enemy_t de destination.
+ * \param src est le type enemy_t source.
+ * \param render est un pointeur sur le rendu SDL du jeu.
+ * \param nb_attacks_boss est le nombre d'attaques si l'ennemi est un boss.
  * 
  */
 
@@ -389,7 +388,6 @@ extern void enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render, in
 
             dst->attack[i].dmg_min = src->attack[i].dmg_min;
             dst->attack[i].dmg_max = src->attack[i].dmg_max;
-            dst->attack[i].mana = src->attack[i].mana;
 
             dst->attack[i].effect = src->attack[i].effect;
             dst->attack[i].effect_duration = src->attack[i].effect_duration;
@@ -406,7 +404,6 @@ extern void enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render, in
 
             dst->attack[i].dmg_min = src->attack[i].dmg_min;
             dst->attack[i].dmg_max = src->attack[i].dmg_max;
-            dst->attack[i].mana = src->attack[i].mana;
 
             dst->attack[i].effect = src->attack[i].effect;
             dst->attack[i].effect_duration = src->attack[i].effect_duration;
@@ -425,7 +422,7 @@ extern void enemy_cpy(enemy_t *dst, enemy_t *const src, SDL_Renderer *render, in
 
 /*!
  *
- * \fn map_exist(map_t * const map)
+ * \fn map_exist(map_t *const map)
  * \brief Permet de verifier l'existence du l'objet map.
  *
  * \param map est pointeur sur un objet map_t.

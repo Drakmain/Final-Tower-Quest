@@ -1,51 +1,52 @@
 <map id="lib/commun.h" name="lib/commun.h">
-<area shape="rect" id="node1" title="Définitions de structure et de constante commune." alt="" coords="1936,5,2036,32"/>
-<area shape="rect" id="node2" href="$colision_8c.html" title="Systeme de colision." alt="" coords="987,304,1086,331"/>
-<area shape="rect" id="node3" href="$main_8c.html" title="Ficher principale du jeu." alt="" coords="1646,304,1728,331"/>
-<area shape="rect" id="node4" href="$sac_8c.html" title="A FINIR." alt="" coords="3529,304,3605,331"/>
-<area shape="rect" id="node5" href="$affichage__message_8h_source.html" title=" " alt="" coords="3772,229,3933,256"/>
-<area shape="rect" id="node7" href="$attacks__character_8h_source.html" title=" " alt="" coords="1444,229,1599,256"/>
-<area shape="rect" id="node11" href="$caracteristiques_8h_source.html" title=" " alt="" coords="2430,229,2573,256"/>
-<area shape="rect" id="node14" href="$character_8h_source.html" title=" " alt="" coords="1578,155,1682,181"/>
-<area shape="rect" id="node21" href="$combat_8h_source.html" title=" " alt="" coords="532,229,626,256"/>
-<area shape="rect" id="node22" href="$floor__1_8h_source.html" title=" " alt="" coords="1332,229,1420,256"/>
-<area shape="rect" id="node23" href="$menu__in__game_8h_source.html" title=" " alt="" coords="319,229,458,256"/>
-<area shape="rect" id="node24" href="$sac_8h_source.html" title=" " alt="" coords="1877,229,1948,256"/>
-<area shape="rect" id="node25" href="$sauvegarder_8h_source.html" title=" " alt="" coords="2074,229,2193,256"/>
-<area shape="rect" id="node26" href="$tower_8h_source.html" title=" " alt="" coords="1125,229,1206,256"/>
-<area shape="rect" id="node27" href="$town_8h_source.html" title=" " alt="" coords="1231,229,1308,256"/>
-<area shape="rect" id="node28" href="$charger__partie_8h_source.html" title=" " alt="" coords="2753,229,2885,256"/>
-<area shape="rect" id="node30" href="$colision_8h_source.html" title=" " alt="" coords="650,229,745,256"/>
-<area shape="rect" id="node31" href="$commandes_8h_source.html" title=" " alt="" coords="2909,229,3030,256"/>
-<area shape="rect" id="node33" href="$creation__perso_8h_source.html" title=" " alt="" coords="3561,229,3696,256"/>
-<area shape="rect" id="node35" href="$frame_8h_source.html" title=" " alt="" coords="162,229,244,256"/>
-<area shape="rect" id="node37" href="$game_8h_source.html" title=" " alt="" coords="2136,155,2219,181"/>
-<area shape="rect" id="node39" href="$menu__accueil_8h_source.html" title=" " alt="" coords="2598,229,2728,256"/>
-<area shape="rect" id="node40" href="$nom__sauvegarde_8h_source.html" title=" " alt="" coords="3958,229,4104,256"/>
-<area shape="rect" id="node42" href="$nouvelle__partie_8h_source.html" title=" " alt="" coords="3234,229,3369,256"/>
-<area shape="rect" id="node43" href="$options_8h_source.html" title=" " alt="" coords="3393,229,3485,256"/>
-<area shape="rect" id="node45" href="$texte__confirmation_8h_source.html" title=" " alt="" coords="3054,229,3210,256"/>
-<area shape="rect" id="node47" href="$transition_8h_source.html" title=" " alt="" coords="34,229,137,256"/>
-<area shape="rect" id="node49" href="$map_8h_source.html" title=" " alt="" coords="771,80,846,107"/>
-<area shape="rect" id="node6" href="$affichage__message_8c.html" title="A FINIR." alt="" coords="3793,304,3960,331"/>
-<area shape="rect" id="node8" href="$character_8c.html" title="Gestion de l&#39;objet character." alt="" coords="1490,304,1599,331"/>
-<area shape="rect" id="node9" href="$combat_8c.html" title="A FINIR." alt="" coords="784,304,883,331"/>
-<area shape="rect" id="node10" href="$map_8c.html" title="Gestion de l&#39;objet map." alt="" coords="1234,304,1314,331"/>
-<area shape="rect" id="node12" href="$caracteristiques_8c.html" title="A FINIR." alt="" coords="2502,304,2648,331"/>
-<area shape="rect" id="node13" href="$menu__in__game_8c.html" title="Menu dans le jeu." alt="" coords="2062,304,2205,331"/>
-<area shape="rect" id="node15" href="$charger__partie_8c.html" title="Gestion du chargement d&#39;une nouvelle partie." alt="" coords="1901,304,2038,331"/>
-<area shape="rect" id="node16" href="$floor__1_8c.html" title="Gestion de la map floor_1." alt="" coords="591,304,684,331"/>
-<area shape="rect" id="node17" href="$nouvelle__partie_8c.html" title="Gestion des nouvelles partie." alt="" coords="3214,304,3354,331"/>
-<area shape="rect" id="node18" href="$sauvegarder_8c.html" title="A FINIR." alt="" coords="1753,304,1877,331"/>
-<area shape="rect" id="node19" href="$tower_8c.html" title="Gestion de la map tower." alt="" coords="293,304,380,331"/>
-<area shape="rect" id="node20" href="$town_8c.html" title="Gestion de la map town." alt="" coords="415,304,498,331"/>
-<area shape="rect" id="node29" href="$menu__accueil_8c.html" title="Gestion du menu d&#39;accueil du jeu." alt="" coords="2749,304,2884,331"/>
-<area shape="rect" id="node32" href="$options_8c.html" title="Affichage et gestion des options." alt="" coords="3093,304,3190,331"/>
-<area shape="rect" id="node34" href="$creation__perso_8c.html" title="Gestion de la creation d&#39;un perosnnage." alt="" coords="3629,304,3769,331"/>
-<area shape="rect" id="node36" href="$frame_8c.html" title="Gestion des FPS." alt="" coords="161,304,248,331"/>
-<area shape="rect" id="node38" href="$game_8c.html" title="Gestion de l&#39;objet game." alt="" coords="2320,229,2406,256"/>
-<area shape="rect" id="node41" href="$nom__sauvegarde_8c.html" title="A FINIR." alt="" coords="3984,304,4136,331"/>
-<area shape="rect" id="node44" href="$commandes_8c.html" title="A FINIR." alt="" coords="3378,304,3505,331"/>
-<area shape="rect" id="node46" href="$texte__confirmation_8c.html" title="A FINIR." alt="" coords="2908,304,3069,331"/>
-<area shape="rect" id="node48" href="$transition_8c.html" title="A FINIR." alt="" coords="29,304,137,331"/>
+<area shape="rect" id="node1" title="Définitions de structure et de constante commune." alt="" coords="2225,5,2325,32"/>
+<area shape="rect" id="node2" href="$colision_8c.html" title="Systeme de colision." alt="" coords="5,304,104,331"/>
+<area shape="rect" id="node3" href="$main_8c.html" title="Ficher principale du jeu." alt="" coords="1705,304,1788,331"/>
+<area shape="rect" id="node4" href="$affichage__message_8h_source.html" title=" " alt="" coords="219,229,381,256"/>
+<area shape="rect" id="node9" href="$caracteristiques_8h_source.html" title=" " alt="" coords="3215,229,3358,256"/>
+<area shape="rect" id="node12" href="$character_8h_source.html" title=" " alt="" coords="2021,155,2125,181"/>
+<area shape="rect" id="node20" href="$character__attacks_8h_source.html" title=" " alt="" coords="2487,229,2641,256"/>
+<area shape="rect" id="node24" href="$character__turn_8h_source.html" title=" " alt="" coords="2860,229,2993,256"/>
+<area shape="rect" id="node25" href="$combat_8h_source.html" title=" " alt="" coords="405,229,499,256"/>
+<area shape="rect" id="node26" href="$combat__boss_8h_source.html" title=" " alt="" coords="1500,229,1628,256"/>
+<area shape="rect" id="node27" href="$enemy__selection_8h_source.html" title=" " alt="" coords="3382,229,3530,256"/>
+<area shape="rect" id="node28" href="$enemy__turn_8h_source.html" title=" " alt="" coords="2717,229,2835,256"/>
+<area shape="rect" id="node29" href="$fin__combat_8h_source.html" title=" " alt="" coords="2298,229,2411,256"/>
+<area shape="rect" id="node30" href="$floor__1_8h_source.html" title=" " alt="" coords="1703,229,1791,256"/>
+<area shape="rect" id="node31" href="$game__over_8h_source.html" title=" " alt="" coords="2161,229,2273,256"/>
+<area shape="rect" id="node32" href="$menu__in__game_8h_source.html" title=" " alt="" coords="977,229,1116,256"/>
+<area shape="rect" id="node33" href="$sac_8h_source.html" title=" " alt="" coords="3018,229,3089,256"/>
+<area shape="rect" id="node34" href="$sauvegarder_8h_source.html" title=" " alt="" coords="1815,229,1934,256"/>
+<area shape="rect" id="node35" href="$tower_8h_source.html" title=" " alt="" coords="1343,229,1425,256"/>
+<area shape="rect" id="node36" href="$town_8h_source.html" title=" " alt="" coords="1191,229,1268,256"/>
+<area shape="rect" id="node37" href="$charger__partie_8h_source.html" title=" " alt="" coords="4035,229,4167,256"/>
+<area shape="rect" id="node39" href="$colision_8h_source.html" title=" " alt="" coords="650,229,745,256"/>
+<area shape="rect" id="node40" href="$commandes_8h_source.html" title=" " alt="" coords="3710,229,3831,256"/>
+<area shape="rect" id="node41" href="$creation__perso_8h_source.html" title=" " alt="" coords="4690,229,4825,256"/>
+<area shape="rect" id="node42" href="$frame_8h_source.html" title=" " alt="" coords="769,229,852,256"/>
+<area shape="rect" id="node43" href="$game_8h_source.html" title=" " alt="" coords="2393,155,2476,181"/>
+<area shape="rect" id="node44" href="$menu__accueil_8h_source.html" title=" " alt="" coords="3555,229,3685,256"/>
+<area shape="rect" id="node45" href="$nom__sauvegarde_8h_source.html" title=" " alt="" coords="4519,229,4665,256"/>
+<area shape="rect" id="node46" href="$nouvelle__partie_8h_source.html" title=" " alt="" coords="4359,229,4494,256"/>
+<area shape="rect" id="node47" href="$options_8h_source.html" title=" " alt="" coords="4243,229,4335,256"/>
+<area shape="rect" id="node48" href="$texte__confirmation_8h_source.html" title=" " alt="" coords="3855,229,4011,256"/>
+<area shape="rect" id="node49" href="$transition_8h_source.html" title=" " alt="" coords="523,229,626,256"/>
+<area shape="rect" id="node50" href="$map_8h_source.html" title=" " alt="" coords="1425,80,1500,107"/>
+<area shape="rect" id="node5" href="$affichage__message_8c.html" title="A FINIR." alt="" coords="211,304,378,331"/>
+<area shape="rect" id="node6" href="$fin__combat_8c.html" title="A FINIR." alt="" coords="402,304,521,331"/>
+<area shape="rect" id="node7" href="$floor__1_8c.html" title="Gestion de la map floor_1." alt="" coords="868,304,961,331"/>
+<area shape="rect" id="node8" href="$sac_8c.html" title="A FINIR." alt="" coords="2647,304,2723,331"/>
+<area shape="rect" id="node10" href="$caracteristiques_8c.html" title="A FINIR." alt="" coords="3604,304,3751,331"/>
+<area shape="rect" id="node11" href="$menu__in__game_8c.html" title="Menu dans le jeu." alt="" coords="3019,304,3162,331"/>
+<area shape="rect" id="node13" href="$character_8c.html" title="Gestion de l&#39;objet character." alt="" coords="2232,304,2341,331"/>
+<area shape="rect" id="node14" href="$charger__partie_8c.html" title="Gestion du chargement d&#39;une nouvelle partie." alt="" coords="3186,304,3323,331"/>
+<area shape="rect" id="node15" href="$game__over_8c.html" title="A FINIR." alt="" coords="2088,304,2205,331"/>
+<area shape="rect" id="node16" href="$nouvelle__partie_8c.html" title="Gestion des nouvelles partie." alt="" coords="4315,304,4455,331"/>
+<area shape="rect" id="node17" href="$sauvegarder_8c.html" title="A FINIR." alt="" coords="1821,304,1945,331"/>
+<area shape="rect" id="node18" href="$tower_8c.html" title="Gestion de la map tower." alt="" coords="654,304,741,331"/>
+<area shape="rect" id="node19" href="$town_8c.html" title="Gestion de la map town." alt="" coords="1112,304,1195,331"/>
+<area shape="rect" id="node21" href="$combat_8c.html" title="Gestion du tour de character_t en combat." alt="" coords="2367,304,2465,331"/>
+<area shape="rect" id="node22" href="$combat__boss_8c.html" title="Gestion des combats contre le boss final d&#39;un etage." alt="" coords="2489,304,2623,331"/>
+<area shape="rect" id="node23" href="$map_8c.html" title="Gestion de l&#39;objet map." alt="" coords="1979,304,2059,331"/>
+<area shape="rect" id="node38" href="$menu__accueil_8c.html" title="Gestion du menu d&#39;accueil du jeu." alt="" coords="4075,304,4210,331"/>
 </map>

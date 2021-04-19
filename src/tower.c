@@ -17,7 +17,7 @@
  *
  * \file tower.c
  * \brief Gestion de la map tower.
- * \author Enzo BRENNUS
+ * \author Enzo BRENNUS, Jeremy BOURGOUIN, Robin PAPILLON.
  *
  */
 

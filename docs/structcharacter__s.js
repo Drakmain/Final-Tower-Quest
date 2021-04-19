@@ -1,6 +1,8 @@
 var structcharacter__s =
 [
     [ "agilite", "structcharacter__s.html#a6745fcf7139df7934f56395c3e7d3a29", null ],
+    [ "atb", "structcharacter__s.html#aebbdef1bc69fae0e23846d3ccfe2b249", null ],
+    [ "Attack", "structcharacter__s.html#adbec813db461206469e1d2ed1c0a668d", null ],
     [ "attacks", "structcharacter__s.html#a23908ca5b777500dc552b615e5d9a44c", null ],
     [ "B", "structcharacter__s.html#a12857102343f2f2a198414bdcc70e51b", null ],
     [ "classe_name", "structcharacter__s.html#a8ddaa54411507096eff645f8d8419dd2", null ],
@@ -37,9 +39,11 @@ var structcharacter__s =
     [ "save_name", "structcharacter__s.html#addb4515e0011afe5a483564568c60d84", null ],
     [ "South_Walk", "structcharacter__s.html#a7cc5bde1d5de3c49e0ab27fd270d4fcb", null ],
     [ "surface", "structcharacter__s.html#a2f5cac12e913bcfcff660305bf88dd3b", null ],
+    [ "tab_xp_max", "structcharacter__s.html#ad79d3d31059b496ce67a0103b950ac17", null ],
     [ "texture", "structcharacter__s.html#a859b8efbf9abe8e82757ee5c75a0c97c", null ],
     [ "update", "structcharacter__s.html#a9b14c0e39c2d471aacac68fc7d2fb964", null ],
     [ "vitalite", "structcharacter__s.html#ad8fa02e8397247efa6a296fc154a96da", null ],
+    [ "vitesse", "structcharacter__s.html#a4b512d0a6dcc3c7d7e6dd9a7714852c4", null ],
     [ "Weak", "structcharacter__s.html#a0cfbc614dcf8b75ce3f7bbf5d6b4b055", null ],
     [ "West_Walk", "structcharacter__s.html#a3e63dee588b8df82d8aa5614fdb48282", null ],
     [ "x", "structcharacter__s.html#a6150e0515f7202e2fb518f7206ed97dc", null ],

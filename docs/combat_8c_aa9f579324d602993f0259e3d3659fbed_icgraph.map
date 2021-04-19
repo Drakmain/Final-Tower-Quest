@@ -1,0 +1,5 @@
+<map id="combat" name="combat">
+<area shape="rect" id="node1" title="Permet de gerer les combats contre les ennemis des différent etages." alt="" coords="315,5,380,32"/>
+<area shape="rect" id="node2" href="$menu__in__game_8c.html#aaccdae75d50ed209f6989f48201a6326" title="A FINIR." alt="" coords="5,5,116,32"/>
+<area shape="rect" id="node3" href="$sac_8c.html#a10eaffb2bdd95aee2ee03f86c064a1cd" title="A FINIR." alt="" coords="164,31,267,57"/>
+</map>

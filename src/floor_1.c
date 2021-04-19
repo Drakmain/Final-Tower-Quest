@@ -21,7 +21,7 @@
  *
  * \file floor_1.c
  * \brief Gestion de la map floor_1.
- * \author Enzo BRENNUS
+ * \author Enzo BRENNUS, Jeremy BOURGOUIN, Robin PAPILLON.
  *
  */
 

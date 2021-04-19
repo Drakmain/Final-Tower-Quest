@@ -15,20 +15,20 @@
 /*!
  *
  * \file combat.c
- * \brief A FINIR.
+ * \brief Gestion des combats contre les ennemis.
  * \author Enzo BRENNUS
  *
  */
 
 /*!
  *
- * \fn combat(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town)
- * \brief A FINIR.
+ * \fn combat(game_t *game, character_t *character, map_t *map, SDL_Texture *texture_render_town, SDL_bool *floor_bool)
+ * \brief Permet de gerer les combats contre les ennemis des différent etages.
  *
- * \param game A FINIR.
- * \param character A FINIR.
- * \param map A FINIR.
- * \param texture_render_town A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param character est un pointeur sur l'objet character_t actuel.
+ * \param map est un pointeur sur l'objet map_t actuel.
+ * \param texture_render_town est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
  *
  */
 
@@ -84,7 +84,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
         enemies_cbt[i].name = NULL;
         enemies_cbt[i].name = malloc(sizeof(char) * 50);
 
-        enemies_cbt[i].attack = malloc(sizeof(attack_enemie_t) * NB_ATTACKS_ENEMIES);
+        enemies_cbt[i].attack = malloc(sizeof(attack_enemy_t) * NB_ATTACKS_ENEMIES);
 
         for (int y = 0; y < NB_ATTACKS_ENEMIES; y++)
         {
