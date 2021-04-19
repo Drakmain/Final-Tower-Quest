@@ -6,7 +6,7 @@
 /*!
  *
  * \file transition.c
- * \brief A FINIR.
+ * \brief Gestion des transitions avant les comabts.
  * \author Alexis BOUFFARD, Enzo BRENNUS.
  *
  */

@@ -15,10 +15,10 @@
 /*!
  *
  * \fn fcpy(FILE *source_file, FILE *dest_file)
- * \brief
+ * \brief Fonction qui permet de copier une chaîne de caractères dans une autre.
  *
- * \param source_file
- * \param dest_file
+ * \param source_file est une chaîne de caractères source.
+ * \param dest_file est une chaîne de caractères de destination.
  *
  */
 

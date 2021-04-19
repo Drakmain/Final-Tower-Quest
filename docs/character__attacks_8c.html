@@ -65,7 +65,7 @@ $(document).ready(function(){initNavTree('character__attacks_8c.html',''); initR
 </div><!--header-->
 <div class="contents">
 
-<p>Gestion de la selection d'une ennemi pour une attaque.  
+<p>Gestion des attaque du personnage.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -79,7 +79,7 @@ Graphe des dépendances par inclusion de character_attacks.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="character__attacks_8c__incl.png" border="0" usemap="#asrc_2character__attacks_8c" alt=""/></div>
 <map name="asrc_2character__attacks_8c" id="asrc_2character__attacks_8c">
-<area shape="rect" title="Gestion de la selection d&#39;une ennemi pour une attaque." alt="" coords="273,5,431,32"/>
+<area shape="rect" title="Gestion des attaque du personnage." alt="" coords="273,5,431,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" title=" " alt="" coords="179,80,245,107"/>
@@ -103,11 +103,11 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:ab11373c7331f944b056055cfbb54496c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant de changer les _ d'une chaîne de caractères en espace.  <a href="character__attacks_8c.html#ab11373c7331f944b056055cfbb54496c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ab11373c7331f944b056055cfbb54496c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a536809d1cf53a7c1bd17cdc4b75d4579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="character__attacks_8c.html#a536809d1cf53a7c1bd17cdc4b75d4579">character_attacks</a> (<a class="el" href="structgame__t.html">game_t</a> *game, <a class="el" href="structcharacter__t.html">character_t</a> *character, <a class="el" href="structenemy__t.html">enemy_t</a> *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_combat, SDL_bool *character_turn_bool)</td></tr>
-<tr class="memdesc:a536809d1cf53a7c1bd17cdc4b75d4579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant au joueur de selectionner un ennemi pour une attaque.  <a href="character__attacks_8c.html#a536809d1cf53a7c1bd17cdc4b75d4579">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a536809d1cf53a7c1bd17cdc4b75d4579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant la selection des attaques au joueur.  <a href="character__attacks_8c.html#a536809d1cf53a7c1bd17cdc4b75d4579">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a536809d1cf53a7c1bd17cdc4b75d4579"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Gestion de la selection d'une ennemi pour une attaque. </p>
+<div class="textblock"><p>Gestion des attaque du personnage. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Enzo BRENNUS </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="ab11373c7331f944b056055cfbb54496c"></a>
@@ -139,7 +139,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="center"><img src="character__attacks_8c_ab11373c7331f944b056055cfbb54496c_icgraph.png" border="0" usemap="#acharacter__attacks_8c_ab11373c7331f944b056055cfbb54496c_icgraph" alt=""/></div>
 <map name="acharacter__attacks_8c_ab11373c7331f944b056055cfbb54496c_icgraph" id="acharacter__attacks_8c_ab11373c7331f944b056055cfbb54496c_icgraph">
 <area shape="rect" title="Fonction permettant de changer les _ d&#39;une chaîne de caractères en espace." alt="" coords="429,81,513,108"/>
-<area shape="rect" href="character__attacks_8c.html#a536809d1cf53a7c1bd17cdc4b75d4579" title="Fonction permettant au joueur de selectionner un ennemi pour une attaque." alt="" coords="255,5,381,32"/>
+<area shape="rect" href="character__attacks_8c.html#a536809d1cf53a7c1bd17cdc4b75d4579" title="Fonction permettant la selection des attaques au joueur." alt="" coords="255,5,381,32"/>
 <area shape="rect" href="charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702" title="Fonction qui permet le chargement d&#39;une partie." alt="" coords="261,56,375,83"/>
 <area shape="rect" href="map_8c.html#a85964a3e46ba4f1e718f0f9b39760587" title="Permet la creation du l&#39;objet map_t." alt="" coords="273,157,363,184"/>
 <area shape="rect" href="nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76" title="Fonction qui permet la création d&#39;une nouvelle partie." alt="" coords="259,107,377,133"/>
@@ -209,7 +209,7 @@ Voici le graphe des appelants de cette fonction :</div>
       </table>
 </div><div class="memdoc">
 
-<p>Fonction permettant au joueur de selectionner un ennemi pour une attaque. </p>
+<p>Fonction permettant la selection des attaques au joueur. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">game</td><td>est un pointeur sur l'objet <a class="el" href="structgame__t.html" title="Structure de l&#39;objet game_t.">game_t</a> du jeu. </td></tr>
@@ -226,11 +226,11 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="character__attacks_8c_a536809d1cf53a7c1bd17cdc4b75d4579_cgraph.png" border="0" usemap="#acharacter__attacks_8c_a536809d1cf53a7c1bd17cdc4b75d4579_cgraph" alt=""/></div>
 <map name="acharacter__attacks_8c_a536809d1cf53a7c1bd17cdc4b75d4579_cgraph" id="acharacter__attacks_8c_a536809d1cf53a7c1bd17cdc4b75d4579_cgraph">
-<area shape="rect" title="Fonction permettant au joueur de selectionner un ennemi pour une attaque." alt="" coords="5,81,132,108"/>
+<area shape="rect" title="Fonction permettant la selection des attaques au joueur." alt="" coords="5,81,132,108"/>
 <area shape="rect" href="character__attacks_8c.html#ab11373c7331f944b056055cfbb54496c" title="Fonction permettant de changer les _ d&#39;une chaîne de caractères en espace." alt="" coords="205,5,289,32"/>
 <area shape="rect" href="affichage__message_8c.html#ab06f8d1321536236010a9e90993b2d23" title="Fonction permettant d&#39;afficher un message dans un cadre d&#39;une ou deux ligne." alt="" coords="180,56,313,83"/>
 <area shape="rect" href="error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="361,107,493,133"/>
-<area shape="rect" href="enemy__selection_8c.html#a3038b7d995c99b14207952522f998731" title="A FINIR." alt="" coords="187,157,307,184"/>
+<area shape="rect" href="enemy__selection_8c.html#a3038b7d995c99b14207952522f998731" title="Fonction permettant au joueur de selectionner un ennemi pour une attaque." alt="" coords="187,157,307,184"/>
 </map>
 </div>
 

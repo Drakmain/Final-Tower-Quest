@@ -1,5 +1,5 @@
 <map id="nom_sauvegarde" name="nom_sauvegarde">
-<area shape="rect" id="node1" title="A FINIR." alt="" coords="5,31,124,57"/>
-<area shape="rect" id="node2" href="$nom__sauvegarde_8c.html#ac319746734774195921cfb816632e15d" title="Fonction qui permet la creation d&#39;une nouvelle partie." alt="" coords="215,5,261,32"/>
+<area shape="rect" id="node1" title="Fonction qui permet la creation d&#39;une nouvelle partie." alt="" coords="5,31,124,57"/>
+<area shape="rect" id="node2" href="$nom__sauvegarde_8c.html#ac319746734774195921cfb816632e15d" title="Fonction qui permet de copier une chaîne de caractères dans une autre." alt="" coords="215,5,261,32"/>
 <area shape="rect" id="node3" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="172,56,304,83"/>
 </map>

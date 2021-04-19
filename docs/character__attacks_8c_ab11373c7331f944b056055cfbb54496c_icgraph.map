@@ -1,6 +1,6 @@
 <map id="_toEspace" name="_toEspace">
 <area shape="rect" id="node1" title="Fonction permettant de changer les _ d&#39;une chaîne de caractères en espace." alt="" coords="429,81,513,108"/>
-<area shape="rect" id="node2" href="$character__attacks_8c.html#a536809d1cf53a7c1bd17cdc4b75d4579" title="Fonction permettant au joueur de selectionner un ennemi pour une attaque." alt="" coords="255,5,381,32"/>
+<area shape="rect" id="node2" href="$character__attacks_8c.html#a536809d1cf53a7c1bd17cdc4b75d4579" title="Fonction permettant la selection des attaques au joueur." alt="" coords="255,5,381,32"/>
 <area shape="rect" id="node3" href="$charger__partie_8c.html#a9349773dc9ac8d712a48f49717611702" title="Fonction qui permet le chargement d&#39;une partie." alt="" coords="261,56,375,83"/>
 <area shape="rect" id="node6" href="$map_8c.html#a85964a3e46ba4f1e718f0f9b39760587" title="Permet la creation du l&#39;objet map_t." alt="" coords="273,157,363,184"/>
 <area shape="rect" id="node10" href="$nouvelle__partie_8c.html#ab70eea4593070602887bc10370ed8f76" title="Fonction qui permet la création d&#39;une nouvelle partie." alt="" coords="259,107,377,133"/>

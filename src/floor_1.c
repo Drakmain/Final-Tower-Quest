@@ -30,8 +30,8 @@
  * \fn floor_1(game_t *game, character_t *character)
  * \brief Permet la gestion de la premier map du jeu (floor_1).
  *
- * \param game A FINIR.
- * \param character A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param character est un pointeur sur l'objet character_t actuel.
  *
  */
 
