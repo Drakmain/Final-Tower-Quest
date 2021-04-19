@@ -31,7 +31,6 @@
 
 void menu_in_game(game_t *game, SDL_bool *map_bool, character_t *character, SDL_Texture *texture_render)
 {
-
     /*--- Initialization variable ------------------------------------------------*/
 
     SDL_Color blanc = {255, 255, 255};

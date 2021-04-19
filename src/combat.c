@@ -862,7 +862,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
 
     /*--- Free Memory ------------------------------------------------------------*/
 
-    for (int i = 0; i < nb_enemies_combat - 1; i++)
+    for (int i = 0; i < nb_enemies_combat; i++)
     {
         for (int y = 0; y < NB_ATTACKS_ENEMIES; y++)
         {
