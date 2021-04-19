@@ -49,7 +49,7 @@ struct enemy_s
 
   char *name; /*!< Nom de l'ennemi. */
 
-  SDL_bool boss;
+  SDL_bool boss; /*!< Booléen qui dit si l'ennemi est un boss ou non. */
 
   attack_enemy_t *attack; /*!< Tableau des attaques du enemy_t. */
 

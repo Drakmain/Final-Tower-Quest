@@ -24,7 +24,7 @@
  * \param character est un pointeur sur l'objet character_t actuel.
  * \param enemies_cbt est un tableau contenant les ennemis en face du personnage.
  * \param num est un entier representant l'ennemi qui joue.
- * \param map est un pointeur sur l'objet map_t actuelle.
+ * \param map est un pointeur sur l'objet map_t actuel.
  * \param texture_render_combat est un pointeur sur une texture représentant le fond d'avant le lancement de la fonction.
  * \param nb_attacks_boss est un entier representant le nombre d'attaque du boss final.
  * 
