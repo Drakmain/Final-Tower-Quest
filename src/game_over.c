@@ -9,16 +9,20 @@
 /*!
  *
  * \file game_over.c
- * \brief A FINIR.
- * \author Alexis BOUFFARD
+ * \brief Gestion du game over.
+ * \author Alexis BOUFFARD, Jeremy BOURGOUIN.
  *
  */
 
 /*!
  *
  * \fn game_over(game_t *game,  char *actual_save)
- * \brief A FINIR.
+ * \brief Fonction permettant l'affichage du gamer over, permet au joueur de choisir si il veut continuer la partie après sa mort ou non.
  *
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param floor_bool est un type booléen permettant d'arrêter un étage
+ * \param combat_bool est un type booléen permettant d'arrêter le combat
+ * \param character est un pointeur sur l'objet character_t actuelle.
  *
  */
 
@@ -269,6 +273,18 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
 
 
     /*--- Free Memory ------------------------------------------------------------*/
+    SDL_FreeSurface(surf_text_gameOver);
+    SDL_FreeSurface(surf_cadre);
+    SDL_FreeSurface(surf_confirmation);
+    SDL_FreeSurface(surf_choix_oui);
+    SDL_FreeSurface(surf_choix_non);
+
+
+    SDL_DestroyTexture(text_gameOver);
+    SDL_DestroyTexture(cadre);
+    SDL_DestroyTexture(confirmation);
+    SDL_DestroyTexture(choix_oui);
+    SDL_DestroyTexture(choix_non);
 
     /*--- End Free Memory --------------------------------------------------------*/
 

@@ -17,8 +17,8 @@
  * \fn fcpy(FILE *source_file, FILE *dest_file)
  * \brief Fonction qui permet la creation d'une nouvelle partie.
  *
- * \param source_file A FINIR.
- * \param dest_file A FINIR.
+ * \param source_file 
+ * \param dest_file
  *
  */
 

@@ -8,18 +8,18 @@
 /*!
  *
  * \file creation_perso.c
- * \brief Gestion de la creation d'un perosnnage.
- * \author Alexis BOUFFARD
+ * \brief Gestion de la sélection d'un perosnnage.
+ * \author Alexis BOUFFARD.
  *
  */
 
 /*!
  *
  * \fn creation_perso(game_t * game, char * actual_save)
- * \brief A FINIR.
+ * \brief fonction permettant de sélectionner le personnage que l'on souhaite jouer.
  *
- * \param game A FINIR.
- * \param actual_save A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param actual_save représente le fichier initialisé lorsque le joueur sélectionne le personnage.
  *
  */
 
