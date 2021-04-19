@@ -1,6 +1,6 @@
 <map id="lib/commun.h" name="lib/commun.h">
 <area shape="rect" id="node1" title="Définitions de structure et de constante commune." alt="" coords="2190,5,2290,32"/>
-<area shape="rect" id="node2" href="$colision_8c.html" title="Systeme de colision." alt="" coords="5,304,104,331"/>
+<area shape="rect" id="node2" href="$colision_8c.html" title="Systeme de collision." alt="" coords="5,304,104,331"/>
 <area shape="rect" id="node3" href="$main_8c.html" title="Ficher principale du jeu." alt="" coords="1928,304,2011,331"/>
 <area shape="rect" id="node4" href="$affichage__message_8h_source.html" title=" " alt="" coords="1755,229,1917,256"/>
 <area shape="rect" id="node10" href="$caracteristiques_8h_source.html" title=" " alt="" coords="3711,229,3854,256"/>

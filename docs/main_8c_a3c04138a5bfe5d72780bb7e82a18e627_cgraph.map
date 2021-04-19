@@ -13,8 +13,8 @@
 <area shape="rect" id="node4" href="$character_8c.html#a8aa53f831bd180854f66afae62951449" title="Permet la mise a jour d&#39;un objet character_t." alt="" coords="1095,487,1218,513"/>
 <area shape="rect" id="node5" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="1271,968,1403,995"/>
 <area shape="rect" id="node9" href="$affichage__message_8c.html#ab06f8d1321536236010a9e90993b2d23" title="Fonction permettant d&#39;afficher un message dans un cadre d&#39;une ou deux ligne." alt="" coords="909,1652,1043,1679"/>
-<area shape="rect" id="node10" href="$colision_8c.html#adf987d63ecee4cdcae3499b88806a4ae" title="A FINIR." alt="" coords="267,1307,390,1333"/>
-<area shape="rect" id="node11" href="$colision_8c.html#acb1a28c1e85d8541762f8b49e1fa80a3" title="A FINIR." alt="" coords="461,1555,527,1581"/>
+<area shape="rect" id="node10" href="$colision_8c.html#adf987d63ecee4cdcae3499b88806a4ae" title="Fonction permettant de savoir si le joueur à le droit de se déplacer." alt="" coords="267,1307,390,1333"/>
+<area shape="rect" id="node11" href="$colision_8c.html#acb1a28c1e85d8541762f8b49e1fa80a3" title="Fonction permettant de récupérer un pixel sur une carte." alt="" coords="461,1555,527,1581"/>
 <area shape="rect" id="node12" href="$map_8c.html#a85964a3e46ba4f1e718f0f9b39760587" title="Permet la creation du l&#39;objet map_t." alt="" coords="757,1019,848,1045"/>
 <area shape="rect" id="node16" href="$menu__in__game_8c.html#aaccdae75d50ed209f6989f48201a6326" title="Fonction du menu dans le jeu." alt="" coords="273,1205,384,1232"/>
 <area shape="rect" id="node26" href="$frame_8c.html#aff4977623e1b4fedc515c1933967f4cd" title="A FINIR." alt="" coords="280,1459,377,1485"/>
@@ -37,5 +37,5 @@
 <area shape="rect" id="node33" href="$creation__perso_8c.html#a8a4e12636e48b3fda6619627a8aa87f9" title="fonction permettant de sélectionner le personnage que l&#39;on souhaite jouer." alt="" coords="923,208,1029,235"/>
 <area shape="rect" id="node34" href="$nom__sauvegarde_8c.html#a2d119092227da43e871b72631e8c9a21" title="Fonction qui permet la creation d&#39;une nouvelle partie." alt="" coords="1097,107,1216,133"/>
 <area shape="rect" id="node35" href="$nom__sauvegarde_8c.html#ac319746734774195921cfb816632e15d" title="Fonction qui permet de copier une chaîne de caractères dans une autre." alt="" coords="1313,107,1360,133"/>
-<area shape="rect" id="node39" href="$colision_8c.html#a7be0412d7aa8ca0a088b4d6168e514ee" title="A FINIR." alt="" coords="263,1357,395,1384"/>
+<area shape="rect" id="node39" href="$colision_8c.html#a7be0412d7aa8ca0a088b4d6168e514ee" title="permet de charger les images des hitboxs dans le programme" alt="" coords="263,1357,395,1384"/>
 </map>

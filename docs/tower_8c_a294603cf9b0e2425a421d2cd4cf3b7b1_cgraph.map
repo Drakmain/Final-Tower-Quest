@@ -1,7 +1,7 @@
 <map id="tower" name="tower">
 <area shape="rect" id="node1" title="A FINIR." alt="" coords="5,183,59,209"/>
-<area shape="rect" id="node2" href="$colision_8c.html#adf987d63ecee4cdcae3499b88806a4ae" title="A FINIR." alt="" coords="107,5,229,32"/>
-<area shape="rect" id="node3" href="$colision_8c.html#acb1a28c1e85d8541762f8b49e1fa80a3" title="A FINIR." alt="" coords="301,31,368,57"/>
+<area shape="rect" id="node2" href="$colision_8c.html#adf987d63ecee4cdcae3499b88806a4ae" title="Fonction permettant de savoir si le joueur à le droit de se déplacer." alt="" coords="107,5,229,32"/>
+<area shape="rect" id="node3" href="$colision_8c.html#acb1a28c1e85d8541762f8b49e1fa80a3" title="Fonction permettant de récupérer un pixel sur une carte." alt="" coords="301,31,368,57"/>
 <area shape="rect" id="node4" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="947,208,1053,235"/>
 <area shape="rect" id="node5" href="$map_8c.html#a85964a3e46ba4f1e718f0f9b39760587" title="Permet la creation du l&#39;objet map_t." alt="" coords="779,107,869,133"/>
 <area shape="rect" id="node9" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="1109,537,1241,564"/>

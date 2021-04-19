@@ -1,8 +1,8 @@
 <map id="town" name="town">
 <area shape="rect" id="node1" title="Permet la gestion de la premier map du jeu (town)." alt="" coords="5,196,55,222"/>
-<area shape="rect" id="node2" href="$colision_8c.html#adf987d63ecee4cdcae3499b88806a4ae" title="A FINIR." alt="" coords="107,44,230,70"/>
-<area shape="rect" id="node3" href="$colision_8c.html#acb1a28c1e85d8541762f8b49e1fa80a3" title="A FINIR." alt="" coords="307,18,373,45"/>
-<area shape="rect" id="node4" href="$colision_8c.html#a7be0412d7aa8ca0a088b4d6168e514ee" title="A FINIR." alt="" coords="103,94,235,121"/>
+<area shape="rect" id="node2" href="$colision_8c.html#adf987d63ecee4cdcae3499b88806a4ae" title="Fonction permettant de savoir si le joueur à le droit de se déplacer." alt="" coords="107,44,230,70"/>
+<area shape="rect" id="node3" href="$colision_8c.html#acb1a28c1e85d8541762f8b49e1fa80a3" title="Fonction permettant de récupérer un pixel sur une carte." alt="" coords="307,18,373,45"/>
+<area shape="rect" id="node4" href="$colision_8c.html#a7be0412d7aa8ca0a088b4d6168e514ee" title="permet de charger les images des hitboxs dans le programme" alt="" coords="103,94,235,121"/>
 <area shape="rect" id="node5" href="$error_8c.html#a33f79b1625fc983eafaac7be7e6acd11" title="Affichage du message d&#39;erreur." alt="" coords="952,246,1059,273"/>
 <area shape="rect" id="node6" href="$map_8c.html#a85964a3e46ba4f1e718f0f9b39760587" title="Permet la creation du l&#39;objet map_t." alt="" coords="784,145,875,172"/>
 <area shape="rect" id="node10" href="$error_8c.html#abed124ab111ee095d48f08e2a3ea4446" title="Affichage du message d&#39;erreur SDL." alt="" coords="1115,576,1247,602"/>
