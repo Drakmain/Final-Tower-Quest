@@ -7,23 +7,23 @@
 #include "..\lib\texte_confirmation.h"
 #include "..\lib\creation_perso.h"
 #include "..\lib\character.h"
+#include "..\lib\character_attacks.h"
 
 /*!
  *
  * \file nouvelle_partie.c
  * \brief Gestion des nouvelles partie.
- * \author Jeremy BOURGOUIN
+ * \author Jeremy BOURGOUIN, Alexis BOUFFARD.
  *
  */
 
 /*!
  *
  * \fn nouvelle_partie_f(game_t *game, char *actual_save)
- * \brief A FINIR.
+ * \brief Fonction qui permet la création d'une nouvelle partie.
  *
- * \param game A FINIR.
- * \param actual_save A FINIR.
- *
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param actual_save représente le fichier initialisé lorsque le joueur sélectionne le personnage.
  */
 
 extern void nouvelle_partie_f(game_t *game, char *actual_save)

@@ -11,7 +11,7 @@
  *
  * \file charger_partie.c
  * \brief Gestion du chargement d'une nouvelle partie.
- * \author Jeremy BOURGOUIN
+ * \author Jeremy BOURGOUIN, Alexis BOUFFARD.
  *
  */
 
@@ -20,8 +20,8 @@
  * \fn void charger_partie_f(game_t * game, char * actual_save)
  * \brief Fonction qui permet le chargement d'une partie.
  *
- * \param game A FINIR.
- * \param actual_save A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
+ * \param actual_save représente le fichier initialisé lorsque le joueur sélectionne le personnage.
  *
  */
 

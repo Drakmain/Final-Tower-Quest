@@ -7,7 +7,7 @@
  *
  * \file transition.c
  * \brief A FINIR.
- * \author Alexis BOUFFARD
+ * \author Alexis BOUFFARD, Enzo BRENNUS.
  *
  */
 
@@ -16,7 +16,7 @@
  * \fn transition(game_t *game)
  * \brief Permet la gestion de la premier map du jeu (town).
  *
- * \param game A FINIR.
+ * \param game est un pointeur sur l'objet game_t du jeu.
  *
  */
 
