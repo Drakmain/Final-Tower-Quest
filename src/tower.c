@@ -469,6 +469,7 @@ extern void tower(game_t *game, character_t *character)
     SDL_FreeSurface(surface);
 
     SDL_DestroyTexture(transi);
+    SDL_DestroyTexture(texture_render);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

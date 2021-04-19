@@ -233,7 +233,7 @@ extern void menu_accueil(game_t *game, char *actual_save)
 
         SDL_Delay(30);
     }
-    
+
     SDL_RenderPresent(game->render);
 
     while (menu_ac_bool == SDL_TRUE && (*game->program_launch))
@@ -404,6 +404,7 @@ extern void menu_accueil(game_t *game, char *actual_save)
     SDL_FreeSurface(surf_quitter);
     SDL_FreeSurface(surf_logo);
     SDL_FreeSurface(surf_fond);
+    SDL_FreeSurface(surf_tour);
 
     SDL_DestroyTexture(nouvelle_partie);
     SDL_DestroyTexture(charger_partie);
@@ -411,6 +412,8 @@ extern void menu_accueil(game_t *game, char *actual_save)
     SDL_DestroyTexture(quitter);
     SDL_DestroyTexture(logo);
     SDL_DestroyTexture(fond);
+    SDL_DestroyTexture(texture_render);
+    SDL_DestroyTexture(tour);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

@@ -1138,6 +1138,9 @@ extern void charger_partie_f(game_t *game, char *actual_save)
     SDL_FreeSurface(surf_position_save1);
     SDL_FreeSurface(surf_position_save2);
     SDL_FreeSurface(surf_position_save3);
+    SDL_FreeSurface(surf_spriteGuerrier);
+    SDL_FreeSurface(surf_spriteMage);
+    SDL_FreeSurface(surf_spriteAssassin);
 
     SDL_DestroyTexture(choisir_empla);
     SDL_DestroyTexture(retour);
@@ -1159,6 +1162,12 @@ extern void charger_partie_f(game_t *game, char *actual_save)
     SDL_DestroyTexture(position_save1);
     SDL_DestroyTexture(position_save2);
     SDL_DestroyTexture(position_save3);
+    SDL_DestroyTexture(save1_vide);
+    SDL_DestroyTexture(save2_vide);
+    SDL_DestroyTexture(save3_vide);
+    SDL_DestroyTexture(spriteGuerrier);
+    SDL_DestroyTexture(spriteMage);
+    SDL_DestroyTexture(spriteAssassin);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

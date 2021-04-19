@@ -1,4 +1,4 @@
-save_name: Alexis ;
+save_name: alexis ;
 classe_name: Assassin ;
 position: Village ;
 x: 0 ;

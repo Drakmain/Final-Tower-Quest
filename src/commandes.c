@@ -406,6 +406,7 @@ void menu_commandes(game_t *game, SDL_Texture *texture, SDL_bool *echap_relache)
 
     SDL_FreeSurface(surf_commandes);
     SDL_FreeSurface(surf_retour);
+    SDL_FreeSurface(surf_cadre);
     SDL_FreeSurface(surf_deplacer_selectionner);
     SDL_FreeSurface(surf_ouv_fer_menu);
     SDL_FreeSurface(surf_valider);

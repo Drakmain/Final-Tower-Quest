@@ -614,5 +614,8 @@ extern void floor_1(game_t *game, character_t *character)
 
     SDL_FreeSurface(surface);
 
+    SDL_DestroyTexture(texture_render);
+    SDL_DestroyTexture(transi);
+
     /*--- End Free Memory --------------------------------------------------------*/
 }

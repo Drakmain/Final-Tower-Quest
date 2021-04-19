@@ -619,7 +619,12 @@ extern void options_f(game_t *game)
     SDL_FreeSurface(surf_options);
     SDL_FreeSurface(surf_retour);
     SDL_FreeSurface(surf_fond);
+    SDL_FreeSurface(surf_cadre);
     SDL_FreeSurface(surf_opt_resolution);
+    SDL_FreeSurface(surf_choix_resolution);
+    SDL_FreeSurface(surf_opt_fullscreen);
+    SDL_FreeSurface(surf_choix_fullscreen);
+    SDL_FreeSurface(surf_fleche);
     SDL_FreeSurface(surf_commandes);
 
     SDL_DestroyTexture(options);
@@ -630,6 +635,11 @@ extern void options_f(game_t *game)
     SDL_DestroyTexture(fleche_droite);
     SDL_DestroyTexture(fleche_gauche);
     SDL_DestroyTexture(commandes);
+    SDL_DestroyTexture(texture_render_options);
+    SDL_DestroyTexture(choix_resolution);
+    SDL_DestroyTexture(opt_fullscreen);
+    SDL_DestroyTexture(choix_fullscreen);
+    SDL_DestroyTexture(fond_cadre);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

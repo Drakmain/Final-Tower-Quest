@@ -1584,6 +1584,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
     SDL_FreeSurface(surf_retour);
     SDL_FreeSurface(surf_cadre_sac);
     SDL_FreeSurface(surf_cadre_potions);
+    SDL_FreeSurface(surf_potions);
     SDL_FreeSurface(surf_cadre_rouge_potions);
     SDL_FreeSurface(surf_effet_petite_popo_soin);
     SDL_FreeSurface(surf_effet_moyenne_popo_soin);
@@ -1618,6 +1619,12 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
     SDL_DestroyTexture(fond_moyenne_popo_mana);
     SDL_DestroyTexture(fond_popo_puissance);
     SDL_DestroyTexture(fond_popo_agi);
+    SDL_DestroyTexture(petite_popo_soin);
+    SDL_DestroyTexture(moyenne_popo_soin);
+    SDL_DestroyTexture(petite_popo_mana);
+    SDL_DestroyTexture(moyenne_popo_mana);
+    SDL_DestroyTexture(popo_puissance);
+    SDL_DestroyTexture(popo_agi);
     SDL_DestroyTexture(effet_petite_popo_soin);
     SDL_DestroyTexture(effet_moyenne_popo_soin);
     SDL_DestroyTexture(effet_petite_popo_mana);
@@ -1638,6 +1645,7 @@ void ouverture_sac(game_t *game, character_t *character, SDL_Texture *texture_re
     SDL_DestroyTexture(nb_life_max);
     SDL_DestroyTexture(nb_mana_max);
     SDL_DestroyTexture(t_2point);
+    SDL_DestroyTexture(texture_render_sac);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

@@ -900,6 +900,7 @@ extern void combat(game_t *game, character_t *character, map_t *map, SDL_Texture
     SDL_DestroyTexture(texture_nom_personnage);
     SDL_DestroyTexture(texture_PV_personnage);
     SDL_DestroyTexture(texture_PM_personnage);
+    SDL_DestroyTexture(texture_render);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

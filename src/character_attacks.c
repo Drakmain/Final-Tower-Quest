@@ -1883,6 +1883,7 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     SDL_FreeSurface(surf_attaque_12);
     SDL_FreeSurface(surf_attaque_13);
     SDL_FreeSurface(surf_cout_attaque);
+    SDL_FreeSurface(surf_cout_attaque_NB);
     SDL_FreeSurface(surf_degat_attaque);
     SDL_FreeSurface(surf_degat_attaque_NB);
     SDL_FreeSurface(surf_description_attaque);
@@ -1911,7 +1912,6 @@ extern void character_attacks(game_t *game, character_t *character, enemy_t *ene
     SDL_DestroyTexture(texture_description_attaque);
     SDL_DestroyTexture(texture_PV_personnage);
     SDL_DestroyTexture(texture_PM_personnage);
-
     SDL_DestroyTexture(texture_render);
 
     /*--- End Free Memory --------------------------------------------------------*/

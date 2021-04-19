@@ -294,6 +294,7 @@ extern void nom_sauvegarde(game_t *game, char *actual_save, char *base_save)
     SDL_DestroyTexture(cadre_nom_save);
     SDL_DestroyTexture(fond_cadre_nom_save);
     SDL_DestroyTexture(texture_nom_save);
+    SDL_DestroyTexture(demande);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

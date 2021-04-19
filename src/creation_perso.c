@@ -33,6 +33,8 @@ extern void creation_perso(game_t *game, char *actual_save)
     SDL_Surface *surf_guerrier = NULL, *surf_mage = NULL, *surf_assassin = NULL, *surf_fond = NULL, *surf_spriteGuerrier = NULL, *surf_spriteMage = NULL, *surf_spriteAssassin = NULL, *surf_cadre = NULL;
     SDL_Surface *surf_desc1 = NULL, *surf_desc2 = NULL, *surf_desc3 = NULL, *surf_desc4 = NULL, *surf_desc5 = NULL;
 
+    SDL_Texture *desc1 = NULL, *desc2 = NULL, *desc3 = NULL, *desc4 = NULL, *desc5 = NULL;
+
     SDL_bool crea_perso_bool = SDL_TRUE;
 
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
@@ -337,7 +339,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 /*---Description Guerrier ----------------------------------------*/
 
                 surf_desc1 = TTF_RenderText_Blended(game->police, "Espiegle et temeraire, rien ne l'arrete. Le guerrier est", blanc);
-                SDL_Texture *desc1 = SDL_CreateTextureFromSurface(game->render, surf_desc1);
+                desc1 = SDL_CreateTextureFromSurface(game->render, surf_desc1);
                 SDL_Rect pos_desc1;
                 pos_desc1.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc1.y = (*game->WINDOWHEIGHT) / 2;
@@ -345,7 +347,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 pos_desc1.h = (*game->WINDOWHEIGHT) / 13.5;
 
                 surf_desc2 = TTF_RenderText_Blended(game->police, "un heros de champ de bataille, habile, specialise dans le", blanc);
-                SDL_Texture *desc2 = SDL_CreateTextureFromSurface(game->render, surf_desc2);
+                desc2 = SDL_CreateTextureFromSurface(game->render, surf_desc2);
                 SDL_Rect pos_desc2;
                 pos_desc2.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc2.y = (*game->WINDOWHEIGHT) * 325 / 570;
@@ -353,7 +355,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 pos_desc2.h = (*game->WINDOWHEIGHT) / 13.5;
 
                 surf_desc3 = TTF_RenderText_Blended(game->police, "combat rapproche, et capable de maitriser differents types", blanc);
-                SDL_Texture *desc3 = SDL_CreateTextureFromSurface(game->render, surf_desc3);
+                desc3 = SDL_CreateTextureFromSurface(game->render, surf_desc3);
                 SDL_Rect pos_desc3;
                 pos_desc3.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc3.y = (*game->WINDOWHEIGHT) * 325 / 508;
@@ -361,7 +363,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 pos_desc3.h = (*game->WINDOWHEIGHT) / 13.5;
 
                 surf_desc4 = TTF_RenderText_Blended(game->police, "d'armes au cours d'un entrainement exigeant et intense, ce", blanc);
-                SDL_Texture *desc4 = SDL_CreateTextureFromSurface(game->render, surf_desc4);
+                desc4 = SDL_CreateTextureFromSurface(game->render, surf_desc4);
                 SDL_Rect pos_desc4;
                 pos_desc4.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc4.y = (*game->WINDOWHEIGHT) * 325 / 460;
@@ -369,7 +371,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 pos_desc4.h = (*game->WINDOWHEIGHT) / 13.5;
 
                 surf_desc5 = TTF_RenderText_Blended(game->police, "qui fait de lui un redoutable combattant.                ", blanc);
-                SDL_Texture *desc5 = SDL_CreateTextureFromSurface(game->render, surf_desc5);
+                desc5 = SDL_CreateTextureFromSurface(game->render, surf_desc5);
                 SDL_Rect pos_desc5;
                 pos_desc5.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc5.y = (*game->WINDOWHEIGHT) * 325 / 418;
@@ -396,7 +398,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 /*--- Description Mage ----------------------------------------*/
 
                 surf_desc1 = TTF_RenderText_Blended(game->police, "Feu, glace, terre et air, il n'y a aucun element que le", blanc);
-                SDL_Texture *desc1 = SDL_CreateTextureFromSurface(game->render, surf_desc1);
+                desc1 = SDL_CreateTextureFromSurface(game->render, surf_desc1);
                 SDL_Rect pos_desc1;
                 pos_desc1.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc1.y = (*game->WINDOWHEIGHT) / 2;
@@ -404,7 +406,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 pos_desc1.h = (*game->WINDOWHEIGHT) / 13.5;
 
                 surf_desc2 = TTF_RenderText_Blended(game->police, "mage ne sait maitriser. Apres de nombreuses decennies", blanc);
-                SDL_Texture *desc2 = SDL_CreateTextureFromSurface(game->render, surf_desc2);
+                desc2 = SDL_CreateTextureFromSurface(game->render, surf_desc2);
                 SDL_Rect pos_desc2;
                 pos_desc2.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc2.y = (*game->WINDOWHEIGHT) * 325 / 570;
@@ -412,7 +414,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 pos_desc2.h = (*game->WINDOWHEIGHT) / 13.5;
 
                 surf_desc3 = TTF_RenderText_Blended(game->police, "a perfectionner l'art de la magie, aucun monstre ne", blanc);
-                SDL_Texture *desc3 = SDL_CreateTextureFromSurface(game->render, surf_desc3);
+                desc3 = SDL_CreateTextureFromSurface(game->render, surf_desc3);
                 SDL_Rect pos_desc3;
                 pos_desc3.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc3.y = (*game->WINDOWHEIGHT) * 325 / 508;
@@ -420,7 +422,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 pos_desc3.h = (*game->WINDOWHEIGHT) / 13.5;
 
                 surf_desc4 = TTF_RenderText_Blended(game->police, "pourra s'opposer a sa puissance colossal.                 ", blanc);
-                SDL_Texture *desc4 = SDL_CreateTextureFromSurface(game->render, surf_desc4);
+                desc4 = SDL_CreateTextureFromSurface(game->render, surf_desc4);
                 SDL_Rect pos_desc4;
                 pos_desc4.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc4.y = (*game->WINDOWHEIGHT) * 325 / 460;
@@ -446,7 +448,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 /*--- Description Assassin ----------------------------------------*/
 
                 surf_desc1 = TTF_RenderText_Blended(game->police, "Tapis dans l'ombre, l'assassin est comme un monstre dans", blanc);
-                SDL_Texture *desc1 = SDL_CreateTextureFromSurface(game->render, surf_desc1);
+                desc1 = SDL_CreateTextureFromSurface(game->render, surf_desc1);
                 SDL_Rect pos_desc1;
                 pos_desc1.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc1.y = (*game->WINDOWHEIGHT) / 2;
@@ -454,7 +456,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 pos_desc1.h = (*game->WINDOWHEIGHT) / 13.5;
 
                 surf_desc2 = TTF_RenderText_Blended(game->police, "la nuit, qui observe, qui ecoute, qui chasse. Il peut se", blanc);
-                SDL_Texture *desc2 = SDL_CreateTextureFromSurface(game->render, surf_desc2);
+                desc2 = SDL_CreateTextureFromSurface(game->render, surf_desc2);
                 SDL_Rect pos_desc2;
                 pos_desc2.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc2.y = (*game->WINDOWHEIGHT) * 325 / 570;
@@ -462,7 +464,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 pos_desc2.h = (*game->WINDOWHEIGHT) / 13.5;
 
                 surf_desc3 = TTF_RenderText_Blended(game->police, "camoufler tel le cameleon, et chasser tel le predateur qui", blanc);
-                SDL_Texture *desc3 = SDL_CreateTextureFromSurface(game->render, surf_desc3);
+                desc3 = SDL_CreateTextureFromSurface(game->render, surf_desc3);
                 SDL_Rect pos_desc3;
                 pos_desc3.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc3.y = (*game->WINDOWHEIGHT) * 325 / 508;
@@ -470,7 +472,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 pos_desc3.h = (*game->WINDOWHEIGHT) / 13.5;
 
                 surf_desc4 = TTF_RenderText_Blended(game->police, "a repere sa proie...sa victime mourra avant de se rendre", blanc);
-                SDL_Texture *desc4 = SDL_CreateTextureFromSurface(game->render, surf_desc4);
+                desc4 = SDL_CreateTextureFromSurface(game->render, surf_desc4);
                 SDL_Rect pos_desc4;
                 pos_desc4.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc4.y = (*game->WINDOWHEIGHT) * 325 / 460;
@@ -478,7 +480,7 @@ extern void creation_perso(game_t *game, char *actual_save)
                 pos_desc4.h = (*game->WINDOWHEIGHT) / 13.5;
 
                 surf_desc5 = TTF_RenderText_Blended(game->police, "compte ce qui lui arrive.                ", blanc);
-                SDL_Texture *desc5 = SDL_CreateTextureFromSurface(game->render, surf_desc5);
+                desc5 = SDL_CreateTextureFromSurface(game->render, surf_desc5);
                 SDL_Rect pos_desc5;
                 pos_desc5.x = (*game->WINDOWHEIGHT) * 400 / 645;
                 pos_desc5.y = (*game->WINDOWHEIGHT) * 325 / 418;
@@ -535,6 +537,12 @@ extern void creation_perso(game_t *game, char *actual_save)
     SDL_FreeSurface(surf_spriteGuerrier);
     SDL_FreeSurface(surf_spriteMage);
     SDL_FreeSurface(surf_spriteAssassin);
+    SDL_FreeSurface(surf_cadre);
+    SDL_FreeSurface(surf_desc1);
+    SDL_FreeSurface(surf_desc2);
+    SDL_FreeSurface(surf_desc3);
+    SDL_FreeSurface(surf_desc4);
+    SDL_FreeSurface(surf_desc5);
 
     SDL_DestroyTexture(guerrier);
     SDL_DestroyTexture(mage);
@@ -543,6 +551,14 @@ extern void creation_perso(game_t *game, char *actual_save)
     SDL_DestroyTexture(spriteGuerrier);
     SDL_DestroyTexture(spriteMage);
     SDL_DestroyTexture(spriteAssassin);
+    SDL_DestroyTexture(cadre_desc);
+    SDL_DestroyTexture(fond_cadre_desc);
+    SDL_DestroyTexture(desc1);
+    SDL_DestroyTexture(desc2);
+    SDL_DestroyTexture(desc3);
+    SDL_DestroyTexture(desc4);
+    SDL_DestroyTexture(desc5);
+    SDL_DestroyTexture(desc5);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

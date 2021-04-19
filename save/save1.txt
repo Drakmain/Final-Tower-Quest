@@ -1,8 +1,8 @@
-save_name: Enzo ;
+save_name: enzo ;
 charactere_name: Guerrier ;
-position: Etage_1 ;
-x: 2646 ;
-y: 5526 ;
+position: Tour ;
+x: 448 ;
+y: 2160 ;
 lvl: 1 ;
 xp: 0 ;
 max_life: 50 ;

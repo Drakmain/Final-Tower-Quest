@@ -1158,6 +1158,23 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
     SDL_FreeSurface(surf_save1);
     SDL_FreeSurface(surf_save2);
     SDL_FreeSurface(surf_save3);
+    SDL_FreeSurface(surf_save1_vide);
+    SDL_FreeSurface(surf_save2_vide);
+    SDL_FreeSurface(surf_save3_vide);
+    SDL_FreeSurface(surf_spriteMage);
+    SDL_FreeSurface(surf_spriteAssassin);
+    SDL_FreeSurface(surf_spriteGuerrier);
+    SDL_FreeSurface(surf_nom_save1);
+    SDL_FreeSurface(surf_nom_save2);
+    SDL_FreeSurface(surf_nom_save3);
+    SDL_FreeSurface(surf_position);
+    SDL_FreeSurface(surf_position_save1);
+    SDL_FreeSurface(surf_position_save2);
+    SDL_FreeSurface(surf_position_save3);
+    SDL_FreeSurface(surf_lvl);
+    SDL_FreeSurface(surf_lvl_save1);
+    SDL_FreeSurface(surf_lvl_save2);
+    SDL_FreeSurface(surf_lvl_save3);
 
     SDL_DestroyTexture(choisir_empla);
     SDL_DestroyTexture(retour);
@@ -1168,6 +1185,23 @@ extern void nouvelle_partie_f(game_t *game, char *actual_save)
     SDL_DestroyTexture(fond_cadre_save1);
     SDL_DestroyTexture(fond_cadre_save2);
     SDL_DestroyTexture(fond_cadre_save3);
+    SDL_DestroyTexture(lvl);
+    SDL_DestroyTexture(lvl_save1);
+    SDL_DestroyTexture(lvl_save2);
+    SDL_DestroyTexture(lvl_save3);
+    SDL_DestroyTexture(nom_save1);
+    SDL_DestroyTexture(nom_save2);
+    SDL_DestroyTexture(nom_save3);
+    SDL_DestroyTexture(position);
+    SDL_DestroyTexture(position_save1);
+    SDL_DestroyTexture(position_save2);
+    SDL_DestroyTexture(position_save3);
+    SDL_DestroyTexture(save1_vide);
+    SDL_DestroyTexture(save2_vide);
+    SDL_DestroyTexture(save3_vide);
+    SDL_DestroyTexture(spriteMage);
+    SDL_DestroyTexture(spriteGuerrier);
+    SDL_DestroyTexture(spriteAssassin);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

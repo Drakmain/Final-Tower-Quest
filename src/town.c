@@ -476,6 +476,9 @@ extern void town(game_t *game, character_t *character)
 
     town->free(&town);
 
+    SDL_FreeSurface(surface);
+
     SDL_DestroyTexture(transi);
+    SDL_DestroyTexture(texture_render);
     /*--- End Free Memory --------------------------------------------------------*/
 }

@@ -1084,6 +1084,7 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_FreeSurface(surf_point_dispo);
     SDL_FreeSurface(surf_nb_point_dispo);
     SDL_FreeSurface(surf_valider);
+    SDL_FreeSurface(surf_fleche);
     SDL_FreeSurface(surf_lvl);
     SDL_FreeSurface(surf_xp);
     SDL_FreeSurface(surf_nb_lvl);
@@ -1113,6 +1114,8 @@ extern void caracteristiques(game_t *game, character_t *character, SDL_Texture *
     SDL_DestroyTexture(nb_lvl);
     SDL_DestroyTexture(nb_xp);
     SDL_DestroyTexture(nb_xp_up);
+    SDL_DestroyTexture(fleche_gauche);
+    SDL_DestroyTexture(fleche_droite);
 
     /*--- End Free Memory --------------------------------------------------------*/
 }

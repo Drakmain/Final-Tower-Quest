@@ -1328,6 +1328,14 @@ extern void transition(game_t *game)
     SDL_FreeSurface(surf_damier34);
     SDL_FreeSurface(surf_damier35);
     SDL_FreeSurface(surf_damier36);
+    SDL_FreeSurface(surf_store1);
+    SDL_FreeSurface(surf_store2);
+    SDL_FreeSurface(surf_store3);
+    SDL_FreeSurface(surf_store4);
+    SDL_FreeSurface(surf_store5);
+    SDL_FreeSurface(surf_store6);
+    SDL_FreeSurface(surf_store7);
+    SDL_FreeSurface(surf_store8);
 
 
 
@@ -1373,6 +1381,14 @@ extern void transition(game_t *game)
     SDL_DestroyTexture(damier34);
     SDL_DestroyTexture(damier35);
     SDL_DestroyTexture(damier36);
+    SDL_DestroyTexture(store1);
+    SDL_DestroyTexture(store2);
+    SDL_DestroyTexture(store3);
+    SDL_DestroyTexture(store4);
+    SDL_DestroyTexture(store5);
+    SDL_DestroyTexture(store6);
+    SDL_DestroyTexture(store7);
+    SDL_DestroyTexture(store8);
 
 
 

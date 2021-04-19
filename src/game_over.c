@@ -270,6 +270,7 @@ extern void game_over(game_t *game, SDL_bool *floor_bool, SDL_bool *combat_bool,
 
     SDL_DestroyTexture(text_gameOver);
     SDL_DestroyTexture(cadre);
+    SDL_DestroyTexture(fond_cadre);
     SDL_DestroyTexture(confirmation);
     SDL_DestroyTexture(choix_oui);
     SDL_DestroyTexture(choix_non);
