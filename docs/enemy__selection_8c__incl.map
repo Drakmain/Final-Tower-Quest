@@ -1,5 +1,5 @@
 <map id="src/enemy_selection.c" name="src/enemy_selection.c">
-<area shape="rect" id="node1" title="A FINIR." alt="" coords="135,5,289,32"/>
+<area shape="rect" id="node1" title="Gestion de la selection d&#39;une ennemi pour une attaque." alt="" coords="135,5,289,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="91,80,155,107"/>
 <area shape="rect" id="node4" title=" " alt="" coords="179,80,245,107"/>

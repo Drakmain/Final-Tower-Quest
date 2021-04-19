@@ -1,6 +1,6 @@
 <map id="affichage_message" name="affichage_message">
 <area shape="rect" id="node1" title="Fonction permettant d&#39;afficher un message dans un cadre d&#39;une ou deux ligne." alt="" coords="844,81,977,108"/>
-<area shape="rect" id="node2" href="$character__attacks_8c.html#a536809d1cf53a7c1bd17cdc4b75d4579" title="Fonction permettant au joueur de selectionner un ennemi pour une attaque." alt="" coords="669,5,796,32"/>
+<area shape="rect" id="node2" href="$character__attacks_8c.html#a536809d1cf53a7c1bd17cdc4b75d4579" title="Fonction permettant la selection des attaques au joueur." alt="" coords="669,5,796,32"/>
 <area shape="rect" id="node3" href="$fin__combat_8c.html#acb4f23360a3e76a74ab8ae8a46b87150" title="Fonction permettant de gérer l&#39;obtention de l&#39;expérience et de potion à la fin d&#39;un combat." alt="" coords="690,107,775,133"/>
 <area shape="rect" id="node6" href="$floor__1_8c.html#ad51fab11313fca9a857e43996a9c7a7d" title="Permet la gestion de la premier map du jeu (floor_1)." alt="" coords="104,208,164,235"/>
 <area shape="rect" id="node10" href="$sac_8c.html#a10eaffb2bdd95aee2ee03f86c064a1cd" title="Fonction permettant l&#39;affichage du sac et l&#39;utilisation des potions." alt="" coords="371,107,473,133"/>

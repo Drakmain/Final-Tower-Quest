@@ -11,7 +11,7 @@
 /*!
  *
  * \file character_attacks.c
- * \brief Gestion de la selection d'une ennemi pour une attaque.
+ * \brief Gestion des attaque du personnage.
  * \author Enzo BRENNUS
  *
  */
@@ -39,7 +39,7 @@ extern void _toEspace(char *string)
 /*!
  *
  * \fn character_attacks(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, int nb_enemies_combat_actif, SDL_Texture *texture_render_combat, SDL_bool *character_turn_bool)
- * \brief Fonction permettant au joueur de selectionner un ennemi pour une attaque.
+ * \brief Fonction permettant la selection des attaques au joueur.
  *
  * \param game est un pointeur sur l'objet game_t du jeu.
  * \param character est un pointeur sur l'objet character_t actuel.

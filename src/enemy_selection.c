@@ -9,7 +9,7 @@
 /*!
  *
  * \file enemy_selection.c
- * \brief A FINIR.
+ * \brief Gestion de la selection d'une ennemi pour une attaque.
  * \author Enzo BRENNUS
  *
  */
@@ -17,7 +17,7 @@
 /*!
  *
  * \fn enemy_selection(game_t *game, character_t *character, enemy_t *enemies_cbt, int nb_enemies_combat, SDL_Texture *texture_render_attacks)
- * \brief A FINIR.
+ * \brief Fonction permettant au joueur de selectionner un ennemi pour une attaque.
  *
  * \param game est un pointeur sur l'objet game_t du jeu.
  * \param character est un pointeur sur l'objet character_t actuel.

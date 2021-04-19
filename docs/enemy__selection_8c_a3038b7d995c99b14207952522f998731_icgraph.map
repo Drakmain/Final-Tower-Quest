@@ -1,4 +1,4 @@
 <map id="enemy_selection" name="enemy_selection">
-<area shape="rect" id="node1" title="A FINIR." alt="" coords="180,5,300,32"/>
-<area shape="rect" id="node2" href="$character__attacks_8c.html#a536809d1cf53a7c1bd17cdc4b75d4579" title="Fonction permettant au joueur de selectionner un ennemi pour une attaque." alt="" coords="5,5,132,32"/>
+<area shape="rect" id="node1" title="Fonction permettant au joueur de selectionner un ennemi pour une attaque." alt="" coords="180,5,300,32"/>
+<area shape="rect" id="node2" href="$character__attacks_8c.html#a536809d1cf53a7c1bd17cdc4b75d4579" title="Fonction permettant la selection des attaques au joueur." alt="" coords="5,5,132,32"/>
 </map>

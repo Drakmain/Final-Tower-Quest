@@ -15,10 +15,10 @@
 /*!
  *
  * \fn fcpy(FILE *source_file, FILE *dest_file)
- * \brief Fonction qui permet la creation d'une nouvelle partie.
+ * \brief Fonction qui permet de copier une chaîne de caractères dans une autre.
  *
- * \param source_file 
- * \param dest_file
+ * \param source_file est une chaîne de caractères source.
+ * \param dest_file est une chaîne de caractères de destination.
  *
  */
 
@@ -37,7 +37,7 @@ static void fcpy(FILE *source_file, FILE *dest_file)
 /*!
  *
  * \fn nom_sauvegarde(game_t *game, char *actual_save, char *base_save)
- * \brief A FINIR.
+ * \brief Fonction qui permet la creation d'une nouvelle partie.
  *
  * \param game A FINIR.
  * \param actual_save A FINIR.
